@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- vim:ts=2:sw=2:
+		 -->
+<!--
+  See upstream documentation at:
+	http://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php
+-->
+<ruleset name="MediaWiki">
+	<description>MediaWiki coding conventions</description>
+	<!-- see http://www.mediawiki.org/wiki/Manual:Coding_conventions -->
+
+	<rule ref="Generic.Classes.DuplicateClassName" />
+
+	<rule ref="Generic.CodeAnalysis.EmptyStatement" />
+	<rule ref="Generic.CodeAnalysis.JumbledIncrementer" />
+
+	<!--
+	<rule ref="Generic.Commenting.Fixme" />
+	<rule ref="Generic.Commenting.Todo" />
+	-->
+
+	<rule ref="Generic.Files.ByteOrderMark" />
+	<rule ref="Generic.Files.LineEndings" />
+	<!-- We have very long files (Title.php, Parser.php)
+	<rule ref="Generic.Files.LineLength" />
+	-->
+
+	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+
+	<rule ref="Generic.Metrics.CyclomaticComplexity">
+		<properties>
+			<property name="complexity" value="30" />
+			<property name="absoluteComplexity" value="50" />
+		</properties>
+	</rule>
+	<rule ref="Generic.Metrics.NestingLevel">
+		<properties>
+			<property name="nestingLevel" value="8" />
+			<property name="absoluteNestingLevel" value="15" />
+		</properties>
+	</rule>
+
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
+
+	<rule ref="Generic.PHP.DisallowShortOpenTag" />
+	<rule ref="Generic.PHP.ForbiddenFunctions" />
+	<rule ref="Generic.PHP.LowerCaseConstant" />
+	<rule ref="Generic.PHP.NoSilencedErrors" />
+
+	<rule ref="Pear.Functions.ValidDefaultValue" />
+
+	<rule ref="Squiz.Functions.GlobalFunction" />
+
+	<!--
+	<rule ref="Squiz.Scope.MemberVarScope" />
+	<rule ref="Squiz.Scope.MethodScope" />
+	-->
+	<rule ref="Squiz.Scope.StaticThisUsage" />
+
+	<rule ref="Zend.Files.ClosingTag" />
+
+</ruleset>
