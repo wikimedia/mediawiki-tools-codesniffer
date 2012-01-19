@@ -43,6 +43,7 @@
 
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
 
+	<rule ref="Generic.PHP.DeprecatedFunctions" />
 	<rule ref="Generic.PHP.DisallowShortOpenTag" />
 	<rule ref="Generic.PHP.ForbiddenFunctions" />
 	<rule ref="Generic.PHP.LowerCaseConstant" />
