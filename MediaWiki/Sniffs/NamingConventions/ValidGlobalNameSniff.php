@@ -13,39 +13,42 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		$tokens = $phpcsFile->getTokens();
 		$token = $tokens[$stackPtr];
 
-		if( $token['code'] === T_GLOBAL ) {
-			$errorIssued = false;
+		if( $token['code'] !== T_GLOBAL ) {
+			return;
+		}
 
-			$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
-			$globalName = $tokens[$nameIndex]['content'];
+		$errorIssued = false;
+
+		$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
+		$globalName = $tokens[$nameIndex]['content'];
 
 
-			// skip '$' and forge a valid global variable name
-			$expected = '$wg' . ucfirst(substr( $globalName, 1 ));
+		// skip '$' and forge a valid global variable name
+		$expected = '$wg' . ucfirst(substr( $globalName, 1 ));
 
 
-			// Verify global is prefixed with wg
-			if( strpos($globalName, '$wg' ) !== 0 ) {
+		// Verify global is prefixed with wg
+		if( strpos($globalName, '$wg' ) !== 0 ) {
 
-				$error = 'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".';
-				$type = 'wgPrefix';
+			$error = 'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".';
+			$type = 'wgPrefix';
+			$data = array( $globalName, $expected );
+			$phpcsFile->addError( $error, $stackPtr, $type, $data );
+
+			$errorIssued = true;
+		}
+
+		if( !$errorIssued ) { // no need to warn twice.
+			// Verify global is probably CamelCase
+			$val = ord( substr( $globalName, 3, 1 ) );
+			if( !($val >= 65 && $val <= 90) ) {
+
+				$error = 'Global variable "%s" should use CamelCase: "%s"';
+				$type = 'CamelCase';
 				$data = array( $globalName, $expected );
 				$phpcsFile->addError( $error, $stackPtr, $type, $data );
 
 				$errorIssued = true;
-			}
-
-			if( !$errorIssued ) { // no need to warn twice.
-				// Verify global is probably CamelCase
-				$val = ord( substr( $globalName, 3, 1 ) );
-				print "$globalName -> $val\n";
-				if( !($val >= 65 && $val <= 90) ) {
-
-					$error = 'Global variable "%s" should use CamelCase. Should be "%s"';
-					$type = 'CamelCase';
-					$data = array( $globalName, $expected );
-					$phpcsFile->addError( $error, $stackPtr, $type, $data );
-				}
 			}
 		}
 
