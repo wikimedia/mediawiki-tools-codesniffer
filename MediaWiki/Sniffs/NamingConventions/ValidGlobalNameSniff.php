@@ -22,6 +22,9 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
 		$globalName = $tokens[$nameIndex]['content'];
 
+		if( $globalName === '$IP' ) {
+			return;
+		}
 
 		// skip '$' and forge a valid global variable name
 		$expected = '$wg' . ucfirst(substr( $globalName, 1 ));
