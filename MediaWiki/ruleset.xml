@@ -104,8 +104,9 @@
 	-->
 
 	<!-- #### PEAR CHECKS ########################################## -->
-
+	<!-- sniff not in v1.4.3
 	<rule ref="Pear.Functions.ValidDefaultValue" />
+	-->
 
 
 	<!-- #### PSR1 and PSR2 CHECKS ################################# -->
