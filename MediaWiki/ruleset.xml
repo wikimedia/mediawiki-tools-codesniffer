@@ -54,7 +54,6 @@
 	</rule>
 
 	<rule ref="Generic.Formatting.MultipleStatementAlignment" />
-	<rule ref="Generic.Formatting.NoSpaceAfterCast" />
 	<rule ref="Generic.Formatting.SpaceAfterCast" />
 	<rule ref="Generic.Functions.CallTimePassByReference" />
 	<!-- function arguments properly spaces -->
