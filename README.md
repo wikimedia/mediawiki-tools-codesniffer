@@ -24,7 +24,7 @@ You might want to add the alias in your shell startup file (ex: ~/.bashrc).
 
 4. Run
 
-	$ cd /path/to/phase3
+	$ cd /path/to/mediawiki-core
 	$ phpcsmw includes/Title.php
 	<warnings and errors are shown>
 	$
@@ -40,4 +40,3 @@ Fix & commit
 
 [PHP CodeSniffer]: https://pear.php.net/package/PHP_CodeSniffer
 [MediaWiki conventions]: http://www.mediawiki.org/wiki/Manual:Coding_conventions
-

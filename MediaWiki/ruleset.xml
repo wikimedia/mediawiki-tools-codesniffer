@@ -1,9 +1,15 @@
 <?xml version="1.0"?>
-<!-- vim:ts=2:sw=2:
-		 -->
+<!-- vim:ts=2:sw=2: -->
 <!--
-  See upstream documentation at:
+  MediaWiki coding standard for PHP CodeSniffer
+  =============================================
+
+	See:
+  - /README.md to find out how to use this.
+  - http://www.mediawiki.org/wiki/Manual:Coding_conventions
+	- upstream documentation at:
 	http://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php
+
 -->
 <ruleset name="MediaWiki">
 	<description>MediaWiki coding conventions</description>
