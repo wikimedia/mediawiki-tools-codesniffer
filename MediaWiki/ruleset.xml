@@ -14,58 +14,250 @@
 -->
 <ruleset name="MediaWiki">
 	<description>MediaWiki coding conventions</description>
-	<!-- see http://www.mediawiki.org/wiki/Manual:Coding_conventions -->
+
+	<!-- #### GENERIC CHECKS ####################################### -->
 
 	<rule ref="Generic.Classes.DuplicateClassName" />
 
 	<rule ref="Generic.CodeAnalysis.EmptyStatement" />
+	<rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
+	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall" />
 	<rule ref="Generic.CodeAnalysis.JumbledIncrementer" />
-
+	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement" />
+	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier" />
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" />
+	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
 	<!--
 	<rule ref="Generic.Commenting.Fixme" />
 	<rule ref="Generic.Commenting.Todo" />
+	<rule ref="Generic.ControlStructures.InlineControlStructure" />
+	<rule ref="Generic.ControlStructures.InlineControlStructure" />
+	<rule ref="Generic.Debug.ClosureLinter" />
+	<rule ref="Generic.Debug.JSHint" />
 	-->
-
-	<!--
 	<rule ref="Generic.Files.ByteOrderMark" />
+	<!-- We have files with very long lines: Title.php, Parser.php -->
+	<!--
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" values="80" />
+			<property name="absoluteLineLimit" value="80" />
+		</properties>
+	</rule>
 	-->
-	<!-- We have very long files (Title.php, Parser.php)
-	<rule ref="Generic.Files.LineLength" />
-	-->
+	<rule ref="Generic.Files.LineEndings" />
 
+	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
+	<!-- Too many of that one:-->
+	<rule ref="Generic.Formatting.MultipleStatementAlignment.NotSameWarning">
+		<severity>0</severity>
+	</rule>
+
+	<rule ref="Generic.Formatting.MultipleStatementAlignment" />
+	<rule ref="Generic.Formatting.NoSpaceAfterCast" />
+	<rule ref="Generic.Formatting.SpaceAfterCast" />
+	<rule ref="Generic.Functions.CallTimePassByReference" />
+	<!-- function arguments properly spaces -->
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
+	<!-- Opening brace on same line of a function -->
 	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
-
+	<!--
+		Some part of our code are still TOO complicated, so just disabled
+		the complexity/nesting checks
+		-->
+	<!--
 	<rule ref="Generic.Metrics.CyclomaticComplexity">
 		<properties>
 			<property name="complexity" value="30" />
 			<property name="absoluteComplexity" value="50" />
 		</properties>
 	</rule>
+	-->
+	<!--
 	<rule ref="Generic.Metrics.NestingLevel">
 		<properties>
 			<property name="nestingLevel" value="8" />
 			<property name="absoluteNestingLevel" value="15" />
 		</properties>
 	</rule>
+	-->
 
+	<!--
+	<rule ref="Generic.NamingConventions.CamelCapsFunctionName" />
+	-->
+	<rule ref="Generic.NamingConventions.ConstructorName" />
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
-
+	<!--
+	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag" />
+	<rule ref="Generic.PHP.ClosingPHPTag" />
+	-->
 	<rule ref="Generic.PHP.DeprecatedFunctions" />
 	<rule ref="Generic.PHP.DisallowShortOpenTag" />
 	<rule ref="Generic.PHP.ForbiddenFunctions" />
 	<rule ref="Generic.PHP.LowerCaseConstant" />
 	<rule ref="Generic.PHP.NoSilencedErrors" />
+	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
+	<!-- Scope indent throw errors whenever using tab, test that later -->
+	<!--
+	<rule ref="Generic.WhiteSpace.ScopeIndent" />
+	-->
+
+	<!-- #### PEAR CHECKS ########################################## -->
 
 	<rule ref="Pear.Functions.ValidDefaultValue" />
 
-	<rule ref="Squiz.Functions.GlobalFunction" />
 
+	<!-- #### PSR1 and PSR2 CHECKS ################################# -->
+
+	<!-- PSR1 require one class per file and namespacing -->
 	<!--
+	<rule ref="PSR1.Classes.ClassDeclaration" />
+	-->
+	<!-- Does not play well with our maintenance scripts -->
+	<!--
+	<rule ref="PSR1.Files.SideEffects" />
+	-->
+	<!-- PSR2 based on PEAR.Classes.ClassDeclaration which needs
+			 a curly brace opening -->
+	<!--
+  <rule ref="PSR2.Classes.ClassDeclaration" />
+	-->
+  <rule ref="PSR2.Classes.PropertyDeclaration" />
+	<!--
+			 We use ton of spaces around curly braces and parentheses and
+			 do not really use any recommandation for now. Figure out later
+			 what is our standard and find out whether a sniff can match it.
+			 TODO
+			 -->
+	<!--
+  <rule ref="PSR2.ControlStructures.ControlStructureSpacing" />
+  <rule ref="PSR2.ControlStructures.ElseIfDeclaration" />
+  <rule ref="PSR2.ControlStructures.SwitchDeclaration" />
+	-->
+  <rule ref="PSR2.Files.EndFileNewline" />
+  <rule ref="PSR2.Methods.MethodDeclaration" />
+  <rule ref="PSR2.Namespaces.NamespaceDeclaration" />
+  <rule ref="PSR2.Namespaces.UseDeclaration" />
+
+	<!-- #### SQUIZ CHECKS ######################################### -->
+	<!-- TODO There is like 100 sniffs under Squiz. We need to pick the one we
+			 are interested in -->
+
+	<!-- list as per:
+		phpcsmw -e -standard=Squiz
+	-->
+	<!--
+	<rule ref="Squiz.Arrays.ArrayBracketSpacing" />
+	<rule ref="Squiz.Arrays.ArrayDeclaration" />
+	<rule ref="Squiz.CSS.ClassDefinitionClosingBraceSpace" />
+	<rule ref="Squiz.CSS.ClassDefinitionNameSpacing" />
+	<rule ref="Squiz.CSS.ClassDefinitionOpeningBraceSpace" />
+	<rule ref="Squiz.CSS.ColonSpacing" />
+	<rule ref="Squiz.CSS.ColourDefinition" />
+	<rule ref="Squiz.CSS.DisallowMultipleStyleDefinitions" />
+	<rule ref="Squiz.CSS.DuplicateClassDefinition" />
+	<rule ref="Squiz.CSS.DuplicateStyleDefinition" />
+	<rule ref="Squiz.CSS.EmptyClassDefinition" />
+	<rule ref="Squiz.CSS.EmptyStyleDefinition" />
+	<rule ref="Squiz.CSS.Indentation" />
+	<rule ref="Squiz.CSS.LowercaseStyleDefinition" />
+	<rule ref="Squiz.CSS.MissingColon" />
+	<rule ref="Squiz.CSS.Opacity" />
+	<rule ref="Squiz.CSS.SemicolonSpacing" />
+	<rule ref="Squiz.Classes.ClassDeclaration" />
+	<rule ref="Squiz.Classes.ClassFileName" />
+	<rule ref="Squiz.Classes.DuplicateProperty" />
+	<rule ref="Squiz.Classes.LowercaseClassKeywords" />
+	<rule ref="Squiz.Classes.SelfMemberReference" />
+	-->
+	<!-- Classes in camel caps, first leter capitalized -->
+	<rule ref="Squiz.Classes.ValidClassName" />
+	<!--
+	<rule ref="Squiz.CodeAnalysis.EmptyStatement" />
+	<rule ref="Squiz.Commenting.BlockComment" />
+	<rule ref="Squiz.Commenting.ClassComment" />
+	<rule ref="Squiz.Commenting.ClosingDeclarationComment" />
+	<rule ref="Squiz.Commenting.DocCommentAlignment" />
+	<rule ref="Squiz.Commenting.EmptyCatchComment" />
+	<rule ref="Squiz.Commenting.FileComment" />
+	<rule ref="Squiz.Commenting.FunctionComment" />
+	<rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
+	<rule ref="Squiz.Commenting.InlineComment" />
+	<rule ref="Squiz.Commenting.LongConditionClosingComment" />
+	<rule ref="Squiz.Commenting.PostStatementComment" />
+	<rule ref="Squiz.Commenting.VariableComment" />
+	<rule ref="Squiz.ControlStructures.ControlSignature" />
+	<rule ref="Squiz.ControlStructures.ElseIfDeclaration" />
+	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
+	<rule ref="Squiz.ControlStructures.ForLoopDeclaration" />
+	<rule ref="Squiz.ControlStructures.InlineIfDeclaration" />
+	<rule ref="Squiz.ControlStructures.LowercaseDeclaration" />
+	<rule ref="Squiz.ControlStructures.SwitchDeclaration" />
+	<rule ref="Squiz.Debug.JSLint" />
+	<rule ref="Squiz.Debug.JavaScriptLint" />
+	<rule ref="Squiz.Files.FileExtension" />
+	<rule ref="Squiz.Formatting.OperatorBracket" />
+	<rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing" />
+	<rule ref="Squiz.Functions.FunctionDeclaration" />
+	<rule ref="Squiz.Functions.FunctionDuplicateArgument" />
+	-->
+	<!-- We do have some global functions..
+	<rule ref="Squiz.Functions.GlobalFunction" />
+	-->
+	<!--
+	<rule ref="Squiz.Functions.LowercaseFunctionKeywords" />
+	<rule ref="Squiz.Functions.MultiLineFunctionDeclaration" />
+	<rule ref="Squiz.NamingConventions.ConstantCase" />
+	<rule ref="Squiz.NamingConventions.ValidFunctionName" />
+	<rule ref="Squiz.NamingConventions.ValidVariableName" />
+	<rule ref="Squiz.Objects.DisallowObjectStringIndex" />
+	<rule ref="Squiz.Objects.ObjectInstantiation" />
+	<rule ref="Squiz.Objects.ObjectMemberComma" />
+	<rule ref="Squiz.Operators.ComparisonOperatorUsage" />
+	<rule ref="Squiz.Operators.IncrementDecrementUsage" />
+	<rule ref="Squiz.Operators.ValidLogicalOperators" />
+	<rule ref="Squiz.PHP.CommentedOutCode" />
+	<rule ref="Squiz.PHP.DisallowComparisonAssignment" />
+	<rule ref="Squiz.PHP.DisallowInlineIf" />
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments" />
+	<rule ref="Squiz.PHP.DisallowObEndFlush" />
+	<rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops" />
+	<rule ref="Squiz.PHP.DiscouragedFunctions" />
+	<rule ref="Squiz.PHP.EmbeddedPhp" />
+	<rule ref="Squiz.PHP.Eval" />
+	<rule ref="Squiz.PHP.ForbiddenFunctions" />
+	<rule ref="Squiz.PHP.GlobalKeyword" />
+	<rule ref="Squiz.PHP.Heredoc" />
+	<rule ref="Squiz.PHP.InnerFunctions" />
+	<rule ref="Squiz.PHP.LowercasePHPFunctions" />
+	<rule ref="Squiz.PHP.NonExecutableCode" />
 	<rule ref="Squiz.Scope.MemberVarScope" />
 	<rule ref="Squiz.Scope.MethodScope" />
 	-->
 	<rule ref="Squiz.Scope.StaticThisUsage" />
+	<!--
+	<rule ref="Squiz.Strings.ConcatenationSpacing" />
+	<rule ref="Squiz.Strings.DoubleQuoteUsage" />
+	<rule ref="Squiz.Strings.EchoedStrings" />
+	<rule ref="Squiz.WhiteSpace.CastSpacing" />
+	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing" />
+	<rule ref="Squiz.WhiteSpace.FunctionClosingBraceSpace" />
+	<rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace" />
+	<rule ref="Squiz.WhiteSpace.FunctionSpacing" />
+	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing" />
+	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
+	<rule ref="Squiz.WhiteSpace.MemberVarSpacing" />
+	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing" />
+	<rule ref="Squiz.WhiteSpace.OperatorSpacing" />
+	<rule ref="Squiz.WhiteSpace.PropertyLabelSpacing" />
+	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
+	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing" />
+	<rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+	-->
 
+	<!-- File does not end with a closing tag -->
 	<rule ref="Zend.Files.ClosingTag" />
 
 </ruleset>
