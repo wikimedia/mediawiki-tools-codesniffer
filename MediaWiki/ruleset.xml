@@ -124,6 +124,10 @@
   <rule ref="PSR2.Classes.ClassDeclaration" />
 	-->
   <rule ref="PSR2.Classes.PropertyDeclaration" />
+	<!-- We tends to declare multiple properties with one statement -->
+	<rule ref="PSR2.Classes.PropertyDeclaration.Multiple">
+		<severity>0</severity>
+	</rule>
 	<!--
 			 We use ton of spaces around curly braces and parentheses and
 			 do not really use any recommandation for now. Figure out later
