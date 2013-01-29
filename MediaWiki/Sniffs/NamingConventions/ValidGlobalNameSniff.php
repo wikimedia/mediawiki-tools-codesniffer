@@ -5,6 +5,26 @@
  */
 class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_CodeSniffer_Sniff {
 
+	/**
+	 * http://php.net/manual/en/reserved.variables.argv.php
+	 */
+	protected static $PHPReserved = array(
+		'$GLOBALS',
+		'$_SERVER',
+		'$_GET',
+		'$_POST',
+		'$_FILES',
+		'$_REQUEST',
+		'$_SESSION',
+		'$_ENV',
+		'$_COOKIE',
+		'$php_errormsg',
+		'$HTTP_RAW_POST_DATA',
+		'$http_response_header',
+		'$argc',
+		'$argv'
+	);
+
 	public function register() {
 		return array( T_GLOBAL );
 	}
@@ -22,7 +42,9 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
 		$globalName = $tokens[$nameIndex]['content'];
 
-		if( $globalName === '$IP' ) {
+		if( $globalName === '$IP'
+			or in_array( $globalName, self::$PHPReserved )
+		) {
 			return;
 		}
 
