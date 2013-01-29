@@ -95,7 +95,9 @@
 	<rule ref="Generic.PHP.ForbiddenFunctions" />
 	<rule ref="Generic.PHP.LowerCaseConstant" />
 	<rule ref="Generic.PHP.NoSilencedErrors" />
+	<!-- Too many false positive or render the code slightly uglier
 	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
+	-->
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
 	<!-- Scope indent throw errors whenever using tab, test that later -->
 	<!--
