@@ -58,6 +58,14 @@
 	<rule ref="Generic.Functions.CallTimePassByReference" />
 	<!-- function arguments properly spaces -->
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
+	<!-- We like nice alignements of function arguments when having a sequence
+			 of them, for example:
+			 define( 'FOO',          1 );
+			 define( 'A_BIT_LONGER', 2 );
+	-->
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
+		<severity>0</severity>
+	</rule>
 	<!-- Opening brace on same line of a function -->
 	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
 	<!--
