@@ -25,6 +25,12 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		'$argv'
 	);
 
+	protected static $mediaWikiValid = array(
+		'$messageMemc',
+		'$parserMemc',
+		'$IP',
+	);
+
 	public function register() {
 		return array( T_GLOBAL );
 	}
@@ -42,8 +48,8 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
 		$globalName = $tokens[$nameIndex]['content'];
 
-		if( $globalName === '$IP'
-			or in_array( $globalName, self::$PHPReserved )
+		if( in_array( $globalName, self::$mediaWikiValid ) ||
+			in_array( $globalName, self::$PHPReserved )
 		) {
 			return;
 		}
