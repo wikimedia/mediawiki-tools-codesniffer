@@ -33,7 +33,10 @@
 	<rule ref="Generic.Formatting.MultipleStatementAlignment.NotSameWarning">
 		<severity>0</severity>
 	</rule>
-	<rule ref="Generic.Formatting.SpaceAfterCast" />
+	<!--
+		Community is undecided about (type) $cast vs. (type)$cast (bug 48450).
+		<rule ref="Generic.Formatting.SpaceAfterCast" />
+	-->
 	<rule ref="Generic.Functions.CallTimePassByReference" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
