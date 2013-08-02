@@ -7,7 +7,9 @@
 -->
 <ruleset name="MediaWiki">
 	<rule ref="Generic.Classes.DuplicateClassName" />
+	<!-- Some people likes else { /** comment */ }
 	<rule ref="Generic.CodeAnalysis.EmptyStatement" />
+	-->
 	<rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
 	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall" />
 	<rule ref="Generic.CodeAnalysis.JumbledIncrementer" />
