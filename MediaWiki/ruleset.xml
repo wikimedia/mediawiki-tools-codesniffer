@@ -25,8 +25,10 @@
 	<rule ref="Generic.Files.LineEndings" />
 	<rule ref="Generic.Files.LineLength">
 		<properties>
+			<!-- More than 100 will throw a warning ... -->
 			<property name="lineLimit" value="100" />
-			<property name="absoluteLineLimit" value="120" />
+			<!-- ... but we will most probably never throw an error -->
+			<property name="absoluteLineLimit" value="9999" />
 		</properties>
 	</rule>
 	<!-- <rule ref="Generic.Files.OneClassPerFile" /> -->
