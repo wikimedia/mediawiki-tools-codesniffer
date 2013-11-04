@@ -90,7 +90,8 @@
 			->quux();
 		<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing" />
 	-->
-	<rule ref="Squiz.WhiteSpace.OperatorSpacing" />
+	<!-- There is no consensus on how to apply this rule, so disabled -->
+	<!--rule ref="Squiz.WhiteSpace.OperatorSpacing" /-->
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
 	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing" />
 	<rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
