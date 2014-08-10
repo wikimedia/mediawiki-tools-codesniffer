@@ -8,7 +8,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 	/**
 	 * http://php.net/manual/en/reserved.variables.argv.php
 	 */
-	protected static $PHPReserved = array(
+	private static $PHPReserved = array(
 		'$GLOBALS',
 		'$_SERVER',
 		'$_GET',
@@ -25,7 +25,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		'$argv'
 	);
 
-	protected static $mediaWikiValid = array(
+	private static $mediaWikiValid = array(
 		'$messageMemc',
 		'$parserMemc',
 		'$IP',
@@ -37,13 +37,6 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		$token = $tokens[$stackPtr];
-
-		if( $token['code'] !== T_GLOBAL ) {
-			return;
-		}
-
-		$errorIssued = false;
 
 		$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
 		$globalName = $tokens[$nameIndex]['content'];
@@ -54,36 +47,31 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 			return;
 		}
 
-		// skip '$' and forge a valid global variable name
+		// Skip '$' and forge a valid global variable name
 		$expected = '$wg' . ucfirst(substr( $globalName, 1 ));
-
 
 		// Verify global is prefixed with wg
 		if( strpos($globalName, '$wg' ) !== 0 ) {
-
-			$error = 'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".';
-			$type = 'wgPrefix';
-			$data = array( $globalName, $expected );
-			$phpcsFile->addError( $error, $stackPtr, $type, $data );
-
-			$errorIssued = true;
-		}
-
-		if( !$errorIssued ) { // no need to warn twice.
+			$phpcsFile->addError(
+				'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".',
+				$stackPtr,
+				'wgPrefix',
+				array( $globalName, $expected )
+			);
+		} else {
 			// Verify global is probably CamelCase
 			$val = ord( substr( $globalName, 3, 1 ) );
 			if( !($val >= 65 && $val <= 90) ) {
-
-				$error = 'Global variable "%s" should use CamelCase: "%s"';
-				$type = 'CamelCase';
-				$data = array( $globalName, $expected );
-				$phpcsFile->addError( $error, $stackPtr, $type, $data );
-
-				$errorIssued = true;
+				$phpcsFile->addError(
+					'Global variable "%s" should use CamelCase: "%s"',
+					$stackPtr,
+					'CamelCase',
+					array( $globalName, $expected )
+				);
 			}
 		}
 
-	}//end process()
+	}
 
 }
 
