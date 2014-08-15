@@ -36,7 +36,6 @@ Fix & commit
 
 * Actually implements the various conventions
 * Migrate the old code-utils/check-vars.php
-* Write tests!
 
 [PHP CodeSniffer]: https://pear.php.net/package/PHP_CodeSniffer
 [MediaWiki conventions]: http://www.mediawiki.org/wiki/Manual:Coding_conventions
