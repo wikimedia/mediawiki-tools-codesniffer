@@ -6,6 +6,9 @@
 	- https://github.com/squizlabs/PHP_CodeSniffer/tree/master/CodeSniffer/Standards
 -->
 <ruleset name="MediaWiki">
+
+	<description>A coding standard for MediaWiki.</description>
+
 	<rule ref="Generic.Classes.DuplicateClassName" />
 	<!-- Some people likes else { /** comment */ }
 	<rule ref="Generic.CodeAnalysis.EmptyStatement" />
