@@ -10,24 +10,32 @@ See [MediaWiki conventions] on our wiki :-)
 
 1. Install PHP Code Sniffer:
 
+```
 	pear install PHP_CodeSniffer
+```
 
 2. Clone this repository in /some/path
 
+```
 	git clone ... </some/path>
+```
 
 3. Set up an alias to load the new standard
 
-	alias phpcsmw='phpcs --standard=</some/path>/MediaWiki
+```
+	alias phpcsmw='phpcs --standard=</some/path>/MediaWiki'
+```
 
 You might want to add the alias in your shell startup file (ex: ~/.bashrc).
 
 4. Run
 
+```
 	$ cd /path/to/mediawiki-core
 	$ phpcsmw includes/Title.php
 	<warnings and errors are shown>
 	$
+```
 
 Fix & commit
 
