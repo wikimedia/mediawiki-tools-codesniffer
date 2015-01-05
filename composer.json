@@ -8,6 +8,13 @@
         "squizlabs/php_codesniffer": "~2.0"
     },
     "require-dev": {
+        "jakub-onderka/php-parallel-lint": "0.8.*",
         "phpunit/phpunit": "~4.1.0"
+    },
+    "scripts": {
+        "test": [
+            "parallel-lint . --exclude vendor",
+            "phpunit $PHPUNIT_ARGS"
+        ]
     }
 }
