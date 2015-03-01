@@ -11,7 +11,10 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff implements PH
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-
+		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
+			// An interface or abstract function which doesn't have a body
+			return;
+		}
 		$scopeOpener = ++$tokens[$stackPtr]['scope_opener'];
 		$scopeCloser = $tokens[$stackPtr]['scope_closer'];
 
@@ -34,7 +37,7 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff implements PH
 			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] != $globalLine ) {
 				$otherVariables[] = $tokens[$i]['content'];
 			}
-			if ( $tokens[$i]['type'] === 'T_DOUBLE_QUOTED_STRING' ) {
+			if ( $tokens[$i]['type'] === 'T_DOUBLE_QUOTED_STRING' || $tokens[$i]['type'] === "T_HEREDOC" ) {
 				preg_match_all( '/[$]\w+/', $tokens[$i]['content'], $matches );
 				$strVariables = array_merge_recursive( $strVariables, $matches );
 			}
