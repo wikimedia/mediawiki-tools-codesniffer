@@ -1,6 +1,6 @@
 <?php
 // Valid php open tag
-function foo() {
+function wfFoo() {
 
 }
 ?>

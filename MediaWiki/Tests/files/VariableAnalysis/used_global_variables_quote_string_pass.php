@@ -1,6 +1,6 @@
 <?php
 
-function fooFoo() {
+function wfFooFoo() {
 	global $wgSomething;
 	$foo = "foo$wgSomething";
 }

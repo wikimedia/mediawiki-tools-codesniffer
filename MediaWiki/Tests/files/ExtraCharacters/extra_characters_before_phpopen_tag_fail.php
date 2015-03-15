@@ -1,6 +1,6 @@
 someText<?php
 // text before first php open
-function foo() {
+function wfFoo() {
 
 }
 ?>
