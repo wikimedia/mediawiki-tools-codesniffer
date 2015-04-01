@@ -23,8 +23,23 @@ class MediaWiki_Sniffs_ExtraCharacters_CharacterBeforePHPOpeningTagSniff
 		);
 		// some other character beginning file
 		if ( $isNotFirstOpenTag === false ) {
-			$error = 'Extra character found before first <?';
-			$phpcsFile->addError( $error, $stackPtr, 'Found' );
+			$validShebang = false;
+			// a shebang is allowed on first line only if
+			// it is followed by a php open tag on next line
+			if ( $stackPtr == 1 && $tokens[1]['line'] == 2 ) {
+				// the php tag is the second token and it is on second line
+				// so the first token is on the first line
+
+				// check if it is valid shebang
+				if ( $tokens[0]['type'] == 'T_INLINE_HTML'
+					&& substr( $tokens[0]['content'], 0, 2 ) == '#!' ) {
+					$validShebang = true;
+				}
+			}
+			if ( !$validShebang ) {
+				$error = 'Extra character found before first <?';
+				$phpcsFile->addError( $error, $stackPtr, 'Found' );
+			}
 		}
 	}
 }
