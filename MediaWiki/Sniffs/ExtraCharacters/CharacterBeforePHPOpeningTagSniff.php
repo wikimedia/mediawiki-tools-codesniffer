@@ -2,13 +2,16 @@
 /**
  * Check to see if there's any character before php open tag <? or <?php
  */
-class MediaWiki_Sniffs_ExtraCharacters_CharacterBeforePHPOpeningTagSniff implements PHP_CodeSniffer_Sniff {
+// @codingStandardsIgnoreStart
+class MediaWiki_Sniffs_ExtraCharacters_CharacterBeforePHPOpeningTagSniff
+	implements PHP_CodeSniffer_Sniff {
+	// @codingStandardsIgnoreEnd
 	public function register() {
 		return array( T_OPEN_TAG );
 	}
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		// do nothing if opening tag is the first character
-		if( $stackPtr == 0) {
+		if ( $stackPtr == 0 ) {
 			return;
 		}
 		$tokens = $phpcsFile->getTokens();

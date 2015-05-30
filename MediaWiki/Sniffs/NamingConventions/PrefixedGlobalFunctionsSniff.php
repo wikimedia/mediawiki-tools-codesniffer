@@ -4,7 +4,10 @@
  * A global function's name must be prefixed with 'wf' or 'ef'.
  * Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Naming
  */
-class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff implements PHP_CodeSniffer_Sniff {
+// @codingStandardsIgnoreStart
+class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
+	implements PHP_CodeSniffer_Sniff {
+	// @codingStandardsIgnoreEnd
 	public function register() {
 		return array( T_FUNCTION );
 	}

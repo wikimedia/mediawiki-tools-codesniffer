@@ -1,7 +1,8 @@
 <?php
 /**
  * This file was copied from CakePhps codesniffer tests before being modified
- * https://github.com/cakephp/cakephp-codesniffer/blob/015919e55049e696eef9e518026e2d9abcdba722/CakePHP/tests/CakePHPStandardTest.php
+ * File: http://git.io/vkirb
+ * From repository: https://github.com/cakephp/cakephp-codesniffer
  *
  * @license MIT
  * CakePHP(tm) : The Rapid Development PHP Framework (http://cakephp.org)
@@ -45,8 +46,8 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 		$tests = array();
 
 		$standard = dirname(dirname(__FILE__));
-
-		$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(dirname(__FILE__) . '/files'));
+		$directoryIterator = new RecursiveDirectoryIterator(dirname(__FILE__) . '/files');
+		$iterator = new RecursiveIteratorIterator($directoryIterator);
 		foreach ($iterator as $dir) {
 			if ($dir->isDir()) {
 				continue;

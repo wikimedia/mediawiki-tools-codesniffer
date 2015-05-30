@@ -2,9 +2,13 @@
 /**
  * Verify alternative syntax is not being used
  */
-class MediaWiki_Sniffs_AlternativeSyntax_AlternativeSyntaxSniff implements PHP_CodeSniffer_Sniff {
+// @codingStandardsIgnoreStart
+class MediaWiki_Sniffs_AlternativeSyntax_AlternativeSyntaxSniff
+	implements PHP_CodeSniffer_Sniff {
+	// @codingStandardsIgnoreEnd
 	public function register() {
-		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Alternative_syntax_for_control_structures
+		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP
+		// section on alternative syntax.
 		return array(
 			T_ENDDECLARE,
 			T_ENDFOR,

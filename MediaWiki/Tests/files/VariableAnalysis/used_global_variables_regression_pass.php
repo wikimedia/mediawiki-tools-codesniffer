@@ -1,6 +1,6 @@
 <?php
 
-interface FooBar {
+interface FooBar2 {
 	public function funcFooBar();
 }
 

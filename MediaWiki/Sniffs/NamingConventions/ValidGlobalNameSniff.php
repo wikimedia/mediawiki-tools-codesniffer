@@ -3,8 +3,9 @@
  * Verify MediaWiki global variable naming convention.
  * A global name must be prefixed with 'wg'.
  */
+// @codingStandardsIgnoreStart
 class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_CodeSniffer_Sniff {
-
+	// @codingStandardsIgnoreEnd
 	/**
 	 * http://php.net/manual/en/reserved.variables.argv.php
 	 */
@@ -41,11 +42,14 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
 		$semicolonIndex  = $phpcsFile->findNext( T_SEMICOLON, $stackPtr + 1 );
 
-		while( $nameIndex < $semicolonIndex ) {
-			if( $tokens[ $nameIndex ][ 'code' ] !== T_WHITESPACE && $tokens[ $nameIndex ][ 'code' ] !== T_COMMA ) {
+		while ( $nameIndex < $semicolonIndex ) {
+
+			if ( $tokens[ $nameIndex ][ 'code' ] !== T_WHITESPACE
+					&& $tokens[ $nameIndex ][ 'code' ] !== T_COMMA ) {
+
 				$globalName = $tokens[$nameIndex]['content'];
 
-				if( in_array( $globalName, self::$mediaWikiValid ) ||
+				if ( in_array( $globalName, self::$mediaWikiValid ) ||
 					in_array( $globalName, self::$PHPReserved )
 				) {
 					return;
@@ -55,7 +59,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 				$expected = '$wg' . ucfirst(substr( $globalName, 1 ));
 
 				// Verify global is prefixed with wg
-				if( strpos($globalName, '$wg' ) !== 0 ) {
+				if ( strpos($globalName, '$wg' ) !== 0 ) {
 					$phpcsFile->addError(
 						'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".',
 						$stackPtr,
@@ -65,7 +69,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 				} else {
 					// Verify global is probably CamelCase
 					$val = ord( substr( $globalName, 3, 1 ) );
-					if( !($val >= 65 && $val <= 90) ) {
+					if ( !( $val >= 65 && $val <= 90 ) ) {
 						$phpcsFile->addError(
 							'Global variable "%s" should use CamelCase: "%s"',
 							$stackPtr,
@@ -79,4 +83,3 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		}
 	}
 }
-

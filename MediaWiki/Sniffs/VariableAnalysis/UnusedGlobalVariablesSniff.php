@@ -3,8 +3,10 @@
  * Detect unused MediaWiki global variable.
  * Unused global variables should be removed.
  */
-class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff implements PHP_CodeSniffer_Sniff {
-
+// @codingStandardsIgnoreStart
+class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
+	implements PHP_CodeSniffer_Sniff {
+	// @codingStandardsIgnoreEnd
 	public function register() {
 		return array( T_FUNCTION );
 	}
