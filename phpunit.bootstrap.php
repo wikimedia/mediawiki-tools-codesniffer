@@ -2,10 +2,6 @@
 
 // Load CodeSniffer CLI class
 call_user_func( function() {
-	// T100544 bail on older versions of HHVM
-	if ( !is_callable( 'Phar::running' ) ) {
-		die( "MediaWiki PHPCS tests cannot run on older versions of HHVM, see T100544 for more details\n" );
-	}
 	if ( !class_exists( 'PHP_CodeSniffer_CLI' ) ) {
 		$composer['local'] = dirname( dirname( dirname( __FILE__ ) ) );
 		$composer['wmfjenkins'] = '/srv/deployment/integration/phpcs/';
