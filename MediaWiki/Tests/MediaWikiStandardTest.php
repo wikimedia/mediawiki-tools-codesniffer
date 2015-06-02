@@ -32,7 +32,7 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 
 	public function setUp() {
 		parent::setUp();
-		if (empty($this->helper)) {
+		if ( empty( $this->helper ) ) {
 			$this->helper = new TestHelper();
 		}
 	}
@@ -45,16 +45,16 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	public static function testProvider() {
 		$tests = array();
 
-		$standard = dirname(dirname(__FILE__));
-		$directoryIterator = new RecursiveDirectoryIterator(dirname(__FILE__) . '/files');
-		$iterator = new RecursiveIteratorIterator($directoryIterator);
-		foreach ($iterator as $dir) {
-			if ($dir->isDir()) {
+		$standard = dirname( dirname( __FILE__ ) );
+		$directoryIterator = new RecursiveDirectoryIterator( dirname( __FILE__ ) . '/files' );
+		$iterator = new RecursiveIteratorIterator( $directoryIterator );
+		foreach ( $iterator as $dir ) {
+			if ( $dir->isDir() ) {
 				continue;
 			}
 
 			$file = $dir->getPathname();
-			$expectPass = (substr($file, -8) === 'pass.php');
+			$expectPass = ( substr( $file, -8 ) === 'pass.php' );
 			$tests[] = array(
 				$file,
 				$standard,
@@ -73,19 +73,19 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 * @param string $standard
 	 * @param boolean $expectPass
 	 */
-	public function testFile($file, $standard, $expectPass) {
-		$outputStr = $this->helper->runPhpCs($file, $standard);
-		if ($expectPass) {
+	public function testFile( $file, $standard, $expectPass ) {
+		$outputStr = $this->helper->runPhpCs( $file, $standard );
+		if ( $expectPass ) {
 			$this->assertNotRegExp(
 				"/FOUND \d+ ERROR/",
 				$outputStr,
-				basename($file) . ' - expected to pass with no errors, some were reported. '
+				basename( $file ) . ' - expected to pass with no errors, some were reported. '
 			);
 		} else {
 			$this->assertRegExp(
 				"/FOUND \d+ ERROR/",
 				$outputStr,
-				basename($file) . ' - expected failures, none reported. '
+				basename( $file ) . ' - expected failures, none reported. '
 			);
 		}
 	}

@@ -14,6 +14,6 @@ class MediaWiki_Sniffs_GotoUsage_GotoUsageSniff implements PHP_CodeSniffer_Sniff
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$error = 'Control statement "goto" must not be used.';
-		$phpcsFile->addError( $error, $stackPtr, 'GotoUsage');
+		$phpcsFile->addError( $error, $stackPtr, 'GotoUsage' );
 	}
 }

@@ -56,10 +56,10 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 				}
 
 				// Skip '$' and forge a valid global variable name
-				$expected = '$wg' . ucfirst(substr( $globalName, 1 ));
+				$expected = '$wg' . ucfirst( substr( $globalName, 1 ) );
 
 				// Verify global is prefixed with wg
-				if ( strpos($globalName, '$wg' ) !== 0 ) {
+				if ( strpos( $globalName, '$wg' ) !== 0 ) {
 					$phpcsFile->addError(
 						'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".',
 						$stackPtr,
