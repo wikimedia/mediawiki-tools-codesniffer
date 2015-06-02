@@ -1,6 +1,6 @@
 <?php
 
-function fooFoo () {
+function wfFooFoo () {
 	// The global variable is not used
 	global $wgSomething;
 }
