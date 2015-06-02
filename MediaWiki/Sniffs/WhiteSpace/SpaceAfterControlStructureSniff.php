@@ -24,7 +24,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
 		if ( $nextToken['code'] !== T_WHITESPACE || $nextToken['content'] !== ' ' ) {
 			$error = 'Control structure "%s" must be followed by a single space';
 			$data = array( $tokens[$stackPtr]['content'] );
-			$phpcsFile->addError( $error, $stackPtr, 'Incorrect', $data );
+			$phpcsFile->addWarning( $error, $stackPtr, 'Incorrect', $data );
 		}
 	}
 }

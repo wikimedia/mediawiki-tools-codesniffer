@@ -23,6 +23,6 @@ class MediaWiki_Sniffs_AlternativeSyntax_AlternativeSyntaxSniff
 		$tokens = $phpcsFile->getTokens();
 		$error = 'Alternative syntax such as "%s" should not be used';
 		$data = array( $tokens[$stackPtr]['content'] );
-		$phpcsFile->addError( $error, $stackPtr, 'AlternativeSyntax', $data );
+		$phpcsFile->addWarning( $error, $stackPtr, 'AlternativeSyntax', $data );
 	}
 }
