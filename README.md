@@ -8,16 +8,17 @@ See [MediaWiki conventions](https://www.mediawiki.org/wiki/Manual:Coding_convent
 
 ## How to install ##
 1. Create a composer.json which adds this project as a dependency:
-	{
-		"require-dev": {
-			"mediawiki/mediawiki-codesniffer": "0.2.0"
-		},
-		"scripts": {
-			"test": [
-				"phpcs --standard=vendor/mediawiki/mediawiki-codesniffer/MediaWiki --extensions=php,php5,inc --ignore=vendor -p ."
-			]
+
+		{
+			"require-dev": {
+				"mediawiki/mediawiki-codesniffer": "0.2.0"
+			},
+			"scripts": {
+				"test": [
+					"phpcs --standard=vendor/mediawiki/mediawiki-codesniffer/MediaWiki --extensions=php,php5,inc --ignore=vendor -p ."
+				]
+			}
 		}
-	}
 
 2. Install: `composer update`
 
