@@ -14,6 +14,15 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
+		$ptr = $stackPtr;
+		while ( $ptr > 0 ) {
+			$token = $tokens[$ptr];
+			if ( $token['type'] === "T_NAMESPACE" && !isset( $token['scope_opener'] ) ) {
+				// In the format of "namespace Foo;", which applies to the entire file
+				return;
+			}
+			$ptr--;
+		}
 		$token = $tokens[$stackPtr];
 
 		//Name of function
