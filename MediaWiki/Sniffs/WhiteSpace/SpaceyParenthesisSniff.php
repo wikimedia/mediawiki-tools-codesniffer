@@ -20,6 +20,20 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currentToken = $tokens[$stackPtr];
+
+		if ( $currentToken['code'] === T_OPEN_PARENTHESIS
+			&& $tokens[$stackPtr - 1]['code'] === T_WHITESPACE
+			&& ( $tokens[$stackPtr - 2]['code'] === T_STRING
+				|| $tokens[$stackPtr - 2]['code'] === T_ARRAY ) ) {
+			// String (or 'array') followed by whitespace followed by
+			// opening brace is probably a function call.
+			$phpcsFile->addWarning(
+				'Space found before opening parenthesis of function call',
+				$stackPtr - 1,
+				'SpaceBeforeOpeningParenthesis'
+			);
+		}
+
 		if ( $currentToken['code'] === T_OPEN_PARENTHESIS ) {
 			$this->processOpenParenthesis( $phpcsFile, $tokens, $stackPtr );
 		} else {

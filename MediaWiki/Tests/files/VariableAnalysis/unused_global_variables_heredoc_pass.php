@@ -1,6 +1,6 @@
 <?php
 
-function wfFooFoo () {
+function wfFooFoo() {
 	global $wgSomething;
 	$foo = <<<PHP
 /**
