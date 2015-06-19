@@ -1,5 +1,13 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.3.0 / 2015-06-19 ##
+* Update README.md code formatting (Vivek Ghaisas)
+* Don't require "wf" prefix on functions that are namespaced (Kunal Mehta)
+* Simplify PHPUnit boostrap, require usage of composer for running tests (Kunal Mehta)
+* SpaceyParenthesis: Check for space before opening parenthesis (Vivek Ghaisas)
+* SpaceyParenthesesSniff: Search for extra/unnecessary space (Vivek Ghaisas)
+* CharacterBeforePHPOpeningTagSniff: Support T_HASHBANG for HHVM >=3.5,<3.7 (Kunal Mehta)
+
 ## 0.2.0 / 2015-06-02 ##
 * Fixed sniff that checks globals have a "wg" prefix (Divya)
 * New sniff to detect unused global variables (Divya)
