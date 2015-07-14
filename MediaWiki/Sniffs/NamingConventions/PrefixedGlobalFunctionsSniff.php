@@ -25,15 +25,15 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 		}
 		$token = $tokens[$stackPtr];
 
-		//Name of function
+		// Name of function
 		$name = $tokens[$stackPtr + 2]['content'];
 
-		//Check if function is global
+		// Check if function is global
 		if ( $token['level'] == 0 ) {
 			$prefix = substr( $name, 0, 2 );
 
 			if ( $prefix !== 'wf' && $prefix !== 'ef' ) {
-				//Forge a valid global function name
+				// Forge a valid global function name
 				$expected = 'wf' . ucfirst( $name );
 
 				$error = 'Global function "%s" is lacking a \'wf\' prefix. Should be "%s".';
