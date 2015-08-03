@@ -24,7 +24,15 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
 		if ( $nextToken['code'] !== T_WHITESPACE || $nextToken['content'] !== ' ' ) {
 			$error = 'Control structure "%s" must be followed by a single space';
 			$data = array( $tokens[$stackPtr]['content'] );
-			$phpcsFile->addWarning( $error, $stackPtr, 'Incorrect', $data );
+			$fix = $phpcsFile->addFixableWarning( $error, $stackPtr, 'Incorrect', $data );
+			if ( $fix === true ) {
+				if ( $nextToken['code'] !== T_WHITESPACE ) {
+					$phpcsFile->fixer->addContent( $stackPtr, ' ' );
+				} else {
+					// Too many spaces
+					$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
+				}
+			}
 		}
 	}
 }
