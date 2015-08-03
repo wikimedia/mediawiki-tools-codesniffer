@@ -30,22 +30,28 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 				|| $tokens[$stackPtr - 2]['code'] === T_ARRAY ) ) {
 			// String (or 'array') followed by whitespace followed by
 			// opening brace is probably a function call.
-			$phpcsFile->addWarning(
+			$fix = $phpcsFile->addFixableWarning(
 				'Space found before opening parenthesis of function call',
 				$stackPtr - 1,
 				'SpaceBeforeOpeningParenthesis'
 			);
+			if ( $fix === true ) {
+				$phpcsFile->fixer->replaceToken( $stackPtr - 1, '' );
+			}
 		}
 
 		// Check for space between parentheses without any arguments
 		if ( $currentToken['code'] === T_OPEN_PARENTHESIS
 			&& $tokens[$stackPtr + 1]['code'] === T_WHITESPACE
 			&& $tokens[$stackPtr + 2]['code'] === T_CLOSE_PARENTHESIS ) {
-			$phpcsFile->addWarning(
+			$fix = $phpcsFile->addFixableWarning(
 				'Unnecessary space found within parentheses',
 				$stackPtr + 1,
 				'UnnecessarySpaceBetweenParentheses'
 			);
+			if ( $fix === true ) {
+				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
+			}
 			return;
 		}
 
@@ -71,11 +77,14 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 				strpos( $nextToken['content'], "\n" ) === false
 				&& $nextToken['content'] != ' ' )
 			|| ( $nextToken['code'] !== T_CLOSE_PARENTHESIS && $nextToken['code'] !== T_WHITESPACE ) ) {
-			$phpcsFile->addWarning(
+			$fix = $phpcsFile->addFixableWarning(
 				'Single space expected after opening parenthesis',
 				$stackPtr + 1,
 				'SingleSpaceAfterOpenParenthesis'
 			);
+			if ( $fix === true ) {
+				$phpcsFile->fixer->addContent( $stackPtr, ' ' );
+			}
 		}
 	}
 
@@ -107,10 +116,13 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 			return;
 		}
 
-		$phpcsFile->addWarning(
+		$fix = $phpcsFile->addFixableWarning(
 			'Single space expected before closing parenthesis',
 			$stackPtr,
 			'SingleSpaceBeforeCloseParenthesis'
 		);
+		if ( $fix === true ) {
+			$phpcsFile->fixer->addContentBefore( $stackPtr, ' ' );
+		}
 	}
 }
