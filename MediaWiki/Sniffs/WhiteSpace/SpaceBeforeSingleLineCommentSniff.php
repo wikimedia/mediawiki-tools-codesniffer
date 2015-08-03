@@ -41,16 +41,34 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 				&& substr( $currToken['content'], 2, 1 ) !== ' '
 			) {
 				$error = 'Single space expected between "//" and comment';
-				$phpcsFile->addWarning( $error, $stackPtr,
+				$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
 					'SingleSpaceBeforeSingleLineComment'
 				);
+				if ( $fix === true ) {
+					$content = $currToken['content'];
+					if ( substr( $content, 2, 1 ) === '\t' ) {
+						$newContent = preg_replace( '/^\/\/\t/', '// ', $content );
+					} else {
+						$newContent = preg_replace( '/^\/\//', '// ', $content );
+					}
+					$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
+				}
 			} elseif ( substr( $currToken['content'], 0, 1 ) === '#'
 				&& substr( $currToken['content'], 1, 1 ) !== ' '
 			) {
 				$error = 'Single space expected between "#" and comment';
-				$phpcsFile->addWarning( $error, $stackPtr,
+				$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
 					'SingleSpaceBeforeSingleLineComment'
 				);
+				if ( $fix === true ) {
+					$content = $currToken['content'];
+					if ( substr( $content, 2, 1 ) === '\t' ) {
+						$newContent = preg_replace( '/^#\t/', '# ', $content );
+					} else {
+						$newContent = preg_replace( '/^#/', '# ', $content );
+					}
+					$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
+				}
 			}
 		}
 	}
