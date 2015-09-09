@@ -8,6 +8,9 @@
 class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
+	public $ignoreList = array();
+
 	public function register() {
 		return array( T_FUNCTION );
 	}
@@ -27,6 +30,10 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 
 		// Name of function
 		$name = $tokens[$stackPtr + 2]['content'];
+
+		if ( in_array( $name, $this->ignoreList ) ) {
+			return;
+		}
 
 		// Check if function is global
 		if ( $token['level'] == 0 ) {
