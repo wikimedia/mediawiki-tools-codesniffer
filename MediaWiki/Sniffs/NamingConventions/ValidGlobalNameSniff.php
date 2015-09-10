@@ -26,11 +26,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		'$argv'
 	);
 
-	private static $mediaWikiValid = array(
-		'$messageMemc',
-		'$parserMemc',
-		'$IP',
-	);
+	public $ignoreList = array();
 
 	public function register() {
 		return array( T_GLOBAL );
@@ -49,7 +45,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 
 				$globalName = $tokens[$nameIndex]['content'];
 
-				if ( in_array( $globalName, self::$mediaWikiValid ) ||
+				if ( in_array( $globalName, $this->ignoreList ) ||
 					in_array( $globalName, self::$PHPReserved )
 				) {
 					return;
