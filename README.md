@@ -11,7 +11,7 @@ See [MediaWiki conventions](https://www.mediawiki.org/wiki/Manual:Coding_convent
 
 		{
 			"require-dev": {
-				"mediawiki/mediawiki-codesniffer": "0.3.0"
+				"mediawiki/mediawiki-codesniffer": "0.4.0"
 			},
 			"scripts": {
 				"test": [

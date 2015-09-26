@@ -1,5 +1,15 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.4.0 / 2015-09-26 ##
+* Use upstream codesniffer 2.3.4 (Kunal Mehta & Paladox)
+* Sniff to check for space in single line comments (Smriti.Singh)
+* Automatically fix warnings caught by SpaceyParenthesisSniff (Kunal Mehta)
+* Automatically fix warnings caught by SpaceAfterControlStructureSniff (Kunal Mehta)
+* Add ignore list to PrefixedGlobalFunctionsSniff (Vivek Ghaisas)
+* Add ignore list to ValidGlobalNameSniff (Vivek Ghaisas)
+* Update jakub-onderka/php-parallel-lint to 0.9.* (Paladox)
+* Automatically fix warnings caught by SpaceBeforeSingleLineCommentSniff (Kunal Mehta)
+
 ## 0.3.0 / 2015-06-19 ##
 * Update README.md code formatting (Vivek Ghaisas)
 * Don't require "wf" prefix on functions that are namespaced (Kunal Mehta)
