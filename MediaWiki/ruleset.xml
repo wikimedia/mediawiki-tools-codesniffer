@@ -78,6 +78,7 @@
 		<!-- We tends to declare multiple properties with one statement -->
 		<severity>0</severity>
 	</rule>
+	<rule ref="Generic.ControlStructures.InlineControlStructure" />
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration" />
 	<rule ref="PSR2.Methods.MethodDeclaration" />
 	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
