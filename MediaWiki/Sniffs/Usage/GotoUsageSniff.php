@@ -3,7 +3,7 @@
  * Report error when `goto` is used
  */
 // @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_GotoUsage_GotoUsageSniff implements PHP_CodeSniffer_Sniff {
+class MediaWiki_Sniffs_Usage_GotoUsageSniff implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
 		// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Other

@@ -45,8 +45,8 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	public static function testProvider() {
 		$tests = array();
 
-		$standard = dirname( dirname( __FILE__ ) );
-		$directoryIterator = new RecursiveDirectoryIterator( dirname( __FILE__ ) . '/files' );
+		$standard = dirname( __DIR__ );
+		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/files' );
 		$iterator = new RecursiveIteratorIterator( $directoryIterator );
 		foreach ( $iterator as $dir ) {
 			if ( $dir->isDir() ) {

@@ -32,7 +32,7 @@ class TestHelper {
 	protected $phpcs;
 
 	public function __construct() {
-		$this->rootDir = dirname( dirname( __FILE__ ) );
+		$this->rootDir = dirname( __DIR__ );
 		$this->dirName = basename( $this->rootDir );
 		$this->phpcs = new PHP_CodeSniffer_CLI();
 	}
