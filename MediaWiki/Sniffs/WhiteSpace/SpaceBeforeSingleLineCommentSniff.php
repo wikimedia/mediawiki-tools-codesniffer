@@ -24,7 +24,11 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 				|| substr( $currToken['content'], 0, 3 ) === '///'
 			) {
 				return;
+			// Checking if it's a comment separator
+			} elseif ( preg_match( '/#*/', $currToken['content'] ) === false ) {
+				return;
 			}
+
 			// Checking whether the comment is an empty one
 			if ( ( substr( $currToken['content'], 0, 2 ) === '//'
 					&& rtrim( $currToken['content'] ) === '//' )
@@ -38,7 +42,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 			// Checking whether there is a space between the comment delimiter
 			// and the comment
 			} elseif ( substr( $currToken['content'], 0, 2 ) === '//'
-				&& substr( $currToken['content'], 2, 1 ) !== ' '
+				&& $currToken['content'][2] !== ' '
 			) {
 				$error = 'Single space expected between "//" and comment';
 				$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
@@ -53,21 +57,33 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 					}
 					$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
 				}
-			} elseif ( substr( $currToken['content'], 0, 1 ) === '#'
-				&& substr( $currToken['content'], 1, 1 ) !== ' '
-			) {
-				$error = 'Single space expected between "#" and comment';
-				$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
-					'SingleSpaceBeforeSingleLineComment'
-				);
-				if ( $fix === true ) {
-					$content = $currToken['content'];
-					if ( substr( $content, 2, 1 ) === '\t' ) {
-						$newContent = preg_replace( '/^#\t/', '# ', $content );
-					} else {
-						$newContent = preg_replace( '/^#/', '# ', $content );
+			// Finding what the comment delimiter is and checking whether there is a space
+			// between the comment delimiter and the comment.
+			} elseif ( $currToken['content'][0] === '#' ) {
+				// Find number of `#` used.
+				$startComment = 0;
+				while ( $currToken['content'][$startComment] === '#' ) {
+					$startComment += 1;
+				}
+				if ( $currToken['content'][$startComment] !== ' ' ) {
+					$error = 'Single space expected between "#" and comment';
+					$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
+						'SingleSpaceBeforeSingleLineComment'
+					);
+					if ( $fix === true ) {
+						$content = $currToken['content'];
+						$delimiter = substr( $currToken['content'], 0, $startComment );
+						if ( $content[$startComment+1] === '\t' ) {
+							$newContent = preg_replace(
+								'/^' . $delimiter . '\t/', $delimiter . ' ', $content
+							);
+						} else {
+							$newContent = preg_replace(
+								'/^' . $delimiter . '/', $delimiter . ' ', $content
+							);
+						}
+						$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
 					}
-					$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
 				}
 			}
 		}
