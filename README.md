@@ -11,7 +11,7 @@ See [MediaWiki conventions](https://www.mediawiki.org/wiki/Manual:Coding_convent
 
 		{
 			"require-dev": {
-				"mediawiki/mediawiki-codesniffer": "0.4.0"
+				"mediawiki/mediawiki-codesniffer": "0.5.0"
 			},
 			"scripts": {
 				"test": [
@@ -31,3 +31,4 @@ Note that for most MediaWiki projects, we'd also recommend adding a PHP linter t
 
 ## TODO ##
 * Migrate the old code-utils/check-vars.php
+

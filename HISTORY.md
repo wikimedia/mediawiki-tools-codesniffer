@@ -1,5 +1,12 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.5.0 / 2015-10-23 ##
+* Add Generic.ControlStructures.InlineControlStructure to ruleset (Kunal Mehta)
+* Add IfElseStructureSniff to handle else structures (TasneemLo)
+* Handle multiple # comments in Space Before Comment (TasneemLo)
+* Sniff to check assignment in while & if (TasneemLo)
+* Sniff to warn when using dirname(__FILE__) (TasneemLo)
+
 ## 0.4.0 / 2015-09-26 ##
 * Use upstream codesniffer 2.3.4 (Kunal Mehta & Paladox)
 * Sniff to check for space in single line comments (Smriti.Singh)
