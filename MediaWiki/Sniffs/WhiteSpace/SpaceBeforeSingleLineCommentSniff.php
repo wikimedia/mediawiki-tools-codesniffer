@@ -24,9 +24,6 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 				|| substr( $currToken['content'], 0, 3 ) === '///'
 			) {
 				return;
-			// Checking if it's a comment separator
-			} elseif ( preg_match( '/#*/', $currToken['content'] ) === false ) {
-				return;
 			}
 
 			// Checking whether the comment is an empty one
