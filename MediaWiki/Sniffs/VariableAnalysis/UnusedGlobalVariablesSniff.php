@@ -27,19 +27,21 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 		$strVariables = array();
 
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
-			if ( in_array( $tokens[$i]['type'], PHP_CodeSniffer_Tokens::$emptyTokens ) ) {
+			if ( array_key_exists( $tokens[$i]['type'], PHP_CodeSniffer_Tokens::$emptyTokens ) ) {
 				continue;
 			}
 			if ( $tokens[$i]['type'] === 'T_GLOBAL' ) {
 				$globalLine = $tokens[$i]['line'];
 			}
 			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] == $globalLine ) {
-				$globalVariables[] = $tokens[$i]['content'] .'#'. $i;
+				$globalVariables[] = array( $tokens[$i]['content'], $i );
 			}
 			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] != $globalLine ) {
-				$otherVariables[] = $tokens[$i]['content'];
+				$otherVariables[$tokens[$i]['content']] = null;
 			}
-			if ( $tokens[$i]['type'] === 'T_DOUBLE_QUOTED_STRING' || $tokens[$i]['type'] === "T_HEREDOC" ) {
+			if ( $tokens[$i]['type'] === 'T_DOUBLE_QUOTED_STRING'
+				|| $tokens[$i]['type'] === 'T_HEREDOC'
+			) {
 				preg_match_all( '/\$\w+/', $tokens[$i]['content'], $matches );
 				$strVariables = array_merge_recursive( $strVariables, $matches );
 			}
@@ -49,8 +51,9 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 			false
 		);
 		foreach ( $globalVariables as $global ) {
-			$global = explode( '#', $global );
-			if ( !in_array( $global[0], $otherVariables ) && !in_array( $global[0], $strVariables ) ) {
+			if ( !array_key_exists( $global[0], $otherVariables )
+				&& !in_array( $global[0], $strVariables )
+			) {
 				$phpcsFile->addWarning( 'Global ' . $global[0] .' is never used.', $global[1] );
 			}
 		}
