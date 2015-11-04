@@ -50,11 +50,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 				);
 				if ( $fix === true ) {
 					$content = $currToken['content'];
-					if ( substr( $content, 2, 1 ) === '\t' ) {
-						$newContent = preg_replace( '/^\/\/\t/', '// ', $content );
-					} else {
-						$newContent = preg_replace( '/^\/\//', '// ', $content );
-					}
+					$newContent = preg_replace( '/^\/\/\t?/', '// ', $content );
 					$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
 				}
 			// Finding what the comment delimiter is and checking whether there is a space

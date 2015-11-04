@@ -40,7 +40,7 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 				$otherVariables[] = $tokens[$i]['content'];
 			}
 			if ( $tokens[$i]['type'] === 'T_DOUBLE_QUOTED_STRING' || $tokens[$i]['type'] === "T_HEREDOC" ) {
-				preg_match_all( '/[$]\w+/', $tokens[$i]['content'], $matches );
+				preg_match_all( '/\$\w+/', $tokens[$i]['content'], $matches );
 				$strVariables = array_merge_recursive( $strVariables, $matches );
 			}
 		}
