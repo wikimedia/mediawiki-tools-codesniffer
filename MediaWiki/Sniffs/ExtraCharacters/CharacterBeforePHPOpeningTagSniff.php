@@ -31,8 +31,7 @@ class MediaWiki_Sniffs_ExtraCharacters_CharacterBeforePHPOpeningTagSniff
 				// so the first token is on the first line
 
 				// check if it is valid shebang
-				// T_HASHBANG is a token used in HHVM >=3.5, <3.7 (T103119)
-				if ( in_array( $tokens[0]['type'], array( 'T_INLINE_HTML', 'T_HASHBANG' ) )
+				if ( $tokens[0]['type'] == 'T_INLINE_HTML'
 					&& substr( $tokens[0]['content'], 0, 2 ) == '#!' ) {
 					$validShebang = true;
 				}
