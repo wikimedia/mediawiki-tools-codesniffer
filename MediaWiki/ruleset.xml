@@ -102,7 +102,10 @@
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
 	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing" />
 	<rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
-	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<!-- Implemented as MediaWiki.WhiteSpace.MultipleEmptyLines -->
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
+	</rule>
 
 	<rule ref="Zend.Files.ClosingTag" />
 </ruleset>
