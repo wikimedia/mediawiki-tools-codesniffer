@@ -1,5 +1,14 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.5.1 / 2015-12-28 ##
+* Avoid in_array for performance reasons (Thiemo Mättig)
+* build: Pass -s to phpcs for easier debugging (Kunal Mehta)
+* Remove dead code from SpaceBeforeSingleLineCommentSniff (Thiemo Mättig)
+* Revert "CharacterBeforePHPOpeningTagSniff: Support T_HASHBANG for HHVM >=3.5,<3.7" (Legoktm)
+* Simplify existing regular expressions (Thiemo Mättig)
+* build: Update phpunit to 4.8.18 (Paladox)
+* Update squizlabs/php_codesniffer to 2.5.0 (Paladox)
+
 ## 0.5.0 / 2015-10-23 ##
 * Add Generic.ControlStructures.InlineControlStructure to ruleset (Kunal Mehta)
 * Add IfElseStructureSniff to handle else structures (TasneemLo)
