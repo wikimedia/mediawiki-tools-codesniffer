@@ -15,7 +15,7 @@
 		"test": [
 			"parallel-lint . --exclude vendor",
 			"phpunit $PHPUNIT_ARGS",
-			"phpcs --standard=./MediaWiki --extensions=php,php5,inc --ignore=vendor,*fail.php -p -s ."
+			"phpcs  -p -s"
 		]
 	}
 }
