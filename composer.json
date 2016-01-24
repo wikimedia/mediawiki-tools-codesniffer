@@ -5,7 +5,7 @@
 	"homepage": "https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP",
 	"license": "GPL-2.0+",
 	"require": {
-		"squizlabs/php_codesniffer": "2.5.0"
+		"squizlabs/php_codesniffer": "2.5.1"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.9.*",
