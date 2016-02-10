@@ -7,9 +7,9 @@ class MediaWiki_Sniffs_WhiteSpace_MultipleEmptyLinesSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
-		return array(
+		return [
 			T_WHITESPACE
-		);
+		];
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
@@ -32,7 +32,7 @@ class MediaWiki_Sniffs_WhiteSpace_MultipleEmptyLinesSniff
 						$error,
 						$stackPtr,
 						'MultipleEmptyLines',
-						array( $lines )
+						[ $lines ]
 					);
 					if ( $fix === true ) {
 						$phpcsFile->fixer->beginChangeset();

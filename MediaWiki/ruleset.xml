@@ -9,6 +9,8 @@
 
 	<description>A coding standard for MediaWiki.</description>
 
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
 	<rule ref="Generic.Classes.DuplicateClassName" />
 	<!-- Some people likes else { /** comment */ }
 	<rule ref="Generic.CodeAnalysis.EmptyStatement" />

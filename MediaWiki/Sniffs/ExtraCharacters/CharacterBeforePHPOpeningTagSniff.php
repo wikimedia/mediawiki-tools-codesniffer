@@ -7,7 +7,7 @@ class MediaWiki_Sniffs_ExtraCharacters_CharacterBeforePHPOpeningTagSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
-		return array( T_OPEN_TAG );
+		return [ T_OPEN_TAG ];
 	}
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		// do nothing if opening tag is the first character
@@ -16,7 +16,7 @@ class MediaWiki_Sniffs_ExtraCharacters_CharacterBeforePHPOpeningTagSniff
 		}
 		$tokens = $phpcsFile->getTokens();
 		$isNotFirstOpenTag = $phpcsFile->findPrevious(
-			array( T_OPEN_TAG ),
+			[ T_OPEN_TAG ],
 			( $stackPtr - 1 ),
 			null,
 			false

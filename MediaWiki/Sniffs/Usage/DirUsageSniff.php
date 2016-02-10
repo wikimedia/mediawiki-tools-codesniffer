@@ -15,18 +15,18 @@ class MediaWiki_Sniffs_Usage_DirUsageSniff implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
 		// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Other
-		return array( T_STRING );
+		return [ T_STRING ];
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		$ignore = array(
+		$ignore = [
 				   T_DOUBLE_COLON    => true,
 				   T_OBJECT_OPERATOR => true,
 				   T_FUNCTION        => true,
 				   T_CONST           => true,
-				  );
+				  ];
 
 		// Check if the function is dirname()
 		if ( strtolower( $tokens[$stackPtr]['content'] ) != "dirname" ) {

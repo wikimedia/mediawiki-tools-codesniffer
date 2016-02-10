@@ -9,7 +9,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 	/**
 	 * http://php.net/manual/en/reserved.variables.argv.php
 	 */
-	private static $PHPReserved = array(
+	private static $PHPReserved = [
 		'$GLOBALS',
 		'$_SERVER',
 		'$_GET',
@@ -24,12 +24,12 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		'$http_response_header',
 		'$argc',
 		'$argv'
-	);
+	];
 
-	public $ignoreList = array();
+	public $ignoreList = [];
 
 	public function register() {
-		return array( T_GLOBAL );
+		return [ T_GLOBAL ];
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
@@ -60,7 +60,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 						'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".',
 						$stackPtr,
 						'wgPrefix',
-						array( $globalName, $expected )
+						[ $globalName, $expected ]
 					);
 				} else {
 					// Verify global is probably CamelCase
@@ -70,7 +70,7 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 							'Global variable "%s" should use CamelCase: "%s"',
 							$stackPtr,
 							'CamelCase',
-							array( $globalName, $expected )
+							[ $globalName, $expected ]
 						);
 					}
 				}

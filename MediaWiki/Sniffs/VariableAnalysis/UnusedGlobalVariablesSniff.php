@@ -8,7 +8,7 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
-		return array( T_FUNCTION );
+		return [ T_FUNCTION ];
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
@@ -21,10 +21,10 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 		$scopeCloser = $tokens[$stackPtr]['scope_closer'];
 
 		$globalLine = 0;
-		$globalVariables = array();
-		$otherVariables = array();
-		$matches = array();
-		$strVariables = array();
+		$globalVariables = [];
+		$otherVariables = [];
+		$matches = [];
+		$strVariables = [];
 
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
 			if ( array_key_exists( $tokens[$i]['type'], PHP_CodeSniffer_Tokens::$emptyTokens ) ) {
@@ -34,7 +34,7 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 				$globalLine = $tokens[$i]['line'];
 			}
 			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] == $globalLine ) {
-				$globalVariables[] = array( $tokens[$i]['content'], $i );
+				$globalVariables[] = [ $tokens[$i]['content'], $i ];
 			}
 			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] != $globalLine ) {
 				$otherVariables[$tokens[$i]['content']] = null;

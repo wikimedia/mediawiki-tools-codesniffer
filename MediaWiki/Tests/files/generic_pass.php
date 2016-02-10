@@ -16,18 +16,18 @@ function wfTimestampOrNull( $outputtype = TS_UNIX, $ts = null ) {
 	}
 }
 
-$wgAutopromote = array(
-	'autoconfirmed' => array( '&',
-		array( APCOND_EDITCOUNT, &$wgAutoConfirmCount ),
-		array( APCOND_AGE, &$wgAutoConfirmAge ),
-	),
-);
+$wgAutopromote = [
+	'autoconfirmed' => [ '&',
+		[ APCOND_EDITCOUNT, &$wgAutoConfirmCount ],
+		[ APCOND_AGE, &$wgAutoConfirmAge ],
+	],
+];
 
-$namespaceNames = array(
+$namespaceNames = [
 	NS_MEDIA            => 'Media',
 	NS_SPECIAL          => 'Special',
 	NS_MAIN             => '',
-);
+];
 
 class FooBar extends BarBaz implements SomethingSomewhere {
 
@@ -77,8 +77,8 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 
 		$wgBarBarBar->dobar(
 			Xml::fieldset( wfMessage( 'importinterwiki' )->text() ) .
-			Xml::openElement( 'form', array( 'method' => 'post', 'action' => $par,
-				'id' => 'mw-import-interwiki-form' ) ) .
+			Xml::openElement( 'form', [ 'method' => 'post', 'action' => $par,
+				'id' => 'mw-import-interwiki-form' ] ) .
 			wfMessage( 'import-interwiki-text' )->parse() .
 			Xml::hidden( 'action', 'submit' ) .
 			Xml::hidden( 'source', 'interwiki' ) .
@@ -91,11 +91,11 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	}
 
 	private function someFunction( FooBar $baz ) {
-		$foo = array(
+		$foo = [
 			$baz,
 			'memememememememee',
-		);
-		$cat = array_merge( $foo, array( 'barn', 'door' ) );
+		];
+		$cat = array_merge( $foo, [ 'barn', 'door' ] );
 		return $cat;
 	}
 }

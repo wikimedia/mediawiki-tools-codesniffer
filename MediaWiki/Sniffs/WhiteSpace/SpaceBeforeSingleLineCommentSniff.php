@@ -7,9 +7,9 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
-		return array(
+		return [
 			T_COMMENT
-		);
+		];
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {

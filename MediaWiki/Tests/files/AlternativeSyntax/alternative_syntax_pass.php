@@ -8,7 +8,7 @@ for ( $i = 0; $i < 5; $i++ ) {
 	echo $i;
 }
 
-foreach ( array( 1, 2, 3 ) as $i ) {
+foreach ( [ 1, 2, 3 ] as $i ) {
 	echo $i;
 }
 

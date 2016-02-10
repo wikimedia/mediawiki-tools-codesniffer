@@ -9,10 +9,10 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 
-	public $ignoreList = array();
+	public $ignoreList = [];
 
 	public function register() {
-		return array( T_FUNCTION );
+		return [ T_FUNCTION ];
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
@@ -44,7 +44,7 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 				$expected = 'wf' . ucfirst( $name );
 
 				$error = 'Global function "%s" is lacking a \'wf\' prefix. Should be "%s".';
-				$data = array( $name, $expected );
+				$data = [ $name, $expected ];
 				$phpcsFile->addError( $error, $stackPtr, 'wfPrefix', $data );
 			}
 		}

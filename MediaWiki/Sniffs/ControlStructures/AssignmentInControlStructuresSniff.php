@@ -15,11 +15,11 @@ class MediaWiki_Sniffs_ControlStructures_AssignmentInControlStructuresSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
-		return array(
+		return [
 			T_IF,
 			T_WHILE,
 			T_ELSEIF,
-		);
+		];
 	}
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();

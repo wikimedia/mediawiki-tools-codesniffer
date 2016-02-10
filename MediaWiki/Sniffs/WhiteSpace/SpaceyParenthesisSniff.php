@@ -13,10 +13,10 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
 	public function register() {
-		return array(
+		return [
 			T_OPEN_PARENTHESIS,
 			T_CLOSE_PARENTHESIS,
-		);
+		];
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {

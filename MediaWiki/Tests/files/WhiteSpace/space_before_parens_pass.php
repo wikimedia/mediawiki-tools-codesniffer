@@ -1,5 +1,5 @@
 <?php
 function wfBar() {
 	wfFoo();
-	$a = array();
+	$a = [];
 }
