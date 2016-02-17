@@ -100,4 +100,5 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	}
 }
 
+Hooks::run( 'SecondaryDataUpdates', [ $title, $old, $recursive, $parserOutput, &$updates ] );
 // This file has a new line at the end!
