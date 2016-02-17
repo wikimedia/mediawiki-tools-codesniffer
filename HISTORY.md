@@ -1,5 +1,11 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.6.0 / 2016-02-17 ##
+* Add Generic.Arrays.DisallowLongArraySyntax to ruleset, autofix this repo (Kunal Mehta)
+* Add sniff to detect consecutive empty lines in a file (Vivek Ghaisas)
+* Disable Generic.Functions.CallTimePassByReference.NotAllowed (Kunal Mehta)
+* Update squizlabs/php_codesniffer to 2.5.1 (Paladox)
+
 ## 0.5.1 / 2015-12-28 ##
 * Avoid in_array for performance reasons (Thiemo Mättig)
 * build: Pass -s to phpcs for easier debugging (Kunal Mehta)
