@@ -11,6 +11,7 @@ coding conventions that are validated by these rules. :-)
 How to install
 --------------
 1. Create a composer.json which adds this project as a dependency:
+    
     ```
     {
     	"require-dev": {
@@ -25,6 +26,7 @@ How to install
     }
     ```
 2. Create a phpcs.xml with our configuration:
+    
     ```
     <?xml version="1.0"?>
     <ruleset>
@@ -43,8 +45,6 @@ How to install
 
 Note that for most MediaWiki projects, we'd also recommend adding a PHP linter
 to your `composer.json` – see the [full documentation][2] for more details.
-
-
 
 TODO
 ----
