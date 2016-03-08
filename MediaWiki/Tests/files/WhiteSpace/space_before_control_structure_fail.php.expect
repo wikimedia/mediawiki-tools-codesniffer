@@ -1,0 +1,22 @@
+
+FILE: ...i/Tests/files/WhiteSpace/space_before_control_structure_fail.php
+----------------------------------------------------------------------
+FOUND 2 ERRORS AND 4 WARNINGS AFFECTING 4 LINES
+----------------------------------------------------------------------
+ 10 | WARNING | [x] empty lines should not exist after brace of "if"
+ 10 | ERROR   | [x] Opening brace should be on the same line as the
+    |         |     declaration
+ 13 | WARNING | [x] empty lines should not exist after brace of
+    |         |     "elseif"
+ 13 | ERROR   | [x] Opening brace should be on the same line as the
+    |         |     declaration
+ 17 | WARNING | [x] Expected 1 space between closing parenthesis and
+    |         |     opening brace; find 3 characters
+ 27 | WARNING | [x] Expected 1 space between closing parenthesis and
+    |         |     opening brace; find 1 characters
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 20ms; Memory: 3.5Mb
+

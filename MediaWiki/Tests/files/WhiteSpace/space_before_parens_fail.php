@@ -3,7 +3,7 @@
 /**
  * @return void
  */
-function wfBar () {
+function wfBar() {
 	wfFoo ();
 	$a = array ();
 }

@@ -16,7 +16,6 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 	 * @return array
 	 */
 	public function register() {
-
 		return [ T_FUNCTION ];
 	}
 
@@ -42,8 +41,8 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 		// Check if we already know if the token is namespaced or not and return early if possible.
 		if (
 			isset( self::$firstNamespaceLocations[$fileName] ) &&
-			$ptr > self::$firstNamespaceLocations[$fileName] )
-		{
+			$ptr > self::$firstNamespaceLocations[$fileName]
+		) {
 			return true;
 		}
 		if ( isset( self::$noNamespaceFiles[$fileName] ) ) {
@@ -68,8 +67,8 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 		// Return if the token was namespaced.
 		if (
 			isset( self::$firstNamespaceLocations[$fileName] ) &&
-			$ptr > self::$firstNamespaceLocations[$fileName] )
-		{
+			$ptr > self::$firstNamespaceLocations[$fileName]
+		) {
 			return true;
 		}
 

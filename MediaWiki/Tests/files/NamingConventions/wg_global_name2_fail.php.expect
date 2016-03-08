@@ -1,14 +1,10 @@
 
 FILE: ...MediaWiki/Tests/files/NamingConventions/wg_global_name2_fail.php
 ----------------------------------------------------------------------
-FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
- 6 | WARNING | [x] Space found before opening parenthesis of function
-   |         |     call
  8 | ERROR   | [ ] Global variable "$LocalInterwikis" is lacking 'wg'
    |         |     prefix. Should be "$wgLocalInterwikis".
-----------------------------------------------------------------------
-PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
 Time: 14ms; Memory: 3.25Mb

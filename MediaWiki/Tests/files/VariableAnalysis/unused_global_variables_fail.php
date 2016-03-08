@@ -3,7 +3,7 @@
 /**
  * @return void
  */
-function wfFooFoo () {
+function wfFooFoo() {
 	// The global variable is not used
 	global $wgSomething;
 }

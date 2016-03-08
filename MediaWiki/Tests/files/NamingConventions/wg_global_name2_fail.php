@@ -3,7 +3,7 @@
 /**
  * @return void
  */
-function wfFooFoo () {
+function wfFooFoo() {
 	// The first global is fine, the second isn't
 	global $wgContLang, $LocalInterwikis;
 	$wgContLang = 'en';

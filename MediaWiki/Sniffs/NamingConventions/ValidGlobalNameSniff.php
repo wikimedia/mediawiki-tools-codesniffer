@@ -48,10 +48,9 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 		$semicolonIndex  = $phpcsFile->findNext( T_SEMICOLON, $stackPtr + 1 );
 
 		while ( $nameIndex < $semicolonIndex ) {
-
 			if ( $tokens[ $nameIndex ][ 'code' ] !== T_WHITESPACE
-					&& $tokens[ $nameIndex ][ 'code' ] !== T_COMMA ) {
-
+					&& $tokens[ $nameIndex ][ 'code' ] !== T_COMMA
+			) {
 				$globalName = $tokens[$nameIndex]['content'];
 
 				if ( in_array( $globalName, $this->ignoreList ) ||

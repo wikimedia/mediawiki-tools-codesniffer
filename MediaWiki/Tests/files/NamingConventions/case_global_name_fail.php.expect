@@ -1,15 +1,11 @@
 
 FILE: ...ediaWiki/Tests/files/NamingConventions/case_global_name_fail.php
 ----------------------------------------------------------------------
-FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
- 6 | WARNING | [x] Space found before opening parenthesis of function
-   |         |     call
- 8 | ERROR   | [ ] Global variable "$wgsomething" should use
-   |         |     CamelCase: "$wgWgsomething"
-----------------------------------------------------------------------
-PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 5 | ERROR | Global variable "$wgsomething" should use CamelCase:
+   |       | "$wgWgsomething"
 ----------------------------------------------------------------------
 
-Time: 15ms; Memory: 3.25Mb
+Time: 18ms; Memory: 3.25Mb
 

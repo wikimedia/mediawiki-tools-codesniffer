@@ -1,18 +1,16 @@
 
 FILE: ...er/MediaWiki/Tests/files/WhiteSpace/space_before_parens_fail.php
 ----------------------------------------------------------------------
-FOUND 1 ERROR AND 3 WARNINGS AFFECTING 3 LINES
+FOUND 1 ERROR AND 2 WARNINGS AFFECTING 2 LINES
 ----------------------------------------------------------------------
- 6 | WARNING | [x] Space found before opening parenthesis of function
-   |         |     call
  7 | WARNING | [x] Space found before opening parenthesis of function
    |         |     call
  8 | ERROR   | [x] Short array syntax must be used to define arrays
  8 | WARNING | [x] Space found before opening parenthesis of function
    |         |     call
 ----------------------------------------------------------------------
-PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
-Time: 16ms; Memory: 3.25Mb
+Time: 17ms; Memory: 3.5Mb
 
