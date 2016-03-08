@@ -110,7 +110,13 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 				'SingleSpaceAfterOpenParenthesis'
 			);
 			if ( $fix === true ) {
-				$phpcsFile->fixer->addContent( $stackPtr, ' ' );
+				if ( $nextToken['code'] === T_WHITESPACE
+					&& strpos( $nextToken['content'], "\n" ) === false
+					&& $nextToken['content'] != ' ' ) {
+					$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
+				} else {
+					$phpcsFile->fixer->addContent( $stackPtr, ' ' );
+				}
 			}
 		}
 	}
@@ -149,7 +155,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 			'SingleSpaceBeforeCloseParenthesis'
 		);
 		if ( $fix === true ) {
-			$phpcsFile->fixer->addContentBefore( $stackPtr, ' ' );
+			$phpcsFile->fixer->replaceToken( $stackPtr - 1, ' ' );
 		}
 	}
 }
