@@ -10,6 +10,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
 		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Spaces
 		return [
 			T_IF,
+			T_ELSEIF,
 			T_WHILE,
 			T_FOR,
 			T_FOREACH,
