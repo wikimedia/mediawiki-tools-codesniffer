@@ -16,7 +16,24 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 		return [
 			T_OPEN_PARENTHESIS,
 			T_CLOSE_PARENTHESIS,
+			T_OPEN_SHORT_ARRAY,
+			T_CLOSE_SHORT_ARRAY
 		];
+	}
+
+	private function isOpen( $token ) {
+		return $token === T_OPEN_PARENTHESIS
+			|| $token === T_OPEN_SHORT_ARRAY;
+	}
+
+	private function isClosed( $token ) {
+		return $token === T_CLOSE_PARENTHESIS
+			|| $token === T_CLOSE_SHORT_ARRAY;
+	}
+
+	private function isParenthesis( $token ) {
+		return $token === T_OPEN_PARENTHESIS
+			|| $token === T_CLOSE_PARENTHESIS;
 	}
 
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
@@ -24,14 +41,19 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 
 		$currentToken = $tokens[$stackPtr];
 
-		if ( $currentToken['code'] === T_OPEN_PARENTHESIS
+		if ( $this->isOpen( $currentToken['code'] )
 			&& $tokens[$stackPtr - 1]['code'] === T_WHITESPACE
 			&& ( $tokens[$stackPtr - 2]['code'] === T_STRING
 				|| $tokens[$stackPtr - 2]['code'] === T_ARRAY ) ) {
 			// String (or 'array') followed by whitespace followed by
 			// opening brace is probably a function call.
+			if ( $this->isParenthesis( $currentToken['code'] ) ) {
+				$msg = 'opening parenthesis of function call';
+			} else {
+				$msg = 'opening bracket of array';
+			}
 			$fix = $phpcsFile->addFixableWarning(
-				'Space found before opening parenthesis of function call',
+				'Space found before ' . $msg,
 				$stackPtr - 1,
 				'SpaceBeforeOpeningParenthesis'
 			);
@@ -41,11 +63,16 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 		}
 
 		// Check for space between parentheses without any arguments
-		if ( $currentToken['code'] === T_OPEN_PARENTHESIS
+		if ( $this->isOpen( $currentToken['code'] )
 			&& $tokens[$stackPtr + 1]['code'] === T_WHITESPACE
-			&& $tokens[$stackPtr + 2]['code'] === T_CLOSE_PARENTHESIS ) {
+			&& $this->isClosed( $tokens[$stackPtr + 2]['code'] ) ) {
+			if ( $this->isParenthesis( $currentToken['code'] ) ) {
+				$msg = 'parentheses';
+			} else {
+				$msg = 'brackets';
+			}
 			$fix = $phpcsFile->addFixableWarning(
-				'Unnecessary space found within parentheses',
+				'Unnecessary space found within ' . $msg,
 				$stackPtr + 1,
 				'UnnecessarySpaceBetweenParentheses'
 			);
@@ -56,13 +83,13 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 		}
 
 		// Same check as above, but ignore since it was already processed
-		if ( $currentToken['code'] === T_CLOSE_PARENTHESIS
+		if ( $this->isClosed( $currentToken['code'] )
 			&& $tokens[$stackPtr - 1]['code'] === T_WHITESPACE
-			&& $tokens[$stackPtr - 2]['code'] === T_OPEN_PARENTHESIS ) {
+			&& $this->isOpen( $tokens[$stackPtr - 2]['code'] ) ) {
 			return;
 		}
 
-		if ( $currentToken['code'] === T_OPEN_PARENTHESIS ) {
+		if ( $this->isOpen( $currentToken['code'] ) ) {
 			$this->processOpenParenthesis( $phpcsFile, $tokens, $stackPtr );
 		} else {
 			// T_CLOSE_PARENTHESIS
@@ -76,7 +103,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 		if ( ( $nextToken['code'] === T_WHITESPACE &&
 				strpos( $nextToken['content'], "\n" ) === false
 				&& $nextToken['content'] != ' ' )
-			|| ( $nextToken['code'] !== T_CLOSE_PARENTHESIS && $nextToken['code'] !== T_WHITESPACE ) ) {
+			|| ( !$this->isClosed( $nextToken['code'] ) && $nextToken['code'] !== T_WHITESPACE ) ) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Single space expected after opening parenthesis',
 				$stackPtr + 1,
@@ -91,7 +118,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 	protected function processCloseParenthesis( PHP_CodeSniffer_File $phpcsFile, $tokens, $stackPtr ) {
 		$previousToken = $tokens[$stackPtr - 1];
 
-		if ( $previousToken['code'] === T_OPEN_PARENTHESIS
+		if ( $this->isOpen( $previousToken['code'] )
 			|| ( $previousToken['code'] === T_WHITESPACE
 				&& $previousToken['content'] === ' ' )
 			|| ( $previousToken['code'] === T_COMMENT

@@ -100,5 +100,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	}
 }
 
+$a = [ 'spaces!' ];
+
 Hooks::run( 'SecondaryDataUpdates', [ $title, $old, $recursive, $parserOutput, &$updates ] );
 // This file has a new line at the end!
