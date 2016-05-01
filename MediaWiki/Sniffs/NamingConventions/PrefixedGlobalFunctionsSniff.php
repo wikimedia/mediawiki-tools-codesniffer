@@ -15,17 +15,29 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 		return [ T_FUNCTION ];
 	}
 
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile
+	 * @param int $ptr
+	 * @return bool Does a namespace statement exist before this position in the file?
+	 */
+	private function tokenIsNamespaced( PHP_CodeSniffer_File $phpcsFile, $ptr ) {
 		$tokens = $phpcsFile->getTokens();
-		$ptr = $stackPtr;
 		while ( $ptr > 0 ) {
 			$token = $tokens[$ptr];
 			if ( $token['type'] === "T_NAMESPACE" && !isset( $token['scope_opener'] ) ) {
 				// In the format of "namespace Foo;", which applies to the entire file
-				return;
+				return true;
 			}
 			$ptr--;
 		}
+		return false;
+	}
+
+	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+		if ( $this->tokenIsNamespaced( $phpcsFile, $stackPtr ) ) {
+			return;
+		}
+		$tokens = $phpcsFile->getTokens();
 		$token = $tokens[$stackPtr];
 
 		// Name of function
