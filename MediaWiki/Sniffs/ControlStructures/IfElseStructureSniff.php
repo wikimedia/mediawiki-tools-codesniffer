@@ -58,7 +58,7 @@ class MediaWiki_Sniffs_ControlStructures_IfElseStructureSniff
 			);
 			if ( $fix === true ) {
 				if ( $nextToken['code'] === T_OPEN_CURLY_BRACKET ) {
-					$phpcsFile->fixer->addContnetAfter( $stackPtr, ' ' );
+					$phpcsFile->fixer->addContent( $stackPtr, ' ' );
 				} else {
 					// Replace all after whitespace with a space
 					$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
