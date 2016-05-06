@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.7.1 / 2016-05-06 ##
+* Fix typo in IfElseStructureSniff (addshore)
+
 ## 0.7.0 / 2016-05-06 ##
 * Also check for space after elseif in SpaceAfterControlStructureSniff (Lethexie)
 * Factor our tokenIsNamespaced method (addshore)
