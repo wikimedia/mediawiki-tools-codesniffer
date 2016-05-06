@@ -1,5 +1,14 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.7.0 / 2016-05-06 ##
+* Also check for space after elseif in SpaceAfterControlStructureSniff (Lethexie)
+* Factor our tokenIsNamespaced method (addshore)
+* Make IfElseStructureSniff can detect and fix multiple white spaces after else (Lethexie)
+* Make SpaceyParenthesisSniff can fix multiple white spaces between parentheses (Lethexie)
+* Make spacey parenthesis sniff work with short array syntax (Kunal Mehta)
+* Speed up PrefixedGlobalFunctionsSniff (addshore)
+* Update squizlabs/php_codesniffer to 2.6.0 (Paladox)
+
 ## 0.6.0 / 2016-02-17 ##
 * Add Generic.Arrays.DisallowLongArraySyntax to ruleset, autofix this repo (Kunal Mehta)
 * Add sniff to detect consecutive empty lines in a file (Vivek Ghaisas)
