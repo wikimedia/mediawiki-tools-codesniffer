@@ -18,7 +18,7 @@
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  *
- * @author Adam Shorland
+ * @author Addshore
  * Modifications
  *  - runPhpCs takes a second parameter $standard to override the default
  */
