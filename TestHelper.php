@@ -49,7 +49,7 @@ class TestHelper {
 			$standard = $this->rootDir . '/ruleset.xml';
 		}
 		$defaults = $this->phpcs->getDefaults();
-		// $standard = $this->rootDir . '/ruleset.xml';
+
 		if (
 			defined( 'PHP_CodeSniffer::VERSION' ) &&
 			version_compare( PHP_CodeSniffer::VERSION, '1.5.0' ) != -1
@@ -61,12 +61,6 @@ class TestHelper {
 				'files' => [ $file ],
 				'standard' => $standard,
 			] + $defaults;
-
-		// New PHPCS has a strange issue where the method arguments
-		// are not stored on the instance causing weird errors.
-		$reflection = new ReflectionProperty( $this->phpcs, 'values' );
-		$reflection->setAccessible( true );
-		$reflection->setValue( $this->phpcs, $options );
 
 		ob_start();
 		$this->phpcs->process( $options );
