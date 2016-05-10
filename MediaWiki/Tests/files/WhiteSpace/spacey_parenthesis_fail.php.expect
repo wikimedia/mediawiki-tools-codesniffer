@@ -3,14 +3,16 @@ FILE: ...fer/MediaWiki/Tests/files/WhiteSpace/spacey_parenthesis_fail.php
 ----------------------------------------------------------------------
 FOUND 1 ERROR AND 7 WARNINGS AFFECTING 4 LINES
 ----------------------------------------------------------------------
- 4 | WARNING | [x] Single space expected after opening parenthesis
- 4 | WARNING | [x] Single space expected before closing parenthesis
- 5 | WARNING | [x] Single space expected after opening parenthesis
- 5 | WARNING | [x] Single space expected before closing parenthesis
- 6 | WARNING | [x] Single space expected after opening parenthesis
- 6 | WARNING | [x] Single space expected before closing parenthesis
- 7 | ERROR   | [x] Short array syntax must be used to define arrays
- 7 | WARNING | [x] Unnecessary space found within parentheses
+  4 | WARNING | [x] Single space expected after opening parenthesis
+  4 | WARNING | [x] Single space expected before closing parenthesis
+  5 | WARNING | [x] Single space expected after opening parenthesis
+  5 | WARNING | [x] Single space expected before closing parenthesis
+  6 | WARNING | [x] Single space expected after opening parenthesis
+  6 | WARNING | [x] Single space expected before closing parenthesis
+  7 | ERROR   | [x] Short array syntax must be used to define arrays
+  7 | WARNING | [x] Unnecessary space found within parentheses
+ 12 | WARNING | [x] Single space expected after opening parenthesis
+ 12 | WARNING | [x] Single space expected before closing parenthesis
 ----------------------------------------------------------------------
 PHPCBF CAN FIX THE 8 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------

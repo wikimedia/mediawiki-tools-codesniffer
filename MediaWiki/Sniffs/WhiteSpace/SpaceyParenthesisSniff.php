@@ -155,7 +155,11 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 			'SingleSpaceBeforeCloseParenthesis'
 		);
 		if ( $fix === true ) {
-			$phpcsFile->fixer->replaceToken( $stackPtr - 1, ' ' );
+			if ( $previousToken['code'] === T_WHITESPACE ) {
+				$phpcsFile->fixer->replaceToken( $stackPtr - 1, ' ' );
+			} else {
+				$phpcsFile->fixer->addContentBefore( $stackPtr, ' ' );
+			}
 		}
 	}
 }
