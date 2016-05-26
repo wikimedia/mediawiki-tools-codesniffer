@@ -1,0 +1,6 @@
+<?php
+
+$a = [];
+$b = [ 'faaaail' ];
+$c = [];
+$d = [ 'faaaaail', ];

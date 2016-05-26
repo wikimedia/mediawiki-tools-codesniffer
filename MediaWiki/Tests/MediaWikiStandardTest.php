@@ -33,7 +33,8 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	public function setUp() {
 		parent::setUp();
 		if ( empty( $this->helper ) ) {
-			$this->helper = new TestHelper();
+			include_once __DIR__ . '/MediaWikiTestHelper.php';
+			$this->helper = new MediaWikiTestHelper();
 		}
 	}
 
@@ -79,6 +80,30 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	public function testFile( $file, $standard, $expectedOutputFile ) {
 		$outputStr = $this->prepareOutput( $this->helper->runPhpCs( $file, $standard ) );
 		$expect = $this->prepareOutput( file_get_contents( $expectedOutputFile ) );
+		$this->assertEquals( $expect, $outputStr );
+	}
+
+	public static function testFixProvider() {
+		$tests = self::testProvider();
+		foreach ( array_keys( $tests ) as $idx ) {
+			$fixed = $tests[$idx][0] . ".fixed";
+			if ( file_exists( $fixed ) ) {
+				$tests[$idx][2] = $fixed;
+			} else {
+				// no fixes should be applied, assert fixed
+				// file matches original
+				$tests[$idx][2] = $tests[$idx][0];
+			}
+		}
+		return $tests;
+	}
+
+	/**
+	 * @dataProvider testFixProvider
+	 */
+	public function testFix( $file, $standard, $fixedFile ) {
+		$outputStr = $this->helper->runPhpCbf( $file, $standard );
+		$expect = file_get_contents( $fixedFile );
 		$this->assertEquals( $expect, $outputStr );
 	}
 

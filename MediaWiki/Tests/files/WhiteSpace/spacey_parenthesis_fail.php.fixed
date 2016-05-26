@@ -1,0 +1,8 @@
+<?php
+
+function wfFooBar( $a, $b ) {
+	$a->foo();
+	$a->foo( $b );
+	$a->foo( $b );
+	$c = [];
+}
