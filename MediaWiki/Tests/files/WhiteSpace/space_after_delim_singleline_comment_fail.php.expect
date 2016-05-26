@@ -1,0 +1,19 @@
+
+FILE: ...s/files/WhiteSpace/space_after_delim_singleline_comment_fail.php
+----------------------------------------------------------------------
+FOUND 2 ERRORS AND 6 WARNINGS AFFECTING 6 LINES
+----------------------------------------------------------------------
+ 2 | WARNING | [x] Single space expected between "//" and comment
+ 3 | WARNING | [ ] Unnecessary empty comment found
+ 3 | ERROR   | [x] Whitespace found at end of line
+ 4 | WARNING | [x] Single space expected between "#" and comment
+ 5 | WARNING | [ ] Unnecessary empty comment found
+ 5 | ERROR   | [x] Whitespace found at end of line
+ 6 | WARNING | [x] Single space expected between "//" and comment
+ 7 | WARNING | [x] Single space expected between "#" and comment
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 11ms; Memory: 3.25Mb
+

@@ -1,0 +1,16 @@
+
+FILE: ...odesniffer/MediaWiki/Tests/files/WhiteSpace/short_array_fail.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 5 WARNINGS AFFECTING 4 LINES
+----------------------------------------------------------------------
+ 3 | WARNING | [x] Single space expected after opening parenthesis
+ 3 | WARNING | [x] Single space expected before closing parenthesis
+ 4 | WARNING | [x] Single space expected after opening parenthesis
+ 5 | WARNING | [x] Single space expected before closing parenthesis
+ 6 | WARNING | [x] Single space expected before closing parenthesis
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 11ms; Memory: 3.25Mb
+

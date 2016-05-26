@@ -1,0 +1,13 @@
+
+FILE: ...diaWiki/Tests/files/ControlStructures/if_else_structure_fail.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------
+  7 | WARNING | [x] Single space expected before "elseif"
+ 10 | WARNING | [x] Single space expected before "else"
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 14ms; Memory: 3.25Mb
+

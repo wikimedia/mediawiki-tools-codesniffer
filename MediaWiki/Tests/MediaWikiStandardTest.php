@@ -40,7 +40,8 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * testFiles
 	 *
-	 * Run simple syntax checks, if the filename ends with pass.php - expect it to pass
+	 * Run simple syntax checks, comparing the phpcs output for the test
+	 * file against an expected output.
 	 */
 	public static function testProvider() {
 		$tests = [];
@@ -54,11 +55,13 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 			}
 
 			$file = $dir->getPathname();
-			$expectPass = ( substr( $file, -8 ) === 'pass.php' );
+			if ( substr( $file, -4 ) !== '.php' ) {
+				continue;
+			}
 			$tests[] = [
 				$file,
 				$standard,
-				$expectPass
+				"$file.expect"
 			];
 		}
 		return $tests;
@@ -71,23 +74,46 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @param string $file
 	 * @param string $standard
-	 * @param boolean $expectPass
+	 * @param boolean $expectedOutputFile
 	 */
-	public function testFile( $file, $standard, $expectPass ) {
-		$outputStr = $this->helper->runPhpCs( $file, $standard );
-		if ( $expectPass ) {
-			$this->assertNotRegExp(
-				"/FOUND \d+ ERROR/",
-				$outputStr,
-				basename( $file ) . ' - expected to pass with no errors, some were reported. '
-			);
-		} else {
-			$this->assertRegExp(
-				"/FOUND \d+ ERROR/",
-				$outputStr,
-				basename( $file ) . ' - expected failures, none reported. '
-			);
+	public function testFile( $file, $standard, $expectedOutputFile ) {
+		$outputStr = $this->prepareOutput( $this->helper->runPhpCs( $file, $standard ) );
+		$expect = $this->prepareOutput( file_get_contents( $expectedOutputFile ) );
+		$this->assertEquals( $expect, $outputStr );
+	}
+
+	/**
+	 * strip down the output to only the warnings
+	 *
+	 * @param string $outputStr phpcs output
+	 * @return string
+	 */
+	private function prepareOutput( $outputStr ) {
+		if ( $outputStr ) {
+			$outputLines = explode( "\n", $outputStr );
+			$outputLines = $this->stripTwoDashLines( $outputLines, true );
+			$outputLines = $this->stripTwoDashLines( $outputLines, false );
+			$outputStr = implode( "\n", $outputLines );
 		}
+
+		return $outputStr;
+	}
+
+	/**
+	 * @param string[] $lines
+	 * @param bool $front When true strip from the front of array. Otherwise the end.
+	 * @return string[]
+	 */
+	private function stripTwoDashLines( array $lines, $front = true ) {
+		$dashLines = 0;
+		while ( $lines && $dashLines < 2 ) {
+			$line = $front ? array_shift( $lines ) : array_pop( $lines );
+			if ( strlen( $line ) > 0 && $line[0] === '-' ) {
+				$dashLines++;
+			}
+		}
+
+		return $lines;
 	}
 
 }

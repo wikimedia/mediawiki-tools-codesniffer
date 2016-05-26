@@ -1,0 +1,10 @@
+
+FILE: .../files/ExtraCharacters/valid_shebang_before_phpopen_tag_fail.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 3 | ERROR | Extra character found before first <?
+----------------------------------------------------------------------
+
+Time: 12ms; Memory: 3.25Mb
+

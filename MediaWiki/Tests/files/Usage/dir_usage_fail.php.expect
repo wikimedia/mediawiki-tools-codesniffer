@@ -1,0 +1,13 @@
+
+FILE: ...tools-codesniffer/MediaWiki/Tests/files/Usage/dir_usage_fail.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 3 | ERROR | [x] Use __DIR__ constant instead of calling
+   |       |     dirname(__FILE__)
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 11ms; Memory: 3.25Mb
+

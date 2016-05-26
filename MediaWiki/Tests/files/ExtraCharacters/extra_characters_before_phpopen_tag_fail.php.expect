@@ -1,0 +1,13 @@
+
+FILE: ...les/ExtraCharacters/extra_characters_before_phpopen_tag_fail.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+----------------------------------------------------------------------
+ 1 | ERROR   | [ ] Extra character found before first <?
+ 7 | WARNING | [x] Single space expected between "//" and comment
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 11ms; Memory: 3.25Mb
+

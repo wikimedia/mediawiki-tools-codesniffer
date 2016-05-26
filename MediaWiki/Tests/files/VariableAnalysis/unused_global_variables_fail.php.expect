@@ -1,0 +1,14 @@
+
+FILE: ...ki/Tests/files/VariableAnalysis/unused_global_variables_fail.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------
+ 3 | WARNING | [x] Space found before opening parenthesis of function
+   |         |     call
+ 5 | WARNING | [ ] Global $wgSomething is never used.
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 11ms; Memory: 3.25Mb
+

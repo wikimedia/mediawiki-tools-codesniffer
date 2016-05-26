@@ -1,0 +1,15 @@
+
+FILE: ...r/MediaWiki/Tests/files/WhiteSpace/multiple_empty_lines_fail.php
+----------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+----------------------------------------------------------------------
+ 3 | ERROR | [x] Multiple empty lines should not exist in a row;
+   |       |     found 2 consecutive empty lines
+ 9 | ERROR | [x] Multiple empty lines should not exist in a row;
+   |       |     found 2 consecutive empty lines
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 11ms; Memory: 3.25Mb
+

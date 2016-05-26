@@ -1,0 +1,24 @@
+
+FILE: ...iaWiki/Tests/files/AlternativeSyntax/alternative_syntax_fail.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AND 6 WARNINGS AFFECTING 7 LINES
+----------------------------------------------------------------------
+  5 | WARNING | [ ] Alternative syntax such as "enddeclare" should
+    |         |     not be used
+  9 | WARNING | [ ] Alternative syntax such as "endfor" should not be
+    |         |     used
+ 11 | ERROR   | [x] Short array syntax must be used to define arrays
+ 13 | WARNING | [ ] Alternative syntax such as "endforeach" should
+    |         |     not be used
+ 19 | WARNING | [ ] Alternative syntax such as "endif" should not be
+    |         |     used
+ 25 | WARNING | [ ] Alternative syntax such as "endswitch" should not
+    |         |     be used
+ 29 | WARNING | [ ] Alternative syntax such as "endwhile" should not
+    |         |     be used
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 13ms; Memory: 3.5Mb
+

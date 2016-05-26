@@ -1,0 +1,10 @@
+
+FILE: ...ools-codesniffer/MediaWiki/Tests/files/Usage/goto_usage_fail.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 5 | ERROR | Control statement "goto" must not be used.
+----------------------------------------------------------------------
+
+Time: 12ms; Memory: 3.25Mb
+
