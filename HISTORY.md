@@ -1,5 +1,10 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.7.2 / 2016-05-27 ##
+* SpaceyParenthesisSniff: Don't remove last argument or array element (Kevin Israel)
+* Expect specific output from sniffs (Erik Bernhardson)
+* Assert fixers do as intended (Erik Bernhardson)
+
 ## 0.7.1 / 2016-05-06 ##
 * Fix typo in IfElseStructureSniff (addshore)
 
