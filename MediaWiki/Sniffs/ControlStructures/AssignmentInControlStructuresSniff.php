@@ -14,6 +14,10 @@
 class MediaWiki_Sniffs_ControlStructures_AssignmentInControlStructuresSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
+	/**
+	 * @return array
+	 */
 	public function register() {
 		return [
 			T_IF,
@@ -21,6 +25,12 @@ class MediaWiki_Sniffs_ControlStructures_AssignmentInControlStructuresSniff
 			T_ELSEIF,
 		];
 	}
+
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$token  = $tokens[$stackPtr];

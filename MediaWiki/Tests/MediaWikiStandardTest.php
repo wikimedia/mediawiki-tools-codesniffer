@@ -30,6 +30,9 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 */
 	private $helper;
 
+	/**
+	 * @return void
+	 */
 	public function setUp() {
 		parent::setUp();
 		if ( empty( $this->helper ) ) {
@@ -39,10 +42,11 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * testFiles
+	 * TestFiles
 	 *
-	 * Run simple syntax checks, comparing the phpcs output for the test
+	 * Run simple syntax checks, comparing the phpcs output for the test.
 	 * file against an expected output.
+	 * @return  array $tests The test string[].
 	 */
 	public static function testProvider() {
 		$tests = [];
@@ -73,16 +77,19 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * @dataProvider testProvider
 	 *
-	 * @param string $file
-	 * @param string $standard
-	 * @param boolean $expectedOutputFile
+	 * @param string $file The path string of file.
+	 * @param string $standard The standard string.
+	 * @param boolean $expectedOutputFile The path of expected file.
+	 * @return void
 	 */
 	public function testFile( $file, $standard, $expectedOutputFile ) {
 		$outputStr = $this->prepareOutput( $this->helper->runPhpCs( $file, $standard ) );
 		$expect = $this->prepareOutput( file_get_contents( $expectedOutputFile ) );
 		$this->assertEquals( $expect, $outputStr );
 	}
-
+	/**
+	 * @return array $tests The array of test.
+	 */
 	public static function testFixProvider() {
 		$tests = self::testProvider();
 		foreach ( array_keys( $tests ) as $idx ) {
@@ -100,6 +107,10 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * @dataProvider testFixProvider
+	 * @param string $file The path of file.
+	 * @param string $standard The standard string.
+	 * @param string $fixedFile The path of fixed file.
+	 * @return void
 	 */
 	public function testFix( $file, $standard, $fixedFile ) {
 		$outputStr = $this->helper->runPhpCbf( $file, $standard );
@@ -110,8 +121,8 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * strip down the output to only the warnings
 	 *
-	 * @param string $outputStr phpcs output
-	 * @return string
+	 * @param string $outputStr PHPCS output.
+	 * @return string $outputStr PHPCS output.
 	 */
 	private function prepareOutput( $outputStr ) {
 		if ( $outputStr ) {
@@ -125,9 +136,9 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @param string[] $lines
-	 * @param bool $front When true strip from the front of array. Otherwise the end.
-	 * @return string[]
+	 * @param string[] $lines The array of lines.
+	 * @param boolean $front When true strip from the front of array. Otherwise the end.
+	 * @return string[] $lines The processed array of lines.
 	 */
 	private function stripTwoDashLines( array $lines, $front = true ) {
 		$dashLines = 0;

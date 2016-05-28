@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @return void
+ */
 function wfFooFoo () {
 	// The first global is fine, the second isn't
 	global $wgContLang, $LocalInterwikis;

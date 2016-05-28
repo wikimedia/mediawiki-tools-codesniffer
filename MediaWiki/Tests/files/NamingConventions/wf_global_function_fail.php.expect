@@ -3,9 +3,9 @@ FILE: ...iaWiki/Tests/files/NamingConventions/wf_global_function_fail.php
 ----------------------------------------------------------------------
 FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
- 3 | ERROR | Global function "foo" is lacking a 'wf' prefix. Should
+ 6 | ERROR | Global function "foo" is lacking a 'wf' prefix. Should
    |       | be "wfFoo".
 ----------------------------------------------------------------------
 
-Time: 11ms; Memory: 3.25Mb
+Time: 14ms; Memory: 3.25Mb
 

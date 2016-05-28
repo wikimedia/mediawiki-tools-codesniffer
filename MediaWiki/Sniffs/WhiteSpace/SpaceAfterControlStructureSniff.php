@@ -6,6 +6,10 @@
 class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
+	/**
+	 * @return array
+	 */
 	public function register() {
 		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Spaces
 		return [
@@ -19,6 +23,11 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
 		];
 	}
 
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$nextToken = $tokens[$stackPtr + 1];

@@ -1,5 +1,8 @@
 someText<?php
 // text before first php open
+/**
+ * @return void
+ */
 function wfFoo() {
 
 }

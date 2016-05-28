@@ -7,10 +7,19 @@
 class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
+	/**
+	 * @return array
+	 */
 	public function register() {
 		return [ T_FUNCTION ];
 	}
 
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {

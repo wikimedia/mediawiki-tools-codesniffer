@@ -3,11 +3,19 @@
 use org\bovigo\vfs\vfsStream;
 
 class MediaWikiTestHelper extends TestHelper {
+	/**
+	 * @return void
+	 */
 	public function __construct() {
 		parent::__construct();
 		$this->vfsRoot = vfsStream::setup( 'root' );
 	}
 
+	/**
+	 * @param  string $file The path of file.
+	 * @param  string $standard The standard string.
+	 * @return string
+	 */
 	public function runPhpCbf( $file, $standard = '' ) {
 		if ( empty( $standard ) ) {
 			$standard = $this->rootDir . '/ruleset.xml';

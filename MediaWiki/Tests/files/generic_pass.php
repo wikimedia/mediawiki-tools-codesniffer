@@ -4,8 +4,8 @@
 // https://www.mediawiki.org/wiki/Manual:Coding_conventions
 
 /**
- * @param $outputtype
- * @param null $ts
+ * @param int $outputtype The type of output.
+ * @param null|int $ts The timestamp.
  * @return null
  */
 function wfTimestampOrNull( $outputtype = TS_UNIX, $ts = null ) {
@@ -34,7 +34,10 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	private $foo = 'halalalalalaa';
 
 	public $var;
-
+	/**
+	 * @param  string $word The input string.
+	 * @return boolean
+	 */
 	public function iDoCaseStuff( $word ) {
 		switch ( $word ) {
 			case 'lorem':
@@ -53,6 +56,10 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		|| preg_match( "/^\s*[+-]?0*[1-9]/", $bar );
 	}
 
+	/**
+	 * @param  string $word The input string.
+	 * @return boolean
+	 */
 	public function iDoCaseStuffTwo( $word ) {
 		switch ( $word ) {
 			case 'lorem':
@@ -67,7 +74,10 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		}
 		return (bool)$bar;
 	}
-
+	/**
+	 * @param  string $par The test input.
+	 * @return void
+	 */
 	public function fooBarBaz( $par ) {
 		global $wgBarBarBar, $wgUser;
 
@@ -89,7 +99,10 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		$foo = $par;
 		return $foo + $wgBarBarBar + $this->foo;
 	}
-
+	/**
+	 * @param  FooBar $baz The FooBar object.
+	 * @return array  $cat The merged array.
+	 */
 	private function someFunction( FooBar $baz ) {
 		$foo = [
 			$baz,

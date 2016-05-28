@@ -12,6 +12,9 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 
 	public $ignoreList = [];
 
+	/**
+	 * @return array
+	 */
 	public function register() {
 
 		return [ T_FUNCTION ];
@@ -28,8 +31,8 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 	private static $noNamespaceFiles = [];
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile
-	 * @param int $ptr
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $ptr The current token index.
 	 *
 	 * @return bool Does a namespace statement exist before this position in the file?
 	 */
@@ -72,7 +75,11 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 
 		return false;
 	}
-
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 
 		if ( $this->tokenIsNamespaced( $phpcsFile, $stackPtr ) ) {

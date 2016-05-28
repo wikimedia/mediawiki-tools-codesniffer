@@ -1,0 +1,16 @@
+
+FILE: ...er/MediaWiki/Tests/files/Commenting/commenting_function_fail.php
+----------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 4 LINES
+----------------------------------------------------------------------
+  7 | ERROR | [ ] You must use "/**" style comments for a function
+    |       |     comment
+ 14 | ERROR | [ ] Missing @return tag in function comment
+ 19 | ERROR | [x] Expected 1 spaces after parameter name; 2 found
+ 20 | ERROR | [x] Expected 1 spaces after parameter name; 3 found
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 18ms; Memory: 3.5Mb
+

@@ -10,6 +10,10 @@
 class MediaWiki_Sniffs_ControlStructures_IfElseStructureSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
+	/**
+	 * @return array
+	 */
 	public function register() {
 		return [
 			T_ELSE,
@@ -17,6 +21,11 @@ class MediaWiki_Sniffs_ControlStructures_IfElseStructureSniff
 		];
 	}
 
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$prevToken = $tokens[$stackPtr - 1];

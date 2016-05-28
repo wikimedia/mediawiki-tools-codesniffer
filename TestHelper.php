@@ -31,6 +31,9 @@ class TestHelper {
 
 	protected $phpcs;
 
+	/**
+	 * @return void
+	 */
 	public function __construct() {
 		$this->rootDir = dirname( __DIR__ );
 		$this->dirName = basename( $this->rootDir );
@@ -40,9 +43,9 @@ class TestHelper {
 	/**
 	 * Run PHPCS on a file.
 	 *
-	 * @param string $file to run.
-	 * @param string $standard to run against
-	 * @return string The output from phpcs.
+	 * @param string $file To run.
+	 * @param string $standard To run against.
+	 * @return string $result The output from phpcs.
 	 */
 	public function runPhpCs( $file, $standard = '' ) {
 		if ( empty( $standard ) ) {

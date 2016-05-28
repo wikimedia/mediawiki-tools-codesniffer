@@ -6,6 +6,7 @@
 class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
 	/**
 	 * @return array
 	 */
@@ -16,8 +17,8 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 	}
 
 	/**
-	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
-	 * @param  int $stackPtr The current token index.
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {

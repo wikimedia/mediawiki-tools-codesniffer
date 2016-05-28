@@ -1,5 +1,8 @@
 <?php
 // Valid php open tag
+/**
+ * @return void
+ */
 function wfFoo() {
 
 }

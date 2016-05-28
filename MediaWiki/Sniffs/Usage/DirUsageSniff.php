@@ -13,11 +13,20 @@
 // @codingStandardsIgnoreStart
 class MediaWiki_Sniffs_Usage_DirUsageSniff implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
+	/**
+	 * @return array
+	 */
 	public function register() {
 		// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Other
 		return [ T_STRING ];
 	}
 
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 

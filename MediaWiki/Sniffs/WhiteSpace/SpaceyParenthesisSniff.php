@@ -12,6 +12,10 @@
 class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 	implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
+	/**
+	 * @return array
+	 */
 	public function register() {
 		return [
 			T_OPEN_PARENTHESIS,
@@ -21,21 +25,38 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 		];
 	}
 
+	/**
+	 * @param int $token PHPCS token code.
+	 * @return boolean Whether the token code is open.
+	 */
 	private function isOpen( $token ) {
 		return $token === T_OPEN_PARENTHESIS
 			|| $token === T_OPEN_SHORT_ARRAY;
 	}
 
+	/**
+	 * @param  int $token PHPCS token code.
+	 * @return boolean Whether the token code is closed.
+	 */
 	private function isClosed( $token ) {
 		return $token === T_CLOSE_PARENTHESIS
 			|| $token === T_CLOSE_SHORT_ARRAY;
 	}
 
+	/**
+	 * @param  int $token PHPCS token code.
+	 * @return boolean Whether the token code is parenthesis.
+	 */
 	private function isParenthesis( $token ) {
 		return $token === T_OPEN_PARENTHESIS
 			|| $token === T_CLOSE_PARENTHESIS;
 	}
 
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
@@ -90,14 +111,20 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 		}
 
 		if ( $this->isOpen( $currentToken['code'] ) ) {
-			$this->processOpenParenthesis( $phpcsFile, $tokens, $stackPtr );
+			$this->processOpenParenthesis( $phpcsFile, $stackPtr );
 		} else {
 			// T_CLOSE_PARENTHESIS
-			$this->processCloseParenthesis( $phpcsFile, $tokens, $stackPtr );
+			$this->processCloseParenthesis( $phpcsFile, $stackPtr );
 		}
 	}
 
-	protected function processOpenParenthesis( PHP_CodeSniffer_File $phpcsFile, $tokens, $stackPtr ) {
+	/**
+	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  int $stackPtr The current token index.
+	 * @return void
+	 */
+	protected function processOpenParenthesis( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+		$tokens = $phpcsFile->getTokens();
 		$nextToken = $tokens[$stackPtr + 1];
 		// No space or not single space
 		if ( ( $nextToken['code'] === T_WHITESPACE &&
@@ -121,7 +148,13 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceyParenthesisSniff
 		}
 	}
 
-	protected function processCloseParenthesis( PHP_CodeSniffer_File $phpcsFile, $tokens, $stackPtr ) {
+	/**
+	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  int $stackPtr The current token index.
+	 * @return void
+	 */
+	protected function processCloseParenthesis( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+		$tokens = $phpcsFile->getTokens();
 		$previousToken = $tokens[$stackPtr - 1];
 
 		if ( $this->isOpen( $previousToken['code'] )

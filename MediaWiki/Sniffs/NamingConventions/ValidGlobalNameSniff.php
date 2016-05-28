@@ -6,6 +6,7 @@
 // @codingStandardsIgnoreStart
 class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_CodeSniffer_Sniff {
 	// @codingStandardsIgnoreEnd
+
 	/**
 	 * http://php.net/manual/en/reserved.variables.argv.php
 	 */
@@ -28,10 +29,18 @@ class MediaWiki_Sniffs_NamingConventions_ValidGlobalNameSniff implements PHP_Cod
 
 	public $ignoreList = [];
 
+	/**
+	 * @return array
+	 */
 	public function register() {
 		return [ T_GLOBAL ];
 	}
 
+	/**
+	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param int $stackPtr The current token index.
+	 * @return void
+	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
