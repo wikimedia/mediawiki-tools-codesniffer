@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Failed examples.
+ * @return void
+ */
+function wfFailedExamples() {
+	$a = true;
+	if ( $a ) {
+		# code...
+	} elseif ( $a ) {
+		# code...
+	} else {
+		# code...
+	}
+}
+
+/**
+ * Passed examples.
+ * @return void
+ */
+function wfPassedExamples() {
+	$a = true;
+	if ( $a ) {
+		# code...
+	} elseif ( $a ) {
+		# code...
+	} else {
+		# code...
+	}
+}

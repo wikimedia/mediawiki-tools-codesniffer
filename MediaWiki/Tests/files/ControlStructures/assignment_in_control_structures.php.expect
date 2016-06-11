@@ -1,0 +1,15 @@
+
+FILE: ...sts/files/ControlStructures/assignment_in_control_structures.php
+----------------------------------------------------------------------
+FOUND 6 ERRORS AFFECTING 6 LINES
+----------------------------------------------------------------------
+  8 | ERROR | Assignment expression not allowed within "if".
+ 10 | ERROR | Assignment expression not allowed within "elseif".
+ 12 | ERROR | Assignment expression not allowed within "elseif".
+ 14 | ERROR | Assignment expression not allowed within "elseif".
+ 16 | ERROR | Assignment expression not allowed within "elseif".
+ 19 | ERROR | Assignment expression not allowed within "while".
+----------------------------------------------------------------------
+
+Time: 20ms; Memory: 3.75Mb
+

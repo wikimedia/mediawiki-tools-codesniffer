@@ -6,5 +6,5 @@
  * @return void
  */
 function wfFoo() {
-
+	# code...
 }

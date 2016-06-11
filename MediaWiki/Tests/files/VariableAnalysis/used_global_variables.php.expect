@@ -1,0 +1,9 @@
+
+FILE: ...MediaWiki/Tests/files/VariableAnalysis/used_global_variables.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 9 | WARNING | Global $wgSomething is never used.
+----------------------------------------------------------------------
+
+Time: 16ms; Memory: 3.5Mb

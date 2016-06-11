@@ -1,0 +1,21 @@
+
+FILE: ...esniffer/MediaWiki/Tests/files/WhiteSpace/spacey_parenthesis.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AND 9 WARNINGS AFFECTING 5 LINES
+----------------------------------------------------------------------
+ 10 | WARNING | [x] Single space expected after opening parenthesis
+ 10 | WARNING | [x] Single space expected before closing parenthesis
+ 11 | WARNING | [x] Single space expected after opening parenthesis
+ 11 | WARNING | [x] Single space expected before closing parenthesis
+ 12 | WARNING | [x] Single space expected after opening parenthesis
+ 12 | WARNING | [x] Single space expected before closing parenthesis
+ 13 | ERROR   | [x] Short array syntax must be used to define arrays
+ 13 | WARNING | [x] Unnecessary space found within parentheses
+ 16 | WARNING | [x] Single space expected after opening parenthesis
+ 16 | WARNING | [x] Single space expected before closing parenthesis
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 18ms; Memory: 3.5Mb
+

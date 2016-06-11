@@ -1,0 +1,15 @@
+
+FILE: ...sniffer/MediaWiki/Tests/files/Commenting/commenting_function.php
+----------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 4 LINES
+----------------------------------------------------------------------
+  5 | ERROR | [ ] Missing function doc comment
+ 12 | ERROR | [ ] Missing @return tag in function comment
+ 18 | ERROR | [x] Expected 1 spaces after parameter name; 2 found
+ 19 | ERROR | [x] Expected 1 spaces after parameter name; 3 found
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 20ms; Memory: 3.5Mb
+

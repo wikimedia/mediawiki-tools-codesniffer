@@ -1,13 +1,11 @@
 
-FILE: ...les/ExtraCharacters/extra_characters_before_phpopen_tag_fail.php
+FILE: ...r/MediaWiki/Tests/files/NamingConventions/wf_global_function.php
 ----------------------------------------------------------------------
-<<<<<<< HEAD
-=======
 FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
->>>>>>> Put failed examples and passed examples into a file.
- 1 | ERROR | Extra character found before first <?
+ 7 | ERROR | Global function "failedExamples" is lacking a 'wf'
+   |       | prefix. Should be "wfFailedExamples".
 ----------------------------------------------------------------------
 
-Time: 15ms; Memory: 3.25Mb
+Time: 27ms; Memory: 3.25Mb
 

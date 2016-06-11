@@ -1,0 +1,14 @@
+
+FILE: ...sniffer/MediaWiki/Tests/files/WhiteSpace/space_before_parens.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------
+ 7 | WARNING | [x] Space found before opening parenthesis of function
+   |         |     call
+ 8 | WARNING | [x] Space found before opening parenthesis of function
+   |         |     call
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 33ms; Memory: 3.25Mb

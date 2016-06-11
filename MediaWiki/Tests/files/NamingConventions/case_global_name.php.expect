@@ -1,0 +1,13 @@
+
+FILE: ...fer/MediaWiki/Tests/files/NamingConventions/case_global_name.php
+----------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 9 | ERROR | Global variable "$wgsomething" should use CamelCase:
+   |       | "$wgWgsomething"
+ 9 | ERROR | Global variable "$LocalInterwikis" is lacking 'wg'
+   |       | prefix. Should be "$wgLocalInterwikis".
+----------------------------------------------------------------------
+
+Time: 36ms; Memory: 3.5Mb
+

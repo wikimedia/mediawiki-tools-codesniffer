@@ -1,0 +1,20 @@
+
+FILE: ...r/MediaWiki/Tests/files/AlternativeSyntax/alternative_syntax.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 6 WARNINGS AFFECTING 6 LINES
+----------------------------------------------------------------------
+ 10 | WARNING | Alternative syntax such as "enddeclare" should not be
+    |         | used
+ 14 | WARNING | Alternative syntax such as "endfor" should not be
+    |         | used
+ 18 | WARNING | Alternative syntax such as "endforeach" should not be
+    |         | used
+ 24 | WARNING | Alternative syntax such as "endif" should not be used
+ 30 | WARNING | Alternative syntax such as "endswitch" should not be
+    |         | used
+ 34 | WARNING | Alternative syntax such as "endwhile" should not be
+    |         | used
+----------------------------------------------------------------------
+
+Time: 23ms; Memory: 4Mb
+

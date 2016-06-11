@@ -3,6 +3,6 @@
 	<rule ref="MediaWiki"/>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>
-	<arg name="ignore" value="vendor,*fail.php"/>
+	<arg name="ignore" value="vendor,*/Tests/files/*"/>
 	<exclude-pattern>vendor</exclude-pattern>
 </ruleset>

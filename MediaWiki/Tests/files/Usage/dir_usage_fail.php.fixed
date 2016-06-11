@@ -1,4 +1,0 @@
-<?php
-
-$tmp = __DIR__;
-echo "Done";
