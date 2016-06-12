@@ -36,7 +36,6 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 	 * @return bool Does a namespace statement exist before this position in the file?
 	 */
 	private function tokenIsNamespaced( PHP_CodeSniffer_File $phpcsFile, $ptr ) {
-
 		$fileName = $phpcsFile->getFilename();
 		// Check if we already know if the token is namespaced or not and return early if possible.
 		if (
@@ -80,7 +79,6 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 	 * @return void
 	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
-
 		if ( $this->tokenIsNamespaced( $phpcsFile, $stackPtr ) ) {
 			return;
 		}

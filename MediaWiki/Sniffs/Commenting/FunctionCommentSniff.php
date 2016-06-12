@@ -25,7 +25,6 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	 * @return array
 	 */
 	public function register() {
-
 		return [ T_FUNCTION ];
 	}
 	// end register()
@@ -40,7 +39,6 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	 * @return void
 	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
-
 		$tokens = $phpcsFile->getTokens();
 		$find   = PHP_CodeSniffer_Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
@@ -100,7 +98,6 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	 * @return void
 	 */
 	protected function processReturn( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
-
 		$tokens = $phpcsFile->getTokens();
 		// Skip constructor and destructor.
 		$methodName      = $phpcsFile->getDeclarationName( $stackPtr );
@@ -143,7 +140,6 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	 * @return void
 	 */
 	protected function processThrows( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
-
 		$tokens = $phpcsFile->getTokens();
 		$throws = [];
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
@@ -179,7 +175,6 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	 * @return void
 	 */
 	protected function processParams( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
-
 		$tokens = $phpcsFile->getTokens();
 		$params  = [];
 		$maxType = 0;
