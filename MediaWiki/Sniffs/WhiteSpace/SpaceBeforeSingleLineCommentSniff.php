@@ -24,6 +24,16 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currToken = $tokens[$stackPtr];
+		$preToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr-1, null, true );
+		if ( $preToken !== false &&
+			$tokens[$preToken]['line'] === $tokens[$stackPtr]['line']
+		) {
+			$phpcsFile->addWarning(
+				'Comments should start on new line.',
+				$stackPtr,
+				'NewLineComment'
+				);
+		}
 		if ( $currToken['code'] === T_COMMENT ) {
 			// Accounting for multiple line comments, as single line comments
 			// use only '//' and '#'

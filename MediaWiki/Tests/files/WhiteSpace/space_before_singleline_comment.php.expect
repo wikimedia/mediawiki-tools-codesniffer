@@ -1,7 +1,7 @@
 
 FILE: ...aWiki/Tests/files/WhiteSpace/space_before_singleline_comment.php
 ----------------------------------------------------------------------
-FOUND 0 ERRORS AND 6 WARNINGS AFFECTING 6 LINES
+FOUND 0 ERRORS AND 8 WARNINGS AFFECTING 8 LINES
 ----------------------------------------------------------------------
   8 | WARNING | [x] Single space expected between "//" and comment
   9 | WARNING | [ ] Unnecessary empty comment found
@@ -9,9 +9,11 @@ FOUND 0 ERRORS AND 6 WARNINGS AFFECTING 6 LINES
  11 | WARNING | [ ] Unnecessary empty comment found
  12 | WARNING | [x] Single space expected between "//" and comment
  13 | WARNING | [x] Single space expected between "#" and comment
+ 14 | WARNING | [ ] Comments should start on new line.
+ 15 | WARNING | [ ] Comments should start on new line.
 ----------------------------------------------------------------------
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
-Time: 36ms; Memory: 3.25Mb
+Time: 55ms; Memory: 3.5Mb
 

@@ -27,7 +27,8 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	public function register() {
 
 		return [ T_FUNCTION ];
-	}// end register()
+	}
+	// end register()
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
@@ -86,7 +87,8 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
 		$this->processThrows( $phpcsFile, $stackPtr, $commentStart );
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );
-	}// end process()
+	}
+	// end process()
 
 	/**
 	 * Process the return comment of this function comment.
@@ -126,8 +128,10 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		} else {
 			$error = 'Missing @return tag in function comment';
 			$phpcsFile->addError( $error, $tokens[$commentStart]['comment_closer'], 'MissingReturn' );
-		}// end if
-	}// end processReturn()
+		}
+		// end if
+	}
+	// end processReturn()
 
 	/**
 	 * Process any throw tags that this function comment has.
@@ -160,8 +164,10 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 				$error = 'Exception type missing for @throws tag in function comment';
 				$phpcsFile->addError( $error, $tag, 'InvalidThrows' );
 			}
-		}// end foreach
-	}// end processThrows()
+		}
+		// end foreach
+	}
+	// end processThrows()
 
 	/**
 	 * Process the function parameter comments.
@@ -225,11 +231,13 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 				} else {
 					$error = 'Missing parameter name';
 					$phpcsFile->addError( $error, $tag, 'MissingParamName' );
-				}// end if
+				}
+				// end if
 			} else {
 				$error = 'Missing parameter type';
 				$phpcsFile->addError( $error, $tag, 'MissingParamType' );
-			}// end if
+			}
+			// end if
 			$params[] = [
 						 'tag'        => $tag,
 						 'type'       => $type,
@@ -238,7 +246,8 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 						 'type_space' => $typeSpace,
 						 'var_space'  => $varSpace,
 						];
-		}// end foreach
+		}
+		// end foreach
 		$realParams  = $phpcsFile->getMethodParameters( $stackPtr );
 		$foundParams = [];
 		// We want to use ... for all variable length arguments, so added
@@ -293,7 +302,8 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 				// We must have an extra parameter comment.
 				$error = 'Superfluous parameter comment';
 				$phpcsFile->addError( $error, $param['tag'], 'ExtraParamComment' );
-			}// end if
+			}
+			// end if
 			if ( $param['comment'] === '' ) {
 				continue;
 			}
@@ -317,7 +327,8 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 2 ), $content );
 				}
 			}
-		}// end foreach
+		}
+		// end foreach
 		$realNames = [];
 		foreach ( $realParams as $realParam ) {
 			$realNames[] = $realParam['name'];
@@ -329,5 +340,7 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 			$data  = [ $neededParam ];
 			$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', $data );
 		}
-	}// end processParams()
-}// end class
+	}
+	// end processParams()
+}
+// end class

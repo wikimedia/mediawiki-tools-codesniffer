@@ -11,6 +11,9 @@ function wfFailedExamples() {
 	#
 	// A comment without a space
 	# Yup, no spaces.
+	$a = 'Comments should on new line.'; # This is failed.
+	$b = 'Also not like this.'; /* This is also failed.
+								please attention.*/
 }
 
 /**
