@@ -1,0 +1,11 @@
+
+FILE: ...-codesniffer/MediaWiki/Tests/files/Usage/super_globals_usage.php
+----------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+----------------------------------------------------------------------
+ 8 | ERROR | "$_GET" superglobals should not be accessed.
+ 9 | ERROR | "$_POST" superglobals should not be accessed.
+----------------------------------------------------------------------
+
+Time: 31ms; Memory: 3.5Mb
+
