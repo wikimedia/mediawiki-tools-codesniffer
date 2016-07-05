@@ -2,7 +2,7 @@
 /**
  * Just for test.
  */
-class Test{
+class Test {
 	/**
 	 * Lower camel case.
 	 * @return void
