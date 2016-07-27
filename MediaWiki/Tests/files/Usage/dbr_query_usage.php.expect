@@ -1,0 +1,10 @@
+
+FILE: ...wiki-codesniffer/MediaWiki/Tests/files/Usage/dbr_query_usage.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 12 | WARNING | Call $dbr->select() wrapper instead of $dbr->query()
+----------------------------------------------------------------------
+
+Time: 24ms; Memory: 3.75Mb
+
