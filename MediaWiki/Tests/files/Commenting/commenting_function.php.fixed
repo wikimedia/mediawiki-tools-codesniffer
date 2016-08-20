@@ -25,14 +25,20 @@ class TestFailedExamples {
 }
 
 class TestPassedExamples {
-
+	/**
+	 * Without return.
+	 * @param int $a for test.
+	 */
+	public function __construct( $a ) {
+		$this->test( $a );
+	}
 	/**
 	 * Single Test function.
 	 *
-	 * @param int $testVar For test.
+	 * @param int &$testVar For test.
 	 * @return int $testVar For test.
 	 */
-	public function test( $testVar ) {
+	public function test( &$testVar ) {
 		return $testVar;
 	}
 

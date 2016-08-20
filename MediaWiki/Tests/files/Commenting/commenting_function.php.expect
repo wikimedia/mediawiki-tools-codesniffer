@@ -11,5 +11,5 @@ FOUND 4 ERRORS AFFECTING 4 LINES
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
-Time: 20ms; Memory: 3.5Mb
+Time: 64ms; Memory: 3.75Mb
 

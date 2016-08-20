@@ -100,8 +100,17 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	protected function processReturn( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
 		// Skip constructor and destructor.
-		$methodName      = $phpcsFile->getDeclarationName( $stackPtr );
-		$isSpecialMethod = ( $methodName === '__construct' || $methodName === '__destruct' );
+		$methodName = $phpcsFile->getDeclarationName( $stackPtr );
+		$endFunction = $tokens[$stackPtr]['scope_closer'];
+		// Return if no scope_opener.
+		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
+			return;
+		}
+		$returnToken = $phpcsFile->findNext( T_RETURN, $stackPtr + 1, $endFunction );
+		// Return if the function has no return.
+		if ( $returnToken === false ) {
+			return;
+		}
 		$return = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			if ( $tokens[$tag]['content'] === '@return' ) {
@@ -112,9 +121,6 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 				}
 				$return = $tag;
 			}
-		}
-		if ( $isSpecialMethod === true ) {
-			return;
 		}
 		if ( $return !== null ) {
 			$content = $tokens[( $return + 2 )]['content'];
@@ -248,6 +254,9 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		// We want to use ... for all variable length arguments, so added
 		// this prefix to the variable name so comparisons are easier.
 		foreach ( $realParams as $pos => $param ) {
+			if ( $realParams[$pos]['pass_by_reference'] === true ) {
+				$realParams[$pos]['name'] = '&'.$realParams[$pos]['name'];
+			}
 			if ( $param['variable_length'] === true ) {
 				$realParams[$pos]['name'] = '...'.$realParams[$pos]['name'];
 			}
