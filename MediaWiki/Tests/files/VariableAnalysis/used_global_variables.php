@@ -26,5 +26,4 @@ PHP;
 
 	// global variable used via string.
 	$foo = "foo$wgNothing";
-
 }

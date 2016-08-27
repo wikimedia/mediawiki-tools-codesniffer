@@ -85,6 +85,7 @@
 	<rule ref="PSR2.Methods.MethodDeclaration" />
 	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 	<rule ref="PSR2.Namespaces.UseDeclaration" />
+	<rule ref="PSR2.Methods.FunctionClosingBrace" />
 
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.ValidClassName" />
