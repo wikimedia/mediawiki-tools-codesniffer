@@ -9,6 +9,8 @@ FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
     |         |     should be same line.find 2
  21 | WARNING | [x] Expected 1 space before class open brace and
     |         |     should be same line.find 1
+ 29 | WARNING | [x] Expected 1 space before class open brace and
+    |         |     should be same line.find 0
 ----------------------------------------------------------------------
 PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------

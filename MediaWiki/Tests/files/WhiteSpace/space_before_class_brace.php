@@ -25,3 +25,7 @@ class TesFailedExamples2
 class TestPassedExamples {
 	# coding...
 }
+
+class TestShouldFail extends AClass{
+	# coding...
+}
