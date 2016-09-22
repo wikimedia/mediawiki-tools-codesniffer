@@ -1,5 +1,25 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.8.0-alpha.1 / 2016-09-21 ##
+* Add detection for calling global functions in target classes. (Tao Xie)
+* Add function commenting sniff. (Lethexie)
+* Add .idea directory to .gitignore (Florian Schmidt)
+* Add sniff to confirm function name using lower camel case. (Lethexie)
+* Add test to verify SpaceBeforeClassBraceSniff handles extends (Kunal Mehta)
+* Add the SpaceBeforeClassBraceSniff (Lethe)
+* Add the SpaceBeforeControlStructureBraceSniff (Lethexie)
+* Add usage to forbid superglobals like $_GET,$_POST (Lethe)
+* Comments should start with new line. (Lethe)
+* Disallow parenthesis around keywords like clone or require (Florian)
+* Enable PSR2.Methods.FunctionClosingBrace sniff (Kunal Mehta)
+* Fix reference parameters warning and no return function need return tag (Lethe)
+* Fix single space expected on single line comment. (Lethexie)
+* Make sure no empty line at the begin of the function. (Lethexie)
+* Put failed examples and passed examples into a file. (Lethexie)
+* Report warnings when $dbr->query() is used instead of $dbr->select(). (Tao Xie)
+* Single Line comments no multiple '*'. (Lethe)
+* Update squizlabs/php_codesniffer to 2.7.0 (Paladox)
+
 ## 0.7.2 / 2016-05-27 ##
 * SpaceyParenthesisSniff: Don't remove last argument or array element (Kevin Israel)
 * Expect specific output from sniffs (Erik Bernhardson)
