@@ -45,12 +45,11 @@
 	<rule ref="Generic.Formatting.MultipleStatementAlignment.NotSameWarning">
 		<severity>0</severity>
 	</rule>
-	<!--
-		Community is undecided about (type) $cast vs. (type)$cast (bug 48450).
-		<rule ref="Generic.Formatting.SpaceAfterCast" />
-	-->
-	<!-- Use "(type)" instead of "( type )" -->
+
+	<!-- When type casting, do not use a space within or after the cast operator parentheses. -->
 	<rule ref="Squiz.WhiteSpace.CastSpacing" />
+	<rule ref="Generic.Formatting.NoSpaceAfterCast" />
+
 	<rule ref="Generic.Functions.CallTimePassByReference" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
