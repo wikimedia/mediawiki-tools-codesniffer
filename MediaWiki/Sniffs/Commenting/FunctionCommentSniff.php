@@ -99,13 +99,11 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	 */
 	protected function processReturn( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
-		// Skip constructor and destructor.
-		$methodName = $phpcsFile->getDeclarationName( $stackPtr );
-		$endFunction = $tokens[$stackPtr]['scope_closer'];
 		// Return if no scope_opener.
 		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
 			return;
 		}
+		$endFunction = $tokens[$stackPtr]['scope_closer'];
 		$returnToken = $phpcsFile->findNext( T_RETURN, $stackPtr + 1, $endFunction );
 		// Return if the function has no return.
 		if ( $returnToken === false ) {

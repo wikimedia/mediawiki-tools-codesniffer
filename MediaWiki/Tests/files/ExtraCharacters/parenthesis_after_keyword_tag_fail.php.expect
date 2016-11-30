@@ -18,7 +18,7 @@ FOUND 4 ERRORS AND 10 WARNINGS AFFECTING 10 LINES
  16 | WARNING | [x] include_once keyword must not be used as a
     |         |     function.
 ----------------------------------------------------------------------
-PHPCBF CAN FIX THE 14 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------
 
 Time: 24496728 mins, 22.78 secs; Memory: 11.5Mb

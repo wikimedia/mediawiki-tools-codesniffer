@@ -1,11 +1,8 @@
 
 FILE: ...les/ExtraCharacters/extra_characters_before_phpopen_tag_fail.php
 ----------------------------------------------------------------------
-<<<<<<< HEAD
-=======
 FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
->>>>>>> Put failed examples and passed examples into a file.
  1 | ERROR | Extra character found before first <?
 ----------------------------------------------------------------------
 

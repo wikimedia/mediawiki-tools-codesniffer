@@ -7,4 +7,5 @@ function wfFoo() {
 	# code...
 }
 ?>
-T<?php // this php open tag will in any case be ignored
+T<?php
+// This php open tag will in any case be ignored

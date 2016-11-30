@@ -127,29 +127,14 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	private function prepareOutput( $outputStr ) {
 		if ( $outputStr ) {
 			$outputLines = explode( "\n", $outputStr );
-			$outputLines = $this->stripTwoDashLines( $outputLines, true );
-			$outputLines = $this->stripTwoDashLines( $outputLines, false );
+			// Remove lines that are empty or all dashes:
+			$outputLines = preg_grep( '/^-*$/', $outputLines, PREG_GREP_INVERT );
+			// Remove lines that start with 'Time:', 'FOUND', or 'FILE:':
+			$outputLines = preg_grep( '/^(Time:|FOUND|FILE:) .*$/', $outputLines, PREG_GREP_INVERT );
 			$outputStr = implode( "\n", $outputLines );
 		}
 
 		return $outputStr;
-	}
-
-	/**
-	 * @param string[] $lines The array of lines.
-	 * @param boolean $front When true strip from the front of array. Otherwise the end.
-	 * @return string[] $lines The processed array of lines.
-	 */
-	private function stripTwoDashLines( array $lines, $front = true ) {
-		$dashLines = 0;
-		while ( $lines && $dashLines < 2 ) {
-			$line = $front ? array_shift( $lines ) : array_pop( $lines );
-			if ( strlen( $line ) > 0 && $line[0] === '-' ) {
-				$dashLines++;
-			}
-		}
-
-		return $lines;
 	}
 
 }

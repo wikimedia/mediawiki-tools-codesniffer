@@ -33,24 +33,25 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeControlStructureBraceSniff
 	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		$closeBracket = $tokens[$stackPtr + 2]['parenthesis_closer'];
-		$openBrace = $tokens[$stackPtr]['scope_opener'];
-		$closeBracketLine = $tokens[$closeBracket]['line'];
-		$openBraceLine = $tokens[$openBrace]['line'];
-		$lineDifference = ( $openBraceLine - $closeBracketLine );
-		if ( isset( $tokens[$stackPtr]['scope_opener'] ) == false ||
-			$tokens[$stackPtr]['scope_opener'] === false ||
-			$tokens[$openBrace]['content'] !== '{'
-		) {
+		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ||
+			$tokens[$stackPtr]['scope_opener'] === false ) {
 			return;
 		}
-
+		$openBrace = $tokens[$stackPtr]['scope_opener'];
+		if ( $tokens[$openBrace]['content'] !== '{' ) {
+			return;
+		}
 		if ( $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE
 			|| $tokens[$stackPtr + 2]['code'] !== T_OPEN_PARENTHESIS
 			|| $tokens[$stackPtr + 2]['parenthesis_closer'] === null
 		) {
 			return;
 		}
+
+		$closeBracket = $tokens[$stackPtr + 2]['parenthesis_closer'];
+		$closeBracketLine = $tokens[$closeBracket]['line'];
+		$openBraceLine = $tokens[$openBrace]['line'];
+		$lineDifference = ( $openBraceLine - $closeBracketLine );
 		if ( $lineDifference > 0 ) {
 			// if brace on new line
 			$this->processLineDiff( $phpcsFile, $openBrace, $closeBracket, $stackPtr );
