@@ -32,6 +32,18 @@ class TestPassedExamples {
 	public function __construct( $a ) {
 		$this->test( $a );
 	}
+
+	/**
+	 * A blank return does not require a return tag
+	 */
+	public function emptyReturn() {
+		if ( $fooBar ) {
+			return;
+		}
+
+		baz();
+	}
+
 	/**
 	 * Single Test function.
 	 *

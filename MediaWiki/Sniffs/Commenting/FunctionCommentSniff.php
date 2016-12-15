@@ -113,6 +113,14 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		if ( $returnToken === false ) {
 			return;
 		}
+
+		while ( isset( $tokens[$returnToken+1] ) && $tokens[$returnToken+1]['code'] === T_SEMICOLON ) {
+			$returnToken = $phpcsFile->findNext( T_RETURN, $returnToken + 1, $endFunction );
+			if ( $returnToken === false ) {
+				return;
+			}
+		}
+
 		$return = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			if ( $tokens[$tag]['content'] === '@return' ) {
