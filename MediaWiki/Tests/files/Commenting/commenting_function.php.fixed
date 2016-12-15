@@ -54,4 +54,9 @@ class TestPassedExamples {
 		return $testVar;
 	}
 
+	private function noDocs( $foo, $baz ) {
+		// This function has no documentation because
+		// it is private
+		echo $foo;
+	}
 }

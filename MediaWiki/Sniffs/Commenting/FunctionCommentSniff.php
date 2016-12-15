@@ -44,6 +44,21 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 			return;
 		}
 		$tokens = $phpcsFile->getTokens();
+		// Identify the visiblity of the function
+		$visibility = $phpcsFile->findPrevious( [ T_PUBLIC, T_PROTECTED, T_PRIVATE ], $stackPtr - 1 );
+		$visStr = 'Public';
+		if ( $visibility ) {
+			$visInfo = $tokens[$visibility];
+			if ( $visInfo['line'] == $tokens[$stackPtr]['line'] ) {
+				if ( $visInfo['code'] == T_PRIVATE ) {
+					// Don't check documentation for private functions
+					return;
+				} elseif ( $visInfo['code'] == T_PROTECTED ) {
+					$visStr = 'Protected';
+				}
+			}
+		}
+
 		$find   = PHP_CodeSniffer_Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
 		$commentEnd = $phpcsFile->findPrevious( $find, ( $stackPtr - 1 ), null, true );
@@ -60,7 +75,7 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
-			$phpcsFile->addError( 'Missing function doc comment', $stackPtr, 'Missing' );
+			$phpcsFile->addError( 'Missing function doc comment', $stackPtr, "Missing.$visStr" );
 			$phpcsFile->recordMetric( $stackPtr, 'Function has doc comment', 'no' );
 			return;
 		} else {
