@@ -39,6 +39,10 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	 * @return void
 	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+		if ( substr( $phpcsFile->getFilename(), -8 ) === 'Test.php' ) {
+			// Don't check documentation for test cases
+			return;
+		}
 		$tokens = $phpcsFile->getTokens();
 		$find   = PHP_CodeSniffer_Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
