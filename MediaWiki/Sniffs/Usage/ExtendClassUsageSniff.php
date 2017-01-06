@@ -108,8 +108,13 @@ class MediaWiki_Sniffs_Usage_ExtendClassUsageSniff implements PHP_CodeSniffer_Sn
 			&& $stackPtr < $this->eligableCls['scope_end']
 		) {
 			if ( $currToken['code'] === T_FUNCTION ) {
+				// If this is a function, make sure it's eligible
+				// (i.e. not static or abstract, and has a body).
 				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
-				if ( !$methodProps['is_static'] && !$methodProps['is_abstract'] ) {
+				$isStaticOrAbstract = $methodProps['is_static'] || $methodProps['is_abstract'];
+				$hasBody = isset( $currToken['scope_opener'] )
+					&& isset( $currToken['scope_closer'] );
+				if ( !$isStaticOrAbstract && $hasBody ) {
 					$funcNamePtr = $phpcsFile->findNext( T_STRING, $stackPtr );
 					$this->eligableFunc = [
 						'name' => $tokens[$funcNamePtr]['content'],
