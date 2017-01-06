@@ -7,7 +7,7 @@ FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
     |         | wfMessage() .
  64 | WARNING | Should use function $this->getUser() rather than
     |         | variable $wgUser .
- 88 | WARNING | Should use function $this->getRequest() rather than
+ 93 | WARNING | Should use function $this->getRequest() rather than
     |         | variable $wgRequest .
 ----------------------------------------------------------------------
 

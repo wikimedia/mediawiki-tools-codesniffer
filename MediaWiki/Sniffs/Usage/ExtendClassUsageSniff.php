@@ -109,7 +109,7 @@ class MediaWiki_Sniffs_Usage_ExtendClassUsageSniff implements PHP_CodeSniffer_Sn
 		) {
 			if ( $currToken['code'] === T_FUNCTION ) {
 				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
-				if ( !$methodProps['is_static'] ) {
+				if ( !$methodProps['is_static'] && !$methodProps['is_abstract'] ) {
 					$funcNamePtr = $phpcsFile->findNext( T_STRING, $stackPtr );
 					$this->eligableFunc = [
 						'name' => $tokens[$funcNamePtr]['content'],

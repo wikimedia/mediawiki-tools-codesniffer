@@ -72,7 +72,12 @@ class UserTest extends ContextSource {
 	}
 }
 
-class RequestTest extends ContextSource {
+abstract class RequestTest extends ContextSource {
+
+	/**
+	 * @return mixed
+	 */
+	abstract public function abstractFunctionExample();
 
 	/**
 	 * @return object the request information.
