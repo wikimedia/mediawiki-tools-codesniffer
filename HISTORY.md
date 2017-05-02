@@ -1,5 +1,15 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.8.0 / 2017-05-03 ##
+* Add sniff for cast operator spacing (Sam Wilson)
+* Allow filtering documentation requirements based on visibility (Kunal Mehta)
+* Don't require documentation for test cases (Kunal Mehta)
+* Don't require @return annotations for plain "return;" (Kunal Mehta)
+* Explicitely check for method structure before using (Sam Wilson)
+* Fix test result parsing, and correct new errors that were exposed (Sam Wilson)
+* Prevent abstract functions being marked eligible (Sam Wilson)
+* PHP_CodeSniffer to 2.9.0 (Paladox)
+
 ## 0.8.0-alpha.1 / 2016-09-21 ##
 * Add detection for calling global functions in target classes. (Tao Xie)
 * Add function commenting sniff. (Lethexie)
