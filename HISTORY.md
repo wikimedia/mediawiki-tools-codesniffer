@@ -5,7 +5,7 @@
 * Allow filtering documentation requirements based on visibility (Kunal Mehta)
 * Don't require documentation for test cases (Kunal Mehta)
 * Don't require @return annotations for plain "return;" (Kunal Mehta)
-* Explicitely check for method structure before using (Sam Wilson)
+* Explicitly check for method structure before using (Sam Wilson)
 * Fix test result parsing, and correct new errors that were exposed (Sam Wilson)
 * Prevent abstract functions being marked eligible (Sam Wilson)
 * PHP_CodeSniffer to 2.9.0 (Paladox)
