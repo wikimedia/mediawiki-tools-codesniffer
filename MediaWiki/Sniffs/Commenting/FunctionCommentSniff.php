@@ -44,6 +44,11 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 			return;
 		}
 		$tokens = $phpcsFile->getTokens();
+		$funcName = $tokens[$stackPtr+2];
+		if ( $funcName['content'] === '__toString' ) {
+			// Don't require documentation for an obvious method
+			return;
+		}
 		// Identify the visiblity of the function
 		$visibility = $phpcsFile->findPrevious( [ T_PUBLIC, T_PROTECTED, T_PRIVATE ], $stackPtr - 1 );
 		$visStr = 'Public';

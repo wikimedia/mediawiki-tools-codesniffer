@@ -59,4 +59,8 @@ class TestPassedExamples {
 		// it is private
 		echo $foo;
 	}
+
+	public function __toString() {
+		return 'no documentation because obvious';
+	}
 }
