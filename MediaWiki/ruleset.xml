@@ -80,6 +80,7 @@
 		<severity>0</severity>
 	</rule>
 	<rule ref="Generic.ControlStructures.InlineControlStructure" />
+	<rule ref="PSR2.Files.EndFileNewline" />
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration" />
 	<rule ref="PSR2.Methods.MethodDeclaration" />
 	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
