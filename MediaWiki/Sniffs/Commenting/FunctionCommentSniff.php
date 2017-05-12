@@ -124,16 +124,25 @@ class FunctionCommentSniff implements Sniff {
 			$phpcsFile->addError( $error, $commentEnd, 'SpacingAfter' );
 		}
 		$commentStart = $tokens[$commentEnd]['comment_opener'];
+		$inheritDoc = false;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
-			if ( $tokens[$tag]['content'] === '@see' ) {
+			$tagText = $tokens[$tag]['content'];
+			if ( $tagText === '@see' ) {
 				// Make sure the tag isn't empty.
 				$string = $phpcsFile->findNext( T_DOC_COMMENT_STRING, $tag, $commentEnd );
 				if ( $string === false || $tokens[$string]['line'] !== $tokens[$tag]['line'] ) {
 					$error = 'Content missing for @see tag in function comment';
 					$phpcsFile->addError( $error, $tag, 'EmptySees' );
 				}
+			} elseif ( $tagText === '@inheritDoc' ) {
+				$inheritDoc = true;
 			}
 		}
+		if ( $inheritDoc ) {
+			// Don't need to validate anything else
+			return;
+		}
+
 		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
 		$this->processThrows( $phpcsFile, $stackPtr, $commentStart );
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );

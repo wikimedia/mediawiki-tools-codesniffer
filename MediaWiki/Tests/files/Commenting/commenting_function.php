@@ -64,6 +64,13 @@ class TestPassedExamples {
 		echo $foo;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function inherit( $stuff, $more, $blah ) {
+		$blah = $more . $stuff . $blah;
+	}
+
 	public function __toString() {
 		return 'no documentation because obvious';
 	}
