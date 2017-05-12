@@ -61,6 +61,11 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		if ( in_array( $funcName['content'], $this->skipStandardMethods ) ) {
 			// Don't require documentation for an obvious method
 			return;
+		} elseif ( $funcName['content'] === '__construct'
+			&& !$phpcsFile->getMethodParameters( $stackPtr )
+		) {
+			// Don't require documentation for constructors with no parameters
+			return;
 		}
 		// Identify the visiblity of the function
 		$visibility = $phpcsFile->findPrevious( [ T_PUBLIC, T_PROTECTED, T_PRIVATE ], $stackPtr - 1 );

@@ -2,6 +2,10 @@
 
 class TestFailedExamples {
 
+	public function __construct( $a ) {
+		$this->a = $a;
+	}
+
 	public function testNoDoc( $testVar ) {
 		return $testVar;
 	}
@@ -62,5 +66,11 @@ class TestPassedExamples {
 
 	public function __toString() {
 		return 'no documentation because obvious';
+	}
+}
+
+class TestSimpleConstructor {
+	public function __construct() {
+		$this->info = 'no documentation because obvious';
 	}
 }
