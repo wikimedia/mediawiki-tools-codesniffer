@@ -18,6 +18,19 @@
  */
 // @codingStandardsIgnoreStart
 class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_Sniff {
+
+	/**
+	 * Standard class methods that
+	 * don't require documentation
+	 *
+	 * @var array
+	 */
+	private $skipStandardMethods = [
+		'__toString', '__destruct',
+		'__sleep', '__wakeup',
+		'__clone'
+	];
+
 	// @codingStandardsIgnoreEnd
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -45,7 +58,7 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		}
 		$tokens = $phpcsFile->getTokens();
 		$funcName = $tokens[$stackPtr+2];
-		if ( $funcName['content'] === '__toString' ) {
+		if ( in_array( $funcName['content'], $this->skipStandardMethods ) ) {
 			// Don't require documentation for an obvious method
 			return;
 		}
