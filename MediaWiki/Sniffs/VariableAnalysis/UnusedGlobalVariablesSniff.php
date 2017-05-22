@@ -3,10 +3,16 @@
  * Detect unused MediaWiki global variable.
  * Unused global variables should be removed.
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
-	implements PHP_CodeSniffer_Sniff {
-	// @codingStandardsIgnoreEnd
+
+namespace MediaWiki\Sniffs\VariableAnalysis;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
+use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
+
+class UnusedGlobalVariablesSniff implements Sniff {
 
 	/**
 	 * @return array
@@ -16,11 +22,11 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 	}
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
 			// An interface or abstract function which doesn't have a body
@@ -36,7 +42,7 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 		$strVariables = [];
 
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
-			if ( array_key_exists( $tokens[$i]['type'], PHP_CodeSniffer_Tokens::$emptyTokens ) ) {
+			if ( array_key_exists( $tokens[$i]['type'], Tokens::$emptyTokens ) ) {
 				continue;
 			}
 			if ( $tokens[$i]['type'] === 'T_GLOBAL' ) {
@@ -63,7 +69,11 @@ class MediaWiki_Sniffs_VariableAnalysis_UnusedGlobalVariablesSniff
 			if ( !array_key_exists( $global[0], $otherVariables )
 				&& !in_array( $global[0], $strVariables )
 			) {
-				$phpcsFile->addWarning( 'Global ' . $global[0] .' is never used.', $global[1] );
+				$phpcsFile->addWarning(
+					'Global ' . $global[0] .' is never used.',
+					$global[1],
+					'UnusedGlobal' . $global[0]
+				);
 			}
 		}
 	}

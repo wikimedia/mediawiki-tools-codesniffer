@@ -8,9 +8,13 @@
  * pass: if ( $a == 1 ) {
  * pass: switch ( $a ) {
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeControlStructureBraceSniff
-	implements PHP_CodeSniffer_Sniff {
+
+namespace MediaWiki\Sniffs\WhiteSpace;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	// @codingStandardsIgnoreEnd
 	/**
 	 * @return array
@@ -27,11 +31,11 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeControlStructureBraceSniff
 		];
 	}
 	/**
-	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  File $phpcsFile File object.
 	 * @param  int $stackPtr The index of current token.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ||
 			$tokens[$stackPtr]['scope_opener'] === false ) {
@@ -65,13 +69,13 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeControlStructureBraceSniff
 	/**
 	 * Process The close parenthesis on the same line as open brace.
 	 *
-	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  File $phpcsFile File object.
 	 * @param  int $openBrace The index of open brace.
 	 * @param  int $closeBracket The index of close bracket.
 	 * @param  int $stackPtr The index of current token.
 	 * @return void
 	 */
-	protected function processLineDiff( PHP_CodeSniffer_File $phpcsFile, $openBrace,
+	protected function processLineDiff( File $phpcsFile, $openBrace,
 		$closeBracket, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$phpcsFile->recordMetric( $stackPtr, 'Control Structs opening brace placement', 'new line' );
@@ -93,13 +97,13 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeControlStructureBraceSniff
 	/**
 	 * Process The close parenthesis on the different line with open brace.
 	 *
-	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  File $phpcsFile File object.
 	 * @param  int $openBrace The index of open brace.
 	 * @param  int $closeBracket The index of close bracket.
 	 * @param  int $stackPtr The index of current token.
 	 * @return void
 	 */
-	protected function processLineSame( PHP_CodeSniffer_File $phpcsFile, $openBrace,
+	protected function processLineSame( File $phpcsFile, $openBrace,
 		$closeBracket, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$content = $phpcsFile->getTokensAsString( $closeBracket + 1, $openBrace - $closeBracket - 1 );
@@ -124,12 +128,12 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeControlStructureBraceSniff
 	/**
 	 * Process empty line after the open brace.
 	 *
-	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  File $phpcsFile File object.
 	 * @param  int $openBrace The index of open brace.
 	 * @param  int $stackPtr The index of current token.
 	 * @return void
 	 */
-	protected function processEmptyLine( PHP_CodeSniffer_File $phpcsFile, $openBrace, $stackPtr ) {
+	protected function processEmptyLine( File $phpcsFile, $openBrace, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$next = $phpcsFile->findNext( T_WHITESPACE, $openBrace + 2, null, false );
 		$found = strpos( $tokens[$next]['content'], $phpcsFile->eolChar );

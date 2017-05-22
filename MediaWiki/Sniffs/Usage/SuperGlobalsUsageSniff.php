@@ -7,9 +7,12 @@
  * Fail: $_SERVER['ip']
  */
 
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_Usage_SuperGlobalsUsageSniff implements PHP_CodeSniffer_Sniff {
-	// @codingStandardsIgnoreEnd
+namespace MediaWiki\Sniffs\Usage;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class SuperGlobalsUsageSniff implements Sniff {
 
 	// The list of forbidden superglobals
 	// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Global_objects
@@ -25,11 +28,11 @@ class MediaWiki_Sniffs_Usage_SuperGlobalsUsageSniff implements PHP_CodeSniffer_S
 	}
 
 	/**
-	 * @param  PHP_CodeSniffer_File $phpcsFile The PHP_CodeSniffer_File object.
+	 * @param  File $phpcsFile The File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currentToken = $tokens[$stackPtr];
 		if ( isset( self::$forbiddenList[$currentToken['content']] ) === true ) {

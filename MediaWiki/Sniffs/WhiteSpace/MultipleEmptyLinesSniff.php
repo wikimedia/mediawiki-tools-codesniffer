@@ -2,9 +2,14 @@
 /**
  * Check multiple consecutive newlines in a file.
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_WhiteSpace_MultipleEmptyLinesSniff
-	implements PHP_CodeSniffer_Sniff {
+
+namespace MediaWiki\Sniffs\WhiteSpace;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class MultipleEmptyLinesSniff
+	implements Sniff {
 	// @codingStandardsIgnoreEnd
 
 	/**
@@ -17,11 +22,11 @@ class MediaWiki_Sniffs_WhiteSpace_MultipleEmptyLinesSniff
 	}
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
 		if ( $stackPtr > 2

@@ -2,10 +2,14 @@
 /**
  * Verify specific control structures are followed by a single space.
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
-	implements PHP_CodeSniffer_Sniff {
-	// @codingStandardsIgnoreEnd
+
+namespace MediaWiki\Sniffs\WhiteSpace;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class SpaceAfterControlStructureSniff
+	implements Sniff {
 
 	/**
 	 * @return array
@@ -24,11 +28,11 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceAfterControlStructureSniff
 	}
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$nextToken = $tokens[$stackPtr + 1];
 		if ( $nextToken['code'] !== T_WHITESPACE || $nextToken['content'] !== ' ' ) {

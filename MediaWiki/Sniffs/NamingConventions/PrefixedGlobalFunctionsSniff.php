@@ -4,9 +4,13 @@
  * A global function's name must be prefixed with 'wf' or 'ef'.
  * Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Naming
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
-	implements PHP_CodeSniffer_Sniff {
+
+namespace MediaWiki\Sniffs\NamingConventions;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class PrefixedGlobalFunctionsSniff implements Sniff {
 
 	// @codingStandardsIgnoreEnd
 
@@ -22,29 +26,29 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 	/**
 	 * @var int[] array containing the first locations of namespaces in files that we have seen so far.
 	 */
-	private static $firstNamespaceLocations = [];
+	private $firstNamespaceLocations = [];
 
 	/**
 	 * @var string[] array containing a list of files that contain no namespace statements.
 	 */
-	private static $noNamespaceFiles = [];
+	private $noNamespaceFiles = [];
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $ptr The current token index.
 	 *
 	 * @return bool Does a namespace statement exist before this position in the file?
 	 */
-	private function tokenIsNamespaced( PHP_CodeSniffer_File $phpcsFile, $ptr ) {
+	private function tokenIsNamespaced( File $phpcsFile, $ptr ) {
 		$fileName = $phpcsFile->getFilename();
 		// Check if we already know if the token is namespaced or not and return early if possible.
 		if (
-			isset( self::$firstNamespaceLocations[$fileName] ) &&
-			$ptr > self::$firstNamespaceLocations[$fileName]
+			isset( $this->firstNamespaceLocations[$fileName] ) &&
+			$ptr > $this->firstNamespaceLocations[$fileName]
 		) {
 			return true;
 		}
-		if ( isset( self::$noNamespaceFiles[$fileName] ) ) {
+		if ( isset( $this->noNamespaceFiles[$fileName] ) ) {
 			return false;
 		}
 
@@ -55,18 +59,18 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 			$token = $tokens[$tokenIndex];
 			if ( $token['type'] === "T_NAMESPACE" && !isset( $token['scope_opener'] ) ) {
 				// In the format of "namespace Foo;", which applies to everything below
-				self::$firstNamespaceLocations[$fileName] = $tokenIndex;
+				$this->firstNamespaceLocations[$fileName] = $tokenIndex;
 			}
 			$tokenIndex--;
 		}
-		if ( !isset( self::$firstNamespaceLocations[$fileName] ) ) {
-			self::$noNamespaceFiles[$fileName] = true;
+		if ( !isset( $this->firstNamespaceLocations[$fileName] ) ) {
+			$this->noNamespaceFiles[$fileName] = true;
 		}
 
 		// Return if the token was namespaced.
 		if (
-			isset( self::$firstNamespaceLocations[$fileName] ) &&
-			$ptr > self::$firstNamespaceLocations[$fileName]
+			isset( $this->firstNamespaceLocations[$fileName] ) &&
+			$ptr > $this->firstNamespaceLocations[$fileName]
 		) {
 			return true;
 		}
@@ -74,11 +78,11 @@ class MediaWiki_Sniffs_NamingConventions_PrefixedGlobalFunctionsSniff
 		return false;
 	}
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		if ( $this->tokenIsNamespaced( $phpcsFile, $stackPtr ) ) {
 			return;
 		}

@@ -4,9 +4,12 @@
  *
  */
 
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_Usage_DbrQueryUsageSniff implements PHP_CodeSniffer_Sniff {
-	// @codingStandardsIgnoreEnd
+namespace MediaWiki\Sniffs\Usage;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class DbrQueryUsageSniff implements Sniff {
 
 	/**
 	 * @return array
@@ -20,11 +23,11 @@ class MediaWiki_Sniffs_Usage_DbrQueryUsageSniff implements PHP_CodeSniffer_Sniff
 	}
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currToken = $tokens[$stackPtr];
 

@@ -2,9 +2,13 @@
 /**
  * Make sure lower camel function name.
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_NamingConventions_LowerCamelFunctionsNameSniff
-	implements PHP_CodeSniffer_Sniff {
+
+namespace MediaWiki\Sniffs\NamingConventions;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class LowerCamelFunctionsNameSniff implements Sniff {
 	// @codingStandardsIgnoreEnd
 
 	// Magic methods.
@@ -56,11 +60,11 @@ class MediaWiki_Sniffs_NamingConventions_LowerCamelFunctionsNameSniff
 	}
 
 	/**
-	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  File $phpcsFile File object.
 	 * @param  int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$functionContent = $tokens[$stackPtr+2]['content'];
 		$lowerFunctionName = strtolower( $functionContent );

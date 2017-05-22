@@ -23,10 +23,12 @@
  *  - Rename appropriatly
  *  - Adapt $this->helper->runPhpCs call to pass second parameter $standard
  */
+use MediaWiki\Sniffs\Tests\MediaWikiTestHelper;
+
 class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * @var TestHelper
+	 * @var MediaWikiTestHelper
 	 */
 	private $helper;
 
@@ -126,6 +128,8 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 */
 	private function prepareOutput( $outputStr ) {
 		if ( $outputStr ) {
+			// Remove colors
+			$outputStr = preg_replace( '`\033\[[0-9;]+m`', '', $outputStr );
 			$outputLines = explode( "\n", $outputStr );
 			// Remove lines that are empty or all dashes:
 			$outputLines = preg_grep( '/^-*$/', $outputLines, PREG_GREP_INVERT );

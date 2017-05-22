@@ -1,15 +1,12 @@
 <?php
 
-use org\bovigo\vfs\vfsStream;
+namespace MediaWiki\Sniffs\Tests;
+
+use PHP_CodeSniffer\Config;
+use PHP_CodeSniffer\Files\DummyFile;
+use PHP_CodeSniffer\Ruleset;
 
 class MediaWikiTestHelper extends TestHelper {
-	/**
-	 * @return void
-	 */
-	public function __construct() {
-		parent::__construct();
-		$this->vfsRoot = vfsStream::setup( 'root' );
-	}
 
 	/**
 	 * @param  string $file The path of file.
@@ -20,56 +17,20 @@ class MediaWikiTestHelper extends TestHelper {
 		if ( empty( $standard ) ) {
 			$standard = $this->rootDir . '/ruleset.xml';
 		}
-		$defaults = $this->phpcs->getDefaults();
+		$config = new Config();
+		$config->standards = [ $standard ];
+		$config->files = [ $file ];
+		$config->encoding = 'utf-8';
 
-		if (
-			defined( 'PHP_CodeSniffer::VERSION' ) &&
-			version_compare( PHP_CodeSniffer::VERSION, '1.5.0' ) != -1
-		) {
-			$standard = [ $standard ];
-		}
-		$options = [
-			'encoding' => 'utf-8',
-			'files' => [ $file ],
-			'standard' => $standard,
-			'reports' => [ 'diff' => vfsStream::url( 'root/phpcbf-fixed.diff' ) ]
-		] + $defaults;
+		$ruleset = new Ruleset( $config );
+		$dummy = new DummyFile( file_get_contents( $file ), $ruleset, $config );
 
-		ob_start();
-		$this->phpcs->process( $options );
-		ob_end_clean();
-
-		if ( !$this->vfsRoot->hasChild( 'phpcbf-fixed.diff' ) ) {
-			// no diff generated, return source file
+		$dummy->process();
+		if ( $dummy->getFixableCount() ) {
+			$dummy->fixer->fixFile();
+			return $dummy->fixer->getContents();
+		} else {
 			return file_get_contents( $file );
 		}
-
-		$diff = $this->vfsRoot->getChild( 'phpcbf-fixed.diff' )->getContent();
-		if ( empty( trim( $diff ) ) ) {
-			return file_get_contents( $file );
-		}
-
-		// patch the source file and output to stdout
-		$cmd = "patch -p0 -u -o -";
-		$descriptorSpec = [
-			0 => [ 'pipe', 'r' ],
-			1 => [ 'pipe', 'w' ],
-			2 => [ 'file', '/dev/null', 'w' ],
-		];
-		$process = proc_open( $cmd, $descriptorSpec, $pipes );
-		if ( !$process ) {
-			throw new RuntimeException( "Failed to run $cmd" );
-		}
-
-		fwrite( $pipes[0], $diff );
-		fclose( $pipes[0] );
-
-		$output = stream_get_contents( $pipes[1] );
-		fclose( $pipes[1] );
-
-		$retval = proc_close( $process );
-
-		// test retval?
-		return $output;
 	}
 }

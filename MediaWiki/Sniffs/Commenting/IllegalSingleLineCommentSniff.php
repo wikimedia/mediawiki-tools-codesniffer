@@ -5,10 +5,13 @@
  * Fail: /*** Comments here again ***\/
  * Pass: /* Your comments here *\/
  */
- // @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_Commenting_IllegalSingleLineCommentSniff
-	implements PHP_CodeSniffer_Sniff {
-	// @codingStandardsIgnoreEnd
+
+namespace MediaWiki\Sniffs\Commenting;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class IllegalSingleLineCommentSniff implements Sniff {
 
 	/**
 	 * @return array
@@ -20,11 +23,11 @@ class MediaWiki_Sniffs_Commenting_IllegalSingleLineCommentSniff
 	}
 
 	/**
-	 * @param  PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param  File $phpcsFile File object.
 	 * @param  int $stackPtr The index of current token.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currentToken = $tokens[$stackPtr];
 

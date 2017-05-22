@@ -6,11 +6,13 @@
  * Pass: } elseif ( $a == 1 ) {
  * Fail: }\nelseif ( $a == 1 ) {
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_ControlStructures_IfElseStructureSniff
-	implements PHP_CodeSniffer_Sniff {
-	// @codingStandardsIgnoreEnd
 
+namespace MediaWiki\Sniffs\ControlStructures;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class IfElseStructureSniff implements Sniff {
 	/**
 	 * @return array
 	 */
@@ -22,11 +24,11 @@ class MediaWiki_Sniffs_ControlStructures_IfElseStructureSniff
 	}
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$prevToken = $tokens[$stackPtr - 1];
 		$nextToken = $tokens[$stackPtr + 1];

@@ -2,10 +2,13 @@
 /**
 * Verify comments are preceeded by a single space.
 */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
-	implements PHP_CodeSniffer_Sniff {
-	// @codingStandardsIgnoreEnd
+
+namespace MediaWiki\Sniffs\WhiteSpace;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
+class SpaceBeforeSingleLineCommentSniff implements Sniff {
 
 	/**
 	 * @return array
@@ -17,11 +20,11 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeSingleLineCommentSniff
 	}
 
 	/**
-	 * @param PHP_CodeSniffer_File $phpcsFile PHP_CodeSniffer_File object.
+	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currToken = $tokens[$stackPtr];
 		$preToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr-1, null, true );

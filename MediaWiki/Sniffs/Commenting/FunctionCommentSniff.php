@@ -16,8 +16,14 @@
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-// @codingStandardsIgnoreStart
-class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_Sniff {
+
+namespace MediaWiki\Sniffs\Commenting;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
+
+class FunctionCommentSniff implements Sniff {
 
 	/**
 	 * Standard class methods that
@@ -45,13 +51,13 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param File $phpcsFile The file being scanned.
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 *
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		if ( substr( $phpcsFile->getFilename(), -8 ) === 'Test.php' ) {
 			// Don't check documentation for test cases
 			return;
@@ -82,7 +88,7 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 			}
 		}
 
-		$find   = PHP_CodeSniffer_Tokens::$methodPrefixes;
+		$find   = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
 		$commentEnd = $phpcsFile->findPrevious( $find, ( $stackPtr - 1 ), null, true );
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
@@ -98,7 +104,11 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
-			$phpcsFile->addError( 'Missing function doc comment', $stackPtr, "Missing.$visStr" );
+			$phpcsFile->addError(
+				'Missing function doc comment',
+				$stackPtr,
+				"FunctionComment.Missing.$visStr"
+			);
 			$phpcsFile->recordMetric( $stackPtr, 'Function has doc comment', 'no' );
 			return;
 		} else {
@@ -133,13 +143,13 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	/**
 	 * Process the return comment of this function comment.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param File $phpcsFile The file being scanned.
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 *
 	 * @return void
 	 */
-	protected function processReturn( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
+	protected function processReturn( File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
 		// Return if no scope_opener.
 		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
@@ -187,13 +197,13 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	/**
 	 * Process any throw tags that this function comment has.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param File $phpcsFile The file being scanned.
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 *
 	 * @return void
 	 */
-	protected function processThrows( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
+	protected function processThrows( File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
 		$throws = [];
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
@@ -222,13 +232,13 @@ class MediaWiki_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffe
 	/**
 	 * Process the function parameter comments.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param File $phpcsFile The file being scanned.
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 *
 	 * @return void
 	 */
-	protected function processParams( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart ) {
+	protected function processParams( File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
 		$params  = [];
 		$maxType = 0;

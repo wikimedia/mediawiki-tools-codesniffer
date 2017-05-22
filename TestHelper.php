@@ -23,6 +23,13 @@
  *  - runPhpCs takes a second parameter $standard to override the default
  */
 
+namespace MediaWiki\Sniffs\Tests;
+
+use PHP_CodeSniffer\Config;
+use PHP_CodeSniffer\Files\DummyFile;
+use PHP_CodeSniffer\Reporter;
+use PHP_CodeSniffer\Ruleset;
+
 class TestHelper {
 
 	protected $rootDir;
@@ -31,13 +38,9 @@ class TestHelper {
 
 	protected $phpcs;
 
-	/**
-	 * @return void
-	 */
 	public function __construct() {
 		$this->rootDir = dirname( __DIR__ );
 		$this->dirName = basename( $this->rootDir );
-		$this->phpcs = new PHP_CodeSniffer_CLI();
 	}
 
 	/**
@@ -51,22 +54,21 @@ class TestHelper {
 		if ( empty( $standard ) ) {
 			$standard = $this->rootDir . '/ruleset.xml';
 		}
-		$defaults = $this->phpcs->getDefaults();
 
-		if (
-			defined( 'PHP_CodeSniffer::VERSION' ) &&
-			version_compare( PHP_CodeSniffer::VERSION, '1.5.0' ) != -1
-		) {
-			$standard = [ $standard ];
-		}
-		$options = [
-				'encoding' => 'utf-8',
-				'files' => [ $file ],
-				'standard' => $standard,
-			] + $defaults;
+		$config = new Config();
+		$config->standards = [ $standard ];
+		$config->files = [ $file ];
+		$config->encoding = 'utf-8';
+		$config->reports = [ 'full' => null ];
+		$config->colors = false;
 
+		$ruleset = new Ruleset( $config );
+		$dummy = new DummyFile( file_get_contents( $file ), $ruleset, $config );
+		$reporter = new Reporter( $config );
+		$dummy->process();
+		$reporter->cacheFileReport( $dummy );
 		ob_start();
-		$this->phpcs->process( $options );
+		$reporter->printReport( 'full' );
 		$result = ob_get_contents();
 		ob_end_clean();
 		return $result;
