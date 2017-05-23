@@ -1,0 +1,7 @@
+  2 | ERROR | [x] A single space should be after the function keyword
+    |       |     in closures
+  6 | ERROR | [x] A single space should be after the function keyword
+    |       |     in closures
+ 10 | ERROR | [x] A single space should be after the function keyword
+    |       |     in closures
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
