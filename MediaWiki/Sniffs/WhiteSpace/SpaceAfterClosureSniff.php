@@ -41,7 +41,7 @@ class SpaceAfterClosureSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$next = $tokens[$stackPtr + 1];
 		if ( $next['code'] === T_WHITESPACE ) {
-			if ( $next['code'] === ' ' ) {
+			if ( $next['content'] === ' ' ) {
 				return;
 			}
 			// It's whitespace, but not a single space.
