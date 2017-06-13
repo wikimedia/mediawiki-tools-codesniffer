@@ -32,6 +32,7 @@ How to install
     <ruleset>
     	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki"/>
     	<file>.</file>
+    	<arg name="bootstrap" value="vendor/mediawiki/mediawiki-codesniffer/utils/bootstrap-ci.php"/>
     	<arg name="extensions" value="php,php5,inc"/>
     	<arg name="encoding" value="UTF-8"/>
     </ruleset>
