@@ -307,13 +307,13 @@ class FunctionCommentSniff implements Sniff {
 			}
 			// end if
 			$params[] = [
-						 'tag'        => $tag,
-						 'type'       => $type,
-						 'var'        => $var,
-						 'comment'    => $comment,
-						 'type_space' => $typeSpace,
-						 'var_space'  => $varSpace,
-						];
+				'tag'        => $tag,
+				'type'       => $type,
+				'var'        => $var,
+				'comment'    => $comment,
+				'type_space' => $typeSpace,
+				'var_space'  => $varSpace,
+			];
 		}
 		// end foreach
 		$realParams  = $phpcsFile->getMethodParameters( $stackPtr );
@@ -339,9 +339,9 @@ class FunctionCommentSniff implements Sniff {
 			if ( $param['type_space'] !== $spaces ) {
 				$error = 'Expected %s spaces after parameter type; %s found';
 				$data  = [
-						  $spaces,
-						  $param['type_space'],
-						 ];
+					$spaces,
+					$param['type_space'],
+				];
 				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingAfterParamType', $data );
 				if ( $fix === true ) {
 					$content  = $param['type'];
@@ -358,9 +358,9 @@ class FunctionCommentSniff implements Sniff {
 				if ( $realName !== $param['var'] ) {
 					$code = 'ParamNameNoMatch';
 					$data = [
-							 $param['var'],
-							 $realName,
-							];
+						$param['var'],
+						$realName,
+					];
 					$error = 'Doc comment for parameter %s does not match ';
 					if ( strtolower( $param['var'] ) === strtolower( $realName ) ) {
 						$error .= 'case of ';
@@ -385,9 +385,9 @@ class FunctionCommentSniff implements Sniff {
 				ltrim( $param['comment'] ) !== '' ) {
 				$error = 'Expected %s spaces after parameter name; %s found';
 				$data  = [
-						  $spaces,
-						  $param['var_space'],
-						 ];
+					$spaces,
+					$param['var_space'],
+				];
 				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingAfterParamName', $data );
 				if ( $fix === true ) {
 					$content  = $param['type'];

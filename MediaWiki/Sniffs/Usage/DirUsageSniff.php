@@ -34,11 +34,11 @@ class DirUsageSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 
 		$ignore = [
-				   T_DOUBLE_COLON    => true,
-				   T_OBJECT_OPERATOR => true,
-				   T_FUNCTION        => true,
-				   T_CONST           => true,
-				  ];
+			T_DOUBLE_COLON => true,
+			T_OBJECT_OPERATOR => true,
+			T_FUNCTION => true,
+			T_CONST => true,
+		];
 
 		// Check if the function is dirname()
 		if ( strtolower( $tokens[$stackPtr]['content'] ) != "dirname" ) {

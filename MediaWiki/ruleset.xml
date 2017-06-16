@@ -25,8 +25,8 @@
 		<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" />
 	-->
 	<!--
-	  Useless rule. Test is naïve and flags perfectly legit reasons to override
-	  <rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
+		Useless rule. Test is naïve and flags perfectly legit reasons to override
+		<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
 	-->
 	<rule ref="Generic.Files.ByteOrderMark" />
 	<rule ref="Generic.Files.EndFileNewline" />
