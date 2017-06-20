@@ -107,7 +107,8 @@ class FunctionCommentSniff implements Sniff {
 			$phpcsFile->addError(
 				'Missing function doc comment',
 				$stackPtr,
-				"FunctionComment.Missing.$visStr"
+				"MediaWiki.FunctionComment.Missing.$visStr"
+				// Note: because we include . in the code, we need the "MediaWiki" standard prefix
 			);
 			$phpcsFile->recordMetric( $stackPtr, 'Function has doc comment', 'no' );
 			return;
