@@ -1,5 +1,22 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.9.0 / 2017-06-19 ##
+* Add sniff to enforce "function (" for closures (Kunal Mehta)
+* Add usage of && in generic_pass (addshore)
+* Disallow `and` and `or` (Kunal Mehta)
+* Don't require documentation for constructors without parameters (Kunal Mehta)
+* Don't require documentation for '__toString' (Kunal Mehta)
+* Don't require return/throws/param for doc blocks with @inheritDoc (Kunal Mehta)
+* Expand list of standard methods that don't need documentation (Kunal Mehta)
+* Fix FunctionComment.Missing sniff code (Kunal Mehta)
+* Fix indentation (Umherirrender)
+* Fix WhiteSpace/SpaceAfterClosureSniff (Antoine Musso)
+* Make sure all files end with a newline (Kunal Mehta)
+* test: ensure consistent report width (Antoine Musso)
+* Update for CodeSniffer 3.0 (Kunal Mehta)
+* Update squizlabs/PHP_CodeSniffer to 3.0.1 (Reedy)
+* Use upstream CharacterBeforePHPOpeningTag sniff (Kunal Mehta)
+
 ## 0.8.0 / 2017-05-03 ##
 * Add sniff for cast operator spacing (Sam Wilson)
 * Allow filtering documentation requirements based on visibility (Kunal Mehta)
