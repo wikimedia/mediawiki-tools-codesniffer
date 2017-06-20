@@ -56,21 +56,20 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 				$tokens[$stackPtr]['content'] . ' keyword must not be used as a function.',
 				$stackPtr + 1,
 				'ParenthesesAroundKeywords' );
+
 			if ( $fix === true ) {
 				if ( $nextToken['code'] === T_OPEN_PARENTHESIS ) {
 					$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
+					$closer = $tokens[$stackPtr + 1]['parenthesis_closer'];
+					$phpcsFile->fixer->replaceToken( $closer, '' );
 				} else {
 					$phpcsFile->fixer->replaceToken( $stackPtr + 2, '' );
+					$closer = $tokens[$stackPtr + 2]['parenthesis_closer'];
+					$phpcsFile->fixer->replaceToken( $closer, '' );
 					if ( $tokens[$stackPtr + 3]['code'] === T_WHITESPACE ) {
 						$phpcsFile->fixer->replaceToken( $stackPtr + 3, '' );
 					}
 				}
-				// remove the closing parenthesis
-				$i = 0;
-				while ( $tokens[$stackPtr + $i]['code'] !== T_CLOSE_PARENTHESIS ) {
-					$i++;
-				}
-				$phpcsFile->fixer->replaceToken( $stackPtr + $i, '' );
 			}
 		}
 	}
