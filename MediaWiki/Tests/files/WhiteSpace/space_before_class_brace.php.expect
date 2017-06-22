@@ -1,19 +1,13 @@
-
-FILE: ...er/MediaWiki/Tests/files/WhiteSpace/space_before_class_brace.php
-----------------------------------------------------------------------
-FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
-----------------------------------------------------------------------
-  6 | WARNING | [x] Expected 1 space before class open brace and
-    |         |     should be same line.find 0
- 13 | WARNING | [x] Expected 1 space before class open brace and
-    |         |     should be same line.find 2
- 21 | WARNING | [x] Expected 1 space before class open brace and
-    |         |     should be same line.find 1
- 29 | WARNING | [x] Expected 1 space before class open brace and
-    |         |     should be same line.find 0
-----------------------------------------------------------------------
+  6 | WARNING | [x] Expected 1 space before class open brace and should
+    |         |     be same line.find 0
+    |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
+ 13 | WARNING | [x] Expected 1 space before class open brace and should
+    |         |     be same line.find 2
+    |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
+ 21 | WARNING | [x] Expected 1 space before class open brace and should
+    |         |     be same line.find 1
+    |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
+ 29 | WARNING | [x] Expected 1 space before class open brace and should
+    |         |     be same line.find 0
+    |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
-----------------------------------------------------------------------
-
-Time: 55ms; Memory: 3.5Mb
-

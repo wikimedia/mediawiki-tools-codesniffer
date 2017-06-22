@@ -1,2 +1,4 @@
  3 | ERROR | Logical operator "or" is prohibited; use "||" instead
+   |       | (Squiz.Operators.ValidLogicalOperators.NotAllowed)
  4 | ERROR | Logical operator "and" is prohibited; use "&&" instead
+   |       | (Squiz.Operators.ValidLogicalOperators.NotAllowed)

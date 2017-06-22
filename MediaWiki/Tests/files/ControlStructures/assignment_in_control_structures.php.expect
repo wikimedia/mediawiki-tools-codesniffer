@@ -1,15 +1,12 @@
-
-FILE: ...sts/files/ControlStructures/assignment_in_control_structures.php
-----------------------------------------------------------------------
-FOUND 6 ERRORS AFFECTING 6 LINES
-----------------------------------------------------------------------
   8 | ERROR | Assignment expression not allowed within "if".
+    |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)
  10 | ERROR | Assignment expression not allowed within "elseif".
+    |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)
  12 | ERROR | Assignment expression not allowed within "elseif".
+    |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)
  14 | ERROR | Assignment expression not allowed within "elseif".
+    |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)
  16 | ERROR | Assignment expression not allowed within "elseif".
+    |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)
  19 | ERROR | Assignment expression not allowed within "while".
-----------------------------------------------------------------------
-
-Time: 20ms; Memory: 3.75Mb
-
+    |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)

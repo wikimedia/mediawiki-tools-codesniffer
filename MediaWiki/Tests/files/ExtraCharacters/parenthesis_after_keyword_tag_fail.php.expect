@@ -1,29 +1,31 @@
-
-FILE: ...sts/files/ExtraCharacters/parenthesis_after_keyword_tag_fail.php
-----------------------------------------------------------------------
-FOUND 4 ERRORS AND 10 WARNINGS AFFECTING 10 LINES
-----------------------------------------------------------------------
   3 | WARNING | [x] clone keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
   4 | WARNING | [x] clone keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
   6 | WARNING | [x] require keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
   7 | WARNING | [x] require keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
   9 | WARNING | [x] require_once keyword must not be used as a
     |         |     function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  10 | WARNING | [x] require_once keyword must not be used as a
     |         |     function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  12 | WARNING | [x] include keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  13 | WARNING | [x] include keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  15 | WARNING | [x] include_once keyword must not be used as a
     |         |     function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  16 | WARNING | [x] include_once keyword must not be used as a
     |         |     function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  18 | WARNING | [x] require_once keyword must not be used as a
     |         |     function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  21 | WARNING | [x] require_once keyword must not be used as a
     |         |     function.
-----------------------------------------------------------------------
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
 PHPCBF CAN FIX THE 12 MARKED SNIFF VIOLATIONS AUTOMATICALLY
-----------------------------------------------------------------------
-
-Time: 24496728 mins, 22.78 secs; Memory: 11.5Mb
-

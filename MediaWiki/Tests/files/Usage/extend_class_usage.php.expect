@@ -1,15 +1,9 @@
-
-FILE: ...s-codesniffer/MediaWiki/Tests/files/Usage/extend_class_usage.php
-----------------------------------------------------------------------
-FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
-----------------------------------------------------------------------
  16 | WARNING | Should use function $this->msg() rather than function
     |         | wfMessage() .
- 64 | WARNING | Should use function $this->getUser() rather than
-    |         | variable $wgUser .
+    |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
+ 64 | WARNING | Should use function $this->getUser() rather than variable
+    |         | $wgUser .
+    |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
  93 | WARNING | Should use function $this->getRequest() rather than
     |         | variable $wgRequest .
-----------------------------------------------------------------------
-
-Time: 70ms; Memory: 4.25Mb
-
+    |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)

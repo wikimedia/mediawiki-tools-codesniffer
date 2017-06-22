@@ -1,13 +1,5 @@
-
-FILE: ...er/MediaWiki/Tests/files/ControlStructures/if_else_structure.php
-----------------------------------------------------------------------
-FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
-----------------------------------------------------------------------
  12 | WARNING | [x] Single space expected before "elseif"
+    |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceBeforeElse)
  15 | WARNING | [x] Single space expected before "else"
-----------------------------------------------------------------------
+    |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceBeforeElse)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
-----------------------------------------------------------------------
-
-Time: 30ms; Memory: 3.5Mb
-

@@ -1,12 +1,3 @@
-
-FILE: ...r/MediaWiki/Tests/files/WhiteSpace/empty_line_begin_function.php
-----------------------------------------------------------------------
-FOUND 1 ERROR AFFECTING 1 LINE
-----------------------------------------------------------------------
  7 | ERROR | [x] Unexpected empty line at the begin of function.
-----------------------------------------------------------------------
+   |       |     (MediaWiki.WhiteSpace.DisallowEmptyLineFunctions.NoEmptyLine)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
-----------------------------------------------------------------------
-
-Time: 27ms; Memory: 3.5Mb
-

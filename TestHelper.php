@@ -62,6 +62,7 @@ class TestHelper {
 		$config->reports = [ 'full' => null ];
 		$config->colors = false;
 		$config->reportWidth = 0;
+		$config->showSources = true;
 
 		$ruleset = new Ruleset( $config );
 		$dummy = new DummyFile( file_get_contents( $file ), $ruleset, $config );

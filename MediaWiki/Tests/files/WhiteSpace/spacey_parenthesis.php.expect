@@ -1,21 +1,21 @@
-
-FILE: ...esniffer/MediaWiki/Tests/files/WhiteSpace/spacey_parenthesis.php
-----------------------------------------------------------------------
-FOUND 1 ERROR AND 9 WARNINGS AFFECTING 5 LINES
-----------------------------------------------------------------------
  10 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
  10 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
  11 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
  11 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
  12 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
  12 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
  13 | ERROR   | [x] Short array syntax must be used to define arrays
+    |         |     (Generic.Arrays.DisallowLongArraySyntax.Found)
  13 | WARNING | [x] Unnecessary space found within parentheses
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
  16 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
  16 | WARNING | [x] Single space expected before closing parenthesis
-----------------------------------------------------------------------
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
 PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
-----------------------------------------------------------------------
-
-Time: 18ms; Memory: 3.5Mb
-

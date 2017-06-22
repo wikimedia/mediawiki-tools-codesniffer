@@ -1,11 +1,2 @@
-
-FILE: ...les/ExtraCharacters/extra_characters_before_phpopen_tag_fail.php
-----------------------------------------------------------------------
-FOUND 1 ERROR AFFECTING 1 LINE
-----------------------------------------------------------------------
  1 | ERROR | The opening PHP tag must be the first content in the
-   |       | file
-----------------------------------------------------------------------
-
-Time: 15ms; Memory: 3.25Mb
-
+   |       | file (Generic.PHP.CharacterBeforePHPOpeningTag.Found)

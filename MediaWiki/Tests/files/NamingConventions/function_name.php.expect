@@ -1,13 +1,6 @@
-
-FILE: ...niffer/MediaWiki/Tests/files/NamingConventions/function_name.php
-----------------------------------------------------------------------
-FOUND 2 ERRORS AFFECTING 2 LINES
-----------------------------------------------------------------------
  10 | ERROR | Function name "FailedExamples" should use lower camel
     |       | case.
+    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
  18 | ERROR | Function name "failed_Examples" should use lower camel
     |       | case.
-----------------------------------------------------------------------
-
-Time: 36ms; Memory: 3.5Mb
-
+    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
