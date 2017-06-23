@@ -39,7 +39,7 @@ class IllegalSingleLineCommentSniff implements Sniff {
 				for ( $i = $stackPtr + 1; $i < $numOfTokens; $i++ ) {
 					$token = $tokens[$i];
 					if ( strpos( $token['content'], '/*' ) === false &&
-						strrpos( $token['content'], '*/' )
+						strrpos( $token['content'], '*/' ) !== false
 					) {
 						return;
 					}

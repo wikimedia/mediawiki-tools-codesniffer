@@ -21,7 +21,8 @@ function wfPassedExamples() {
 /*
  * One asterisk, aligned properly
  */
-/** One asterisk, misaligned
+/*
+* One asterisk, misaligned
 */
 /**
  * Two asterisks, aligned properly
