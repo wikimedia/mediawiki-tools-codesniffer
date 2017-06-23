@@ -1,7 +1,10 @@
- 7 | WARNING | [x] Invalid start of a single line comment
-   |         |     (MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentStart)
- 8 | WARNING | [x] Invalid start of a single line comment
-   |         |     (MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentStart)
- 9 | WARNING | [x] Invalid end of a single line comment
-   |         |     (MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentEnd)
-PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+  7 | WARNING | [x] Invalid start of a single line comment
+    |         |     (MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentStart)
+  8 | WARNING | [x] Invalid start of a single line comment
+    |         |     (MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentStart)
+  9 | WARNING | [x] Invalid end of a single line comment
+    |         |     (MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentEnd)
+ 24 | ERROR   | [x] Missing proper ending of a single line comment
+    |         |     (MediaWiki.Commenting.IllegalSingleLineComment.MissingCommentEndding)
+
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

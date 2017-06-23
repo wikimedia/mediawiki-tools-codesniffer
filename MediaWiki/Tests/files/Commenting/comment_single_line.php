@@ -17,3 +17,16 @@ function wfPassedExamples() {
 	/** This is valid */
 	/** @var This is valid */
 }
+
+/*
+ * One asterisk, aligned properly
+ */
+/*
+* One asterisk, misaligned
+*/
+/**
+ * Two asterisks, aligned properly
+ */
+/**
+* Two asterisks, misaligned
+*/
