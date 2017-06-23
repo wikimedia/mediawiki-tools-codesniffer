@@ -30,10 +30,10 @@ How to install
     ```
     <?xml version="1.0"?>
     <ruleset>
-    	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki"/>
+    	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki"/>
     	<file>.</file>
     	<arg name="extensions" value="php,php5,inc"/>
-    	<arg name="encoding" value="utf8"/>
+    	<arg name="encoding" value="UTF-8"/>
     	<exclude-pattern>vendor</exclude-pattern>
     </ruleset>
     ```
