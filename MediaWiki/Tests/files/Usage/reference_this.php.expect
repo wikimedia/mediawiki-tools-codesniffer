@@ -1,0 +1,2 @@
+ 9 | ERROR | Cannot use &$this, must set it to a different variable
+   |       | first (MediaWiki.Usage.ReferenceThis.Found)
