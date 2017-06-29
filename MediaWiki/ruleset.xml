@@ -112,4 +112,9 @@
 	</rule>
 
 	<rule ref="Zend.Files.ClosingTag" />
+
+	<!-- exclude common folder -->
+	<exclude-pattern type="relative">^/.git</exclude-pattern>
+	<exclude-pattern type="relative">^/vendor</exclude-pattern>
+	<exclude-pattern type="relative">^/node_modules</exclude-pattern>
 </ruleset>
