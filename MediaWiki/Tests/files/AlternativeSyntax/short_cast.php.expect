@@ -1,0 +1,5 @@
+ 4 | WARNING | [x] Type-cast should use short "bool" form
+   |         |     (MediaWiki.AlternativeSyntax.ShortCastSyntax.NotShortBoolForm)
+ 7 | WARNING | [x] Type-cast should use short "int" form
+   |         |     (MediaWiki.AlternativeSyntax.ShortCastSyntax.NotShortIntForm)
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
