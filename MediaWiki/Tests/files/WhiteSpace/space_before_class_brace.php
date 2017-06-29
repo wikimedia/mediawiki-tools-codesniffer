@@ -29,3 +29,15 @@ class TestPassedExamples {
 class TestShouldFail extends AClass{
 	# coding...
 }
+
+class TestThisIsOk extends SuperDuperLongClassName
+	implements AnotherReallyLongClassName
+{
+	# code...
+}
+
+class TestThisIsNotOk
+	extends SuperDuperLongClassName
+	implements AnotherReallyLongClassName {
+	# code...
+}

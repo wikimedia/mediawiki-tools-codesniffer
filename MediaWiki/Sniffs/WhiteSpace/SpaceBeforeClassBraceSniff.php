@@ -35,7 +35,24 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 			return;
 		}
 		$openBrace = $tokens[$stackPtr]['scope_opener'];
+		// Find previous non-whitespace token from the opening brace
 		$pre = $phpcsFile->findPrevious( T_WHITESPACE, ( $openBrace -1 ), null, true );
+
+		if ( $tokens[$openBrace]['line'] - $tokens[$stackPtr]['line'] >= 2 ) {
+			// If the class ... { statement is more than two lines, then
+			// the { should be on a line by itself.
+			if ( $tokens[$pre]['line'] === $tokens[$openBrace]['line'] ) {
+				$fix = $phpcsFile->addFixableWarning(
+					'Expected class open brace to be on a new line',
+					$openBrace,
+					'BraceNotOnOwnLine'
+				);
+				if ( $fix === true ) {
+					$phpcsFile->fixer->addNewlineBefore( $openBrace );
+				}
+			}
+			return;
+		}
 		$warning = 'Expected 1 space before class open brace and should be same line.find %s';
 		$spaceCount = 0;
 		for ( $start = $pre + 1; $start < $openBrace; $start++ ) {

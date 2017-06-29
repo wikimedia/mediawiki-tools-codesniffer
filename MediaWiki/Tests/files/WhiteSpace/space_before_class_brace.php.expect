@@ -10,4 +10,6 @@
  29 | WARNING | [x] Expected 1 space before class open brace and should
     |         |     be same line.find 0
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
-PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 41 | WARNING | [x] Expected class open brace to be on a new line
+    |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnOwnLine)
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
