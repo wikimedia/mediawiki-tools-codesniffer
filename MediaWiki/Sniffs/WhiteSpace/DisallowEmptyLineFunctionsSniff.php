@@ -15,7 +15,8 @@ class DisallowEmptyLineFunctionsSniff implements Sniff {
 	 */
 	public function register() {
 		return [
-			T_FUNCTION
+			T_FUNCTION,
+			T_CLOSURE,
 		];
 	}
 

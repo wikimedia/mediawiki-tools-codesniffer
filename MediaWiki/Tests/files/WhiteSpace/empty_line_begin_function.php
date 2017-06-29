@@ -16,3 +16,12 @@ function wfFailedExamples() {
 function wfPassedExamples() {
 	# code...
 }
+
+$foo = function () {
+
+	$a = 'b';
+};
+
+$foo2 = function () {
+	$a = 'b';
+};
