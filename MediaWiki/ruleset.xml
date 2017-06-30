@@ -10,7 +10,7 @@
 	<description>A coding standard for MediaWiki.</description>
 
 	<arg name="tab-width" value="4" />
-	<arg name="parallel" value="2" />
+	<arg name="parallel" value="64" />
 
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
