@@ -26,6 +26,22 @@ class TestFailedExamples {
 	public function testSingleSpaces( $testVar, $t ) {
 		return $testVar;
 	}
+
+	/**
+	 * @param boolean $aBool A bool
+	 * @param integer $anInt An int
+	 * @return bool And some text
+	 */
+	public function testLongTypes( $aBool, $anInt ) {
+		return $aBool;
+	}
+
+	/**
+	 * @return int More text
+	 */
+	public function testIntReturn() {
+		return 0;
+	}
 }
 
 class TestPassedExamples {
@@ -73,6 +89,15 @@ class TestPassedExamples {
 
 	public function __toString() {
 		return 'no documentation because obvious';
+	}
+
+	/**
+	 * @param bool $aBool A bool
+	 * @param int $anInt An int
+	 * @return bool
+	 */
+	public function testShortTypes( $aBool, $anInt ) {
+		return $aBool;
 	}
 }
 

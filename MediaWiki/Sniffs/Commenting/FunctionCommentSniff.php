@@ -190,10 +190,37 @@ class FunctionCommentSniff implements Sniff {
 			}
 		}
 		if ( $return !== null ) {
-			$content = $tokens[( $return + 2 )]['content'];
-			if ( empty( $content ) === true || $tokens[( $return + 2 )]['code'] !== T_DOC_COMMENT_STRING ) {
+			$retType = $return + 2;
+			$content = $tokens[$retType]['content'];
+			if ( empty( $content ) === true || $tokens[$retType]['code'] !== T_DOC_COMMENT_STRING ) {
 				$error = 'Return type missing for @return tag in function comment';
 				$phpcsFile->addError( $error, $return, 'MissingReturnType' );
+			}
+			// The first word of the return type is the actual type
+			$exploded = explode( ' ', $content, 2 );
+			$first = $exploded[0];
+			if ( $first === 'boolean' ) {
+				$fix = $phpcsFile->addFixableError(
+					'Short type of "bool" should be used for @return tag',
+					$retType,
+					'NotShortBoolReturn'
+				);
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken(
+						$retType, 'bool ' . $exploded[1]
+					);
+				}
+			} elseif ( $first === 'integer' ) {
+				$fix = $phpcsFile->addFixableError(
+					'Short type of "int" should be used for @return tag',
+					$retType,
+					'NotShortIntReturn'
+				);
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken(
+						$retType, 'int ' . $exploded[1]
+					);
+				}
 			}
 		} else {
 			$error = 'Missing @return tag in function comment';

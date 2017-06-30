@@ -8,4 +8,9 @@
     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
  23 | ERROR | [x] Expected 1 spaces after parameter name; 3 found
     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 33 | ERROR | [x] Short type of "bool" should be used for @return tag
+    |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
+ 40 | ERROR | [x] Short type of "int" should be used for @return tag
+    |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
+
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

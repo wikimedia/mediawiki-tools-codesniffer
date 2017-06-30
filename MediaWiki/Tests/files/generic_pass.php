@@ -36,7 +36,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	public $var;
 	/**
 	 * @param  string $word The input string.
-	 * @return boolean
+	 * @return bool
 	 */
 	public function iDoCaseStuff( $word ) {
 		switch ( $word ) {
@@ -58,7 +58,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 
 	/**
 	 * @param  string $word The input string.
-	 * @return boolean
+	 * @return bool
 	 */
 	public function iDoCaseStuffTwo( $word ) {
 		switch ( $word ) {
