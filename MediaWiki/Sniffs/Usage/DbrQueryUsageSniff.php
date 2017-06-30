@@ -15,11 +15,7 @@ class DbrQueryUsageSniff implements Sniff {
 	 * @return array
 	 */
 	public function register() {
-		return [
-			T_VARIABLE,
-			T_OBJECT_OPERATOR,
-			T_STRING
-		];
+		return [ T_OBJECT_OPERATOR ];
 	}
 
 	/**
@@ -29,20 +25,18 @@ class DbrQueryUsageSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		$currToken = $tokens[$stackPtr];
 
-		if ( $currToken['code'] === T_OBJECT_OPERATOR ) {
-			$dbrPtr = $phpcsFile->findPrevious( T_VARIABLE, $stackPtr );
-			$methodPtr = $phpcsFile->findNext( T_STRING, $stackPtr );
+		$dbrPtr = $phpcsFile->findPrevious( T_VARIABLE, $stackPtr );
+		$methodPtr = $phpcsFile->findNext( T_STRING, $stackPtr );
 
-			if ( $tokens[$dbrPtr]['content'] === '$dbr'
-				&& $tokens[$methodPtr]['content'] === 'query' ) {
-				$phpcsFile->addWarning(
-					'Call $dbr->select() wrapper instead of $dbr->query()',
-					$stackPtr,
-					'DbrQueryFound'
-				);
-			}
+		if ( $tokens[$dbrPtr]['content'] === '$dbr'
+			&& $tokens[$methodPtr]['content'] === 'query'
+		) {
+			$phpcsFile->addWarning(
+				'Call $dbr->select() wrapper instead of $dbr->query()',
+				$stackPtr,
+				'DbrQueryFound'
+			);
 		}
 	}
 }
