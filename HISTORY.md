@@ -1,5 +1,19 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.10.0 / 2017-07-01 ##
+* Add sniff to prevent against using PHP 7's Unicode escape syntax (Kunal Mehta)
+* Add sniff to verify type-casts use the short form (bool, int) (Kunal Mehta)
+* Add sniff for `&$this` that causes warnings in PHP 7.1 (Kunal Mehta)
+* Clean up DbrQueryUsageSniff (Umherirrender)
+* Ensure all FunctionComment sniff codes are standard (Kunal Mehta)
+* Exclude common folders (Umherirrender)
+* Fix handling of nested parenthesis in ParenthesesAroundKeywordSniff (Kunal Mehta)
+* IllegalSingleLineCommentSniff: Check return value of strrpos strictly (Kunal Mehta)
+* Improve handling of multi-line class declarations (Kunal Mehta)
+* Include sniff warning/error codes in test output (Kunal Mehta)
+* Make DisallowEmptyLineFunctionsSniff apply to closures too (Kunal Mehta)
+* Use correct notation for UTF-8 (Umherirrender)
+
 ## 0.9.0 / 2017-06-19 ##
 * Add sniff to enforce "function (" for closures (Kunal Mehta)
 * Add usage of && in generic_pass (addshore)
