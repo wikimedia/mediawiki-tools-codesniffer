@@ -1,7 +1,7 @@
   5 | ERROR | [ ] Missing function doc comment
-    |       |     (MediaWiki.FunctionComment.Missing.Public)
+    |       |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
   9 | ERROR | [ ] Missing function doc comment
-    |       |     (MediaWiki.FunctionComment.Missing.Public)
+    |       |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
  16 | ERROR | [ ] Missing @return tag in function comment
     |       |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
  22 | ERROR | [x] Expected 1 spaces after parameter name; 2 found
