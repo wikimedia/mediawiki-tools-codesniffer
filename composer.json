@@ -16,7 +16,7 @@
 		"test": [
 			"parallel-lint . --exclude vendor",
 			"phpunit $PHPUNIT_ARGS",
-			"phpcs  -p -s"
+			"phpcs -p -s"
 		],
 		"fix": "phpcbf"
 	}

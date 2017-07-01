@@ -11,7 +11,7 @@ coding conventions that are validated by these rules. :-)
 How to install
 --------------
 1. Create a composer.json which adds this project as a dependency:
-    
+
     ```
     {
     	"require-dev": {
@@ -26,7 +26,7 @@ How to install
     }
     ```
 2. Create a phpcs.xml with our configuration:
-    
+
     ```
     <?xml version="1.0"?>
     <ruleset>
@@ -34,7 +34,6 @@ How to install
     	<file>.</file>
     	<arg name="extensions" value="php,php5,inc"/>
     	<arg name="encoding" value="UTF-8"/>
-    	<exclude-pattern>vendor</exclude-pattern>
     </ruleset>
     ```
 3. Install: `composer update`

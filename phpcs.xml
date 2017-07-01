@@ -4,6 +4,5 @@
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>
 	<arg name="encoding" value="UTF-8"/>
-	<exclude-pattern>vendor</exclude-pattern>
-	<exclude-pattern>*/Tests/files/*</exclude-pattern>
+	<exclude-pattern type="relative">^MediaWiki/Tests/files</exclude-pattern>
 </ruleset>
