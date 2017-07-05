@@ -37,8 +37,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ||
-			$tokens[$stackPtr]['scope_opener'] === false ) {
+		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
 			return;
 		}
 		$openBrace = $tokens[$stackPtr]['scope_opener'];

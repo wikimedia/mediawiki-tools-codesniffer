@@ -28,8 +28,8 @@ class DisallowEmptyLineFunctionsSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$current = $tokens[$stackPtr];
-		if ( isset( $current['scope_opener'] ) === false ||
-			isset( $current['parenthesis_closer'] ) === false
+		if ( !isset( $current['scope_opener'] ) ||
+			!isset( $current['parenthesis_closer'] )
 		) {
 			return;
 		}
