@@ -1,5 +1,10 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.8.1 / 2017-07-05 ##
+* Fix "Undefined index: scope_opener" in SpaceBeforeClassBraceSniff (Reedy)
+* PHP CodeSniffer on CI should only lint HEAD (Antoine Musso)
+* Update .gitreview for 0.8.x branch (Reedy)
+
 ## 0.8.0 / 2017-05-03 ##
 * Add sniff for cast operator spacing (Sam Wilson)
 * Allow filtering documentation requirements based on visibility (Kunal Mehta)
