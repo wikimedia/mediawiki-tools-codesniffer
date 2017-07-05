@@ -28,7 +28,7 @@ class MediaWiki_Sniffs_WhiteSpace_SpaceBeforeClassBraceSniff
 	 */
 	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		if ( $tokens[$stackPtr]['scope_opener'] === false ) {
+		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
 			return;
 		}
 		$openBrace = $tokens[$stackPtr]['scope_opener'];
