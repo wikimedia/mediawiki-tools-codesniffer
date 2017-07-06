@@ -13,6 +13,6 @@ class Foo {
 			$pass();
 		}
 
-		$a = [ &$this->what, &$this['what'], &$this ::$what ];
+		$a = [ &$this->what, &$this['what'], &$this::$what ];
 	}
 }

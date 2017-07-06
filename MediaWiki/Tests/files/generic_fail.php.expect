@@ -1,8 +1,14 @@
- 3 | ERROR | Logical operator "or" is prohibited; use "||" instead
-   |       | (Squiz.Operators.ValidLogicalOperators.NotAllowed)
- 4 | ERROR | Logical operator "and" is prohibited; use "&&" instead
-   |       | (Squiz.Operators.ValidLogicalOperators.NotAllowed)
- 7 | ERROR | Use of the backtick operator is forbidden
-   |       | (Generic.PHP.BacktickOperator.Found)
- 7 | ERROR | Use of the backtick operator is forbidden
-   |       | (Generic.PHP.BacktickOperator.Found)
+  3 | ERROR | [ ] Logical operator "or" is prohibited; use "||"
+    |       |     instead
+    |       |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
+  4 | ERROR | [ ] Logical operator "and" is prohibited; use "&&"
+    |       |     instead
+    |       |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
+  7 | ERROR | [ ] Use of the backtick operator is forbidden
+    |       |     (Generic.PHP.BacktickOperator.Found)
+  7 | ERROR | [ ] Use of the backtick operator is forbidden
+    |       |     (Generic.PHP.BacktickOperator.Found)
+ 15 | ERROR | [x] Must use "self::" for local static member reference
+    |       |     (Squiz.Classes.SelfMemberReference.NotUsed)
+
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
