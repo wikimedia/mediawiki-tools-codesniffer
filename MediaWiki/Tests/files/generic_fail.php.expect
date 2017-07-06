@@ -2,3 +2,7 @@
    |       | (Squiz.Operators.ValidLogicalOperators.NotAllowed)
  4 | ERROR | Logical operator "and" is prohibited; use "&&" instead
    |       | (Squiz.Operators.ValidLogicalOperators.NotAllowed)
+ 7 | ERROR | Use of the backtick operator is forbidden
+   |       | (Generic.PHP.BacktickOperator.Found)
+ 7 | ERROR | Use of the backtick operator is forbidden
+   |       | (Generic.PHP.BacktickOperator.Found)
