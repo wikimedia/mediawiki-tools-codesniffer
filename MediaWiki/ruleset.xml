@@ -112,6 +112,7 @@
 	</rule>
 
 	<rule ref="Zend.Files.ClosingTag" />
+	<rule ref="Generic.PHP.BacktickOperator" />
 
 	<!-- exclude common folders from version control or build tools -->
 	<exclude-pattern type="relative">^.git</exclude-pattern>
