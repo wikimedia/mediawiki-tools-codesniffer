@@ -48,6 +48,15 @@ class ReferenceThisSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$next = $tokens[$stackPtr+1];
 		if ( $next['code'] === T_VARIABLE && $next['content'] === '$this' ) {
+			$after = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 2, null, true );
+			if ( $after !== false &&
+				in_array(
+					$tokens[$after]['code'],
+					[ T_OBJECT_OPERATOR, T_OPEN_SQUARE_BRACKET, T_DOUBLE_COLON ]
+				)
+			) {
+				return;
+			}
 			$phpcsFile->addError(
 				'Cannot use &$this, must set it to a different variable first',
 				$stackPtr,
