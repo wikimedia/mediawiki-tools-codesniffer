@@ -42,6 +42,18 @@ class TestFailedExamples {
 	public function testIntReturn() {
 		return 0;
 	}
+
+	/**
+	 * There's a return in the body of the function,
+	 * and a closure, so a return tag is needed.
+	 */
+	public function testComplexClosureReturn() {
+		$a = function () {
+			return '';
+		};
+
+		return $a();
+	}
 }
 
 class TestPassedExamples {
@@ -98,6 +110,16 @@ class TestPassedExamples {
 	 */
 	public function testShortTypes( $aBool, $anInt ) {
 		return $aBool;
+	}
+
+	/**
+	 * There's a return in the body of the function,
+	 * but no return tag is needed.
+	 */
+	public function testClosureReturn() {
+		$a = function () {
+			return '';
+		};
 	}
 }
 

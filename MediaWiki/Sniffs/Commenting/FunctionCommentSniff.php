@@ -165,17 +165,26 @@ class FunctionCommentSniff implements Sniff {
 			return;
 		}
 		$endFunction = $tokens[$stackPtr]['scope_closer'];
-		$returnToken = $phpcsFile->findNext( T_RETURN, $stackPtr + 1, $endFunction );
-		// Return if the function has no return.
-		if ( $returnToken === false ) {
-			return;
+		$found = false;
+		for ( $i = $stackPtr + 1; $i < $endFunction; $i++ ) {
+			$token = $tokens[$i];
+			if ( $token['code'] === T_CLOSURE ) {
+				// Skip to the end of the closure and continue
+				$i = $tokens[$i]['scope_closer'];
+				continue;
+			}
+			if ( $token['code'] === T_RETURN ) {
+				if ( isset( $tokens[$i+1] ) && $tokens[$i+1]['code'] === T_SEMICOLON ) {
+					// This is a `return;` so it doesn't need documentation
+					continue;
+				}
+				$found = true;
+				break;
+			}
 		}
 
-		while ( isset( $tokens[$returnToken+1] ) && $tokens[$returnToken+1]['code'] === T_SEMICOLON ) {
-			$returnToken = $phpcsFile->findNext( T_RETURN, $returnToken + 1, $endFunction );
-			if ( $returnToken === false ) {
-				return;
-			}
+		if ( !$found ) {
+			return;
 		}
 
 		$return = null;

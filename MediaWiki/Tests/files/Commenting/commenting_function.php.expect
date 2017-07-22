@@ -12,5 +12,7 @@
     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
  40 | ERROR | [x] Short type of "int" should be used for @return tag
     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
+ 49 | ERROR | [ ] Missing @return tag in function comment
+    |       |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
 
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
