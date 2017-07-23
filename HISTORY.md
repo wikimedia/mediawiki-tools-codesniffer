@@ -1,5 +1,21 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.10.1 / 2017-07-22 ##
+* Add .gitattributes (Umherirrender)
+* Add Squiz.Classes.SelfMemberReference to ruleset (Kunal Mehta)
+* build: Added php-console-highlighter (Umherirrender)
+* Don't ignore files or paths with "git" in them, only .git (Kunal Mehta)
+* Fix exclude of common folders (Umherirrender)
+* Fix "Undefined index: scope_opener" in SpaceBeforeClassBraceSniff (Reedy)
+* Forbid backtick operator (Matthew Flaschen)
+* Ignore returns in closures for MissingReturn sniff (Kunal Mehta)
+* PHP CodeSniffer on CI should only lint HEAD (Antoine Musso)
+* Reduce false positives in ReferenceThisSniff (Kunal Mehta)
+* Sniff that the short type form is used in @return tags (Kunal Mehta)
+* Swap isset() === false to !isset() (Reedy)
+* track=1 rather than defaultbranch (Reedy)
+* Update PHP_CodeSniffer to 3.0.2 (Kunal Mehta)
+
 ## 0.10.0 / 2017-07-01 ##
 * Add sniff to prevent against using PHP 7's Unicode escape syntax (Kunal Mehta)
 * Add sniff to verify type-casts use the short form (bool, int) (Kunal Mehta)
