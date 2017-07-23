@@ -115,7 +115,7 @@
 	<rule ref="Generic.PHP.BacktickOperator" />
 
 	<!-- exclude common folders from version control or build tools -->
-	<exclude-pattern type="relative">^.git</exclude-pattern>
+	<exclude-pattern type="relative">^\.git</exclude-pattern>
 	<exclude-pattern type="relative">^vendor</exclude-pattern>
 	<exclude-pattern type="relative">^node_modules</exclude-pattern>
 </ruleset>
