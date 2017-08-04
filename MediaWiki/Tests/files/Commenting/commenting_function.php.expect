@@ -14,5 +14,11 @@
     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
  49 | ERROR | [ ] Missing @return tag in function comment
     |       |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
+ 59 | ERROR | [ ] Missing parameter comment
+    |       |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
+ 60 | ERROR | [ ] Missing parameter comment
+    |       |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
+ 61 | ERROR | [x] Short type of "bool" should be used for @return tag
+    |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
 
-PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY

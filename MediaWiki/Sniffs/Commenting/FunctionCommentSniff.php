@@ -216,7 +216,7 @@ class FunctionCommentSniff implements Sniff {
 				);
 				if ( $fix === true ) {
 					$phpcsFile->fixer->replaceToken(
-						$retType, 'bool ' . $exploded[1]
+						$retType, 'bool' . ( isset( $exploded[1] ) ? ' ' . $exploded[1] : '' )
 					);
 				}
 			} elseif ( $first === 'integer' ) {
@@ -227,7 +227,7 @@ class FunctionCommentSniff implements Sniff {
 				);
 				if ( $fix === true ) {
 					$phpcsFile->fixer->replaceToken(
-						$retType, 'int ' . $exploded[1]
+						$retType, 'int' . ( isset( $exploded[1] ) ? ' ' . $exploded[1] : '' )
 					);
 				}
 			}

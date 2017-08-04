@@ -54,6 +54,15 @@ class TestFailedExamples {
 
 		return $a();
 	}
+
+	/**
+	 * @param boolean $aBool
+	 * @param integer $anInt
+	 * @return boolean
+	 */
+	public function testLongTypesNoComment( $aBool, $anInt ) {
+		return $aBool;
+	}
 }
 
 class TestPassedExamples {
