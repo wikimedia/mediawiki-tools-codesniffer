@@ -411,6 +411,36 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile->addError( $error, $param['tag'], 'ExtraParamComment' );
 			}
 			// end if
+			// Check the short type of boolean and integer
+			if ( $param['type'] === 'boolean' ) {
+				$fix = $phpcsFile->addFixableError(
+					'Short type of "bool" should be used for @param tag',
+					$param['tag'],
+					'NotShortBoolParam'
+				);
+				if ( $fix === true ) {
+					$content  = 'bool';
+					$content .= str_repeat( ' ', $param['type_space'] );
+					$content .= $param['var'];
+					$content .= str_repeat( ' ', $param['var_space'] );
+					$content .= $param['comment'];
+					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 2 ), $content );
+				}
+			} elseif ( $param['type'] === 'integer' ) {
+				$fix = $phpcsFile->addFixableError(
+					'Short type of "int" should be used for @param tag',
+					$param['tag'],
+					'NotShortIntParam'
+				);
+				if ( $fix === true ) {
+					$content  = 'int';
+					$content .= str_repeat( ' ', $param['type_space'] );
+					$content .= $param['var'];
+					$content .= str_repeat( ' ', $param['var_space'] );
+					$content .= $param['comment'];
+					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 2 ), $content );
+				}
+			}
 			if ( $param['comment'] === '' ) {
 				continue;
 			}

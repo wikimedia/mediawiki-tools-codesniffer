@@ -5,7 +5,7 @@ namespace SomeNamespace;
 /**
  * Some comment in a block :D
  *
- * @param boolean $outputtype The type of output.
+ * @param bool $outputtype The type of output.
  * @param int $ts The timestamp.
  * @return null
  */
