@@ -128,11 +128,16 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 */
 	private function prepareOutput( $outputStr ) {
 		if ( $outputStr ) {
+			// Do a "\r\n" -> "\n" and "\r" -> "\n" transformation for windows machine
+			$outputStr = str_replace( [ "\r\n", "\r" ], "\n", $outputStr );
+
 			// Remove colors
 			$outputStr = preg_replace( '`\033\[[0-9;]+m`', '', $outputStr );
 			$outputLines = explode( "\n", $outputStr );
+
 			// Remove lines that are empty or all dashes:
 			$outputLines = preg_grep( '/^-*$/', $outputLines, PREG_GREP_INVERT );
+
 			// Remove lines that start with 'Time:', 'FOUND', or 'FILE:':
 			$outputLines = preg_grep( '/^(Time:|FOUND|FILE:) .*$/', $outputLines, PREG_GREP_INVERT );
 			$outputStr = implode( "\n", $outputLines );
