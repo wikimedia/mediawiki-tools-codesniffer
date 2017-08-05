@@ -5,7 +5,7 @@
  * @return void
  */
 function wfFailedExamples() {
-	for ( $i=0; $i < 20; $i++ ) {
+	for ( $i = 0; $i < 20; $i++ ) {
 		if ( $i == 15 ) {
 			goto endloop;
 		}
@@ -19,7 +19,7 @@ function wfFailedExamples() {
  * @return void
  */
 function wfPassedExamples() {
-	for ( $i=0; $i < 20; $i++ ) {
+	for ( $i = 0; $i < 20; $i++ ) {
 		if ( $i == 15 ) {
 			break;
 		}

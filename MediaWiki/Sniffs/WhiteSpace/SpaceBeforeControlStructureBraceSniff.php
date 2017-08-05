@@ -79,7 +79,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$phpcsFile->recordMetric( $stackPtr, 'Control Structs opening brace placement', 'new line' );
 		$error = 'Opening brace should be on the same line as the declaration';
-		$fix   = $phpcsFile->addFixableError( $error, $openBrace, 'BraceOnNewLine' );
+		$fix = $phpcsFile->addFixableError( $error, $openBrace, 'BraceOnNewLine' );
 		if ( $fix === true ) {
 			$phpcsFile->fixer->beginChangeset();
 			$i = $closeBracket + 1;

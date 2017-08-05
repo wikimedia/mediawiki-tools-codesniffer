@@ -48,8 +48,8 @@ class ValidGlobalNameSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		$nameIndex  = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
-		$semicolonIndex  = $phpcsFile->findNext( T_SEMICOLON, $stackPtr + 1 );
+		$nameIndex = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
+		$semicolonIndex = $phpcsFile->findNext( T_SEMICOLON, $stackPtr + 1 );
 
 		while ( $nameIndex < $semicolonIndex ) {
 			if ( $tokens[ $nameIndex ][ 'code' ] !== T_WHITESPACE

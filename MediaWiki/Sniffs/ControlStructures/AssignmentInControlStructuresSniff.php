@@ -36,10 +36,10 @@ class AssignmentInControlStructuresSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		$token  = $tokens[$stackPtr];
+		$token = $tokens[$stackPtr];
 
 		$next = $token['parenthesis_opener'] + 1;
-		$end  = $token['parenthesis_closer'];
+		$end = $token['parenthesis_closer'];
 		while ( $next < $end ) {
 			$code = $tokens[$next]['code'];
 			// Check if any assignment operator was used. Allow T_DOUBLE_ARROW as that can

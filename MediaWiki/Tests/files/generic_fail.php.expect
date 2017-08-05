@@ -10,5 +10,43 @@
     |       |     (Generic.PHP.BacktickOperator.Found)
  15 | ERROR | [x] Must use "self::" for local static member reference
     |       |     (Squiz.Classes.SelfMemberReference.NotUsed)
+ 19 | ERROR | [x] Expected 1 space after "="; 2 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.SpacingAfter)
+ 19 | ERROR | [x] Expected 1 space before "/"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "/"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "<<"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "<<"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "-"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "-"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "+"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "+"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "*"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "*"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "*"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "*"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "-"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "-"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "^"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "^"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 19 | ERROR | [x] Expected 1 space before "%"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 19 | ERROR | [x] Expected 1 space after "%"; 0 found
+    |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
 
-PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 20 MARKED SNIFF VIOLATIONS AUTOMATICALLY

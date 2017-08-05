@@ -42,7 +42,7 @@ class MultipleEmptyLinesSniff
 					// If the next non T_WHITESPACE token is more than 1 line away,
 					// then there were multiple empty lines.
 					$error = 'Multiple empty lines should not exist in a row; found %s consecutive empty lines';
-					$fix   = $phpcsFile->addFixableError(
+					$fix = $phpcsFile->addFixableError(
 						$error,
 						$stackPtr,
 						'MultipleEmptyLines',

@@ -27,7 +27,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currToken = $tokens[$stackPtr];
-		$preToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr-1, null, true );
+		$preToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr - 1, null, true );
 		if ( $preToken !== false &&
 			$tokens[$preToken]['line'] === $tokens[$stackPtr]['line']
 		) {
@@ -35,7 +35,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 				'Comments should start on new line.',
 				$stackPtr,
 				'NewLineComment'
-				);
+			);
 		}
 		if ( $currToken['code'] === T_COMMENT ) {
 			// Accounting for multiple line comments, as single line comments
