@@ -1,5 +1,13 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.11.0 / 2017-08-10 ##
+* Added OpeningKeywordBraceSniff (Umherirrender)
+* Add sniff to forbid PHP 7 scalar type hints (Kunal Mehta)
+* Enable Squiz.WhiteSpace.OperatorSpacing (Umherirrender)
+* Enforce "short" type definitions on @param in comments (Umherirrender)
+* Fix phpunit test on windows (Umherirrender)
+* Fix Undefined offset in FunctionCommentSniff (Umherirrender)
+
 ## 0.10.1 / 2017-07-22 ##
 * Add .gitattributes (Umherirrender)
 * Add Squiz.Classes.SelfMemberReference to ruleset (Kunal Mehta)
