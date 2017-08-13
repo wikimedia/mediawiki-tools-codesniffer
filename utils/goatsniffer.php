@@ -41,5 +41,7 @@ echo <<<GOAT
        // (~)  \
  \\___//  _  _--  BAAAAA    BAAAAA
   /      / \\\      BAAAAAA
+  |,-__,|
+   "" ""
 
 GOAT;
