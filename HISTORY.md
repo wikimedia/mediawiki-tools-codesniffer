@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.11.1 / 2017-08-13 ##
+* Add GoatSniffer ASCII art (Kunal Mehta)
+
 ## 0.11.0 / 2017-08-10 ##
 * Added OpeningKeywordBraceSniff (Umherirrender)
 * Add sniff to forbid PHP 7 scalar type hints (Kunal Mehta)
