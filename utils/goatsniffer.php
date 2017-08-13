@@ -34,14 +34,14 @@ GOAT;
 
 // ASCII art by paroneayea
 echo <<<GOAT
-        /\
-       ' \\
-         .---
+         /\
+        ' \\
+          .---
          /    \_
-       // (~)  \
- \\___//  _  _--  BAAAAA    BAAAAA
-  /      / \\\      BAAAAAA
-  |,-__,|
-   "" ""
+ ,      //U(~)  \
+ \\____//  _  _--  BAAAAA    BAAAAA
+  /       / \\\      BAAAAAA
+  |,--__,|
+  ""    ""
 
 GOAT;
