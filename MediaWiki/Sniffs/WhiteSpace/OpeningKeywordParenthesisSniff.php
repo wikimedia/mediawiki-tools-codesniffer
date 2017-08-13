@@ -23,7 +23,7 @@ namespace MediaWiki\Sniffs\WhiteSpace;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
-class OpeningKeywordBraceSniff implements Sniff {
+class OpeningKeywordParenthesisSniff implements Sniff {
 	/**
 	 * @return array
 	 */
@@ -63,7 +63,7 @@ class OpeningKeywordBraceSniff implements Sniff {
 
 		$whitespaces = $phpcsFile->getTokensAsString( $next, $openParenthesis - $next );
 		$fix = $phpcsFile->addFixableError(
-			'Expected no space before opening brace; found %s',
+			'Expected no space before opening parenthesis; found %s',
 			$openParenthesis,
 			'WrongWhitespaceBeforeParenthesis',
 			strlen( $whitespaces )

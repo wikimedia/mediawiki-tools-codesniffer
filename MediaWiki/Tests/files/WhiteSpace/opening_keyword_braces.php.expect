@@ -1,7 +1,0 @@
-  9 | ERROR | [x] Expected no space before opening brace; found 2
-    |       |     (MediaWiki.WhiteSpace.OpeningKeywordBrace.WrongWhitespaceBeforeParenthesis)
- 11 | ERROR | [x] Expected no space before opening brace; found 3
-    |       |     (MediaWiki.WhiteSpace.OpeningKeywordBrace.WrongWhitespaceBeforeParenthesis)
- 12 | ERROR | [x] Expected no space before opening brace; found 1
-    |       |     (MediaWiki.WhiteSpace.OpeningKeywordBrace.WrongWhitespaceBeforeParenthesis)
-PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
