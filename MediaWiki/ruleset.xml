@@ -122,7 +122,4 @@
 	<exclude-pattern type="relative">^\.git</exclude-pattern>
 	<exclude-pattern type="relative">^vendor</exclude-pattern>
 	<exclude-pattern type="relative">^node_modules</exclude-pattern>
-
-	<!-- GoatSniffer -->
-	<arg name="bootstrap" value="../utils/goatsniffer.php"/>
 </ruleset>
