@@ -1,0 +1,5 @@
+ 3 | WARNING | [x] Floats should have a leading 0
+   |         |     (MediaWiki.AlternativeSyntax.LeadingZeroInFloat.Found)
+ 5 | WARNING | [x] Floats should have a leading 0
+   |         |     (MediaWiki.AlternativeSyntax.LeadingZeroInFloat.Found)
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
