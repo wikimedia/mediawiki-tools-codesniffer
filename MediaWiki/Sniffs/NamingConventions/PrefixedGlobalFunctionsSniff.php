@@ -12,8 +12,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class PrefixedGlobalFunctionsSniff implements Sniff {
 
-	// @codingStandardsIgnoreEnd
-
 	public $ignoreList = [];
 
 	/**

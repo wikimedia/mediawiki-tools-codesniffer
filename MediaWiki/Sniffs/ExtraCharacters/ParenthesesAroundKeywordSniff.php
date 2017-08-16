@@ -20,7 +20,6 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ParenthesesAroundKeywordSniff implements Sniff {
-	// @codingStandardsIgnoreEnd
 
 	/**
 	 * @return array

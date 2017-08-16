@@ -37,7 +37,6 @@ class FunctionCommentSniff implements Sniff {
 		'__clone'
 	];
 
-	// @codingStandardsIgnoreEnd
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *

@@ -15,7 +15,7 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 class SpaceBeforeControlStructureBraceSniff implements Sniff {
-	// @codingStandardsIgnoreEnd
+
 	/**
 	 * @return array
 	 */

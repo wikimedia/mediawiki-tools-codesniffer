@@ -8,9 +8,7 @@ namespace MediaWiki\Sniffs\WhiteSpace;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
-class MultipleEmptyLinesSniff
-	implements Sniff {
-	// @codingStandardsIgnoreEnd
+class MultipleEmptyLinesSniff implements Sniff {
 
 	/**
 	 * @return array

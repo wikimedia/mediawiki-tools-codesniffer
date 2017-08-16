@@ -9,7 +9,6 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 class LowerCamelFunctionsNameSniff implements Sniff {
-	// @codingStandardsIgnoreEnd
 
 	// Magic methods.
 	private static $magicMethods = [
