@@ -65,7 +65,7 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 			if ( substr( $file, -4 ) !== '.php' ) {
 				continue;
 			}
-			$tests[] = [
+			$tests[$dir->getFilename()] = [
 				$file,
 				$standard,
 				"$file.expect"
