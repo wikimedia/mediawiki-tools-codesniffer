@@ -74,6 +74,11 @@
 	<rule ref="Generic.PHP.SAPIUsage" />
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
 
+	<!-- One class per file -->
+	<rule ref="Generic.Files.OneClassPerFile" />
+	<rule ref="Generic.Files.OneInterfacePerFile" />
+	<rule ref="Generic.Files.OneTraitPerFile" />
+
 	<rule ref="PSR2.Classes.PropertyDeclaration" />
 	<rule ref="PSR2.Classes.PropertyDeclaration.Multiple">
 		<!-- We tends to declare multiple properties with one statement -->

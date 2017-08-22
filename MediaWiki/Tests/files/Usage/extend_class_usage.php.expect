@@ -1,9 +1,15 @@
  16 | WARNING | Should use function $this->msg() rather than function
     |         | wfMessage() .
     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
+ 27 | ERROR   | Only one class is allowed in a file
+    |         | (Generic.Files.OneClassPerFile.MultipleFound)
+ 51 | ERROR   | Only one class is allowed in a file
+    |         | (Generic.Files.OneClassPerFile.MultipleFound)
  64 | WARNING | Should use function $this->getUser() rather than variable
     |         | $wgUser .
     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
+ 75 | ERROR   | Only one class is allowed in a file
+    |         | (Generic.Files.OneClassPerFile.MultipleFound)
  93 | WARNING | Should use function $this->getRequest() rather than
     |         | variable $wgRequest .
     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
