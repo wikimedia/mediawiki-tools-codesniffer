@@ -1,0 +1,4 @@
+ 17 | WARNING | Global $wgTitle should not be used.
+    |         | (MediaWiki.VariableAnalysis.ForbiddenGlobalVariables.ForbiddenGlobal$wgTitle)
+ 37 | WARNING | Global $wgTitle should not be used.
+    |         | (MediaWiki.VariableAnalysis.ForbiddenGlobalVariables.ForbiddenGlobal$wgTitle)
