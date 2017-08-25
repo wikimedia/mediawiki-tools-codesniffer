@@ -91,6 +91,15 @@ class TestFailedExamples {
 	public function testTypesSpacing( $aBool, $anInt ) {
 		return $aBool;
 	}
+
+	/**
+	 * @param bool $aBool: A bool
+	 * @param int $anInt: An int
+	 * @return bool: And some text
+	 */
+	public function testVariablePunctation( $aBool, $anInt ) {
+		return $aBool;
+	}
 }
 
 class TestPassedExamples {

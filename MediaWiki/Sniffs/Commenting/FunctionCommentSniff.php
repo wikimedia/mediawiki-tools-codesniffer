@@ -238,9 +238,24 @@ class FunctionCommentSniff implements Sniff {
 			}
 			// The first word of the return type is the actual type
 			$exploded = explode( ' ', $content, 2 );
-			$explodedType = explode( '|', $exploded[0] );
+			$type = $exploded[0];
 			$fixType = false;
+			// Check for unneeded punctation
+			$matches = [];
+			if ( preg_match( '/^(.*)((?:(?![\[\]\{\}])\p{P})+)$/', $type, $matches ) ) {
+				$fix = $phpcsFile->addFixableError(
+					'Return type should not end with punctuation "%s"',
+					$retType,
+					'NotPunctuationReturn',
+					[ $matches[2] ]
+				);
+				$type = $matches[1];
+				if ( $fix ) {
+					$fixType = true;
+				}
+			}
 			// Check the type for short types
+			$explodedType = explode( '|', $type );
 			foreach ( $explodedType as $index => $singleType ) {
 				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
 					$newType = self::$shortTypeMapping[$singleType];
@@ -410,7 +425,6 @@ class FunctionCommentSniff implements Sniff {
 			if ( $param['var'] === '' ) {
 				continue;
 			}
-			$foundParams[] = $param['var'];
 			// Check number of spaces before type (after @param)
 			$spaces = 1;
 			if ( $param['param_space'] !== $spaces ) {
@@ -442,28 +456,48 @@ class FunctionCommentSniff implements Sniff {
 					);
 				}
 			}
+			$var = $param['var'];
+			// Check for unneeded punctation
+			$matches = [];
+			if ( preg_match( '/^(.*?)((?:(?![\[\]\{\}])\p{P})+)(?<!,\.\.\.)$/', $var, $matches ) ) {
+				$fix = $phpcsFile->addFixableError(
+					'Param name should not end with punctuation "%s"',
+					$param['tag'],
+					'NotPunctuationParam',
+					[ $matches[2] ]
+				);
+				$var = $matches[1];
+				if ( $fix ) {
+					$this->replaceParamComment(
+						$phpcsFile,
+						$param,
+						[ 'var' => $var ]
+					);
+				}
+			}
 			// Make sure the param name is correct.
 			if ( isset( $realParams[$pos] ) === true ) {
 				$realName = $realParams[$pos]['name'];
-				if ( $realName !== $param['var'] ) {
+				if ( $realName !== $var ) {
 					$code = 'ParamNameNoMatch';
 					$data = [
-						$param['var'],
+						$var,
 						$realName,
 					];
 					$error = 'Doc comment for parameter %s does not match ';
-					if ( strtolower( $param['var'] ) === strtolower( $realName ) ) {
+					if ( strtolower( $var ) === strtolower( $realName ) ) {
 						$error .= 'case of ';
 						$code = 'ParamNameNoCaseMatch';
 					}
 					$error .= 'actual variable name %s';
 					$phpcsFile->addError( $error, $param['tag'], $code, $data );
 				}
-			} elseif ( substr( $param['var'], -4 ) !== ',...' ) {
+			} elseif ( substr( $var, -4 ) !== ',...' ) {
 				// We must have an extra parameter comment.
 				$error = 'Superfluous parameter comment';
 				$phpcsFile->addError( $error, $param['tag'], 'ExtraParamComment' );
 			}
+			$foundParams[] = $var;
 			// end if
 			// Check the short type of boolean and integer
 			$explodedType = explode( '|', $param['type'] );
