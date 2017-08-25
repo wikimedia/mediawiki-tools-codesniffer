@@ -64,6 +64,24 @@ class TestFailedExamples {
 	public function testLongTypesNoComment( $aBool, $anInt ) {
 		return $aBool;
 	}
+
+	/**
+	 * @param boolean[] $bools A bool array
+	 * @param integer[] $ints A int array
+	 * @return boolean[] A bool array
+	 */
+	public function testLongArrayTypes( $bools, $ints ) {
+		return $bools;
+	}
+
+	/**
+	 * @param boolean $aBool A bool
+	 * @param integer|string|boolean $mixed A mixed var
+	 * @return boolean|integer|string A return value
+	 */
+	public function testLongTypesMixed( $aBool, $mixed ) {
+		return $aBool ? $mixed : 1;
+	}
 }
 
 class TestPassedExamples {

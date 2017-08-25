@@ -38,6 +38,18 @@ class FunctionCommentSniff implements Sniff {
 	];
 
 	/**
+	 * Mapping for swap short types
+	 *
+	 * @var array
+	 */
+	private static $shortTypeMapping = [
+		'boolean' => 'bool',
+		'boolean[]' => 'bool[]',
+		'integer' => 'int',
+		'integer[]' => 'int[]',
+	];
+
+	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
 	 * @return array
@@ -206,29 +218,32 @@ class FunctionCommentSniff implements Sniff {
 			}
 			// The first word of the return type is the actual type
 			$exploded = explode( ' ', $content, 2 );
-			$first = $exploded[0];
-			if ( $first === 'boolean' ) {
-				$fix = $phpcsFile->addFixableError(
-					'Short type of "bool" should be used for @return tag',
-					$retType,
-					'NotShortBoolReturn'
-				);
-				if ( $fix === true ) {
-					$phpcsFile->fixer->replaceToken(
-						$retType, 'bool' . ( isset( $exploded[1] ) ? ' ' . $exploded[1] : '' )
+			$explodedType = explode( '|', $exploded[0] );
+			$fixType = false;
+			// Check the type for short types
+			foreach ( $explodedType as $index => $singleType ) {
+				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
+					$newType = self::$shortTypeMapping[$singleType];
+					// grep: NotShortIntReturn, NotShortIntArrayReturn,
+					// NotShortBoolReturn, NotShortBoolArrayReturn
+					$code = 'NotShort' . ucfirst( str_replace( '[]', 'Array', $newType ) ) . 'Return';
+					$fix = $phpcsFile->addFixableError(
+						'Short type of "%s" should be used for @return tag',
+						$retType,
+						$code,
+						[ $newType ]
 					);
+					if ( $fix ) {
+						$explodedType[$index] = $newType;
+						$fixType = true;
+					}
 				}
-			} elseif ( $first === 'integer' ) {
-				$fix = $phpcsFile->addFixableError(
-					'Short type of "int" should be used for @return tag',
+			}
+			if ( $fixType ) {
+				$phpcsFile->fixer->replaceToken(
 					$retType,
-					'NotShortIntReturn'
+					implode( '|', $explodedType ) . ( isset( $exploded[1] ) ? ' ' . $exploded[1] : '' )
 				);
-				if ( $fix === true ) {
-					$phpcsFile->fixer->replaceToken(
-						$retType, 'int' . ( isset( $exploded[1] ) ? ' ' . $exploded[1] : '' )
-					);
-				}
 			}
 		} else {
 			$error = 'Missing @return tag in function comment';
@@ -413,32 +428,32 @@ class FunctionCommentSniff implements Sniff {
 			}
 			// end if
 			// Check the short type of boolean and integer
-			if ( $param['type'] === 'boolean' ) {
-				$fix = $phpcsFile->addFixableError(
-					'Short type of "bool" should be used for @param tag',
-					$param['tag'],
-					'NotShortBoolParam'
-				);
-				if ( $fix === true ) {
-					$this->replaceParamComment(
-						$phpcsFile,
-						$param,
-						[ 'type' => 'bool' ]
+			$explodedType = explode( '|', $param['type'] );
+			$fixType = false;
+			foreach ( $explodedType as $index => $singleType ) {
+				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
+					$newType = self::$shortTypeMapping[$singleType];
+					// grep: NotShortIntParam, NotShortIntArrayParam,
+					// NotShortBoolParam, NotShortBoolArrayParam
+					$code = 'NotShort' . ucfirst( str_replace( '[]', 'Array', $newType ) ) . 'Param';
+					$fix = $phpcsFile->addFixableError(
+						'Short type of "%s" should be used for @param tag',
+						$param['tag'],
+						$code,
+						[ $newType ]
 					);
+					if ( $fix ) {
+						$explodedType[$index] = $newType;
+						$fixType = true;
+					}
 				}
-			} elseif ( $param['type'] === 'integer' ) {
-				$fix = $phpcsFile->addFixableError(
-					'Short type of "int" should be used for @param tag',
-					$param['tag'],
-					'NotShortIntParam'
+			}
+			if ( $fixType ) {
+				$this->replaceParamComment(
+					$phpcsFile,
+					$param,
+					[ 'type' => implode( '|', $explodedType ) ]
 				);
-				if ( $fix === true ) {
-					$this->replaceParamComment(
-						$phpcsFile,
-						$param,
-						[ 'type' => 'int' ]
-					);
-				}
 			}
 			if ( $param['comment'] === '' ) {
 				continue;

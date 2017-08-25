@@ -30,8 +30,28 @@
   62 | ERROR | [x] Short type of "bool" should be used for @return
      |       |     tag
      |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
-  69 | ERROR | [ ] Only one class is allowed in a file
+  69 | ERROR | [x] Short type of "bool[]" should be used for @param
+     |       |     tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolArrayParam)
+  70 | ERROR | [x] Short type of "int[]" should be used for @param
+     |       |     tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntArrayParam)
+  71 | ERROR | [x] Short type of "bool[]" should be used for @return
+     |       |     tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolArrayReturn)
+  78 | ERROR | [x] Short type of "bool" should be used for @param tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
+  79 | ERROR | [x] Short type of "int" should be used for @param tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
+  79 | ERROR | [x] Short type of "bool" should be used for @param tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
+  80 | ERROR | [x] Short type of "bool" should be used for @return
+     |       |     tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
+  80 | ERROR | [x] Short type of "int" should be used for @return tag
+     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
+  87 | ERROR | [ ] Only one class is allowed in a file
      |       |     (Generic.Files.OneClassPerFile.MultipleFound)
- 136 | ERROR | [ ] Only one class is allowed in a file
+ 154 | ERROR | [ ] Only one class is allowed in a file
      |       |     (Generic.Files.OneClassPerFile.MultipleFound)
-PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 17 MARKED SNIFF VIOLATIONS AUTOMATICALLY
