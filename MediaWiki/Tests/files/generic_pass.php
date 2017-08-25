@@ -35,7 +35,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 
 	public $var;
 	/**
-	 * @param  string $word The input string.
+	 * @param string $word The input string.
 	 * @return bool
 	 */
 	public function iDoCaseStuff( $word ) {
@@ -57,7 +57,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	}
 
 	/**
-	 * @param  string $word The input string.
+	 * @param string $word The input string.
 	 * @return bool
 	 */
 	public function iDoCaseStuffTwo( $word ) {
@@ -75,7 +75,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		return (bool)$bar;
 	}
 	/**
-	 * @param  string $par The test input.
+	 * @param string $par The test input.
 	 * @return void
 	 */
 	public function fooBarBaz( $par ) {
@@ -100,7 +100,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		return $foo + $wgBarBarBar + $this->foo;
 	}
 	/**
-	 * @param  FooBar $baz The FooBar object.
+	 * @param FooBar $baz The FooBar object.
 	 * @return array  $cat The merged array.
 	 */
 	private function someFunction( FooBar $baz ) {

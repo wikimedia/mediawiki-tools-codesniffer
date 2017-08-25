@@ -23,8 +23,8 @@ class IllegalSingleLineCommentSniff implements Sniff {
 	}
 
 	/**
-	 * @param  File $phpcsFile File object.
-	 * @param  int $stackPtr The index of current token.
+	 * @param File $phpcsFile File object.
+	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {

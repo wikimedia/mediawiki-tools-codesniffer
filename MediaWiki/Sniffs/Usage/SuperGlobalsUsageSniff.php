@@ -21,14 +21,14 @@ class SuperGlobalsUsageSniff implements Sniff {
 		'$_GET' => true
 	];
 	/**
-	 * @return  array
+	 * @return array
 	 */
 	public function register() {
 		return [ T_VARIABLE ];
 	}
 
 	/**
-	 * @param  File $phpcsFile The File object.
+	 * @param File $phpcsFile The File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */

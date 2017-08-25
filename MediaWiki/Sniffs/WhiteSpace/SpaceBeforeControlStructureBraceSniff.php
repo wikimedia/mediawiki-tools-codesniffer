@@ -31,8 +31,8 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 		];
 	}
 	/**
-	 * @param  File $phpcsFile File object.
-	 * @param  int $stackPtr The index of current token.
+	 * @param File $phpcsFile File object.
+	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
@@ -68,10 +68,10 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	/**
 	 * Process The close parenthesis on the same line as open brace.
 	 *
-	 * @param  File $phpcsFile File object.
-	 * @param  int $openBrace The index of open brace.
-	 * @param  int $closeBracket The index of close bracket.
-	 * @param  int $stackPtr The index of current token.
+	 * @param File $phpcsFile File object.
+	 * @param int $openBrace The index of open brace.
+	 * @param int $closeBracket The index of close bracket.
+	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */
 	protected function processLineDiff( File $phpcsFile, $openBrace,
@@ -96,10 +96,10 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	/**
 	 * Process The close parenthesis on the different line with open brace.
 	 *
-	 * @param  File $phpcsFile File object.
-	 * @param  int $openBrace The index of open brace.
-	 * @param  int $closeBracket The index of close bracket.
-	 * @param  int $stackPtr The index of current token.
+	 * @param File $phpcsFile File object.
+	 * @param int $openBrace The index of open brace.
+	 * @param int $closeBracket The index of close bracket.
+	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */
 	protected function processLineSame( File $phpcsFile, $openBrace,
@@ -127,9 +127,9 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	/**
 	 * Process empty line after the open brace.
 	 *
-	 * @param  File $phpcsFile File object.
-	 * @param  int $openBrace The index of open brace.
-	 * @param  int $stackPtr The index of current token.
+	 * @param File $phpcsFile File object.
+	 * @param int $openBrace The index of open brace.
+	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */
 	protected function processEmptyLine( File $phpcsFile, $openBrace, $stackPtr ) {

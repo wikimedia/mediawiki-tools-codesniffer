@@ -2,8 +2,8 @@
 
 /**
  * Failed examples.
- * @param  int $a Just for test.
- * @param  int $b Just for test.
+ * @param int $a Just for test.
+ * @param int $b Just for test.
  * @return void
  */
 function wfFailedExamples( $a, $b ) {

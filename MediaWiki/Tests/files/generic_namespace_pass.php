@@ -19,7 +19,7 @@ function namespacedFunction( $outputtype = true, $ts = 3 ) {
 
 class FooBar extends AClass implements SomeInterface {
 	/**
-	 * @param  string $word The test word.
+	 * @param string $word The test word.
 	 * @return string
 	 */
 	public function feedThePanda( $word ) {

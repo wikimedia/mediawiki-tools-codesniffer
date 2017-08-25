@@ -48,7 +48,7 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 *
 	 * Run simple syntax checks, comparing the phpcs output for the test.
 	 * file against an expected output.
-	 * @return  array $tests The test string[].
+	 * @return array $tests The test string[].
 	 */
 	public static function testProvider() {
 		$tests = [];

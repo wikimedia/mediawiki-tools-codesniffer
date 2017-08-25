@@ -9,7 +9,7 @@ class FOO extends BAR {
 	}
 
 	/**
-	 * @param  int $a Just for test.
+	 * @param int $a Just for test.
 	 * @return string
 	 */
 	function dirname( $a ) {
@@ -17,7 +17,7 @@ class FOO extends BAR {
 	}
 
 	/**
-	 * @param  int $a Just for test.
+	 * @param int $a Just for test.
 	 * @return string
 	 */
 	function foo( $a ) {
@@ -25,7 +25,7 @@ class FOO extends BAR {
 	}
 
 	/**
-	 * @param  int $a Just for test.
+	 * @param int $a Just for test.
 	 * @return string
 	 */
 	function bar( $a ) {

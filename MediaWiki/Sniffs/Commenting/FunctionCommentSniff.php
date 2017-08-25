@@ -210,6 +210,26 @@ class FunctionCommentSniff implements Sniff {
 			}
 		}
 		if ( $return !== null ) {
+			$retTypeSpacing = $return + 1;
+			if ( $tokens[$retTypeSpacing]['code'] === T_DOC_COMMENT_WHITESPACE ) {
+				$expectedSpaces = 1;
+				$currentSpaces = strlen( $tokens[$retTypeSpacing]['content'] );
+				if ( $currentSpaces !== $expectedSpaces ) {
+					$data = [
+						$expectedSpaces,
+						$currentSpaces,
+					];
+					$fix = $phpcsFile->addFixableError(
+						'Expected %s spaces before return type; %s found',
+						$retTypeSpacing,
+						'SpacingBeforeReturnType',
+						$data
+					);
+					if ( $fix ) {
+						$phpcsFile->fixer->replaceToken( $retTypeSpacing, ' ' );
+					}
+				}
+			}
 			$retType = $return + 2;
 			$content = $tokens[$retType]['content'];
 			if ( empty( $content ) === true || $tokens[$retType]['code'] !== T_DOC_COMMENT_STRING ) {
@@ -306,12 +326,16 @@ class FunctionCommentSniff implements Sniff {
 			if ( $tokens[$tag]['content'] !== '@param' ) {
 				continue;
 			}
+			$paramSpace = 0;
 			$type = '';
 			$typeSpace = 0;
 			$var = '';
 			$varSpace = 0;
 			$comment = '';
 			$commentFirst = '';
+			if ( $tokens[( $tag + 1 )]['code'] === T_DOC_COMMENT_WHITESPACE ) {
+				$paramSpace = strlen( $tokens[( $tag + 1 )]['content'] );
+			}
 			if ( $tokens[( $tag + 2 )]['code'] === T_DOC_COMMENT_STRING ) {
 				$matches = [];
 				preg_match( '/([^$&.]+)(?:((?:\.\.\.)?(?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/',
@@ -364,6 +388,7 @@ class FunctionCommentSniff implements Sniff {
 				'var' => $var,
 				'comment' => $comment,
 				'comment_first' => $commentFirst,
+				'param_space' => $paramSpace,
 				'type_space' => $typeSpace,
 				'var_space' => $varSpace,
 			];
@@ -386,6 +411,19 @@ class FunctionCommentSniff implements Sniff {
 				continue;
 			}
 			$foundParams[] = $param['var'];
+			// Check number of spaces before type (after @param)
+			$spaces = 1;
+			if ( $param['param_space'] !== $spaces ) {
+				$error = 'Expected %s spaces before parameter type; %s found';
+				$data = [
+					$spaces,
+					$param['param_space'],
+				];
+				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingBeforeParamType', $data );
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 1 ), str_repeat( ' ', $spaces ) );
+				}
+			}
 			// Check number of spaces after the type.
 			// $spaces = ( $maxType - strlen( $param['type'] ) + 1 );
 			$spaces = 1;

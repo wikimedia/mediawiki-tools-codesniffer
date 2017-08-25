@@ -38,7 +38,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param  int $token PHPCS token code.
+	 * @param int $token PHPCS token code.
 	 * @return boolean Whether the token code is closed.
 	 */
 	private function isClosed( $token ) {
@@ -47,7 +47,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param  int $token PHPCS token code.
+	 * @param int $token PHPCS token code.
 	 * @return boolean Whether the token code is parenthesis.
 	 */
 	private function isParenthesis( $token ) {
@@ -122,8 +122,8 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param  File $phpcsFile File object.
-	 * @param  int $stackPtr The current token index.
+	 * @param File $phpcsFile File object.
+	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
 	protected function processOpenParenthesis( File $phpcsFile, $stackPtr ) {
@@ -152,8 +152,8 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param  File $phpcsFile File object.
-	 * @param  int $stackPtr The current token index.
+	 * @param File $phpcsFile File object.
+	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
 	protected function processCloseParenthesis( File $phpcsFile, $stackPtr ) {

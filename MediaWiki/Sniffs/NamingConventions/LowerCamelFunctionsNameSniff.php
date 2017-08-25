@@ -59,8 +59,8 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	}
 
 	/**
-	 * @param  File $phpcsFile File object.
-	 * @param  int $stackPtr The current token index.
+	 * @param File $phpcsFile File object.
+	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {

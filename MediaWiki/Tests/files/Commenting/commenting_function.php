@@ -82,6 +82,15 @@ class TestFailedExamples {
 	public function testLongTypesMixed( $aBool, $mixed ) {
 		return $aBool ? $mixed : 1;
 	}
+
+	/**
+	 * @param  bool $aBool A bool
+	 * @param    int $anInt An int
+	 * @return    bool And some text
+	 */
+	public function testTypesSpacing( $aBool, $anInt ) {
+		return $aBool;
+	}
 }
 
 class TestPassedExamples {

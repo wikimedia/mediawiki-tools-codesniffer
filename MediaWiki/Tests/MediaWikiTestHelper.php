@@ -9,8 +9,8 @@ use PHP_CodeSniffer\Ruleset;
 class MediaWikiTestHelper extends TestHelper {
 
 	/**
-	 * @param  string $file The path of file.
-	 * @param  string $standard The standard string.
+	 * @param string $file The path of file.
+	 * @param string $standard The standard string.
 	 * @return string
 	 */
 	public function runPhpCbf( $file, $standard = '' ) {
