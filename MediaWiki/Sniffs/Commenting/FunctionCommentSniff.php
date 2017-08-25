@@ -296,6 +296,7 @@ class FunctionCommentSniff implements Sniff {
 			$var = '';
 			$varSpace = 0;
 			$comment = '';
+			$commentFirst = '';
 			if ( $tokens[( $tag + 2 )]['code'] === T_DOC_COMMENT_STRING ) {
 				$matches = [];
 				preg_match( '/([^$&.]+)(?:((?:\.\.\.)?(?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/',
@@ -315,7 +316,8 @@ class FunctionCommentSniff implements Sniff {
 					}
 					if ( isset( $matches[4] ) === true ) {
 						$varSpace = strlen( $matches[3] );
-						$comment = $matches[4];
+						$commentFirst = $matches[4];
+						$comment = $commentFirst;
 						// Any strings until the next tag belong to this comment.
 						if ( isset( $tokens[$commentStart]['comment_tags'][( $pos + 1 )] ) === true ) {
 							$end = $tokens[$commentStart]['comment_tags'][( $pos + 1 )];
@@ -346,6 +348,7 @@ class FunctionCommentSniff implements Sniff {
 				'type' => $type,
 				'var' => $var,
 				'comment' => $comment,
+				'comment_first' => $commentFirst,
 				'type_space' => $typeSpace,
 				'var_space' => $varSpace,
 			];
@@ -379,12 +382,11 @@ class FunctionCommentSniff implements Sniff {
 				];
 				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingAfterParamType', $data );
 				if ( $fix === true ) {
-					$content = $param['type'];
-					$content .= str_repeat( ' ', $spaces );
-					$content .= $param['var'];
-					$content .= str_repeat( ' ', $param['var_space'] );
-					$content .= $param['comment'];
-					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 2 ), $content );
+					$this->replaceParamComment(
+						$phpcsFile,
+						$param,
+						[ 'type_space' => $spaces ]
+					);
 				}
 			}
 			// Make sure the param name is correct.
@@ -418,12 +420,11 @@ class FunctionCommentSniff implements Sniff {
 					'NotShortBoolParam'
 				);
 				if ( $fix === true ) {
-					$content  = 'bool';
-					$content .= str_repeat( ' ', $param['type_space'] );
-					$content .= $param['var'];
-					$content .= str_repeat( ' ', $param['var_space'] );
-					$content .= $param['comment'];
-					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 2 ), $content );
+					$this->replaceParamComment(
+						$phpcsFile,
+						$param,
+						[ 'type' => 'bool' ]
+					);
 				}
 			} elseif ( $param['type'] === 'integer' ) {
 				$fix = $phpcsFile->addFixableError(
@@ -432,12 +433,11 @@ class FunctionCommentSniff implements Sniff {
 					'NotShortIntParam'
 				);
 				if ( $fix === true ) {
-					$content  = 'int';
-					$content .= str_repeat( ' ', $param['type_space'] );
-					$content .= $param['var'];
-					$content .= str_repeat( ' ', $param['var_space'] );
-					$content .= $param['comment'];
-					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 2 ), $content );
+					$this->replaceParamComment(
+						$phpcsFile,
+						$param,
+						[ 'type' => 'int' ]
+					);
 				}
 			}
 			if ( $param['comment'] === '' ) {
@@ -455,12 +455,11 @@ class FunctionCommentSniff implements Sniff {
 				];
 				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingAfterParamName', $data );
 				if ( $fix === true ) {
-					$content = $param['type'];
-					$content .= str_repeat( ' ', $param['type_space'] );
-					$content .= $param['var'];
-					$content .= str_repeat( ' ', $spaces );
-					$content .= $param['comment'];
-					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 2 ), $content );
+					$this->replaceParamComment(
+						$phpcsFile,
+						$param,
+						[ 'var_space' => $spaces ]
+					);
 				}
 			}
 		}
@@ -478,5 +477,27 @@ class FunctionCommentSniff implements Sniff {
 		}
 	}
 	// end processParams()
+
+	/**
+	 * Replace a @param comment
+	 *
+	 * @param File $phpcsFile The file being scanned.
+	 * @param array $param Array of the @param
+	 * @param array $fixParam Array with fixes to @param. Only provide keys to replace
+	 *
+	 * @return void
+	 */
+	protected function replaceParamComment( File $phpcsFile, array $param, array $fixParam ) {
+		// Use the old value for unchanged keys
+		$fixParam += $param;
+
+		// Build the new line
+		$content  = $fixParam['type'];
+		$content .= str_repeat( ' ', $fixParam['type_space'] );
+		$content .= $fixParam['var'];
+		$content .= str_repeat( ' ', $fixParam['var_space'] );
+		$content .= $fixParam['comment_first'];
+		$phpcsFile->fixer->replaceToken( ( $fixParam['tag'] + 2 ), $content );
+	}
 }
 // end class

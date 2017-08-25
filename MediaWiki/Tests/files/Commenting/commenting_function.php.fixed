@@ -29,6 +29,7 @@ class TestFailedExamples {
 
 	/**
 	 * @param bool $aBool A bool
+	 *   With a long comment
 	 * @param int $anInt An int
 	 * @return bool And some text
 	 */
