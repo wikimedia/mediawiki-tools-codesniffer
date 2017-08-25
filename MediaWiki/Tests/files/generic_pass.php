@@ -101,7 +101,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	}
 	/**
 	 * @param FooBar $baz The FooBar object.
-	 * @return array  $cat The merged array.
+	 * @return array $cat The merged array.
 	 */
 	private function someFunction( FooBar $baz ) {
 		$foo = [

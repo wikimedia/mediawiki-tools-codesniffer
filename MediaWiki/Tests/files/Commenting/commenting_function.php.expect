@@ -52,10 +52,20 @@
      |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
   87 | ERROR | [x] Expected 1 spaces before parameter type; 2 found
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
+  87 | ERROR | [x] Expected 1 spaces after parameter type; 4 found
+     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
+  87 | ERROR | [x] Expected 1 spaces after parameter name; 4 found
+     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
   88 | ERROR | [x] Expected 1 spaces before parameter type; 4 found
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
+  88 | ERROR | [x] Expected 1 spaces after parameter type; 4 found
+     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
+  88 | ERROR | [x] Expected 1 spaces after parameter name; 4 found
+     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
   89 | ERROR | [x] Expected 1 spaces before return type; 4 found
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
+  89 | ERROR | [x] Expected 1 spaces after return type; 4 found
+     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
   96 | ERROR | [x] Param name should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
   97 | ERROR | [x] Param name should not end with punctuation ":"
@@ -66,4 +76,4 @@
      |       |     (Generic.Files.OneClassPerFile.MultipleFound)
  172 | ERROR | [ ] Only one class is allowed in a file
      |       |     (Generic.Files.OneClassPerFile.MultipleFound)
-PHPCBF CAN FIX THE 23 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 28 MARKED SNIFF VIOLATIONS AUTOMATICALLY

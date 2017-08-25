@@ -239,6 +239,7 @@ class FunctionCommentSniff implements Sniff {
 			// The first word of the return type is the actual type
 			$exploded = explode( ' ', $content, 2 );
 			$type = $exploded[0];
+			$comment = isset( $exploded[1] ) ? $exploded[1] : null;
 			$fixType = false;
 			// Check for unneeded punctation
 			$matches = [];
@@ -274,10 +275,31 @@ class FunctionCommentSniff implements Sniff {
 					}
 				}
 			}
+			// Check spacing after type
+			if ( $comment !== null ) {
+				$expectedSpaces = 1;
+				$currentSpaces = strspn( $comment, ' ' ) + 1;
+				if ( $currentSpaces !== $expectedSpaces ) {
+					$data = [
+						$expectedSpaces,
+						$currentSpaces,
+					];
+					$fix = $phpcsFile->addFixableError(
+						'Expected %s spaces after return type; %s found',
+						$retType,
+						'SpacingAfterReturnType',
+						$data
+					);
+					if ( $fix ) {
+						$fixType = true;
+						$comment = substr( $comment, $currentSpaces - 1 );
+					}
+				}
+			}
 			if ( $fixType ) {
 				$phpcsFile->fixer->replaceToken(
 					$retType,
-					implode( '|', $explodedType ) . ( isset( $exploded[1] ) ? ' ' . $exploded[1] : '' )
+					implode( '|', $explodedType ) . ( $comment !== null ? ' ' . $comment : '' )
 				);
 			}
 		} else {
