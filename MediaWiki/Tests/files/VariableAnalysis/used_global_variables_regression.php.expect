@@ -1,0 +1,2 @@
+ 10 | ERROR | Only one class is allowed in a file
+    |       | (MediaWiki.Files.OneClassPerFile.MultipleFound)

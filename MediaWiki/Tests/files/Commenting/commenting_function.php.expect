@@ -73,7 +73,7 @@
   98 | ERROR | [x] Return type should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
  105 | ERROR | [ ] Only one class is allowed in a file
-     |       |     (Generic.Files.OneClassPerFile.MultipleFound)
+     |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
  172 | ERROR | [ ] Only one class is allowed in a file
-     |       |     (Generic.Files.OneClassPerFile.MultipleFound)
+     |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
 PHPCBF CAN FIX THE 28 MARKED SNIFF VIOLATIONS AUTOMATICALLY
