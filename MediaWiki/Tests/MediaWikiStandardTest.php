@@ -50,7 +50,7 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	 * file against an expected output.
 	 * @return array $tests The test string[].
 	 */
-	public static function testProvider() {
+	public static function fileDataProvider() {
 		$tests = [];
 
 		$standard = dirname( __DIR__ );
@@ -77,7 +77,7 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * _testFile
 	 *
-	 * @dataProvider testProvider
+	 * @dataProvider fileDataProvider
 	 *
 	 * @param string $file The path string of file.
 	 * @param string $standard The standard string.
@@ -89,11 +89,12 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 		$expect = $this->prepareOutput( file_get_contents( $expectedOutputFile ) );
 		$this->assertEquals( $expect, $outputStr );
 	}
+
 	/**
 	 * @return array $tests The array of test.
 	 */
-	public static function testFixProvider() {
-		$tests = self::testProvider();
+	public static function fixDataProvider() {
+		$tests = self::fileDataProvider();
 		foreach ( array_keys( $tests ) as $idx ) {
 			$fixed = $tests[$idx][0] . ".fixed";
 			if ( file_exists( $fixed ) ) {
@@ -108,7 +109,7 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @dataProvider testFixProvider
+	 * @dataProvider fixDataProvider
 	 * @param string $file The path of file.
 	 * @param string $standard The standard string.
 	 * @param string $fixedFile The path of fixed file.
