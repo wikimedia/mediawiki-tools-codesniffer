@@ -1,34 +1,29 @@
 <?php
 /**
- * This file was copied from CakePhps codesniffer tests before being modified
- * File: http://git.io/vkirb
- * From repository: https://github.com/cakephp/cakephp-codesniffer
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
  *
- * @license MIT
- * CakePHP(tm) : The Rapid Development PHP Framework (http://cakephp.org)
- * Copyright (c) 2005-2013, Cake Software Foundation, Inc.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  *
- * Permission is hereby granted, free of charge, to any person obtaining a
- * copy of this software and associated documentation files (the "Software"),
- * to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following conditions:
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
  *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * @author Addshore
- * Modifications
- *  - Rename appropriatly
- *  - Adapt $this->helper->runPhpCs call to pass second parameter $standard
+ * @file
  */
-use MediaWiki\Sniffs\Tests\MediaWikiTestHelper;
 
-class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
+namespace MediaWiki\Sniffs\Tests;
+
+class MediaWikiStandardTest extends \PHPUnit_Framework_TestCase {
 
 	/**
-	 * @var MediaWikiTestHelper
+	 * @var Helper
 	 */
 	private $helper;
 
@@ -38,8 +33,7 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 	public function setUp() {
 		parent::setUp();
 		if ( empty( $this->helper ) ) {
-			include_once __DIR__ . '/MediaWikiTestHelper.php';
-			$this->helper = new MediaWikiTestHelper();
+			$this->helper = new Helper();
 		}
 	}
 
@@ -54,8 +48,8 @@ class MediaWikiStandardTest extends PHPUnit_Framework_TestCase {
 		$tests = [];
 
 		$standard = dirname( __DIR__ );
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/files' );
-		$iterator = new RecursiveIteratorIterator( $directoryIterator );
+		$directoryIterator = new \RecursiveDirectoryIterator( __DIR__ . '/files' );
+		$iterator = new \RecursiveIteratorIterator( $directoryIterator );
 		foreach ( $iterator as $dir ) {
 			if ( $dir->isDir() ) {
 				continue;
