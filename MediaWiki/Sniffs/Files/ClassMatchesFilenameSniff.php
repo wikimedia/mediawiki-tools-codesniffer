@@ -45,7 +45,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 		if ( $fname === 'STDIN' ) {
 			return;
 		}
-		$exp = explode( '/', $fname );
+		$exp = explode( DIRECTORY_SEPARATOR, $fname );
 		$base = end( $exp );
 		$name = $phpcsFile->getDeclarationName( $stackPtr );
 		if ( $base !== "$name.php" ) {
