@@ -20,10 +20,10 @@ class TestFailedExamples {
 
 	/**
 	 * @param int $testVar 	This is test.
-	 * @param int $t 		For test.
+	 * @param int $_ 		For test.
 	 * @return int $testVar This is test.
 	 */
-	public function testSingleSpaces( $testVar, $t ) {
+	public function testSingleSpaces( $testVar, $_ ) {
 		return $testVar;
 	}
 

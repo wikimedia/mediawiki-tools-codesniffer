@@ -243,7 +243,7 @@ class FunctionCommentSniff implements Sniff {
 			$fixType = false;
 			// Check for unneeded punctation
 			$matches = [];
-			if ( preg_match( '/^(.*)((?:(?![\[\]\{\}])\p{P})+)$/', $type, $matches ) ) {
+			if ( preg_match( '/^(.*)((?:(?![\[\]_{}])\p{P})+)$/', $type, $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Return type should not end with punctuation "%s"',
 					$retType,
@@ -481,7 +481,7 @@ class FunctionCommentSniff implements Sniff {
 			$var = $param['var'];
 			// Check for unneeded punctation
 			$matches = [];
-			if ( preg_match( '/^(.*?)((?:(?![\[\]\{\}])\p{P})+)(?<!,\.\.\.)$/', $var, $matches ) ) {
+			if ( preg_match( '/^(.*?)((?:(?![\[\]_{}])\p{P})+)(?<!,\.\.\.)$/', $var, $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Param name should not end with punctuation "%s"',
 					$param['tag'],
