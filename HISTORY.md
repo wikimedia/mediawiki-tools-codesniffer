@@ -1,5 +1,22 @@
 # MediaWiki-Codesniffer release history #
 
+## 0.12.0 / 2017-08-29 ##
+* Add sniff to ensure floats have a leading `0` if necessary (Kunal Mehta)
+* Add sniff to ensure the class name matches the filename (Kunal Mehta)
+* Change bootstrap-ci.php to match PHP CodeSniffer 3.0.0 (Umherirrender)
+* Check for unneeded punctation in @param and @return (Umherirrender)
+* Check spacing after type in @return (Umherirrender)
+* Check spacing before type in @param and @return (Umherirrender)
+* Clean up test helpers (Kunal Mehta)
+* Do not mess long function comments on composer fix (Umherirrender)
+* Enforce "short" type definitions in multi types in function comments (Umherirrender)
+* Make it easier to figure out which test failed (Kunal Mehta)
+* phpunit: replace deprecated strict=true (Umherirrender)
+* Remove GoatSniffer integration (Kunal Mehta)
+* Remove unmatched @codingStandardsIgnoreEnd (Umherirrender)
+* Rename OpeningKeywordBracketSniff to OpeningKeywordParenthesisSniff (Reedy)
+* Use local OneClassPerFile sniff for only one class/interface/trait (Kunal Mehta)
+
 ## 0.11.1 / 2017-08-13 ##
 * Add GoatSniffer ASCII art (Kunal Mehta)
 
