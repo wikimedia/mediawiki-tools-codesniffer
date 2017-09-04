@@ -1,0 +1,7 @@
+  4 | WARNING | [x] Deprecated constant DB_SLAVE used
+    |         |     (MediaWiki.Usage.DeprecatedConstantUsage.DB_SLAVE)
+  9 | WARNING | [x] Deprecated constant NS_IMAGE used
+    |         |     (MediaWiki.Usage.DeprecatedConstantUsage.NS_IMAGE)
+ 10 | WARNING | [x] Deprecated constant NS_IMAGE_TALK used
+    |         |     (MediaWiki.Usage.DeprecatedConstantUsage.NS_IMAGE_TALK)
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
