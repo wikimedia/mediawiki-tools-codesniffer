@@ -72,8 +72,10 @@
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
   98 | ERROR | [x] Return type should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
- 105 | ERROR | [ ] Only one class is allowed in a file
+ 105 | ERROR | [x] Incorrect capitalization of @inheritDoc
+     |       |     (MediaWiki.Commenting.FunctionComment.LowercaseInheritDoc)
+ 112 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 172 | ERROR | [ ] Only one class is allowed in a file
+ 179 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
-PHPCBF CAN FIX THE 28 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 29 MARKED SNIFF VIOLATIONS AUTOMATICALLY

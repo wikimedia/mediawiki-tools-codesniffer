@@ -100,6 +100,13 @@ class TestFailedExamples {
 	public function testVariablePunctation( $aBool, $anInt ) {
 		return $aBool;
 	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function testInheritWrongCase( $stuff, $more, $blah ) {
+		$blah = $more . $stuff . $blah;
+	}
 }
 
 class TestPassedExamples {

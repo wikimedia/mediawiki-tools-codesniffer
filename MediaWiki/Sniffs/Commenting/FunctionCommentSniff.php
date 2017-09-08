@@ -147,6 +147,13 @@ class FunctionCommentSniff implements Sniff {
 				}
 			} elseif ( $tagText === '@inheritDoc' ) {
 				$inheritDoc = true;
+			} elseif ( $tagText === '@inheritdoc' ) {
+				$inheritDoc = true;
+				$error = 'Incorrect capitalization of @inheritDoc';
+				$fix = $phpcsFile->addFixableError( $error, $tag, 'LowercaseInheritDoc' );
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken( $tag, "@inheritDoc" );
+				}
 			}
 		}
 		if ( $inheritDoc ) {
