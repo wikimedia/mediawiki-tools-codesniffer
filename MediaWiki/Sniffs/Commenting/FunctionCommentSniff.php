@@ -135,7 +135,7 @@ class FunctionCommentSniff implements Sniff {
 			$phpcsFile->addError( $error, $commentEnd, 'SpacingAfter' );
 		}
 		$commentStart = $tokens[$commentEnd]['comment_opener'];
-		$inheritDoc = false;
+		$skipDoc = false;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagText = $tokens[$tag]['content'];
 			if ( $tagText === '@see' ) {
@@ -146,17 +146,20 @@ class FunctionCommentSniff implements Sniff {
 					$phpcsFile->addError( $error, $tag, 'EmptySees' );
 				}
 			} elseif ( $tagText === '@inheritDoc' ) {
-				$inheritDoc = true;
+				$skipDoc = true;
 			} elseif ( $tagText === '@inheritdoc' ) {
-				$inheritDoc = true;
+				$skipDoc = true;
 				$error = 'Incorrect capitalization of @inheritDoc';
 				$fix = $phpcsFile->addFixableError( $error, $tag, 'LowercaseInheritDoc' );
 				if ( $fix === true ) {
 					$phpcsFile->fixer->replaceToken( $tag, "@inheritDoc" );
 				}
+			} elseif ( $tagText === '@deprecated' ) {
+				// No need to validate deprecated functions
+				$skipDoc = true;
 			}
 		}
-		if ( $inheritDoc ) {
+		if ( $skipDoc ) {
 			// Don't need to validate anything else
 			return;
 		}

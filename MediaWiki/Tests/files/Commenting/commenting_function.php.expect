@@ -80,8 +80,8 @@
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
  115 | ERROR | [x] Incorrect capitalization of @inheritDoc
      |       |     (MediaWiki.Commenting.FunctionComment.LowercaseInheritDoc)
- 122 | ERROR | [ ] Only one class is allowed in a file
+ 129 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 189 | ERROR | [ ] Only one class is allowed in a file
+ 196 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
 PHPCBF CAN FIX THE 31 MARKED SNIFF VIOLATIONS AUTOMATICALLY

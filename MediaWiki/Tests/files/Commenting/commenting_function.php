@@ -117,6 +117,13 @@ class TestFailedExamples {
 	public function testInheritWrongCase( $stuff, $more, $blah ) {
 		$blah = $more . $stuff . $blah;
 	}
+
+	/**
+	 * @deprecated since begin
+	 */
+	public function testDeprecated( $stuff, $more, $blah ) {
+		$blah = $more . $stuff . $blah;
+	}
 }
 
 class TestPassedExamples {
