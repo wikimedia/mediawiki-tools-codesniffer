@@ -207,11 +207,19 @@ class FunctionCommentSniff implements Sniff {
 
 		$return = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
-			if ( $tokens[$tag]['content'] === '@return' ) {
+			$tagContent = $tokens[$tag]['content'];
+			if ( $tagContent === '@return' || $tagContent === '@returns' ) {
 				if ( $return !== null ) {
 					$error = 'Only 1 @return tag is allowed in a function comment';
 					$phpcsFile->addError( $error, $tag, 'DuplicateReturn' );
 					return;
+				}
+				if ( $tagContent === '@returns' ) {
+					$error = 'Use @return tag in function comment instead of @returns';
+					$fix = $phpcsFile->addFixableError( $error, $tag, 'PluralReturns' );
+					if ( $fix === true ) {
+						$phpcsFile->fixer->replaceToken( $tag, '@return' );
+					}
 				}
 				$return = $tag;
 			}
@@ -330,8 +338,16 @@ class FunctionCommentSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$throws = [];
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
-			if ( $tokens[$tag]['content'] !== '@throws' ) {
+			$tagContent = $tokens[$tag]['content'];
+			if ( $tagContent !== '@throws' && $tagContent !== '@throw' ) {
 				continue;
+			}
+			if ( $tagContent === '@throw' ) {
+				$error = 'Use @throws tag in function comment instead of @throw';
+				$fix = $phpcsFile->addFixableError( $error, $tag, 'SingularThrow' );
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken( $tag, '@throws' );
+				}
 			}
 			$exception = null;
 			$comment = null;

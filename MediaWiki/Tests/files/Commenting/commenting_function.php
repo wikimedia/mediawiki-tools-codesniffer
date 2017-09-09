@@ -93,6 +93,16 @@ class TestFailedExamples {
 	}
 
 	/**
+	 * @param bool $aBool A bool
+	 * @param int $anInt An int
+	 * @returns bool And some text
+	 * @throw \Exception
+	 */
+	public function testTagTypos( $aBool, $anInt ) {
+		return $aBool;
+	}
+
+	/**
 	 * @param bool $aBool: A bool
 	 * @param int $anInt: An int
 	 * @return bool: And some text

@@ -66,16 +66,22 @@
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
   89 | ERROR | [x] Expected 1 spaces after return type; 4 found
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
-  96 | ERROR | [x] Param name should not end with punctuation ":"
+  98 | ERROR | [x] Use @return tag in function comment instead of
+     |       |     @returns
+     |       |     (MediaWiki.Commenting.FunctionComment.PluralReturns)
+  99 | ERROR | [x] Use @throws tag in function comment instead of
+     |       |     @throw
+     |       |     (MediaWiki.Commenting.FunctionComment.SingularThrow)
+ 106 | ERROR | [x] Param name should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
-  97 | ERROR | [x] Param name should not end with punctuation ":"
+ 107 | ERROR | [x] Param name should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
-  98 | ERROR | [x] Return type should not end with punctuation ":"
+ 108 | ERROR | [x] Return type should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
- 105 | ERROR | [x] Incorrect capitalization of @inheritDoc
+ 115 | ERROR | [x] Incorrect capitalization of @inheritDoc
      |       |     (MediaWiki.Commenting.FunctionComment.LowercaseInheritDoc)
- 112 | ERROR | [ ] Only one class is allowed in a file
+ 122 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 179 | ERROR | [ ] Only one class is allowed in a file
+ 189 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
-PHPCBF CAN FIX THE 29 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 31 MARKED SNIFF VIOLATIONS AUTOMATICALLY
