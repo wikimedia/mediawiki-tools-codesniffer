@@ -16,4 +16,9 @@
 			<file>./MediaWiki/Tests/MediaWikiStandardTest.php</file>
 		</testsuite>
 	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">MediaWiki/Sniffs/</directory>
+		</whitelist>
+	</filter>
 </phpunit>
