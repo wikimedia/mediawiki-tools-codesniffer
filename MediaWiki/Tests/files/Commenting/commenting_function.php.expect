@@ -72,16 +72,19 @@
   99 | ERROR | [x] Use @throws tag in function comment instead of
      |       |     @throw
      |       |     (MediaWiki.Commenting.FunctionComment.SingularThrow)
- 106 | ERROR | [x] Param name should not end with punctuation ":"
-     |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+ 100 | ERROR | [x] Use @covers tag in function comment instead of
+     |       |     @cover
+     |       |     (MediaWiki.Commenting.FunctionComment.SingularCover)
  107 | ERROR | [x] Param name should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
- 108 | ERROR | [x] Return type should not end with punctuation ":"
+ 108 | ERROR | [x] Param name should not end with punctuation ":"
+     |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+ 109 | ERROR | [x] Return type should not end with punctuation ":"
      |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
- 115 | ERROR | [x] Incorrect capitalization of @inheritDoc
+ 116 | ERROR | [x] Incorrect capitalization of @inheritDoc
      |       |     (MediaWiki.Commenting.FunctionComment.LowercaseInheritDoc)
- 129 | ERROR | [ ] Only one class is allowed in a file
+ 130 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 196 | ERROR | [ ] Only one class is allowed in a file
+ 197 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
-PHPCBF CAN FIX THE 31 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 32 MARKED SNIFF VIOLATIONS AUTOMATICALLY

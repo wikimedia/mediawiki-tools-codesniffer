@@ -167,6 +167,7 @@ class FunctionCommentSniff implements Sniff {
 		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
 		$this->processThrows( $phpcsFile, $stackPtr, $commentStart );
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );
+		$this->processCovers( $phpcsFile, $stackPtr, $commentStart );
 	}
 	// end process()
 
@@ -366,6 +367,36 @@ class FunctionCommentSniff implements Sniff {
 				$error = 'Exception type missing for @throws tag in function comment';
 				$phpcsFile->addError( $error, $tag, 'InvalidThrows' );
 			}
+		}
+		// end foreach
+	}
+	// end processThrows()
+
+	/**
+	 * Process any covers tags that this function comment has.
+	 *
+	 * @param File $phpcsFile The file being scanned.
+	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
+	 * @param int $commentStart The position in the stack where the comment started.
+	 *
+	 * @return void
+	 */
+	protected function processCovers( File $phpcsFile, $stackPtr, $commentStart ) {
+		$tokens = $phpcsFile->getTokens();
+		$throws = [];
+		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
+			$tagContent = $tokens[$tag]['content'];
+			if ( $tagContent !== '@covers' && $tagContent !== '@cover' ) {
+				continue;
+			}
+			if ( $tagContent === '@cover' ) {
+				$error = 'Use @covers tag in function comment instead of @cover';
+				$fix = $phpcsFile->addFixableError( $error, $tag, 'SingularCover' );
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken( $tag, '@covers' );
+				}
+			}
+			// TODO: Asset that the item being covered is valid.
 		}
 		// end foreach
 	}
