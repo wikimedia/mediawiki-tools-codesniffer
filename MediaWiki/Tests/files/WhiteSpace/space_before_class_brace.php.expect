@@ -1,22 +1,22 @@
-  6 | WARNING | [x] Expected 1 space before class open brace and should
-    |         |     be same line.find 0
+  6 | WARNING | [x] Expected 1 space before class open brace. Found
+    |         |     0.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
  13 | ERROR   | [ ] Only one class is allowed in a file
     |         |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 13 | WARNING | [x] Expected 1 space before class open brace and should
-    |         |     be same line.find 2
+ 13 | WARNING | [x] Expected 1 space before class open brace. Found
+    |         |     2.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
  20 | ERROR   | [ ] Only one class is allowed in a file
     |         |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 21 | WARNING | [x] Expected 1 space before class open brace and should
-    |         |     be same line.find 1
-    |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
+ 21 | WARNING | [x] Expected class open brace to be on the same line as
+    |         |     class keyword.
+    |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnSameLine)
  25 | ERROR   | [ ] Only one class is allowed in a file
     |         |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
  29 | ERROR   | [ ] Only one class is allowed in a file
     |         |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 29 | WARNING | [x] Expected 1 space before class open brace and should
-    |         |     be same line.find 0
+ 29 | WARNING | [x] Expected 1 space before class open brace. Found
+    |         |     0.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
  33 | ERROR   | [ ] Only one class is allowed in a file
     |         |     (MediaWiki.Files.OneClassPerFile.MultipleFound)

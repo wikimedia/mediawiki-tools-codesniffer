@@ -53,7 +53,6 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 			}
 			return;
 		}
-		$warning = 'Expected 1 space before class open brace and should be same line.find %s';
 		$spaceCount = 0;
 		for ( $start = $pre + 1; $start < $openBrace; $start++ ) {
 			$content = $tokens[$start]['content'];
@@ -61,11 +60,9 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 			$spaceCount += $contentSize;
 		}
 
-		if ( $spaceCount !== 1 ||
-			$tokens[$openBrace]['line'] !== $tokens[$pre]['line']
-			) {
+		if ( $spaceCount !== 1 ) {
 			$fix = $phpcsFile->addFixableWarning(
-				$warning,
+				'Expected 1 space before class open brace. Found %s.',
 				$openBrace,
 				'NoSpaceBeforeBrace',
 				[ $spaceCount ]
@@ -74,6 +71,18 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 				$phpcsFile->fixer->beginChangeset();
 				$phpcsFile->fixer->replaceToken( $openBrace, '' );
 				$phpcsFile->fixer->addContent( $pre, ' {' );
+				$phpcsFile->fixer->endChangeset();
+			}
+		}
+
+		if ( $tokens[$openBrace]['line'] !== $tokens[$pre]['line'] ) {
+			$fix = $phpcsFile->addFixableWarning(
+				'Expected class open brace to be on the same line as class keyword.',
+				$openBrace,
+				'BraceNotOnSameLine'
+			);
+			if ( $fix === true ) {
+				$phpcsFile->fixer->beginChangeset();
 				for ( $i = ( $pre + 1 ); $i < $openBrace; $i++ ) {
 					$phpcsFile->fixer->replaceToken( $i, '' );
 				}
