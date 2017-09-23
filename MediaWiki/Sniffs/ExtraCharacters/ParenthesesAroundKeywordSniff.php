@@ -58,12 +58,17 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 
 			if ( $fix === true ) {
 				if ( $nextToken['code'] === T_OPEN_PARENTHESIS ) {
-					$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
-					$closer = $tokens[$stackPtr + 1]['parenthesis_closer'];
+					if ( $nextSecondToken['code'] === T_WHITESPACE ) {
+						$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
+					} else {
+						// Ensure the both tokens are not mangled together without space
+						$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
+					}
+					$closer = $nextToken['parenthesis_closer'];
 					$phpcsFile->fixer->replaceToken( $closer, '' );
 				} else {
 					$phpcsFile->fixer->replaceToken( $stackPtr + 2, '' );
-					$closer = $tokens[$stackPtr + 2]['parenthesis_closer'];
+					$closer = $nextSecondToken['parenthesis_closer'];
 					$phpcsFile->fixer->replaceToken( $closer, '' );
 					if ( $tokens[$stackPtr + 3]['code'] === T_WHITESPACE ) {
 						$phpcsFile->fixer->replaceToken( $stackPtr + 3, '' );

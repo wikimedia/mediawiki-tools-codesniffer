@@ -2,32 +2,64 @@
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
   4 | WARNING | [x] clone keyword must not be used as a function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
-  6 | WARNING | [x] require keyword must not be used as a function.
+  5 | WARNING | [x] clone keyword must not be used as a function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+  5 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  5 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
   7 | WARNING | [x] require keyword must not be used as a function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
-  9 | WARNING | [x] require_once keyword must not be used as a
+  8 | WARNING | [x] require keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+  9 | WARNING | [x] require keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+  9 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  9 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 11 | WARNING | [x] require_once keyword must not be used as a
     |         |     function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 10 | WARNING | [x] require_once keyword must not be used as a
+ 12 | WARNING | [x] require_once keyword must not be used as a
     |         |     function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 12 | WARNING | [x] include keyword must not be used as a function.
-    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 13 | WARNING | [x] include keyword must not be used as a function.
-    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 15 | WARNING | [x] include_once keyword must not be used as a
+ 13 | WARNING | [x] require_once keyword must not be used as a
     |         |     function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 16 | WARNING | [x] include_once keyword must not be used as a
+ 13 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 13 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 15 | WARNING | [x] include keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+ 16 | WARNING | [x] include keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+ 17 | WARNING | [x] include keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+ 17 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 17 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 19 | WARNING | [x] include_once keyword must not be used as a
     |         |     function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 18 | WARNING | [x] require_once keyword must not be used as a
+ 20 | WARNING | [x] include_once keyword must not be used as a
     |         |     function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 21 | WARNING | [x] require_once keyword must not be used as a
+ 21 | WARNING | [x] include_once keyword must not be used as a
     |         |     function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
- 24 | WARNING | [x] require keyword must not be used as a function.
+ 21 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 21 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 23 | WARNING | [x] require_once keyword must not be used as a
+    |         |     function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
-PHPCBF CAN FIX THE 13 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 26 | WARNING | [x] require_once keyword must not be used as a
+    |         |     function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+ 29 | WARNING | [x] require keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+PHPCBF CAN FIX THE 28 MARKED SNIFF VIOLATIONS AUTOMATICALLY
