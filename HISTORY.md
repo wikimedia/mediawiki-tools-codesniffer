@@ -1,5 +1,15 @@
 # MediaWiki-Codesniffer release history #
 
+## 13.0.0 / 2017-09-23 ##
+* Add sniff for @cover instead of @covers (James D. Forrester)
+* Add sniff to find and replace deprecated constants (Kunal Mehta)
+* Add sniff to find unused "use" statements (Kunal Mehta)
+* Add space after keyword require_once, if needed (Umherirrender)
+* Fix @returns and @throw in function docs (Umherirrender)
+* Prohibit some globals (Max Semenik)
+* Skip function comments with @deprecated (Umherirrender)
+* Sniff & fix lowercase @inheritdoc (Gergő Tisza)
+
 ## 0.12.0 / 2017-08-29 ##
 * Add sniff to ensure floats have a leading `0` if necessary (Kunal Mehta)
 * Add sniff to ensure the class name matches the filename (Kunal Mehta)
