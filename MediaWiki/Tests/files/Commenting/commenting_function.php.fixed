@@ -125,6 +125,50 @@ class TestFailedExamples {
 	public function testDeprecated( $stuff, $more, $blah ) {
 		$blah = $more . $stuff . $blah;
 	}
+
+	/**
+	 * Some text
+	 *
+	 * And other test
+	 */
+	public function testStarAlignedDoc() {
+	}
+
+	/** SomeTextWithoutSpaces
+	 *
+	 * AndNoSpacesHere
+	 */
+	public function testSyntaxDoc() {
+	}
+
+	/**  NoSpaceHere
+	 *
+	 *  AndHere
+	 */
+	public function testVerySpacyDoc() {
+	}
+
+	/** SingleLineNoSpaceHere */
+	public function testSpacingDocSingleLine() {
+	}
+
+	/** SingleLineSpacy */
+	public function testSpacingDocSingleLineSpacy() {
+	}
+
+	/**
+	 * NewLineNoSpaceHere
+	 */
+	public function testCloseTagOwnLine() {
+	}
+
+	/** Comment
+	 * @param string $a A comment
+	 * @return string A comment
+	 */
+	public function testSyntaxDocTag( $a ) {
+		return $a;
+	}
 }
 
 class TestPassedExamples {
