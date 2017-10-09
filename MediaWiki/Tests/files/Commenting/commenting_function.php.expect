@@ -66,6 +66,12 @@
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
   89 | ERROR | [x] Expected 1 spaces after return type; 4 found
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
+  96 | ERROR | [x] Use @param tag in function comment instead of
+     |       |     @params
+     |       |     (MediaWiki.Commenting.FunctionComment.PluralParams)
+  97 | ERROR | [x] Use @param tag in function comment instead of
+     |       |     @params
+     |       |     (MediaWiki.Commenting.FunctionComment.PluralParams)
   98 | ERROR | [x] Use @return tag in function comment instead of
      |       |     @returns
      |       |     (MediaWiki.Commenting.FunctionComment.PluralReturns)
@@ -157,4 +163,4 @@
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
  240 | ERROR | [ ] Only one class is allowed in a file
      |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
-PHPCBF CAN FIX THE 65 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 67 MARKED SNIFF VIOLATIONS AUTOMATICALLY

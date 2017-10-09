@@ -420,9 +420,19 @@ class FunctionCommentSniff implements Sniff {
 		$maxType = 0;
 		$maxVar = 0;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $pos => $tag ) {
-			if ( $tokens[$tag]['content'] !== '@param' ) {
+			$tagContent = $tokens[$tag]['content'];
+			if ( $tagContent !== '@param' && $tagContent !== '@params' ) {
 				continue;
 			}
+
+			if ( $tagContent === '@params' ) {
+				$error = 'Use @param tag in function comment instead of @params';
+				$fix = $phpcsFile->addFixableError( $error, $tag, 'PluralParams' );
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken( $tag, '@param' );
+				}
+			}
+
 			$paramSpace = 0;
 			$type = '';
 			$typeSpace = 0;

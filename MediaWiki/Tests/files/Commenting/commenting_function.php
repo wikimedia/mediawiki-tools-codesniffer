@@ -93,8 +93,8 @@ class TestFailedExamples {
 	}
 
 	/**
-	 * @param bool $aBool A bool
-	 * @param int $anInt An int
+	 * @params bool $aBool A bool
+	 * @params int $anInt An int
 	 * @returns bool And some text
 	 * @throw \Exception
 	 * @cover this::testTagTypos()
