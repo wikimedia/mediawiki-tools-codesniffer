@@ -104,11 +104,13 @@ class TestFailedExamples {
 	}
 
 	/**
-	 * @param bool $aBool: A bool
-	 * @param int $anInt: An int
-	 * @return bool: And some text
+	 * @param {bool} $aBool: A bool
+	 * @param [int] $anInt: An int
+	 * @param \float[] $aFloatArray: A float array
+	 * @return {bool}: And some text
+	 * @throws {Exception}
 	 */
-	public function testVariablePunctation( $aBool, $anInt ) {
+	public function testVariablePunctation( $aBool, $anInt, $aFloatArray ) {
 		return $aBool;
 	}
 

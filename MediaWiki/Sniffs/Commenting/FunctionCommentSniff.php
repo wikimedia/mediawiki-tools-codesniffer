@@ -277,6 +277,23 @@ class FunctionCommentSniff implements Sniff {
 					$fixType = true;
 				}
 			}
+			$matches = [];
+			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $type, $matches ) ) {
+				$error = 'Expected parameter type not wrapped in parenthesis; %s and %s found';
+				$data = [
+					$matches[1], $matches[3]
+				];
+				$fix = $phpcsFile->addFixableError(
+					$error,
+					$retType,
+					'NotParenthesisReturnType',
+					$data
+				);
+				$type = $matches[2];
+				if ( $fix === true ) {
+					$fixType = true;
+				}
+			}
 			// Check the type for short types
 			$explodedType = explode( '|', $type );
 			foreach ( $explodedType as $index => $singleType ) {
@@ -369,6 +386,27 @@ class FunctionCommentSniff implements Sniff {
 			if ( $exception === null ) {
 				$error = 'Exception type missing for @throws tag in function comment';
 				$phpcsFile->addError( $error, $tag, 'InvalidThrows' );
+			} else {
+				// Check for unneeded parenthesis on exceptions
+				$matches = [];
+				if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $exception, $matches ) ) {
+					$error = 'Expected parameter type not wrapped in parenthesis; %s and %s found';
+					$data = [
+						$matches[1], $matches[3]
+					];
+					$fix = $phpcsFile->addFixableError(
+						$error,
+						$tag,
+						'NotParenthesisException',
+						$data
+					);
+					if ( $fix === true ) {
+						$phpcsFile->fixer->replaceToken(
+							$tag + 2,
+							$matches[2] . ( $comment === null ? '' : ' ' . $comment )
+						);
+					}
+				}
 			}
 		}
 		// end foreach
@@ -528,6 +566,27 @@ class FunctionCommentSniff implements Sniff {
 				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingBeforeParamType', $data );
 				if ( $fix === true ) {
 					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 1 ), str_repeat( ' ', $spaces ) );
+				}
+			}
+			// Check for unneeded punctation on parameter type
+			$matches = [];
+			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $param['type'], $matches ) ) {
+				$error = 'Expected parameter type not wrapped in parenthesis; %s and %s found';
+				$data = [
+					$matches[1], $matches[3]
+				];
+				$fix = $phpcsFile->addFixableError(
+					$error,
+					$param['tag'],
+					'NotParenthesisParamType',
+					$data
+				);
+				if ( $fix === true ) {
+					$this->replaceParamComment(
+						$phpcsFile,
+						$param,
+						[ 'type' => $matches[2] ]
+					);
 				}
 			}
 			// Check number of spaces after the type.
