@@ -25,7 +25,7 @@ How to install
     	}
     }
     ```
-2. Create a phpcs.xml with our configuration:
+2. Create a .phpcs.xml with our configuration:
 
     ```
     <?xml version="1.0"?>

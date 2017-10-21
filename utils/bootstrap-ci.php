@@ -41,8 +41,8 @@ if ( $_return !== 0 ) {
 	return;
 }
 
-# Changes to phpcs.xml affect all files
-if ( in_array( 'phpcs.xml', $_head_files ) ) {
+# Changes to phpcs.xml or .phpcs.xml affect all files
+if ( in_array( 'phpcs.xml', $_head_files ) || in_array( '.phpcs.xml', $_head_files ) ) {
 	unset( $_head_files );
 	unset( $_return );
 	return;
@@ -72,7 +72,7 @@ if ( in_array( 'composer.json', $_head_files ) ) {
 	}
 }
 
-# Only keep files out of git head that matches phpcs.xml extensions.
+# Only keep files out of git head that matches phpcs.xml/.phpcs.xml extensions.
 $_extensions = array_keys( $this->config->extensions );
 $this->config->files = array_filter(
 	$_head_files,
