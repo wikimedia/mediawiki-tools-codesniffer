@@ -1,5 +1,13 @@
 # MediaWiki-Codesniffer release history #
 
+## 14.0.0 / 2017-10-20 ##
+* Add sniff for @params instead of @param (Umherirrender)
+* Better distinguish "one space before brace" and "brace on same line" (Florian Schmidt)
+* Typo fix in docs (MarcoAurelio)
+* Unwrap types in function docs from {} (Umherirrender)
+* Update PHP_CodeSniffer to 3.1.0 from 3.0.2 (Paladox)
+* Validate doc syntax (Umherirrender)
+
 ## 13.0.0 / 2017-09-23 ##
 * Add sniff for @cover instead of @covers (James D. Forrester)
 * Add sniff to find and replace deprecated constants (Kunal Mehta)
