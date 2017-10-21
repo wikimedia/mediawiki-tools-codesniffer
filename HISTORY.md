@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## 14.1.0 / 2017-10-20 ##
+* Update PHP_CodeSniffer to 3.1.1 (Paladox)
+
 ## 14.0.0 / 2017-10-20 ##
 * Add sniff for @params instead of @param (Umherirrender)
 * Better distinguish "one space before brace" and "brace on same line" (Florian Schmidt)
