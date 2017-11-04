@@ -9,9 +9,15 @@ use Something\InAVar;
 use Something\InAVar2;
 use Something\InAVar3;
 use Something\InAVar4;
+use Something\InAVar5;
+use Something\InAVar6;
+use Something\InAVar7;
+use Something\InAVar8;
+use Something\InAVar9;
 use Something\InAThrows;
 use Something\InAExpectedException;
 use Something\InAParam;
+use Something\Partial;
 
 $a = new Baz();
 $b = new Used();
@@ -50,4 +56,19 @@ class Foo {
 	 * @var InAVar4[]
 	 */
 	private $thing4;
+
+	/**
+	 * @var (InAVar5|InAVar6)[]
+	 */
+	private $thing5;
+
+	/**
+	 * @var InAVar7<InAVar8,InAVar9>
+	 */
+	private $thing6;
+
+	/**
+	 * @var Partial\InAVar10
+	 */
+	private $thing7;
 }

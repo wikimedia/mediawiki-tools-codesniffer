@@ -172,12 +172,13 @@ class UnusedUseStatementSniff implements Sniff {
 			) {
 				// For tags like "@param ClassName $var Description" we just want the class name
 				$exploded = explode( ' ', $tokens[$classUsed + 2]['content'] );
-				// Now explode stuff like @var Class1|Class2
-				$classes = explode( '|', $exploded[0] );
+
+				// Now explode stuff like @var (Class1|Class2)[]|Class3<Class4,Class5>
+				$classes = preg_split( '/[|<>(),\\[\\]]/', $exploded[0], -1, PREG_SPLIT_NO_EMPTY );
 				foreach ( $classes as $tagClassName ) {
-					// Handle @var ClassName[]
-					if ( substr( $tagClassName, -2 ) === '[]' ) {
-						$tagClassName = substr( $tagClassName, 0, -2 );
+					// Handle partially qualified names
+					if ( strpos( $tagClassName, '\\' ) > 0 ) {
+						$tagClassName = substr( $tagClassName, 0, strpos( $tagClassName, '\\' ) );
 					}
 					if ( strtolower( $tagClassName ) === $lowerClassName ) {
 						return;
