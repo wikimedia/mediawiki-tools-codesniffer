@@ -4,3 +4,9 @@
  18 | ERROR | Function name "failed_Examples" should use lower camel
     |       | case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+ 46 | ERROR | Function name "testSomeMethod_foo" should use lower camel
+    |       | case.
+    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+ 73 | ERROR | Function name "helper_method" should use lower camel
+    |       | case.
+    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)

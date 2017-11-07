@@ -1,8 +1,8 @@
 <?php
 /**
- * Just for test.
+ * Normal (non-unit-test) class.
  */
-class Test {
+class NotATestCase {
 	/**
 	 * Lower camel case.
 	 * @return void
@@ -37,5 +37,39 @@ class Test {
 	 * @return void
 	 */
 	public function sayTest() {
+	}
+
+	/**
+	 * Named like a test, but not actually one.
+	 * @return void
+	 */
+	public function testSomeMethod_foo() {
+	}
+}
+
+/**
+ * Unit tests have different naming conventions.
+ */
+// @codingStandardsIgnoreLine MediaWiki.Files.OneClassPerFile.MultipleFound
+class FooTest {
+	/**
+	 * Standard way of naming a test for someMethod when there are multiple tests for it.
+	 * @return void
+	 */
+	public function testSomeMethod_testType() {
+	}
+
+	/**
+	 * The dataProvider for the previous method.
+	 * @return void
+	 */
+	public function provideSomeMethod_testType() {
+	}
+
+	/**
+	 * This should still trigger an error.
+	 * @return void
+	 */
+	public function helper_method() {
 	}
 }

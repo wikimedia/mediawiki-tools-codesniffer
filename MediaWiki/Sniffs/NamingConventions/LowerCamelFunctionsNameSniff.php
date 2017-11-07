@@ -68,23 +68,45 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 		$functionContent = $tokens[$stackPtr + 2]['content'];
 		$lowerFunctionName = strtolower( $functionContent );
 		foreach ( $tokens[$stackPtr]['conditions'] as $scope => $code ) {
-			if ( isset( self::$scopeList[$code] ) === true &&
-				isset( self::$methodsDoubleUnderscore[$lowerFunctionName] ) !== true &&
-				isset( self::$magicMethods[$lowerFunctionName] ) !== true
+			if ( !isset( self::$scopeList[$code] ) ||
+				isset( self::$methodsDoubleUnderscore[$lowerFunctionName] ) ||
+				isset( self::$magicMethods[$lowerFunctionName] )
 			) {
-				$pos = strpos( $functionContent, '_' );
-				if ( $pos !== false ||
-					$functionContent[0] !== $lowerFunctionName[0]
-				) {
-					$error = 'Function name "%s" should use lower camel case.';
-					$fix = $phpcsFile->addError(
-						$error,
-						$stackPtr,
-						'FunctionName',
-						[ $functionContent ]
-					);
-				}
+				continue;
+			}
+
+			$pos = strpos( $functionContent, '_' );
+			$isTest = substr( $this->getClassName( $phpcsFile, $stackPtr ), -4 ) === 'Test' &&
+				  preg_match( '/^(test|provide)[A-Z]|\wProvider$/', $functionContent );
+			if ( $pos !== false && !$isTest ||
+				$functionContent[0] !== $lowerFunctionName[0]
+			) {
+				$error = 'Function name "%s" should use lower camel case.';
+				$fix = $phpcsFile->addError(
+					$error,
+					$stackPtr,
+					'FunctionName',
+					[ $functionContent ]
+				);
 			}
 		}
+	}
+
+	/**
+	 * Gets the name of the class which the $functionPtr points into.
+	 * The stack pointer must point to a function keyword.
+	 * @param File $phpcsFile File object.
+	 * @param int $functionPtr Pointer to a function token inside the class.
+	 * @return string|null
+	 */
+	private function getClassName( $phpcsFile, $functionPtr ) {
+		$tokens = $phpcsFile->getTokens();
+		$token = $tokens[$functionPtr];
+		foreach ( $token['conditions'] as $ptr => $type ) {
+			if ( $type === T_CLASS ) {
+				return $phpcsFile->getDeclarationName( $ptr );
+			}
+		}
+		return null;
 	}
 }
