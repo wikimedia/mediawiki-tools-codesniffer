@@ -54,10 +54,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 				( $currToken['content'][0] === '#' &&
 					rtrim( $currToken['content'] ) === '#' )
 			) {
-				$phpcsFile->addWarning( 'Unnecessary empty comment found',
-					$stackPtr,
-					'EmptyComment'
-				);
+				return;
 			// Checking whether there is a space between the comment delimiter
 			// and the comment
 			} elseif ( substr( $currToken['content'], 0, 2 ) === '//' ) {

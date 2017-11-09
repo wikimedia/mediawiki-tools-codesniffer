@@ -1,11 +1,7 @@
   8 | WARNING | [x] Single space expected between "//" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
-  9 | WARNING | [ ] Unnecessary empty comment found
-    |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.EmptyComment)
  10 | WARNING | [x] Single space expected between "#" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
- 11 | WARNING | [ ] Unnecessary empty comment found
-    |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.EmptyComment)
  12 | WARNING | [x] Single space expected between "//" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
  13 | WARNING | [x] Single space expected between "#" and comment
