@@ -173,8 +173,8 @@
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
  168 | ERROR | [x] Expected 1 spaces before @return; 2 found
      |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
- 175 | ERROR | [ ] Only one class is allowed in a file
-     |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
- 242 | ERROR | [ ] Only one class is allowed in a file
-     |       |     (MediaWiki.Files.OneClassPerFile.MultipleFound)
+ 175 | ERROR | [ ] Only one object structure is allowed in a file
+     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 242 | ERROR | [ ] Only one object structure is allowed in a file
+     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 72 MARKED SNIFF VIOLATIONS AUTOMATICALLY

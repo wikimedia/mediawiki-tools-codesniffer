@@ -39,7 +39,7 @@
 			<property name="absoluteLineLimit" value="9999" />
 		</properties>
 	</rule>
-	<!-- <rule ref="Generic.Files.OneClassPerFile" /> -->
+	<rule ref="Generic.Files.OneObjectStructurePerFile" />
 	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
 	<rule ref="Generic.Formatting.MultipleStatementAlignment" />
 	<rule ref="Generic.Formatting.MultipleStatementAlignment.NotSameWarning">

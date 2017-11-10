@@ -1,2 +1,2 @@
- 10 | ERROR | Only one class is allowed in a file
-    |       | (MediaWiki.Files.OneClassPerFile.MultipleFound)
+ 10 | ERROR | Only one object structure is allowed in a file
+    |       | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
