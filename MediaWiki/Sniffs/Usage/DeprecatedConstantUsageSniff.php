@@ -20,20 +20,31 @@
 
 namespace MediaWiki\Sniffs\Usage;
 
+use MediaWiki\Sniffs\Utils\ExtensionInfo;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 class DeprecatedConstantUsageSniff implements Sniff {
 
 	/**
-	 * Deprecated constant => Replacement
+	 * Deprecated constant => Replacement, and last
+	 * MW version that old constant should still be used
 	 *
 	 * @var array
 	 */
 	private $deprecated = [
-		'DB_SLAVE' => 'DB_REPLICA',
-		'NS_IMAGE' => 'NS_FILE',
-		'NS_IMAGE_TALK' => 'NS_FILE_TALK',
+		'DB_SLAVE' => [
+			'replace' => 'DB_REPLICA',
+			'version' => '1.27',
+		],
+		'NS_IMAGE' => [
+			'replace' => 'NS_FILE',
+			'version' => '1.13',
+		],
+		'NS_IMAGE_TALK' => [
+			'replace' => 'NS_FILE_TALK',
+			'version' => '1.13',
+		],
 	];
 
 	/**
@@ -57,15 +68,18 @@ class DeprecatedConstantUsageSniff implements Sniff {
 		$token = $phpcsFile->getTokens()[$stackPtr];
 		$current = $token['content'];
 		if ( isset( $this->deprecated[$current] ) ) {
+			$extensionInfo = ExtensionInfo::newFromFile( $phpcsFile );
+			if ( $extensionInfo->supportsMediaWiki( $this->deprecated[$current]['version'] ) ) {
+				return;
+			}
 			$fix = $phpcsFile->addFixableWarning(
 				"Deprecated constant $current used",
 				$stackPtr,
 				$current
 			);
 			if ( $fix ) {
-				$phpcsFile->fixer->replaceToken( $stackPtr, $this->deprecated[$current] );
+				$phpcsFile->fixer->replaceToken( $stackPtr, $this->deprecated[$current]['replace'] );
 			}
 		}
 	}
-
 }
