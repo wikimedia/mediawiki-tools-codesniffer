@@ -50,12 +50,40 @@ class ClassMatchesFilenameSniff implements Sniff {
 		$name = $phpcsFile->getDeclarationName( $stackPtr );
 		if ( $base !== "$name.php" ) {
 			$wrongCase = strtolower( $base ) === strtolower( "$name.php" );
+			if ( $wrongCase && $this->isMaintenanceScript( $phpcsFile ) ) {
+				// Maintenance scripts follow the class name, but the first
+				// letter is lowercase.
+				$expected = lcfirst( $name );
+				if ( $base === "$expected.php" ) {
+					// OK!
+					return;
+				}
+			}
 			$phpcsFile->addError(
 				"Class name '$name' does not match filename '$base'",
 				$stackPtr,
 				$wrongCase ? 'WrongCase' : 'NotMatch'
 			);
 		}
+	}
+
+	/**
+	 * Figure out whether the file is a MediaWiki maintenance script
+	 *
+	 * @param File $phpcsFile File being checked
+	 *
+	 * @return bool
+	 */
+	private function isMaintenanceScript( File $phpcsFile ) {
+		foreach ( $phpcsFile->getTokens() as $token ) {
+			if ( $token['code'] === T_STRING
+				&& $token['content'] === 'RUN_MAINTENANCE_IF_MAIN'
+			) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 }
