@@ -1,0 +1,3 @@
+ 4 | WARNING | [x] Use is_int() instead of is_integer
+   |         |     (MediaWiki.Usage.ForbiddenFunctions.is_integer)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
