@@ -90,6 +90,7 @@
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />
 	<rule ref="Squiz.Classes.ValidClassName" />
+	<rule ref="Squiz.Functions.FunctionDuplicateArgument" />
 	<rule ref="Squiz.Operators.ValidLogicalOperators" />
 	<rule ref="Squiz.Scope.StaticThisUsage" />
 	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing" />
