@@ -5,14 +5,14 @@ class FOO extends BAR {
 	/**
 	 * @return void
 	 */
-	function __construct() {
+	public function __construct() {
 	}
 
 	/**
 	 * @param int $a Just for test.
 	 * @return string
 	 */
-	function dirname( $a ) {
+	public function dirname( $a ) {
 		return BAR::dirname( __FILE__ );
 	}
 
@@ -20,7 +20,7 @@ class FOO extends BAR {
 	 * @param int $a Just for test.
 	 * @return string
 	 */
-	function foo( $a ) {
+	public function foo( $a ) {
 		return BAR::foo( __FILE__ );
 	}
 
@@ -28,7 +28,7 @@ class FOO extends BAR {
 	 * @param int $a Just for test.
 	 * @return string
 	 */
-	function bar( $a ) {
+	public function bar( $a ) {
 		return BAR::bar( 0 );
 	}
 }
