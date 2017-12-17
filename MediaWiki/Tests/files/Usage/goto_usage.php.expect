@@ -1,2 +1,0 @@
- 10 | ERROR | Control statement "goto" must not be used.
-    |       | (MediaWiki.Usage.GotoUsage.GotoUsage)
