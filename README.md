@@ -51,6 +51,6 @@ TODO
 * Migrate the old code-utils/check-vars.php
 
 ---
-[0]: https://pear.php.net/package/PHP_CodeSniffer
+[0]: https://packagist.org/packages/squizlabs/php_codesniffer
 [1]: https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP
 [2]: https://www.mediawiki.org/wiki/Continuous_integration/Entry_points#PHP
