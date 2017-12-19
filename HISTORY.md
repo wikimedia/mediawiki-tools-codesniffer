@@ -163,7 +163,7 @@
 * Add IfElseStructureSniff to handle else structures (TasneemLo)
 * Handle multiple # comments in Space Before Comment (TasneemLo)
 * Sniff to check assignment in while & if (TasneemLo)
-* Sniff to warn when using dirname(__FILE__) (TasneemLo)
+* Sniff to warn when using `dirname(__FILE__)` (TasneemLo)
 
 ## 0.4.0 / 2015-09-26 ##
 * Use upstream codesniffer 2.3.4 (Kunal Mehta & Paladox)
