@@ -1,3 +1,5 @@
  4 | WARNING | [x] Use is_int() instead of is_integer
    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_integer)
+ 7 | WARNING | [ ] extract should not be used
+   |         |     (MediaWiki.Usage.ForbiddenFunctions.extract)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
