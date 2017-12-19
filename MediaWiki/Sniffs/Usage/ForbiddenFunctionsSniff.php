@@ -32,6 +32,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 */
 	private $functions = [
 		'is_integer' => 'is_int',
+		'create_function' => false,
 		'extract' => false,
 	];
 
