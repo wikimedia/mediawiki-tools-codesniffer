@@ -32,10 +32,14 @@ class IfElseStructureSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$prevToken = $tokens[$stackPtr - 1];
 		$nextToken = $tokens[$stackPtr + 1];
+		$scopeOpener = $tokens[$stackPtr]['scope_opener'];
+		$isAlternativeIfSyntax = $tokens[$scopeOpener]['code'] === T_COLON;
 
 		// single space expected before else and elseif structure
-		if ( $prevToken['code'] !== T_WHITESPACE
-			|| $prevToken['content'] !== " " ) {
+		if ( !$isAlternativeIfSyntax &&
+			( $prevToken['code'] !== T_WHITESPACE
+			|| $prevToken['content'] !== " " )
+		) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Single space expected before "%s"',
 				$stackPtr + 1,
@@ -59,8 +63,10 @@ class IfElseStructureSniff implements Sniff {
 			return;
 		}
 		// single space expected after else structure
-		if ( $nextToken['code'] !== T_WHITESPACE
-			|| $nextToken['content'] !== " " ) {
+		if ( !$isAlternativeIfSyntax &&
+			( $nextToken['code'] !== T_WHITESPACE
+			|| $nextToken['content'] !== " " )
+		) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Single space expected after "%s"',
 				$stackPtr + 1,
@@ -76,6 +82,24 @@ class IfElseStructureSniff implements Sniff {
 					for ( $i = 2; $tokens[$stackPtr + $i]['code'] === T_WHITESPACE; $i++ ) {
 						$phpcsFile->fixer->replaceToken( $stackPtr + $i, '' );
 					}
+				}
+			}
+		}
+		// no space expected after else structure, when it is alternative syntax
+		if ( $isAlternativeIfSyntax
+			&& $nextToken['code'] === T_WHITESPACE
+		) {
+			$fix = $phpcsFile->addFixableWarning(
+				'No space expected after "%s"',
+				$stackPtr + 1,
+				'SpaceAfterElse',
+				[ $tokens[$stackPtr]['content'] ]
+			);
+			if ( $fix === true ) {
+				// Replace all after whitespace with no space
+				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
+				for ( $i = 2; $tokens[$stackPtr + $i]['code'] === T_WHITESPACE; $i++ ) {
+					$phpcsFile->fixer->replaceToken( $stackPtr + $i, '' );
 				}
 			}
 		}

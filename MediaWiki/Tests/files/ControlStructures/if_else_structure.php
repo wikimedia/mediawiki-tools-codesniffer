@@ -12,9 +12,16 @@ function wfFailedExamples() {
 	elseif ( $a ) {
 		# code...
 	}
-	else {
+	else{
 		# code...
 	}
+	if ( $a ) :
+		# code...
+	elseif ( $a ) :
+		# code...
+	else :
+		# code...
+	endif;
 }
 
 /**
@@ -30,4 +37,11 @@ function wfPassedExamples() {
 	} else {
 		# code...
 	}
+	if ( $a ):
+		# code...
+	elseif ( $a ):
+		# code...
+	else:
+		# code...
+	endif;
 }

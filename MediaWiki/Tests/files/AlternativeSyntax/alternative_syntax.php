@@ -21,6 +21,10 @@ function wfFailedExamples() {
 
 	if ( $x < 2 ):
 		echo $x;
+	elseif ( $x > 10 ):
+		echo $i;
+	else:
+		echo $x . $i;
 	endif;
 
 	switch ( $x ):
