@@ -193,9 +193,9 @@ class FunctionCommentSniff implements Sniff {
 		$found = false;
 		for ( $i = $stackPtr + 1; $i < $endFunction; $i++ ) {
 			$token = $tokens[$i];
-			if ( $token['code'] === T_CLOSURE ) {
-				// Skip to the end of the closure and continue
-				$i = $tokens[$i]['scope_closer'];
+			if ( $token['code'] === T_CLOSURE || $token['code'] === T_FUNCTION ) {
+				// Skip to the end of the closure/inner function and continue
+				$i = $token['scope_closer'];
 				continue;
 			}
 			if ( $token['code'] === T_RETURN ) {

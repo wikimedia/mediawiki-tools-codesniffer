@@ -52,6 +52,11 @@ class TestFailedExamples {
 		$a = function () {
 			return '';
 		};
+		function b( $c ) {
+			return $c;
+		}
+
+		b( $a );
 
 		return $a();
 	}
