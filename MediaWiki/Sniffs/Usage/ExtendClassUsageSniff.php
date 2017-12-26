@@ -13,10 +13,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ExtendClassUsageSniff implements Sniff {
 
-	private $eligableCls = null;
-
-	private $eligableFunc = null;
-
 	public static $msgMap = [
 		T_FUNCTION => 'function',
 		T_VARIABLE => 'variable'
@@ -65,11 +61,7 @@ class ExtendClassUsageSniff implements Sniff {
 	 */
 	public function register() {
 		return [
-			T_CLASS,
-			T_EXTENDS,
-			T_FUNCTION,
-			T_VARIABLE,
-			T_STRING
+			T_CLASS
 		];
 	}
 
@@ -82,67 +74,58 @@ class ExtendClassUsageSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$currToken = $tokens[$stackPtr];
 
-		if ( $currToken['code'] === T_CLASS ) {
-			$extendsPtr = $phpcsFile->findNext( T_EXTENDS, $stackPtr );
-			if ( $extendsPtr === false ) {
-				// No extends token found
-				return;
-			}
-			$baseClsPtr = $phpcsFile->findNext( T_STRING, $extendsPtr );
-			$extClsContent = $tokens[$baseClsPtr]['content'];
-			// Here should be replaced with a mechanism that check if
-			// the base class is in the list of restricted classes
-			if ( !isset( self::$checkConfig['extendsCls'][$extClsContent] ) ) {
-				return;
-			} else {
-				// Retrieve class name.
-				$classNamePtr = $phpcsFile->findNext( T_STRING, $stackPtr );
-				$this->eligableCls = [
-					'name' => $tokens[$classNamePtr]['content'],
-					'extendsCls' => $extClsContent,
-					'scope_start' => $currToken['scope_opener'],
-					'scope_end' => $currToken['scope_closer']
-				];
-			}
+		$extendsPtr = $phpcsFile->findNext( T_EXTENDS, $stackPtr );
+		if ( $extendsPtr === false ) {
+			// No extends token found
+			return;
 		}
-
-		if ( !empty( $this->eligableCls )
-			&& $stackPtr > $this->eligableCls['scope_start']
-			&& $stackPtr < $this->eligableCls['scope_end']
-		) {
-			if ( $currToken['code'] === T_FUNCTION ) {
+		$baseClsPtr = $phpcsFile->findNext( T_STRING, $extendsPtr );
+		$extClsContent = $tokens[$baseClsPtr]['content'];
+		// Here should be replaced with a mechanism that check if
+		// the base class is in the list of restricted classes
+		if ( !isset( self::$checkConfig['extendsCls'][$extClsContent] ) ) {
+			return;
+		}
+		$extClsCheckList = self::$checkConfig['checkList'][ $extClsContent ];
+		// Loop over all tokens of the class to check each function
+		$i = $currToken['scope_opener'];
+		$end = $currToken['scope_closer'];
+		$eligableFunc = null;
+		while ( $i !== false && $i < $end ) {
+			$iToken = $tokens[$i];
+			if ( $iToken['code'] === T_FUNCTION ) {
+				$eligableFunc = null;
 				// If this is a function, make sure it's eligible
 				// (i.e. not static or abstract, and has a body).
-				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
+				$methodProps = $phpcsFile->getMethodProperties( $i );
 				$isStaticOrAbstract = $methodProps['is_static'] || $methodProps['is_abstract'];
-				$hasBody = isset( $currToken['scope_opener'] )
-					&& isset( $currToken['scope_closer'] );
+				$hasBody = isset( $iToken['scope_opener'] )
+					&& isset( $iToken['scope_closer'] );
 				if ( !$isStaticOrAbstract && $hasBody ) {
-					$funcNamePtr = $phpcsFile->findNext( T_STRING, $stackPtr );
-					$this->eligableFunc = [
+					$funcNamePtr = $phpcsFile->findNext( T_STRING, $i );
+					$eligableFunc = [
 						'name' => $tokens[$funcNamePtr]['content'],
-						'scope_start' => $currToken['scope_opener'],
-						'scope_end' => $currToken['scope_closer']
+						'scope_start' => $iToken['scope_opener'],
+						'scope_end' => $iToken['scope_closer']
 					];
 				}
 			}
 
-			if ( !empty( $this->eligableFunc )
-				&& $stackPtr > $this->eligableFunc['scope_start']
-				&& $stackPtr < $this->eligableFunc['scope_end']
+			if ( !empty( $eligableFunc )
+				&& $i > $eligableFunc['scope_start']
+				&& $i < $eligableFunc['scope_end']
 			) {
-				// extend class name.
-				$extClsContent = $this->eligableCls['extendsCls'];
-				$extClsCheckList = self::$checkConfig['checkList'][ $extClsContent ];
+				// Inside a eligable function,
+				// check the current token against the checklist
 				foreach ( $extClsCheckList as $key => $value ) {
 					$condition = false;
 					if ( $value['code'] === T_FUNCTION
-						&& strtolower( $currToken['content'] ) === strtolower( $value['content'] )
+						&& strtolower( $iToken['content'] ) === strtolower( $value['content'] )
 					) {
 						$condition = true;
 					}
 					if ( $value['code'] === T_VARIABLE
-						&& $currToken['content'] === $value['content']
+						&& $iToken['content'] === $value['content']
 					) {
 						$condition = true;
 					}
@@ -152,26 +135,23 @@ class ExtendClassUsageSniff implements Sniff {
 						$codeMsg = self::$msgMap[ $value['code'] ];
 						$phpcsFile->addWarning(
 							$warning,
-							$stackPtr,
+							$i,
 							'FunctionVarUsage',
 							[ $expectCodeMsg, $value['expect_content'], $codeMsg, $value['msg_content'] ]
 						);
-						return;
 					}
 				}
-
-				// if reach the end of current function, clear function info
-				$scopeEndPtr = $phpcsFile->findNext( T_STRING, $stackPtr );
-				if ( $scopeEndPtr > $this->eligableFunc['scope_end'] ) {
-					$this->eligableFunc = null;
-				}
 			}
-
-			// if reach the end of current class, clear class information
-			$scopeEndPtr = $phpcsFile->findNext( T_STRING, $stackPtr );
-			if ( $scopeEndPtr > $this->eligableCls['scope_end'] ) {
-				$this->eligableCls = null;
+			// Jump to the next function
+			if ( $eligableFunc === null
+				|| $i >= $eligableFunc['scope_end']
+			) {
+				$start = $eligableFunc === null ? $i : $eligableFunc['scope_end'];
+				$i = $phpcsFile->findNext( T_FUNCTION, $start + 1, $end );
+				continue;
 			}
+			// Find next token to work with
+			$i = $phpcsFile->findNext( [ T_STRING, T_VARIABLE, T_FUNCTION ], $i + 1, $end );
 		}
 	}
 }
