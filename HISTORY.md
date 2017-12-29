@@ -1,5 +1,26 @@
 # MediaWiki-Codesniffer release history #
 
+## 15.0.0 / 2017-12-29 ##
+* Add sniff for using is_int over is_integer (Kunal Mehta)
+* Allow _ in unit test method names (Gergő Tisza)
+* Check function definitions for the same variable name (Kunal Mehta)
+* Fix handling of alternative if in IfElseStructureSniff (Umherirrender)
+* Forbid usage of extract() (Kunal Mehta)
+* Ignore maintenance scripts in ClassMatchesFilenameSniff (Kunal Mehta)
+* Improve phpdoc classname parsing (Gergő Tisza)
+* Move phpcs.xml to .phpcs.xml (Umherirrender)
+* Remove WhiteSpace.SpaceBeforeSingleLineComment.EmptyComment (Gergő Tisza)
+* Replace PEAR with Packagist in README.md link (Ricordisamoa)
+* Require that an explicit visiblity is set on methods and properties (Kunal Mehta)
+* Rework ExtendClassUageSniff to avoid private class member (Umherirrender)
+* Skip inner functions in FunctionCommentSniff::processReturn (Umherirrender)
+* Update PHP_CodeSniffer to 3.2.2 (Ricordisamoa, Kunal Mehta)
+* Use backticks in HISTORY.md (Ricordisamoa)
+* Use only PSR2.Files.EndFileNewline (Kunal Mehta)
+* Use upstream Generic.Files.OneObjectStructurePerFile sniff (Kunal Mehta)
+* Use upstream Generic.PHP.DiscourageGoto (Kunal Mehta)
+* Warn on usage of create_function() (Kunal Mehta)
+
 ## 14.1.0 / 2017-10-20 ##
 * Update PHP_CodeSniffer to 3.1.1 (Paladox)
 
