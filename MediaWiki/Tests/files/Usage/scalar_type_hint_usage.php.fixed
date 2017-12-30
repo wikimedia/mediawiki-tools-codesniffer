@@ -9,3 +9,12 @@
 function wfFoo( int $a, $b ) {
 	$b = $a;
 }
+
+/**
+ * A bar
+ *
+ * @param object $a Stuff
+ */
+function wfBar( object $a ) {
+	$c = $a;
+}

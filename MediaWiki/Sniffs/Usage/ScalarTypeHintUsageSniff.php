@@ -25,7 +25,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ScalarTypeHintUsageSniff implements Sniff {
 
-	private static $bad = [ 'string', 'int', 'float', 'bool' ];
+	private static $bad = [
+		// PHP 7.0+
+		'string', 'int', 'float', 'bool',
+		// PHP 7.2+
+		'object',
+	];
 
 	/**
 	 * Run on functions
