@@ -7,6 +7,8 @@
  46 | ERROR | Function name "testSomeMethod_foo" should use lower camel
     |       | case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 73 | ERROR | Function name "helper_method" should use lower camel
+ 53 | ERROR | Only one object structure is allowed in a file
+    |       | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 72 | ERROR | Function name "helper_method" should use lower camel
     |       | case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)

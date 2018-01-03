@@ -50,7 +50,6 @@ class NotATestCase {
 /**
  * Unit tests have different naming conventions.
  */
-// @codingStandardsIgnoreLine MediaWiki.Files.OneClassPerFile.MultipleFound
 class FooTest {
 	/**
 	 * Standard way of naming a test for someMethod when there are multiple tests for it.
