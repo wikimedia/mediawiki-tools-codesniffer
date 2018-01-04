@@ -1,0 +1,9 @@
+<?php
+
+namespace Something\Test;
+
+class Test1 extends \PHPUnit\Framework\TestCase {
+}
+
+class Test2 extends \PHPUnit\Framework\TestCase {
+}

@@ -1,0 +1,13 @@
+<?php
+
+class Test1 extends PHPUnit\Framework\TestCase {
+}
+
+class Test2 extends PHPUnit\Framework\TestCase {
+}
+
+class Test3 extends \PHPUnit\Framework\TestCase {
+}
+
+class Test4 extends \PHPUnit\Framework\TestCase {
+}

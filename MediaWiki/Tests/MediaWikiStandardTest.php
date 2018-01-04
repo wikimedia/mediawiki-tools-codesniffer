@@ -20,7 +20,7 @@
 
 namespace MediaWiki\Sniffs\Tests;
 
-class MediaWikiStandardTest extends \PHPUnit_Framework_TestCase {
+class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @var Helper
