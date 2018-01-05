@@ -32,8 +32,11 @@ class IfElseStructureSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$prevToken = $tokens[$stackPtr - 1];
 		$nextToken = $tokens[$stackPtr + 1];
-		$scopeOpener = $tokens[$stackPtr]['scope_opener'];
-		$isAlternativeIfSyntax = $tokens[$scopeOpener]['code'] === T_COLON;
+		$isAlternativeIfSyntax = false;
+		if ( isset( $tokens[$stackPtr]['scope_opener'] ) ) {
+			$scopeOpener = $tokens[$stackPtr]['scope_opener'];
+			$isAlternativeIfSyntax = $tokens[$scopeOpener]['code'] === T_COLON;
+		}
 
 		// single space expected before else and elseif structure
 		if ( !$isAlternativeIfSyntax &&
