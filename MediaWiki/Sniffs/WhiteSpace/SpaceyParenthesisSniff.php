@@ -56,6 +56,19 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
+	 * @param int $token PHPCS token code.
+	 * @return boolean Whether the token code is a comment.
+	 */
+	private function isComment( $token ) {
+		return $token === T_COMMENT
+			|| $token === T_PHPCS_ENABLE
+			|| $token === T_PHPCS_DISABLE
+			|| $token === T_PHPCS_SET
+			|| $token === T_PHPCS_IGNORE
+			|| $token === T_PHPCS_IGNORE_FILE;
+	}
+
+	/**
 	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
 	 * @return void
@@ -163,7 +176,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		if ( $this->isOpen( $previousToken['code'] )
 			|| ( $previousToken['code'] === T_WHITESPACE
 				&& $previousToken['content'] === ' ' )
-			|| ( $previousToken['code'] === T_COMMENT
+			|| ( $this->isComment( $previousToken['code'] )
 				&& substr( $previousToken['content'], -1, 1 ) === "\n" ) ) {
 			// If previous token was
 			// '(' or ' ' or a comment ending with a newline
@@ -180,7 +193,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		}
 
 		// If the comment before all the whitespaces immediately preceding the ')' ends with a newline
-		if ( $tokens[$ptr]['code'] === T_COMMENT
+		if ( $this->isComment( $tokens[$ptr]['code'] )
 			&& substr( $tokens[$ptr]['content'], -1, 1 ) === "\n" ) {
 			return;
 		}

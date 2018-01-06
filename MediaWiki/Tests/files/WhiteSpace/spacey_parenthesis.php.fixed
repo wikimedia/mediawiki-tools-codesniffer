@@ -30,4 +30,21 @@ function wfPassedExamples( $arg, $arg1 ) {
 		// 'foo' => 'baz',
 	];
 	(int)$arg->bar();
+
+	$fooArray = [
+		// phpcs:disable Generic.Files.LineLength
+		[
+			'Some',
+			'Parameter',
+			'For',
+			'Testprovider',
+		],
+		[
+			'Some very',
+			'lllllllllllllllllllllllloooooooooooooooooooooooooooonnnnnnnnnnnnnnggggggggggggg Parameter',
+			'For',
+			'Testprovider',
+		],
+		// phpcs:enable
+	];
 }
