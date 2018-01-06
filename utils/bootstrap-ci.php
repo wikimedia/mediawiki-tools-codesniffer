@@ -61,8 +61,8 @@ if ( in_array( 'composer.json', $_head_files ) ) {
 		unset( $_return );
 		return;
 	}
-	$_prev_composer = json_decode( join( '', $_prev_composer ), true );
-	$_cur_composer = json_decode( join( '', $_cur_composer ), true );
+	$_prev_composer = json_decode( implode( '', $_prev_composer ), true );
+	$_cur_composer = json_decode( implode( '', $_cur_composer ), true );
 	if ( $_prev_composer['require-dev']['mediawiki/mediawiki-codesniffer']
 		!== $_cur_composer['require-dev']['mediawiki/mediawiki-codesniffer']
 	) {

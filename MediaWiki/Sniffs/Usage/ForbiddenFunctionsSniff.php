@@ -32,6 +32,11 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 */
 	private $functions = [
 		'is_integer' => 'is_int',
+		'is_writeable' => 'is_writable',
+		'join' => 'implode',
+		'key_exists' => 'array_key_exists',
+		'pos' => 'current',
+		'sizeof' => 'count',
 		'extract' => false,
 		// Deprecated in PHP 7.2
 		'create_function' => false,
