@@ -179,4 +179,6 @@
      |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  247 | ERROR | [ ] Only one object structure is allowed in a file
      |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 253 | ERROR | [ ] Only one object structure is allowed in a file
+     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 72 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -189,6 +189,12 @@ class FunctionCommentSniff implements Sniff {
 		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
 			return;
 		}
+
+		// Skip constructors
+		if ( $phpcsFile->getDeclarationName( $stackPtr ) === '__construct' ) {
+			return;
+		}
+
 		$endFunction = $tokens[$stackPtr]['scope_closer'];
 		$found = false;
 		for ( $i = $stackPtr + 1; $i < $endFunction; $i++ ) {

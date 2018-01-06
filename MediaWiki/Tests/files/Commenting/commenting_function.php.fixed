@@ -250,3 +250,17 @@ class TestSimpleConstructor {
 		$this->info = 'no documentation because obvious';
 	}
 }
+
+class TestReturnConstructor {
+	/**
+	 * With return.
+	 * @param int $a for test.
+	 * @param int $b for another test.
+	 */
+	public function __construct( $a, $b ) {
+		if ( $b instanceof TestPassedExamples ) {
+			return $b;
+		}
+		$this->test( $a );
+	}
+}
