@@ -190,10 +190,19 @@
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
  173 | ERROR   | [x] Expected 1 spaces before @return; 2 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
- 180 | ERROR   | [ ] Only one object structure is allowed in a file
+ 180 | ERROR   | [x] Use @param tag in function comment instead of
+     |         |     @param[in]
+     |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
+ 181 | ERROR   | [x] Use @param tag in function comment instead of
+     |         |     @param[out]
+     |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
+ 182 | ERROR   | [x] Use @param tag in function comment instead of
+     |         |     @param[in,out]
+     |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
+ 190 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 247 | ERROR   | [ ] Only one object structure is allowed in a file
+ 257 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 253 | ERROR   | [ ] Only one object structure is allowed in a file
+ 263 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 72 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 75 MARKED SNIFF VIOLATIONS AUTOMATICALLY

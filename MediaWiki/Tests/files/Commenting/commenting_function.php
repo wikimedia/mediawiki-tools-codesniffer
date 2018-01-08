@@ -175,6 +175,16 @@ class TestFailedExamples {
 	public function testSyntaxDocTag( $a ) {
 		return $a;
 	}
+
+	/**
+	 * @param[in] int $in A comment
+	 * @param[out] int &$out A comment
+	 * @param[in,out] int &$inOut A comment
+	 */
+	public function testDirectionParam( $in, &$out, &$inOut ) {
+		$out = $in * $inOut;
+		$inOut = $in / $out;
+	}
 }
 
 class TestPassedExamples {

@@ -465,9 +465,6 @@ class FunctionCommentSniff implements Sniff {
 		$maxVar = 0;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $pos => $tag ) {
 			$tagContent = $tokens[$tag]['content'];
-			if ( $tagContent !== '@param' && $tagContent !== '@params' ) {
-				continue;
-			}
 
 			if ( $tagContent === '@params' ) {
 				$error = 'Use @param tag in function comment instead of @params';
@@ -475,6 +472,16 @@ class FunctionCommentSniff implements Sniff {
 				if ( $fix === true ) {
 					$phpcsFile->fixer->replaceToken( $tag, '@param' );
 				}
+			} elseif ( $tagContent === '@param[in]' || $tagContent === '@param[out]' ||
+				$tagContent === '@param[in,out]'
+			) {
+				$error = 'Use @param tag in function comment instead of %s';
+				$fix = $phpcsFile->addFixableError( $error, $tag, 'DirectionParam', [ $tagContent ] );
+				if ( $fix === true ) {
+					$phpcsFile->fixer->replaceToken( $tag, '@param' );
+				}
+			} elseif ( $tagContent !== '@param' ) {
+				continue;
 			}
 
 			$paramSpace = 0;
