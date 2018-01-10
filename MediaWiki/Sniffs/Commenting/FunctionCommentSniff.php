@@ -521,7 +521,7 @@ class FunctionCommentSniff implements Sniff {
 						}
 					} else {
 						$error = 'Missing parameter comment';
-						$phpcsFile->addError( $error, $tag, 'MissingParamComment' );
+						$phpcsFile->addWarning( $error, $tag, 'MissingParamComment' );
 					}
 				} else {
 					$error = 'Missing parameter name';

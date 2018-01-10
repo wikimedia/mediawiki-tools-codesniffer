@@ -1,184 +1,199 @@
-   5 | ERROR | [ ] Missing function doc comment
-     |       |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
-   9 | ERROR | [ ] Missing function doc comment
-     |       |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
-  16 | ERROR | [ ] Missing @return tag in function comment
-     |       |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
-  22 | ERROR | [x] Expected 1 spaces after parameter name; 2 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  23 | ERROR | [x] Expected 1 spaces after parameter name; 3 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  31 | ERROR | [x] Short type of "bool" should be used for @param tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
-  33 | ERROR | [x] Short type of "int" should be used for @param tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
-  34 | ERROR | [x] Short type of "bool" should be used for @return
-     |       |     tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
-  41 | ERROR | [x] Short type of "int" should be used for @return tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
-  50 | ERROR | [ ] Missing @return tag in function comment
-     |       |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
-  55 | ERROR | [ ] Missing function doc comment
-     |       |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
-  65 | ERROR | [ ] Missing parameter comment
-     |       |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
-  65 | ERROR | [x] Short type of "bool" should be used for @param tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
-  66 | ERROR | [ ] Missing parameter comment
-     |       |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
-  66 | ERROR | [x] Short type of "int" should be used for @param tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
-  67 | ERROR | [x] Short type of "bool" should be used for @return
-     |       |     tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
-  74 | ERROR | [x] Short type of "bool[]" should be used for @param
-     |       |     tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolArrayParam)
-  75 | ERROR | [x] Short type of "int[]" should be used for @param
-     |       |     tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntArrayParam)
-  76 | ERROR | [x] Short type of "bool[]" should be used for @return
-     |       |     tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolArrayReturn)
-  83 | ERROR | [x] Short type of "bool" should be used for @param tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
-  84 | ERROR | [x] Short type of "int" should be used for @param tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
-  84 | ERROR | [x] Short type of "bool" should be used for @param tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
-  85 | ERROR | [x] Short type of "bool" should be used for @return
-     |       |     tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
-  85 | ERROR | [x] Short type of "int" should be used for @return tag
-     |       |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
-  92 | ERROR | [x] Expected 1 spaces before parameter type; 2 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
-  92 | ERROR | [x] Expected 1 spaces after parameter type; 4 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
-  92 | ERROR | [x] Expected 1 spaces after parameter name; 4 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  93 | ERROR | [x] Expected 1 spaces before parameter type; 4 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
-  93 | ERROR | [x] Expected 1 spaces after parameter type; 4 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
-  93 | ERROR | [x] Expected 1 spaces after parameter name; 4 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  94 | ERROR | [x] Expected 1 spaces before return type; 4 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
-  94 | ERROR | [x] Expected 1 spaces after return type; 4 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
- 101 | ERROR | [x] Use @param tag in function comment instead of
-     |       |     @params
-     |       |     (MediaWiki.Commenting.FunctionComment.PluralParams)
- 102 | ERROR | [x] Use @param tag in function comment instead of
-     |       |     @params
-     |       |     (MediaWiki.Commenting.FunctionComment.PluralParams)
- 103 | ERROR | [x] Use @return tag in function comment instead of
-     |       |     @returns
-     |       |     (MediaWiki.Commenting.FunctionComment.PluralReturns)
- 104 | ERROR | [x] Use @throws tag in function comment instead of
-     |       |     @throw
-     |       |     (MediaWiki.Commenting.FunctionComment.SingularThrow)
- 105 | ERROR | [x] Use @covers tag in function comment instead of
-     |       |     @cover
-     |       |     (MediaWiki.Commenting.FunctionComment.SingularCover)
- 112 | ERROR | [x] Expected parameter type not wrapped in parenthesis; {
-     |       |     and } found
-     |       |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
- 112 | ERROR | [x] Param name should not end with punctuation ":"
-     |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
- 113 | ERROR | [x] Expected parameter type not wrapped in parenthesis; [
-     |       |     and ] found
-     |       |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
- 113 | ERROR | [x] Param name should not end with punctuation ":"
-     |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
- 114 | ERROR | [x] Param name should not end with punctuation ":"
-     |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
- 115 | ERROR | [x] Return type should not end with punctuation ":"
-     |       |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
- 115 | ERROR | [x] Expected parameter type not wrapped in parenthesis; {
-     |       |     and } found
-     |       |     (MediaWiki.Commenting.FunctionComment.NotParenthesisReturnType)
- 116 | ERROR | [x] Expected parameter type not wrapped in parenthesis; {
-     |       |     and } found
-     |       |     (MediaWiki.Commenting.FunctionComment.NotParenthesisException)
- 123 | ERROR | [x] Incorrect capitalization of @inheritDoc
-     |       |     (MediaWiki.Commenting.FunctionComment.LowercaseInheritDoc)
- 137 | ERROR | [x] Comment star tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 138 | ERROR | [x] Comment star tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 139 | ERROR | [x] Comment star tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 140 | ERROR | [x] Comment close tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocClose)
- 144 | ERROR | [x] Comment open tag must be '/**'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 144 | ERROR | [x] Expected at least 1 spaces after doc star; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 145 | ERROR | [x] Comment star must be a single '*'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 145 | ERROR | [x] Comment star tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 145 | ERROR | [x] Expected at least 1 spaces after doc star; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 146 | ERROR | [x] Comment star must be a single '*'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 146 | ERROR | [x] Comment star tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 146 | ERROR | [x] Expected at least 1 spaces after doc star; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 147 | ERROR | [x] Comment close tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocClose)
- 147 | ERROR | [x] Comment close tag must be '*/'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 151 | ERROR | [x] Comment open tag must be '/**'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 152 | ERROR | [x] Comment star must be a single '*'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 152 | ERROR | [x] Expected at least 1 spaces after doc star; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 153 | ERROR | [x] Comment star must be a single '*'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 154 | ERROR | [x] Comment close tag must be '*/'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 158 | ERROR | [x] Comment open tag must be '/**'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 158 | ERROR | [x] Expected 1 spaces after doc star on single line; 0
-     |       |     found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStarSingleLine)
- 158 | ERROR | [x] Expected 1 spaces before close comment tag on single
-     |       |     line; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingSingleLineCloseTag)
- 158 | ERROR | [x] Comment close tag must be '*/'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 162 | ERROR | [x] Expected 1 spaces after doc star on single line; 3
-     |       |     found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStarSingleLine)
- 162 | ERROR | [x] Expected 1 spaces before close comment tag on single
-     |       |     line; 2 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingSingleLineCloseTag)
- 166 | ERROR | [x] Comment open tag must be '/**'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 167 | ERROR | [x] Comment star tag not aligned with open tag
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 167 | ERROR | [x] Expected at least 1 spaces after doc star; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 167 | ERROR | [x] Comment close tag must be '*/'
-     |       |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 167 | ERROR | [x] Comment close tag should have own line
-     |       |     (MediaWiki.Commenting.FunctionComment.CloseTagOwnLine)
- 172 | ERROR | [x] Expected 1 spaces before @param; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
- 172 | ERROR | [x] Expected at least 1 spaces after doc star; 0 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 173 | ERROR | [x] Expected 1 spaces before @return; 2 found
-     |       |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
- 180 | ERROR | [ ] Only one object structure is allowed in a file
-     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 247 | ERROR | [ ] Only one object structure is allowed in a file
-     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 253 | ERROR | [ ] Only one object structure is allowed in a file
-     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+   5 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+   9 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+  16 | ERROR   | [ ] Missing @return tag in function comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
+  22 | ERROR   | [x] Expected 1 spaces after parameter name; 2 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
+  23 | ERROR   | [x] Expected 1 spaces after parameter name; 3 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
+  31 | ERROR   | [x] Short type of "bool" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
+  33 | ERROR   | [x] Short type of "int" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
+  34 | ERROR   | [x] Short type of "bool" should be used for @return
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
+  41 | ERROR   | [x] Short type of "int" should be used for @return
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
+  50 | ERROR   | [ ] Missing @return tag in function comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
+  55 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+  65 | WARNING | [ ] Missing parameter comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
+  65 | ERROR   | [x] Short type of "bool" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
+  66 | WARNING | [ ] Missing parameter comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
+  66 | ERROR   | [x] Short type of "int" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
+  67 | ERROR   | [x] Short type of "bool" should be used for @return
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
+  74 | ERROR   | [x] Short type of "bool[]" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolArrayParam)
+  75 | ERROR   | [x] Short type of "int[]" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntArrayParam)
+  76 | ERROR   | [x] Short type of "bool[]" should be used for @return
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolArrayReturn)
+  83 | ERROR   | [x] Short type of "bool" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
+  84 | ERROR   | [x] Short type of "int" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
+  84 | ERROR   | [x] Short type of "bool" should be used for @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
+  85 | ERROR   | [x] Short type of "bool" should be used for @return
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
+  85 | ERROR   | [x] Short type of "int" should be used for @return
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
+  92 | ERROR   | [x] Expected 1 spaces before parameter type; 2 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
+  92 | ERROR   | [x] Expected 1 spaces after parameter type; 4 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
+  92 | ERROR   | [x] Expected 1 spaces after parameter name; 4 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
+  93 | ERROR   | [x] Expected 1 spaces before parameter type; 4 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
+  93 | ERROR   | [x] Expected 1 spaces after parameter type; 4 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
+  93 | ERROR   | [x] Expected 1 spaces after parameter name; 4 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
+  94 | ERROR   | [x] Expected 1 spaces before return type; 4 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
+  94 | ERROR   | [x] Expected 1 spaces after return type; 4 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
+ 101 | ERROR   | [x] Use @param tag in function comment instead of
+     |         |     @params
+     |         |     (MediaWiki.Commenting.FunctionComment.PluralParams)
+ 102 | ERROR   | [x] Use @param tag in function comment instead of
+     |         |     @params
+     |         |     (MediaWiki.Commenting.FunctionComment.PluralParams)
+ 103 | ERROR   | [x] Use @return tag in function comment instead of
+     |         |     @returns
+     |         |     (MediaWiki.Commenting.FunctionComment.PluralReturns)
+ 104 | ERROR   | [x] Use @throws tag in function comment instead of
+     |         |     @throw
+     |         |     (MediaWiki.Commenting.FunctionComment.SingularThrow)
+ 105 | ERROR   | [x] Use @covers tag in function comment instead of
+     |         |     @cover
+     |         |     (MediaWiki.Commenting.FunctionComment.SingularCover)
+ 112 | ERROR   | [x] Expected parameter type not wrapped in parenthesis;
+     |         |     { and } found
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
+ 112 | ERROR   | [x] Param name should not end with punctuation ":"
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+ 113 | ERROR   | [x] Expected parameter type not wrapped in parenthesis;
+     |         |     [ and ] found
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
+ 113 | ERROR   | [x] Param name should not end with punctuation ":"
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+ 114 | ERROR   | [x] Param name should not end with punctuation ":"
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+ 115 | ERROR   | [x] Return type should not end with punctuation ":"
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
+ 115 | ERROR   | [x] Expected parameter type not wrapped in parenthesis;
+     |         |     { and } found
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisReturnType)
+ 116 | ERROR   | [x] Expected parameter type not wrapped in parenthesis;
+     |         |     { and } found
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisException)
+ 123 | ERROR   | [x] Incorrect capitalization of @inheritDoc
+     |         |     (MediaWiki.Commenting.FunctionComment.LowercaseInheritDoc)
+ 137 | ERROR   | [x] Comment star tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
+ 138 | ERROR   | [x] Comment star tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
+ 139 | ERROR   | [x] Comment star tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
+ 140 | ERROR   | [x] Comment close tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocClose)
+ 144 | ERROR   | [x] Comment open tag must be '/**'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
+ 144 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
+ 145 | ERROR   | [x] Comment star must be a single '*'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
+ 145 | ERROR   | [x] Comment star tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
+ 145 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
+ 146 | ERROR   | [x] Comment star must be a single '*'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
+ 146 | ERROR   | [x] Comment star tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
+ 146 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
+ 147 | ERROR   | [x] Comment close tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocClose)
+ 147 | ERROR   | [x] Comment close tag must be '*/'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
+ 151 | ERROR   | [x] Comment open tag must be '/**'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
+ 152 | ERROR   | [x] Comment star must be a single '*'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
+ 152 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
+ 153 | ERROR   | [x] Comment star must be a single '*'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
+ 154 | ERROR   | [x] Comment close tag must be '*/'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
+ 158 | ERROR   | [x] Comment open tag must be '/**'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
+ 158 | ERROR   | [x] Expected 1 spaces after doc star on single line; 0
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStarSingleLine)
+ 158 | ERROR   | [x] Expected 1 spaces before close comment tag on single
+     |         |     line; 0 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingSingleLineCloseTag)
+ 158 | ERROR   | [x] Comment close tag must be '*/'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
+ 162 | ERROR   | [x] Expected 1 spaces after doc star on single line; 3
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStarSingleLine)
+ 162 | ERROR   | [x] Expected 1 spaces before close comment tag on single
+     |         |     line; 2 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingSingleLineCloseTag)
+ 166 | ERROR   | [x] Comment open tag must be '/**'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
+ 167 | ERROR   | [x] Comment star tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
+ 167 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
+ 167 | ERROR   | [x] Comment close tag must be '*/'
+     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
+ 167 | ERROR   | [x] Comment close tag should have own line
+     |         |     (MediaWiki.Commenting.FunctionComment.CloseTagOwnLine)
+ 172 | ERROR   | [x] Expected 1 spaces before @param; 0 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
+ 172 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
+ 173 | ERROR   | [x] Expected 1 spaces before @return; 2 found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
+ 180 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 247 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 253 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 72 MARKED SNIFF VIOLATIONS AUTOMATICALLY
