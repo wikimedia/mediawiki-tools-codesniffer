@@ -530,10 +530,21 @@ class FunctionCommentSniff implements Sniff {
 				$error = 'Missing parameter type';
 				$phpcsFile->addError( $error, $tag, 'MissingParamType' );
 			}
+			$isVariadicArg = substr_compare( $var, ',...', -4, 4 ) === 0;
+			if ( $isVariadicArg ) {
+				// Variadic args sometimes part of the argument list,
+				// sometimes not. Remove the variadic indicator from the doc name to
+				// compare it against the real name, when it is part of the argument list.
+				// If it is not part of the argument list,
+				// the name of the extra paremter will not be checked.
+				// This does not take care for the php5.6 ...$var feature
+				$var = substr( $var, 0, -4 );
+			}
 			$params[] = [
 				'tag' => $tag,
 				'type' => $type,
 				'var' => $var,
+				'variadic_arg' => $isVariadicArg,
 				'comment' => $comment,
 				'comment_first' => $commentFirst,
 				'param_space' => $paramSpace,
@@ -612,7 +623,7 @@ class FunctionCommentSniff implements Sniff {
 			$var = $param['var'];
 			// Check for unneeded punctation
 			$matches = [];
-			if ( preg_match( '/^(.*?)((?:(?![\[\]_{}])\p{P})+)(?<!,\.\.\.)$/', $var, $matches ) ) {
+			if ( preg_match( '/^(.*?)((?:(?![\[\]_{}])\p{P})+)$/', $var, $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Param name should not end with punctuation "%s"',
 					$param['tag'],
@@ -645,7 +656,7 @@ class FunctionCommentSniff implements Sniff {
 					$error .= 'actual variable name %s';
 					$phpcsFile->addError( $error, $param['tag'], $code, $data );
 				}
-			} elseif ( substr( $var, -4 ) !== ',...' ) {
+			} elseif ( !$param['variadic_arg'] ) {
 				// We must have an extra parameter comment.
 				$error = 'Superfluous parameter comment';
 				$phpcsFile->addError( $error, $param['tag'], 'ExtraParamComment' );
@@ -732,6 +743,9 @@ class FunctionCommentSniff implements Sniff {
 		$content  = $fixParam['type'];
 		$content .= str_repeat( ' ', $fixParam['type_space'] );
 		$content .= $fixParam['var'];
+		if ( $fixParam['variadic_arg'] ) {
+			$content .= ',...';
+		}
 		$content .= str_repeat( ' ', $fixParam['var_space'] );
 		$content .= $fixParam['comment_first'];
 		$phpcsFile->fixer->replaceToken( ( $fixParam['tag'] + 2 ), $content );

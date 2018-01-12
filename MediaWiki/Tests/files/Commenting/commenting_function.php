@@ -185,6 +185,22 @@ class TestFailedExamples {
 		$out = $in * $inOut;
 		$inOut = $in / $out;
 	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgInArgList( $key, $params /* ... */ ) {
+	}
+
+	/**
+	 * Test with variadic argument not in the list
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgNotInArgList( $key /* ... */ ) {
+	}
 }
 
 class TestPassedExamples {

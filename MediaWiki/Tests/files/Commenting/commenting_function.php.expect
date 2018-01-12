@@ -199,10 +199,14 @@
  182 | ERROR   | [x] Use @param tag in function comment instead of
      |         |     @param[in,out]
      |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
- 190 | ERROR   | [ ] Only one object structure is allowed in a file
+ 194 | WARNING | [ ] Comments should start on new line.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+ 202 | WARNING | [ ] Comments should start on new line.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+ 206 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 257 | ERROR   | [ ] Only one object structure is allowed in a file
+ 273 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 263 | ERROR   | [ ] Only one object structure is allowed in a file
+ 279 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 75 MARKED SNIFF VIOLATIONS AUTOMATICALLY
