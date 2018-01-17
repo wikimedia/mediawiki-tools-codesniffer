@@ -71,5 +71,3 @@ function wfPassedExamples() {
 		echo $i;
 	}
 }
-
-// end passed examples.

@@ -57,7 +57,6 @@ class FunctionCommentSniff implements Sniff {
 	public function register() {
 		return [ T_FUNCTION ];
 	}
-	// end register()
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
@@ -172,7 +171,6 @@ class FunctionCommentSniff implements Sniff {
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );
 		$this->processCovers( $phpcsFile, $stackPtr, $commentStart );
 	}
-	// end process()
 
 	/**
 	 * Process the return comment of this function comment.
@@ -351,9 +349,7 @@ class FunctionCommentSniff implements Sniff {
 			$error = 'Missing @return tag in function comment';
 			$phpcsFile->addError( $error, $tokens[$commentStart]['comment_closer'], 'MissingReturn' );
 		}
-		// end if
 	}
-	// end processReturn()
 
 	/**
 	 * Process any throw tags that this function comment has.
@@ -415,9 +411,7 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 		}
-		// end foreach
 	}
-	// end processThrows()
 
 	/**
 	 * Process any covers tags that this function comment has.
@@ -445,9 +439,7 @@ class FunctionCommentSniff implements Sniff {
 			}
 			// TODO: Asset that the item being covered is valid.
 		}
-		// end foreach
 	}
-	// end processThrows()
 
 	/**
 	 * Process the function parameter comments.
@@ -534,12 +526,10 @@ class FunctionCommentSniff implements Sniff {
 					$error = 'Missing parameter name';
 					$phpcsFile->addError( $error, $tag, 'MissingParamName' );
 				}
-				// end if
 			} else {
 				$error = 'Missing parameter type';
 				$phpcsFile->addError( $error, $tag, 'MissingParamType' );
 			}
-			// end if
 			$params[] = [
 				'tag' => $tag,
 				'type' => $type,
@@ -551,7 +541,6 @@ class FunctionCommentSniff implements Sniff {
 				'var_space' => $varSpace,
 			];
 		}
-		// end foreach
 		$realParams = $phpcsFile->getMethodParameters( $stackPtr );
 		$foundParams = [];
 		// We want to use ... for all variable length arguments, so added
@@ -662,7 +651,6 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile->addError( $error, $param['tag'], 'ExtraParamComment' );
 			}
 			$foundParams[] = $var;
-			// end if
 			// Check the short type of boolean and integer
 			$explodedType = explode( '|', $param['type'] );
 			$fixType = false;
@@ -714,7 +702,6 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 		}
-		// end foreach
 		$realNames = [];
 		foreach ( $realParams as $realParam ) {
 			$realNames[] = $realParam['name'];
@@ -727,7 +714,6 @@ class FunctionCommentSniff implements Sniff {
 			$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', $data );
 		}
 	}
-	// end processParams()
 
 	/**
 	 * Replace a @param comment
@@ -997,4 +983,3 @@ class FunctionCommentSniff implements Sniff {
 		}
 	}
 }
-// end class
