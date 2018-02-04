@@ -2,4 +2,6 @@
    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_integer)
  7 | WARNING | [ ] extract should not be used
    |         |     (MediaWiki.Usage.ForbiddenFunctions.extract)
+ 8 | WARNING | [ ] parse_str should not be used with 1 argument(s)
+   |         |     (MediaWiki.Usage.ForbiddenFunctions.parse_str)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
