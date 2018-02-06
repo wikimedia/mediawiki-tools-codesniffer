@@ -1,0 +1,2 @@
+ 8 | ERROR | Assignment expression not allowed within "return".
+   |       | (MediaWiki.Usage.AssignmentInReturn.AssignmentInReturn)
