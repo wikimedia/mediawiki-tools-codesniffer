@@ -18,6 +18,9 @@
  * @file
  */
 
+// This project does not use covers tags:
+// phpcs:disable MediaWiki.Commenting.MissingCovers.MissingCovers
+
 namespace MediaWiki\Sniffs\Tests;
 
 class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
@@ -142,3 +145,4 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 	}
 
 }
+// phpcs:enable MediaWiki.Commenting.MissingCovers.MissingCovers

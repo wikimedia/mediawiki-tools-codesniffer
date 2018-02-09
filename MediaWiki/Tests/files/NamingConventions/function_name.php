@@ -53,6 +53,7 @@ class NotATestCase {
 class FooTest {
 	/**
 	 * Standard way of naming a test for someMethod when there are multiple tests for it.
+	 * @covers Foo::someMethod
 	 * @return void
 	 */
 	public function testSomeMethod_testType() {

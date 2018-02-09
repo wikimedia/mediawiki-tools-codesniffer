@@ -9,6 +9,6 @@
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
  53 | ERROR | Only one object structure is allowed in a file
     |       | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 72 | ERROR | Function name "helper_method" should use lower camel
+ 73 | ERROR | Function name "helper_method" should use lower camel
     |       | case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)

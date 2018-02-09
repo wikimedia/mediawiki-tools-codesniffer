@@ -1,0 +1,4 @@
+ 20 | WARNING | The testUncovered test method has no @covers tags
+    |         | (MediaWiki.Commenting.MissingCovers.MissingCovers)
+ 26 | WARNING | The testDocBlock test method has no @covers tags
+    |         | (MediaWiki.Commenting.MissingCovers.MissingCovers)
