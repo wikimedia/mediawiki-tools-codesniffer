@@ -3,7 +3,7 @@
 	"description": "MediaWiki CodeSniffer Standards",
 	"keywords": ["mediawiki", "codesniffer"],
 	"homepage": "https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"require": {
 		"php": ">= 5.5.9",
 		"composer/semver": "^1.3.0",
