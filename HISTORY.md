@@ -1,5 +1,24 @@
 # MediaWiki-Codesniffer release history #
 
+## 16.0.0 / 2018-02-14 ##
+* Add sniff to find tests without @covers tags (Kunal Mehta)
+* Add sniff to use namespaced PHPUnit\Framework\TestCase (Kunal Mehta)
+* Avoid assignment in return statements (Umherirrender)
+* Be aware of extension MediaWiki compatibility (Kunal Mehta)
+* Detect variadic arguments in function comments (Umherirrender)
+* Disallow PHP 7.2+ `object` type-hint (Kunal Mehta)
+* Downgrade "Missing parameter comment" to warning (Reedy)
+* Expand sniff to replace some php aliases with main function (Umherirrender)
+* Fix SpaceyParenthesisSniff comment detection for ignore statements (Umherirrender)
+* Fix Undefined index: scope_opener in IfElseStructureSniff (Umherirrender)
+* Forbid parse_str() without a second argument (Umherirrender)
+* Remove direction from @param (Umherirrender)
+* Remove unneeded closing declaration comments (Umherirrender)
+* Remove unneeded @codingStandardsIgnoreLine from test (Umherirrender)
+* Skip __construct on checking for @return tags (Umherirrender)
+* Use SPDX 3.0 license identifier (Kunal Mehta)
+* Warn on usage of each() (Kunal Mehta)
+
 ## 15.0.0 / 2017-12-29 ##
 * Add sniff for using is_int over is_integer (Kunal Mehta)
 * Allow _ in unit test method names (Gergő Tisza)
