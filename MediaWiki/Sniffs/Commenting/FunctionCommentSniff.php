@@ -530,7 +530,7 @@ class FunctionCommentSniff implements Sniff {
 				$error = 'Missing parameter type';
 				$phpcsFile->addError( $error, $tag, 'MissingParamType' );
 			}
-			$isVariadicArg = substr_compare( $var, ',...', -4, 4 ) === 0;
+			$isVariadicArg = substr( $var, -4 ) === ',...';
 			if ( $isVariadicArg ) {
 				// Variadic args sometimes part of the argument list,
 				// sometimes not. Remove the variadic indicator from the doc name to
