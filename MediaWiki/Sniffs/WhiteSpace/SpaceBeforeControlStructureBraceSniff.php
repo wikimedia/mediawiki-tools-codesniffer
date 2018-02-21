@@ -57,10 +57,19 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 		$lineDifference = ( $openBraceLine - $closeBracketLine );
 		if ( $lineDifference > 0 ) {
 			// if brace on new line
-			$this->processLineDiff( $phpcsFile, $openBrace, $closeBracket, $stackPtr );
+			$fix = $this->processLineDiff( $phpcsFile, $openBrace, $stackPtr );
 		} else {
 			// if brace on the same line as closing parenthesis
-			$this->processLineSame( $phpcsFile, $openBrace, $closeBracket );
+			$fix = $this->processLineSame( $phpcsFile, $openBrace, $closeBracket );
+		}
+
+		if ( $fix ) {
+			$phpcsFile->fixer->beginChangeset();
+			for ( $i = $closeBracket + 1; $i < $openBrace; $i++ ) {
+				$phpcsFile->fixer->replaceToken( $i, '' );
+			}
+			$phpcsFile->fixer->addContent( $closeBracket, ' ' );
+			$phpcsFile->fixer->endChangeset();
 		}
 	}
 
@@ -69,23 +78,13 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile File object.
 	 * @param int $openBrace The index of open brace.
-	 * @param int $closeBracket The index of close bracket.
 	 * @param int $stackPtr The index of current token.
-	 * @return void
+	 * @return bool
 	 */
-	protected function processLineDiff( File $phpcsFile, $openBrace,
-		$closeBracket, $stackPtr ) {
+	protected function processLineDiff( File $phpcsFile, $openBrace, $stackPtr ) {
 		$phpcsFile->recordMetric( $stackPtr, 'Control Structs opening brace placement', 'new line' );
 		$error = 'Opening brace should be on the same line as the declaration';
-		$fix = $phpcsFile->addFixableError( $error, $openBrace, 'BraceOnNewLine' );
-		if ( $fix === true ) {
-			$phpcsFile->fixer->beginChangeset();
-			for ( $i = $closeBracket + 1; $i < $openBrace; $i++ ) {
-				$phpcsFile->fixer->replaceToken( $i, '' );
-			}
-			$phpcsFile->fixer->addContent( $openBrace, ' ' );
-			$phpcsFile->fixer->endChangeset();
-		}
+		return $phpcsFile->addFixableError( $error, $openBrace, 'BraceOnNewLine' );
 	}
 
 	/**
@@ -94,28 +93,17 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 * @param File $phpcsFile File object.
 	 * @param int $openBrace The index of open brace.
 	 * @param int $closeBracket The index of close bracket.
-	 * @return void
+	 * @return bool
 	 */
-	protected function processLineSame( File $phpcsFile, $openBrace,
-		$closeBracket ) {
+	protected function processLineSame( File $phpcsFile, $openBrace, $closeBracket ) {
 		$tokens = $phpcsFile->getTokens();
 		$content = $phpcsFile->getTokensAsString( $closeBracket + 1, $openBrace - $closeBracket - 1 );
 		$length = strlen( $content );
 		if ( $length === 1 && $tokens[$closeBracket + 1]['content'] === ' ' ) {
-			return;
+			return false;
 		} else {
 			$warning = 'Expected 1 space between closing parenthesis and opening brace; find %s characters';
-			$fix = $phpcsFile->addFixableWarning( $warning, $openBrace, 'SpaceBeforeControl', [ $length ] );
-			if ( $fix === true ) {
-				$phpcsFile->fixer->beginChangeset();
-				$phpcsFile->fixer->replaceToken( $openBrace, '' );
-				$phpcsFile->fixer->addContent( $closeBracket, ' {' );
-				$next = $phpcsFile->findNext( T_WHITESPACE, $closeBracket + 1, null, true );
-				for ( $i = ( $closeBracket + 1 ); $i < $next; $i++ ) {
-					$phpcsFile->fixer->replaceToken( $i, '' );
-				}
-				$phpcsFile->fixer->endChangeset();
-			}
+			return $phpcsFile->addFixableWarning( $warning, $openBrace, 'SpaceBeforeControl', [ $length ] );
 		}
 	}
 }
