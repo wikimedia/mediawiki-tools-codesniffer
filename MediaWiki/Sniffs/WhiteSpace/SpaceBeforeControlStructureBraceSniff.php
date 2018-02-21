@@ -60,7 +60,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 			$this->processLineDiff( $phpcsFile, $openBrace, $closeBracket, $stackPtr );
 		} else {
 			// if brace on the same line as closing parenthesis
-			$this->processLineSame( $phpcsFile, $openBrace, $closeBracket, $stackPtr );
+			$this->processLineSame( $phpcsFile, $openBrace, $closeBracket );
 		}
 		$this->processEmptyLine( $phpcsFile, $closeBracket + 2, $stackPtr );
 	}
@@ -76,14 +76,12 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 */
 	protected function processLineDiff( File $phpcsFile, $openBrace,
 		$closeBracket, $stackPtr ) {
-		$tokens = $phpcsFile->getTokens();
 		$phpcsFile->recordMetric( $stackPtr, 'Control Structs opening brace placement', 'new line' );
 		$error = 'Opening brace should be on the same line as the declaration';
 		$fix = $phpcsFile->addFixableError( $error, $openBrace, 'BraceOnNewLine' );
 		if ( $fix === true ) {
 			$phpcsFile->fixer->beginChangeset();
-			$i = $closeBracket + 1;
-			for ( $i; $i < $openBrace; $i++ ) {
+			for ( $i = $closeBracket + 1; $i < $openBrace; $i++ ) {
 				$phpcsFile->fixer->replaceToken( $i, '' );
 			}
 			$phpcsFile->fixer->addContent( $closeBracket, ' {' );
@@ -99,11 +97,10 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 * @param File $phpcsFile File object.
 	 * @param int $openBrace The index of open brace.
 	 * @param int $closeBracket The index of close bracket.
-	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */
 	protected function processLineSame( File $phpcsFile, $openBrace,
-		$closeBracket, $stackPtr ) {
+		$closeBracket ) {
 		$tokens = $phpcsFile->getTokens();
 		$content = $phpcsFile->getTokensAsString( $closeBracket + 1, $openBrace - $closeBracket - 1 );
 		$length = strlen( $content );

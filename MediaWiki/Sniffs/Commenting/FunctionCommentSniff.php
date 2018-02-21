@@ -159,7 +159,7 @@ class FunctionCommentSniff implements Sniff {
 			}
 		}
 
-		$this->validateDocSyntax( $phpcsFile, $stackPtr, $commentStart, $commentEnd );
+		$this->validateDocSyntax( $phpcsFile, $commentStart, $commentEnd );
 
 		if ( $skipDoc ) {
 			// Don't need to validate anything else
@@ -167,9 +167,9 @@ class FunctionCommentSniff implements Sniff {
 		}
 
 		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
-		$this->processThrows( $phpcsFile, $stackPtr, $commentStart );
+		$this->processThrows( $phpcsFile, $commentStart );
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );
-		$this->processCovers( $phpcsFile, $stackPtr, $commentStart );
+		$this->processCovers( $phpcsFile, $commentStart );
 	}
 
 	/**
@@ -355,14 +355,12 @@ class FunctionCommentSniff implements Sniff {
 	 * Process any throw tags that this function comment has.
 	 *
 	 * @param File $phpcsFile The file being scanned.
-	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 *
 	 * @return void
 	 */
-	protected function processThrows( File $phpcsFile, $stackPtr, $commentStart ) {
+	protected function processThrows( File $phpcsFile, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
-		$throws = [];
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagContent = $tokens[$tag]['content'];
 			if ( $tagContent !== '@throws' && $tagContent !== '@throw' ) {
@@ -417,14 +415,12 @@ class FunctionCommentSniff implements Sniff {
 	 * Process any covers tags that this function comment has.
 	 *
 	 * @param File $phpcsFile The file being scanned.
-	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 *
 	 * @return void
 	 */
-	protected function processCovers( File $phpcsFile, $stackPtr, $commentStart ) {
+	protected function processCovers( File $phpcsFile, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
-		$throws = [];
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagContent = $tokens[$tag]['content'];
 			if ( $tagContent !== '@covers' && $tagContent !== '@cover' ) {
@@ -755,13 +751,12 @@ class FunctionCommentSniff implements Sniff {
 	 * Check the doc syntax like start or end tags
 	 *
 	 * @param File $phpcsFile The file being scanned.
-	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 * @param int $commentEnd The position in the stack where the comment ended.
 	 *
 	 * @return void
 	 */
-	protected function validateDocSyntax( File $phpcsFile, $stackPtr, $commentStart, $commentEnd ) {
+	protected function validateDocSyntax( File $phpcsFile, $commentStart, $commentEnd ) {
 		$tokens = $phpcsFile->getTokens();
 		$isMultiLineDoc = ( $tokens[$commentStart]['line'] !== $tokens[$commentEnd]['line'] );
 
@@ -812,7 +807,6 @@ class FunctionCommentSniff implements Sniff {
 			) {
 				$commentStarSpacing = $i + 1;
 				$expectedSpaces = 1;
-				$currentSpaces = 0;
 				// ignore * removed by SyntaxMultiDocStar and count spaces after that
 				$currentSpaces = strspn(
 					$tokens[$commentStarSpacing]['content'], ' ', $initialStarChars
