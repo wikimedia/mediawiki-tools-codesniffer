@@ -245,7 +245,7 @@ class FunctionCommentSniff implements Sniff {
 						$expectedSpaces,
 						$currentSpaces,
 					];
-					$fix = $phpcsFile->addFixableError(
+					$fix = $phpcsFile->addFixableWarning(
 						'Expected %s spaces before return type; %s found',
 						$retTypeSpacing,
 						'SpacingBeforeReturnType',
@@ -327,7 +327,7 @@ class FunctionCommentSniff implements Sniff {
 						$expectedSpaces,
 						$currentSpaces,
 					];
-					$fix = $phpcsFile->addFixableError(
+					$fix = $phpcsFile->addFixableWarning(
 						'Expected %s spaces after return type; %s found',
 						$retType,
 						'SpacingAfterReturnType',
@@ -572,7 +572,7 @@ class FunctionCommentSniff implements Sniff {
 					$spaces,
 					$param['param_space'],
 				];
-				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingBeforeParamType', $data );
+				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingBeforeParamType', $data );
 				if ( $fix === true ) {
 					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 1 ), str_repeat( ' ', $spaces ) );
 				}
@@ -607,7 +607,7 @@ class FunctionCommentSniff implements Sniff {
 					$spaces,
 					$param['type_space'],
 				];
-				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingAfterParamType', $data );
+				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingAfterParamType', $data );
 				if ( $fix === true ) {
 					$this->replaceParamComment(
 						$phpcsFile,
@@ -699,7 +699,7 @@ class FunctionCommentSniff implements Sniff {
 					$spaces,
 					$param['var_space'],
 				];
-				$fix = $phpcsFile->addFixableError( $error, $param['tag'], 'SpacingAfterParamName', $data );
+				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingAfterParamName', $data );
 				if ( $fix === true ) {
 					$this->replaceParamComment(
 						$phpcsFile,

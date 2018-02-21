@@ -4,9 +4,9 @@
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
   16 | ERROR   | [ ] Missing @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
-  22 | ERROR   | [x] Expected 1 spaces after parameter name; 2 found
+  22 | WARNING | [x] Expected 1 spaces after parameter name; 2 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  23 | ERROR   | [x] Expected 1 spaces after parameter name; 3 found
+  23 | WARNING | [x] Expected 1 spaces after parameter name; 3 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
   31 | ERROR   | [x] Short type of "bool" should be used for @param
      |         |     tag
@@ -61,21 +61,21 @@
   85 | ERROR   | [x] Short type of "int" should be used for @return
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
-  92 | ERROR   | [x] Expected 1 spaces before parameter type; 2 found
+  92 | WARNING | [x] Expected 1 spaces before parameter type; 2 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
-  92 | ERROR   | [x] Expected 1 spaces after parameter type; 4 found
+  92 | WARNING | [x] Expected 1 spaces after parameter type; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
-  92 | ERROR   | [x] Expected 1 spaces after parameter name; 4 found
+  92 | WARNING | [x] Expected 1 spaces after parameter name; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  93 | ERROR   | [x] Expected 1 spaces before parameter type; 4 found
+  93 | WARNING | [x] Expected 1 spaces before parameter type; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeParamType)
-  93 | ERROR   | [x] Expected 1 spaces after parameter type; 4 found
+  93 | WARNING | [x] Expected 1 spaces after parameter type; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
-  93 | ERROR   | [x] Expected 1 spaces after parameter name; 4 found
+  93 | WARNING | [x] Expected 1 spaces after parameter name; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  94 | ERROR   | [x] Expected 1 spaces before return type; 4 found
+  94 | WARNING | [x] Expected 1 spaces before return type; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
-  94 | ERROR   | [x] Expected 1 spaces after return type; 4 found
+  94 | WARNING | [x] Expected 1 spaces after return type; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
  101 | ERROR   | [x] Use @param tag in function comment instead of
      |         |     @params
