@@ -62,7 +62,6 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 			// if brace on the same line as closing parenthesis
 			$this->processLineSame( $phpcsFile, $openBrace, $closeBracket );
 		}
-		$this->processEmptyLine( $phpcsFile, $closeBracket + 2, $stackPtr );
 	}
 
 	/**
@@ -84,9 +83,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 			for ( $i = $closeBracket + 1; $i < $openBrace; $i++ ) {
 				$phpcsFile->fixer->replaceToken( $i, '' );
 			}
-			$phpcsFile->fixer->addContent( $closeBracket, ' {' );
-			$phpcsFile->fixer->replaceToken( $openBrace, '' );
-			$phpcsFile->fixer->addNewLine( $closeBracket + 2 );
+			$phpcsFile->fixer->addContent( $openBrace, ' ' );
 			$phpcsFile->fixer->endChangeset();
 		}
 	}
@@ -118,27 +115,6 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 					$phpcsFile->fixer->replaceToken( $i, '' );
 				}
 				$phpcsFile->fixer->endChangeset();
-			}
-		}
-	}
-	/**
-	 * Process empty line after the open brace.
-	 *
-	 * @param File $phpcsFile File object.
-	 * @param int $openBrace The index of open brace.
-	 * @param int $stackPtr The index of current token.
-	 * @return void
-	 */
-	protected function processEmptyLine( File $phpcsFile, $openBrace, $stackPtr ) {
-		$tokens = $phpcsFile->getTokens();
-		$next = $phpcsFile->findNext( T_WHITESPACE, $openBrace + 2, null, false );
-		$found = strpos( $tokens[$next]['content'], $phpcsFile->eolChar );
-		if ( $tokens[$next]['code'] === T_WHITESPACE && $found !== false ) {
-			$warning = 'empty lines should not exist after brace of "%s"';
-			$content = $tokens[$stackPtr]['content'];
-			$fix = $phpcsFile->addFixableWarning( $warning, $openBrace, 'EmptyLines', [ $content ] );
-			if ( $fix === true ) {
-				$phpcsFile->fixer->replaceToken( $next, '' );
 			}
 		}
 	}
