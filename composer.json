@@ -17,14 +17,19 @@
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.9.2",
 		"jakub-onderka/php-console-highlighter": "0.3.2",
+		"mediawiki/minus-x": "0.3.1",
 		"phpunit/phpunit": "4.8.36"
 	},
 	"scripts": {
 		"test": [
 			"parallel-lint . --exclude vendor",
 			"phpunit $PHPUNIT_ARGS",
-			"phpcs -p -s"
+			"phpcs -p -s",
+			"minus-x check ."
 		],
-		"fix": "phpcbf"
+		"fix": [
+			"minus-x fix .",
+			"phpcbf"
+		]
 	}
 }
