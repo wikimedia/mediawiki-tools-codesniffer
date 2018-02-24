@@ -1,5 +1,12 @@
 # MediaWiki-Codesniffer release history #
 
+## 16.0.1 / 2018-02-24 ##
+* Fix SpaceBeforeControlStructureBraceSniff (Thiemo Mättig)
+* Grade errors about duplicate spaces in PHPDoc tags down to warnings (Thiemo Mättig)
+* Remove unused code and function arguments from three sniffs (Thiemo Mättig)
+* Replace substr_compare with substr (Umherirrender)
+* Streamline SpaceBeforeControlStructureBraceSniff implementation (Thiemo Mättig)
+
 ## 16.0.0 / 2018-02-14 ##
 * Add sniff to find tests without @covers tags (Kunal Mehta)
 * Add sniff to use namespaced PHPUnit\Framework\TestCase (Kunal Mehta)
