@@ -8,13 +8,13 @@
  *
  * PHP version 5
  *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
+ * @category PHP
+ * @package PHP_CodeSniffer
+ * @author Greg Sherwood <gsherwood@squiz.net>
+ * @author Marc McIntyre <mmcintyre@squiz.net>
  * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @license https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+ * @link http://pear.php.net/package/PHP_CodeSniffer
  */
 
 namespace MediaWiki\Sniffs\Commenting;
@@ -511,7 +511,7 @@ class FunctionCommentSniff implements Sniff {
 						}
 						for ( $i = ( $tag + 3 ); $i < $end; $i++ ) {
 							if ( $tokens[$i]['code'] === T_DOC_COMMENT_STRING ) {
-								$comment .= ' '.$tokens[$i]['content'];
+								$comment .= ' ' . $tokens[$i]['content'];
 							}
 						}
 					} else {
@@ -554,10 +554,10 @@ class FunctionCommentSniff implements Sniff {
 		// this prefix to the variable name so comparisons are easier.
 		foreach ( $realParams as $pos => $param ) {
 			if ( $realParams[$pos]['pass_by_reference'] === true ) {
-				$realParams[$pos]['name'] = '&'.$realParams[$pos]['name'];
+				$realParams[$pos]['name'] = '&' . $realParams[$pos]['name'];
 			}
 			if ( $param['variable_length'] === true ) {
-				$realParams[$pos]['name'] = '...'.$realParams[$pos]['name'];
+				$realParams[$pos]['name'] = '...' . $realParams[$pos]['name'];
 			}
 		}
 		foreach ( $params as $pos => $param ) {
@@ -736,7 +736,7 @@ class FunctionCommentSniff implements Sniff {
 		$fixParam += $param;
 
 		// Build the new line
-		$content  = $fixParam['type'];
+		$content = $fixParam['type'];
 		$content .= str_repeat( ' ', $fixParam['type_space'] );
 		$content .= $fixParam['var'];
 		if ( $fixParam['variadic_arg'] ) {

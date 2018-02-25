@@ -86,7 +86,7 @@ class ExtendClassUsageSniff implements Sniff {
 		if ( !isset( self::$checkConfig['extendsCls'][$extClsContent] ) ) {
 			return;
 		}
-		$extClsCheckList = self::$checkConfig['checkList'][ $extClsContent ];
+		$extClsCheckList = self::$checkConfig['checkList'][$extClsContent];
 		// Loop over all tokens of the class to check each function
 		$i = $currToken['scope_opener'];
 		$end = $currToken['scope_closer'];
@@ -131,8 +131,8 @@ class ExtendClassUsageSniff implements Sniff {
 					}
 					if ( $condition ) {
 						$warning = 'Should use %s %s rather than %s %s .';
-						$expectCodeMsg = self::$msgMap[ $value['expect_code'] ];
-						$codeMsg = self::$msgMap[ $value['code'] ];
+						$expectCodeMsg = self::$msgMap[$value['expect_code']];
+						$codeMsg = self::$msgMap[$value['code']];
 						$phpcsFile->addWarning(
 							$warning,
 							$i,

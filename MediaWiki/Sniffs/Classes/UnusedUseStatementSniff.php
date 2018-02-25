@@ -56,8 +56,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * Processes this test, when one of its tokens is encountered.
 	 *
 	 * @param File $phpcsFile The file being scanned.
-	 * @param int $stackPtr The position of the current token in
-	 *                                        the stack passed in $tokens.
+	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return void
 	 */
@@ -102,9 +101,9 @@ class UnusedUseStatementSniff implements Sniff {
 		if ( $namespacePtr !== false && $aliasUsed === false ) {
 			$nsEnd = $phpcsFile->findNext(
 				[
-				 T_NS_SEPARATOR,
-				 T_STRING,
-				 T_WHITESPACE,
+					T_NS_SEPARATOR,
+					T_STRING,
+					T_WHITESPACE,
 				],
 				( $namespacePtr + 1 ),
 				null,
@@ -117,8 +116,8 @@ class UnusedUseStatementSniff implements Sniff {
 			$useNamespacePtr = $phpcsFile->findNext( [ T_STRING ], ( $stackPtr + 1 ) );
 			$useNamespaceEnd = $phpcsFile->findNext(
 				[
-				 T_NS_SEPARATOR,
-				 T_STRING,
+					T_NS_SEPARATOR,
+					T_STRING,
 				],
 				( $useNamespacePtr + 1 ),
 				null,

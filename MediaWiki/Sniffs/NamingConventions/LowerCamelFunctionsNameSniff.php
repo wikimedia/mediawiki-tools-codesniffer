@@ -77,7 +77,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 
 			$pos = strpos( $functionContent, '_' );
 			$isTest = substr( $this->getClassName( $phpcsFile, $stackPtr ), -4 ) === 'Test' &&
-				  preg_match( '/^(test|provide)[A-Z]|\wProvider$/', $functionContent );
+				preg_match( '/^(test|provide)[A-Z]|\wProvider$/', $functionContent );
 			if ( $pos !== false && !$isTest ||
 				$functionContent[0] !== $lowerFunctionName[0]
 			) {
