@@ -32,9 +32,9 @@ class ExtensionInfo {
 	private $dir;
 
 	/**
-	 * @var array Parsed extension.json
+	 * @var array|false|null Parsed extension.json
 	 */
-	private $info;
+	private $info = null;
 
 	private $supportCache = [];
 
