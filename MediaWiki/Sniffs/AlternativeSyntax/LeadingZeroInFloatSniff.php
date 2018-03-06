@@ -42,6 +42,7 @@ class LeadingZeroInFloatSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile File
 	 * @param int $stackPtr Location
+	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();

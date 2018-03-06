@@ -43,6 +43,7 @@ class PHPUnitClassUsageSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile File object
 	 * @param int $stackPtr Position of extends token
+	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();

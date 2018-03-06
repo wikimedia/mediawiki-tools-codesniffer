@@ -37,6 +37,7 @@ class ShortCastSyntaxSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile File object
 	 * @param int $stackPtr Position of error
+	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$token = $phpcsFile->getTokens()[$stackPtr];

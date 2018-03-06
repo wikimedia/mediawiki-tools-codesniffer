@@ -46,6 +46,7 @@ class ScalarTypeHintUsageSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile File
 	 * @param int $stackPtr position
+	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$params = $phpcsFile->getMethodParameters( $stackPtr );

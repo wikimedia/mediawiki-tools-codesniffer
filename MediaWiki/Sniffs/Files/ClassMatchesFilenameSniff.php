@@ -37,6 +37,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile File being checked
 	 * @param int $stackPtr Position
+	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$fname = $phpcsFile->getFilename();

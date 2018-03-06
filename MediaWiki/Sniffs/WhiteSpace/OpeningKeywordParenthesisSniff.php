@@ -43,6 +43,7 @@ class OpeningKeywordParenthesisSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile File object
 	 * @param int $stackPtr Index of registered keywords
+	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();

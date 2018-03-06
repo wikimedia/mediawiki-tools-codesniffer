@@ -61,6 +61,7 @@ class DeprecatedConstantUsageSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile Current file
 	 * @param int $stackPtr Position
+	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$token = $phpcsFile->getTokens()[$stackPtr];
