@@ -46,7 +46,7 @@ class LeadingZeroInFloatSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$content = $tokens[$stackPtr]['content'];
-		if ( $content[0] == '.' ) {
+		if ( $content[0] === '.' ) {
 			// Starts with a ., needs a leading 0.
 			$fix = $phpcsFile->addFixableWarning(
 				'Floats should have a leading 0',

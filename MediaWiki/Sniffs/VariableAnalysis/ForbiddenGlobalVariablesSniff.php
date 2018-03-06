@@ -67,7 +67,7 @@ class ForbiddenGlobalVariablesSniff implements Sniff {
 			if ( $tokens[$i]['type'] === 'T_GLOBAL' ) {
 				$globalLine = $tokens[$i]['line'];
 			}
-			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] == $globalLine ) {
+			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] === $globalLine ) {
 				$globalVariables[] = [ $tokens[$i]['content'], $i ];
 			}
 		}

@@ -96,7 +96,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 		}
 
 		// Check if function is global
-		if ( $token['level'] == 0 ) {
+		if ( $token['level'] === 0 ) {
 			$prefix = substr( $name, 0, 2 );
 
 			if ( $prefix !== 'wf' && $prefix !== 'ef' ) {

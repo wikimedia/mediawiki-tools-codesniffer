@@ -48,7 +48,7 @@ class PHP7UnicodeSyntaxSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$info = $tokens[$stackPtr];
-		if ( $info['code'] == T_CONSTANT_ENCAPSED_STRING && $info['content'][0] === "'" ) {
+		if ( $info['code'] === T_CONSTANT_ENCAPSED_STRING && $info['content'][0] === "'" ) {
 			// Single quoted string
 			return;
 		}

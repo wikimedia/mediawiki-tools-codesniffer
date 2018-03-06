@@ -88,11 +88,11 @@ class FunctionCommentSniff implements Sniff {
 		$visStr = 'Public';
 		if ( $visibility ) {
 			$visInfo = $tokens[$visibility];
-			if ( $visInfo['line'] == $tokens[$stackPtr]['line'] ) {
-				if ( $visInfo['code'] == T_PRIVATE ) {
+			if ( $visInfo['line'] === $tokens[$stackPtr]['line'] ) {
+				if ( $visInfo['code'] === T_PRIVATE ) {
 					// Don't check documentation for private functions
 					return;
-				} elseif ( $visInfo['code'] == T_PROTECTED ) {
+				} elseif ( $visInfo['code'] === T_PROTECTED ) {
 					$visStr = 'Protected';
 				}
 			}

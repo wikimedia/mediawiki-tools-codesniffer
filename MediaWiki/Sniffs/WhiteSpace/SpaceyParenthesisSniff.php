@@ -145,7 +145,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		// No space or not single space
 		if ( ( $nextToken['code'] === T_WHITESPACE &&
 				strpos( $nextToken['content'], "\n" ) === false
-				&& $nextToken['content'] != ' ' )
+				&& $nextToken['content'] !== ' ' )
 			|| ( !$this->isClosed( $nextToken['code'] ) && $nextToken['code'] !== T_WHITESPACE ) ) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Single space expected after opening parenthesis',
@@ -155,7 +155,7 @@ class SpaceyParenthesisSniff implements Sniff {
 			if ( $fix === true ) {
 				if ( $nextToken['code'] === T_WHITESPACE
 					&& strpos( $nextToken['content'], "\n" ) === false
-					&& $nextToken['content'] != ' ' ) {
+					&& $nextToken['content'] !== ' ' ) {
 					$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
 				} else {
 					$phpcsFile->fixer->addContent( $stackPtr, ' ' );
