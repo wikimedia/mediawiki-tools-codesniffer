@@ -1,11 +1,11 @@
 # MediaWiki-Codesniffer release history #
 
 ## 16.0.1 / 2018-02-24 ##
-* Fix SpaceBeforeControlStructureBraceSniff (Thiemo Mättig)
-* Grade errors about duplicate spaces in PHPDoc tags down to warnings (Thiemo Mättig)
-* Remove unused code and function arguments from three sniffs (Thiemo Mättig)
+* Fix SpaceBeforeControlStructureBraceSniff (Thiemo Kreuz)
+* Grade errors about duplicate spaces in PHPDoc tags down to warnings (Thiemo Kreuz)
+* Remove unused code and function arguments from three sniffs (Thiemo Kreuz)
 * Replace substr_compare with substr (Umherirrender)
-* Streamline SpaceBeforeControlStructureBraceSniff implementation (Thiemo Mättig)
+* Streamline SpaceBeforeControlStructureBraceSniff implementation (Thiemo Kreuz)
 
 ## 16.0.0 / 2018-02-14 ##
 * Add sniff to find tests without @covers tags (Kunal Mehta)
@@ -197,11 +197,11 @@
 * Update squizlabs/php_codesniffer to 2.5.1 (Paladox)
 
 ## 0.5.1 / 2015-12-28 ##
-* Avoid in_array for performance reasons (Thiemo Mättig)
+* Avoid in_array for performance reasons (Thiemo Kreuz)
 * build: Pass -s to phpcs for easier debugging (Kunal Mehta)
-* Remove dead code from SpaceBeforeSingleLineCommentSniff (Thiemo Mättig)
+* Remove dead code from SpaceBeforeSingleLineCommentSniff (Thiemo Kreuz)
 * Revert "CharacterBeforePHPOpeningTagSniff: Support T_HASHBANG for HHVM >=3.5,<3.7" (Legoktm)
-* Simplify existing regular expressions (Thiemo Mättig)
+* Simplify existing regular expressions (Thiemo Kreuz)
 * build: Update phpunit to 4.8.18 (Paladox)
 * Update squizlabs/php_codesniffer to 2.5.0 (Paladox)
 
