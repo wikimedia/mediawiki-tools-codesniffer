@@ -54,11 +54,7 @@ class LeadingZeroInFloatSniff implements Sniff {
 				'Found'
 			);
 			if ( $fix ) {
-				$phpcsFile->fixer->replaceToken(
-					$stackPtr,
-					// Put a zero in front of the existing content
-					'0' . $content
-				);
+				$phpcsFile->fixer->addContentBefore( $stackPtr, '0' );
 			}
 		}
 	}
