@@ -31,7 +31,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 		];
 	}
 	/**
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */
@@ -76,7 +76,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	/**
 	 * Process The close parenthesis on the same line as open brace.
 	 *
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $openBrace The index of open brace.
 	 * @param int $stackPtr The index of current token.
 	 * @return bool
@@ -90,7 +90,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	/**
 	 * Process The close parenthesis on the different line with open brace.
 	 *
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $openBrace The index of open brace.
 	 * @param int $closeBracket The index of close bracket.
 	 * @return bool

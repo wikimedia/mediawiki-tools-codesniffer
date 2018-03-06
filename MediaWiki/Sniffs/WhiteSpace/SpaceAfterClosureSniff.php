@@ -34,7 +34,7 @@ class SpaceAfterClosureSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object
+	 * @param File $phpcsFile
 	 * @param int $stackPtr Index of "function" keyword
 	 * @return void
 	 */

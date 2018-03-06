@@ -41,7 +41,7 @@ class PHPUnitClassUsageSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object
+	 * @param File $phpcsFile
 	 * @param int $stackPtr Position of extends token
 	 * @return void
 	 */

@@ -59,7 +59,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
@@ -95,7 +95,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	/**
 	 * Gets the name of the class which the $functionPtr points into.
 	 * The stack pointer must point to a function keyword.
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $functionPtr Pointer to a function token inside the class.
 	 * @return string|null
 	 */

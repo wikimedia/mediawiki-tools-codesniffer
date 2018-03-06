@@ -25,7 +25,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $stackPtr The index of current token.
 	 * @return void
 	 */

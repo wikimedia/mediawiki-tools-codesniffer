@@ -44,7 +44,7 @@ class ForbiddenGlobalVariablesSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */

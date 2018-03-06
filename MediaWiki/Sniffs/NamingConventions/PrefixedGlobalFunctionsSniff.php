@@ -32,7 +32,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 	private $noNamespaceFiles = [];
 
 	/**
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $ptr The current token index.
 	 *
 	 * @return bool Does a namespace statement exist before this position in the file?
@@ -76,7 +76,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 		return false;
 	}
 	/**
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */

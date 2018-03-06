@@ -35,7 +35,7 @@ class ShortCastSyntaxSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object
+	 * @param File $phpcsFile
 	 * @param int $stackPtr Position of error
 	 * @return void
 	 */

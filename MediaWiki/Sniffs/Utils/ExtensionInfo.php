@@ -39,7 +39,7 @@ class ExtensionInfo {
 	private $supportCache = [];
 
 	/**
-	 * @param File $phpcsFile File object
+	 * @param File $phpcsFile
 	 *
 	 * @return ExtensionInfo
 	 */

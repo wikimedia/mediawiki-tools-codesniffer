@@ -64,7 +64,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 * @return void
 	 */
@@ -135,7 +135,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 * Return the number of arguments between the $parenthesis as opener and its closer
 	 * Ignoring commas between brackets to support nested argument lists
 	 *
-	 * @param File $phpcsFile File object.
+	 * @param File $phpcsFile
 	 * @param int $parenthesis The parenthesis token index.
 	 * @return int
 	 */

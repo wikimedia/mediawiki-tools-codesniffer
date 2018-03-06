@@ -39,7 +39,7 @@ class MissingCoversSniff implements Sniff {
 	}
 
 	/**
-	 * @param File $phpcsFile File object
+	 * @param File $phpcsFile
 	 * @param int $stackPtr Position of T_CLASS
 	 * @return void
 	 */
@@ -86,7 +86,7 @@ class MissingCoversSniff implements Sniff {
 	/**
 	 * Whether the statement has @covers tags
 	 *
-	 * @param File $phpcsFile File object
+	 * @param File $phpcsFile
 	 * @param int $stackPtr Position of T_CLASS/T_FUNCTION
 	 *
 	 * @return bool
