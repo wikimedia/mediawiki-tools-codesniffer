@@ -34,7 +34,7 @@ class PHPUnitClassUsageSniff implements Sniff {
 	/**
 	 * Only look for classes that extend something
 	 *
-	 * @return array|int[]
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_EXTENDS ];

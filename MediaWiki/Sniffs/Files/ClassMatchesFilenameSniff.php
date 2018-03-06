@@ -26,9 +26,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class ClassMatchesFilenameSniff implements Sniff {
 
 	/**
-	 * Tokens to process
-	 *
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_CLASS, T_INTERFACE, T_TRAIT ];

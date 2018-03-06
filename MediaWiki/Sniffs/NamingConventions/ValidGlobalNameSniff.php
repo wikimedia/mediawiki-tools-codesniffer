@@ -34,7 +34,7 @@ class ValidGlobalNameSniff implements Sniff {
 	public $ignoreList = [];
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_GLOBAL ];

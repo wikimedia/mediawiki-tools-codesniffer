@@ -12,7 +12,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class DbrQueryUsageSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_OBJECT_OPERATOR ];

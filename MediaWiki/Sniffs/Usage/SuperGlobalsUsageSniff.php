@@ -20,8 +20,9 @@ class SuperGlobalsUsageSniff implements Sniff {
 		'$_POST' => true,
 		'$_GET' => true
 	];
+
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_VARIABLE ];

@@ -50,9 +50,7 @@ class FunctionCommentSniff implements Sniff {
 	];
 
 	/**
-	 * Returns an array of tokens this test wants to listen for.
-	 *
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_FUNCTION ];

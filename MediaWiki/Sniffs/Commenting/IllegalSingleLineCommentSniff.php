@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class IllegalSingleLineCommentSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

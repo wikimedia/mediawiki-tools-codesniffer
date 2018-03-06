@@ -19,7 +19,7 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class AssignmentInControlStructuresSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

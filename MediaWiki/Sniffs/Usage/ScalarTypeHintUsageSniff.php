@@ -33,9 +33,7 @@ class ScalarTypeHintUsageSniff implements Sniff {
 	];
 
 	/**
-	 * Run on functions
-	 *
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

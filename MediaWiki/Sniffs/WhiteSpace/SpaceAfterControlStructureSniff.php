@@ -8,11 +8,10 @@ namespace MediaWiki\Sniffs\WhiteSpace;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
-class SpaceAfterControlStructureSniff
-	implements Sniff {
+class SpaceAfterControlStructureSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Spaces

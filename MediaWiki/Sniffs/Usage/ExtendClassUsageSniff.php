@@ -56,8 +56,9 @@ class ExtendClassUsageSniff implements Sniff {
 			]
 		]
 	];
+
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

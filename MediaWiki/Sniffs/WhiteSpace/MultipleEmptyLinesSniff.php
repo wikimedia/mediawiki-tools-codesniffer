@@ -11,7 +11,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class MultipleEmptyLinesSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

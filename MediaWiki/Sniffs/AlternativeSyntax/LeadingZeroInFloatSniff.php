@@ -28,7 +28,7 @@ class LeadingZeroInFloatSniff implements Sniff {
 	/**
 	 * T_DNUMBER is any floating point number
 	 *
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

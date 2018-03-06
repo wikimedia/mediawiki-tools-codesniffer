@@ -30,7 +30,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class PHP7UnicodeSyntaxSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

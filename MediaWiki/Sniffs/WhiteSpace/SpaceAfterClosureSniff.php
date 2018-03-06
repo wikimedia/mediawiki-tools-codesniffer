@@ -25,7 +25,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class SpaceAfterClosureSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

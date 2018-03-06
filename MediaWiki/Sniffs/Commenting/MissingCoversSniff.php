@@ -32,9 +32,7 @@ use PHP_CodeSniffer\Util\Tokens;
 class MissingCoversSniff implements Sniff {
 
 	/**
-	 * Only look for T_CLASS
-	 *
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_CLASS ];

@@ -37,7 +37,7 @@ class ForbiddenGlobalVariablesSniff implements Sniff {
 	];
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_FUNCTION ];

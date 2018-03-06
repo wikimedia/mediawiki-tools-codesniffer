@@ -15,7 +15,7 @@ use RecursiveIteratorIterator;
 class UnusedGlobalVariablesSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [ T_FUNCTION ];

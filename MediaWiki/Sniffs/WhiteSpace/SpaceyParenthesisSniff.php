@@ -17,7 +17,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class SpaceyParenthesisSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

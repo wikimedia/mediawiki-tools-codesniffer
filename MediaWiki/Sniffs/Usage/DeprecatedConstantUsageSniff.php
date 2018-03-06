@@ -48,9 +48,7 @@ class DeprecatedConstantUsageSniff implements Sniff {
 	];
 
 	/**
-	 * Tokens to listen for
-	 *
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

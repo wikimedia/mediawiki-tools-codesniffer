@@ -18,7 +18,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class DirUsageSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Other

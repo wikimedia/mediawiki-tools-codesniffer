@@ -13,7 +13,7 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class AssignmentInReturnSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

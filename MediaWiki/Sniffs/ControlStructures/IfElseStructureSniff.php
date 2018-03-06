@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class IfElseStructureSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

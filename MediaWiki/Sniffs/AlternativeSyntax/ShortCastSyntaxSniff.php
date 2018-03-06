@@ -25,7 +25,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ShortCastSyntaxSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

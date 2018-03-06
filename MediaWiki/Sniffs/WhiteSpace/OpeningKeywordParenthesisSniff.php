@@ -25,7 +25,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class OpeningKeywordParenthesisSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

@@ -22,7 +22,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class ParenthesesAroundKeywordSniff implements Sniff {
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		return [

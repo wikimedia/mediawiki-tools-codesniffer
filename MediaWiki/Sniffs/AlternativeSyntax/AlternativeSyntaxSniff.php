@@ -10,7 +10,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class AlternativeSyntaxSniff implements Sniff {
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function register() {
 		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP
