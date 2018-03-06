@@ -120,7 +120,7 @@ class ExtendClassUsageSniff implements Sniff {
 				foreach ( $extClsCheckList as $key => $value ) {
 					$condition = false;
 					if ( $value['code'] === T_FUNCTION
-						&& strtolower( $iToken['content'] ) === strtolower( $value['content'] )
+						&& strcasecmp( $iToken['content'], $value['content'] ) === 0
 					) {
 						$condition = true;
 					}

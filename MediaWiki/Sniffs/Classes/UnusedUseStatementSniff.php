@@ -134,7 +134,7 @@ class UnusedUseStatementSniff implements Sniff {
 		}
 
 		while ( $classUsed !== false ) {
-			if ( strtolower( $tokens[$classUsed]['content'] ) === $lowerClassName ) {
+			if ( strcasecmp( $tokens[$classUsed]['content'], $lowerClassName ) === 0 ) {
 				// If the name is used in a PHP 7 function return type declaration
 				// stop.
 				if ( $tokens[$classUsed]['code'] === T_RETURN_TYPE ) {
@@ -179,7 +179,7 @@ class UnusedUseStatementSniff implements Sniff {
 					if ( strpos( $tagClassName, '\\' ) > 0 ) {
 						$tagClassName = substr( $tagClassName, 0, strpos( $tagClassName, '\\' ) );
 					}
-					if ( strtolower( $tagClassName ) === $lowerClassName ) {
+					if ( strcasecmp( $tagClassName, $lowerClassName ) === 0 ) {
 						return;
 					}
 				}

@@ -645,7 +645,7 @@ class FunctionCommentSniff implements Sniff {
 						$realName,
 					];
 					$error = 'Doc comment for parameter %s does not match ';
-					if ( strtolower( $var ) === strtolower( $realName ) ) {
+					if ( strcasecmp( $var, $realName ) === 0 ) {
 						$error .= 'case of ';
 						$code = 'ParamNameNoCaseMatch';
 					}

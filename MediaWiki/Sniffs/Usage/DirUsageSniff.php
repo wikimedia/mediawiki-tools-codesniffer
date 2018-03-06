@@ -41,7 +41,7 @@ class DirUsageSniff implements Sniff {
 		];
 
 		// Check if the function is dirname()
-		if ( strtolower( $tokens[$stackPtr]['content'] ) != "dirname" ) {
+		if ( strcasecmp( $tokens[$stackPtr]['content'], 'dirname' ) !== 0 ) {
 			return;
 		}
 

@@ -49,7 +49,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 		$base = end( $exp );
 		$name = $phpcsFile->getDeclarationName( $stackPtr );
 		if ( $base !== "$name.php" ) {
-			$wrongCase = strtolower( $base ) === strtolower( "$name.php" );
+			$wrongCase = strcasecmp( $base, "$name.php" ) === 0;
 			if ( $wrongCase && $this->isMaintenanceScript( $phpcsFile ) ) {
 				// Maintenance scripts follow the class name, but the first
 				// letter is lowercase.
