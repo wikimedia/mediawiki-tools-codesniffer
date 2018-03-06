@@ -176,8 +176,6 @@ class FunctionCommentSniff implements Sniff {
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
-	 *
-	 * @return void
 	 */
 	protected function processReturn( File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
@@ -354,8 +352,6 @@ class FunctionCommentSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $commentStart The position in the stack where the comment started.
-	 *
-	 * @return void
 	 */
 	protected function processThrows( File $phpcsFile, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
@@ -414,8 +410,6 @@ class FunctionCommentSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $commentStart The position in the stack where the comment started.
-	 *
-	 * @return void
 	 */
 	protected function processCovers( File $phpcsFile, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
@@ -441,8 +435,6 @@ class FunctionCommentSniff implements Sniff {
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
-	 *
-	 * @return void
 	 */
 	protected function processParams( File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
@@ -726,8 +718,6 @@ class FunctionCommentSniff implements Sniff {
 	 * @param File $phpcsFile The file being scanned.
 	 * @param array $param Array of the @param
 	 * @param array $fixParam Array with fixes to @param. Only provide keys to replace
-	 *
-	 * @return void
 	 */
 	protected function replaceParamComment( File $phpcsFile, array $param, array $fixParam ) {
 		// Use the old value for unchanged keys
@@ -751,8 +741,6 @@ class FunctionCommentSniff implements Sniff {
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 * @param int $commentEnd The position in the stack where the comment ended.
-	 *
-	 * @return void
 	 */
 	protected function validateDocSyntax( File $phpcsFile, $commentStart, $commentEnd ) {
 		$tokens = $phpcsFile->getTokens();

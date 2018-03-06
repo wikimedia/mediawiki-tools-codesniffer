@@ -30,9 +30,6 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 	 */
 	private $helper;
 
-	/**
-	 * @return void
-	 */
 	public function setUp() {
 		parent::setUp();
 		if ( empty( $this->helper ) ) {
@@ -41,8 +38,6 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * TestFiles
-	 *
 	 * Run simple syntax checks, comparing the phpcs output for the test.
 	 * file against an expected output.
 	 * @return array $tests The test string[].
@@ -72,14 +67,11 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	/**
-	 * _testFile
-	 *
 	 * @dataProvider fileDataProvider
 	 *
 	 * @param string $file The path string of file.
 	 * @param string $standard The standard string.
 	 * @param boolean $expectedOutputFile The path of expected file.
-	 * @return void
 	 */
 	public function testFile( $file, $standard, $expectedOutputFile ) {
 		$outputStr = $this->prepareOutput( $this->helper->runPhpCs( $file, $standard ) );
@@ -110,7 +102,6 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 	 * @param string $file The path of file.
 	 * @param string $standard The standard string.
 	 * @param string $fixedFile The path of fixed file.
-	 * @return void
 	 */
 	public function testFix( $file, $standard, $fixedFile ) {
 		$outputStr = $this->helper->runPhpCbf( $file, $standard );

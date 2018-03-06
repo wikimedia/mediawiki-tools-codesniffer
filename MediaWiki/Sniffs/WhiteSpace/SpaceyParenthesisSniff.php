@@ -137,7 +137,6 @@ class SpaceyParenthesisSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
-	 * @return void
 	 */
 	protected function processOpenParenthesis( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
@@ -167,7 +166,6 @@ class SpaceyParenthesisSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile File object.
 	 * @param int $stackPtr The current token index.
-	 * @return void
 	 */
 	protected function processCloseParenthesis( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
