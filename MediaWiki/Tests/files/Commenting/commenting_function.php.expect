@@ -24,13 +24,9 @@
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
   55 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
-  65 | WARNING | [ ] Missing parameter comment
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
   65 | ERROR   | [x] Short type of "bool" should be used for @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
-  66 | WARNING | [ ] Missing parameter comment
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamComment)
   66 | ERROR   | [x] Short type of "int" should be used for @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)

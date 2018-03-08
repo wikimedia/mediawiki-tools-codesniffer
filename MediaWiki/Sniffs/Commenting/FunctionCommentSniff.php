@@ -503,9 +503,6 @@ class FunctionCommentSniff implements Sniff {
 								$comment .= ' ' . $tokens[$i]['content'];
 							}
 						}
-					} else {
-						$error = 'Missing parameter comment';
-						$phpcsFile->addWarning( $error, $tag, 'MissingParamComment' );
 					}
 				} else {
 					$error = 'Missing parameter name';
