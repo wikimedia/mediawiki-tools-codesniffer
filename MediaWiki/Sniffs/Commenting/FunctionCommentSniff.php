@@ -166,7 +166,6 @@ class FunctionCommentSniff implements Sniff {
 		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
 		$this->processThrows( $phpcsFile, $commentStart );
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );
-		$this->processCovers( $phpcsFile, $commentStart );
 	}
 
 	/**
@@ -401,30 +400,6 @@ class FunctionCommentSniff implements Sniff {
 					}
 				}
 			}
-		}
-	}
-
-	/**
-	 * Process any covers tags that this function comment has.
-	 *
-	 * @param File $phpcsFile The file being scanned.
-	 * @param int $commentStart The position in the stack where the comment started.
-	 */
-	protected function processCovers( File $phpcsFile, $commentStart ) {
-		$tokens = $phpcsFile->getTokens();
-		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
-			$tagContent = $tokens[$tag]['content'];
-			if ( $tagContent !== '@covers' && $tagContent !== '@cover' ) {
-				continue;
-			}
-			if ( $tagContent === '@cover' ) {
-				$error = 'Use @covers tag in function comment instead of @cover';
-				$fix = $phpcsFile->addFixableError( $error, $tag, 'SingularCover' );
-				if ( $fix ) {
-					$phpcsFile->fixer->replaceToken( $tag, '@covers' );
-				}
-			}
-			// TODO: Asset that the item being covered is valid.
 		}
 	}
 

@@ -25,14 +25,17 @@ $a = new Baz();
 $b = new Used();
 $c = new ThreeFour();
 
-/**
- * @expectedException InAExpectedException
- * @throws InAThrows
- * @param InAParam $a A variable
- * @return Database
- */
-function getDatabase( $a ) {
-	return;
+class UnusedUseTest {
+	/**
+	 * @expectedException InAExpectedException
+	 * @coversNothing
+	 * @throws InAThrows
+	 * @param InAParam $a A variable
+	 * @return Database
+	 */
+	public function testDatabase( $a ) {
+		return;
+	}
 }
 
 class Foo {

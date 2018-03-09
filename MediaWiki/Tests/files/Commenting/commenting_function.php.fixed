@@ -102,7 +102,6 @@ class TestFailedExamples {
 	 * @param int $anInt An int
 	 * @return bool And some text
 	 * @throws \Exception
-	 * @covers this::testTagTypos()
 	 */
 	public function testTagTypos( $aBool, $anInt ) {
 		return $aBool;

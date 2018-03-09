@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * Not a Test file
+ * @coversDefaultClass Test
+ */
+class NonTestExamples {
+	/**
+	 * not a test function
+	 * @cover Test
+	 */
+	public function noop() {
+	}
+
+	/** Bad comment
+	 * @coversNothing
+	 */
+}
+
+/**
+ * A Test file
+ * @coversDefaultClass Test
+ * @group small
+ */
+class ExamplesTest {
+
+	/**
+	 * @covers this::testTagTypos()
+	 * @covers
+	 */
+	public function testTagTypos() {
+	}
+
+	/**
+	 * @coversNothing
+	 */
+	public function testNothing() {
+	}
+
+	/**
+	 * @after
+	 */
+	public function isAfterTest() {
+	}
+
+	/**
+	 * @dataProvider isAfterTest
+	 */
+	public function notATestNamedFunction() {
+	}
+
+}
