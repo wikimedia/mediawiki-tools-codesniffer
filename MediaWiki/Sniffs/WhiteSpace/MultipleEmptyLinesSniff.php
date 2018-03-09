@@ -22,7 +22,7 @@ class MultipleEmptyLinesSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
-	 * @return void
+	 * @return void|int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
@@ -57,6 +57,9 @@ class MultipleEmptyLinesSniff implements Sniff {
 						$phpcsFile->fixer->endChangeset();
 					}
 				}
+
+			// Skip all whitespace we already checked above
+			return $next + 1;
 		}
 	}
 }
