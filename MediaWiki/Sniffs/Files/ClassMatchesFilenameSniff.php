@@ -35,17 +35,17 @@ class ClassMatchesFilenameSniff implements Sniff {
 	/**
 	 * Check the class name against the filename
 	 *
-	 * @param File $phpcsFile File being checked
-	 * @param int $stackPtr Position
-	 * @return void
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @return int Always PHP_INT_MAX to skip the rest of the file
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$fname = $phpcsFile->getFilename();
 		if ( $fname === 'STDIN' ) {
-			return;
+			return PHP_INT_MAX;
 		}
-		$exp = explode( DIRECTORY_SEPARATOR, $fname );
-		$base = end( $exp );
+
+		$base = basename( $fname );
 		$name = $phpcsFile->getDeclarationName( $stackPtr );
 		if ( $base !== "$name.php" ) {
 			$wrongCase = strcasecmp( $base, "$name.php" ) === 0;
@@ -55,7 +55,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 				$expected = lcfirst( $name );
 				if ( $base === "$expected.php" ) {
 					// OK!
-					return;
+					return PHP_INT_MAX;
 				}
 			}
 			$phpcsFile->addError(
@@ -64,19 +64,24 @@ class ClassMatchesFilenameSniff implements Sniff {
 				$wrongCase ? 'WrongCase' : 'NotMatch'
 			);
 		}
+
+		return PHP_INT_MAX;
 	}
 
 	/**
 	 * Figure out whether the file is a MediaWiki maintenance script
 	 *
-	 * @param File $phpcsFile File being checked
+	 * @param File $phpcsFile
 	 *
 	 * @return bool
 	 */
 	private function isMaintenanceScript( File $phpcsFile ) {
-		foreach ( $phpcsFile->getTokens() as $token ) {
-			if ( $token['code'] === T_STRING
-				&& $token['content'] === 'RUN_MAINTENANCE_IF_MAIN'
+		$tokens = $phpcsFile->getTokens();
+
+		// Per convention the line we are looking for is the last in all maintenance scripts
+		for ( $i = $phpcsFile->numTokens; $i--; ) {
+			if ( $tokens[$i]['code'] === T_STRING
+				&& $tokens[$i]['content'] === 'RUN_MAINTENANCE_IF_MAIN'
 			) {
 				return true;
 			}
