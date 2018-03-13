@@ -94,7 +94,7 @@ class SpaceyParenthesisSniff implements Sniff {
 				$stackPtr - 1,
 				'SpaceBeforeOpeningParenthesis'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr - 1, '' );
 			}
 		}
@@ -113,7 +113,7 @@ class SpaceyParenthesisSniff implements Sniff {
 				$stackPtr + 1,
 				'UnnecessarySpaceBetweenParentheses'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
 			}
 			return;
@@ -151,7 +151,7 @@ class SpaceyParenthesisSniff implements Sniff {
 				$stackPtr + 1,
 				'SingleSpaceAfterOpenParenthesis'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				if ( $nextToken['code'] === T_WHITESPACE
 					&& strpos( $nextToken['content'], "\n" ) === false
 					&& $nextToken['content'] !== ' ' ) {
@@ -201,7 +201,7 @@ class SpaceyParenthesisSniff implements Sniff {
 			$stackPtr,
 			'SingleSpaceBeforeCloseParenthesis'
 		);
-		if ( $fix === true ) {
+		if ( $fix ) {
 			if ( $previousToken['code'] === T_WHITESPACE ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr - 1, ' ' );
 			} else {

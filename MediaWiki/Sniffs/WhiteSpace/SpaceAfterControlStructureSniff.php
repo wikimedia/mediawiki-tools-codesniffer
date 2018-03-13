@@ -38,7 +38,7 @@ class SpaceAfterControlStructureSniff implements Sniff {
 			$error = 'Control structure "%s" must be followed by a single space';
 			$data = [ $tokens[$stackPtr]['content'] ];
 			$fix = $phpcsFile->addFixableWarning( $error, $stackPtr, 'Incorrect', $data );
-			if ( $fix === true ) {
+			if ( $fix ) {
 				if ( $nextToken['code'] !== T_WHITESPACE ) {
 					$phpcsFile->fixer->addContent( $stackPtr, ' ' );
 				} else {

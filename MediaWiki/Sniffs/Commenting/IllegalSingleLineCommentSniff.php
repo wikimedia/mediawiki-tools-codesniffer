@@ -49,7 +49,7 @@ class IllegalSingleLineCommentSniff implements Sniff {
 					$stackPtr,
 					'MissingCommentEndding'
 				);
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken(
 						$stackPtr,
 						str_replace( '\n', ' */', rtrim( $currentToken['content'] ) )
@@ -63,7 +63,7 @@ class IllegalSingleLineCommentSniff implements Sniff {
 						$stackPtr,
 						'IllegalSingleLineCommentStart'
 					);
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken(
 							$stackPtr,
 							preg_replace( '/\/(\*){2,}/', '/*', $currentToken['content'] )
@@ -77,7 +77,7 @@ class IllegalSingleLineCommentSniff implements Sniff {
 						$stackPtr,
 						'IllegalSingleLineCommentEnd'
 					);
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken(
 							$stackPtr,
 							preg_replace( '/(\*){2,}\//', '*/', $currentToken['content'] )

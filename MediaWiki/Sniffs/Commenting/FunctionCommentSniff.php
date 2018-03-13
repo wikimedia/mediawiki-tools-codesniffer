@@ -147,7 +147,7 @@ class FunctionCommentSniff implements Sniff {
 				$skipDoc = true;
 				$error = 'Incorrect capitalization of @inheritDoc';
 				$fix = $phpcsFile->addFixableError( $error, $tag, 'LowercaseInheritDoc' );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( $tag, "@inheritDoc" );
 				}
 			} elseif ( $tagText === '@deprecated' ) {
@@ -223,7 +223,7 @@ class FunctionCommentSniff implements Sniff {
 				if ( $tagContent === '@returns' ) {
 					$error = 'Use @return tag in function comment instead of @returns';
 					$fix = $phpcsFile->addFixableError( $error, $tag, 'PluralReturns' );
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken( $tag, '@return' );
 					}
 				}
@@ -289,7 +289,7 @@ class FunctionCommentSniff implements Sniff {
 					$data
 				);
 				$type = $matches[2];
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$fixType = true;
 				}
 			}
@@ -362,7 +362,7 @@ class FunctionCommentSniff implements Sniff {
 			if ( $tagContent === '@throw' ) {
 				$error = 'Use @throws tag in function comment instead of @throw';
 				$fix = $phpcsFile->addFixableError( $error, $tag, 'SingularThrow' );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( $tag, '@throws' );
 				}
 			}
@@ -393,7 +393,7 @@ class FunctionCommentSniff implements Sniff {
 						'NotParenthesisException',
 						$data
 					);
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken(
 							$tag + 2,
 							$matches[2] . ( $comment === null ? '' : ' ' . $comment )
@@ -420,7 +420,7 @@ class FunctionCommentSniff implements Sniff {
 			if ( $tagContent === '@cover' ) {
 				$error = 'Use @covers tag in function comment instead of @cover';
 				$fix = $phpcsFile->addFixableError( $error, $tag, 'SingularCover' );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( $tag, '@covers' );
 				}
 			}
@@ -446,7 +446,7 @@ class FunctionCommentSniff implements Sniff {
 			if ( $tagContent === '@params' ) {
 				$error = 'Use @param tag in function comment instead of @params';
 				$fix = $phpcsFile->addFixableError( $error, $tag, 'PluralParams' );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( $tag, '@param' );
 				}
 			} elseif ( $tagContent === '@param[in]' || $tagContent === '@param[out]' ||
@@ -454,7 +454,7 @@ class FunctionCommentSniff implements Sniff {
 			) {
 				$error = 'Use @param tag in function comment instead of %s';
 				$fix = $phpcsFile->addFixableError( $error, $tag, 'DirectionParam', [ $tagContent ] );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( $tag, '@param' );
 				}
 			} elseif ( $tagContent !== '@param' ) {
@@ -559,7 +559,7 @@ class FunctionCommentSniff implements Sniff {
 					$param['param_space'],
 				];
 				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingBeforeParamType', $data );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 1 ), str_repeat( ' ', $spaces ) );
 				}
 			}
@@ -576,7 +576,7 @@ class FunctionCommentSniff implements Sniff {
 					'NotParenthesisParamType',
 					$data
 				);
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$this->replaceParamComment(
 						$phpcsFile,
 						$param,
@@ -594,7 +594,7 @@ class FunctionCommentSniff implements Sniff {
 					$param['type_space'],
 				];
 				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingAfterParamType', $data );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$this->replaceParamComment(
 						$phpcsFile,
 						$param,
@@ -686,7 +686,7 @@ class FunctionCommentSniff implements Sniff {
 					$param['var_space'],
 				];
 				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingAfterParamName', $data );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$this->replaceParamComment(
 						$phpcsFile,
 						$param,
@@ -748,7 +748,7 @@ class FunctionCommentSniff implements Sniff {
 		) {
 			$error = 'Comment open tag must be \'/**\'';
 			$fix = $phpcsFile->addFixableError( $error, $commentStart, 'SyntaxOpenTag' );
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $commentStart, '/**' );
 			}
 		}
@@ -764,7 +764,7 @@ class FunctionCommentSniff implements Sniff {
 				if ( $tokens[$i]['content'] !== '*' ) {
 					$error = 'Comment star must be \'*\'';
 					$fix = $phpcsFile->addFixableError( $error, $i, 'SyntaxDocStar' );
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken( $i, '*' );
 					}
 				}
@@ -773,7 +773,7 @@ class FunctionCommentSniff implements Sniff {
 				if ( $initialStarChars > 0 ) {
 					$error = 'Comment star must be a single \'*\'';
 					$fix = $phpcsFile->addFixableError( $error, $i, 'SyntaxMultiDocStar' );
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken(
 							$i + 1,
 							substr( $tokens[$i + 1]['content'], $initialStarChars )
@@ -884,7 +884,7 @@ class FunctionCommentSniff implements Sniff {
 					$code = 'SyntaxAlignedDocClose';
 				}
 				$fix = $phpcsFile->addFixableError( $error, $i, $code );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$columnOff = $columnDocStar - $tokens[$i]['column'];
 					if ( $columnOff < 0 ) {
 						$tokenBefore = $i - 1;
@@ -912,7 +912,7 @@ class FunctionCommentSniff implements Sniff {
 		) {
 			$error = 'Comment close tag must be \'*/\'';
 			$fix = $phpcsFile->addFixableError( $error, $commentEnd, 'SyntaxCloseTag' );
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $commentEnd, '*/' );
 			}
 		}
@@ -929,7 +929,7 @@ class FunctionCommentSniff implements Sniff {
 				);
 				$error = 'Comment close tag should have own line';
 				$fix = $phpcsFile->addFixableError( $error, $commentEnd, 'CloseTagOwnLine' );
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->beginChangeset();
 					$phpcsFile->fixer->addNewline( $prev );
 					// Copy the indent of the previous line to the new line

@@ -48,7 +48,7 @@ class ShortCastSyntaxSniff implements Sniff {
 				$stackPtr,
 				'NotShortBoolForm'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr, '(bool)' );
 			}
 		} elseif ( $token['code'] === T_INT_CAST && $token['content'] !== '(int)' ) {
@@ -57,7 +57,7 @@ class ShortCastSyntaxSniff implements Sniff {
 				$stackPtr,
 				'NotShortIntForm'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr, '(int)' );
 			}
 		}

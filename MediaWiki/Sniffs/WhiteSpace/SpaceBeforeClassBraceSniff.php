@@ -47,7 +47,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 					$openBrace,
 					'BraceNotOnOwnLine'
 				);
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$phpcsFile->fixer->addNewlineBefore( $openBrace );
 				}
 			}
@@ -67,7 +67,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 				'NoSpaceBeforeBrace',
 				[ $spaceCount ]
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->beginChangeset();
 				$phpcsFile->fixer->replaceToken( $openBrace, '' );
 				$phpcsFile->fixer->addContent( $pre, ' {' );
@@ -81,7 +81,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 				$openBrace,
 				'BraceNotOnSameLine'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->beginChangeset();
 				for ( $i = ( $pre + 1 ); $i < $openBrace; $i++ ) {
 					$phpcsFile->fixer->replaceToken( $i, '' );

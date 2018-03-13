@@ -60,7 +60,7 @@ class LicenseCommentSniff implements Sniff {
 			$fix = $phpcsFile->addFixableWarning(
 				'Incorrect wording of @license', $tag, 'LicenceTag'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $tag, '@license' );
 			}
 		} elseif ( $tagText !== '@license' ) {

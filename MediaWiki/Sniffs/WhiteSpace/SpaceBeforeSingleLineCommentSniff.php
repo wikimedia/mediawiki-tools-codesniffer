@@ -67,7 +67,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 				$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
 					'SingleSpaceBeforeSingleLineComment'
 				);
-				if ( $fix === true ) {
+				if ( $fix ) {
 					$newContent = '// ';
 					$newContent .= $commentTrim;
 					$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
@@ -86,7 +86,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 					$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
 						'SingleSpaceBeforeSingleLineComment'
 					);
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$content = $currToken['content'];
 						$newContent = '# ';
 						$tmpContent = substr( $content, 1 );

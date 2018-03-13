@@ -51,7 +51,7 @@ class SpaceAfterClosureSniff implements Sniff {
 				$stackPtr + 1,
 				'WrongWhitespaceAfterClosure'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
 			}
 		} elseif ( $next['code'] === T_OPEN_PARENTHESIS ) {
@@ -60,7 +60,7 @@ class SpaceAfterClosureSniff implements Sniff {
 				$stackPtr,
 				'NoWhitespaceAfterClosure'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->addContent( $stackPtr, ' ' );
 			}
 		}

@@ -74,7 +74,7 @@ class DirUsageSniff implements Sniff {
 			$stackPtr,
 			'FunctionFound'
 		);
-		if ( $fix === true ) {
+		if ( $fix ) {
 			$curToken = $stackPtr;
 			while ( $curToken <= $nextToken ) {
 				if ( $tokens[$curToken]['code'] === T_FILE ) {

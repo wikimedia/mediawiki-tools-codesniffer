@@ -49,7 +49,7 @@ class IfElseStructureSniff implements Sniff {
 				'SpaceBeforeElse',
 				[ $tokens[$stackPtr]['content'] ]
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				if ( $prevToken['code'] === T_CLOSE_CURLY_BRACKET ) {
 					$phpcsFile->fixer->addContentBefore( $stackPtr, ' ' );
 				} else {
@@ -76,7 +76,7 @@ class IfElseStructureSniff implements Sniff {
 				'SpaceAfterElse',
 				[ $tokens[$stackPtr]['content'] ]
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				if ( $nextToken['code'] === T_OPEN_CURLY_BRACKET ) {
 					$phpcsFile->fixer->addContent( $stackPtr, ' ' );
 				} else {
@@ -98,7 +98,7 @@ class IfElseStructureSniff implements Sniff {
 				'SpaceAfterElse',
 				[ $tokens[$stackPtr]['content'] ]
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				// Replace all after whitespace with no space
 				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
 				for ( $i = 2; $tokens[$stackPtr + $i]['code'] === T_WHITESPACE; $i++ ) {

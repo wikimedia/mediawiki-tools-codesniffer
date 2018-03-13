@@ -45,7 +45,7 @@ class DisallowEmptyLineFunctionsSniff implements Sniff {
 				$stackPtr,
 				'NoEmptyLine'
 			);
-			if ( $fix === true ) {
+			if ( $fix ) {
 				$phpcsFile->fixer->beginChangeset();
 				$i = $openBrace + 1;
 				while ( $tokens[$i]['line'] !== $tokens[$next]['line'] ) {

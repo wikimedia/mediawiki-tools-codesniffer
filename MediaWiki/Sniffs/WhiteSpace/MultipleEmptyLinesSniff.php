@@ -46,7 +46,7 @@ class MultipleEmptyLinesSniff implements Sniff {
 						'MultipleEmptyLines',
 						[ $lines ]
 					);
-					if ( $fix === true ) {
+					if ( $fix ) {
 						$phpcsFile->fixer->beginChangeset();
 						$i = $stackPtr;
 						while ( $tokens[$i]['line'] !== $tokens[$next]['line'] ) {

@@ -56,7 +56,7 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 				$stackPtr + 1,
 				'ParenthesesAroundKeywords' );
 
-			if ( $fix === true ) {
+			if ( $fix ) {
 				if ( $nextToken['code'] === T_OPEN_PARENTHESIS ) {
 					if ( $nextSecondToken['code'] === T_WHITESPACE ) {
 						$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
