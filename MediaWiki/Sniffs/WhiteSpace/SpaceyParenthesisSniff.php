@@ -71,11 +71,10 @@ class SpaceyParenthesisSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
-	 * @return void
+	 * @return void|int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-
 		$currentToken = $tokens[$stackPtr];
 
 		if ( $this->isOpen( $currentToken['code'] )
@@ -116,14 +115,9 @@ class SpaceyParenthesisSniff implements Sniff {
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
 			}
-			return;
-		}
 
-		// Same check as above, but ignore since it was already processed
-		if ( $this->isClosed( $currentToken['code'] )
-			&& $tokens[$stackPtr - 1]['code'] === T_WHITESPACE
-			&& $this->isOpen( $tokens[$stackPtr - 2]['code'] ) ) {
-			return;
+			// Intentionally skip the closing parentheses already processed above
+			return $stackPtr + 3;
 		}
 
 		if ( $this->isOpen( $currentToken['code'] ) ) {
