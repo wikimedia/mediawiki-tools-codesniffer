@@ -62,7 +62,7 @@ class UnusedUseStatementSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 
 		// Only check use statements in the global scope.
-		if ( empty( $tokens[$stackPtr]['conditions'] ) === false ) {
+		if ( !empty( $tokens[$stackPtr]['conditions'] ) ) {
 			return;
 		}
 
@@ -155,7 +155,7 @@ class UnusedUseStatementSniff implements Sniff {
 
 				// Trait use statement within a class.
 				if ( $tokens[$beforeUsage]['code'] === T_USE
-					&& empty( $tokens[$beforeUsage]['conditions'] ) === false
+					&& !empty( $tokens[$beforeUsage]['conditions'] )
 				) {
 					return;
 				}
@@ -199,7 +199,7 @@ class UnusedUseStatementSniff implements Sniff {
 			}
 
 			// Also remove whitespace after the semicolon (new lines).
-			while ( isset( $tokens[$i] ) === true && $tokens[$i]['code'] === T_WHITESPACE ) {
+			while ( isset( $tokens[$i] ) && $tokens[$i]['code'] === T_WHITESPACE ) {
 				$phpcsFile->fixer->replaceToken( $i, '' );
 				if ( strpos( $tokens[$i]['content'], $phpcsFile->eolChar ) !== false ) {
 					break;

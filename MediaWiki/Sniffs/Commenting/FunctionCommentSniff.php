@@ -253,7 +253,7 @@ class FunctionCommentSniff implements Sniff {
 			}
 			$retType = $return + 2;
 			$content = $tokens[$retType]['content'];
-			if ( empty( $content ) === true || $tokens[$retType]['code'] !== T_DOC_COMMENT_STRING ) {
+			if ( empty( $content ) || $tokens[$retType]['code'] !== T_DOC_COMMENT_STRING ) {
 				$error = 'Return type missing for @return tag in function comment';
 				$phpcsFile->addError( $error, $return, 'MissingReturnType' );
 			}
@@ -372,7 +372,7 @@ class FunctionCommentSniff implements Sniff {
 				$matches = [];
 				preg_match( '/([^\s]+)(?:\s+(.*))?/', $tokens[( $tag + 2 )]['content'], $matches );
 				$exception = $matches[1];
-				if ( isset( $matches[2] ) === true ) {
+				if ( isset( $matches[2] ) ) {
 					$comment = $matches[2];
 				}
 			}
@@ -482,18 +482,18 @@ class FunctionCommentSniff implements Sniff {
 				if ( $typeLen > $maxType ) {
 					$maxType = $typeLen;
 				}
-				if ( isset( $matches[2] ) === true ) {
+				if ( isset( $matches[2] ) ) {
 					$var = $matches[2];
 					$varLen = strlen( $var );
 					if ( $varLen > $maxVar ) {
 						$maxVar = $varLen;
 					}
-					if ( isset( $matches[4] ) === true ) {
+					if ( isset( $matches[4] ) ) {
 						$varSpace = strlen( $matches[3] );
 						$commentFirst = $matches[4];
 						$comment = $commentFirst;
 						// Any strings until the next tag belong to this comment.
-						if ( isset( $tokens[$commentStart]['comment_tags'][( $pos + 1 )] ) === true ) {
+						if ( isset( $tokens[$commentStart]['comment_tags'][( $pos + 1 )] ) ) {
 							$end = $tokens[$commentStart]['comment_tags'][( $pos + 1 )];
 						} else {
 							$end = $tokens[$commentStart]['comment_closer'];
@@ -622,7 +622,7 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 			// Make sure the param name is correct.
-			if ( isset( $realParams[$pos] ) === true ) {
+			if ( isset( $realParams[$pos] ) ) {
 				$realName = $realParams[$pos]['name'];
 				if ( $realName !== $var ) {
 					$code = 'ParamNameNoMatch';
