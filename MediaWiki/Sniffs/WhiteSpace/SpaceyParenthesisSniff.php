@@ -102,6 +102,12 @@ class SpaceyParenthesisSniff implements Sniff {
 			}
 		}
 
+		// Shorten out as early as possible on empty parenthesis
+		if ( $this->isClosed( $tokens[$stackPtr + 1]['code'] ) ) {
+			// Intentionally do not process the closing parenthesis again
+			return $stackPtr + 2;
+		}
+
 		// Check for space between parentheses without any arguments
 		if ( $tokens[$stackPtr + 1]['code'] === T_WHITESPACE
 			&& $this->isClosed( $tokens[$stackPtr + 2]['code'] ) ) {
@@ -119,7 +125,7 @@ class SpaceyParenthesisSniff implements Sniff {
 				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
 			}
 
-			// Intentionally skip the closing parentheses already processed above
+			// Intentionally do not process the closing parenthesis again
 			return $stackPtr + 3;
 		}
 
@@ -137,7 +143,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		if ( ( $nextToken['code'] === T_WHITESPACE &&
 				strpos( $nextToken['content'], "\n" ) === false
 				&& $nextToken['content'] !== ' ' )
-			|| ( !$this->isClosed( $nextToken['code'] ) && $nextToken['code'] !== T_WHITESPACE ) ) {
+			|| $nextToken['code'] !== T_WHITESPACE ) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Single space expected after opening parenthesis',
 				$stackPtr + 1,
@@ -163,8 +169,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$previousToken = $tokens[$stackPtr - 1];
 
-		if ( $this->isOpen( $previousToken['code'] )
-			|| ( $previousToken['code'] === T_WHITESPACE
+		if ( ( $previousToken['code'] === T_WHITESPACE
 				&& $previousToken['content'] === ' ' )
 			|| ( $this->isComment( $previousToken['code'] )
 				&& substr( $previousToken['content'], -1, 1 ) === "\n" ) ) {
