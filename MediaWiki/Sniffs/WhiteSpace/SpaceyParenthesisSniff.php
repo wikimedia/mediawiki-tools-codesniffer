@@ -77,8 +77,12 @@ class SpaceyParenthesisSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$currentToken = $tokens[$stackPtr];
 
-		if ( $this->isOpen( $currentToken['code'] )
-			&& $tokens[$stackPtr - 1]['code'] === T_WHITESPACE
+		if ( $this->isClosed( $currentToken['code'] ) ) {
+			$this->processCloseParenthesis( $phpcsFile, $stackPtr );
+			return;
+		}
+
+		if ( $tokens[$stackPtr - 1]['code'] === T_WHITESPACE
 			&& ( $tokens[$stackPtr - 2]['code'] === T_STRING
 				|| $tokens[$stackPtr - 2]['code'] === T_ARRAY ) ) {
 			// String (or 'array') followed by whitespace followed by
@@ -99,8 +103,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		}
 
 		// Check for space between parentheses without any arguments
-		if ( $this->isOpen( $currentToken['code'] )
-			&& $tokens[$stackPtr + 1]['code'] === T_WHITESPACE
+		if ( $tokens[$stackPtr + 1]['code'] === T_WHITESPACE
 			&& $this->isClosed( $tokens[$stackPtr + 2]['code'] ) ) {
 			if ( $this->isParenthesis( $currentToken['code'] ) ) {
 				$msg = 'parentheses';
@@ -120,12 +123,7 @@ class SpaceyParenthesisSniff implements Sniff {
 			return $stackPtr + 3;
 		}
 
-		if ( $this->isOpen( $currentToken['code'] ) ) {
-			$this->processOpenParenthesis( $phpcsFile, $stackPtr );
-		} else {
-			// T_CLOSE_PARENTHESIS
-			$this->processCloseParenthesis( $phpcsFile, $stackPtr );
-		}
+		$this->processOpenParenthesis( $phpcsFile, $stackPtr );
 	}
 
 	/**
