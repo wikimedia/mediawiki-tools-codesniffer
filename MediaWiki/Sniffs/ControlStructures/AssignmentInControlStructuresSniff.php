@@ -45,7 +45,8 @@ class AssignmentInControlStructuresSniff implements Sniff {
 			// Check if any assignment operator was used. Allow T_DOUBLE_ARROW as that can
 			// be used in an array like `if ( $foo === array( 'foo' => 'bar' ) )`
 			if ( array_key_exists( $code, Tokens::$assignmentTokens )
-				&& $code !== T_DOUBLE_ARROW ) {
+				&& $code !== T_DOUBLE_ARROW
+			) {
 				$error = 'Assignment expression not allowed within "%s".';
 				$phpcsFile->addError(
 					$error,

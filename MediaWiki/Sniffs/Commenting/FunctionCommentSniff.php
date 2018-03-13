@@ -654,7 +654,8 @@ class FunctionCommentSniff implements Sniff {
 			// $spaces = ( $maxVar - strlen( $param['var'] ) + 1 );
 			$spaces = 1;
 			if ( $param['var_space'] !== $spaces &&
-				ltrim( $param['comment'] ) !== '' ) {
+				ltrim( $param['comment'] ) !== ''
+			) {
 				$error = 'Expected %s spaces after parameter name; %s found';
 				$data = [
 					$spaces,
