@@ -38,6 +38,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'key_exists' => 'array_key_exists',
 		'pos' => 'current',
 		'sizeof' => 'count',
+		'assert' => false,
 		'extract' => false,
 		// Deprecated in PHP 7.2
 		'create_function' => false,
