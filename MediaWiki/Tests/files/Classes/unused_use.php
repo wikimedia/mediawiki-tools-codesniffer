@@ -20,6 +20,7 @@ use Something\InAThrows;
 use Something\InAExpectedException;
 use Something\InAParam;
 use Something\Partial;
+use InvalidArgumentException;
 
 $a = new Baz();
 $b = new Used();

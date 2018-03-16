@@ -96,6 +96,21 @@ class UnusedUseStatementSniff implements Sniff {
 		// is allowed even in the same namespace.
 		$aliasUsed = $phpcsFile->findPrevious( T_AS, ( $classPtr - 1 ), $stackPtr );
 
+		$useNamespacePtr = $phpcsFile->findNext( [ T_STRING ], ( $stackPtr + 1 ) );
+		$useNamespaceEnd = $phpcsFile->findNext(
+			[
+				T_NS_SEPARATOR,
+				T_STRING,
+			],
+			( $useNamespacePtr + 1 ),
+			null,
+			true
+		);
+		$use_namespace = rtrim(
+			$phpcsFile->getTokensAsString( $useNamespacePtr, ( $useNamespaceEnd - $useNamespacePtr - 1 ) ),
+			'\\'
+		);
+
 		if ( $namespacePtr !== false && $aliasUsed === false ) {
 			$nsEnd = $phpcsFile->findNext(
 				[
@@ -111,24 +126,19 @@ class UnusedUseStatementSniff implements Sniff {
 				$phpcsFile->getTokensAsString( ( $namespacePtr + 1 ), ( $nsEnd - $namespacePtr - 1 ) )
 			);
 
-			$useNamespacePtr = $phpcsFile->findNext( [ T_STRING ], ( $stackPtr + 1 ) );
-			$useNamespaceEnd = $phpcsFile->findNext(
-				[
-					T_NS_SEPARATOR,
-					T_STRING,
-				],
-				( $useNamespacePtr + 1 ),
-				null,
-				true
-			);
-			$use_namespace = rtrim(
-				$phpcsFile->getTokensAsString( $useNamespacePtr, ( $useNamespaceEnd - $useNamespacePtr - 1 ) ),
-				'\\'
-			);
-
 			if ( strcasecmp( $namespace, $use_namespace ) === 0 ) {
 				$classUsed = false;
 			}
+		}
+
+		// Class has no namespace and use statement has no namespace
+		if ( $namespacePtr === false && $use_namespace === '' ) {
+			$warning = 'Use statement with non-compound name';
+			$fix = $phpcsFile->addFixableWarning( $warning, $stackPtr, 'NonCompoundUse' );
+			if ( $fix ) {
+				$this->removeUseStatement( $phpcsFile, $tokens, $stackPtr, $semiColon );
+			}
+			return;
 		}
 
 		while ( $classUsed !== false ) {
@@ -192,24 +202,28 @@ class UnusedUseStatementSniff implements Sniff {
 		$warning = 'Unused use statement';
 		$fix = $phpcsFile->addFixableWarning( $warning, $stackPtr, 'UnusedUse' );
 		if ( $fix ) {
-			// Remove the whole use statement line.
-			$phpcsFile->fixer->beginChangeset();
-			for ( $i = $stackPtr; $i <= $semiColon; $i++ ) {
-				$phpcsFile->fixer->replaceToken( $i, '' );
-			}
-
-			// Also remove whitespace after the semicolon (new lines).
-			while ( isset( $tokens[$i] ) && $tokens[$i]['code'] === T_WHITESPACE ) {
-				$phpcsFile->fixer->replaceToken( $i, '' );
-				if ( strpos( $tokens[$i]['content'], $phpcsFile->eolChar ) !== false ) {
-					break;
-				}
-
-				$i++;
-			}
-
-			$phpcsFile->fixer->endChangeset();
+			$this->removeUseStatement( $phpcsFile, $tokens, $stackPtr, $semiColon );
 		}
+	}
+
+	private function removeUseStatement( File $phpcsFile, $tokens, $stackPtr, $semiColon ) {
+		// Remove the whole use statement line.
+		$phpcsFile->fixer->beginChangeset();
+		for ( $i = $stackPtr; $i <= $semiColon; $i++ ) {
+			$phpcsFile->fixer->replaceToken( $i, '' );
+		}
+
+		// Also remove whitespace after the semicolon (new lines).
+		while ( isset( $tokens[$i] ) && $tokens[$i]['code'] === T_WHITESPACE ) {
+			$phpcsFile->fixer->replaceToken( $i, '' );
+			if ( strpos( $tokens[$i]['content'], $phpcsFile->eolChar ) !== false ) {
+				break;
+			}
+
+			$i++;
+		}
+
+		$phpcsFile->fixer->endChangeset();
 	}
 
 }

@@ -1,0 +1,3 @@
+ 3 | WARNING | [x] Use statement with non-compound name
+   |         |     (MediaWiki.Classes.UnusedUseStatement.NonCompoundUse)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
