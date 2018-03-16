@@ -80,6 +80,10 @@ class ClassMatchesFilenameSniff implements Sniff {
 
 		// Per convention the line we are looking for is the last in all maintenance scripts
 		for ( $i = $phpcsFile->numTokens; $i--; ) {
+			if ( $tokens[$i]['level'] !== 0 ) {
+				// Only look into the global scope
+				return false;
+			}
 			if ( $tokens[$i]['code'] === T_STRING
 				&& $tokens[$i]['content'] === 'RUN_MAINTENANCE_IF_MAIN'
 			) {
