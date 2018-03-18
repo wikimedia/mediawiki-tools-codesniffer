@@ -49,6 +49,11 @@ class MissingCoversSniff implements Sniff {
 			// Only want to validate classes that end in test
 			return;
 		}
+		$props = $phpcsFile->getClassProperties( $stackPtr );
+		if ( $props['is_abstract'] ) {
+			// No point in requiring @covers from an abstract class
+			return;
+		}
 
 		$classCovers = $this->hasCoversTags( $phpcsFile, $stackPtr );
 		if ( $classCovers ) {

@@ -35,3 +35,8 @@ class MethodCoversTest {
 	public function testCoversNothing() {
 	}
 }
+
+abstract class AbstractCoversTest {
+	public function testMethod() {
+	}
+}
