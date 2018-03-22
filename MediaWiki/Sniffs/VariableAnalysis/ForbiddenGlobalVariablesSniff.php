@@ -62,8 +62,7 @@ class ForbiddenGlobalVariablesSniff implements Sniff {
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
 			if ( $tokens[$i]['code'] === T_GLOBAL ) {
 				$globalLine = $tokens[$i]['line'];
-			}
-			if ( $tokens[$i]['code'] === T_VARIABLE && $tokens[$i]['line'] === $globalLine ) {
+			} elseif ( $tokens[$i]['code'] === T_VARIABLE && $tokens[$i]['line'] === $globalLine ) {
 				$globalVariables[] = [ $tokens[$i]['content'], $i ];
 			}
 		}

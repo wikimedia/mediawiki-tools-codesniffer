@@ -43,14 +43,13 @@ class UnusedGlobalVariablesSniff implements Sniff {
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
 			if ( $tokens[$i]['code'] === T_GLOBAL ) {
 				$globalLine = $tokens[$i]['line'];
-			}
-			if ( $tokens[$i]['code'] === T_VARIABLE && $tokens[$i]['line'] === $globalLine ) {
-				$globalVariables[] = [ $tokens[$i]['content'], $i ];
-			}
-			if ( $tokens[$i]['code'] === T_VARIABLE && $tokens[$i]['line'] !== $globalLine ) {
-				$otherVariables[$tokens[$i]['content']] = null;
-			}
-			if ( $tokens[$i]['code'] === T_DOUBLE_QUOTED_STRING
+			} elseif ( $tokens[$i]['code'] === T_VARIABLE ) {
+				if ( $tokens[$i]['line'] === $globalLine ) {
+					$globalVariables[] = [ $tokens[$i]['content'], $i ];
+				} else {
+					$otherVariables[$tokens[$i]['content']] = null;
+				}
+			} elseif ( $tokens[$i]['code'] === T_DOUBLE_QUOTED_STRING
 				|| $tokens[$i]['code'] === T_HEREDOC
 			) {
 				preg_match_all( '/\$\w+/', $tokens[$i]['content'], $matches );
