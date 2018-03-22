@@ -8,7 +8,6 @@ namespace MediaWiki\Sniffs\VariableAnalysis;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
-use PHP_CodeSniffer\Util\Tokens;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
 
@@ -42,20 +41,17 @@ class UnusedGlobalVariablesSniff implements Sniff {
 		$strVariables = [];
 
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
-			if ( array_key_exists( $tokens[$i]['type'], Tokens::$emptyTokens ) ) {
-				continue;
-			}
-			if ( $tokens[$i]['type'] === 'T_GLOBAL' ) {
+			if ( $tokens[$i]['code'] === T_GLOBAL ) {
 				$globalLine = $tokens[$i]['line'];
 			}
-			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] === $globalLine ) {
+			if ( $tokens[$i]['code'] === T_VARIABLE && $tokens[$i]['line'] === $globalLine ) {
 				$globalVariables[] = [ $tokens[$i]['content'], $i ];
 			}
-			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] !== $globalLine ) {
+			if ( $tokens[$i]['code'] === T_VARIABLE && $tokens[$i]['line'] !== $globalLine ) {
 				$otherVariables[$tokens[$i]['content']] = null;
 			}
-			if ( $tokens[$i]['type'] === 'T_DOUBLE_QUOTED_STRING'
-				|| $tokens[$i]['type'] === 'T_HEREDOC'
+			if ( $tokens[$i]['code'] === T_DOUBLE_QUOTED_STRING
+				|| $tokens[$i]['code'] === T_HEREDOC
 			) {
 				preg_match_all( '/\$\w+/', $tokens[$i]['content'], $matches );
 				$strVariables = array_merge_recursive( $strVariables, $matches );

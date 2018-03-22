@@ -55,7 +55,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 		$tokenIndex = max( array_keys( $tokens ) );
 		while ( $tokenIndex > 0 ) {
 			$token = $tokens[$tokenIndex];
-			if ( $token['type'] === "T_NAMESPACE" && !isset( $token['scope_opener'] ) ) {
+			if ( $token['code'] === T_NAMESPACE && !isset( $token['scope_opener'] ) ) {
 				// In the format of "namespace Foo;", which applies to everything below
 				$this->firstNamespaceLocations[$fileName] = $tokenIndex;
 			}

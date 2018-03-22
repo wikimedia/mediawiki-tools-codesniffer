@@ -24,7 +24,6 @@ namespace MediaWiki\Sniffs\VariableAnalysis;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
-use PHP_CodeSniffer\Util\Tokens;
 
 class ForbiddenGlobalVariablesSniff implements Sniff {
 
@@ -61,13 +60,10 @@ class ForbiddenGlobalVariablesSniff implements Sniff {
 		$globalVariables = [];
 
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
-			if ( array_key_exists( $tokens[$i]['type'], Tokens::$emptyTokens ) ) {
-				continue;
-			}
-			if ( $tokens[$i]['type'] === 'T_GLOBAL' ) {
+			if ( $tokens[$i]['code'] === T_GLOBAL ) {
 				$globalLine = $tokens[$i]['line'];
 			}
-			if ( $tokens[$i]['type'] === 'T_VARIABLE' && $tokens[$i]['line'] === $globalLine ) {
+			if ( $tokens[$i]['code'] === T_VARIABLE && $tokens[$i]['line'] === $globalLine ) {
 				$globalVariables[] = [ $tokens[$i]['content'], $i ];
 			}
 		}
