@@ -64,8 +64,12 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
+		$functionContent = $phpcsFile->getDeclarationName( $stackPtr );
+		if ( $functionContent === null ) {
+			return;
+		}
+
 		$tokens = $phpcsFile->getTokens();
-		$functionContent = $tokens[$stackPtr + 2]['content'];
 		$lowerFunctionName = strtolower( $functionContent );
 		foreach ( $tokens[$stackPtr]['conditions'] as $scope => $code ) {
 			if ( !isset( self::$scopeList[$code] ) ||

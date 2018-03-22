@@ -69,17 +69,19 @@ class FunctionCommentSniff implements Sniff {
 			// Don't check documentation for test cases
 			return;
 		}
-		$tokens = $phpcsFile->getTokens();
-		$funcName = $tokens[$stackPtr + 2];
-		if ( in_array( $funcName['content'], $this->skipStandardMethods ) ) {
+
+		$funcName = $phpcsFile->getDeclarationName( $stackPtr );
+		if ( $funcName === null || in_array( $funcName, $this->skipStandardMethods ) ) {
 			// Don't require documentation for an obvious method
 			return;
-		} elseif ( $funcName['content'] === '__construct'
+		} elseif ( $funcName === '__construct'
 			&& !$phpcsFile->getMethodParameters( $stackPtr )
 		) {
 			// Don't require documentation for constructors with no parameters
 			return;
 		}
+
+		$tokens = $phpcsFile->getTokens();
 		// Identify the visiblity of the function
 		$visibility = $phpcsFile->findPrevious( [ T_PUBLIC, T_PROTECTED, T_PRIVATE ], $stackPtr - 1 );
 		$visStr = 'Public';

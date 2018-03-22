@@ -45,6 +45,13 @@ class NotATestCase {
 	 */
 	public function testSomeMethod_foo() {
 	}
+
+	/**
+	 * Lower camel case without under score.
+	 * @return void
+	 */
+	public function &failed_ReferenceExamples() {
+	}
 }
 
 /**

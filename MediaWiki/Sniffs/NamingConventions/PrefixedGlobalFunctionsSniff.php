@@ -85,15 +85,13 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 			return;
 		}
 
-		$tokens = $phpcsFile->getTokens();
-		$token = $tokens[$stackPtr];
-
-		// Name of function
-		$name = $tokens[$stackPtr + 2]['content'];
-
-		if ( in_array( $name, $this->ignoreList ) ) {
+		$name = $phpcsFile->getDeclarationName( $stackPtr );
+		if ( $name === null || in_array( $name, $this->ignoreList ) ) {
 			return;
 		}
+
+		$tokens = $phpcsFile->getTokens();
+		$token = $tokens[$stackPtr];
 
 		// Check if function is global
 		if ( $token['level'] === 0 ) {
