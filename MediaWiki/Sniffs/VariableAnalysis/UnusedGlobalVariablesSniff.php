@@ -8,8 +8,6 @@ namespace MediaWiki\Sniffs\VariableAnalysis;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
-use RecursiveArrayIterator;
-use RecursiveIteratorIterator;
 
 class UnusedGlobalVariablesSniff implements Sniff {
 
@@ -53,16 +51,13 @@ class UnusedGlobalVariablesSniff implements Sniff {
 				|| $tokens[$i]['code'] === T_HEREDOC
 			) {
 				preg_match_all( '/\$\w+/', $tokens[$i]['content'], $matches );
-				$strVariables = array_merge_recursive( $strVariables, $matches );
+				$strVariables += array_flip( $matches[0] );
 			}
 		}
-		$strVariables = iterator_to_array(
-			new RecursiveIteratorIterator( new RecursiveArrayIterator( $strVariables ) ),
-			false
-		);
+
 		foreach ( $globalVariables as $global ) {
 			if ( !array_key_exists( $global[0], $otherVariables )
-				&& !in_array( $global[0], $strVariables )
+				&& !array_key_exists( $global[0], $strVariables )
 			) {
 				$phpcsFile->addWarning(
 					'Global ' . $global[0] .' is never used.',
