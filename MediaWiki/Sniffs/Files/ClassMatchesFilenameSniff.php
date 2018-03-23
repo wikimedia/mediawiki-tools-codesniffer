@@ -34,15 +34,16 @@ class ClassMatchesFilenameSniff implements Sniff {
 
 	/**
 	 * Check the class name against the filename
+	 * This check is only done once, the rest of the file is always ignored.
 	 *
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
-	 * @return int Always PHP_INT_MAX to skip the rest of the file
+	 * @return int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$fname = $phpcsFile->getFilename();
 		if ( $fname === 'STDIN' ) {
-			return PHP_INT_MAX;
+			return $phpcsFile->numTokens;
 		}
 
 		$base = basename( $fname );
@@ -55,7 +56,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 				$expected = lcfirst( $name );
 				if ( $base === "$expected.php" ) {
 					// OK!
-					return PHP_INT_MAX;
+					return $phpcsFile->numTokens;
 				}
 			}
 			$phpcsFile->addError(
@@ -65,7 +66,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 			);
 		}
 
-		return PHP_INT_MAX;
+		return $phpcsFile->numTokens;
 	}
 
 	/**
