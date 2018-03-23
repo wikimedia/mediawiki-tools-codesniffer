@@ -81,22 +81,15 @@ class FunctionCommentSniff implements Sniff {
 			return;
 		}
 
-		$tokens = $phpcsFile->getTokens();
-		// Identify the visiblity of the function
-		$visibility = $phpcsFile->findPrevious( [ T_PUBLIC, T_PROTECTED, T_PRIVATE ], $stackPtr - 1 );
-		$visStr = 'Public';
-		if ( $visibility ) {
-			$visInfo = $tokens[$visibility];
-			if ( $visInfo['line'] === $tokens[$stackPtr]['line'] ) {
-				if ( $visInfo['code'] === T_PRIVATE ) {
-					// Don't check documentation for private functions
-					return;
-				} elseif ( $visInfo['code'] === T_PROTECTED ) {
-					$visStr = 'Protected';
-				}
-			}
+		// Identify the visibility of the function
+		$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
+		if ( $methodProps['scope'] === 'private' ) {
+			// Don't check documentation for private functions
+			return;
 		}
+		$visStr = ucfirst( $methodProps['scope'] );
 
+		$tokens = $phpcsFile->getTokens();
 		$find = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
 		$commentEnd = $phpcsFile->findPrevious( $find, ( $stackPtr - 1 ), null, true );
