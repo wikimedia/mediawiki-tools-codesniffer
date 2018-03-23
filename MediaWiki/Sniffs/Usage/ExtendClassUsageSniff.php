@@ -72,21 +72,24 @@ class ExtendClassUsageSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		$tokens = $phpcsFile->getTokens();
-		$currToken = $tokens[$stackPtr];
-
-		$extendsPtr = $phpcsFile->findNext( T_EXTENDS, $stackPtr );
-		if ( $extendsPtr === false ) {
+		$extClsContent = $phpcsFile->findExtendedClassName( $stackPtr );
+		if ( $extClsContent === false ) {
 			// No extends token found
 			return;
 		}
-		$baseClsPtr = $phpcsFile->findNext( T_STRING, $extendsPtr );
-		$extClsContent = $tokens[$baseClsPtr]['content'];
+
+		// Ignore namespace separator at the begin
+		$extClsContent = ltrim( $extClsContent, '\\' );
+
 		// Here should be replaced with a mechanism that check if
 		// the base class is in the list of restricted classes
 		if ( !isset( self::$checkConfig['extendsCls'][$extClsContent] ) ) {
 			return;
 		}
+
+		$tokens = $phpcsFile->getTokens();
+		$currToken = $tokens[$stackPtr];
+
 		$extClsCheckList = self::$checkConfig['checkList'][$extClsContent];
 		// Loop over all tokens of the class to check each function
 		$i = $currToken['scope_opener'];

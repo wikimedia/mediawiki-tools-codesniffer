@@ -72,7 +72,7 @@ class UserTest extends ContextSource {
 	}
 }
 
-abstract class RequestTest extends ContextSource {
+abstract class RequestTest extends \ContextSource {
 
 	/**
 	 * @return mixed
