@@ -16,7 +16,8 @@ function wfFailedExamples() {
  * @return void
  */
 function wfPassedExamples() {
-	global $wgSomething, $wgLocalInterwikis;
+	global $wgSomething, $wgLocalInterwikis, $wg3dProcessor;
 	$wgSomething = 5;
 	$wgLocalInterwikis = false;
+	$wg3dProcessor = null;
 }

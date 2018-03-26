@@ -77,7 +77,7 @@ class ValidGlobalNameSniff implements Sniff {
 				} else {
 					// Verify global is probably CamelCase
 					$val = ord( substr( $globalName, 3, 1 ) );
-					if ( !( $val >= 65 && $val <= 90 ) ) {
+					if ( !( $val >= 65 && $val <= 90 ) && !( $val >= 48 && $val <= 57 ) ) {
 						$phpcsFile->addError(
 							'Global variable "%s" should use CamelCase: "%s"',
 							$stackPtr,
