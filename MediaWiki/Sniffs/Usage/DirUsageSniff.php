@@ -33,21 +33,8 @@ class DirUsageSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		$ignore = [
-			T_DOUBLE_COLON => true,
-			T_OBJECT_OPERATOR => true,
-			T_FUNCTION => true,
-			T_CONST => true,
-		];
-
 		// Check if the function is dirname()
 		if ( strcasecmp( $tokens[$stackPtr]['content'], 'dirname' ) !== 0 ) {
-			return;
-		}
-
-		// Check if it's a PHP function
-		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, ( $stackPtr - 1 ), null, true );
-		if ( isset( $ignore[$tokens[$prevToken]['code']] ) ) {
 			return;
 		}
 
@@ -60,6 +47,16 @@ class DirUsageSniff implements Sniff {
 		// Check if __FILE__ is inside it
 		$nextToken = $phpcsFile->findNext( T_WHITESPACE, ( $nextToken + 1 ), null, true );
 		if ( $tokens[$nextToken]['code'] !== T_FILE ) {
+			return;
+		}
+
+		// Check if it's a PHP function
+		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, ( $stackPtr - 1 ), null, true );
+		if ( $tokens[$prevToken]['code'] === T_OBJECT_OPERATOR
+			|| $tokens[$prevToken]['code'] === T_DOUBLE_COLON
+			|| $tokens[$prevToken]['code'] === T_FUNCTION
+			|| $tokens[$prevToken]['code'] === T_CONST
+		) {
 			return;
 		}
 
