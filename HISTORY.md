@@ -1,5 +1,29 @@
 # MediaWiki-Codesniffer release history #
 
+## 17.0.0 / 2018-03-28 ##
+* Allow globals to start with numbers (Umherirrender)
+* Check for close parenthesis first and shorten out earlier (Thiemo Kreuz)
+* Check for use statement with non-compound name (Umherirrender)
+* Don't require @covers from abstract tests (Max Semenik)
+* Forbid usage of assert() (Kunal Mehta)
+* Improve ClassMatchesFilenameSniff::isMaintenanceScript (Umherirrender)
+* Improve performance of PrefixedGlobalFunctionsSniff (Umherirrender)
+* Optimize ClassMatchesFilename sniff for performance (Thiemo Kreuz)
+* Optimize DirUsage sniff for performance (Thiemo Kreuz)
+* Optimize MultipleEmptyLines sniff for performance (Thiemo Kreuz)
+* Remove warning about "missing" @param comments (Thiemo Kreuz)
+* Simplify UnusedGlobalVariables sniff (Thiemo Kreuz)
+* Skip closing parentheses in "( )" and "[ ]" instead of rechecking (Thiemo Kreuz)
+* Skip empty () and [], not processing closing token a second time (Thiemo Kreuz)
+* Update squizlabs/php_codesniffer to 3.2.3 (Kunal Mehta)
+* Use faster array_key_exists instead of in_array in 2 sniffs (Thiemo Kreuz)
+* Use faster strcasecmp() instead of strtolower() for comparisons (Thiemo Kreuz)
+* Use File::findExtendedClassName to get extends name (Umherirrender)
+* Use File::getDeclarationName to get the function name (Umherirrender)
+* Use File::getMethodProperties to get visibility (Umherirrender)
+* Validate @license against SPDX (Umherirrender)
+* Validate phpunit annotations (Umherirrender)
+
 ## 16.0.1 / 2018-02-24 ##
 * Fix SpaceBeforeControlStructureBraceSniff (Thiemo Kreuz)
 * Grade errors about duplicate spaces in PHPDoc tags down to warnings (Thiemo Kreuz)

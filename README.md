@@ -15,7 +15,7 @@ How to install
     ```
     {
     	"require-dev": {
-    		"mediawiki/mediawiki-codesniffer": "16.0.1"
+    		"mediawiki/mediawiki-codesniffer": "17.0.0"
     	},
     	"scripts": {
     		"test": [
