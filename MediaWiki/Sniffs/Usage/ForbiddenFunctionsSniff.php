@@ -44,6 +44,16 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'each' => false,
 		'parse_str' => false,
 		'mb_parse_str' => false,
+		// MediaWiki wrappers for external program execution should be used,
+		// forbid PHP's (https://secure.php.net/manual/en/ref.exec.php)
+		'escapeshellarg' => false,
+		'escapeshellcmd' => false,
+		'exec' => false,
+		'passthu' => false,
+		'popen' => false,
+		'proc_open' => false,
+		'shell_exec' => false,
+		'system' => false,
 	];
 
 	/**
