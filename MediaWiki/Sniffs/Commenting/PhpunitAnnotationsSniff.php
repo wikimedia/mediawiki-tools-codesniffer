@@ -27,10 +27,10 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 	/**
 	 * Annotations this sniff should work on
-	 * Maybe specifiy a replacement and the sniff code
+	 * Maybe specify a replacement and the sniff code
 	 * - Ignore @author, because it also used outside of tests
 	 * - Ignore @codeCoverageIgnore, because it can be used outside of tests
-	 * - Ignore @uses, because it is also a phpdoc annotation
+	 * - Ignore @uses, because it is also a PHPDoc annotation
 	 *
 	 * If an annotation is found outside of a test classes, it is reported.
 	 *

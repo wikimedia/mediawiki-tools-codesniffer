@@ -57,7 +57,7 @@
 * Fix handling of alternative if in IfElseStructureSniff (Umherirrender)
 * Forbid usage of extract() (Kunal Mehta)
 * Ignore maintenance scripts in ClassMatchesFilenameSniff (Kunal Mehta)
-* Improve phpdoc classname parsing (Gergő Tisza)
+* Improve PHPDoc classname parsing (Gergő Tisza)
 * Move phpcs.xml to .phpcs.xml (Umherirrender)
 * Remove WhiteSpace.SpaceBeforeSingleLineComment.EmptyComment (Gergő Tisza)
 * Replace PEAR with Packagist in README.md link (Ricordisamoa)

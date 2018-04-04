@@ -40,7 +40,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 		if ( $currToken['code'] === T_COMMENT ) {
 			// Accounting for multiple line comments, as single line comments
 			// use only '//' and '#'
-			// Also ignoring phpdoc comments starting with '///',
+			// Also ignoring PHPDoc comments starting with '///',
 			// as there are no coding standards documented for these
 			if ( substr( $currToken['content'], 0, 2 ) === '/*'
 				|| substr( $currToken['content'], 0, 3 ) === '///'
