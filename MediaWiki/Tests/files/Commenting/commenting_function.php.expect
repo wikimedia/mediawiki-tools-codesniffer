@@ -198,11 +198,14 @@
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  205 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 272 | ERROR   | [ ] Only one object structure is allowed in a file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 274 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
  278 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 292 | ERROR   | [ ] You must use "/**" style comments for a function
+ 284 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 298 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
+
 PHPCBF CAN FIX THE 74 MARKED SNIFF VIOLATIONS AUTOMATICALLY

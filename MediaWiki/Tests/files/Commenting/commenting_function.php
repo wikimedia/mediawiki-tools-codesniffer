@@ -267,6 +267,12 @@ class TestPassedExamples {
 			return '';
 		};
 	}
+
+	public function selfDocumenting() {
+	}
+
+	public function getReturnMissing() {
+	}
 }
 
 class TestSimpleConstructor {

@@ -74,11 +74,6 @@ class FunctionCommentSniff implements Sniff {
 		if ( $funcName === null || in_array( $funcName, $this->skipStandardMethods ) ) {
 			// Don't require documentation for an obvious method
 			return;
-		} elseif ( $funcName === '__construct'
-			&& !$phpcsFile->getMethodParameters( $stackPtr )
-		) {
-			// Don't require documentation for constructors with no parameters
-			return;
 		}
 
 		// Identify the visibility of the function
@@ -87,7 +82,6 @@ class FunctionCommentSniff implements Sniff {
 			// Don't check documentation for private functions
 			return;
 		}
-		$visStr = ucfirst( $methodProps['scope'] );
 
 		$tokens = $phpcsFile->getTokens();
 		$find = Tokens::$methodPrefixes;
@@ -106,11 +100,14 @@ class FunctionCommentSniff implements Sniff {
 		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
-			$phpcsFile->addError(
-				'Missing function doc comment',
-				$stackPtr,
-				"MissingDocumentation$visStr"
-			);
+			// Don't require documentation for functions with no parameters, except getters
+			if ( substr( $funcName, 0, 3 ) === 'get' || $phpcsFile->getMethodParameters( $stackPtr ) ) {
+				$phpcsFile->addError(
+					'Missing function doc comment',
+					$stackPtr,
+					'MissingDocumentation' . ucfirst( $methodProps['scope'] )
+				);
+			}
 			$phpcsFile->recordMetric( $stackPtr, 'Function has doc comment', 'no' );
 			return;
 		} else {
