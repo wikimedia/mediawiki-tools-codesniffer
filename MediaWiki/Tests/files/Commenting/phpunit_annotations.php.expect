@@ -4,29 +4,32 @@
  10 | WARNING | [ ] The phpunit annotation @cover should only be used
     |         |     inside test classes.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
- 16 | WARNING | [ ] The phpunit annotation @coversNothing should only be
+ 16 | WARNING | [ ] The phpunit annotation @backupGlobals should not be
+    |         |     used.
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenBackupGlobals)
+ 22 | WARNING | [ ] The phpunit annotation @coversNothing should only be
     |         |     used inside test classes.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
- 22 | WARNING | [x] Use @coversDefaultClass annotation instead of
+ 28 | WARNING | [x] Use @coversDefaultClass annotation instead of
     |         |     @coverDefaultClass
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverDefaultClass)
- 23 | WARNING | [x] Use @group small annotation instead of @small
+ 29 | WARNING | [x] Use @group small annotation instead of @small
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.GroupAliasSmall)
- 25 | ERROR   | [ ] Only one object structure is allowed in a file
+ 31 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 28 | WARNING | [x] Use @covers annotation instead of @cover
+ 34 | WARNING | [x] Use @covers annotation instead of @cover
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCover)
- 29 | WARNING | [ ] The phpunit annotation @covers must be followed by
+ 35 | WARNING | [ ] The phpunit annotation @covers must be followed by
     |         |     text.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.EmptyCovers)
- 35 | WARNING | [x] Use @coversNothing annotation instead of
+ 41 | WARNING | [x] Use @coversNothing annotation instead of
     |         |     @coverNothing
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverNothing)
- 37 | WARNING | [ ] The testNothing test method has no @covers tags
+ 43 | WARNING | [ ] The testNothing test method has no @covers tags
     |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
- 41 | WARNING | [ ] Do not use @after, use tearDown() function.
+ 47 | WARNING | [ ] Do not use @after, use tearDown() function.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenAfter)
- 47 | WARNING | [ ] The phpunit annotation @dataProvider should only be
+ 53 | WARNING | [ ] The phpunit annotation @dataProvider should only be
     |         |     used for test functions.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

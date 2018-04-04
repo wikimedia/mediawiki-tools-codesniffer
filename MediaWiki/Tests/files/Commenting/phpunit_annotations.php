@@ -12,6 +12,12 @@ class NonTestExamples {
 	public function noop() {
 	}
 
+	/**
+	 * @backupGlobals
+	 */
+	public function testForbiddenAnnotation() {
+	}
+
 	/** Bad comment
 	 * @coversNothing
 	 */

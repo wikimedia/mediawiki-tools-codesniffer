@@ -129,21 +129,6 @@ class PhpunitAnnotationsSniff implements Sniff {
 	private function processDocTag( File $phpcsFile, array $tokens, $tag, $end ) {
 		$tagText = $tokens[$tag]['content'];
 		$forbidden = array_key_exists( $tagText, self::$forbiddenAnnotations );
-		$allowed = array_key_exists( $tagText, self::$allowedAnnotations );
-
-		if ( !$allowed && !$forbidden ) {
-			// Nothing to work in this sniff
-			return;
-		}
-
-		$classToken = $this->findClassToken( $phpcsFile, $tokens, $end );
-		if ( !$classToken || !$this->isTestClass( $phpcsFile, $classToken ) ) {
-			$phpcsFile->addWarning(
-				'The phpunit annotation %s should only be used inside test classes.',
-				$tag, 'NotTestClass', [ $tagText ]
-			);
-			return;
-		}
 
 		// Check for forbidden annotations
 		if ( $forbidden ) {
@@ -153,6 +138,21 @@ class PhpunitAnnotationsSniff implements Sniff {
 			$phpcsFile->addWarning(
 				$message,
 				$tag, $this->createSniffCode( 'Forbidden', $tagText ), [ $tagText ]
+			);
+			return;
+		}
+
+		$allowed = array_key_exists( $tagText, self::$allowedAnnotations );
+		if ( !$allowed ) {
+			// Nothing to work in this sniff
+			return;
+		}
+
+		$classToken = $this->findClassToken( $phpcsFile, $tokens, $end );
+		if ( !$classToken || !$this->isTestClass( $phpcsFile, $classToken ) ) {
+			$phpcsFile->addWarning(
+				'The phpunit annotation %s should only be used inside test classes.',
+				$tag, 'NotTestClass', [ $tagText ]
 			);
 			return;
 		}
