@@ -148,7 +148,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 			return;
 		}
 
-		$classToken = $this->findClassToken( $phpcsFile, $tokens, $end );
+		$classToken = $this->findObjectStructureToken( $phpcsFile, $tokens, $end );
 		if ( !$classToken || !$this->isTestClass( $phpcsFile, $classToken ) ) {
 			$phpcsFile->addWarning(
 				'The phpunit annotation %s should only be used inside test classes.',
@@ -204,9 +204,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 	}
 
 	/**
-	 * Find the class this comment depends on.
+	 * Find the class or trait this comment depends on.
 	 */
-	private function findClassToken( File $phpcsFile, array $tokens, $commentEnd ) {
+	private function findObjectStructureToken( File $phpcsFile, array $tokens, $commentEnd ) {
 		// class level comment
 		if ( $tokens[$commentEnd]['level'] === 0 ) {
 			$next = $phpcsFile->findNext( [ T_CLASS ], $commentEnd + 1 );
@@ -220,7 +220,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		} else {
 			// function level comment
 			foreach ( $tokens[$commentEnd]['conditions'] as $ptr => $type ) {
-				if ( $type === T_CLASS ) {
+				if ( $type === T_CLASS || $type === T_TRAIT ) {
 					return $ptr;
 				}
 			}

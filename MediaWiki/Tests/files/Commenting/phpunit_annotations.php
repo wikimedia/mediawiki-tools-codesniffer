@@ -56,3 +56,11 @@ class ExamplesTest {
 	}
 
 }
+
+trait TraitTestBase {
+	/**
+	 * @dataProvider provideNothing
+	 */
+	public function testNothing() {
+	}
+}
