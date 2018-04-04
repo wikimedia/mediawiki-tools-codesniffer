@@ -126,7 +126,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 	}
 
-	private function processDocTag( File $phpcsFile, $tokens, $tag, $end ) {
+	private function processDocTag( File $phpcsFile, array $tokens, $tag, $end ) {
 		$tagText = $tokens[$tag]['content'];
 		$forbidden = array_key_exists( $tagText, self::$forbiddenAnnotations );
 		$allowed = array_key_exists( $tagText, self::$allowedAnnotations );
@@ -193,6 +193,12 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 	}
 
+	/**
+	 * @param string $prefix
+	 * @param string $annotation
+	 *
+	 * @return string
+	 */
 	private function createSniffCode( $prefix, $annotation ) {
 		return $prefix . ucfirst( ltrim( $annotation, '@' ) );
 	}
@@ -200,7 +206,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	/**
 	 * Find the class this comment depends on.
 	 */
-	private function findClassToken( File $phpcsFile, $tokens, $commentEnd ) {
+	private function findClassToken( File $phpcsFile, array $tokens, $commentEnd ) {
 		// class level comment
 		if ( $tokens[$commentEnd]['level'] === 0 ) {
 			$next = $phpcsFile->findNext( [ T_CLASS ], $commentEnd + 1 );
@@ -226,7 +232,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	/**
 	 * Find the function this comment is for
 	 */
-	private function findFunctionToken( File $phpcsFile, $tokens, $commentEnd ) {
+	private function findFunctionToken( File $phpcsFile, array $tokens, $commentEnd ) {
 		$next = $phpcsFile->findNext( [ T_FUNCTION ], $commentEnd + 1 );
 
 		// Only process class directly located after the comment

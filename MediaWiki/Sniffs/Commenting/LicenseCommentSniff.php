@@ -53,7 +53,7 @@ class LicenseCommentSniff implements Sniff {
 		}
 	}
 
-	private function processDocTag( File $phpcsFile, $tokens, $tag, $end ) {
+	private function processDocTag( File $phpcsFile, array $tokens, $tag, $end ) {
 		$tagText = $tokens[$tag]['content'];
 
 		if ( $tagText === '@licence' ) {

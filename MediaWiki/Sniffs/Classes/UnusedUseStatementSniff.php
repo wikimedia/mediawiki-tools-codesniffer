@@ -206,7 +206,7 @@ class UnusedUseStatementSniff implements Sniff {
 		}
 	}
 
-	private function removeUseStatement( File $phpcsFile, $tokens, $stackPtr, $semiColon ) {
+	private function removeUseStatement( File $phpcsFile, array $tokens, $stackPtr, $semiColon ) {
 		// Remove the whole use statement line.
 		$phpcsFile->fixer->beginChangeset();
 		for ( $i = $stackPtr; $i <= $semiColon; $i++ ) {
