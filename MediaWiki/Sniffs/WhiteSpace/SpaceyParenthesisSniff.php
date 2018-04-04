@@ -30,15 +30,6 @@ class SpaceyParenthesisSniff implements Sniff {
 
 	/**
 	 * @param int $token PHPCS token code.
-	 * @return boolean Whether the token code is open.
-	 */
-	private function isOpen( $token ) {
-		return $token === T_OPEN_PARENTHESIS
-			|| $token === T_OPEN_SHORT_ARRAY;
-	}
-
-	/**
-	 * @param int $token PHPCS token code.
 	 * @return boolean Whether the token code is closed.
 	 */
 	private function isClosed( $token ) {

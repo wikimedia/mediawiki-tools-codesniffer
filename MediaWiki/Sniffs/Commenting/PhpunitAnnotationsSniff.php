@@ -137,7 +137,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 
 		$classToken = $this->findClassToken( $phpcsFile, $tokens, $end );
-		if ( !$classToken || !$this->isTestClass( $phpcsFile, $tokens, $classToken ) ) {
+		if ( !$classToken || !$this->isTestClass( $phpcsFile, $classToken ) ) {
 			$phpcsFile->addWarning(
 				'The phpunit annotation %s should only be used inside test classes.',
 				$tag, 'NotTestClass', [ $tagText ]
@@ -184,7 +184,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		// Check the name of the function
 		if ( $tokens[$tag]['level'] > 0 ) {
 			$functionToken = $this->findFunctionToken( $phpcsFile, $tokens, $end );
-			if ( !$functionToken || !$this->isTestFunction( $phpcsFile, $tokens, $functionToken ) ) {
+			if ( !$functionToken || !$this->isTestFunction( $phpcsFile, $functionToken ) ) {
 				$phpcsFile->addWarning(
 					'The phpunit annotation %s should only be used for test functions.',
 					$tag, 'NotTestFunction', [ $tagText ]
@@ -239,13 +239,13 @@ class PhpunitAnnotationsSniff implements Sniff {
 		return false;
 	}
 
-	private function isTestClass( File $phpcsFile, $tokens, $classPtr ) {
+	private function isTestClass( File $phpcsFile, $classPtr ) {
 		return preg_match(
 			'/(?:Test[BC]ase|Suite|Test)$/', $phpcsFile->getDeclarationName( $classPtr )
 		);
 	}
 
-	private function isTestFunction( File $phpcsFile, $tokens, $functionPtr ) {
+	private function isTestFunction( File $phpcsFile, $functionPtr ) {
 		return preg_match(
 			'/^(?:test|provide)|Provider$/', $phpcsFile->getDeclarationName( $functionPtr )
 		);
