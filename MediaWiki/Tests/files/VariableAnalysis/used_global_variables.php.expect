@@ -1,2 +1,6 @@
- 9 | WARNING | Global $wgSomething is never used.
-   |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgSomething)
+  9 | WARNING | Global $wgSomething is never used.
+    |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgSomething)
+ 10 | WARNING | Global $wgSameLine is never used.
+    |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgSameLine)
+ 11 | WARNING | Global $wgNextLine is never used.
+    |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgNextLine)

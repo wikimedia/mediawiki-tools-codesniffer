@@ -32,7 +32,7 @@ class UnusedGlobalVariablesSniff implements Sniff {
 		$scopeOpener = ++$tokens[$stackPtr]['scope_opener'];
 		$scopeCloser = $tokens[$stackPtr]['scope_closer'];
 
-		$globalLine = 0;
+		$endOfGlobal = 0;
 		$globalVariables = [];
 		$otherVariables = [];
 		$matches = [];
@@ -40,9 +40,9 @@ class UnusedGlobalVariablesSniff implements Sniff {
 
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
 			if ( $tokens[$i]['code'] === T_GLOBAL ) {
-				$globalLine = $tokens[$i]['line'];
+				$endOfGlobal = $phpcsFile->findEndOfStatement( $i, T_COMMA );
 			} elseif ( $tokens[$i]['code'] === T_VARIABLE ) {
-				if ( $tokens[$i]['line'] === $globalLine ) {
+				if ( $i < $endOfGlobal ) {
 					$globalVariables[] = [ $tokens[$i]['content'], $i ];
 				} else {
 					$otherVariables[$tokens[$i]['content']] = null;
@@ -50,14 +50,14 @@ class UnusedGlobalVariablesSniff implements Sniff {
 			} elseif ( $tokens[$i]['code'] === T_DOUBLE_QUOTED_STRING
 				|| $tokens[$i]['code'] === T_HEREDOC
 			) {
-				preg_match_all( '/\$\w+/', $tokens[$i]['content'], $matches );
-				$strVariables += array_flip( $matches[0] );
+				preg_match_all( '/\${?(\w+)/', $tokens[$i]['content'], $matches );
+				$strVariables += array_flip( $matches[1] );
 			}
 		}
 
 		foreach ( $globalVariables as $global ) {
 			if ( !array_key_exists( $global[0], $otherVariables )
-				&& !array_key_exists( $global[0], $strVariables )
+				&& !array_key_exists( ltrim( $global[0], '$' ), $strVariables )
 			) {
 				$phpcsFile->addWarning(
 					'Global ' . $global[0] .' is never used.',
