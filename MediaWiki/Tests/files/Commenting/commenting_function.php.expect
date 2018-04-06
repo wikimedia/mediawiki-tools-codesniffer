@@ -202,4 +202,7 @@
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  278 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 292 | ERROR   | [ ] You must use "/**" style comments for a function
+     |         |     comment
+     |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 74 MARKED SNIFF VIOLATIONS AUTOMATICALLY

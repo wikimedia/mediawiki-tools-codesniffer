@@ -287,4 +287,8 @@ class TestReturnConstructor {
 		}
 		$this->test( $a );
 	}
+
+	/* @noPhpDocComment */
+	public function noPhpDocComment() {
+	}
 }
