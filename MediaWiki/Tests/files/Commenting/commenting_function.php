@@ -293,7 +293,7 @@ class TestReturnConstructor {
 	/**
 	 * With return.
 	 * @param int $a for test.
-	 * @param int $b for another test.
+	 * @parma int $b for another test.
 	 */
 	public function __construct( $a, $b ) {
 		if ( $b instanceof TestPassedExamples ) {

@@ -105,8 +105,9 @@
  115 | ERROR   | [x] Expected parameter type not wrapped in parenthesis;
      |         |     { and } found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisException)
- 122 | ERROR   | [x] Incorrect capitalization of @inheritDoc
-     |         |     (MediaWiki.Commenting.FunctionComment.LowercaseInheritDoc)
+ 122 | WARNING | [x] Use @inheritDoc annotation instead of
+     |         |     @inheritdoc
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
  136 | ERROR   | [x] Comment star tag not aligned with open tag
      |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
  137 | ERROR   | [x] Comment star tag not aligned with open tag
@@ -206,8 +207,12 @@
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  292 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 293 | ERROR   | [ ] Doc comment for parameter "$b" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 296 | WARNING | [x] Use @param annotation instead of @parma
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
  306 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 
-PHPCBF CAN FIX THE 75 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 76 MARKED SNIFF VIOLATIONS AUTOMATICALLY

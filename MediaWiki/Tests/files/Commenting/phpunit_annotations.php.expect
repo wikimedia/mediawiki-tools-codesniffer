@@ -7,6 +7,8 @@
  16 | WARNING | [ ] The phpunit annotation @backupGlobals should not be
     |         |     used.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenBackupGlobals)
+ 16 | ERROR   | [ ] @backupGlobals is not a valid function annotation
+    |         |     (MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation)
  22 | WARNING | [ ] The phpunit annotation @coversNothing should only be
     |         |     used inside test classes.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
@@ -36,7 +38,7 @@
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  68 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 70 | WARNING | [ ] The phpunit annotation @dataProvider should only be
+ 73 | WARNING | [ ] The phpunit annotation @dataProvider should only be
     |         |     used inside classes or traits.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClassTrait)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @code{.comma}
+ * @endcode
+ *
+ * @todo Make awesomer
+ * @note This is awesome!
+ * @warning Don't stop at the top
+ * @retrun nothing
+ */
+function wfFoo() {
+	echo 'woo';
+}
+
+/**
+ * @inheritDoc
+ */
+// phpcs:ignore MediaWiki.NamingConventions.PrefixedGlobalFunctions
+function functionPrefixViolation() {
+}

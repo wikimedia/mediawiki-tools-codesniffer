@@ -133,15 +133,8 @@ class FunctionCommentSniff implements Sniff {
 					$error = 'Content missing for @see tag in function comment';
 					$phpcsFile->addError( $error, $tag, 'EmptySees' );
 				}
-			} elseif ( $tagText === '@inheritDoc' ) {
+			} elseif ( strcasecmp( $tagText, '@inheritDoc' ) === 0 ) {
 				$skipDoc = true;
-			} elseif ( $tagText === '@inheritdoc' ) {
-				$skipDoc = true;
-				$error = 'Incorrect capitalization of @inheritDoc';
-				$fix = $phpcsFile->addFixableError( $error, $tag, 'LowercaseInheritDoc' );
-				if ( $fix ) {
-					$phpcsFile->fixer->replaceToken( $tag, "@inheritDoc" );
-				}
 			} elseif ( $tagText === '@deprecated' ) {
 				// No need to validate deprecated functions
 				$skipDoc = true;

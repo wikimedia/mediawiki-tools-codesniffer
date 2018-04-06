@@ -67,6 +67,9 @@ trait TestTrait {
 
 interface InterfaceTesting {
 	/**
+	 * @code{.dot}
+	 * @endcode
+	 *
 	 * @dataProvider provideNothing
 	 */
 	public function testNothing();
