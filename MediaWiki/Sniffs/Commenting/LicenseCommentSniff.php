@@ -30,6 +30,16 @@ class LicenseCommentSniff implements Sniff {
 	private static $licenses = null;
 
 	/**
+	 * Common auto-fixable replacements
+	 *
+	 * @var array regex -> replacement
+	 */
+	private $replacements = [
+		'GNU General Public Licen[sc]e 2(\.0)? or later' => 'GPL-2.0-or-later',
+		'GNU GPL v2\+' => 'GPL-2.0-or-later',
+	];
+
+	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
 	 * @return array
@@ -96,10 +106,31 @@ class LicenseCommentSniff implements Sniff {
 
 		$licenseValidator = self::getLicenseValidator();
 		if ( !$licenseValidator->validate( $license ) ) {
-			$phpcsFile->addWarning(
-				'Invalid SPDX license identifier "%s", see <https://spdx.org/licenses/>',
-				$tag, 'InvalidLicenseTag', [ $license ]
-			);
+			$fixable = null;
+			foreach ( $this->replacements as $regex => $identifier ) {
+				// Make sure the entire license matches the regex, and
+				// then a sanity check that the new replacement is valid too
+				if ( preg_match( "/^$regex$/", $license ) === 1
+					&& $licenseValidator->validate( $identifier )
+				) {
+					$fixable = $identifier;
+					break;
+				}
+			}
+			if ( $fixable !== null ) {
+				$fix = $phpcsFile->addFixableWarning(
+					'Invalid SPDX license identifier "%s", see <https://spdx.org/licenses/>',
+					$tag, 'InvalidLicenseTag', [ $license ]
+				);
+				if ( $fix ) {
+					$phpcsFile->fixer->replaceToken( $next, $fixable );
+				}
+			} else {
+				$phpcsFile->addWarning(
+					'Invalid SPDX license identifier "%s", see <https://spdx.org/licenses/>',
+					$tag, 'InvalidLicenseTag', [ $license ]
+				);
+			}
 		} elseif ( $licenseValidator->isDeprecatedByIdentifier( $license ) ) {
 			$phpcsFile->addWarning(
 				'Deprecated SPDX license identifier "%s", see <https://spdx.org/licenses/>',

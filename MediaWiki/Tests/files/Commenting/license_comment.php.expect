@@ -8,6 +8,9 @@
   9 | WARNING | [ ] Deprecated SPDX license identifier "GPL-2.0+", see
     |         |     <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.DeprecatedLicenseTag)
- 13 | WARNING | [ ] @license should only be used on file comments
+ 10 | WARNING | [x] Invalid SPDX license identifier "GNU GPL v2+", see
+    |         |     <https://spdx.org/licenses/>
+    |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
+ 14 | WARNING | [ ] @license should only be used on file comments
     |         |     (MediaWiki.Commenting.LicenseComment.LicenseTagNonFileComment)
-PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
