@@ -67,7 +67,7 @@ class ValidGlobalNameSniff implements Sniff {
 				$expected = '$wg' . ucfirst( substr( $globalName, 1 ) );
 
 				// Verify global is prefixed with wg
-				if ( strpos( $globalName, '$wg' ) !== 0 ) {
+				if ( substr( $globalName, 1, 2 ) !== 'wg' ) {
 					$phpcsFile->addError(
 						'Global variable "%s" is lacking \'wg\' prefix. Should be "%s".',
 						$stackPtr,

@@ -33,14 +33,15 @@ class IllegalSingleLineCommentSniff implements Sniff {
 
 		if ( substr( $currentToken['content'], 0, 2 ) === '/*' ) {
 			// Possible inline comment
-			if ( strrpos( $currentToken['content'], '*/' ) === false ) {
+			if ( substr( $currentToken['content'], -2 ) !== '*/' ) {
 				// Whether it's a comment across multiple lines
-				$numOfTokens = count( $tokens );
+				$numOfTokens = $phpcsFile->numTokens;
 				for ( $i = $stackPtr + 1; $i < $numOfTokens; $i++ ) {
 					$token = $tokens[$i];
-					if ( strpos( $token['content'], '/*' ) === false &&
-						strrpos( $token['content'], '*/' ) !== false
-					) {
+					if ( $token['code'] !== T_COMMENT || (
+						substr( $token['content'], 0, 2 ) === '/*' &&
+						substr( $token['content'], -2 ) === '*/'
+					) ) {
 						return;
 					}
 				}
