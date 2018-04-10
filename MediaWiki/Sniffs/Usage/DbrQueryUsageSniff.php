@@ -1,7 +1,6 @@
 <?php
 /**
  * Report warnings when $dbr->query() is used instead of $dbr->select()
- *
  */
 
 namespace MediaWiki\Sniffs\Usage;
