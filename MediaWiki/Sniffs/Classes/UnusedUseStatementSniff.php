@@ -86,15 +86,15 @@ class UnusedUseStatementSniff implements Sniff {
 		// Search where the class name is used. PHP treats class names case
 		// insensitive, that's why we cannot search for the exact class name string
 		// and need to iterate over all T_STRING tokens in the file.
-		$classUsed = $phpcsFile->findNext( T_STRING, ( $classPtr + 1 ) );
-		$lowerClassName = strtolower( $tokens[$classPtr]['content'] );
+		$classUsed = $phpcsFile->findNext( T_STRING, $semiColon + 1 );
+		$className = $tokens[$classPtr]['content'];
 
 		// Check if the referenced class is in the same namespace as the current
 		// file. If it is then the use statement is not necessary.
-		$namespacePtr = $phpcsFile->findPrevious( [ T_NAMESPACE ], $stackPtr );
+		$namespacePtr = $phpcsFile->findPrevious( [ T_NAMESPACE ], $stackPtr - 3 );
 		// Check if the use statement does aliasing with the "as" keyword. Aliasing
 		// is allowed even in the same namespace.
-		$aliasUsed = $phpcsFile->findPrevious( T_AS, ( $classPtr - 1 ), $stackPtr );
+		$aliasUsed = $phpcsFile->findPrevious( T_AS, $classPtr - 1, $stackPtr + 3 );
 
 		$useNamespacePtr = $phpcsFile->findNext( [ T_STRING ], ( $stackPtr + 1 ) );
 		$useNamespaceEnd = $phpcsFile->findNext(
@@ -142,7 +142,7 @@ class UnusedUseStatementSniff implements Sniff {
 		}
 
 		while ( $classUsed !== false ) {
-			if ( strcasecmp( $tokens[$classUsed]['content'], $lowerClassName ) === 0 ) {
+			if ( strcasecmp( $tokens[$classUsed]['content'], $className ) === 0 ) {
 				// If the name is used in a PHP 7 function return type declaration
 				// stop.
 				if ( $tokens[$classUsed]['code'] === T_RETURN_TYPE ) {
@@ -184,10 +184,11 @@ class UnusedUseStatementSniff implements Sniff {
 				$classes = preg_split( '/[|<>(),\\[\\]]/', $exploded[0], -1, PREG_SPLIT_NO_EMPTY );
 				foreach ( $classes as $tagClassName ) {
 					// Handle partially qualified names
-					if ( strpos( $tagClassName, '\\' ) > 0 ) {
-						$tagClassName = substr( $tagClassName, 0, strpos( $tagClassName, '\\' ) );
+					$firstBackslash = strpos( $tagClassName, '\\' );
+					if ( $firstBackslash > 0 ) {
+						$tagClassName = substr( $tagClassName, 0, $firstBackslash );
 					}
-					if ( strcasecmp( $tagClassName, $lowerClassName ) === 0 ) {
+					if ( strcasecmp( $tagClassName, $className ) === 0 ) {
 						return;
 					}
 				}
