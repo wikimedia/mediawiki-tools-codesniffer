@@ -8,6 +8,7 @@ namespace MediaWiki\Sniffs\Usage;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 class DbrQueryUsageSniff implements Sniff {
 
@@ -26,10 +27,17 @@ class DbrQueryUsageSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		$dbrPtr = $phpcsFile->findPrevious( T_VARIABLE, $stackPtr );
-		$methodPtr = $phpcsFile->findNext( T_STRING, $stackPtr );
+		$dbrPtr = $phpcsFile->findPrevious( Tokens::$emptyTokens, $stackPtr - 1, null, true );
+		if ( !$dbrPtr
+			|| $tokens[$dbrPtr]['code'] !== T_VARIABLE
+			|| $tokens[$dbrPtr]['content'] !== '$dbr'
+		) {
+			return;
+		}
 
-		if ( $tokens[$dbrPtr]['content'] === '$dbr'
+		$methodPtr = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
+		if ( $methodPtr
+			&& $tokens[$methodPtr]['code'] === T_STRING
 			&& $tokens[$methodPtr]['content'] === 'query'
 		) {
 			$phpcsFile->addWarning(
