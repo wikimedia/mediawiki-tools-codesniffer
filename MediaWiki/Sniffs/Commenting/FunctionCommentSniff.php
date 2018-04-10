@@ -804,8 +804,12 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 
+			if ( !$isMultiLineDoc ) {
+				continue;
+			}
+
 			// Ensure one whitespace before @param/@return
-			if ( $isMultiLineDoc && $tokens[$i]['code'] === T_DOC_COMMENT_TAG &&
+			if ( $tokens[$i]['code'] === T_DOC_COMMENT_TAG &&
 				$tokens[$i]['line'] === $tokens[$i - 1]['line']
 			) {
 				$commentTagSpacing = $i - 1;
@@ -839,10 +843,12 @@ class FunctionCommentSniff implements Sniff {
 						}
 					}
 				}
+
+				continue;
 			}
 
 			// Ensure aligned * or */ for multiline comments
-			if ( $isMultiLineDoc && ( $tokens[$i]['code'] === T_DOC_COMMENT_STAR ||
+			if ( ( $tokens[$i]['code'] === T_DOC_COMMENT_STAR ||
 				$tokens[$i]['code'] === T_DOC_COMMENT_CLOSE_TAG ) &&
 				$tokens[$i]['column'] !== $columnDocStar &&
 				$tokens[$i]['line'] !== $prevLineDocStar
