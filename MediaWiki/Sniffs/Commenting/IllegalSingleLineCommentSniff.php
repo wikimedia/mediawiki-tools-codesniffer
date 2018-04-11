@@ -38,8 +38,8 @@ class IllegalSingleLineCommentSniff implements Sniff {
 				$numOfTokens = $phpcsFile->numTokens;
 				for ( $i = $stackPtr + 1; $i < $numOfTokens; $i++ ) {
 					$token = $tokens[$i];
-					if ( $token['code'] !== T_COMMENT || (
-						substr( $token['content'], 0, 2 ) === '/*' &&
+					if ( ( $token['code'] !== T_COMMENT && $token['code'] !== T_WHITESPACE ) || (
+						substr( $token['content'], 0, 2 ) !== '/*' &&
 						substr( $token['content'], -2 ) === '*/'
 					) ) {
 						return;
@@ -48,12 +48,12 @@ class IllegalSingleLineCommentSniff implements Sniff {
 				$fix = $phpcsFile->addFixableError(
 					'Missing proper ending of a single line comment',
 					$stackPtr,
-					'MissingCommentEndding'
+					'MissingCommentEnding'
 				);
 				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken(
 						$stackPtr,
-						str_replace( '\n', ' */', rtrim( $currentToken['content'] ) )
+						rtrim( $currentToken['content'] ) . ' */' . $phpcsFile->eolChar
 					);
 				}
 			} else {

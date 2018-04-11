@@ -29,3 +29,12 @@ function wfPassedExamples() {
 /**
 * Two asterisks, misaligned
 */
+
+/* Single line comment missing the end */
+disabledCode();
+/* Next single line comment */
+
+/* */
+ * Block comment missing the end
+disabledCode();
+/* Next single line comment */
