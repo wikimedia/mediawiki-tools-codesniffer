@@ -216,7 +216,7 @@ class UnusedUseStatementSniff implements Sniff {
 		// Also remove whitespace after the semicolon (new lines).
 		while ( isset( $tokens[$i] ) && $tokens[$i]['code'] === T_WHITESPACE ) {
 			$phpcsFile->fixer->replaceToken( $i, '' );
-			if ( strpos( $tokens[$i]['content'], $phpcsFile->eolChar ) !== false ) {
+			if ( $tokens[$i]['content'] === $phpcsFile->eolChar ) {
 				break;
 			}
 
