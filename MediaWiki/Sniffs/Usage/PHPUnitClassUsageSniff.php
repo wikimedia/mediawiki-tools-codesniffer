@@ -21,6 +21,7 @@ namespace MediaWiki\Sniffs\Usage;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Converts PHPUnit_Framework_TestCase to the new
@@ -46,8 +47,9 @@ class PHPUnitClassUsageSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		$classPtr = $phpcsFile->findPrevious( T_CLASS, $stackPtr );
-		if ( $classPtr === false ) {
+		// Skip the "extends" (1) and the class name (1 or more) surrounded by spaces (2).
+		$classPtr = $phpcsFile->findPrevious( Tokens::$ooScopeTokens, $stackPtr - 4 );
+		if ( !$classPtr || $tokens[$classPtr]['code'] !== T_CLASS ) {
 			// interface Foo extends .. which we don't care about
 			return;
 		}
