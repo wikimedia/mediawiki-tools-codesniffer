@@ -42,7 +42,12 @@ class ShortCastSyntaxSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$token = $phpcsFile->getTokens()[$stackPtr];
 
-		if ( $token['code'] === T_BOOL_CAST && $token['content'] !== '(bool)' ) {
+		// The short (bool) and (int) are fine, while the longer (boolean) and (integer) aren't.
+		if ( strlen( $token['content'] ) <= 6 ) {
+			return;
+		}
+
+		if ( $token['code'] === T_BOOL_CAST ) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Type-cast should use short "bool" form',
 				$stackPtr,
@@ -51,7 +56,7 @@ class ShortCastSyntaxSniff implements Sniff {
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr, '(bool)' );
 			}
-		} elseif ( $token['code'] === T_INT_CAST && $token['content'] !== '(int)' ) {
+		} else {
 			$fix = $phpcsFile->addFixableWarning(
 				'Type-cast should use short "int" form',
 				$stackPtr,
