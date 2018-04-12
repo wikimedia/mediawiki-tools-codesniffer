@@ -45,6 +45,10 @@ class DeprecatedConstantUsageSniff implements Sniff {
 			'replace' => 'NS_FILE_TALK',
 			'version' => '1.13',
 		],
+		'DO_MAINTENANCE' => [
+			'replace' => 'RUN_MAINTENANCE_IF_MAIN',
+			'version' => '1.16.3',
+		]
 	];
 
 	/**
