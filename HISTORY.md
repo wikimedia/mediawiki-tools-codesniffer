@@ -1,5 +1,22 @@
 # MediaWiki-Codesniffer release history #
 
+## 18.0.0 / 2018-04-13 ##
+* Add common autofix replacements for invalid license tag sniff (Kunal Mehta)
+* Add test for 'You must use "/**" style comments for a function' (Thiemo Kreuz)
+* Allow @dataProvider annotations in traits (Thiemo Kreuz)
+* Automatically replace DO_MAINTENANCE (Kunal Mehta)
+* Don't report forbidden tags as "should be used inside test classes" (Thiemo Kreuz)
+* Don't require documenting self-explaining parameter-less functions (Thiemo Kreuz)
+* Fix IllegalSingleLineComment sniff fix for unclosed comments (Thiemo Kreuz)
+* Make unused global variables sniff much more robust (Thiemo Kreuz)
+* Minor performance optimizations to the UnusedUseStatement sniff (Thiemo Kreuz)
+* Optimize PHPUnitClassUsage sniff for performance (Thiemo Kreuz)
+* Optimize PrefixedGlobalFunctions sniff for performance (Thiemo Kreuz)
+* Optimize ShortCastSyntax sniff for performance (Thiemo Kreuz)
+* Scan for return tags from the end of the function scope (Thiemo Kreuz)
+* Shorten out earlier in the DbrQueryUsage sniff (Thiemo Kreuz)
+* Shorten out earlier in the FunctionComment sniff (Thiemo Kreuz)
+
 ## 17.0.0 / 2018-03-28 ##
 * Allow globals to start with numbers (Umherirrender)
 * Check for close parenthesis first and shorten out earlier (Thiemo Kreuz)
