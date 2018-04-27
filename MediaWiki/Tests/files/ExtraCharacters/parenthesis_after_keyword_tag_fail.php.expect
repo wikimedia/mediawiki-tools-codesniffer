@@ -62,4 +62,16 @@
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
  29 | WARNING | [x] require keyword must not be used as a function.
     |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
-PHPCBF CAN FIX THE 28 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 35 | WARNING | [x] continue keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+ 35 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 35 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 37 | WARNING | [x] break keyword must not be used as a function.
+    |         |     (MediaWiki.ExtraCharacters.ParenthesesAroundKeyword.ParenthesesAroundKeywords)
+ 37 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 37 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+PHPCBF CAN FIX THE 34 MARKED SNIFF VIOLATIONS AUTOMATICALLY
