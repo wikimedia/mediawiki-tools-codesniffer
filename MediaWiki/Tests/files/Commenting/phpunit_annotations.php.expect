@@ -34,4 +34,9 @@
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
  60 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 68 | ERROR   | [ ] Only one object structure is allowed in a file
+    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 70 | WARNING | [ ] The phpunit annotation @dataProvider should only be
+    |         |     used inside classes or traits.
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClassTrait)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

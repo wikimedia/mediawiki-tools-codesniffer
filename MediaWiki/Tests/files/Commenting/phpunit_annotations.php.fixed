@@ -57,10 +57,17 @@ class ExamplesTest {
 
 }
 
-trait TraitTestBase {
+trait TestTrait {
 	/**
 	 * @dataProvider provideNothing
 	 */
 	public function testNothing() {
 	}
+}
+
+interface InterfaceTesting {
+	/**
+	 * @dataProvider provideNothing
+	 */
+	public function testNothing();
 }

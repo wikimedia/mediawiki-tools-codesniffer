@@ -148,8 +148,17 @@ class PhpunitAnnotationsSniff implements Sniff {
 			return;
 		}
 
-		$classToken = $this->findObjectStructureToken( $phpcsFile, $tokens, $end );
-		if ( !$classToken || !$this->isTestClass( $phpcsFile, $classToken ) ) {
+		$objectToken = $this->findObjectStructureToken( $phpcsFile, $tokens, $end );
+		if ( !$objectToken ) {
+			$phpcsFile->addWarning(
+				'The phpunit annotation %s should only be used inside classes or traits.',
+				$tag, 'NotClassTrait', [ $tagText ]
+			);
+			return;
+		}
+		if ( $tokens[$objectToken]['code'] === T_CLASS &&
+			!$this->isTestClass( $phpcsFile, $objectToken )
+		) {
 			$phpcsFile->addWarning(
 				'The phpunit annotation %s should only be used inside test classes.',
 				$tag, 'NotTestClass', [ $tagText ]
