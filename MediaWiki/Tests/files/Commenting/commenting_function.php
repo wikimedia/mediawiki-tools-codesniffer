@@ -200,6 +200,14 @@ class TestFailedExamples {
 	 */
 	public function testVariadicArgNotInArgList( $key /* ... */ ) {
 	}
+
+	/**
+	 * Test default null
+	 * @param string $key
+	 * @param string $value
+	 */
+	public function testDefaultNull( $key, $value = null ) {
+	}
 }
 
 class TestPassedExamples {

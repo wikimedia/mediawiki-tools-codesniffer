@@ -592,6 +592,7 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 			// Make sure the param name is correct.
+			$defaultNull = false;
 			if ( isset( $realParams[$pos] ) ) {
 				$realName = $realParams[$pos]['name'];
 				if ( $realName !== $var ) {
@@ -608,6 +609,11 @@ class FunctionCommentSniff implements Sniff {
 					$error .= 'actual variable name %s';
 					$phpcsFile->addError( $error, $param['tag'], $code, $data );
 				}
+				if ( isset( $realParams[$pos]['default'] ) &&
+					$realParams[$pos]['default'] === 'null'
+				) {
+					$defaultNull = true;
+				}
 			} elseif ( !$param['variadic_arg'] ) {
 				// We must have an extra parameter comment.
 				$error = 'Superfluous parameter comment';
@@ -616,6 +622,7 @@ class FunctionCommentSniff implements Sniff {
 			$foundParams[] = $var;
 			// Check the short type of boolean and integer
 			$explodedType = explode( '|', $param['type'] );
+			$nullFound = false;
 			$fixType = false;
 			foreach ( $explodedType as $index => $singleType ) {
 				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
@@ -633,6 +640,21 @@ class FunctionCommentSniff implements Sniff {
 						$explodedType[$index] = $newType;
 						$fixType = true;
 					}
+				}
+				if ( $singleType === 'null' ) {
+					$nullFound = true;
+				}
+			}
+			// Check if the default of null is in the type list
+			if ( $defaultNull && !$nullFound ) {
+				$fix = $phpcsFile->addFixableError(
+					'Default of null should be declared in @param tag',
+					$param['tag'],
+					'DefaultNullTypeParam'
+				);
+				if ( $fix ) {
+					$explodedType[] = 'null';
+					$fixType = true;
 				}
 			}
 			if ( $fixType ) {

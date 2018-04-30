@@ -196,16 +196,18 @@
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  201 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 205 | ERROR   | [ ] Only one object structure is allowed in a file
+ 207 | ERROR   | [x] Default of null should be declared in @param tag
+     |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
+ 213 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 274 | ERROR   | [ ] Missing function doc comment
+ 282 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 278 | ERROR   | [ ] Only one object structure is allowed in a file
+ 286 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 284 | ERROR   | [ ] Only one object structure is allowed in a file
+ 292 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 298 | ERROR   | [ ] You must use "/**" style comments for a function
+ 306 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 
-PHPCBF CAN FIX THE 74 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 75 MARKED SNIFF VIOLATIONS AUTOMATICALLY
