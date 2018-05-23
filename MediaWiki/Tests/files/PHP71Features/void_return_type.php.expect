@@ -1,0 +1,2 @@
+ 4 | ERROR | Void return type hint not allowed
+   |       | (MediaWiki.PHP71Features.VoidReturnType.NotAllowed)
