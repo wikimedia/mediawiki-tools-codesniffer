@@ -18,7 +18,7 @@
  * @file
  */
 
-namespace MediaWiki\Sniffs\Usage;
+namespace MediaWiki\Sniffs\PHP70Features;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;

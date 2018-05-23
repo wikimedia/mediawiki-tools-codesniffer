@@ -1,4 +1,0 @@
-  9 | ERROR | Scalar type hint of 'int' cannot be used
-    |       | (MediaWiki.Usage.ScalarTypeHintUsage.Found)
- 18 | ERROR | Scalar type hint of 'object' cannot be used
-    |       | (MediaWiki.Usage.ScalarTypeHintUsage.Found)
