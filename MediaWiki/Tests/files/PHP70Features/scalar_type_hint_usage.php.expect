@@ -1,4 +1,6 @@
-  9 | ERROR | Scalar type hint of 'int' cannot be used
+  9 | ERROR | Type hint of 'int' cannot be used
     |       | (MediaWiki.PHP70Features.ScalarTypeHintUsage.Found)
- 18 | ERROR | Scalar type hint of 'object' cannot be used
+ 18 | ERROR | Type hint of 'object' cannot be used
     |       | (MediaWiki.PHP70Features.ScalarTypeHintUsage.Found)
+ 22 | ERROR | Return type hint of iterable cannot be used
+    |       | (MediaWiki.PHP70Features.ScalarTypeHintUsage.ReturnTypeFound)

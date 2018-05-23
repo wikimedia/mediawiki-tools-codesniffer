@@ -18,3 +18,7 @@ function wfFoo( int $a, $b ) {
 function wfBar( object $a ) {
 	$c = $a;
 }
+
+function wfBaz(): iterable {
+	return [];
+}

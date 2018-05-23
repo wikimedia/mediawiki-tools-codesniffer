@@ -4,3 +4,5 @@
    |       | (MediaWiki.PHP71Features.NullableType.NotAllowed)
  3 | ERROR | Nullable type hints cannot be used
    |       | (MediaWiki.PHP71Features.NullableType.NotAllowed)
+ 3 | ERROR | Return type hint of int cannot be used
+   |       | (MediaWiki.PHP70Features.ScalarTypeHintUsage.ReturnTypeFound)

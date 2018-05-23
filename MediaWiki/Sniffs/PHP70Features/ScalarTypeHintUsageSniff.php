@@ -28,6 +28,8 @@ class ScalarTypeHintUsageSniff implements Sniff {
 	private static $bad = [
 		// PHP 7.0+
 		'string', 'int', 'float', 'bool',
+		// PHP 7.1+
+		'iterable',
 		// PHP 7.2+
 		'object',
 	];
@@ -37,7 +39,8 @@ class ScalarTypeHintUsageSniff implements Sniff {
 	 */
 	public function register() {
 		return [
-			T_FUNCTION
+			T_FUNCTION,
+			T_RETURN_TYPE,
 		];
 	}
 
@@ -49,15 +52,27 @@ class ScalarTypeHintUsageSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		$params = $phpcsFile->getMethodParameters( $stackPtr );
-		foreach ( $params as $param ) {
-			if ( $param['type_hint'] !== ''
-				&& in_array( $param['type_hint'], self::$bad )
-			) {
+		$info = $phpcsFile->getTokens()[$stackPtr];
+		if ( $info['code'] === T_FUNCTION ) {
+			$params = $phpcsFile->getMethodParameters( $stackPtr );
+			foreach ( $params as $param ) {
+				if ( $param['type_hint'] !== ''
+					&& in_array( $param['type_hint'], self::$bad )
+				) {
+					$phpcsFile->addError(
+						"Type hint of '{$param['type_hint']}' cannot be used",
+						$param['token'],
+						'Found'
+					);
+				}
+			}
+		} else {
+			// T_RETURN_TYPE
+			if ( in_array( $info['content'], self::$bad ) ) {
 				$phpcsFile->addError(
-					"Scalar type hint of '{$param['type_hint']}' cannot be used",
-					$param['token'],
-					'Found'
+					"Return type hint of {$info['content']} cannot be used",
+					$stackPtr,
+					'ReturnTypeFound'
 				);
 			}
 		}
