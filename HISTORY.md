@@ -1,5 +1,10 @@
 # MediaWiki-Codesniffer release history #
 
+## 20.0.0 / 2018-05-24 ##
+* Require PHP 7 or HHVM to run (Kunal Mehta)
+* Document why we still need to keep ScalarTypeHintUsageSniff (Kunal Mehta)
+* Drop PHP7UnicodeSyntaxSniff sniff (Kunal Mehta)
+
 ## 19.0.0 / 2018-05-24 ##
 Note: This will be the final release with PHP 5.5 and 5.6 support.
 
