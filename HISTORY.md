@@ -1,5 +1,16 @@
 # MediaWiki-Codesniffer release history #
 
+## 19.0.0 / 2018-05-24 ##
+Note: This will be the final release with PHP 5.5 and 5.6 support.
+
+* Add break and continue to ParenthesesAroundKeywordSniff (Umherirrender)
+* Check if the default of null is in the type list of @param (Umherirrender)
+* Do not enforce name for traits with phpunit annotations (Umherirrender)
+* Don't allow 'iterable' type hint (Kunal Mehta)
+* Prevent usage of nullable and void type hints (Kunal Mehta)
+* Prohibit PHP's vanilla execution (Max Semenik)
+* Reorganize PHP 7.0 compatibility sniffs into a category (Kunal Mehta)
+
 ## 18.0.0 / 2018-04-13 ##
 * Add common autofix replacements for invalid license tag sniff (Kunal Mehta)
 * Add test for 'You must use "/**" style comments for a function' (Thiemo Kreuz)
