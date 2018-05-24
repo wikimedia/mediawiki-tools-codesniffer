@@ -23,6 +23,10 @@ namespace MediaWiki\Sniffs\PHP70Features;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
+/**
+ * Scalar type hints were introduced in PHP 7.0, but are not
+ * supported in HHVM when hhvm.php7.scalar_types is turned off
+ */
 class ScalarTypeHintUsageSniff implements Sniff {
 
 	private static $bad = [
