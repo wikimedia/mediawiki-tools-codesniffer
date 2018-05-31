@@ -3,4 +3,4 @@
    |       | (MediaWiki.NamingConventions.ValidGlobalName.CamelCase)
  9 | ERROR | Global variable "$LocalInterwikis" is lacking 'wg' prefix.
    |       | Should be "$wgLocalInterwikis".
-   |       | (MediaWiki.NamingConventions.ValidGlobalName.wgPrefix)
+   |       | (MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix)
