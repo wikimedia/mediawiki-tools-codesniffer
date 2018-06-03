@@ -80,6 +80,7 @@ class FunctionAnnotationsSniff implements Sniff {
 
 		// Tags to automatically fix
 		'@deprecate' => '@deprecated',
+		'@gropu' => '@group',
 		'@parma' => '@param',
 		'@warn' => '@warning',
 	];
