@@ -11,6 +11,6 @@
  10 | WARNING | [x] Invalid SPDX license identifier "GNU GPL v2+",
     |         |     see <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
- 14 | WARNING | [ ] @license should only be used on file comments
+ 14 | WARNING | [ ] @license should only be used on the top level
     |         |     (MediaWiki.Commenting.LicenseComment.LicenseTagNonFileComment)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -77,10 +77,9 @@ class LicenseCommentSniff implements Sniff {
 			return;
 		}
 
-		// Only allow license on file comments
 		if ( $tokens[$tag]['level'] !== 0 ) {
 			$phpcsFile->addWarning(
-				'@license should only be used on file comments',
+				'@license should only be used on the top level',
 				$tag, 'LicenseTagNonFileComment'
 			);
 		}
