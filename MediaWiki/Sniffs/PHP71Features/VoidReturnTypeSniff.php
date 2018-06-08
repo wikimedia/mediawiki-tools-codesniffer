@@ -34,7 +34,7 @@ class VoidReturnTypeSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register() {
-		return [ T_RETURN_TYPE ];
+		return [ T_FUNCTION ];
 	}
 
 	/**
@@ -44,8 +44,8 @@ class VoidReturnTypeSniff implements Sniff {
 	 * @return int|void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		$info = $phpcsFile->getTokens()[$stackPtr];
-		if ( $info['content'] === 'void' ) {
+		$props = $phpcsFile->getMethodProperties( $stackPtr );
+		if ( $props['return_type'] === 'void' ) {
 			$phpcsFile->addError(
 				'Void return type hint not allowed',
 				$stackPtr,

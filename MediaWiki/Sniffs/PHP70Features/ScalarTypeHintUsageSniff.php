@@ -42,10 +42,7 @@ class ScalarTypeHintUsageSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register() {
-		return [
-			T_FUNCTION,
-			T_RETURN_TYPE,
-		];
+		return [ T_FUNCTION ];
 	}
 
 	/**
@@ -56,29 +53,31 @@ class ScalarTypeHintUsageSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		$info = $phpcsFile->getTokens()[$stackPtr];
-		if ( $info['code'] === T_FUNCTION ) {
-			$params = $phpcsFile->getMethodParameters( $stackPtr );
-			foreach ( $params as $param ) {
-				if ( $param['type_hint'] !== ''
-					&& in_array( $param['type_hint'], self::$bad )
-				) {
-					$phpcsFile->addError(
-						"Type hint of '{$param['type_hint']}' cannot be used",
-						$param['token'],
-						'Found'
-					);
-				}
-			}
-		} else {
-			// T_RETURN_TYPE
-			if ( in_array( $info['content'], self::$bad ) ) {
+		$params = $phpcsFile->getMethodParameters( $stackPtr );
+		foreach ( $params as $param ) {
+			if ( $param['type_hint'] !== ''
+				&& in_array( $param['type_hint'], self::$bad )
+			) {
 				$phpcsFile->addError(
-					"Return type hint of {$info['content']} cannot be used",
-					$stackPtr,
-					'ReturnTypeFound'
+					"Type hint of '{$param['type_hint']}' cannot be used",
+					$param['token'],
+					'Found'
 				);
 			}
+		}
+
+		$props = $phpcsFile->getMethodProperties( $stackPtr );
+		if ( strpos( $props['return_type'], '?' ) === 0 ) {
+			$returnType = substr( $props['return_type'], 1 );
+		} else {
+			$returnType = $props['return_type'];
+		}
+		if ( in_array( $returnType, self::$bad ) ) {
+			$phpcsFile->addError(
+				"Return type hint of $returnType cannot be used",
+				$stackPtr,
+				'ReturnTypeFound'
+			);
 		}
 	}
 }
