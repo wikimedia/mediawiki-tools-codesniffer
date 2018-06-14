@@ -49,7 +49,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'escapeshellarg' => false,
 		'escapeshellcmd' => false,
 		'exec' => false,
-		'passthu' => false,
+		'passthru' => false,
 		'popen' => false,
 		'proc_open' => false,
 		'shell_exec' => false,
