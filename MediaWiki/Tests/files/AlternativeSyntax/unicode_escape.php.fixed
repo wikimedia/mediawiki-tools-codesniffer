@@ -1,0 +1,161 @@
+<?php
+
+$doubles = [
+	"\u{0000}",
+	"\u{0000}",
+	"\u{0000}",
+	"\u{0000}",
+	"\u{0000}",
+	"\u{0000}",
+	"\u{0000}",
+	"\u{0000}",
+
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+	"\u{00A0}",
+
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+	"\u{0ABC}",
+
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+	"\u{ABCD}",
+
+	"\u{ABCDE}",
+	"\u{ABCDE}",
+	"\u{ABCDE}",
+	"\u{ABCDE}",
+	"\u{ABCDE}",
+	"\u{ABCDE}",
+	"\u{ABCDE}",
+	"\u{ABCDE}",
+
+	"\u{10FFFF}",
+	"\u{10FFFF}",
+	"\u{10FFFF}",
+	"\u{10FFFF}",
+	"\u{10FFFF}",
+	"\u{10FFFF}",
+];
+
+$s = '';
+$prefixed = "$s\u{202A}";
+$suffixed = "\u{202A}$s";
+$prefixedAndSuffixed = "$s\u{202A}$s";
+$withBracedVariables = "{$s}\u{202A}{$s}";
+
+$multiline = "
+Pok\u{00E9}mon
+From Wikipedia, the free encyclopedia
+";
+
+$multilineDoubleWithPrefix = "$s
+Pok\u{00E9}mon
+From Wikipedia, the free encyclopedia
+";
+
+$multilineDoubleWithSuffix = "
+Pok\u{00E9}mon
+From Wikipedia, the free encyclopedia
+$s";
+
+$multilineDoubleWithPrefixAndSuffix = "$s
+Pok\u{00E9}mon
+From Wikipedia, the free encyclopedia
+$s";
+
+$heredoc = <<<EOD
+Pok\u{00E9}mon
+From Wikipedia, the free encyclopedia
+EOD;
+
+$single = '\u{202a}';
+$anotherDouble = "\u{202A}";
+$multilineSingle = '\u{202a}
+\u{202a}
+\u{202a}';
+$yetAnotherDouble = "\u{202A}";
+$nowdoc = <<<'EOD'
+Pok\u{e9}mon
+From Wikipedia, the free encyclopedia
+EOD;
+
+/**
+ * @param string $x
+ * @return string
+ */
+function wfMyFunction( $x ) {
+	return $x;
+}
+
+$myFunction = 'wfMyFunction';
+${'\u{202a}'} = '';
+${"\u{202A}"} = '';
+$doubleWithBracedExpressionWithSingle = "{$myFunction('\u{202a}')}";
+$doubleWithBracedExpressionWithDouble = "{$myFunction("\u{202A}")}";
+$doubleWithBracedVariableWithSingle = "${'\u{202a}'}";
+$doubleWithBracedVariableWithDouble = "${"\u{202A}"}";
+$doubleWithMultilineBracedExpressionWithSingle = "{$myFunction(
+	'\u{202a}'
+)}";
+$doubleWithMultilineBracedExpressionWithDouble = "{$myFunction(
+	"\u{202A}"
+)}";
+
+$heredocWithBracedExpressionWithSingle = <<<EOD
+{$myFunction('\u{202a}')}
+EOD;
+$heredocWithBracedExpressionWithDouble = <<<EOD
+{$myFunction("\u{202A}")}
+EOD;
+$heredocWithBracedVariableWithSingle = <<<EOD
+${'\u{202a}'}
+EOD;
+$heredocWithBracedVariableWithDouble = <<<EOD
+${"\u{202A}"}
+EOD;
+$heredocWithMultilineBracedExpressionWithSingle = <<<EOD
+{$myFunction(
+	'\u{202a}'
+)}
+EOD;
+$heredocWithMultilineBracedExpressionWithDouble = <<<EOD
+{$myFunction(
+	"\u{202A}"
+)}
+EOD;
+
+$singleWithBracedExpressionWithDouble = '{$myFunction("\u{202a}")}';
+$singleWithMultilineBracedExpressionWithDouble = '{$myFunction(
+	"\u{202a}"
+)}';
+
+// The End
