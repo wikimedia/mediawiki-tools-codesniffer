@@ -1,0 +1,43 @@
+  3 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+  4 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+  5 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+  6 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+  7 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+  9 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 10 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 11 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 12 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 15 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 17 | WARNING | [x] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 22 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 23 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 24 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 24 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 25 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 25 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 26 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 26 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 27 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+ 27 | WARNING | [ ] Use a comparison against null instead of
+    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY

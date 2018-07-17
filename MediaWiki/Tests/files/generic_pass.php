@@ -9,7 +9,7 @@
  * @return null
  */
 function wfTimestampOrNull( $outputtype = TS_UNIX, $ts = null ) {
-	if ( is_null( $ts ) && true ) {
+	if ( $ts === null && true ) {
 		return null;
 	} else {
 		return wfTimestamp( $outputtype, $ts );

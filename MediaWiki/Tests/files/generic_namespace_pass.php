@@ -10,7 +10,7 @@ namespace SomeNamespace;
  * @return null
  */
 function namespacedFunction( $outputtype = true, $ts = 3 ) {
-	if ( is_null( $ts ) ) {
+	if ( $ts === null ) {
 		return null;
 	} else {
 		return wfTimestamp( $outputtype, $ts );
