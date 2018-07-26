@@ -1,5 +1,18 @@
 # MediaWiki-Codesniffer release history #
 
+## 21.0.0 / 2018-07-26 ##
+* Add FunctionAnnotations checking tags in function comments only (Thiemo Kreuz)
+* Add "Generic.PHP.LowerCaseType" to ruleset (Kunal Mehta)
+* Add InArrayUsageSniff from Wikibase CodeSniffer (Kunal Mehta)
+* Add possibility to change allowed prefixes (MGChecker)
+* Automatically fix `@gropu` to `@group` (Kunal Mehta)
+* Enforce format of PHP 7 UTF-8 codepoint escapes (Kevin Israel)
+* ForbiddenFunctionsSniff: fix typo of "passthru" (Kevin Israel)
+* Prohibit nested functions (Max Semenik)
+* Update composer/spdx-licenses from 1.3.0 to 1.4.0 (Reedy)
+* Upgrade squizlabs/php_codesniffer to 3.3.0 (Kunal Mehta)
+* Use "PSR12.Keywords.ShortFormTypeKeywords" in place of custom sniff (Kunal Mehta)
+
 ## 20.0.0 / 2018-05-24 ##
 * Require PHP 7 or HHVM to run (Kunal Mehta)
 * Document why we still need to keep ScalarTypeHintUsageSniff (Kunal Mehta)
