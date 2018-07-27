@@ -8,7 +8,8 @@
     |       |     (Generic.PHP.BacktickOperator.Found)
   7 | ERROR | [ ] Use of the backtick operator is forbidden
     |       |     (Generic.PHP.BacktickOperator.Found)
- 15 | ERROR | [x] Must use "self::" for local static member reference
+ 15 | ERROR | [x] Must use "self::" for local static member
+    |       |     reference
     |       |     (Squiz.Classes.SelfMemberReference.NotUsed)
  19 | ERROR | [x] Expected 1 space after "="; 2 found
     |       |     (Squiz.WhiteSpace.OperatorSpacing.SpacingAfter)
@@ -48,5 +49,4 @@
     |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
  19 | ERROR | [x] Expected 1 space after "%"; 0 found
     |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
-
 PHPCBF CAN FIX THE 20 MARKED SNIFF VIOLATIONS AUTOMATICALLY

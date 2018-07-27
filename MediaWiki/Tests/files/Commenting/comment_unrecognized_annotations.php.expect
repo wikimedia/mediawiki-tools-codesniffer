@@ -9,6 +9,7 @@
     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
  10 | ERROR   | [ ] @retrun is not a valid function annotation
     |         |     (MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation)
- 17 | WARNING | [x] Use @inheritDoc annotation instead of @inheritdoc
+ 17 | WARNING | [x] Use @inheritDoc annotation instead of
+    |         |     @inheritdoc
     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
 PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
