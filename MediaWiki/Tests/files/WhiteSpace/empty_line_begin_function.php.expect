@@ -2,5 +2,4 @@
     |       |     (MediaWiki.WhiteSpace.DisallowEmptyLineFunctions.NoEmptyLine)
  20 | ERROR | [x] Unexpected empty line at the begin of function.
     |       |     (MediaWiki.WhiteSpace.DisallowEmptyLineFunctions.NoEmptyLine)
-
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

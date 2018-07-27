@@ -5,8 +5,8 @@
     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  51 | ERROR   | Only one object structure is allowed in a file
     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 64 | WARNING | Should use function $this->getUser() rather than variable
-    |         | $wgUser .
+ 64 | WARNING | Should use function $this->getUser() rather than
+    |         | variable $wgUser .
     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
  75 | ERROR   | Only one object structure is allowed in a file
     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)

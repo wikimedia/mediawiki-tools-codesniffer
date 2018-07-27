@@ -1,4 +1,4 @@
- 9 | ERROR | [x] Multiple empty lines should not exist in a row; found 2
-   |       |     consecutive empty lines
+ 9 | ERROR | [x] Multiple empty lines should not exist in a row;
+   |       |     found 2 consecutive empty lines
    |       |     (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,21 +1,30 @@
- 10 | WARNING | [x] Single space expected after opening parenthesis
+ 10 | WARNING | [x] Single space expected after opening
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 10 | WARNING | [x] Single space expected before closing parenthesis
+ 10 | WARNING | [x] Single space expected before closing
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 11 | WARNING | [x] Single space expected after opening parenthesis
+ 11 | WARNING | [x] Single space expected after opening
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 11 | WARNING | [x] Single space expected before closing parenthesis
+ 11 | WARNING | [x] Single space expected before closing
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 12 | WARNING | [x] Single space expected after opening parenthesis
+ 12 | WARNING | [x] Single space expected after opening
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 12 | WARNING | [x] Single space expected before closing parenthesis
+ 12 | WARNING | [x] Single space expected before closing
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 13 | ERROR   | [x] Short array syntax must be used to define arrays
+ 13 | ERROR   | [x] Short array syntax must be used to define
+    |         |     arrays
     |         |     (Generic.Arrays.DisallowLongArraySyntax.Found)
  13 | WARNING | [x] Unnecessary space found within parentheses
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
- 16 | WARNING | [x] Single space expected after opening parenthesis
+ 16 | WARNING | [x] Single space expected after opening
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 16 | WARNING | [x] Single space expected before closing parenthesis
+ 16 | WARNING | [x] Single space expected before closing
+    |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
 PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY

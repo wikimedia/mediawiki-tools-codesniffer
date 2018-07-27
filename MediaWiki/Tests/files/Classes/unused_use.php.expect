@@ -4,6 +4,7 @@
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
  23 | WARNING | [x] Unused use statement
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 42 | ERROR   | [ ] Only one object structure is allowed in a file
+ 42 | ERROR   | [ ] Only one object structure is allowed in a
+    |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY

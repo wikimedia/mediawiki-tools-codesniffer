@@ -7,7 +7,8 @@
  18 | WARNING | Alternative syntax such as "endforeach" should not be
     |         | used
     |         | (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
- 28 | WARNING | Alternative syntax such as "endif" should not be used
+ 28 | WARNING | Alternative syntax such as "endif" should not be
+    |         | used
     |         | (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
  34 | WARNING | Alternative syntax such as "endswitch" should not be
     |         | used
