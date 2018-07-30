@@ -2,7 +2,7 @@
 /**
  * Report warnings when unexpected function or variable used like.
  * Should use $this->msg() rather than wfMessage() on ContextSource extend.
- * Should use $this->getUser() rather than $wgUser() on ContextSource extend.
+ * Should use $this->getUser() rather than $wgUser on ContextSource extend.
  * Should use $this->getRequest() rather than $wgRequest on ContextSource extend.
  */
 
