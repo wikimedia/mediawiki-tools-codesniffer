@@ -35,7 +35,7 @@ class UnusedUseTest {
 	 * @return Database
 	 */
 	public function testDatabase( $a ) {
-		return;
+		return $a;
 	}
 }
 
