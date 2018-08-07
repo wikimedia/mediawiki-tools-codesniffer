@@ -67,6 +67,10 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@todo' => true,
 		'@warning' => true,
 
+		// pseudo-tags from phan-taint-check-plugin
+		'@param-taint' => true,
+		'@return-taint' => true,
+
 		// Allowed mixed-case tags, mapping from all-lowercase to the expected mixed-case
 		'@codecoverageignore' => '@codeCoverageIgnore',
 		'@covernothing' => '@coverNothing',
