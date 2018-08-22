@@ -55,4 +55,19 @@
     |       |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
  22 | ERROR | [x] Space found after object operator
     |       |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
-PHPCBF CAN FIX THE 23 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 24 | ERROR | [x] Concat operator must be surrounded by a single
+    |       |     space
+    |       |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+ 24 | ERROR | [x] Concat operator must be surrounded by a single
+    |       |     space
+    |       |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+ 24 | ERROR | [x] Concat operator must be surrounded by a single
+    |       |     space
+    |       |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+ 24 | ERROR | [x] Concat operator must be surrounded by a single
+    |       |     space
+    |       |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+ 26 | ERROR | [x] Concat operator must be surrounded by a single
+    |       |     space
+    |       |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+PHPCBF CAN FIX THE 28 MARKED SNIFF VIOLATIONS AUTOMATICALLY
