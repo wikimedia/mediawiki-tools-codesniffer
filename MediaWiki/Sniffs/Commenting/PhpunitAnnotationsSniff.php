@@ -80,7 +80,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		// Name the function with test prefix, some other sniffs depends on that
 		'@test' => 'Do not use %s, name the function to begin with "test".',
 
-		 // Use @dataProvider
+		// Use @dataProvider
 		'@testWith' => 'Do not use %s, use @dataProvider and a provider function.',
 
 		'@doesNotPerformAssertions' => true,

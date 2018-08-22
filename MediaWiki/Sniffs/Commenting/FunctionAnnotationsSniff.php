@@ -153,7 +153,7 @@ class FunctionAnnotationsSniff implements Sniff {
 		}
 
 		if ( preg_match( '/^@code{\W?([a-z]+)}$/', $lower, $matches ) ) {
-			return '@code{.' . $matches[1] .  '}';
+			return '@code{.' . $matches[1] . '}';
 		}
 
 		return false;
