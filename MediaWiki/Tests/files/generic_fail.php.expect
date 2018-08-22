@@ -49,4 +49,10 @@
     |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
  19 | ERROR | [x] Expected 1 space after "%"; 0 found
     |       |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
-PHPCBF CAN FIX THE 20 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 21 | ERROR | [x] Space found before object operator
+    |       |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+ 21 | ERROR | [x] Space found after object operator
+    |       |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
+ 22 | ERROR | [x] Space found after object operator
+    |       |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
+PHPCBF CAN FIX THE 23 MARKED SNIFF VIOLATIONS AUTOMATICALLY

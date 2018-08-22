@@ -93,7 +93,12 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 			Xml::hidden( 'action', 'submit' ) .
 			Xml::hidden( 'source', 'interwiki' ) .
 			Xml::hidden( 'editToken', $wgUser->editToken() ),
-			'secondArgument'
+			'secondArgument',
+			wfMessage( 'message-key' )
+				->inContentLanguage()
+				->title( $this->getTitle() )
+				->text(),
+			Html::class
 		);
 
 		$foo = $par;
@@ -113,7 +118,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	}
 }
 
-$a = [ 'spaces!' ];
+$a = [ 'spaces!', FooBar::class, FooBar::$var ];
 
 Hooks::run( 'SecondaryDataUpdates', [ $title, $old, $recursive, $parserOutput, &$updates ] );
 // This file has a new line at the end!
