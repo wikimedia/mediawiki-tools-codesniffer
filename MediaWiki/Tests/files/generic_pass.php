@@ -116,6 +116,50 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		$cat = array_merge( $foo, [ 'barn', 'door' ] );
 		return $cat;
 	}
+
+	/**
+	 * @param string $param1
+	 * @param string $param2
+	 * @param string $param3
+	 */
+	private function declarationTest1(
+		$param1,
+		$param2,
+		$param3
+	) {
+	}
+
+	/**
+	 * @param string $param1
+	 * @param string $param2
+	 * @param string $param3
+	 * @param string $param4
+	 */
+	private function declarationTest2( $param1, $param2,
+		$param3, $param4
+	) {
+	}
+
+	/**
+	 * @param string $param1
+	 * @param string $param2
+	 * @param string $param3
+	 * @param string $param4
+	 */
+	private function declarationTest3( $param1, $param2,
+		$param3, $param4 ) {
+	}
+
+	/**
+	 * @param string $param1
+	 * @param string $param2
+	 * @param string $param3
+	 */
+	private function declarationTest4( $param1,
+		$param2,
+		$param3
+	) {
+	}
 }
 
 $a = [ 'spaces!', FooBar::class, FooBar::$var ];

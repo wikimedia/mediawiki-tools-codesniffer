@@ -93,6 +93,13 @@
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />
 	<rule ref="Squiz.Classes.ValidClassName" />
+	<rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+		<properties>
+			<property name="equalsSpacing" value="1" />
+			<property name="requiredSpacesAfterOpen" value="1" />
+			<property name="requiredSpacesBeforeClose" value="1" />
+		</properties>
+	</rule>
 	<rule ref="Squiz.Functions.FunctionDuplicateArgument" />
 	<rule ref="Squiz.Operators.ValidLogicalOperators" />
 	<rule ref="Squiz.Scope.StaticThisUsage" />
