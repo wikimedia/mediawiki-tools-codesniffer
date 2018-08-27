@@ -75,6 +75,15 @@
 	<rule ref="Generic.PHP.SAPIUsage" />
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
 
+	<rule ref="PSR2.Classes.ClassDeclaration">
+		<exclude name="PSR2.Classes.ClassDeclaration.SpaceBeforeBrace" />
+		<exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNotAlone" />
+		<exclude name="PSR2.Classes.ClassDeclaration.OpenBraceWrongLine" />
+		<exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine" />
+		<exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody" />
+		<exclude name="PSR2.Classes.ClassDeclaration.ImplementsLine" />
+		<exclude name="PSR2.Classes.ClassDeclaration.ExtendsLine" />
+	</rule>
 	<rule ref="PSR2.Classes.PropertyDeclaration" />
 	<rule ref="PSR2.Classes.PropertyDeclaration.Multiple">
 		<!-- We tends to declare multiple properties with one statement -->

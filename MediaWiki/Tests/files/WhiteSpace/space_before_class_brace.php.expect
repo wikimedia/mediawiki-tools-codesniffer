@@ -4,6 +4,8 @@
  13 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 13 | ERROR   | [x] Expected 1 space after class name; 2 found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterName)
  13 | WARNING | [x] Expected 1 space before class open brace. Found
     |         |     2.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
@@ -30,4 +32,4 @@
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  41 | WARNING | [x] Expected class open brace to be on a new line
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnOwnLine)
-PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY

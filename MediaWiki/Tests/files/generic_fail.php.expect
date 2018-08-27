@@ -8,6 +8,26 @@
     |         |     (Generic.PHP.BacktickOperator.Found)
   7 | ERROR   | [ ] Use of the backtick operator is forbidden
     |         |     (Generic.PHP.BacktickOperator.Found)
+  9 | ERROR   | [x] Expected 1 space between class keyword and class
+    |         |     name; 2 found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterKeyword)
+  9 | ERROR   | [x] Expected 1 space after class name; 2 found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterName)
+  9 | ERROR   | [x] Expected 1 space before extends keyword; 2
+    |         |     found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeExtends)
+  9 | ERROR   | [x] Expected 1 space before "Bar"; 2 found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
+  9 | ERROR   | [x] Expected 1 space before implements keyword; 2
+    |         |     found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeImplements)
+  9 | ERROR   | [x] Expected 1 space before "I1"; 2 found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
+  9 | ERROR   | [x] Expected 0 spaces between "I1" and comma; 2
+    |         |     found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeComma)
+  9 | ERROR   | [x] Expected 1 space before "I2"; 2 found
+    |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
  15 | ERROR   | [x] Must use "self::" for local static member
     |         |     reference
     |         |     (Squiz.Classes.SelfMemberReference.NotUsed)
@@ -135,4 +155,4 @@
  42 | ERROR   | [x] Concat operator must be surrounded by a single
     |         |     space
     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
-PHPCBF CAN FIX THE 49 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 57 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -6,7 +6,7 @@ if ( $a or $b ) {
 
 $foo = `echo "hi";`;
 
-class Foo {
+class Foo extends \Bar implements \I1, I2 {
 
 	/**
 	 * Do stuff
