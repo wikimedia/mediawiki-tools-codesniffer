@@ -7,3 +7,5 @@ $this->is_integer( 14 );
 extract( $someArray );
 parse_str( 'arg' );
 parse_str( 'arg', $someArray['arrayIndex'] );
+preg_quote( 'arg' );
+preg_quote( 'arg', '/' );
