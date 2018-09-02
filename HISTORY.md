@@ -1,5 +1,19 @@
 # MediaWiki-Codesniffer release history #
 
+## 22.0.0 / 2018-09-02 ##
+* Detect nesting of inline ternary statements without parentheses (Kevin Israel)
+* Disable 'Generic.PHP.DeprecatedFunctions' sniff (Kunal Mehta)
+* Enable PSR2.Classes.ClassDeclaration (Umherirrender)
+* Enable Squiz.Functions.FunctionDeclarationArgumentSpacing (Umherirrender)
+* Enable Squiz.PHP.NonExecutableCodeSniff (Matěj Suchánek)
+* Enable Squiz.Strings.ConcatenationSpacing (Umherirrender)
+* Enable Squiz.WhiteSpace.ObjectOperatorSpacing (Umherirrender)
+* Fix documentation of ExtendClassUsageSniff (Matěj Suchánek)
+* Cleanups to the UnusedUseStatement sniff (Thiemo Kreuz)
+* Update DB_REPLICA's last version to 1.27.3 (Kunal Mehta)
+* Upgrade squizlabs/php_codesniffer to 3.3.1 (Reedy)
+* Whitelist @param-taint and @return-taint (Umherirrender)
+
 ## 21.0.0 / 2018-07-26 ##
 * Add FunctionAnnotations checking tags in function comments only (Thiemo Kreuz)
 * Add "Generic.PHP.LowerCaseType" to ruleset (Kunal Mehta)
