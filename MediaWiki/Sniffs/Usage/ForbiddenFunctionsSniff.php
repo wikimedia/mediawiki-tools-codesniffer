@@ -54,7 +54,6 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'proc_open' => false,
 		'shell_exec' => false,
 		'system' => false,
-		'preg_quote' => false,
 	];
 
 	/**
@@ -65,8 +64,6 @@ class ForbiddenFunctionsSniff implements Sniff {
 	private $functionsArgCount = [
 		'parse_str' => 1,
 		'mb_parse_str' => 1,
-		// Forbidden with one argument, because it would not escape slashes/delimiter correctly
-		'preg_quote' => 1,
 	];
 
 	/**
