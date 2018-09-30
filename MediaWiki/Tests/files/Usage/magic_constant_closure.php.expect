@@ -1,0 +1,2 @@
+ 10 | WARNING | Avoid use of __METHOD__ magic constant in closure
+    |         | (MediaWiki.Usage.MagicConstantClosure.FoundConstantMethod)
