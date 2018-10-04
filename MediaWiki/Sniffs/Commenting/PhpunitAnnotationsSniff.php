@@ -256,7 +256,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 	private function isTestClass( File $phpcsFile, $classPtr ) {
 		return preg_match(
-			'/(?:Test[BC]ase|Suite|Test)$/', $phpcsFile->getDeclarationName( $classPtr )
+			'/(?:Test(?:Case)?(?:Base)?|Suite)$/', $phpcsFile->getDeclarationName( $classPtr )
 		);
 	}
 
