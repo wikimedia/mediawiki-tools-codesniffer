@@ -36,3 +36,19 @@ $bar = function () {
 };
 
 $bar();
+
+class Foo {
+	public function returnAnonymousClass() {
+		return new class() {
+			public function baz() {
+				echo 'pass';
+			}
+		};
+	}
+
+	public function bar() {
+		function forbidden() {
+			echo 'fail!';
+		}
+	}
+}

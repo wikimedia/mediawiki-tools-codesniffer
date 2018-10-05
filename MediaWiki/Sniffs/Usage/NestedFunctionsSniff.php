@@ -42,8 +42,12 @@ class NestedFunctionsSniff implements Sniff {
 			return;
 		}
 
-		// Walk through parent scopes, looking for functions/closures
-		if ( $phpcsFile->hasCondition( $stackPtr, [ T_FUNCTION, T_CLOSURE ] ) ) {
+		// Walk through parent scopes, looking for functions/closures that are not in an
+		// anonymous class
+		if (
+			$phpcsFile->hasCondition( $stackPtr, [ T_FUNCTION, T_CLOSURE ] ) &&
+			!$phpcsFile->hasCondition( $stackPtr, [ T_ANON_CLASS ] )
+		) {
 			$error = 'Function %s is nested inside of another function or closure';
 			$phpcsFile->addError( $error, $stackPtr, 'NestedFunction', [ $functionName ] );
 		}

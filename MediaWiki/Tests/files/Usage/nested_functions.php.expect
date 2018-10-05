@@ -4,3 +4,6 @@
  32 | ERROR | Function forbiddenToo is nested inside of another
     |       | function or closure
     |       | (MediaWiki.Usage.NestedFunctions.NestedFunction)
+ 50 | ERROR | Function forbidden is nested inside of another function
+    |       | or closure
+    |       | (MediaWiki.Usage.NestedFunctions.NestedFunction)
