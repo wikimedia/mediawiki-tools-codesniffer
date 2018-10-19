@@ -11,6 +11,15 @@
  10 | WARNING | [x] Invalid SPDX license identifier "GNU GPL v2+",
     |         |     see <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
- 14 | WARNING | [ ] @license should only be used on the top level
+ 11 | WARNING | [ ] Deprecated SPDX license identifier "GPL-2.0+",
+    |         |     see <https://spdx.org/licenses/>
+    |         |     (MediaWiki.Commenting.LicenseComment.DeprecatedLicenseTag)
+ 11 | WARNING | [ ] Deprecated SPDX license identifier "LGPL-2.1+",
+    |         |     see <https://spdx.org/licenses/>
+    |         |     (MediaWiki.Commenting.LicenseComment.DeprecatedLicenseTag)
+ 12 | WARNING | [ ] Invalid SPDX license identifier "GNU GPL v2+ OR
+    |         |     BSD Clause", see <https://spdx.org/licenses/>
+    |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
+ 16 | WARNING | [ ] @license should only be used on the top level
     |         |     (MediaWiki.Commenting.LicenseComment.LicenseTagNonFileComment)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
