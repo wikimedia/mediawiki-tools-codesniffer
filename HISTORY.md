@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## 19.1.0 / 2018-10-23 ##
+* Upgrade squizlabs/php_codesniffer to 3.3.1 to fix PHP 7.3 support (Kunal Mehta)
+
 ## 19.0.0 / 2018-05-24 ##
 Note: This will be the final release with PHP 5.5 and 5.6 support.
 
