@@ -637,6 +637,18 @@ class FunctionCommentSniff implements Sniff {
 				if ( $singleType === 'null' ) {
 					$nullFound = true;
 				}
+				if ( substr( $singleType, -10 ) === '[optional]' ) {
+					$fix = $phpcsFile->addFixableError(
+						'Key word "[optional]" on "%s" should not be used',
+						$param['tag'],
+						'NoOptionalKeyWord',
+						[ $param['type'] ]
+					);
+					if ( $fix ) {
+						$explodedType[$index] = substr( $singleType, 0, -10 );
+						$fixType = true;
+					}
+				}
 			}
 			// Check if the default of null is in the type list
 			if ( $defaultNull && !$nullFound ) {

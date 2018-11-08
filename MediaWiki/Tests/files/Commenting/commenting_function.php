@@ -205,6 +205,14 @@ class TestFailedExamples {
 	 */
 	public function testDefaultNull( $key, $value = null ) {
 	}
+
+	/**
+	 * Test optional key word
+	 * @param string[optional] $key
+	 * @param string[optional]|null $value
+	 */
+	public function testOptionalKeyword( $key, $value = null ) {
+	}
 }
 
 class TestPassedExamples {
