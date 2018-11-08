@@ -54,8 +54,6 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@param[in,out]' => true,
 		'@param[out]' => true,
 		'@params' => true,
-		'@private' => true,
-		'@protected' => true,
 		'@requires' => true,
 		'@return' => true,
 		'@returns' => true,
@@ -66,6 +64,12 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@throws' => true,
 		'@todo' => true,
 		'@warning' => true,
+
+		// private and protected is needed when functions stay public
+		// for deprecation or backward compatibility reasons
+		// @see https://www.mediawiki.org/wiki/Deprecation_policy#Scope
+		'@private' => true,
+		'@protected' => true,
 
 		// pseudo-tags from phan-taint-check-plugin
 		'@param-taint' => true,
