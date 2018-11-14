@@ -1,5 +1,15 @@
 # MediaWiki-Codesniffer release history #
 
+## 23.0.0 / 2018-11-14 ##
+* Add comment why @private and @protected are okay (Umherirrender)
+* Add sniff to detect + for string concat (Umherirrender)
+* Add sniff to detect __METHOD__ in closures (Umherirrender)
+* Fix deprecation check for compounded licenses (Umherirrender)
+* Recognize MediaWikiTestCaseBase as test class (Aryeh Gregor)
+* Remove [optional] from types in @param (Umherirrender)
+* Update message to talk about "top level" instead of "file comment" (Thiemo Kreuz)
+* Upgrade squizlabs/php_codesniffer to 3.3.2 (Kunal Mehta)
+
 ## 22.0.0 / 2018-09-02 ##
 * Detect nesting of inline ternary statements without parentheses (Kevin Israel)
 * Disable 'Generic.PHP.DeprecatedFunctions' sniff (Kunal Mehta)
