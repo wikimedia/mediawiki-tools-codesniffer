@@ -38,6 +38,12 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @see https://phpunit.de/manual/current/en/appendixes.annotations.html
 	 */
 	private static $allowedAnnotations = [
+		'@after' => true,
+		'@afterClass' => true,
+
+		'@before' => true,
+		'@beforeClass' => true,
+
 		'@covers' => true,
 		'@cover' => [ '@covers', 'SingularCover' ],
 
@@ -71,12 +77,6 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @var array
 	 */
 	private static $forbiddenAnnotations = [
-		'@after' => 'Do not use %s, use tearDown() function.',
-		'@afterClass' => 'Do not use %s, use tearDownAfterClass() function.',
-
-		'@before' => 'Do not use %s, use setUp() function.',
-		'@beforeClass' => 'Do not use %s, use setUpBeforeClass() function.',
-
 		// Name the function with test prefix, some other sniffs depends on that
 		'@test' => 'Do not use %s, name the function to begin with "test".',
 
@@ -100,6 +100,44 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@small',
 		'@medium',
 		'@large',
+		'@after',
+		'@afterClass',
+		'@before',
+		'@beforeClass',
+	];
+
+	/**
+	 * A list of naming patterns for annotations
+	 * Annotations not found here using default test* name
+	 *
+	 * @var array
+	 */
+	private static $functionNamingPattern = [
+		'@after' => [
+			'regex' => '/TearDown$/',
+			'message' => 'tearDown functions (*TearDown)',
+			'code' => 'NotTearDownFunction',
+		],
+		'@afterClass' => [
+			'regex' => '/TearDownAfterClass$/',
+			'message' => 'tearDown functions (*TearDownAfterClass)',
+			'code' => 'NotTearDownAfterClassFunction',
+		],
+		'@before' => [
+			'regex' => '/SetUp$/',
+			'message' => 'setUp functions (*SetUp)',
+			'code' => 'NotSetUpFunction',
+		],
+		'@beforeClass' => [
+			'regex' => '/SetUpBeforeClass$/',
+			'message' => 'setUp functions (*SetUpBeforeClass)',
+			'code' => 'NotSetUpBeforeClassFunction',
+		],
+		'*' => [
+			'regex' => '/^(?:test|provide)|Provider$/',
+			'message' => 'test functions',
+			'code' => 'NotTestFunction',
+		],
 	];
 
 	/**
@@ -192,11 +230,21 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 		// Check the name of the function
 		if ( $tokens[$tag]['level'] > 0 ) {
+			if ( isset( self::$functionNamingPattern[$tagText] ) ) {
+				$namingPattern = self::$functionNamingPattern[$tagText];
+			} else {
+				$namingPattern = self::$functionNamingPattern['*'];
+			}
+
 			$functionToken = $this->findFunctionToken( $phpcsFile, $tokens, $end );
-			if ( !$functionToken || !$this->isTestFunction( $phpcsFile, $functionToken ) ) {
+			if ( !$functionToken ||
+				!$this->isFunctionOkay( $phpcsFile, $functionToken, $namingPattern['regex'] )
+			) {
+				$message = 'The phpunit annotation %s should only be used for ' .
+					$namingPattern['message'] . '.';
 				$phpcsFile->addWarning(
-					'The phpunit annotation %s should only be used for test functions.',
-					$tag, 'NotTestFunction', [ $tagText ]
+					$message,
+					$tag, $namingPattern['code'], [ $tagText ]
 				);
 			}
 		}
@@ -260,9 +308,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 		);
 	}
 
-	private function isTestFunction( File $phpcsFile, $functionPtr ) {
+	private function isFunctionOkay( File $phpcsFile, $functionPtr, $pattern ) {
 		return preg_match(
-			'/^(?:test|provide)|Provider$/', $phpcsFile->getDeclarationName( $functionPtr )
+			$pattern, $phpcsFile->getDeclarationName( $functionPtr )
 		);
 	}
 

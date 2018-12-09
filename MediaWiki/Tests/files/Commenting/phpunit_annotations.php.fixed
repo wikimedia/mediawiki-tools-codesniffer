@@ -55,6 +55,12 @@ class ExamplesTest {
 	public function notATestNamedFunction() {
 	}
 
+	/**
+	 * @after
+	 */
+	public function extraTearDown() {
+	}
+
 }
 
 trait TestTrait {

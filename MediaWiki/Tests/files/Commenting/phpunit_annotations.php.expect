@@ -32,18 +32,19 @@
  43 | WARNING | [ ] The testNothing test method has no @covers
     |         |     tags
     |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
- 47 | WARNING | [ ] Do not use @after, use tearDown() function.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenAfter)
+ 47 | WARNING | [ ] The phpunit annotation @after should only be used
+    |         |     for tearDown functions (*TearDown).
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTearDownFunction)
  53 | WARNING | [ ] The phpunit annotation @dataProvider should only
     |         |     be used for test functions.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
- 60 | ERROR   | [ ] Only one object structure is allowed in a
+ 66 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 68 | ERROR   | [ ] Only one object structure is allowed in a
+ 74 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 73 | WARNING | [ ] The phpunit annotation @dataProvider should only
+ 79 | WARNING | [ ] The phpunit annotation @dataProvider should only
     |         |     be used inside classes or traits.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClassTrait)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
