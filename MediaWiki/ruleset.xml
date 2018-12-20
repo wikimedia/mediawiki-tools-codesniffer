@@ -12,7 +12,7 @@
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<rule ref="Generic.Classes.DuplicateClassName" />
-	<!-- Some people likes else { /** comment */ }
+	<!-- Some people like else { /** comment */ }
 	<rule ref="Generic.CodeAnalysis.EmptyStatement" />
 	-->
 	<rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
@@ -57,7 +57,7 @@
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
 		<!--
-			We alignement certain function calls like this
+			We align certain function calls like this
 			define( 'FOO',          1 );
 			define( 'A_BIT_LONGER', 2 );
 		-->
@@ -89,7 +89,7 @@
 	</rule>
 	<rule ref="PSR2.Classes.PropertyDeclaration" />
 	<rule ref="PSR2.Classes.PropertyDeclaration.Multiple">
-		<!-- We tends to declare multiple properties with one statement -->
+		<!-- We tend to declare multiple properties with one statement -->
 		<severity>0</severity>
 	</rule>
 	<rule ref="Generic.ControlStructures.InlineControlStructure" />
@@ -149,7 +149,7 @@
 	<rule ref="Generic.PHP.BacktickOperator" />
 	<rule ref="Generic.VersionControl.GitMergeConflict" />
 
-	<!-- exclude common folders from version control or build tools -->
+	<!-- Exclude common folders from version control or build tools -->
 	<exclude-pattern type="relative">^\.git</exclude-pattern>
 	<exclude-pattern type="relative">^vendor</exclude-pattern>
 	<exclude-pattern type="relative">^node_modules</exclude-pattern>
