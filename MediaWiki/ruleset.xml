@@ -47,7 +47,11 @@
 
 	<!-- When type casting, do not use a space within or after the cast operator parentheses. -->
 	<rule ref="Squiz.WhiteSpace.CastSpacing" />
-	<rule ref="Generic.Formatting.NoSpaceAfterCast" />
+	<rule ref="Generic.Formatting.SpaceAfterCast">
+		<properties>
+			<property name="spacing" value="0" />
+		</properties>
+	</rule>
 
 	<rule ref="Generic.Functions.CallTimePassByReference" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
