@@ -147,6 +147,7 @@
 
 	<rule ref="Zend.Files.ClosingTag" />
 	<rule ref="Generic.PHP.BacktickOperator" />
+	<rule ref="Generic.VersionControl.GitMergeConflict" />
 
 	<!-- exclude common folders from version control or build tools -->
 	<exclude-pattern type="relative">^\.git</exclude-pattern>
