@@ -52,6 +52,11 @@
 			<property name="spacing" value="0" />
 		</properties>
 	</rule>
+	<rule ref="Generic.Formatting.SpaceAfterNot">
+		<properties>
+			<property name="spacing" value="0" />
+		</properties>
+	</rule>
 
 	<rule ref="Generic.Functions.CallTimePassByReference" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
