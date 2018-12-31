@@ -33,7 +33,6 @@ class FunctionAnnotationsSniff implements Sniff {
 	 */
 	private $allowedAnnotations = [
 		// Allowed all-lowercase tags
-		'@access' => true,
 		'@after' => true,
 		'@author' => true,
 		'@code' => true,
@@ -70,6 +69,9 @@ class FunctionAnnotationsSniff implements Sniff {
 		// @see https://www.mediawiki.org/wiki/Deprecation_policy#Scope
 		'@private' => true,
 		'@protected' => true,
+
+		// Special handling
+		'@access' => true,
 
 		// pseudo-tags from phan-taint-check-plugin
 		'@param-taint' => true,
@@ -127,6 +129,8 @@ class FunctionAnnotationsSniff implements Sniff {
 			if ( $annotation === false ) {
 				$error = '%s is not a valid function annotation';
 				$phpcsFile->addError( $error, $tag, 'UnrecognizedAnnotation', [ $tagContent ] );
+			} elseif ( $annotation === '@access' ) {
+				$this->handleAccessAnnotation( $phpcsFile, $tokens, $tag, $tagContent );
 			} elseif ( $tagContent !== $annotation ) {
 				$error = 'Use %s annotation instead of %s';
 				$fix = $phpcsFile->addFixableWarning( $error,
@@ -161,5 +165,30 @@ class FunctionAnnotationsSniff implements Sniff {
 		}
 
 		return false;
+	}
+
+	private function handleAccessAnnotation( File $phpcsFile, $tokens, $tag, $tagContent ) {
+		if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
+			$text = strtolower( $tokens[$tag + 2]['content'] );
+			if ( $text === 'protected' || $text === 'private' ) {
+				$replacement = '@' . $text;
+				$error = 'Use %s annotation instead of "%s"';
+				$fix = $phpcsFile->addFixableWarning( $error,
+					$tag,
+					'AccessAnnotationReplacement',
+					[ $replacement, $phpcsFile->getTokensAsString( $tag, 3 ) ]
+				);
+				if ( $fix ) {
+					$phpcsFile->fixer->beginChangeset();
+					$phpcsFile->fixer->replaceToken( $tag, $replacement );
+					$phpcsFile->fixer->replaceToken( $tag + 1, '' );
+					$phpcsFile->fixer->replaceToken( $tag + 2, '' );
+					$phpcsFile->fixer->endChangeset();
+				}
+				return;
+			}
+		}
+		$error = '%s is not a valid function annotation';
+		$phpcsFile->addError( $error, $tag, 'AccessAnnotationInvalid', [ $tagContent ] );
 	}
 }

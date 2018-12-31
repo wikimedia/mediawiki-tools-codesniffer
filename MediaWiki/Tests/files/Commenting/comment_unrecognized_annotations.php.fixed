@@ -19,3 +19,30 @@ function wfFoo() {
 // phpcs:ignore MediaWiki.NamingConventions.PrefixedGlobalFunctions
 function functionPrefixViolation() {
 }
+
+class TestAccessAnnotation {
+
+	/**
+	 * @private
+	 */
+	public function privateAccess() {
+	}
+
+	/**
+	 * @protected
+	 */
+	public function protectedAccess() {
+	}
+
+	/**
+	 * @access public
+	 */
+	public function publicAccess() {
+	}
+
+	/**
+	 * @access invalid
+	 */
+	public function invalidAccess() {
+	}
+}

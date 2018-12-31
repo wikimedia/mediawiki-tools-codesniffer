@@ -12,4 +12,14 @@
  17 | WARNING | [x] Use @inheritDoc annotation instead of
     |         |     @inheritdoc
     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
-PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 26 | WARNING | [x] Use @private annotation instead of "@access
+    |         |     private"
+    |         |     (MediaWiki.Commenting.FunctionAnnotations.AccessAnnotationReplacement)
+ 32 | WARNING | [x] Use @protected annotation instead of "@access
+    |         |     protected"
+    |         |     (MediaWiki.Commenting.FunctionAnnotations.AccessAnnotationReplacement)
+ 38 | ERROR   | [ ] @access is not a valid function annotation
+    |         |     (MediaWiki.Commenting.FunctionAnnotations.AccessAnnotationInvalid)
+ 44 | ERROR   | [ ] @access is not a valid function annotation
+    |         |     (MediaWiki.Commenting.FunctionAnnotations.AccessAnnotationInvalid)
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
