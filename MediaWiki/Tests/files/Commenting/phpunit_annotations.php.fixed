@@ -71,6 +71,15 @@ trait TestTrait {
 	}
 }
 
+/**
+ * Not a class comment
+ * @group Test
+ */
+
+/**
+ * interface comment
+ * @group Test
+ */
 interface InterfaceTesting {
 	/**
 	 * @code{.dot}

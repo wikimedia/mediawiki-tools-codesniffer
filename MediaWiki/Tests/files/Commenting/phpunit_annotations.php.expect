@@ -41,10 +41,16 @@
  66 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 74 | ERROR   | [ ] Only one object structure is allowed in a
+ 76 | WARNING | [ ] The phpunit annotation @group should only be used
+    |         |     in class level comments.
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
+ 81 | WARNING | [ ] The phpunit annotation @group should only be used
+    |         |     in class level comments.
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
+ 83 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 79 | WARNING | [ ] The phpunit annotation @dataProvider should only
+ 88 | WARNING | [ ] The phpunit annotation @dataProvider should only
     |         |     be used inside classes or traits.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClassTrait)
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotInClassTrait)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -186,13 +186,24 @@ class PhpunitAnnotationsSniff implements Sniff {
 			return;
 		}
 
-		$objectToken = $this->findObjectStructureToken( $phpcsFile, $tokens, $end );
-		if ( !$objectToken ) {
-			$phpcsFile->addWarning(
-				'The phpunit annotation %s should only be used inside classes or traits.',
-				$tag, 'NotClassTrait', [ $tagText ]
-			);
-			return;
+		if ( $tokens[$end]['level'] === 0 ) {
+			$objectToken = $this->findClassToken( $phpcsFile, $tokens, $end );
+			if ( !$objectToken ) {
+				$phpcsFile->addWarning(
+					'The phpunit annotation %s should only be used in class level comments.',
+					$tag, 'NotClass', [ $tagText ]
+				);
+				return;
+			}
+		} else {
+			$objectToken = $this->findObjectStructureTokenFunctionLevel( $tokens, $end );
+			if ( !$objectToken ) {
+				$phpcsFile->addWarning(
+					'The phpunit annotation %s should only be used inside classes or traits.',
+					$tag, 'NotInClassTrait', [ $tagText ]
+				);
+				return;
+			}
 		}
 		if ( $tokens[$objectToken]['code'] === T_CLASS &&
 			!$this->isTestClass( $phpcsFile, $objectToken )
@@ -261,25 +272,28 @@ class PhpunitAnnotationsSniff implements Sniff {
 	}
 
 	/**
-	 * Find the class or trait this comment depends on.
+	 * Find the class this class level comment depends on.
 	 */
-	private function findObjectStructureToken( File $phpcsFile, array $tokens, $commentEnd ) {
-		// class level comment
-		if ( $tokens[$commentEnd]['level'] === 0 ) {
-			$next = $phpcsFile->findNext( [ T_CLASS ], $commentEnd + 1 );
+	private function findClassToken( File $phpcsFile, array $tokens, $commentEnd ) {
+		$next = $phpcsFile->findNext( [ T_CLASS ], $commentEnd + 1 );
 
-			// Only process class directly located after the comment
-			if ( $next &&
-				$tokens[$commentEnd]['line'] + 1 === $tokens[$next]['line']
-			) {
-				return $next;
-			}
-		} else {
-			// function level comment
-			foreach ( $tokens[$commentEnd]['conditions'] as $ptr => $type ) {
-				if ( $type === T_CLASS || $type === T_TRAIT ) {
-					return $ptr;
-				}
+		// Only process class directly located after the comment
+		if ( $next &&
+			$tokens[$commentEnd]['line'] + 1 === $tokens[$next]['line']
+		) {
+			return $next;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Find the class or trait this function level comment depends on.
+	 */
+	private function findObjectStructureTokenFunctionLevel( array $tokens, $commentEnd ) {
+		foreach ( $tokens[$commentEnd]['conditions'] as $ptr => $type ) {
+			if ( $type === T_CLASS || $type === T_TRAIT ) {
+				return $ptr;
 			}
 		}
 
