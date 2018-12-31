@@ -52,7 +52,21 @@ class ExtendClassUsageSniff implements Sniff {
 					'code' => T_VARIABLE,
 					'expect_content' => '$this->getRequest()',
 					'expect_code' => T_FUNCTION
-				]
+				],
+				[
+					'content' => '$wgOut',
+					'msg_content' => '$wgOut',
+					'code' => T_VARIABLE,
+					'expect_content' => '$this->getOutput()',
+					'expect_code' => T_FUNCTION
+				],
+				[
+					'content' => '$wgLang',
+					'msg_content' => '$wgLang',
+					'code' => T_VARIABLE,
+					'expect_content' => '$this->getLanguage()',
+					'expect_code' => T_FUNCTION
+				],
 			]
 		]
 	];
