@@ -22,6 +22,16 @@ class MessageTest extends ContextSource {
 	public function passedExampleTwo() {
 		return $this->msg( 'Test' );
 	}
+
+	public function failedConfigGlobal() {
+		global $wgMyConfigGlobal;
+		return $wgMyConfigGlobal;
+	}
+
+	public function passedNonConfigGlobals() {
+		global $wgContLang;
+		return $wgContLang->getCode();
+	}
 }
 
 class OtherTest extends OtherExtendClass {
@@ -98,5 +108,32 @@ abstract class RequestTest extends \ContextSource {
 	 */
 	public function passedExampleTwo() {
 		return $this->getRequest();
+	}
+}
+
+/**
+ * Test, if a global not set by config is reported
+ */
+class FoundTest extends \ContextSource {
+	/**
+	 * @return object the request information.
+	 */
+	public function foundExampleExtensionSet() {
+		global $wgMyNotConfigGlobal;
+		return $wgMyNotConfigGlobal;
+	}
+}
+
+/**
+ * Test, if a global set by config is not reported
+ * @phpcs:set MediaWiki.Usage.ExtendClassUsage nonConfigGlobals[] $wgMyNotConfigGlobal
+ */
+class NotFoundTest extends \ContextSource {
+	/**
+	 * @return object the request information.
+	 */
+	public function notFoundExampleExtensionSet() {
+		global $wgMyNotConfigGlobal;
+		return $wgMyNotConfigGlobal;
 	}
 }

@@ -1,15 +1,25 @@
- 16 | WARNING | Should use function $this->msg() rather than function
-    |         | wfMessage() .
-    |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
- 27 | ERROR   | Only one object structure is allowed in a file
-    |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 51 | ERROR   | Only one object structure is allowed in a file
-    |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 64 | WARNING | Should use function $this->getUser() rather than
-    |         | variable $wgUser .
-    |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
- 75 | ERROR   | Only one object structure is allowed in a file
-    |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 93 | WARNING | Should use function $this->getRequest() rather than
-    |         | variable $wgRequest .
-    |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
+  16 | WARNING | Should use function $this->msg() rather than
+     |         | function wfMessage() .
+     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
+  27 | WARNING | Should use function $this->getConfig()->get() rather
+     |         | than global $wgMyConfigGlobal .
+     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage)
+  37 | ERROR   | Only one object structure is allowed in a file
+     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  61 | ERROR   | Only one object structure is allowed in a file
+     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  74 | WARNING | Should use function $this->getUser() rather than
+     |         | variable $wgUser .
+     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
+  85 | ERROR   | Only one object structure is allowed in a file
+     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 103 | WARNING | Should use function $this->getRequest() rather than
+     |         | variable $wgRequest .
+     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
+ 117 | ERROR   | Only one object structure is allowed in a file
+     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 122 | WARNING | Should use function $this->getConfig()->get() rather
+     |         | than global $wgMyNotConfigGlobal .
+     |         | (MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage)
+ 131 | ERROR   | Only one object structure is allowed in a file
+     |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)

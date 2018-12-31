@@ -18,6 +18,37 @@ class ExtendClassUsageSniff implements Sniff {
 		T_VARIABLE => 'variable'
 	];
 
+	/**
+	 * Blacklist of globals, which cannot be used together with getConfig because there are objects,
+	 * not strings. There are excluded from reporting of this sniff.
+	 * @var string[]
+	 */
+	private static $nonConfigGlobalsMediaWikiCore = [
+		'$wgAuth',
+		'$wgConf',
+		'$wgContLang',
+		'$wgLang',
+		'$wgMemc',
+		'$wgOut',
+		'$wgParser',
+		'$wgRequest',
+		'$wgTitle',
+		'$wgUser',
+		'$wgVersion',
+
+		// special global from WebStart.php
+		'$IP',
+
+		// special global from entry points (index.php, load.php, api.php, etc.)
+		'$mediaWiki',
+	];
+
+	/**
+	 * Allow expand of the core blacklist for each extensions over .phpcs.xml by expand this setting.
+	 * @var string[]
+	 */
+	public $nonConfigGlobals = [];
+
 	public static $checkConfig = [
 		// All extended class name.
 		'extendsCls' => [
@@ -103,12 +134,16 @@ class ExtendClassUsageSniff implements Sniff {
 
 		$tokens = $phpcsFile->getTokens();
 		$currToken = $tokens[$stackPtr];
+		$nonConfigGlobals = array_flip( array_merge(
+			self::$nonConfigGlobalsMediaWikiCore, $this->nonConfigGlobals
+		) );
 
 		$extClsCheckList = self::$checkConfig['checkList'][$extClsContent];
 		// Loop over all tokens of the class to check each function
 		$i = $currToken['scope_opener'];
 		$end = $currToken['scope_closer'];
 		$eligableFunc = null;
+		$endOfGlobal = null;
 		while ( $i !== false && $i < $end ) {
 			$iToken = $tokens[$i];
 			if ( $iToken['code'] === T_FUNCTION ) {
@@ -159,6 +194,24 @@ class ExtendClassUsageSniff implements Sniff {
 						);
 					}
 				}
+
+				// Handle globals to check for use of getConfig()
+				if ( $iToken['code'] === T_GLOBAL ) {
+					$endOfGlobal = $phpcsFile->findEndOfStatement( $i, T_COMMA );
+				} elseif ( $endOfGlobal !== null && $i >= $endOfGlobal ) {
+					$endOfGlobal = null;
+				}
+				if ( $endOfGlobal !== null &&
+					$iToken['code'] === T_VARIABLE &&
+					!isset( $nonConfigGlobals[$iToken['content']] )
+				) {
+					$warning = 'Should use function %s rather than global %s .';
+					$replacement = '$this->getConfig()->get()';
+					$phpcsFile->addWarning(
+						$warning, $i, 'FunctionConfigUsage',
+						[ $replacement, $iToken['content'] ]
+					);
+				}
 			}
 			// Jump to the next function
 			if ( $eligableFunc === null
@@ -169,7 +222,7 @@ class ExtendClassUsageSniff implements Sniff {
 				continue;
 			}
 			// Find next token to work with
-			$i = $phpcsFile->findNext( [ T_STRING, T_VARIABLE, T_FUNCTION ], $i + 1, $end );
+			$i = $phpcsFile->findNext( [ T_STRING, T_VARIABLE, T_FUNCTION, T_GLOBAL ], $i + 1, $end );
 		}
 	}
 }
