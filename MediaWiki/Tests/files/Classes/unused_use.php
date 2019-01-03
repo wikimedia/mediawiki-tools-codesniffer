@@ -3,6 +3,8 @@ namespace FooBar;
 
 use FooBar\Baz;
 use Wikimedia\Database;
+use Wikimedia\Rdbms\ILBFactory;
+use Wikimedia\Rdbms\LBFactory;
 use Something\That\Is\Unused;
 use Something\That\Is\Used;
 use Something\Something;
@@ -77,4 +79,17 @@ class Foo {
 	 * @var Partial\InAVar10
 	 */
 	private $thing7;
+
+	/**
+	 * @var ILBFactory
+	 */
+	private $lbFactory;
+
+	/**
+	 * @param ILBFactory $lbFactory
+	 */
+	public function __construct( ILBFactory $lbFactory ) {
+		$this->lbFactory = $lbFactory;
+		self::lbFactory();
+	}
 }

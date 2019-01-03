@@ -156,10 +156,14 @@ class UnusedUseStatementSniff implements Sniff {
 						null,
 						true
 					);
+
 					// If a backslash is used before the class name then this is some other
 					// use statement.
+					// T_STRING also used for $this->property or self::function()
 					if ( $tokens[$beforeUsage]['code'] !== T_USE
 						&& $tokens[$beforeUsage]['code'] !== T_NS_SEPARATOR
+						&& $tokens[$beforeUsage]['code'] !== T_OBJECT_OPERATOR
+						&& $tokens[$beforeUsage]['code'] !== T_DOUBLE_COLON
 					) {
 						return;
 					}
