@@ -12,6 +12,7 @@
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<rule ref="Generic.Classes.DuplicateClassName" />
+	<rule ref="Generic.CodeAnalysis.EmptyPHPStatement" />
 	<!-- Some people like else { /** comment */ }
 	<rule ref="Generic.CodeAnalysis.EmptyStatement" />
 	-->
