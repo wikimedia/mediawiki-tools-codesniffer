@@ -72,7 +72,7 @@ class Foo {
 	private $thing6;
 
 	/**
-	 * @var Partial\InAVar10
+	 * @var Partial\InAVar10|\Unused\NamespaceLooksLikeClass
 	 */
 	private $thing7;
 
@@ -80,6 +80,11 @@ class Foo {
 	 * @var ILBFactory
 	 */
 	private $lbFactory;
+
+	/**
+	 * @var \Used\But\Always\FullyQualified
+	 */
+	private $thing8;
 
 	/**
 	 * @param ILBFactory $lbFactory

@@ -178,24 +178,15 @@ class UnusedUseStatementSniff implements Sniff {
 			} elseif ( $tokens[$classUsed]['code'] === T_DOC_COMMENT_TAG ) {
 				// Usage in a doc comment
 				if ( in_array( $tokens[$classUsed]['content'], $this->classTags )
-					&& $tokens[$classUsed + 1]['code'] === T_DOC_COMMENT_WHITESPACE
 					&& $tokens[$classUsed + 2]['code'] === T_DOC_COMMENT_STRING
+					// We aren't interested in the later, whitespace-separated parts of comments
+					// like `@param (Class1|Class2)[]|Class3<Class4,Class5> $var Description`.
+					&& preg_match(
+						'{^\S*?\b(?<!\\\\)' . preg_quote( $className ) . '\b}i',
+						$tokens[$classUsed + 2]['content']
+					)
 				) {
-					// For tags like "@param ClassName $var Description" we just want the class name
-					$exploded = explode( ' ', $tokens[$classUsed + 2]['content'], 2 );
-
-					// Now explode stuff like @var (Class1|Class2)[]|Class3<Class4,Class5>
-					preg_match_all( '/[\w\\\\]+/', $exploded[0], $classes );
-					foreach ( $classes[0] as $tagClassName ) {
-						// Handle partially qualified names
-						$firstBackslash = strpos( $tagClassName, '\\' );
-						if ( $firstBackslash > 0 ) {
-							$tagClassName = substr( $tagClassName, 0, $firstBackslash );
-						}
-						if ( strcasecmp( $tagClassName, $className ) === 0 ) {
-							return;
-						}
-					}
+					return;
 				}
 			}
 		}

@@ -23,6 +23,7 @@ use Something\InAExpectedException;
 use Something\InAParam;
 use Something\Partial;
 use InvalidArgumentException;
+use Used\But\Always\FullyQualified;
 
 $a = new Baz();
 $b = new Used();
@@ -76,7 +77,7 @@ class Foo {
 	private $thing6;
 
 	/**
-	 * @var Partial\InAVar10
+	 * @var Partial\InAVar10|\Unused\NamespaceLooksLikeClass
 	 */
 	private $thing7;
 
@@ -84,6 +85,11 @@ class Foo {
 	 * @var ILBFactory
 	 */
 	private $lbFactory;
+
+	/**
+	 * @var \Used\But\Always\FullyQualified
+	 */
+	private $thing8;
 
 	/**
 	 * @param ILBFactory $lbFactory

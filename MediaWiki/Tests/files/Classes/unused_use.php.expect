@@ -6,7 +6,9 @@
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
  25 | WARNING | [x] Unused use statement
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 44 | ERROR   | [ ] Only one object structure is allowed in a
+ 26 | WARNING | [x] Unused use statement
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 45 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
