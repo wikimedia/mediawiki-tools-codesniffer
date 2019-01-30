@@ -4,6 +4,8 @@
   27 | WARNING | Should use function $this->getConfig()->get() rather
      |         | than global $wgMyConfigGlobal .
      |         | (MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage)
+  32 | WARNING | Deprecated global $wgContLang used
+     |         | (MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgContLang)
   37 | ERROR   | Only one object structure is allowed in a file
      |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
   61 | ERROR   | Only one object structure is allowed in a file

@@ -1,0 +1,4 @@
+ 17 | WARNING | Deprecated global $wgTitle used
+    |         | (MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle)
+ 37 | WARNING | Deprecated global $wgTitle used
+    |         | (MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle)
