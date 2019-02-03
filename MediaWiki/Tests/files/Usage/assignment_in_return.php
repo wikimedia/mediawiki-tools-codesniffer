@@ -5,7 +5,15 @@
  * @return mixed
  */
 function wfFailedExamples() {
-	return $foo = 1;
+	if ( $foo === 1 ) {
+		return $foo = 1;
+	} else {
+		return new class() {
+			public function foo() {
+				return $foo = 1;
+			}
+		};
+	}
 }
 
 /**
@@ -17,6 +25,10 @@ function wfPassedExamples() {
 		return 1;
 	} elseif ( $foo === 1 ) {
 		return $foo === 1;
+	} elseif ( $foo === 2 ) {
+		return new class() extends SkinTemplate {
+			public $skinname = 'vector';
+		};
 	} else {
 		return function () use ( $foo ) {
 			$foo = 1;
