@@ -34,6 +34,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 	private $foo = 'halalalalalaa';
 
 	public $var;
+
 	/**
 	 * @param string $word The input string.
 	 * @return bool
@@ -74,6 +75,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		}
 		return (bool)$bar;
 	}
+
 	/**
 	 * @param string $par The test input.
 	 * @return void
@@ -104,6 +106,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		$foo = $par;
 		return $foo + $wgBarBarBar + $this->foo;
 	}
+
 	/**
 	 * @param FooBar $baz The FooBar object.
 	 * @return array $cat The merged array.

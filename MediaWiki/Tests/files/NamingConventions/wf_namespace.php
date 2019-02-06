@@ -2,8 +2,8 @@
 
 namespace FooBar;
 
-// Doesn't start with "wf"
 /**
+ * Doesn't start with "wf"
  * Passed examples.
  * @return void
  */

@@ -132,6 +132,13 @@
 	</rule>
 	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing" />
 	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
+	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
+		<properties>
+			<property name="spacing" value="1" />
+		</properties>
+		<exclude name="Squiz.WhiteSpace.FunctionSpacing.AfterLast" />
+		<exclude name="Squiz.WhiteSpace.FunctionSpacing.BeforeFirst" />
+	</rule>
 	<!-- <rule ref="Squiz.WhiteSpace.MemberVarSpacing" /> -->
 	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
 		<properties>
