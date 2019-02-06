@@ -1,5 +1,25 @@
 # MediaWiki-Codesniffer release history #
 
+## 24.0.0 / 2019-02-05 ##
+* Whitelist @after and @before phpunit annotations (Umherirrender)
+* Update PHP_CodeSniffer to 3.4.0 (Kunal Mehta)
+* Enable new Generic.VersionControl.GitMergeConflict sniff (Kunal Mehta)
+* Copyedit comments (Max Semenik)
+* Exclude methods in anonymous classes from the nested_functions sniff (mainframe98)
+* Disallow use of @access (Umherirrender)
+* Add $wgLang and $wgOut to ExtendClassUsageSniff (Umherirrender)
+* Enable Generic.WhiteSpace.IncrementDecrementSpacing (Umherirrender)
+* Enable Generic.Formatting.SpaceAfterNot with spacing 0 (Umherirrender)
+* Require mbstring since it is needed for FunctionAnnotationsSniff (Mark A. Hershberger)
+* Enable Generic.CodeAnalysis.EmptyPHPStatement (Umherirrender)
+* Fix UnusedUseStatementSniff to find more unused statements (Umherirrender)
+* Remove ForLoopWithTestFunctionCall (Tim Starling)
+* Add a sniff to replace !! with a cast to boolean (mainframe98)
+* Adjust warning text for PhpunitAnnotations.NotClassTrait sniff (Umherirrender)
+* Expand ExtendClassUsageSniff to check for config globals (Umherirrender)
+* Also exclude anonymous classes in AssignmentInReturnSniff (mainframe98)
+* Replace sniff for forbidden globals by deprecated globals (Umherirrender)
+
 ## 23.0.0 / 2018-11-14 ##
 * Add comment why @private and @protected are okay (Umherirrender)
 * Add sniff to detect + for string concat (Umherirrender)
