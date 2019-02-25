@@ -1,8 +1,14 @@
- 4 | WARNING | [x] Use is_int() instead of is_integer
-   |         |     (MediaWiki.Usage.ForbiddenFunctions.is_integer)
- 7 | WARNING | [ ] extract should not be used
-   |         |     (MediaWiki.Usage.ForbiddenFunctions.extract)
- 8 | WARNING | [ ] parse_str should not be used with 1
-   |         |     argument(s)
-   |         |     (MediaWiki.Usage.ForbiddenFunctions.parse_str)
-PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+  4 | WARNING | [x] Use is_int() instead of is_integer
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_integer)
+  7 | WARNING | [ ] extract should not be used
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.extract)
+  8 | WARNING | [ ] parse_str should not be used with 1
+    |         |     argument(s)
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.parse_str)
+ 10 | WARNING | [x] Use is_int() instead of is_long
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_long)
+ 14 | WARNING | [x] Use is_float() instead of is_double
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_double)
+ 17 | WARNING | [x] Use is_float() instead of is_real
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_real)
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

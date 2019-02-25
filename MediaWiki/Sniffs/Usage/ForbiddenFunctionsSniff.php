@@ -32,6 +32,9 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 */
 	private $functions = [
 		'is_integer' => 'is_int',
+		'is_long' => 'is_int',
+		'is_double' => 'is_float',
+		'is_real' => 'is_float',
 		'is_writeable' => 'is_writable',
 		'join' => 'implode',
 		'key_exists' => 'array_key_exists',
