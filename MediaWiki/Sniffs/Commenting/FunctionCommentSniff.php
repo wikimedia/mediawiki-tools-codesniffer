@@ -648,7 +648,9 @@ class FunctionCommentSniff implements Sniff {
 						$fixType = true;
 					}
 				}
-				if ( $singleType === 'null' ) {
+				// Either an explicit null, or mixed, which null is a
+				// part of (T218324)
+				if ( $singleType === 'null' || $singleType === 'mixed' ) {
 					$nullFound = true;
 				}
 				if ( substr( $singleType, -10 ) === '[optional]' ) {

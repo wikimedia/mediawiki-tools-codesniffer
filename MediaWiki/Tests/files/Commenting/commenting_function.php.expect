@@ -234,38 +234,38 @@
  262 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 270 | ERROR   | [x] Default of null should be declared in @param
+ 269 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 277 | ERROR   | [x] Key word "[optional]" on "string[optional]"
+ 278 | ERROR   | [x] Key word "[optional]" on "string[optional]"
      |         |     should not be used
      |         |     (MediaWiki.Commenting.FunctionComment.NoOptionalKeyWord)
- 278 | ERROR   | [x] Key word "[optional]" on "string[optional]|null"
+ 279 | ERROR   | [x] Key word "[optional]" on "string[optional]|null"
      |         |     should not be used
      |         |     (MediaWiki.Commenting.FunctionComment.NoOptionalKeyWord)
- 284 | ERROR   | [ ] Superfluous parameter comment
+ 285 | ERROR   | [ ] Superfluous parameter comment
      |         |     (MediaWiki.Commenting.FunctionComment.ExtraParamComment)
- 290 | ERROR   | [ ] Variadic parameter documented but not present in
+ 291 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 296 | ERROR   | [ ] Only one object structure is allowed in a
+ 297 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 365 | ERROR   | [ ] Missing function doc comment
+ 366 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 378 | WARNING | [ ] Comments should start on new line.
+ 379 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 382 | ERROR   | [ ] Only one object structure is allowed in a
+ 383 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 388 | ERROR   | [ ] Only one object structure is allowed in a
+ 389 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 389 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 390 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 392 | WARNING | [x] Use @param annotation instead of @parma
+ 393 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 402 | ERROR   | [ ] You must use "/**" style comments for a function
+ 403 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 47 MARKED SNIFF VIOLATIONS AUTOMATICALLY

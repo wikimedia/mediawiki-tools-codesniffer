@@ -267,9 +267,10 @@ class TestFailedExamples {
 	/**
 	 * Test default null
 	 * @param string $key
-	 * @param string $value
+	 * @param mixed $value
+	 * @param mixed|null $extra
 	 */
-	public function testDefaultNull( $key, $value = null ) {
+	public function testDefaultNull( $key = null, $value = null, $extra = null ) {
 	}
 
 	/**
