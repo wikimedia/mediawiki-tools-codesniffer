@@ -58,7 +58,6 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@returns' => true,
 		'@see' => true,
 		'@since' => true,
-		'@suppress' => true,
 		'@throw' => true,
 		'@throws' => true,
 		'@todo' => true,
@@ -72,6 +71,13 @@ class FunctionAnnotationsSniff implements Sniff {
 
 		// Special handling
 		'@access' => true,
+
+		// phan
+		'@phan-param' => true,
+		'@phan-return' => true,
+		'@phan-suppress-next-line' => true,
+		'@phan-var' => true,
+		'@suppress' => true,
 
 		// pseudo-tags from phan-taint-check-plugin
 		'@param-taint' => true,
