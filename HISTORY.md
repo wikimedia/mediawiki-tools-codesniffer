@@ -1,5 +1,11 @@
 # MediaWiki-Codesniffer release history #
 
+## 25.0.0 / 2019-04-05 ##
+* Prohibit aliases is_long, is_double and is_real (mainframe98)
+* Streamline PHPDoc comment parsing in UnusedUseStatement sniff (Thiemo Kreuz)
+* Upgrade PHP_CodeSniffer to 3.4.1 (Kunal Mehta)
+* Whitelist more phan annotations (Kunal Mehta)
+
 ## 24.0.0 / 2019-02-05 ##
 * Whitelist @after and @before phpunit annotations (Umherirrender)
 * Update PHP_CodeSniffer to 3.4.0 (Kunal Mehta)
