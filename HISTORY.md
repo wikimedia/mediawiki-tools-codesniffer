@@ -1,5 +1,11 @@
 # MediaWiki-Codesniffer release history #
 
+## 26.0.0 / 2019-0511 ##
+* Update composer/spdx-licenses from 1.4.0 to 1.5.1 (Reedy)
+* Update composer/semver from 1.4.2 to 1.5.0 (Reedy)
+* Enable sniff to check for newlines between functions (Umherirrender)
+* Upgrade PHP_CodeSniffer to 3.4.2 (Umherirrender)
+
 ## 25.0.0 / 2019-04-05 ##
 * Prohibit aliases is_long, is_double and is_real (mainframe98)
 * Streamline PHPDoc comment parsing in UnusedUseStatement sniff (Thiemo Kreuz)
