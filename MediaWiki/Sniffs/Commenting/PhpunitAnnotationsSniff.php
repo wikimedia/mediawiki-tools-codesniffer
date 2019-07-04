@@ -67,6 +67,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@small' => [ '@group small', 'GroupAliasSmall' ],
 		'@medium' => [ '@group medium', 'GroupAliasMedium' ],
 		'@large' => [ '@group large', 'GroupAliasLarge' ],
+
+		// From johnkary/phpunit-speedtrap
+		'@slowThreshold' => true,
 	];
 
 	/**
