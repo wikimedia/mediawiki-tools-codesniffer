@@ -119,229 +119,153 @@
  119 | WARNING | [x] Use @inheritDoc annotation instead of
      |         |     @inheritdoc
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 133 | ERROR   | [x] Comment star tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 134 | ERROR   | [x] Comment star tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 135 | ERROR   | [x] Comment star tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 136 | ERROR   | [x] Comment close tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocClose)
- 140 | ERROR   | [x] Comment open tag must be '/**'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 140 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
-     |         |     found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 141 | ERROR   | [x] Comment star must be a single '*'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 141 | ERROR   | [x] Comment star tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 141 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
-     |         |     found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 142 | ERROR   | [x] Comment star must be a single '*'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 142 | ERROR   | [x] Comment star tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 142 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
-     |         |     found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 143 | ERROR   | [x] Comment close tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocClose)
- 143 | ERROR   | [x] Comment close tag must be '*/'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 147 | ERROR   | [x] Comment open tag must be '/**'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 148 | ERROR   | [x] Comment star must be a single '*'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 148 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
-     |         |     found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 149 | ERROR   | [x] Comment star must be a single '*'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxMultiDocStar)
- 150 | ERROR   | [x] Comment close tag must be '*/'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 154 | ERROR   | [x] Comment open tag must be '/**'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 154 | ERROR   | [x] Expected 1 spaces after doc star on single line;
-     |         |     0 found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStarSingleLine)
- 154 | ERROR   | [x] Expected 1 spaces before close comment tag on
-     |         |     single line; 0 found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingSingleLineCloseTag)
- 154 | ERROR   | [x] Comment close tag must be '*/'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 158 | ERROR   | [x] Expected 1 spaces after doc star on single line;
-     |         |     3 found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStarSingleLine)
- 158 | ERROR   | [x] Expected 1 spaces before close comment tag on
-     |         |     single line; 2 found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingSingleLineCloseTag)
- 162 | ERROR   | [x] Comment open tag must be '/**'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxOpenTag)
- 163 | ERROR   | [x] Comment star tag not aligned with open tag
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxAlignedDocStar)
- 163 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
-     |         |     found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 163 | ERROR   | [x] Comment close tag must be '*/'
-     |         |     (MediaWiki.Commenting.FunctionComment.SyntaxCloseTag)
- 163 | ERROR   | [x] Comment close tag should have own line
-     |         |     (MediaWiki.Commenting.FunctionComment.CloseTagOwnLine)
- 168 | ERROR   | [x] Expected 1 spaces before @param; 0 found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
- 168 | ERROR   | [x] Expected at least 1 spaces after doc star; 0
-     |         |     found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocStar)
- 169 | ERROR   | [x] Expected 1 spaces before @return; 2 found
-     |         |     (MediaWiki.Commenting.FunctionComment.SpacingDocTag)
- 176 | ERROR   | [x] Use @param tag in function comment instead of
+ 133 | ERROR   | [x] Use @param tag in function comment instead of
      |         |     @param[in]
      |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
- 177 | ERROR   | [x] Use @param tag in function comment instead of
+ 134 | ERROR   | [x] Use @param tag in function comment instead of
      |         |     @param[out]
      |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
- 178 | ERROR   | [x] Use @param tag in function comment instead of
+ 135 | ERROR   | [x] Use @param tag in function comment instead of
      |         |     @param[in,out]
      |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
- 190 | ERROR   | [ ] Splat operator missing for documented variadic
+ 147 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "$params,..."
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 190 | WARNING | [ ] Comments should start on new line.
+ 147 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 190 | ERROR   | [ ] Comments indicating variadic arguments are
+ 147 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 198 | WARNING | [ ] Comments should start on new line.
+ 155 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 198 | ERROR   | [ ] Comments indicating variadic arguments are
+ 155 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 206 | ERROR   | [ ] Splat operator missing for documented variadic
+ 163 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "...$params"
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 206 | WARNING | [ ] Comments should start on new line.
+ 163 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 206 | ERROR   | [ ] Comments indicating variadic arguments are
+ 163 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 214 | WARNING | [ ] Comments should start on new line.
+ 171 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 214 | ERROR   | [ ] Comments indicating variadic arguments are
+ 171 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 222 | ERROR   | [ ] Splat operator missing for documented variadic
+ 179 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "$params,..."
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 238 | ERROR   | [ ] Splat operator missing for documented variadic
+ 195 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "...$params"
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 252 | ERROR   | [ ] Variadic parameter documented but not present in
+ 209 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 254 | WARNING | [ ] Comments should start on new line.
+ 211 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 254 | ERROR   | [ ] Comments indicating variadic arguments are
+ 211 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 259 | ERROR   | [ ] Variadic parameter documented but not present in
+ 216 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 261 | WARNING | [ ] Comments should start on new line.
+ 218 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 261 | ERROR   | [ ] Comments indicating variadic arguments are
+ 218 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 266 | ERROR   | [ ] Variadic parameter documented but not present in
+ 223 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 268 | WARNING | [ ] Comments should start on new line.
+ 225 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 268 | ERROR   | [ ] Comments indicating variadic arguments are
+ 225 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 273 | ERROR   | [ ] Variadic parameter documented but not present in
+ 230 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 275 | WARNING | [ ] Comments should start on new line.
+ 232 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 275 | ERROR   | [ ] Comments indicating variadic arguments are
+ 232 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 278 | ERROR   | [ ] Doc comment for parameter "...$params"
+ 235 | ERROR   | [ ] Doc comment for parameter "...$params"
      |         |     missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 286 | ERROR   | [ ] Variadic parameter documented but not present in
+ 243 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 288 | WARNING | [ ] Comments should start on new line.
+ 245 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 288 | WARNING | [ ] Comments should start on new line.
+ 245 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 288 | ERROR   | [ ] Comments indicating variadic arguments are
+ 245 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 293 | ERROR   | [ ] Variadic parameter documented but not present in
+ 250 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 295 | WARNING | [ ] Comments should start on new line.
+ 252 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 295 | WARNING | [ ] Comments should start on new line.
+ 252 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 295 | ERROR   | [ ] Comments indicating variadic arguments are
+ 252 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
- 299 | WARNING | [x] Expected 1 spaces after parameter type; 9
+ 256 | WARNING | [x] Expected 1 spaces after parameter type; 9
      |         |     found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
- 305 | WARNING | [x] Expected 1 spaces after parameter type; 9
+ 262 | WARNING | [x] Expected 1 spaces after parameter type; 9
      |         |     found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
- 305 | ERROR   | [ ] Variadic parameter documented but not present in
+ 262 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 313 | ERROR   | [x] Default of null should be declared in @param
+ 270 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 320 | ERROR   | [x] Key word "[optional]" on "string[optional]"
+ 277 | ERROR   | [x] Key word "[optional]" on "string[optional]"
      |         |     should not be used
      |         |     (MediaWiki.Commenting.FunctionComment.NoOptionalKeyWord)
- 321 | ERROR   | [x] Key word "[optional]" on "string[optional]|null"
+ 278 | ERROR   | [x] Key word "[optional]" on "string[optional]|null"
      |         |     should not be used
      |         |     (MediaWiki.Commenting.FunctionComment.NoOptionalKeyWord)
- 327 | ERROR   | [ ] Superfluous parameter comment
+ 284 | ERROR   | [ ] Superfluous parameter comment
      |         |     (MediaWiki.Commenting.FunctionComment.ExtraParamComment)
- 333 | ERROR   | [ ] Variadic parameter documented but not present in
+ 290 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 339 | ERROR   | [ ] Only one object structure is allowed in a
+ 296 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 408 | ERROR   | [ ] Missing function doc comment
+ 365 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 421 | WARNING | [ ] Comments should start on new line.
+ 378 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 425 | ERROR   | [ ] Only one object structure is allowed in a
+ 382 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 431 | ERROR   | [ ] Only one object structure is allowed in a
+ 388 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 432 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 389 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 435 | WARNING | [x] Use @param annotation instead of @parma
+ 392 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 445 | ERROR   | [ ] You must use "/**" style comments for a function
+ 402 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
-PHPCBF CAN FIX THE 80 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 47 MARKED SNIFF VIOLATIONS AUTOMATICALLY

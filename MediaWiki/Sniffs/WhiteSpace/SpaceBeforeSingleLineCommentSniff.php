@@ -1,8 +1,8 @@
 <?php
 /**
-* Verify that comments are preceeded by a single space. However, allow it if there are
-* multiple single-line comments on consecutive lines (also with empty lines in between).
-*/
+ * Verify that comments are preceeded by a single space. However, allow it if there are
+ * multiple single-line comments on consecutive lines (also with empty lines in between).
+ */
 
 namespace MediaWiki\Sniffs\WhiteSpace;
 

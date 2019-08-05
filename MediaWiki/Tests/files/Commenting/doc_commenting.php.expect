@@ -1,0 +1,88 @@
+  4 | ERROR | [x] Comment star tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+  5 | ERROR | [x] Comment close tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocClose)
+  9 | ERROR | [x] Comment star tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+ 10 | ERROR | [x] Comment star tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+ 11 | ERROR | [x] Comment star tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+ 12 | ERROR | [x] Comment close tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocClose)
+ 16 | ERROR | [x] Comment open tag must be '/**'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxOpenTag)
+ 16 | ERROR | [x] Expected at least 1 spaces after doc star; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
+ 17 | ERROR | [x] Comment star must be a single '*'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxMultiDocStar)
+ 17 | ERROR | [x] Comment star tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+ 17 | ERROR | [x] Expected at least 1 spaces after doc star; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
+ 18 | ERROR | [x] Comment star must be a single '*'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxMultiDocStar)
+ 18 | ERROR | [x] Comment star tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+ 18 | ERROR | [x] Expected at least 1 spaces after doc star; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
+ 19 | ERROR | [x] Comment close tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocClose)
+ 19 | ERROR | [x] Comment close tag must be '*/'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxCloseTag)
+ 23 | ERROR | [x] Comment open tag must be '/**'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxOpenTag)
+ 24 | ERROR | [x] Comment star must be a single '*'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxMultiDocStar)
+ 24 | ERROR | [x] Expected at least 1 spaces after doc star; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
+ 25 | ERROR | [x] Comment star must be a single '*'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxMultiDocStar)
+ 26 | ERROR | [x] Comment close tag must be '*/'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxCloseTag)
+ 30 | ERROR | [x] Comment open tag must be '/**'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxOpenTag)
+ 30 | ERROR | [x] Expected 1 spaces after doc star on single line; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStarSingleLine)
+ 30 | ERROR | [x] Expected 1 spaces before close comment tag on
+    |       |     single line; 0 found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingSingleLineCloseTag)
+ 30 | ERROR | [x] Comment close tag must be '*/'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxCloseTag)
+ 34 | ERROR | [x] Expected 1 spaces after doc star on single line; 3
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStarSingleLine)
+ 34 | ERROR | [x] Expected 1 spaces before close comment tag on
+    |       |     single line; 2 found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingSingleLineCloseTag)
+ 38 | ERROR | [x] Comment open tag must be '/**'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxOpenTag)
+ 39 | ERROR | [x] Comment star tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+ 39 | ERROR | [x] Expected at least 1 spaces after doc star; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
+ 39 | ERROR | [x] Comment close tag must be '*/'
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxCloseTag)
+ 39 | ERROR | [x] Comment close tag should have own line
+    |       |     (MediaWiki.Commenting.DocComment.CloseTagOwnLine)
+ 44 | ERROR | [x] Expected 1 spaces before @param; 0 found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocTag)
+ 44 | ERROR | [x] Expected at least 1 spaces after doc star; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
+ 45 | ERROR | [x] Expected 1 spaces before @return; 2 found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocTag)
+ 46 | ERROR | [x] Expected 1 spaces before @see; 0 found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocTag)
+ 46 | ERROR | [x] Expected at least 1 spaces after doc star; 0
+    |       |     found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
+ 54 | ERROR | [ ] Only one object structure is allowed in a file
+    |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+PHPCBF CAN FIX THE 37 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -130,49 +130,6 @@ class TestFailedExamples {
 	}
 
 	/**
-	* Some text
-	  *
-	* And other test
-	*/
-	public function testStarAlignedDoc() {
-	}
-
-	/***SomeTextWithoutSpaces
-	***
-	***AndNoSpacesHere
-	***/
-	public function testSyntaxDoc() {
-	}
-
-	/***  NoSpaceHere
-	 ***
-	 ***  AndHere
-	 ***/
-	public function testVerySpacyDoc() {
-	}
-
-	/***SingleLineNoSpaceHere***/
-	public function testSpacingDocSingleLine() {
-	}
-
-	/**   SingleLineSpacy  */
-	public function testSpacingDocSingleLineSpacy() {
-	}
-
-	/***
-	*NewLineNoSpaceHere***/
-	public function testCloseTagOwnLine() {
-	}
-
-	/** Comment
-	 *@param string $a A comment
-	 *  @return string A comment
-	 */
-	public function testSyntaxDocTag( $a ) {
-		return $a;
-	}
-
-	/**
 	 * @param[in] int $in A comment
 	 * @param[out] int &$out A comment
 	 * @param[in,out] int &$inOut A comment
