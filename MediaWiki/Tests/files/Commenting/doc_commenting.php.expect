@@ -83,6 +83,16 @@
  46 | ERROR | [x] Expected at least 1 spaces after doc star; 0
     |       |     found
     |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
- 54 | ERROR | [ ] Only one object structure is allowed in a file
+ 57 | ERROR | [x] Expected 1 spaces before @return; 2 found
+    |       |     (MediaWiki.Commenting.DocComment.SpacingDocTag)
+ 64 | ERROR | [x] Expected '*' on each line
+    |       |     (MediaWiki.Commenting.DocComment.NoDocStar)
+ 70 | ERROR | [x] Comment close tag not aligned with open tag
+    |       |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocClose)
+ 70 | ERROR | [x] Comment close tag should have own line
+    |       |     (MediaWiki.Commenting.DocComment.CloseTagOwnLine)
+ 75 | ERROR | [x] Expected '*' on each line
+    |       |     (MediaWiki.Commenting.DocComment.NoDocStar)
+ 83 | ERROR | [ ] Only one object structure is allowed in a file
     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 37 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 42 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -25,6 +25,20 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class DocCommentSniff implements Sniff {
 
+	/** Do not report very long asteriks line, there are eye catchers for structure of the code */
+	private const COMMENT_START_ASTERIKS_MAX_LEN = 10;
+
+	/**
+	 * List of annotations where the spacing before is not checked.
+	 * For example because this annotations are used inside a long text
+	 *
+	 * @var string[]
+	 */
+	private const ANNOTATIONS_IGNORE_MULTI_SPACE_BEFORE = [
+		'@see',
+		'@deprecated',
+	];
+
 	/**
 	 * @inheritDoc
 	 */
@@ -48,7 +62,8 @@ class DocCommentSniff implements Sniff {
 
 		// Start token should exact /**
 		if ( $tokens[$commentStart]['code'] === T_DOC_COMMENT_OPEN_TAG &&
-			$tokens[$commentStart]['content'] !== '/**'
+			$tokens[$commentStart]['content'] !== '/**' &&
+			$tokens[$commentStart]['length'] < self::COMMENT_START_ASTERIKS_MAX_LEN
 		) {
 			$error = 'Comment open tag must be \'/**\'';
 			$fix = $phpcsFile->addFixableError( $error, $commentStart, 'SyntaxOpenTag' );
@@ -56,12 +71,44 @@ class DocCommentSniff implements Sniff {
 				$phpcsFile->fixer->replaceToken( $commentStart, '/**' );
 			}
 		}
-		// Calculate the column to align all doc stars. Use column of /**, add 1 to skip char /
-		$columnDocStar = $tokens[$commentStart]['column'] + 1;
+		$columnDocStar = $this->getDocStarColumn( $phpcsFile, $commentStart );
 		$prevLineDocStar = $tokens[$commentStart]['line'];
+		$lastLine = $commentStart;
+		$lineWithDocStar = true;
+		$indent = $this->getCommentIndent( $phpcsFile, $commentStart );
 
 		for ( $i = $commentStart; $i <= $commentEnd; $i++ ) {
 			$initialStarChars = 0;
+
+			if ( $tokens[$lastLine]['line'] !== $tokens[$i]['line'] ) {
+				if ( !$lineWithDocStar ) {
+					$fix = $phpcsFile->addFixableError(
+						'Expected \'*\' on each line',
+						$lastLine,
+						'NoDocStar'
+					);
+					if ( $fix ) {
+						$posNonWhitespace = $phpcsFile->findFirstOnLine(
+							[ T_DOC_COMMENT_WHITESPACE ], $i - 1, true
+						);
+						if ( $posNonWhitespace === false ) {
+							// empty line
+							$phpcsFile->fixer->addContentBefore( $lastLine, $indent . '*' );
+						} else {
+							$phpcsFile->fixer->beginChangeset();
+							// line with content, first remove old indent
+							for ( $j = $lastLine; $j < $posNonWhitespace; $j++ ) {
+								$phpcsFile->fixer->replaceToken( $j, '' );
+							}
+							// and set a new indent with the doc star and a space
+							$phpcsFile->fixer->addContentBefore( $lastLine, $indent . '* ' );
+							$phpcsFile->fixer->endChangeset();
+						}
+					}
+				}
+				$lineWithDocStar = false;
+				$lastLine = $i;
+			}
 
 			// Star token should exact *
 			if ( $tokens[$i]['code'] === T_DOC_COMMENT_STAR ) {
@@ -84,9 +131,10 @@ class DocCommentSniff implements Sniff {
 						);
 					}
 				}
+				$lineWithDocStar = true;
 			}
 
-			// Ensure whitespace after /** or *
+			// Ensure whitespace or tab after /** or *
 			if ( ( $tokens[$i]['code'] === T_DOC_COMMENT_OPEN_TAG ||
 				$tokens[$i]['code'] === T_DOC_COMMENT_STAR ) &&
 				$tokens[$i + 1]['length'] > 0
@@ -95,7 +143,7 @@ class DocCommentSniff implements Sniff {
 				$expectedSpaces = 1;
 				// ignore * removed by SyntaxMultiDocStar and count spaces after that
 				$currentSpaces = strspn(
-					$tokens[$commentStarSpacing]['content'], ' ', $initialStarChars
+					$tokens[$commentStarSpacing]['content'], " \t", $initialStarChars
 				);
 				$error = null;
 				$code = null;
@@ -148,7 +196,13 @@ class DocCommentSniff implements Sniff {
 				$commentTagSpacing = $i - 1;
 				$expectedSpaces = 1;
 				$currentSpaces = strspn( strrev( $tokens[$commentTagSpacing]['content'] ), ' ' );
-				if ( $expectedSpaces !== $currentSpaces ) {
+				// Relax the check for a list of annotations for multi spaces before the annotation,
+				// but report missing spaces
+				if ( $currentSpaces < $expectedSpaces || (
+						$currentSpaces > $expectedSpaces &&
+						!in_array( $tokens[$i]['content'], self::ANNOTATIONS_IGNORE_MULTI_SPACE_BEFORE, true )
+					)
+				) {
 					$data = [
 						$expectedSpaces,
 						$tokens[$i]['content'],
@@ -168,8 +222,8 @@ class DocCommentSniff implements Sniff {
 								$commentTagSpacing,
 								substr( $content, 0, $expectedSpaces - $currentSpaces )
 							);
-						} else {
-							// Add whitespace
+						} elseif ( $tokens[$commentTagSpacing]['code'] !== T_DOC_COMMENT_STAR ) {
+							// Add whitespace, when not conflict with the addition of spacing for doc star
 							$phpcsFile->fixer->addContentBefore(
 								$i, str_repeat( ' ', $expectedSpaces )
 							);
@@ -195,9 +249,9 @@ class DocCommentSniff implements Sniff {
 				}
 				$fix = $phpcsFile->addFixableError( $error, $i, $code );
 				if ( $fix ) {
+					$tokenBefore = $i - 1;
 					$columnOff = $columnDocStar - $tokens[$i]['column'];
 					if ( $columnOff < 0 ) {
-						$tokenBefore = $i - 1;
 						// Ensure to remove only whitespaces
 						if ( $tokens[$tokenBefore]['code'] === T_DOC_COMMENT_WHITESPACE ) {
 							$columnOff = max( $columnOff, $tokens[$tokenBefore]['length'] * -1 );
@@ -207,17 +261,23 @@ class DocCommentSniff implements Sniff {
 								substr( $tokens[$tokenBefore]['content'], 0, $columnOff )
 							);
 						}
+					} elseif ( $tokens[$tokenBefore]['length'] !== 0 ) {
+						// Set correct indent
+						$phpcsFile->fixer->replaceToken( $tokenBefore, $indent );
 					} else {
-						// Add whitespaces
-						$phpcsFile->fixer->addContentBefore( $i, str_repeat( ' ', $columnOff ) );
+						// Add correct indent
+						$phpcsFile->fixer->addContent( $tokenBefore, $indent );
 					}
 				}
 				$prevLineDocStar = $tokens[$i]['line'];
+
+				continue;
 			}
 		}
 
 		// End token should exact */
 		if ( $tokens[$commentEnd]['code'] === T_DOC_COMMENT_CLOSE_TAG &&
+			$tokens[$commentEnd]['length'] > 0 &&
 			$tokens[$commentEnd]['content'] !== '*/'
 		) {
 			$error = 'Comment close tag must be \'*/\'';
@@ -234,22 +294,16 @@ class DocCommentSniff implements Sniff {
 				[ T_DOC_COMMENT_WHITESPACE ], $prev, null, true
 			);
 			if ( $tokens[$prevNonWhitespace]['line'] === $tokens[$commentEnd]['line'] ) {
-				$firstWhitespaceOnLine = $phpcsFile->findFirstOnLine(
-					[ T_DOC_COMMENT_WHITESPACE ], $prevNonWhitespace
-				);
 				$error = 'Comment close tag should have own line';
 				$fix = $phpcsFile->addFixableError( $error, $commentEnd, 'CloseTagOwnLine' );
 				if ( $fix ) {
 					$phpcsFile->fixer->beginChangeset();
 					$phpcsFile->fixer->addNewline( $prev );
-					// Copy the indent of the previous line to the new line
-					$phpcsFile->fixer->addContent(
-						$prev, $tokens[$firstWhitespaceOnLine]['content']
-					);
+					$phpcsFile->fixer->addContent( $prev, $indent );
 					$phpcsFile->fixer->endChangeset();
 				}
 			}
-		} else {
+		} elseif ( $tokens[$commentEnd]['length'] > 0 ) {
 			// Ensure a whitespace before the token
 			$commentCloseSpacing = $commentEnd - 1;
 			$expectedSpaces = 1;
@@ -281,5 +335,24 @@ class DocCommentSniff implements Sniff {
 				}
 			}
 		}
+	}
+
+	private function getCommentIndent( File $phpcsFile, $stackPtr ) {
+		$firstLineToken = $phpcsFile->findFirstOnLine( [ T_WHITESPACE ], $stackPtr );
+		if ( $firstLineToken === false ) {
+			// no indent before the comment, but the doc star has one space indent
+			return ' ';
+		}
+		return $phpcsFile->getTokensAsString( $firstLineToken, $stackPtr - $firstLineToken ) . ' ';
+	}
+
+	private function getDocStarColumn( File $phpcsFile, $stackPtr ) {
+		$tokens = $phpcsFile->getTokens();
+		// Handle special case /*****//** to look for the column of the first comment start
+		if ( $tokens[$stackPtr - 1]['code'] === T_DOC_COMMENT_CLOSE_TAG ) {
+			$stackPtr = $tokens[$stackPtr - 1]['comment_opener'];
+		}
+		// Calculate the column to align all doc stars. Use column of /**, add 1 to skip char /
+		return $tokens[$stackPtr]['column'] + 1;
 	}
 }
