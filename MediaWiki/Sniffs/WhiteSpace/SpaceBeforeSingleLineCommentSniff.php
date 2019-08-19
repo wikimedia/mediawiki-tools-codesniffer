@@ -1,6 +1,7 @@
 <?php
 /**
-* Verify comments are preceeded by a single space.
+* Verify that comments are preceeded by a single space. However, allow it if there are
+* multiple single-line comments on consecutive lines (also with empty lines in between).
 */
 
 namespace MediaWiki\Sniffs\WhiteSpace;
@@ -55,23 +56,32 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 					rtrim( $currToken['content'] ) === '#' )
 			) {
 				return;
+			}
+
+			// If the previous token is a comment, assume extra spaces are used for indenting
+			// and thus are OK.
+			if ( $preToken !== false && $tokens[$preToken]['code'] === T_COMMENT ) {
+				return;
+			}
+
 			// Checking whether there is a space between the comment delimiter
 			// and the comment
-			} elseif ( substr( $currToken['content'], 0, 2 ) === '//' ) {
+			if ( substr( $currToken['content'], 0, 2 ) === '//' ) {
 				$commentContent = substr( $currToken['content'], 2 );
 				$commentTrim = ltrim( $commentContent );
-				if ( strlen( $commentContent ) !== ( strlen( $commentTrim ) + 1 ) ||
+				if (
+					strlen( $commentContent ) !== ( strlen( $commentTrim ) + 1 ) ||
 					$currToken['content'][2] !== ' '
 				) {
-				$error = 'Single space expected between "//" and comment';
-				$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
-					'SingleSpaceBeforeSingleLineComment'
-				);
-				if ( $fix ) {
-					$newContent = '// ';
-					$newContent .= $commentTrim;
-					$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
-				}
+					$error = 'Single space expected between "//" and comment';
+					$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
+						'SingleSpaceBeforeSingleLineComment'
+					);
+					if ( $fix ) {
+						$newContent = '// ';
+						$newContent .= $commentTrim;
+						$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
+					}
 				}
 			// Finding what the comment delimiter is and checking whether there is a space
 			// between the comment delimiter and the comment.
