@@ -1,1 +1,4 @@
-
+ 11 | WARNING | [x] Use @phan-template annotation instead of
+    |         |     @template
+    |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

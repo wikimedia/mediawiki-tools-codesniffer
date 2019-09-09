@@ -78,7 +78,9 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@phan-suppress-next-line' => true,
 		'@phan-var' => true,
 		'@suppress' => true,
-		'@template' => true,
+		'@phan-template' => true,
+		// No other consumers for now.
+		'@template' => '@phan-template',
 
 		// pseudo-tags from phan-taint-check-plugin
 		'@param-taint' => true,

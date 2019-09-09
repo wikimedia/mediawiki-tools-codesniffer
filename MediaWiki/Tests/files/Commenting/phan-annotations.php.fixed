@@ -8,7 +8,7 @@ class PhanTests {
 	private $foo;
 
 	/**
-	 * @template T
+	 * @phan-template T
 	 * @phan-template T
 	 * @param AuthenticationRequest[] $reqs
 	 * @phan-param T[] $reqs
