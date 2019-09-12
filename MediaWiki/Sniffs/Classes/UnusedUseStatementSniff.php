@@ -39,6 +39,7 @@ class UnusedUseStatementSniff implements Sniff {
 		'@return',
 		'@throws',
 		'@var',
+		'@property',
 		// Deprecated
 		'@type',
 	];
