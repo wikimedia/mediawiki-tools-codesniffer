@@ -24,7 +24,7 @@
 	},
 	"scripts": {
 		"test": [
-			"parallel-lint . --exclude vendor --exclude MediaWiki/Tests/files/PHP71Features",
+			"parallel-lint . --exclude vendor",
 			"phpunit $PHPUNIT_ARGS",
 			"phpcs -p -s",
 			"minus-x check ."
