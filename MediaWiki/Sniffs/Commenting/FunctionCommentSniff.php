@@ -83,6 +83,8 @@ class FunctionCommentSniff implements Sniff {
 			return;
 		}
 
+		$this->checkVariadicArgComments( $phpcsFile, $stackPtr );
+
 		$tokens = $phpcsFile->getTokens();
 		$find = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
@@ -475,21 +477,23 @@ class FunctionCommentSniff implements Sniff {
 				$error = 'Missing parameter type';
 				$phpcsFile->addError( $error, $tag, 'MissingParamType' );
 			}
-			$isVariadicArg = substr( $var, -4 ) === ',...';
-			if ( $isVariadicArg ) {
-				// Variadic args sometimes part of the argument list,
-				// sometimes not. Remove the variadic indicator from the doc name to
-				// compare it against the real name, when it is part of the argument list.
-				// If it is not part of the argument list,
-				// the name of the extra paremter will not be checked.
-				// This does not take care for the php5.6 ...$var feature
+
+			$isLegacyVariadicArg = substr( $var, -4 ) === ',...';
+			$isVariadicArg = substr( $var, 0, 4 ) === '...$';
+			// Remove the variadic indicator from the doc name to compare it against the real
+			// name, so that we can allow both formats.
+			if ( $isLegacyVariadicArg ) {
 				$var = substr( $var, 0, -4 );
+			} elseif ( $isVariadicArg ) {
+				$var = substr( $var, 3 );
 			}
+
 			$params[] = [
 				'tag' => $tag,
 				'type' => $type,
 				'var' => $var,
 				'variadic_arg' => $isVariadicArg,
+				'legacy_variadic_arg' => $isLegacyVariadicArg,
 				'comment' => $comment,
 				'comment_first' => $commentFirst,
 				'param_space' => $paramSpace,
@@ -589,26 +593,37 @@ class FunctionCommentSniff implements Sniff {
 			if ( isset( $realParams[$pos] ) ) {
 				$realName = $realParams[$pos]['name'];
 				if ( $realName !== $var ) {
-					$code = 'ParamNameNoMatch';
-					$data = [
-						$var,
-						$realName,
-					];
-					$error = 'Doc comment for parameter %s does not match ';
-					if ( strcasecmp( $var, $realName ) === 0 ) {
-						$error .= 'case of ';
-						$code = 'ParamNameNoCaseMatch';
+					if (
+						substr( $realName, 0, 4 ) === '...$' &&
+						( $param['legacy_variadic_arg'] || $param['variadic_arg'] )
+					) {
+						// Mark all variants as found
+						$foundParams[] = "...$var";
+						$foundParams[] = "$var,...";
+					} else {
+						$code = 'ParamNameNoMatch';
+						$data = [
+							$var,
+							$realName,
+						];
+						$error = 'Doc comment for parameter %s does not match ';
+						if ( strcasecmp( $var, $realName ) === 0 ) {
+							$error .= 'case of ';
+							$code = 'ParamNameNoCaseMatch';
+						}
+						$error .= 'actual variable name %s';
+						$phpcsFile->addError( $error, $param['tag'], $code, $data );
 					}
-					$error .= 'actual variable name %s';
-					$phpcsFile->addError( $error, $param['tag'], $code, $data );
 				}
 				if ( isset( $realParams[$pos]['default'] ) &&
 					$realParams[$pos]['default'] === 'null'
 				) {
 					$defaultNull = true;
 				}
-			} elseif ( !$param['variadic_arg'] ) {
-				// We must have an extra parameter comment.
+			} elseif ( $param['variadic_arg'] || $param['legacy_variadic_arg'] ) {
+				$error = 'Variadic parameter documented but not present in the signature';
+				$phpcsFile->addError( $error, $param['tag'], 'VariadicDocNotSignature' );
+			} else {
 				$error = 'Superfluous parameter comment';
 				$phpcsFile->addError( $error, $param['tag'], 'ExtraParamComment' );
 			}
@@ -702,14 +717,30 @@ class FunctionCommentSniff implements Sniff {
 					);
 				}
 			}
+			// Warn if the parameter is documented as variadic, but the signature doesn't have
+			// the splat operator
+			if (
+				( $param['variadic_arg'] || $param['legacy_variadic_arg'] ) &&
+				isset( $realParams[$pos] ) &&
+				$realParams[$pos]['variable_length'] === false
+			) {
+				$error = 'Splat operator missing for documented variadic parameter "%s"';
+				$legacyName = $param['legacy_variadic_arg'] ? "$var,..." : "...$var";
+				$phpcsFile->addError(
+					$error,
+					$realParams[$pos]['token'],
+					'MissingSplatVariadicArg',
+					[ $legacyName ]
+				);
+			}
 		}
 		$realNames = [];
 		foreach ( $realParams as $realParam ) {
 			$realNames[] = $realParam['name'];
 		}
 		// Report missing comments.
-		$diff = array_diff( $realNames, $foundParams );
-		foreach ( $diff as $neededParam ) {
+		$missing = array_diff( $realNames, $foundParams );
+		foreach ( $missing as $neededParam ) {
 			$error = 'Doc comment for parameter "%s" missing';
 			$data = [ $neededParam ];
 			$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', $data );
@@ -730,8 +761,11 @@ class FunctionCommentSniff implements Sniff {
 		// Build the new line
 		$content = $fixParam['type'];
 		$content .= str_repeat( ' ', $fixParam['type_space'] );
-		$content .= $fixParam['var'];
 		if ( $fixParam['variadic_arg'] ) {
+			$content .= '...';
+		}
+		$content .= $fixParam['var'];
+		if ( $fixParam['legacy_variadic_arg'] ) {
 			$content .= ',...';
 		}
 		$content .= str_repeat( ' ', $fixParam['var_space'] );
@@ -984,6 +1018,44 @@ class FunctionCommentSniff implements Sniff {
 					}
 				}
 			}
+		}
+	}
+
+	/**
+	 * Warn if any comment containing hints of a variadic argument is found within the arguments list.
+	 * This includes comment only containing "...", or containing variable names preceded by "...",
+	 * or ",...".
+	 * Actual variadic arguments should be used instead.
+	 *
+	 * @param File $phpcsFile The file being scanned.
+	 * @param int $functionStart The position in the stack where the function declaration starts
+	 */
+	protected function checkVariadicArgComments( File $phpcsFile, $functionStart ) {
+		$tokens = $phpcsFile->getTokens();
+		$argsStart = $tokens[$functionStart]['parenthesis_opener'];
+		$argsEnd = $tokens[$functionStart]['parenthesis_closer'];
+
+		$variargReg = '/^[, \t]*\.\.\.[ \t]*$|[ \t]*\.\.\.\$|\$[a-z_][a-z0-9_]*,\.\.\./i';
+
+		$commentPos = $phpcsFile->findNext( T_COMMENT, $argsStart, $argsEnd );
+		while ( $commentPos !== false ) {
+			$comment = $tokens[$commentPos]['content'];
+			if ( substr( $comment, 0, 2 ) === '/*' ) {
+				$content = substr( $comment, 2, -2 );
+				if ( preg_match( $variargReg, $content ) ) {
+					// An autofix would be trivial to write, but we shouldn't offer that. Removing the
+					// comment is not enough, because people should also add the actual variadic parameter.
+					// For some methods, variadic parameters are only documented via this inline comment,
+					// hence an autofixer would effectively remove any documentation about them.
+					$phpcsFile->addError(
+						'Comments indicating variadic arguments are superfluous and should be replaced ' .
+							'with actual variadic arguments',
+						$commentPos,
+						'SuperfluousVariadicArgComment'
+					);
+				}
+			}
+			$commentPos = $phpcsFile->findNext( T_COMMENT, $commentPos + 1, $argsEnd );
 		}
 	}
 }

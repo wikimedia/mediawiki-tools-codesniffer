@@ -187,7 +187,63 @@ class TestFailedExamples {
 	 * @param string $key A comment
 	 * @param string $params,... A comment
 	 */
-	public function testVariadicArgInArgList( $key, $params /* ... */ ) {
+	public function testVariadicArgInArgListWithComment1( $key, $params /* ... */ ) {
+	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgInArgListWithComment2( $key, ...$params /* ... */ ) {
+	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string ...$params A comment
+	 */
+	public function testVariadicArgInArgListWithComment3( $key, $params /* ... */ ) {
+	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string ...$params A comment
+	 */
+	public function testVariadicArgInArgListWithComment4( $key, ...$params /* ... */ ) {
+	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgInArgListWithoutComment1( $key, $params ) {
+	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgInArgListWithoutComment2( $key, ...$params ) {
+	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string ...$params A comment
+	 */
+	public function testVariadicArgInArgListWithoutComment3( $key, $params ) {
+	}
+
+	/**
+	 * Test with variadic argument in the list
+	 * @param string $key A comment
+	 * @param string ...$params A comment
+	 */
+	public function testVariadicArgInArgListWithoutComment4( $key, ...$params ) {
 	}
 
 	/**
@@ -195,7 +251,60 @@ class TestFailedExamples {
 	 * @param string $key A comment
 	 * @param string $params,... A comment
 	 */
-	public function testVariadicArgNotInArgList( $key /* ... */ ) {
+	public function testVariadicArgNotInArgList1( $key /* ... */ ) {
+	}
+
+	/**
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgNotInArgList2( $key /*, ...$params */ ) {
+	}
+
+	/**
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgNotInArgList3( $key /* ...$params */ ) {
+	}
+
+	/**
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgNotInArgList4( $key /* $params,... */ ) {
+	}
+
+	/**
+	 * @param string $key A comment
+	 */
+	public function testVariadicArgNotDocumented( $key, ...$params ) {
+	}
+
+	/**
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgWithComments1( /* foo */ $key /* ... */ ) {
+	}
+
+	/**
+	 * @param string $key A comment
+	 * @param string $params,... A comment
+	 */
+	public function testVariadicArgWithComments2( /* not this... */ $key /* ... */ ) {
+	}
+
+	/**
+	 * @param string         ...$args
+	 */
+	public function testVariadicSpacing( ...$args ) {
+	}
+
+	/**
+	 * @param string         $args,...
+	 */
+	public function testLegacyVariadicSpacing() {
 	}
 
 	/**
@@ -212,6 +321,18 @@ class TestFailedExamples {
 	 * @param string[optional]|null $value
 	 */
 	public function testOptionalKeyword( $key, $value = null ) {
+	}
+
+	/**
+	 * @param string $key
+	 */
+	public function superfluousAnnotation() {
+	}
+
+	/**
+	 * @param string ...$params
+	 */
+	public function superfluousAnnotationVariadic() {
 	}
 }
 
@@ -285,6 +406,19 @@ class TestPassedExamples {
 	}
 
 	public function getReturnMissing() {
+	}
+
+	/**
+	 * @param string $key
+	 * @param string ...$params
+	 */
+	public function withVariarg( $key, ...$params ) {
+	}
+
+	/**
+	 * @param string $key A comment
+	 */
+	public function testCommentsWithDots( $key /* $this is allowed... */ ) {
 	}
 }
 

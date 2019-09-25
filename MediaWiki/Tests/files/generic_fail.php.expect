@@ -50,6 +50,10 @@
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeArg)
  30 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+ 30 | ERROR   | [ ] Comments indicating variadic arguments are
+    |         |     superfluous and should be replaced with actual
+    |         |     variadic arguments
+    |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
  30 | WARNING | [x] Single space expected before closing
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
