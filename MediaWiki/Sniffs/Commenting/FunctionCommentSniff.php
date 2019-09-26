@@ -615,6 +615,7 @@ class FunctionCommentSniff implements Sniff {
 			$foundParams[] = $var;
 			// Check the short type of boolean and integer
 			$explodedType = explode( '|', $param['type'] );
+			$nullableDoc = substr( $param['type'], 0, 1 ) === '?';
 			$nullFound = false;
 			$fixType = false;
 			foreach ( $explodedType as $index => $singleType ) {
@@ -650,8 +651,16 @@ class FunctionCommentSniff implements Sniff {
 					}
 				}
 			}
-			// Check if the default of null is in the type list
-			if ( $defaultNull && !$nullFound ) {
+			if ( $nullableDoc && $defaultNull ) {
+				// Don't offer autofix, as changing a signature is somewhat delicate
+				$phpcsFile->addError(
+					'Use nullable type("%s") for parameters documented as nullable',
+					$realParams[$pos]['token'],
+					'PHP71NullableDocOptionalArg',
+					[ $type ]
+				);
+			} elseif ( $defaultNull && !( $nullFound || $nullableDoc ) ) {
+				// Check if the default of null is in the type list
 				$fix = $phpcsFile->addFixableError(
 					'Default of null should be declared in @param tag',
 					$param['tag'],
@@ -662,6 +671,7 @@ class FunctionCommentSniff implements Sniff {
 					$fixType = true;
 				}
 			}
+
 			if ( $fixType ) {
 				$this->replaceParamComment(
 					$phpcsFile,
