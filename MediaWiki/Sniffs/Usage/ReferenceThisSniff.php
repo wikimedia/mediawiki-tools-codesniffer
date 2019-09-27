@@ -58,7 +58,8 @@ class ReferenceThisSniff implements Sniff {
 				return;
 			}
 			$phpcsFile->addError(
-				'Cannot use &$this, must set it to a different variable first',
+				'The ampersand in "&$this" must be removed. If you plan to get back another ' .
+					'instance of this class, assign $this to a temporary variable.',
 				$stackPtr,
 				'Found'
 			);
