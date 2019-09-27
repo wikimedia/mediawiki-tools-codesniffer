@@ -8,8 +8,7 @@
     |         |     (Generic.PHP.BacktickOperator.Found)
   7 | ERROR   | [ ] Use of the backtick operator is forbidden
     |         |     (Generic.PHP.BacktickOperator.Found)
-  9 | ERROR   | [x] Expected 1 space between class keyword and class
-    |         |     name; 2 found
+  9 | ERROR   | [x] Expected 1 space after class keyword; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterKeyword)
   9 | ERROR   | [x] Expected 1 space after class name; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterName)
@@ -37,7 +36,7 @@
  26 | WARNING | [x] Single space expected after opening
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 26 | ERROR   | [x] Expected 0 spaces between argument "$a" and
+ 26 | ERROR   | [x] Expected 0 spaces between argument "$b" and
     |         |     comma; 2 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
  26 | ERROR   | [x] Expected 1 space between comma and argument "$b";
@@ -72,7 +71,7 @@
  27 | WARNING | [x] Single space expected after opening
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 27 | ERROR   | [x] Expected 0 spaces between argument "$a" and
+ 27 | ERROR   | [x] Expected 0 spaces between argument "$b" and
     |         |     comma; 2 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
  27 | ERROR   | [x] Expected 1 space between comma and argument "$b";

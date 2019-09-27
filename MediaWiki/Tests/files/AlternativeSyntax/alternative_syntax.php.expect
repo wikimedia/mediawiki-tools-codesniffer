@@ -10,21 +10,9 @@
  28 | WARNING | Alternative syntax such as "endif" should not be
     |         | used
     |         | (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
- 34 | WARNING | Code after the BREAK statement on line 33 cannot be
-    |         | executed
-    |         | (Squiz.PHP.NonExecutableCode.Unreachable)
  34 | WARNING | Alternative syntax such as "endswitch" should not be
     |         | used
     |         | (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
- 36 | WARNING | Code after the BREAK statement on line 33 cannot be
-    |         | executed
-    |         | (Squiz.PHP.NonExecutableCode.Unreachable)
- 37 | WARNING | Code after the BREAK statement on line 33 cannot be
-    |         | executed
-    |         | (Squiz.PHP.NonExecutableCode.Unreachable)
- 38 | WARNING | Code after the BREAK statement on line 33 cannot be
-    |         | executed
-    |         | (Squiz.PHP.NonExecutableCode.Unreachable)
  38 | WARNING | Alternative syntax such as "endwhile" should not be
     |         | used
     |         | (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
