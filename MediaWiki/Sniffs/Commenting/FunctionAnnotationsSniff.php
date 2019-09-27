@@ -77,6 +77,9 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@phan-return' => true,
 		'@phan-suppress-next-line' => true,
 		'@phan-var' => true,
+		'@phan-assert' => true,
+		'@phan-assert-true-condition' => true,
+		'@phan-assert-false-condition' => true,
 		'@suppress' => true,
 		'@phan-template' => true,
 		// No other consumers for now.

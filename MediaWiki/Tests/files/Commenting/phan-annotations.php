@@ -20,4 +20,15 @@ class PhanTests {
 	 */
 	public static function getSomething( array $reqs, $class, $allowSubclasses = false ) {
 	}
+
+	/**
+	 * @param MyClass $a
+	 * @param mixed $t
+	 * @param mixed $f
+	 * @phan-assert MySpecificClass $a
+	 * @phan-assert-true-condition $t
+	 * @phan-assert-false-condition $f
+	 */
+	public static function assertsTests( $a, $t, $f ) {
+	}
 }
