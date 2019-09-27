@@ -31,6 +31,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 * @var string[]
 	 */
 	private $functions = [
+		'doubleval' => 'floatval',
 		'is_integer' => 'is_int',
 		'is_long' => 'is_int',
 		'is_double' => 'is_float',
