@@ -167,6 +167,12 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param array[] $tokens
+	 * @param int $tag Token position of the tag
+	 * @param int $end Token position of the end of the comment
+	 */
 	private function processDocTag( File $phpcsFile, array $tokens, $tag, $end ) {
 		$tagText = $tokens[$tag]['content'];
 		$forbidden = array_key_exists( $tagText, self::$forbiddenAnnotations );
@@ -276,6 +282,11 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 	/**
 	 * Find the class this class level comment depends on.
+	 *
+	 * @param File $phpcsFile
+	 * @param array[] $tokens
+	 * @param int $commentEnd
+	 * @return int|false
 	 */
 	private function findClassToken( File $phpcsFile, array $tokens, $commentEnd ) {
 		$next = $phpcsFile->findNext( [ T_CLASS ], $commentEnd + 1 );
@@ -292,6 +303,10 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 	/**
 	 * Find the class or trait this function level comment depends on.
+	 *
+	 * @param array[] $tokens
+	 * @param int $commentEnd
+	 * @return int|false
 	 */
 	private function findObjectStructureTokenFunctionLevel( array $tokens, $commentEnd ) {
 		foreach ( $tokens[$commentEnd]['conditions'] as $ptr => $type ) {
@@ -305,6 +320,11 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 	/**
 	 * Find the function this comment is for
+	 *
+	 * @param File $phpcsFile
+	 * @param array[] $tokens
+	 * @param int $commentEnd
+	 * @return int|false
 	 */
 	private function findFunctionToken( File $phpcsFile, array $tokens, $commentEnd ) {
 		$next = $phpcsFile->findNext( [ T_FUNCTION ], $commentEnd + 1 );
@@ -319,12 +339,23 @@ class PhpunitAnnotationsSniff implements Sniff {
 		return false;
 	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param int $classPtr Token position of the class declaration
+	 * @return int
+	 */
 	private function isTestClass( File $phpcsFile, $classPtr ) {
 		return preg_match(
 			'/(?:Test(?:Case)?(?:Base)?|Suite)$/', $phpcsFile->getDeclarationName( $classPtr )
 		);
 	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param int $functionPtr Token position of the function declaration
+	 * @param string $pattern Regex to match against the name of the function
+	 * @return int
+	 */
 	private function isFunctionOkay( File $phpcsFile, $functionPtr, $pattern ) {
 		return preg_match(
 			$pattern, $phpcsFile->getDeclarationName( $functionPtr )

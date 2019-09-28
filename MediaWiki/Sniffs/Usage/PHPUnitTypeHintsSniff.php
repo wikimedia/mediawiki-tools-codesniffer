@@ -114,6 +114,10 @@ class PHPUnitTypeHintsSniff implements Sniff {
 	/**
 	 * @see PhpunitAnnotationsSniff::isTestClass
 	 * @todo It would be great to have a common interface
+	 *
+	 * @param File $phpcsFile
+	 * @param int $classPtr
+	 * @return bool
 	 */
 	private function isTestClass( File $phpcsFile, $classPtr ) {
 		return (bool)preg_match(

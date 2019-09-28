@@ -180,6 +180,12 @@ class FunctionAnnotationsSniff implements Sniff {
 		return false;
 	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param array[] $tokens
+	 * @param int $tag Token position of the annotation tag
+	 * @param string $tagContent Content of the annotation
+	 */
 	private function handleAccessAnnotation( File $phpcsFile, $tokens, $tag, $tagContent ) {
 		if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
 			$text = strtolower( $tokens[$tag + 2]['content'] );

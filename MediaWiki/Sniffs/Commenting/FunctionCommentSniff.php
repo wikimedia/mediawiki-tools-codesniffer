@@ -76,13 +76,6 @@ class FunctionCommentSniff implements Sniff {
 			return;
 		}
 
-		// Identify the visibility of the function
-		$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
-		if ( $methodProps['scope'] === 'private' ) {
-			// Don't check documentation for private functions
-			return;
-		}
-
 		$this->checkVariadicArgComments( $phpcsFile, $stackPtr );
 
 		$tokens = $phpcsFile->getTokens();
@@ -104,9 +97,12 @@ class FunctionCommentSniff implements Sniff {
 		) {
 			// Don't require documentation for functions with no parameters, except getters
 			if ( substr( $funcName, 0, 3 ) === 'get' || $phpcsFile->getMethodParameters( $stackPtr ) ) {
+				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
 				$phpcsFile->addError(
 					'Missing function doc comment',
 					$stackPtr,
+					// Messages used: MissingDocumentationPublic, MissingDocumentationProtected,
+					// MissingDocumentationPrivate
 					'MissingDocumentation' . ucfirst( $methodProps['scope'] )
 				);
 			}

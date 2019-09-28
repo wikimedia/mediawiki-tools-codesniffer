@@ -337,6 +337,11 @@ class DocCommentSniff implements Sniff {
 		}
 	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @return string
+	 */
 	private function getCommentIndent( File $phpcsFile, $stackPtr ) {
 		$firstLineToken = $phpcsFile->findFirstOnLine( [ T_WHITESPACE ], $stackPtr );
 		if ( $firstLineToken === false ) {
@@ -346,6 +351,11 @@ class DocCommentSniff implements Sniff {
 		return $phpcsFile->getTokensAsString( $firstLineToken, $stackPtr - $firstLineToken ) . ' ';
 	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @return int
+	 */
 	private function getDocStarColumn( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		// Handle special case /*****//** to look for the column of the first comment start

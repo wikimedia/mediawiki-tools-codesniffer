@@ -292,6 +292,10 @@ class TestFailedExamples {
 	 */
 	public function superfluousAnnotationVariadic() {
 	}
+
+	private function noDocsPrivate( $foo, $baz ) {
+		echo $foo;
+	}
 }
 
 class TestPassedExamples {
@@ -322,12 +326,6 @@ class TestPassedExamples {
 	 */
 	public function test( &$testVar ) {
 		return $testVar;
-	}
-
-	private function noDocs( $foo, $baz ) {
-		// This function has no documentation because
-		// it is private
-		echo $foo;
 	}
 
 	/**

@@ -201,6 +201,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	/**
 	 * @param int $argCount
 	 * @param array $conditionArray
+	 * @return bool
 	 */
 	private function evaluateCondition( $argCount, array $conditionArray ) {
 		list( $condition, $compareCount ) = $conditionArray;

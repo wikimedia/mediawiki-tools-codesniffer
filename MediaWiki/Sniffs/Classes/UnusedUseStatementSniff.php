@@ -199,6 +199,12 @@ class UnusedUseStatementSniff implements Sniff {
 		}
 	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param array[] $tokens
+	 * @param int $stackPtr
+	 * @param int $semiColon Token position of the ending semicolon
+	 */
 	private function removeUseStatement( File $phpcsFile, array $tokens, $stackPtr, $semiColon ) {
 		// Remove the whole use statement line.
 		$phpcsFile->fixer->beginChangeset();

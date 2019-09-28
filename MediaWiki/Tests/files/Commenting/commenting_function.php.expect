@@ -248,24 +248,26 @@
  291 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 297 | ERROR   | [ ] Only one object structure is allowed in a
+ 296 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate)
+ 301 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 366 | ERROR   | [ ] Missing function doc comment
+ 364 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 379 | WARNING | [ ] Comments should start on new line.
+ 377 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 383 | ERROR   | [ ] Only one object structure is allowed in a
+ 381 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 389 | ERROR   | [ ] Only one object structure is allowed in a
+ 387 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 390 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 388 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 393 | WARNING | [x] Use @param annotation instead of @parma
+ 391 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 403 | ERROR   | [ ] You must use "/**" style comments for a function
+ 401 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 47 MARKED SNIFF VIOLATIONS AUTOMATICALLY
