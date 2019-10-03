@@ -1,5 +1,16 @@
 # MediaWiki-Codesniffer release history #
 
+## 27.0.0 / 2019-10-03 ##
+* Update squizlabs/php_codesniffer to 3.5.0 (Umherirrender)
+* List @phan-assert as allowed annotation in functions (Umherirrender)
+* Enforce floatval() instead of the doubleval() alias (Thiemo Kreuz)
+* Add @property to work with UnusedUseStatementSniff (Umherirrender)
+* Also allow @phan-template as alias of @template (Daimona Eaytoy)
+* Allow @template annotations (Daimona Eaytoy)
+* Allow consecutive single-line comments not to start with a single space (Daimona Eaytoy)
+* Allow @slowThreshold annotation in tests (Max Semenik)
+
+
 ## 26.0.0 / 2019-0511 ##
 * Update composer/spdx-licenses from 1.4.0 to 1.5.1 (Reedy)
 * Update composer/semver from 1.4.2 to 1.5.0 (Reedy)
