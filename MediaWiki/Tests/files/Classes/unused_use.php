@@ -19,7 +19,6 @@ use Something\InAVar7;
 use Something\InAVar8;
 use Something\InAVar9;
 use Something\InAThrows;
-use Something\InAExpectedException;
 use Something\InAParam;
 use Something\Partial;
 use InvalidArgumentException;
@@ -31,7 +30,6 @@ $c = new ThreeFour();
 
 class UnusedUseTest {
 	/**
-	 * @expectedException InAExpectedException
 	 * @coversNothing
 	 * @throws InAThrows
 	 * @param InAParam $a A variable

@@ -55,11 +55,6 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 		'@dataProvider' => true,
 
-		'@expectedException' => true,
-		'@expectedExceptionCode' => true,
-		'@expectedExceptionMessage' => true,
-		'@expectedExceptionMessageRegExp' => true,
-
 		'@group' => true,
 		'@requires' => true,
 		'@depends' => true,
@@ -95,6 +90,12 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 		'@runTestsInSeparateProcesses' => true,
 		'@runInSeparateProcess' => true,
+
+		// Removed in PHPUnit 7, T234597
+		'@expectedException' => 'Do not use %s, use $this->expectException().',
+		'@expectedExceptionCode' => 'Do not use %s, use $this->expectExceptionCode().',
+		'@expectedExceptionMessage' => 'Do not use %s, use $this->expectExceptionMessage().',
+		'@expectedExceptionMessageRegExp' => 'Do not use %s, use $this->expectExceptionMessageRegExp().',
 	];
 
 	private static $emptyAnnotations = [

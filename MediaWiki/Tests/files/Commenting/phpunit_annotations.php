@@ -61,6 +61,12 @@ class ExamplesTest {
 	public function extraTearDown() {
 	}
 
+	/**
+	 * @expectedException \Exception
+	 * @expectedExceptionMessage Foobar
+	 */
+	public function expectedAnnotations() {
+	}
 }
 
 trait TestTrait {

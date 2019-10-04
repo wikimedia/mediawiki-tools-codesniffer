@@ -38,19 +38,25 @@
  53 | WARNING | [ ] The phpunit annotation @dataProvider should only
     |         |     be used for test functions.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
- 66 | ERROR   | [ ] Only one object structure is allowed in a
+ 65 | WARNING | [ ] Do not use @expectedException, use
+    |         |     $this->expectException().
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenExpectedException)
+ 66 | WARNING | [ ] Do not use @expectedExceptionMessage, use
+    |         |     $this->expectExceptionMessage().
+    |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenExpectedExceptionMessage)
+ 72 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 76 | WARNING | [ ] The phpunit annotation @group should only be used
+ 82 | WARNING | [ ] The phpunit annotation @group should only be used
     |         |     in class level comments.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
- 81 | WARNING | [ ] The phpunit annotation @group should only be used
+ 87 | WARNING | [ ] The phpunit annotation @group should only be used
     |         |     in class level comments.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
- 83 | ERROR   | [ ] Only one object structure is allowed in a
+ 89 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 88 | WARNING | [ ] The phpunit annotation @dataProvider should only
+ 94 | WARNING | [ ] The phpunit annotation @dataProvider should only
     |         |     be used inside classes or traits.
     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotInClassTrait)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
