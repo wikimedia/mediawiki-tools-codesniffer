@@ -108,6 +108,7 @@
 	<rule ref="PSR2.Methods.FunctionClosingBrace" />
 
 	<rule ref="PSR12.Keywords.ShortFormTypeKeywords" />
+	<rule ref="PSR12.Properties.ConstantVisibility" />
 
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />

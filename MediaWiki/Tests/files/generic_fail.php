@@ -8,6 +8,8 @@ $foo = `echo "hi";`;
 
 class  Foo  extends  \Bar  implements  \I1  ,  I2 {
 
+	const TEST = 'test';
+
 	/**
 	 * Do stuff
 	 */
