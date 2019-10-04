@@ -40,3 +40,5 @@ $msg = wfMessage( 'message-key' ) -> inContentLanguage()
 $str = '1'.$foo.$s.  '2'.
 	'LONG LINE'
 	.'MORELONGLINE';
+
+f( ... $a );

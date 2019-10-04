@@ -83,6 +83,7 @@
 	<rule ref="Generic.PHP.SAPIUsage" />
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
 	<rule ref="Generic.WhiteSpace.IncrementDecrementSpacing" />
+	<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter" />
 
 	<rule ref="PSR2.Classes.ClassDeclaration">
 		<exclude name="PSR2.Classes.ClassDeclaration.SpaceBeforeBrace" />
