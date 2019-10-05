@@ -107,6 +107,7 @@
 	<rule ref="PSR2.Namespaces.UseDeclaration" />
 	<rule ref="PSR2.Methods.FunctionClosingBrace" />
 
+	<rule ref="PSR12.Files.ImportStatement" />
 	<rule ref="PSR12.Keywords.ShortFormTypeKeywords" />
 	<rule ref="PSR12.Properties.ConstantVisibility" />
 

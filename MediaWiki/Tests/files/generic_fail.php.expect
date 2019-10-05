@@ -1,163 +1,166 @@
-  3 | ERROR   | [ ] Logical operator "or" is prohibited; use "||"
+  3 | ERROR   | [ ] Import statements must not begin with a leading
+    |         |     backslash
+    |         |     (PSR12.Files.ImportStatement.LeadingSlash)
+  5 | ERROR   | [ ] Logical operator "or" is prohibited; use "||"
     |         |     instead
     |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
-  4 | ERROR   | [ ] Logical operator "and" is prohibited; use "&&"
+  6 | ERROR   | [ ] Logical operator "and" is prohibited; use "&&"
     |         |     instead
     |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
-  7 | ERROR   | [ ] Use of the backtick operator is forbidden
+  9 | ERROR   | [ ] Use of the backtick operator is forbidden
     |         |     (Generic.PHP.BacktickOperator.Found)
-  7 | ERROR   | [ ] Use of the backtick operator is forbidden
+  9 | ERROR   | [ ] Use of the backtick operator is forbidden
     |         |     (Generic.PHP.BacktickOperator.Found)
-  9 | ERROR   | [x] Expected 1 space after class keyword; 2 found
+ 11 | ERROR   | [x] Expected 1 space after class keyword; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterKeyword)
-  9 | ERROR   | [x] Expected 1 space after class name; 2 found
+ 11 | ERROR   | [x] Expected 1 space after class name; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterName)
-  9 | ERROR   | [x] Expected 1 space before extends keyword; 2
+ 11 | ERROR   | [x] Expected 1 space before extends keyword; 2
     |         |     found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeExtends)
-  9 | ERROR   | [x] Expected 1 space before "Bar"; 2 found
+ 11 | ERROR   | [x] Expected 1 space before "Bar"; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
-  9 | ERROR   | [x] Expected 1 space before implements keyword; 2
+ 11 | ERROR   | [x] Expected 1 space before implements keyword; 2
     |         |     found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeImplements)
-  9 | ERROR   | [x] Expected 1 space before "I1"; 2 found
+ 11 | ERROR   | [x] Expected 1 space before "I1"; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
-  9 | ERROR   | [x] Expected 0 spaces between "I1" and comma; 2
+ 11 | ERROR   | [x] Expected 0 spaces between "I1" and comma; 2
     |         |     found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeComma)
-  9 | ERROR   | [x] Expected 1 space before "I2"; 2 found
+ 11 | ERROR   | [x] Expected 1 space before "I2"; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
- 11 | WARNING | [ ] Visibility must be declared on all constants if
+ 13 | WARNING | [ ] Visibility must be declared on all constants if
     |         |     your project supports PHP 7.1 or later
     |         |     (PSR12.Properties.ConstantVisibility.NotFound)
- 17 | ERROR   | [x] Must use "self::" for local static member
+ 19 | ERROR   | [x] Must use "self::" for local static member
     |         |     reference
     |         |     (Squiz.Classes.SelfMemberReference.NotUsed)
- 28 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 2
-    |         |     found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
- 28 | WARNING | [x] Single space expected after opening
-    |         |     parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 28 | ERROR   | [x] Expected 0 spaces between argument "$b" and
-    |         |     comma; 2 found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
- 28 | ERROR   | [x] Expected 1 space between comma and argument "$b";
-    |         |     2 found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeArg)
- 28 | WARNING | [ ] Comments should start on new line.
-    |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 28 | WARNING | [x] Single space expected before closing
-    |         |     parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 28 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2
-    |         |     found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
- 29 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0
-    |         |     found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
- 29 | WARNING | [x] Single space expected after opening
-    |         |     parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 29 | ERROR   | [x] Expected 1 space between comma and argument "$f";
-    |         |     0 found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg)
- 29 | WARNING | [x] Single space expected before closing
-    |         |     parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 29 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0
-    |         |     found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
- 29 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 2
-    |         |     found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
- 29 | WARNING | [x] Single space expected after opening
-    |         |     parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 29 | ERROR   | [x] Expected 0 spaces between argument "$b" and
-    |         |     comma; 2 found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
- 29 | ERROR   | [x] Expected 1 space between comma and argument "$b";
-    |         |     2 found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeArg)
- 29 | WARNING | [x] Single space expected before closing
-    |         |     parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 29 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2
-    |         |     found
-    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
  30 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 2
     |         |     found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
  30 | WARNING | [x] Single space expected after opening
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 30 | ERROR   | [x] Expected 0 spaces between argument "$b" and
+    |         |     comma; 2 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
+ 30 | ERROR   | [x] Expected 1 space between comma and argument "$b";
+    |         |     2 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeArg)
+ 30 | WARNING | [ ] Comments should start on new line.
+    |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  30 | WARNING | [x] Single space expected before closing
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
  30 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2
     |         |     found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
- 37 | ERROR   | [x] Expected 1 space after "="; 2 found
+ 31 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0
+    |         |     found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+ 31 | WARNING | [x] Single space expected after opening
+    |         |     parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 31 | ERROR   | [x] Expected 1 space between comma and argument "$f";
+    |         |     0 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg)
+ 31 | WARNING | [x] Single space expected before closing
+    |         |     parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 31 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0
+    |         |     found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+ 31 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 2
+    |         |     found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+ 31 | WARNING | [x] Single space expected after opening
+    |         |     parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 31 | ERROR   | [x] Expected 0 spaces between argument "$b" and
+    |         |     comma; 2 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
+ 31 | ERROR   | [x] Expected 1 space between comma and argument "$b";
+    |         |     2 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeArg)
+ 31 | WARNING | [x] Single space expected before closing
+    |         |     parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 31 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2
+    |         |     found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+ 32 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 2
+    |         |     found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+ 32 | WARNING | [x] Single space expected after opening
+    |         |     parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 32 | WARNING | [x] Single space expected before closing
+    |         |     parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 32 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2
+    |         |     found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+ 39 | ERROR   | [x] Expected 1 space after "="; 2 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.SpacingAfter)
- 37 | ERROR   | [x] Expected 1 space before "/"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "/"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "/"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "/"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "<<"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "<<"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "<<"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "<<"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "-"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "-"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "-"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "-"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "+"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "+"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "+"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "+"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "*"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "*"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "*"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "*"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "*"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "*"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "*"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "*"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "-"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "-"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "-"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "-"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "^"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "^"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "^"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "^"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 37 | ERROR   | [x] Expected 1 space before "%"; 0 found
+ 39 | ERROR   | [x] Expected 1 space before "%"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
- 37 | ERROR   | [x] Expected 1 space after "%"; 0 found
+ 39 | ERROR   | [x] Expected 1 space after "%"; 0 found
     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
- 39 | ERROR   | [x] Space found before object operator
+ 41 | ERROR   | [x] Space found before object operator
     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
- 39 | ERROR   | [x] Space found after object operator
+ 41 | ERROR   | [x] Space found after object operator
     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
- 40 | ERROR   | [x] Space found after object operator
+ 42 | ERROR   | [x] Space found after object operator
     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
- 42 | ERROR   | [x] Concat operator must be surrounded by a single
-    |         |     space
-    |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
- 42 | ERROR   | [x] Concat operator must be surrounded by a single
-    |         |     space
-    |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
- 42 | ERROR   | [x] Concat operator must be surrounded by a single
-    |         |     space
-    |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
- 42 | ERROR   | [x] Concat operator must be surrounded by a single
+ 44 | ERROR   | [x] Concat operator must be surrounded by a single
     |         |     space
     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
  44 | ERROR   | [x] Concat operator must be surrounded by a single
     |         |     space
     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
- 46 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1
+ 44 | ERROR   | [x] Concat operator must be surrounded by a single
+    |         |     space
+    |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+ 44 | ERROR   | [x] Concat operator must be surrounded by a single
+    |         |     space
+    |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+ 46 | ERROR   | [x] Concat operator must be surrounded by a single
+    |         |     space
+    |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+ 48 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1
     |         |     found
     |         |     (Generic.WhiteSpace.SpreadOperatorSpacingAfter.TooMuchSpace)
 PHPCBF CAN FIX THE 58 MARKED SNIFF VIOLATIONS AUTOMATICALLY

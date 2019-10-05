@@ -1,5 +1,7 @@
 <?php
 
+use \SomeNamespace\I2;
+
 if ( $a or $b ) {
 	$c = $a and $b;
 }
