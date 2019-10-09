@@ -30,7 +30,7 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 	 */
 	private $helper;
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		if ( empty( $this->helper ) ) {
 			$this->helper = new Helper();
