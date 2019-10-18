@@ -35,6 +35,7 @@ class FunctionAnnotationsSniff implements Sniff {
 		// Allowed all-lowercase tags
 		'@after' => true,
 		'@author' => true,
+		'@before' => true,
 		'@code' => true,
 		'@cover' => true,
 		'@covers' => true,
