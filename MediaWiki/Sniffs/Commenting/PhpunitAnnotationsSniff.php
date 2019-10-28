@@ -63,6 +63,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@medium' => [ '@group medium', 'GroupAliasMedium' ],
 		'@large' => [ '@group large', 'GroupAliasLarge' ],
 
+		'@testWith' => true,
+		'@doesNotPerformAssertions' => true,
+
 		// From johnkary/phpunit-speedtrap
 		'@slowThreshold' => true,
 	];
@@ -77,11 +80,6 @@ class PhpunitAnnotationsSniff implements Sniff {
 	private static $forbiddenAnnotations = [
 		// Name the function with test prefix, some other sniffs depends on that
 		'@test' => 'Do not use %s, name the function to begin with "test".',
-
-		// Use @dataProvider
-		'@testWith' => 'Do not use %s, use @dataProvider and a provider function.',
-
-		'@doesNotPerformAssertions' => true,
 
 		'@testdox' => true,
 		'@backupGlobals' => true,
@@ -101,6 +99,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	private static $emptyAnnotations = [
 		'@coversNothing',
 		'@coverNothing',
+		'@doesNotPerformAssertions',
 		'@small',
 		'@medium',
 		'@large',
