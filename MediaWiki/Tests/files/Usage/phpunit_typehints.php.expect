@@ -4,31 +4,55 @@
   9 | ERROR   | [x] The PHPUnit method tearDown() should have a
     |         |     return typehint of "void"
     |         |     (MediaWiki.Usage.PHPUnitTypeHints.MissingTypehint)
- 14 | ERROR   | [ ] The PHPUnit method setUp() should have a return
+ 12 | ERROR   | [x] The PHPUnit method setUpBeforeClass() should have
+    |         |     a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.MissingTypehint)
+ 15 | ERROR   | [x] The PHPUnit method tearDownAfterClass() should
+    |         |     have a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.MissingTypehint)
+ 20 | ERROR   | [ ] The PHPUnit method setUp() should have a return
     |         |     typehint of "void"
     |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
- 17 | ERROR   | [ ] The PHPUnit method tearDown() should have a
+ 23 | ERROR   | [ ] The PHPUnit method tearDown() should have a
     |         |     return typehint of "void"
     |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
- 29 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
+ 26 | ERROR   | [ ] The PHPUnit method setUpBeforeClass() should have
+    |         |     a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
+ 29 | ERROR   | [ ] The PHPUnit method tearDownAfterClass() should
+    |         |     have a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
+ 47 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
     |         |     instead
     |         |     (MediaWiki.Usage.PHPUnitClassUsage.NotNamespaced)
- 30 | ERROR   | [x] The PHPUnit method setUp() should have a return
+ 48 | ERROR   | [x] The PHPUnit method setUp() should have a return
     |         |     typehint of "void"
     |         |     (MediaWiki.Usage.PHPUnitTypeHints.MissingTypehint)
- 33 | ERROR   | [x] The PHPUnit method tearDown() should have a
+ 51 | ERROR   | [x] The PHPUnit method tearDown() should have a
     |         |     return typehint of "void"
     |         |     (MediaWiki.Usage.PHPUnitTypeHints.MissingTypehint)
- 37 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
+ 54 | ERROR   | [x] The PHPUnit method setUpBeforeClass() should have
+    |         |     a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.MissingTypehint)
+ 57 | ERROR   | [x] The PHPUnit method tearDownAfterClass() should
+    |         |     have a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.MissingTypehint)
+ 61 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
     |         |     instead
     |         |     (MediaWiki.Usage.PHPUnitClassUsage.NotNamespaced)
- 38 | ERROR   | [ ] The PHPUnit method setUp() should have a return
+ 62 | ERROR   | [ ] The PHPUnit method setUp() should have a return
     |         |     typehint of "void"
     |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
- 41 | ERROR   | [ ] The PHPUnit method tearDown() should have a
+ 65 | ERROR   | [ ] The PHPUnit method tearDown() should have a
     |         |     return typehint of "void"
     |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
- 45 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
+ 68 | ERROR   | [ ] The PHPUnit method setUpBeforeClass() should have
+    |         |     a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
+ 71 | ERROR   | [ ] The PHPUnit method tearDownAfterClass() should
+    |         |     have a return typehint of "void"
+    |         |     (MediaWiki.Usage.PHPUnitTypeHints.WrongTypehint)
+ 75 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
     |         |     instead
     |         |     (MediaWiki.Usage.PHPUnitClassUsage.NotNamespaced)
-PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY

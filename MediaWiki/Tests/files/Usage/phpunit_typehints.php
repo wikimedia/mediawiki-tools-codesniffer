@@ -8,6 +8,12 @@ namespace {
 
 		public function tearDown() {
 		}
+
+		public static function setUpBeforeClass() {
+		}
+
+		public static function tearDownAfterClass() {
+		}
 	}
 
 	class WrongTest extends \PHPUnit\Framework\TestCase {
@@ -15,6 +21,12 @@ namespace {
 		}
 
 		public function tearDown() : bool {
+		}
+
+		public static function setUpBeforeClass() : string {
+		}
+
+		public static function tearDownAfterClass() : callable {
 		}
 	}
 
@@ -24,6 +36,12 @@ namespace {
 
 		public function tearDown() : void {
 		}
+
+		public static function setUpBeforeClass() : void {
+		}
+
+		public static function tearDownAfterClass() : void {
+		}
 	}
 
 	class LegacyMissingTest extends PHPUnit_Framework_TestCase {
@@ -31,6 +49,12 @@ namespace {
 		}
 
 		public function tearDown() {
+		}
+
+		public static function setUpBeforeClass() {
+		}
+
+		public static function tearDownAfterClass() {
 		}
 	}
 
@@ -40,6 +64,12 @@ namespace {
 
 		public function tearDown() : object {
 		}
+
+		public static function setUpBeforeClass() : int {
+		}
+
+		public static function tearDownAfterClass() : callable {
+		}
 	}
 
 	class LegacyCorrectTest extends PHPUnit_Framework_TestCase {
@@ -47,6 +77,12 @@ namespace {
 		}
 
 		public function tearDown() : void {
+		}
+
+		public static function setUpBeforeClass() : void {
+		}
+
+		public static function tearDownAfterClass() : void {
 		}
 	}
 
@@ -56,6 +92,12 @@ namespace {
 
 		public function tearDown() {
 		}
+
+		public static function setUpBeforeClass() {
+		}
+
+		public static function tearDownAfterClass() {
+		}
 	}
 
 	class NotATest2 {
@@ -63,6 +105,12 @@ namespace {
 		}
 
 		public function tearDown() : void {
+		}
+
+		public static function setUpBeforeClass() : void {
+		}
+
+		public static function tearDownAfterClass() : void {
 		}
 	}
 
@@ -72,6 +120,12 @@ namespace {
 
 		public function tearDown() {
 		}
+
+		public static function setUpBeforeClass() {
+		}
+
+		public static function tearDownAfterClass() {
+		}
 	}
 
 	class StillNotATest2 extends NotATest2 {
@@ -79,6 +133,12 @@ namespace {
 		}
 
 		public function tearDown() : void {
+		}
+
+		public static function setUpBeforeClass() : void {
+		}
+
+		public static function tearDownAfterClass() : void {
 		}
 	}
 }

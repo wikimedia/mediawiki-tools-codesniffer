@@ -63,13 +63,22 @@ class PHPUnitTypeHintsSniff implements Sniff {
 		$cur = $startTok['scope_opener'];
 		$end = $startTok['scope_closer'];
 
-		$found = [ 'setUp' => false, 'tearDown' => false ];
+		$functions = [
+			'setUp' => false,
+			'tearDown' => false,
+			'setUpBeforeClass' => false,
+			'tearDownAfterClass' => false,
+			'assertPreConditions' => false,
+			'assertPostConditions' => false,
+			'onNotSuccessfulTest' => false,
+		];
+
 		$cur = $phpcsFile->findNext( T_FUNCTION, $cur + 1, $end );
-		while ( $cur !== false && ( !$found['setUp'] || !$found['tearDown'] ) ) {
+		while ( $cur !== false && $functions ) {
 			$funcNamePos = $phpcsFile->findNext( T_STRING, $cur );
 			$funcName = $tokens[$funcNamePos]['content'];
-			if ( $funcName === 'setUp' || $funcName === 'tearDown' ) {
-				$found[$funcName] = true;
+			if ( isset( $functions[$funcName] ) ) {
+				unset( $functions[$funcName] );
 				$props = $phpcsFile->getMethodProperties( $cur );
 				$retTypeHint = $props['return_type'];
 				$retTypeTok = $props['return_type_token'];
