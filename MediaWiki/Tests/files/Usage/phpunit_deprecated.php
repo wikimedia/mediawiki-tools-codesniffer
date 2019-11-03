@@ -1,0 +1,55 @@
+<?php
+// @phpcs:disable MediaWiki.Commenting.MissingCovers.MissingCovers
+
+namespace {
+	class SomethingTest extends \PHPUnit\Framework\TestCase {
+		public function testAssertInternalType() {
+			$e = 'foo';
+			$a = 'bar';
+			$this->assertInternalType( "float", $e );
+			$this->assertInternalType( $a, $e );
+			$this->assertInternalType( 'boolean', $e );
+			$this->assertInternalType( 'wtf', $e );
+			$this->assertInternalType();
+			$this->assertInternalType( 'string' );
+			$this->assertInternalType( "integer", $a );
+			self::assertInternalType( 'callable', $e );
+			static::assertInternalType( 'iterable', $e );
+
+			$e->assertInternalType( 'NOT A PHPUNIT FUNCTION', 'foo' );
+		}
+
+		public function testAssertNotInternalType() {
+			$e = 'foo';
+			$a = 'bar';
+			$this->assertNotInternalType( 'float', $e );
+			$this->assertNotInternalType( $a, $e );
+			$this->assertNotInternalType( 'boolean', $e );
+			$this->assertNotInternalType( "wtf", $e );
+			$this->assertNotInternalType();
+			$this->assertNotInternalType( 'string' );
+			$this->assertNotInternalType( 'integer', $a );
+			self::assertNotInternalType( 'callable', $e );
+			static::assertNotInternalType( "iterable", $e );
+
+			$e->assertNotInternalType( 'NOT A PHPUNIT FUNCTION', 'foo' );
+		}
+
+		public function testAssertArraySubset() {
+			$this->assertArraySubset( [ 1, 2 ], [ 3, 4 ] );
+			$this->assertArraySubset();
+			self::assertArraySubset( $GLOBALS['foo'], $GLOBALS['baz'] );
+			static::assertArraySubset( [ 1, 2 ] );
+			$GLOBALS['a']->assertArraySubset( [], [] );
+		}
+
+		public function testAttributeMethods() {
+			$this->assertAttributeContains( 1, 2 );
+			$this->assertAttributeGreaterThanOrEqual( 1, 2 );
+			$this->assertAttributeNotInstanceOf( $GLOBALS['c'], 'foo', $this );
+			self::getStaticAttribute( $this, 'foo' );
+			static::attribute( 'foo', 'baz' );
+			$GLOBALS[1]->getObjectAttribute( 'NOT A PHPUNIT METHOD' );
+		}
+	}
+}
