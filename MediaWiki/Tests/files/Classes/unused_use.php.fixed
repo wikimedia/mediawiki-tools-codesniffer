@@ -1,11 +1,8 @@
 <?php
 namespace FooBar;
 
-use Wikimedia\Database;
-use Wikimedia\Rdbms\ILBFactory;
-use Something\That\Is\Used;
-use Something\Something;
-use Something\OneTwo as ThreeFour;
+use Something\InAParam;
+use Something\InAThrows;
 use Something\InAVar;
 use Something\InAVar2;
 use Something\InAVar3;
@@ -15,9 +12,12 @@ use Something\InAVar6;
 use Something\InAVar7;
 use Something\InAVar8;
 use Something\InAVar9;
-use Something\InAThrows;
-use Something\InAParam;
+use Something\OneTwo as ThreeFour;
 use Something\Partial;
+use Something\Something;
+use Something\That\Is\Used;
+use Wikimedia\Database;
+use Wikimedia\Rdbms\ILBFactory;
 
 $a = new Baz();
 $b = new Used();

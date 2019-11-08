@@ -24,8 +24,8 @@
 
 namespace MediaWiki\Sniffs\Usage;
 
-use PHP_CodeSniffer\Sniffs\AbstractScopeSniff;
 use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\AbstractScopeSniff;
 
 class MagicConstantClosureSniff extends AbstractScopeSniff {
 

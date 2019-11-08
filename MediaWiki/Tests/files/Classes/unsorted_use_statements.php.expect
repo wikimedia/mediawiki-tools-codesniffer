@@ -1,0 +1,3 @@
+ 5 | WARNING | [x] Use statements are not alphabetically sorted
+   |         |     (MediaWiki.Classes.UnsortedUseStatements.UnsortedUse)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

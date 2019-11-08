@@ -2,13 +2,9 @@
 namespace FooBar;
 
 use FooBar\Baz;
-use Wikimedia\Database;
-use Wikimedia\Rdbms\ILBFactory;
-use Wikimedia\Rdbms\LBFactory;
-use Something\That\Is\Unused;
-use Something\That\Is\Used;
-use Something\Something;
-use Something\OneTwo as ThreeFour;
+use InvalidArgumentException;
+use Something\InAParam;
+use Something\InAThrows;
 use Something\InAVar;
 use Something\InAVar2;
 use Something\InAVar3;
@@ -18,11 +14,15 @@ use Something\InAVar6;
 use Something\InAVar7;
 use Something\InAVar8;
 use Something\InAVar9;
-use Something\InAThrows;
-use Something\InAParam;
+use Something\OneTwo as ThreeFour;
 use Something\Partial;
-use InvalidArgumentException;
+use Something\Something;
+use Something\That\Is\Unused;
+use Something\That\Is\Used;
 use Used\But\Always\FullyQualified;
+use Wikimedia\Database;
+use Wikimedia\Rdbms\ILBFactory;
+use Wikimedia\Rdbms\LBFactory;
 
 $a = new Baz();
 $b = new Used();
