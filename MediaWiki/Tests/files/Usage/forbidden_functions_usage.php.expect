@@ -11,4 +11,6 @@
     |         |     (MediaWiki.Usage.ForbiddenFunctions.is_double)
  17 | WARNING | [x] Use is_float() instead of is_real
     |         |     (MediaWiki.Usage.ForbiddenFunctions.is_real)
+ 20 | WARNING | [ ] isset should be used with 1 argument(s)
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.isset)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

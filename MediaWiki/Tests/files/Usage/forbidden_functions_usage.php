@@ -17,3 +17,5 @@ $this->is_double( 18 );
 is_real( 19 );
 FooBar::is_real( 20 );
 $this->is_real( 21 );
+isset( $x['a'], $x['b'], $x['c'] );
+isset( $x['a'] ) && isset( $x['b'] ) && isset( $x['c'] );

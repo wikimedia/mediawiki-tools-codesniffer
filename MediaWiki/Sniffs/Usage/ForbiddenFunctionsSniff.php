@@ -59,23 +59,25 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'proc_open' => false,
 		'shell_exec' => false,
 		'system' => false,
+		'isset' => false,
 	];
 
 	/**
-	 * Number of arguments to be forbidden
+	 * Number of arguments to be forbidden with condition
 	 *
 	 * @var int[]
 	 */
 	private $functionsArgCount = [
-		'parse_str' => 1,
-		'mb_parse_str' => 1,
+		'parse_str' => [ '=', 1 ],
+		'mb_parse_str' => [ '=', 1 ],
+		'isset' => [ '!=', 1 ],
 	];
 
 	/**
 	 * @inheritDoc
 	 */
 	public function register() {
-		return [ T_STRING ];
+		return [ T_STRING, T_ISSET ];
 	}
 
 	/**
@@ -112,7 +114,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		// Check argument count
 		if ( isset( $this->functionsArgCount[$funcName] ) ) {
 			$argCount = $this->argCount( $phpcsFile, $nextToken );
-			if ( $argCount !== $this->functionsArgCount[$funcName] ) {
+			if ( !$this->evaluateCondition( $argCount, $this->functionsArgCount[$funcName] ) ) {
 				// Nothing to replace
 				return;
 			}
@@ -130,11 +132,11 @@ class ForbiddenFunctionsSniff implements Sniff {
 			}
 		} else {
 			if ( isset( $this->functionsArgCount[$funcName] ) ) {
-				$phpcsFile->addWarning(
-					"%s should not be used with %s argument(s)",
+				$this->addWarningForCondition(
+					$phpcsFile,
 					$stackPtr,
 					$funcName,
-					[ $funcName, $this->functionsArgCount[$funcName] ]
+					$this->functionsArgCount[$funcName]
 				);
 			} else {
 				$phpcsFile->addWarning(
@@ -194,5 +196,52 @@ class ForbiddenFunctionsSniff implements Sniff {
 		}
 
 		return $argCount;
+	}
+
+	/**
+	 * @param int $argCount
+	 * @param array $conditionArray
+	 */
+	private function evaluateCondition( $argCount, array $conditionArray ) {
+		list( $condition, $compareCount ) = $conditionArray;
+
+		switch ( $condition ) {
+			case '=':
+				return $argCount === $compareCount;
+			case '!=':
+				return $argCount !== $compareCount;
+			default:
+				return true;
+		}
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $funcName
+	 * @param array $conditionArray
+	 */
+	private function addWarningForCondition(
+		$phpcsFile, $stackPtr, $funcName, array $conditionArray
+	) {
+		list( $condition, $compareCount ) = $this->functionsArgCount[$funcName];
+
+		switch ( $condition ) {
+			case '=':
+				$msg = "%s should not be used with %s argument(s)";
+				break;
+			case '!=':
+				$msg = "%s should be used with %s argument(s)";
+				break;
+			default:
+				$msg = "%s missing message for condition " . $condition;
+		}
+
+		$phpcsFile->addWarning(
+			$msg,
+			$stackPtr,
+			$funcName,
+			[ $funcName, $compareCount ]
+		);
 	}
 }
