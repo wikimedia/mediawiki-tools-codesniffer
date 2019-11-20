@@ -82,9 +82,13 @@
  35 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
- 36 | WARNING | [x] assertEquals accepts many non-null values, please
+ 35 | WARNING | [x] assertEquals accepts many non-string values,
+    |         |     please use strict alternatives like
+    |         |     assertSame
+    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
+ 38 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
- 36 | WARNING | [ ] Comments should start on new line.
+ 38 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
-PHPCBF CAN FIX THE 26 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 27 MARKED SNIFF VIOLATIONS AUTOMATICALLY

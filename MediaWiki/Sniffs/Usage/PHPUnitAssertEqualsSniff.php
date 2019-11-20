@@ -32,8 +32,6 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		// TODO: Skip non-test files for performance reasons
-
 		// We don't care about stuff that's not in a method in a class
 		if ( $tokens[$stackPtr]['level'] < 2 || $tokens[$stackPtr]['content'] !== 'assertEquals' ) {
 			return;
@@ -47,23 +45,24 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 
 		$expected = $phpcsFile->findNext( T_WHITESPACE, $opener + 1, null, true );
 		$msg = 'assertEquals accepts many non-%s values, please use strict alternatives like %s';
+		/** @var bool|string $fix */
 		$fix = false;
 
 		switch ( $tokens[$expected]['code'] ) {
 			case T_NULL:
-				if ( $phpcsFile->addFixableWarning( $msg, $expected, 'Null', [ 'null', 'assertNull' ] ) ) {
+				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Null', [ 'null', 'assertNull' ] ) ) {
 					$fix = 'assertNull';
 				}
 				break;
 
 			case T_FALSE:
-				if ( $phpcsFile->addFixableWarning( $msg, $expected, 'False', [ 'false', 'assertFalse' ] ) ) {
+				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'False', [ 'false', 'assertFalse' ] ) ) {
 					$fix = 'assertFalse';
 				}
 				break;
 
 			case T_TRUE:
-				if ( $phpcsFile->addFixableWarning( $msg, $expected, 'True', [ 'true', 'assertTrue' ] ) ) {
+				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'True', [ 'true', 'assertTrue' ] ) ) {
 					$fix = 'assertTrue';
 				}
 				break;
@@ -73,7 +72,7 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 				if ( (int)$tokens[$expected]['content'] ) {
 					break;
 				}
-				$fix = $phpcsFile->addFixableWarning( $msg, $expected, 'Int', [ 'zero', 'assertSame' ] );
+				$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Int', [ 'zero', 'assertSame' ] );
 				break;
 
 			case T_DNUMBER:
@@ -81,7 +80,7 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 				if ( (float)$tokens[$expected]['content'] ) {
 					break;
 				}
-				$fix = $phpcsFile->addFixableWarning( $msg, $expected, 'Float', [ 'zero', 'assertSame' ] );
+				$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Float', [ 'zero', 'assertSame' ] );
 				break;
 
 			case T_CONSTANT_ENCAPSED_STRING:
@@ -91,15 +90,15 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 				if ( strlen( $tokens[$expected]['content'] ) <= 2 ||
 					$tokens[$expected]['content'][1] === '0'
 				) {
-					$fix = $phpcsFile->addFixableWarning( $msg, $expected, 'FalsyString', $msgParams );
+					$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'FalsyString', $msgParams );
 					break;
 				}
 
 				$string = trim( substr( $tokens[$expected]['content'], 1, -1 ) );
 				if ( ctype_digit( $string ) ) {
-					$fix = $phpcsFile->addFixableWarning( $msg, $expected, 'IntegerString', $msgParams );
+					$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'IntegerString', $msgParams );
 				} elseif ( is_numeric( $string ) ) {
-					$fix = $phpcsFile->addFixableWarning( $msg, $expected, 'NumericString', $msgParams );
+					$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'NumericString', $msgParams );
 				}
 		}
 
@@ -113,7 +112,8 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 			$fixer->replaceToken( $stackPtr, 'assertSame' );
 		}
 
-		return $tokens[$opener]['parenthesis_closer'] + 1;
+		// There is no way the next assertEquals() can be closer than this
+		return $tokens[$opener]['parenthesis_closer'] + 4;
 	}
 
 }

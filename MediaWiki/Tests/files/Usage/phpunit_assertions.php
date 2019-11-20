@@ -32,7 +32,9 @@ class AssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( ' .5', .5 );
 
 		// Edge-cases
-		$this->assertEquals( null );
+		$this->assertEquals( null );$this->assertEquals(
+			'', ''
+		);
 		$this->assertEquals( null /* oh dear */, null );
 
 		// Stuff that should *not* be reported
