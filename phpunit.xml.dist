@@ -17,7 +17,7 @@
 		</testsuite>
 	</testsuites>
 	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
+		<whitelist>
 			<directory suffix=".php">MediaWiki/Sniffs/</directory>
 		</whitelist>
 	</filter>
