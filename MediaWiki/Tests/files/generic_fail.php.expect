@@ -42,7 +42,7 @@
  30 | WARNING | [x] Single space expected after opening
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 30 | ERROR   | [x] Expected 0 spaces between argument "$b" and
+ 30 | ERROR   | [x] Expected 0 spaces between argument "$a" and
     |         |     comma; 2 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
  30 | ERROR   | [x] Expected 1 space between comma and argument "$b";
@@ -81,7 +81,7 @@
  31 | WARNING | [x] Single space expected after opening
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 31 | ERROR   | [x] Expected 0 spaces between argument "$b" and
+ 31 | ERROR   | [x] Expected 0 spaces between argument "$a" and
     |         |     comma; 2 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
  31 | ERROR   | [x] Expected 1 space between comma and argument "$b";
