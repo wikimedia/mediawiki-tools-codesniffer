@@ -9,8 +9,9 @@ use TestTrait;
 use function array_values;
 use MediaWiki\Sniffs\Usage\AssignmentInReturnSniff as AwesomeSniff;
 use MediaWiki\Sniffs\Classes\UnsortedUseStatementsSniff;
+use MediaWikiLangTestCase;
 
-class Test {
+class Test extends MediaWikiLangTestCase {
 	use TestTrait;
 
 	public function __construct() {

@@ -6,11 +6,12 @@ use MediaWiki\Sniffs\Classes\UnsortedUseStatementsSniff;
 use MediaWiki\Sniffs\Classes\UnusedUseStatementSniff;
 use MediaWiki\Sniffs\Usage\AssignmentInReturnSniff as AwesomeSniff;
 use MediaWiki\Sniffs\Usage\DbrQueryUsageSniff;
+use MediaWikiLangTestCase;
 use TestTrait;
 use function array_values;
 use const M_EULER;
 
-class Test {
+class Test extends MediaWikiLangTestCase {
 	use TestTrait;
 
 	public function __construct() {

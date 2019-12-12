@@ -60,7 +60,11 @@ class UnsortedUseStatementsSniff implements Sniff {
 		$lastUseStatementToken = 0;
 
 		$useStatementList = $this->makeUseStatementList( $phpcsFile, $stackPtr, $lastUseStatementToken );
-		$sortedStatements = $this->sortStatements( $useStatementList );
+		$sortedStatements = [
+			'classes' => $this->sortStatements( $useStatementList['classes'] ),
+			'functions' => $this->sortStatements( $useStatementList['functions'] ),
+			'constants' => $this->sortStatements( $useStatementList['constants'] )
+		];
 
 		if ( $useStatementList !== $sortedStatements ) {
 			$fix = $phpcsFile->addFixableWarning(
@@ -98,26 +102,18 @@ class UnsortedUseStatementsSniff implements Sniff {
 	}
 
 	/**
-	 * Sort all use statements.
+	 * This sorts full qualified class names similar to PHPStorm and other tools.
 	 *
-	 * @param array $statementList
-	 * @return array
+	 * @param string[] $statementList
+	 * @return string[]
 	 */
 	private function sortStatements( array $statementList ) : array {
-		$classUseStatements = $statementList['classes'];
-		natcasesort( $classUseStatements );
-
-		$functionUseStatement = $statementList['functions'];
-		natcasesort( $functionUseStatement );
-
-		$constantsUseStatement = $statementList['constants'];
-		natcasesort( $constantsUseStatement );
-
-		return [
-			'classes' => $classUseStatements,
-			'functions' => $functionUseStatement,
-			'constants' => $constantsUseStatement
-		];
+		$map = [];
+		foreach ( $statementList as $use ) {
+			$map[$use] = strtolower( $use );
+		}
+		natsort( $map );
+		return array_keys( $map );
 	}
 
 	/**
