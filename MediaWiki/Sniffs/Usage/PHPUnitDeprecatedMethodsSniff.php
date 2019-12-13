@@ -70,6 +70,7 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 		// FORBIDDEN_ATTRIBUTE_METHODS
 		'assertInternalType',
 		'assertNotInternalType',
+		'assertType',
 		'assertArraySubset',
 		// No assertEquals because we cannot do type checking
 	];
@@ -154,6 +155,8 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 						case 'assertArraySubset':
 							$this->handleAssertArraySubset( $funcTok );
 							break;
+						case 'assertType':
+							// MediaWiki's own variant to make things more complicated.
 						case 'assertInternalType':
 						case 'assertNotInternalType':
 							$this->handleAssertInternalType( $fname, $funcTok );
@@ -174,12 +177,14 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 	}
 
 	/**
-	 * @param string $funcName Either assertInternalType or assertNotInternalType
+	 * @param string $funcName Either assertInternalType, assertNotInternalType, or assertType
 	 * @param int $funcPos Token position of the function call
 	 */
 	private function handleAssertInternalType( string $funcName, int $funcPos ) {
 		$not = $funcName === 'assertNotInternalType' ? 'Not' : '';
-		$err = "The PHPUnit method assert{$not}InternalType() was deprecated in PHPUnit 8.";
+		$err = $funcName === 'assertType' ?
+			'MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.' :
+			"The PHPUnit method assert{$not}InternalType() was deprecated in PHPUnit 8.";
 
 		$parensToken = $this->file->findNext( T_WHITESPACE, ( $funcPos + 1 ), null, true );
 		if ( $this->tokens[$parensToken]['code'] !== T_OPEN_PARENTHESIS ) {
@@ -195,6 +200,9 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 
 		$type = trim( $this->tokens[$argToken]['content'], '"\'' );
 		if ( !array_key_exists( $type, self::INTERNAL_TYPES_REPLACEMENTS ) ) {
+			// If it happens for assert(Not)InternalType, it's likely a bug, so report it.
+			// If it happens for assertType, report it all the same because the method is deprecated.
+			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric' );
 			return;
 		}
 
@@ -244,7 +252,7 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 		$this->file->addError(
 			'The PHPUnit method %s() was deprecated in PHPUnit 8.',
 			$funcPos,
-			'AssertArraySubset',
+			'AttributeMethods',
 			[ $funcName ]
 		);
 	}

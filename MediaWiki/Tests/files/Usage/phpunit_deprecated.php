@@ -35,6 +35,22 @@ namespace {
 			$e->assertNotInternalType( 'NOT A PHPUNIT FUNCTION', 'foo' );
 		}
 
+		public function testAssertType() {
+			$e = 'foo';
+			$a = 'bar';
+			$this->assertType( "float", $e );
+			$this->assertType( $a, $e );
+			$this->assertType( 'boolean', $e );
+			$this->assertType( 'wtf', $e );
+			$this->assertType();
+			$this->assertType( 'string' );
+			$this->assertType( "integer", $a );
+			$this->assertType( MyClass::class, $a );
+			$this->assertType( 'MyClass', $a );
+
+			$e->assertType( 'NOT A PHPUNIT FUNCTION', 'foo' );
+		}
+
 		public function testAssertArraySubset() {
 			$this->assertArraySubset( [ 1, 2 ], [ 3, 4 ] );
 			$this->assertArraySubset();
