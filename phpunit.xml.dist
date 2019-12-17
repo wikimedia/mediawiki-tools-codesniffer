@@ -4,12 +4,10 @@
 		 convertErrorsToExceptions="true"
 		 convertNoticesToExceptions="true"
 		 convertWarningsToExceptions="true"
-		 mapTestClassNameToCoveredClassName="false"
 		 beStrictAboutOutputDuringTests="true"
-		 beStrictAboutTestSize="true"
+		 enforceTimeLimit="true"
 		 beStrictAboutTestsThatDoNotTestAnything="true"
-		 checkForUnintentionallyCoveredCode="true"
-		 disallowTodoAnnotatedTests="true"
+		 beStrictAboutTodoAnnotatedTests="true"
 		 bootstrap="./phpunit.bootstrap.php">
 	<testsuites>
 		<testsuite name="phpcs/MediaWiki">

@@ -9,3 +9,5 @@
 
 # Misc
 .idea
+
+.phpunit.result.cache
