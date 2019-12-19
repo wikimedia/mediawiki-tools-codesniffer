@@ -1,7 +1,10 @@
 {
 	"name": "mediawiki/mediawiki-codesniffer",
 	"description": "MediaWiki CodeSniffer Standards",
-	"keywords": ["mediawiki", "codesniffer"],
+	"keywords": [
+		"mediawiki",
+		"codesniffer"
+	],
 	"homepage": "https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP",
 	"license": "GPL-2.0-or-later",
 	"require": {
@@ -19,7 +22,7 @@
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
 		"jakub-onderka/php-console-highlighter": "0.3.2",
-		"mediawiki/minus-x": "0.3.1",
+		"mediawiki/minus-x": "0.3.2",
 		"phpunit/phpunit": "^8.4"
 	},
 	"scripts": {
