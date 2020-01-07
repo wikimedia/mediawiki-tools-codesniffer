@@ -1,5 +1,31 @@
 # MediaWiki-Codesniffer release history #
 
+## 29.0.0 / 2020-01-07 ##
+* Enforce docblock on private methods (Daimona Eaytoy)
+* Treat "mixed" as already including null (Kunal Mehta)
+* phpunit deprecations: Handle assertType() as well (Daimona Eaytoy)
+* build: Updating mediawiki/minus-x to 0.3.2 (libraryupgrader)
+* Upgrade to PHPUnit 8 (mainframe98)
+* Fix inconsistent sorting in UnsortedUseStatements sniff (Thiemo Kreuz)
+* Update composer/spdx-licenses from 1.5.1 to 1.5.2 (Reedy)
+* Update squizlabs/php_codesniffer to 3.5.3 (Umherirrender)
+* Avoid use of isset( ..., ..., [...] ) function construct / syntax (Umherirrender)
+* Improve sniff for doc comments (Umherirrender)
+* Minor fixups for the AssertEquals sniff (Thiemo Kreuz)
+* Fix code coverage reporting for this repo (Adam Wight)
+* Create PHPUnitAssertEquals sniff to find problematic assertEquals() (Thiemo Kreuz)
+* Add a sniff for methods deprecated in PHPUnit 8 (Daimona Eaytoy)
+* Create new sniff for doc comments (Umherirrender)
+* build: Update squizlabs/php_codesniffer to 3.5.2 (Umherirrender)
+* Add chop() to the list of forbidden functions (Thiemo Kreuz)
+* Add a sniff to detect and autosort use statements (mainframe98)
+* Allow @testWith and @doesNotPerformAssertions (Aryeh Gregor)
+* Also require return type for setUpBeforeClass() and tearDownAfterClass() (Max Semenik)
+* Forbid usage of is_null() (Prateek Saxena)
+* Use severity instead of excludes to allow local overrides (Thiemo Kreuz)
+* FunctionAnnotationsSniff: whitelist @before (Max Semenik)
+* Temporarily disable the sniff for assertArraySubset (Daimona Eaytoy)
+
 ## 28.0.0 / 2019-10-09 ##
 * Add a sniff to ensure that setUp and tearDown have :void typehints (Daimona Eaytoy)
 * Improve checks for variargs (Daimona Eaytoy)
