@@ -1,5 +1,18 @@
 # MediaWiki-Codesniffer release history #
 
+## 28.0.0 / 2019-10-09 ##
+* Add a sniff to ensure that setUp and tearDown have :void typehints (Daimona Eaytoy)
+* Improve checks for variargs (Daimona Eaytoy)
+* Add rules for PHP71 nullable types (Daimona Eaytoy)
+* Enable PSR12.Files.ImportStatement (Umherirrender)
+* Enable PSR12.Properties.ConstantVisibility (Umherirrender)
+* Forbid PHPUnit @expectedException* annotations (Daimona Eaytoy)
+* Enable Generic.WhiteSpace.SpreadOperatorSpacingAfter (Umherirrender)
+* Don't suggest to use a temporary variable for &$this (Daimona Eaytoy)
+* Require PHP 7.2+ in composer.json (Daimona Eaytoy)
+* Remove prohibitions on new PHP features (Max Semenik)
+* Require PHPUnit 6+ (Daimona Eaytoy)
+
 ## 27.0.0 / 2019-10-03 ##
 * Update squizlabs/php_codesniffer to 3.5.0 (Umherirrender)
 * List @phan-assert as allowed annotation in functions (Umherirrender)
@@ -9,7 +22,6 @@
 * Allow @template annotations (Daimona Eaytoy)
 * Allow consecutive single-line comments not to start with a single space (Daimona Eaytoy)
 * Allow @slowThreshold annotation in tests (Max Semenik)
-
 
 ## 26.0.0 / 2019-0511 ##
 * Update composer/spdx-licenses from 1.4.0 to 1.5.1 (Reedy)
