@@ -235,11 +235,14 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 	 * @param int $funcPos
 	 */
 	private function handleAssertArraySubset( int $funcPos ) {
+		// FIXME: What to do here? Remove/update/re-enable... T192167#5685401
+		/*
 		$this->file->addError(
 			'The PHPUnit method assertArraySubset() was deprecated in PHPUnit 8.',
 			$funcPos,
 			'AssertArraySubset'
 		);
+		*/
 	}
 
 	/**

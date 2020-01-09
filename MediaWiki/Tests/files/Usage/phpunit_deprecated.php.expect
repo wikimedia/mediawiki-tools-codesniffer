@@ -92,18 +92,6 @@
  49 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was
     |       |     deprecated in MW 1.35.
     |       |     (MediaWiki.Usage.PHPUnitDeprecatedMethods.AssertInternalTypeGeneric)
- 55 | ERROR | [ ] The PHPUnit method assertArraySubset() was
-    |       |     deprecated in PHPUnit 8.
-    |       |     (MediaWiki.Usage.PHPUnitDeprecatedMethods.AssertArraySubset)
- 56 | ERROR | [ ] The PHPUnit method assertArraySubset() was
-    |       |     deprecated in PHPUnit 8.
-    |       |     (MediaWiki.Usage.PHPUnitDeprecatedMethods.AssertArraySubset)
- 57 | ERROR | [ ] The PHPUnit method assertArraySubset() was
-    |       |     deprecated in PHPUnit 8.
-    |       |     (MediaWiki.Usage.PHPUnitDeprecatedMethods.AssertArraySubset)
- 58 | ERROR | [ ] The PHPUnit method assertArraySubset() was
-    |       |     deprecated in PHPUnit 8.
-    |       |     (MediaWiki.Usage.PHPUnitDeprecatedMethods.AssertArraySubset)
  63 | ERROR | [ ] The PHPUnit method assertAttributeContains() was
     |       |     deprecated in PHPUnit 8.
     |       |     (MediaWiki.Usage.PHPUnitDeprecatedMethods.AttributeMethods)
