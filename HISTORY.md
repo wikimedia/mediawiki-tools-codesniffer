@@ -84,7 +84,7 @@
 ## 23.0.0 / 2018-11-14 ##
 * Add comment why @private and @protected are okay (Umherirrender)
 * Add sniff to detect + for string concat (Umherirrender)
-* Add sniff to detect __METHOD__ in closures (Umherirrender)
+* Add sniff to detect `__METHOD__` in closures (Umherirrender)
 * Fix deprecation check for compounded licenses (Umherirrender)
 * Recognize MediaWikiTestCaseBase as test class (Aryeh Gregor)
 * Remove [optional] from types in @param (Umherirrender)
