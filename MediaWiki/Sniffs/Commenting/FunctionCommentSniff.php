@@ -432,10 +432,10 @@ class FunctionCommentSniff implements Sniff {
 			}
 			if ( $tokens[( $tag + 2 )]['code'] === T_DOC_COMMENT_STRING ) {
 				$matches = [];
-				preg_match( '/([^$&.]+)(?:((?:\.\.\.)?(?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/',
+				preg_match( '/^([^&$.]+)(?:((?:\.\.\.)?[&$]\S+)(?:(\s+)(.*))?)?/',
 					$tokens[( $tag + 2 )]['content'], $matches );
-				$typeLen = strlen( $matches[1] );
-				$type = trim( $matches[1] );
+				$typeLen = strlen( $matches[1] ?? '' );
+				$type = trim( $matches[1] ?? '' );
 				$typeSpace = ( $typeLen - strlen( $type ) );
 				$typeLen = strlen( $type );
 				if ( $typeLen > $maxType ) {

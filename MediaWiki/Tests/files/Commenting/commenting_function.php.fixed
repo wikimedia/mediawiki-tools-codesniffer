@@ -376,6 +376,14 @@ class TestPassedExamples {
 	 */
 	public function testCommentsWithDots( $key /* $this is allowed... */ ) {
 	}
+
+	/**
+	 * @param $parser Parser (not necessarily $wgParser)
+	 * @param $oldtext string The content of the revision prior to $content.  When
+	 *  null this will be loaded from the database.
+	 */
+	public function t174761( $parser, $oldtext ) {
+	}
 }
 
 class TestSimpleConstructor {
