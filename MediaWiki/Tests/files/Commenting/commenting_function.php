@@ -379,10 +379,11 @@ class TestPassedExamples {
 
 	/**
 	 * @param $parser Parser (not necessarily $wgParser)
+	 * @param $operator: Expected '&' or '|'
 	 * @param $oldtext string The content of the revision prior to $content.  When
 	 *  null this will be loaded from the database.
 	 */
-	public function t174761( $parser, $oldtext ) {
+	public function t174761( $parser, $operator, $oldtext ) {
 	}
 }
 
