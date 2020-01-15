@@ -29,7 +29,7 @@ class FunctionCommentSniff implements Sniff {
 	 * Standard class methods that
 	 * don't require documentation
 	 *
-	 * @var array
+	 * @var string[]
 	 */
 	private $skipStandardMethods = [
 		'__toString', '__destruct',
@@ -40,7 +40,7 @@ class FunctionCommentSniff implements Sniff {
 	/**
 	 * Mapping for swap short types
 	 *
-	 * @var array
+	 * @var string[]
 	 */
 	private static $shortTypeMapping = [
 		'boolean' => 'bool',
@@ -397,8 +397,6 @@ class FunctionCommentSniff implements Sniff {
 	protected function processParams( File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
 		$params = [];
-		$maxType = 0;
-		$maxVar = 0;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $pos => $tag ) {
 			$tagContent = $tokens[$tag]['content'];
 
@@ -431,22 +429,13 @@ class FunctionCommentSniff implements Sniff {
 				$paramSpace = strlen( $tokens[( $tag + 1 )]['content'] );
 			}
 			if ( $tokens[( $tag + 2 )]['code'] === T_DOC_COMMENT_STRING ) {
-				$matches = [];
 				preg_match( '/^([^&$.]+)(?:((?:\.\.\.)?[&$]\S+)(?:(\s+)(.*))?)?/',
 					$tokens[( $tag + 2 )]['content'], $matches );
-				$typeLen = strlen( $matches[1] ?? '' );
-				$type = trim( $matches[1] ?? '' );
-				$typeSpace = ( $typeLen - strlen( $type ) );
-				$typeLen = strlen( $type );
-				if ( $typeLen > $maxType ) {
-					$maxType = $typeLen;
-				}
+				$untrimmedType = $matches[1] ?? '';
+				$type = rtrim( $untrimmedType );
+				$typeSpace = strlen( $untrimmedType ) - strlen( $type );
 				if ( isset( $matches[2] ) ) {
 					$var = $matches[2];
-					$varLen = strlen( $var );
-					if ( $varLen > $maxVar ) {
-						$maxVar = $varLen;
-					}
 					if ( isset( $matches[4] ) ) {
 						$varSpace = strlen( $matches[3] );
 						$commentFirst = $matches[4];
@@ -546,7 +535,6 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 			// Check number of spaces after the type.
-			// $spaces = ( $maxType - strlen( $param['type'] ) + 1 );
 			$spaces = 1;
 			if ( $param['type_space'] !== $spaces ) {
 				$error = 'Expected %s spaces after parameter type; %s found';
@@ -694,7 +682,6 @@ class FunctionCommentSniff implements Sniff {
 				continue;
 			}
 			// Check number of spaces after the var name.
-			// $spaces = ( $maxVar - strlen( $param['var'] ) + 1 );
 			$spaces = 1;
 			if ( $param['var_space'] !== $spaces &&
 				ltrim( $param['comment'] ) !== ''
