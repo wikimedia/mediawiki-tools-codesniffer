@@ -8,7 +8,7 @@
 	"homepage": "https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"php": ">= 7.2.0",
+		"php": ">=7.2.0",
 		"ext-mbstring": "*",
 		"composer/semver": "1.5.1",
 		"composer/spdx-licenses": "1.5.2",
