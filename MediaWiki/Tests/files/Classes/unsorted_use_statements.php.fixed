@@ -2,6 +2,7 @@
 
 namespace TestSpace;
 
+use AfterNonWhitespaceTokens;
 use MediaWiki\Sniffs\Classes\UnsortedUseStatementsSniff;
 use MediaWiki\Sniffs\Classes\UnusedUseStatementSniff;
 use MediaWiki\Sniffs\Usage\AssignmentInReturnSniff as AwesomeSniff;
@@ -11,6 +12,10 @@ use TestTrait;
 use function array_values;
 use const M_EULER;
 
+/**
+ * @file comment
+ */
+
 class Test extends MediaWikiLangTestCase {
 	use TestTrait;
 
@@ -19,6 +24,7 @@ class Test extends MediaWikiLangTestCase {
 		new UnsortedUseStatementsSniff();
 		new DbrQueryUsageSniff();
 		new AwesomeSniff();
+		new AfterNonWhitespaceTokens();
 
 		array_values( [ M_EULER ] );
 	}

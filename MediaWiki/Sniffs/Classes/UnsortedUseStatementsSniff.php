@@ -57,16 +57,16 @@ class UnsortedUseStatementsSniff implements Sniff {
 			return;
 		}
 
-		$lastUseStatementToken = 0;
-
-		$useStatementList = $this->makeUseStatementList( $phpcsFile, $stackPtr, $lastUseStatementToken );
+		$useStatementList = $this->makeUseStatementList( $phpcsFile, $stackPtr );
 		$sortedStatements = [
 			'classes' => $this->sortStatements( $useStatementList['classes'] ),
 			'functions' => $this->sortStatements( $useStatementList['functions'] ),
 			'constants' => $this->sortStatements( $useStatementList['constants'] )
 		];
 
-		if ( $useStatementList !== $sortedStatements ) {
+		$lastUseStatementToken = max( array_merge( ...array_values( $useStatementList ) ) );
+
+		if ( !$this->useStatementsAreSorted( $useStatementList, $sortedStatements ) ) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Use statements are not alphabetically sorted',
 				$stackPtr,
@@ -76,11 +76,16 @@ class UnsortedUseStatementsSniff implements Sniff {
 			if ( $fix ) {
 				$phpcsFile->fixer->beginChangeset();
 
-				// Wipe all existing use statements, then insert the newly sorted ones afterwards.
-				// This loop terminates at $lastUseStatementToken + 2 to capture the last semi-colon
-				// and line ending.
-				for ( $i = $stackPtr; $i < $lastUseStatementToken + 2; $i++ ) {
-					$phpcsFile->fixer->replaceToken( $i, '' );
+				foreach (
+					$useStatementList['classes'] +
+					$useStatementList['functions'] +
+					$useStatementList['constants'] as $useStatementPtr
+				) {
+					$endOfUseStatement = $phpcsFile->findEndOfStatement( $useStatementPtr );
+
+					for ( $i = $useStatementPtr; $i < $endOfUseStatement; $i++ ) {
+						$phpcsFile->fixer->replaceToken( $i, '' );
+					}
 				}
 
 				$sortedStatements = array_merge(
@@ -90,8 +95,8 @@ class UnsortedUseStatementsSniff implements Sniff {
 				);
 
 				foreach ( $sortedStatements as $statement ) {
-					$phpcsFile->fixer->addContent( $lastUseStatementToken, "$statement;" );
-					$phpcsFile->fixer->addNewline( $lastUseStatementToken );
+					$phpcsFile->fixer->addContent( $stackPtr, "$statement;" );
+					$phpcsFile->fixer->addNewline( $stackPtr );
 				}
 
 				$phpcsFile->fixer->endChangeset();
@@ -109,7 +114,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 	 */
 	private function sortStatements( array $statementList ) : array {
 		$map = [];
-		foreach ( $statementList as $use ) {
+		foreach ( $statementList as $use => $_ ) {
 			$map[$use] = strtolower( $use );
 		}
 		natsort( $map );
@@ -117,12 +122,26 @@ class UnsortedUseStatementsSniff implements Sniff {
 	}
 
 	/**
+	 * @param array $useStatements
+	 * @param array $sortedStatements
+	 * @return bool
+	 */
+	private function useStatementsAreSorted( array $useStatements, array $sortedStatements ) : bool {
+		$useStatements = [
+			'classes' => array_keys( $useStatements['classes'] ),
+			'functions' => array_keys( $useStatements['functions'] ),
+			'constants' => array_keys( $useStatements['constants'] )
+		];
+
+		return $sortedStatements === $useStatements;
+	}
+
+	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
-	 * @param int &$endPtr
 	 * @return array[]
 	 */
-	private function makeUseStatementList( File $phpcsFile, int $stackPtr, int &$endPtr ) : array {
+	private function makeUseStatementList( File $phpcsFile, int $stackPtr ) : array {
 		$tokens = $phpcsFile->getTokens();
 		$useStatementList = [
 			'classes' => [],
@@ -133,7 +152,6 @@ class UnsortedUseStatementsSniff implements Sniff {
 		do {
 			// Seek to the end of the statement and get the string before the semi colon.
 			$semiColon = $phpcsFile->findEndOfStatement( $stackPtr );
-			$endPtr = $semiColon;
 
 			$fqnclass = $phpcsFile->getTokensAsString( $stackPtr, $semiColon - $stackPtr );
 
@@ -141,11 +159,11 @@ class UnsortedUseStatementsSniff implements Sniff {
 
 			// Check if this is an use for a constant or a function.
 			if ( $this->isToken( $tokens, $next, T_FUNCTION, 'function' ) ) {
-				$useStatementList['functions'][] = $fqnclass;
+				$useStatementList['functions'][$fqnclass] = $stackPtr;
 			} elseif ( $this->isToken( $tokens, $next, T_CONST, 'const' ) ) {
-				$useStatementList['constants'][] = $fqnclass;
+				$useStatementList['constants'][$fqnclass] = $stackPtr;
 			} else {
-				$useStatementList['classes'][] = $fqnclass;
+				$useStatementList['classes'][$fqnclass] = $stackPtr;
 			}
 
 			$stackPtr = $phpcsFile->findNext( T_USE, $semiColon );
