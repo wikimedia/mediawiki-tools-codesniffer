@@ -140,9 +140,9 @@ class UnsortedUseStatementsSniff implements Sniff {
 			$next = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
 
 			// Check if this is an use for a constant or a function.
-			if ( $this->isFunctionImport( $tokens, $next ) ) {
+			if ( $this->isToken( $tokens, $next, T_FUNCTION, 'function' ) ) {
 				$useStatementList['functions'][] = $fqnclass;
-			} elseif ( $this->isConstantImport( $tokens, $next ) ) {
+			} elseif ( $this->isToken( $tokens, $next, T_CONST, 'const' ) ) {
 				$useStatementList['constants'][] = $fqnclass;
 			} else {
 				$useStatementList['classes'][] = $fqnclass;
@@ -155,45 +155,20 @@ class UnsortedUseStatementsSniff implements Sniff {
 	}
 
 	/**
-	 * There's a difference between PHP 7.4 and PHP 7.3 and lower in how the use statement is
-	 * tokenized.
-	 *
-	 * PHP 7.4 correctly tokenizes the const in use const as T_CONST, but PHP 7.3 does not,
-	 * tokenizing it as T_STRING.
-	 *
-	 * @param array $tokens
+	 * @param array[] $tokens
 	 * @param int $stackPtr
+	 * @param int $code Token type to compare, e.g. T_FUNCTION or T_CONST
+	 * @param string $content Fallback for PHP <7.4
 	 * @return bool
 	 */
-	private function isConstantImport( array $tokens, int $stackPtr ) : bool {
-		if ( $tokens[$stackPtr]['code'] === T_CONST ) {
+	private function isToken( array $tokens, int $stackPtr, int $code, string $content ) : bool {
+		if ( $tokens[$stackPtr]['code'] === $code ) {
 			return true;
 		}
 
+		// PHP 7.4 tokenizes as T_FUNCTION and T_CONST, but PHP 7.3 tokenizes as T_STRING
 		return $tokens[$stackPtr]['code'] === T_STRING &&
-			   $tokens[$stackPtr]['content'] === 'const' &&
-			   // Namespace separators must follow T_STRING, so no white space check is required.
-			   $tokens[$stackPtr + 1]['code'] !== T_NS_SEPARATOR;
-	}
-
-	/**
-	 * There's a difference between PHP 7.4 and PHP 7.3 and lower in how the use statement is
-	 * tokenized.
-	 *
-	 * PHP 7.4 correctly tokenizes the function in use function as T_FUNCTION, but PHP 7.3 does not,
-	 * tokenizing it as T_STRING.
-	 *
-	 * @param array $tokens
-	 * @param int $stackPtr
-	 * @return bool
-	 */
-	private function isFunctionImport( array $tokens, int $stackPtr ) : bool {
-		if ( $tokens[$stackPtr]['code'] === T_FUNCTION ) {
-			return true;
-		}
-
-		return $tokens[$stackPtr]['code'] === T_STRING &&
-			   $tokens[$stackPtr]['content'] === 'function' &&
+			   $tokens[$stackPtr]['content'] === $content &&
 			   // Namespace separators must follow T_STRING, so no white space check is required.
 			   $tokens[$stackPtr + 1]['code'] !== T_NS_SEPARATOR;
 	}
