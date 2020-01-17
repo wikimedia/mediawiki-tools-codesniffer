@@ -57,14 +57,16 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 *
-	 * @return void
+	 * @return int|void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
 		// Only check use statements in the global scope.
 		if ( !empty( $tokens[$stackPtr]['conditions'] ) ) {
-			return;
+			// TODO: Use array_key_first() if available
+			$scope = key( $tokens[$stackPtr]['conditions'] );
+			return $tokens[$scope]['scope_closer'] ?? $stackPtr;
 		}
 
 		// Seek to the end of the statement and get the string before the semi colon.
