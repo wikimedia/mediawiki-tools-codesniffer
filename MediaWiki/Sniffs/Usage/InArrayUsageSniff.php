@@ -30,14 +30,14 @@ class InArrayUsageSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		if ( strcasecmp( $tokens[$stackPtr]['content'], 'array_flip' ) !== 0
-			&& strcasecmp( $tokens[$stackPtr]['content'], 'array_keys' ) !== 0
-		) {
+		// Continue only if the string we found is wrapped in at least one parenthesis
+		if ( empty( $tokens[$stackPtr]['nested_parenthesis'] ) ) {
 			return;
 		}
 
-		// Continue only if the string we found is wrapped in at least one parenthesis
-		if ( empty( $tokens[$stackPtr]['nested_parenthesis'] ) ) {
+		if ( strcasecmp( $tokens[$stackPtr]['content'], 'array_flip' ) !== 0
+			&& strcasecmp( $tokens[$stackPtr]['content'], 'array_keys' ) !== 0
+		) {
 			return;
 		}
 
