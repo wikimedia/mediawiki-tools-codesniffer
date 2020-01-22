@@ -27,38 +27,53 @@ class MultipleEmptyLinesSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		if ( $stackPtr > 2
-			&& $tokens[$stackPtr - 1]['line'] < $tokens[$stackPtr]['line']
-			&& $tokens[$stackPtr - 2]['line'] === $tokens[$stackPtr - 1]['line']
-			) {
-				// This is the first whitespace token on a line
-				// and the line before this one is not empty,
-				// so this could be the start of a multiple empty line block.
-				$next = $phpcsFile->findNext( T_WHITESPACE, $stackPtr, null, true );
-				$lines = ( $tokens[$next]['line'] - $tokens[$stackPtr]['line'] );
-				if ( $lines > 1 ) {
-					// If the next non T_WHITESPACE token is more than 1 line away,
-					// then there were multiple empty lines.
-					$fix = $phpcsFile->addFixableError(
-						'Multiple empty lines should not exist in a row; found %s consecutive empty lines',
-						$stackPtr,
-						'MultipleEmptyLines',
-						[ $lines ]
-					);
-					if ( $fix ) {
-						$phpcsFile->fixer->beginChangeset();
-						$i = $stackPtr;
-						while ( $tokens[$i]['line'] !== $tokens[$next]['line'] ) {
-							$phpcsFile->fixer->replaceToken( $i, '' );
-							$i++;
-						}
-						$phpcsFile->fixer->addNewlineBefore( $i );
-						$phpcsFile->fixer->endChangeset();
-					}
-				}
-
-			// Skip all whitespace we already checked above
-			return $next + 1;
+		// This sniff intentionally doesn't care about whitespace at the end of the file
+		if ( !isset( $tokens[$stackPtr + 3] ) ) {
+			return $phpcsFile->numTokens;
 		}
+
+		// Must have at least 3 newlines in a row for a match
+		if ( $tokens[$stackPtr + 2]['code'] !== T_WHITESPACE ||
+			$tokens[$stackPtr + 2]['line'] === $tokens[$stackPtr + 3]['line']
+		) {
+			// There might be another sequence of newlines after this non-newline token
+			return $stackPtr + 3;
+		}
+
+		if ( $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE ||
+			$tokens[$stackPtr + 1]['line'] === $tokens[$stackPtr + 2]['line']
+		) {
+			// There might be another sequence of newlines after this non-newline token
+			return $stackPtr + 2;
+		}
+
+		// Can only happen if there is whitespace at the end of a line, followed by 2 newlines
+		if ( $tokens[$stackPtr]['line'] === $tokens[$stackPtr + 1]['line'] ) {
+			return;
+		}
+
+		// We know we found 3 newlines already, no need to check these again
+		$next = $stackPtr + 3;
+		while ( isset( $tokens[$next + 1] ) &&
+			$tokens[$next]['code'] === T_WHITESPACE &&
+			$tokens[$next]['line'] !== $tokens[$next + 1]['line']
+		) {
+			$next++;
+		}
+
+		if ( $phpcsFile->addFixableError(
+			'Multiple empty lines should not exist in a row; found %s consecutive empty lines',
+			$stackPtr + 1,
+			'MultipleEmptyLines',
+			[ $next - $stackPtr - 1 ]
+		) ) {
+			$phpcsFile->fixer->beginChangeset();
+			for ( $i = $stackPtr + 2; $i < $next; $i++ ) {
+				$phpcsFile->fixer->replaceToken( $i, '' );
+			}
+			$phpcsFile->fixer->endChangeset();
+		}
+
+		return $next;
 	}
 }
