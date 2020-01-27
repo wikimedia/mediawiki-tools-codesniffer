@@ -219,15 +219,11 @@ class FunctionCommentSniff implements Sniff {
 				$expectedSpaces = 1;
 				$currentSpaces = strlen( $tokens[$retTypeSpacing]['content'] );
 				if ( $currentSpaces !== $expectedSpaces ) {
-					$data = [
-						$expectedSpaces,
-						$currentSpaces,
-					];
 					$fix = $phpcsFile->addFixableWarning(
 						'Expected %s spaces before return type; %s found',
 						$retTypeSpacing,
 						'SpacingBeforeReturnType',
-						$data
+						[ $expectedSpaces, $currentSpaces ]
 					);
 					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken( $retTypeSpacing, ' ' );
@@ -261,15 +257,11 @@ class FunctionCommentSniff implements Sniff {
 			}
 			$matches = [];
 			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $type, $matches ) ) {
-				$error = 'Expected parameter type not wrapped in parenthesis; %s and %s found';
-				$data = [
-					$matches[1], $matches[3]
-				];
 				$fix = $phpcsFile->addFixableError(
-					$error,
+					'Expected parameter type not wrapped in parenthesis; %s and %s found',
 					$retType,
 					'NotParenthesisReturnType',
-					$data
+					[ $matches[1], $matches[3] ]
 				);
 				$type = $matches[2];
 				if ( $fix ) {
@@ -301,15 +293,11 @@ class FunctionCommentSniff implements Sniff {
 				$expectedSpaces = 1;
 				$currentSpaces = strspn( $comment, ' ' ) + 1;
 				if ( $currentSpaces !== $expectedSpaces ) {
-					$data = [
-						$expectedSpaces,
-						$currentSpaces,
-					];
 					$fix = $phpcsFile->addFixableWarning(
 						'Expected %s spaces after return type; %s found',
 						$retType,
 						'SpacingAfterReturnType',
-						$data
+						[ $expectedSpaces, $currentSpaces ]
 					);
 					if ( $fix ) {
 						$fixType = true;
@@ -366,15 +354,11 @@ class FunctionCommentSniff implements Sniff {
 				// Check for unneeded parenthesis on exceptions
 				$matches = [];
 				if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $exception, $matches ) ) {
-					$error = 'Expected parameter type not wrapped in parenthesis; %s and %s found';
-					$data = [
-						$matches[1], $matches[3]
-					];
 					$fix = $phpcsFile->addFixableError(
-						$error,
+						'Expected parameter type not wrapped in parenthesis; %s and %s found',
 						$tag,
 						'NotParenthesisException',
-						$data
+						[ $matches[1], $matches[3] ]
 					);
 					if ( $fix ) {
 						$phpcsFile->fixer->replaceToken(
@@ -453,12 +437,10 @@ class FunctionCommentSniff implements Sniff {
 						}
 					}
 				} else {
-					$error = 'Missing parameter name';
-					$phpcsFile->addError( $error, $tag, 'MissingParamName' );
+					$phpcsFile->addError( 'Missing parameter name', $tag, 'MissingParamName' );
 				}
 			} else {
-				$error = 'Missing parameter type';
-				$phpcsFile->addError( $error, $tag, 'MissingParamType' );
+				$phpcsFile->addError( 'Missing parameter type', $tag, 'MissingParamType' );
 			}
 
 			$isLegacyVariadicArg = substr( $var, -4 ) === ',...';
@@ -503,12 +485,12 @@ class FunctionCommentSniff implements Sniff {
 			// Check number of spaces before type (after @param)
 			$spaces = 1;
 			if ( $param['param_space'] !== $spaces ) {
-				$error = 'Expected %s spaces before parameter type; %s found';
-				$data = [
-					$spaces,
-					$param['param_space'],
-				];
-				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingBeforeParamType', $data );
+				$fix = $phpcsFile->addFixableWarning(
+					'Expected %s spaces before parameter type; %s found',
+					$param['tag'],
+					'SpacingBeforeParamType',
+					[ $spaces, $param['param_space'] ]
+				);
 				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 1 ), str_repeat( ' ', $spaces ) );
 				}
@@ -516,15 +498,11 @@ class FunctionCommentSniff implements Sniff {
 			// Check for unneeded punctation on parameter type
 			$matches = [];
 			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $param['type'], $matches ) ) {
-				$error = 'Expected parameter type not wrapped in parenthesis; %s and %s found';
-				$data = [
-					$matches[1], $matches[3]
-				];
 				$fix = $phpcsFile->addFixableError(
-					$error,
+					'Expected parameter type not wrapped in parenthesis; %s and %s found',
 					$param['tag'],
 					'NotParenthesisParamType',
-					$data
+					[ $matches[1], $matches[3] ]
 				);
 				if ( $fix ) {
 					$this->replaceParamComment(
@@ -537,12 +515,11 @@ class FunctionCommentSniff implements Sniff {
 			// Check number of spaces after the type.
 			$spaces = 1;
 			if ( $param['type_space'] !== $spaces ) {
-				$error = 'Expected %s spaces after parameter type; %s found';
-				$data = [
-					$spaces,
-					$param['type_space'],
-				];
-				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingAfterParamType', $data );
+				$fix = $phpcsFile->addFixableWarning(
+					'Expected %s spaces after parameter type; %s found',
+					$param['tag'], 'SpacingAfterParamType',
+					[ $spaces, $param['type_space'] ]
+				);
 				if ( $fix ) {
 					$this->replaceParamComment(
 						$phpcsFile,
@@ -584,17 +561,13 @@ class FunctionCommentSniff implements Sniff {
 						$foundParams[] = "$var,...";
 					} else {
 						$code = 'ParamNameNoMatch';
-						$data = [
-							$var,
-							$realName,
-						];
 						$error = 'Doc comment for parameter %s does not match ';
 						if ( strcasecmp( $var, $realName ) === 0 ) {
 							$error .= 'case of ';
 							$code = 'ParamNameNoCaseMatch';
 						}
 						$error .= 'actual variable name %s';
-						$phpcsFile->addError( $error, $param['tag'], $code, $data );
+						$phpcsFile->addError( $error, $param['tag'], $code, [ $var, $realName ] );
 					}
 				}
 				if ( isset( $realParams[$pos]['default'] ) ) {
@@ -684,12 +657,12 @@ class FunctionCommentSniff implements Sniff {
 			if ( $param['var_space'] !== $spaces &&
 				ltrim( $param['comment'] ) !== ''
 			) {
-				$error = 'Expected %s spaces after parameter name; %s found';
-				$data = [
-					$spaces,
-					$param['var_space'],
-				];
-				$fix = $phpcsFile->addFixableWarning( $error, $param['tag'], 'SpacingAfterParamName', $data );
+				$fix = $phpcsFile->addFixableWarning(
+					'Expected %s spaces after parameter name; %s found',
+					$param['tag'],
+					'SpacingAfterParamName',
+					[ $spaces, $param['var_space'] ]
+				);
 				if ( $fix ) {
 					$this->replaceParamComment(
 						$phpcsFile,
@@ -705,10 +678,9 @@ class FunctionCommentSniff implements Sniff {
 				isset( $realParams[$pos] ) &&
 				$realParams[$pos]['variable_length'] === false
 			) {
-				$error = 'Splat operator missing for documented variadic parameter "%s"';
 				$legacyName = $param['legacy_variadic_arg'] ? "$var,..." : "...$var";
 				$phpcsFile->addError(
-					$error,
+					'Splat operator missing for documented variadic parameter "%s"',
 					$realParams[$pos]['token'],
 					'MissingSplatVariadicArg',
 					[ $legacyName ]
@@ -723,8 +695,7 @@ class FunctionCommentSniff implements Sniff {
 		$missing = array_diff( $realNames, $foundParams );
 		foreach ( $missing as $neededParam ) {
 			$error = 'Doc comment for parameter "%s" missing';
-			$data = [ $neededParam ];
-			$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', $data );
+			$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', [ $neededParam ] );
 		}
 	}
 

@@ -85,9 +85,8 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 			if ( $pos !== false && !$isTest ||
 				$functionContent[0] !== $lowerFunctionName[0]
 			) {
-				$error = 'Function name "%s" should use lower camel case.';
 				$phpcsFile->addError(
-					$error,
+					'Function name "%s" should use lower camel case.',
 					$stackPtr,
 					'FunctionName',
 					[ $functionContent ]

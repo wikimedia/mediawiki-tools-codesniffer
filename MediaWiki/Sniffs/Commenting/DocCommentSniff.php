@@ -157,15 +157,11 @@ class DocCommentSniff implements Sniff {
 					$code = 'SpacingDocStarSingleLine';
 				}
 				if ( $error !== null && $code !== null ) {
-					$data = [
-						$expectedSpaces,
-						$currentSpaces,
-					];
 					$fix = $phpcsFile->addFixableError(
 						$error,
 						$commentStarSpacing,
 						$code,
-						$data
+						[ $expectedSpaces, $currentSpaces ]
 					);
 					if ( $fix ) {
 						if ( $currentSpaces > $expectedSpaces ) {

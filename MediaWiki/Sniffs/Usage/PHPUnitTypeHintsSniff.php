@@ -98,12 +98,7 @@ class PHPUnitTypeHintsSniff implements Sniff {
 						}
 					} else {
 						// There's already a return type hint. No autofix, as the method must be manually checked
-						$phpcsFile->addError(
-							$err,
-							$cur,
-							'WrongTypehint',
-							[ $funcName ]
-						);
+						$phpcsFile->addError( $err, $cur, 'WrongTypehint', [ $funcName ] );
 					}
 				}
 			}

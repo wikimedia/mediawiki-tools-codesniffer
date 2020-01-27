@@ -183,14 +183,16 @@ class ExtendClassUsageSniff implements Sniff {
 						$condition = true;
 					}
 					if ( $condition ) {
-						$warning = 'Should use %s %s rather than %s %s .';
-						$expectCodeMsg = self::$msgMap[$value['expect_code']];
-						$codeMsg = self::$msgMap[$value['code']];
 						$phpcsFile->addWarning(
-							$warning,
+							'Should use %s %s rather than %s %s .',
 							$i,
 							'FunctionVarUsage',
-							[ $expectCodeMsg, $value['expect_content'], $codeMsg, $value['msg_content'] ]
+							[
+								self::$msgMap[$value['expect_code']],
+								$value['expect_content'],
+								self::$msgMap[$value['code']],
+								$value['msg_content']
+							]
 						);
 					}
 				}
@@ -205,11 +207,11 @@ class ExtendClassUsageSniff implements Sniff {
 					$iToken['code'] === T_VARIABLE &&
 					!isset( $nonConfigGlobals[$iToken['content']] )
 				) {
-					$warning = 'Should use function %s rather than global %s .';
-					$replacement = '$this->getConfig()->get()';
 					$phpcsFile->addWarning(
-						$warning, $i, 'FunctionConfigUsage',
-						[ $replacement, $iToken['content'] ]
+						'Should use function %s rather than global %s .',
+						$i,
+						'FunctionConfigUsage',
+						[ '$this->getConfig()->get()', $iToken['content'] ]
 					);
 				}
 			}

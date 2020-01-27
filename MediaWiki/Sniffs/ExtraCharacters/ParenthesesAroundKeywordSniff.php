@@ -56,8 +56,8 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 			$fix = $phpcsFile->addFixableWarning(
 				$tokens[$stackPtr]['content'] . ' keyword must not be used as a function.',
 				$stackPtr + 1,
-				'ParenthesesAroundKeywords' );
-
+				'ParenthesesAroundKeywords'
+			);
 			if ( $fix ) {
 				if ( $nextToken['code'] === T_OPEN_PARENTHESIS ) {
 					if ( $nextSecondToken['code'] === T_WHITESPACE ) {

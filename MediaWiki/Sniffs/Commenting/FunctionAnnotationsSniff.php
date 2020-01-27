@@ -145,8 +145,8 @@ class FunctionAnnotationsSniff implements Sniff {
 			} elseif ( $annotation === '@access' ) {
 				$this->handleAccessAnnotation( $phpcsFile, $tokens, $tag, $tagContent );
 			} elseif ( $tagContent !== $annotation ) {
-				$error = 'Use %s annotation instead of %s';
-				$fix = $phpcsFile->addFixableWarning( $error,
+				$fix = $phpcsFile->addFixableWarning(
+					'Use %s annotation instead of %s',
 					$tag,
 					'NonNormalizedAnnotation',
 					[ $annotation, $tagContent ]
@@ -191,8 +191,8 @@ class FunctionAnnotationsSniff implements Sniff {
 			$text = strtolower( $tokens[$tag + 2]['content'] );
 			if ( $text === 'protected' || $text === 'private' ) {
 				$replacement = '@' . $text;
-				$error = 'Use %s annotation instead of "%s"';
-				$fix = $phpcsFile->addFixableWarning( $error,
+				$fix = $phpcsFile->addFixableWarning(
+					'Use %s annotation instead of "%s"',
 					$tag,
 					'AccessAnnotationReplacement',
 					[ $replacement, $phpcsFile->getTokensAsString( $tag, 3 ) ]

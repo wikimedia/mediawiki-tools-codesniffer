@@ -194,8 +194,7 @@ class UnusedUseStatementSniff implements Sniff {
 			}
 		}
 
-		$warning = 'Unused use statement';
-		$fix = $phpcsFile->addFixableWarning( $warning, $stackPtr, 'UnusedUse' );
+		$fix = $phpcsFile->addFixableWarning( 'Unused use statement', $stackPtr, 'UnusedUse' );
 		if ( $fix ) {
 			$this->removeUseStatement( $phpcsFile, $tokens, $stackPtr, $semiColon );
 		}

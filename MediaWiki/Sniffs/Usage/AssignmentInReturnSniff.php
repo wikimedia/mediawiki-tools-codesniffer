@@ -53,9 +53,8 @@ class AssignmentInReturnSniff implements Sniff {
 			if ( array_key_exists( $code, Tokens::$assignmentTokens )
 				&& $code !== T_DOUBLE_ARROW
 			) {
-				$error = 'Assignment expression not allowed within "%s".';
 				$phpcsFile->addError(
-					$error,
+					'Assignment expression not allowed within "%s".',
 					$stackPtr,
 					'AssignmentInReturn',
 					[ $token['content'] ]

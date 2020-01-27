@@ -73,14 +73,13 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 					strlen( $commentContent ) !== ( strlen( $commentTrim ) + 1 ) ||
 					$currToken['content'][2] !== ' '
 				) {
-					$error = 'Single space expected between "//" and comment';
-					$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
+					$fix = $phpcsFile->addFixableWarning(
+						'Single space expected between "//" and comment',
+						$stackPtr,
 						'SingleSpaceBeforeSingleLineComment'
 					);
 					if ( $fix ) {
-						$newContent = '// ';
-						$newContent .= $commentTrim;
-						$phpcsFile->fixer->replaceToken( $stackPtr, $newContent );
+						$phpcsFile->fixer->replaceToken( $stackPtr, '// ' . $commentTrim );
 					}
 				}
 			// Finding what the comment delimiter is and checking whether there is a space
@@ -92,8 +91,9 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 					$startComment += 1;
 				}
 				if ( $currToken['content'][$startComment] !== ' ' ) {
-					$error = 'Single space expected between "#" and comment';
-					$fix = $phpcsFile->addFixableWarning( $error, $stackPtr,
+					$fix = $phpcsFile->addFixableWarning(
+						'Single space expected between "#" and comment',
+						$stackPtr,
 						'SingleSpaceBeforeSingleLineComment'
 					);
 					if ( $fix ) {

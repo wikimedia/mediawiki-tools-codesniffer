@@ -102,9 +102,13 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 		$length = strlen( $content );
 		if ( $length === 1 && $tokens[$closeBracket + 1]['content'] === ' ' ) {
 			return false;
-		} else {
-			$warning = 'Expected 1 space between closing parenthesis and opening brace; find %s characters';
-			return $phpcsFile->addFixableWarning( $warning, $openBrace, 'SpaceBeforeControl', [ $length ] );
 		}
+
+		return $phpcsFile->addFixableWarning(
+			'Expected 1 space between closing parenthesis and opening brace; find %s characters',
+			$openBrace,
+			'SpaceBeforeControl',
+			[ $length ]
+		);
 	}
 }

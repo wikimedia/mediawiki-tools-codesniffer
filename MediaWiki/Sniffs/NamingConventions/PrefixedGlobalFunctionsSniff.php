@@ -90,10 +90,11 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 			return;
 		}
 
-		// Forge a valid global function name
-		$expected = 'wf' . ucfirst( $name );
-		$error = 'Global function "%s" is lacking a \'wf\' prefix. Should be "%s".';
-		$data = [ $name, $expected ];
-		$phpcsFile->addError( $error, $stackPtr, 'wfPrefix', $data );
+		$phpcsFile->addError(
+			'Global function "%s" is lacking a \'wf\' prefix. Should be "%s".',
+			$stackPtr,
+			'wfPrefix',
+			[ $name, 'wf' . ucfirst( $name ) ]
+		);
 	}
 }

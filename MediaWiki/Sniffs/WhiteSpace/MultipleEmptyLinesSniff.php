@@ -39,9 +39,8 @@ class MultipleEmptyLinesSniff implements Sniff {
 				if ( $lines > 1 ) {
 					// If the next non T_WHITESPACE token is more than 1 line away,
 					// then there were multiple empty lines.
-					$error = 'Multiple empty lines should not exist in a row; found %s consecutive empty lines';
 					$fix = $phpcsFile->addFixableError(
-						$error,
+						'Multiple empty lines should not exist in a row; found %s consecutive empty lines',
 						$stackPtr,
 						'MultipleEmptyLines',
 						[ $lines ]
