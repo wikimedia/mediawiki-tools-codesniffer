@@ -65,7 +65,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	/**
 	 * Number of arguments to be forbidden with condition
 	 *
-	 * @var int[]
+	 * @var array[]
 	 */
 	private $functionsArgCount = [
 		'parse_str' => [ '=', 1 ],
@@ -114,7 +114,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		// Check argument count
 		if ( isset( $this->functionsArgCount[$funcName] ) ) {
 			$argCount = $this->argCount( $phpcsFile, $nextToken );
-			if ( !$this->evaluateCondition( $argCount, $this->functionsArgCount[$funcName] ) ) {
+			if ( !$this->evaluateCondition( $funcName, $argCount ) ) {
 				// Nothing to replace
 				return;
 			}
@@ -130,21 +130,14 @@ class ForbiddenFunctionsSniff implements Sniff {
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr, $replacement );
 			}
+		} elseif ( isset( $this->functionsArgCount[$funcName] ) ) {
+			$this->addWarningForCondition( $funcName, $phpcsFile, $stackPtr );
 		} else {
-			if ( isset( $this->functionsArgCount[$funcName] ) ) {
-				$this->addWarningForCondition(
-					$phpcsFile,
-					$stackPtr,
-					$funcName,
-					$this->functionsArgCount[$funcName]
-				);
-			} else {
-				$phpcsFile->addWarning(
-					"$funcName should not be used",
-					$stackPtr,
-					$funcName
-				);
-			}
+			$phpcsFile->addWarning(
+				"$funcName should not be used",
+				$stackPtr,
+				$funcName
+			);
 		}
 	}
 
@@ -199,12 +192,12 @@ class ForbiddenFunctionsSniff implements Sniff {
 	}
 
 	/**
+	 * @param string $funcName
 	 * @param int $argCount
-	 * @param array $conditionArray
 	 * @return bool
 	 */
-	private function evaluateCondition( $argCount, array $conditionArray ) {
-		list( $condition, $compareCount ) = $conditionArray;
+	private function evaluateCondition( $funcName, $argCount ) {
+		[ $condition, $compareCount ] = $this->functionsArgCount[$funcName];
 
 		switch ( $condition ) {
 			case '=':
@@ -217,15 +210,12 @@ class ForbiddenFunctionsSniff implements Sniff {
 	}
 
 	/**
+	 * @param string $funcName
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
-	 * @param string $funcName
-	 * @param array $conditionArray
 	 */
-	private function addWarningForCondition(
-		$phpcsFile, $stackPtr, $funcName, array $conditionArray
-	) {
-		list( $condition, $compareCount ) = $this->functionsArgCount[$funcName];
+	private function addWarningForCondition( $funcName, $phpcsFile, $stackPtr ) {
+		[ $condition, $compareCount ] = $this->functionsArgCount[$funcName];
 
 		switch ( $condition ) {
 			case '=':
