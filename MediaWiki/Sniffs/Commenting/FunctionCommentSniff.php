@@ -243,7 +243,7 @@ class FunctionCommentSniff implements Sniff {
 			// The first word of the return type is the actual type
 			$exploded = explode( ' ', $content, 2 );
 			$type = $exploded[0];
-			$comment = isset( $exploded[1] ) ? $exploded[1] : null;
+			$comment = $exploded[1] ?? null;
 			$fixType = false;
 			// Check for unneeded punctation
 			$matches = [];
@@ -597,10 +597,8 @@ class FunctionCommentSniff implements Sniff {
 						$phpcsFile->addError( $error, $param['tag'], $code, $data );
 					}
 				}
-				if ( isset( $realParams[$pos]['default'] ) &&
-					$realParams[$pos]['default'] === 'null'
-				) {
-					$defaultNull = true;
+				if ( isset( $realParams[$pos]['default'] ) ) {
+					$defaultNull = $realParams[$pos]['default'] === 'null';
 				}
 			} elseif ( $param['variadic_arg'] || $param['legacy_variadic_arg'] ) {
 				$error = 'Variadic parameter documented but not present in the signature';
