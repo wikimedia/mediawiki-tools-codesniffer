@@ -58,7 +58,7 @@ class AssignmentInReturnSniff implements Sniff {
 					$error,
 					$stackPtr,
 					'AssignmentInReturn',
-					$token['content']
+					[ $token['content'] ]
 				);
 				break;
 			}

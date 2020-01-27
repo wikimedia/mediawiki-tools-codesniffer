@@ -67,7 +67,7 @@ class OpeningKeywordParenthesisSniff implements Sniff {
 			'Expected no space before opening parenthesis; found %s',
 			$openParenthesis,
 			'WrongWhitespaceBeforeParenthesis',
-			strlen( $whitespaces )
+			[ strlen( $whitespaces ) ]
 		);
 		if ( $fix ) {
 			$phpcsFile->fixer->beginChangeset();

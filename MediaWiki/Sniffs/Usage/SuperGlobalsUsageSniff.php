@@ -38,7 +38,7 @@ class SuperGlobalsUsageSniff implements Sniff {
 		$currentToken = $tokens[$stackPtr];
 		if ( isset( self::$forbiddenList[$currentToken['content']] ) ) {
 			$error = '"%s" superglobals should not be accessed.';
-			$phpcsFile->addError( $error, $stackPtr, 'SuperGlobals', $currentToken['content'] );
+			$phpcsFile->addError( $error, $stackPtr, 'SuperGlobals', [ $currentToken['content'] ] );
 		}
 	}
 }

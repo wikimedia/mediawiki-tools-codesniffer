@@ -52,7 +52,7 @@ class AssignmentInControlStructuresSniff implements Sniff {
 					$error,
 					$stackPtr,
 					'AssignmentInControlStructures',
-					$token['content']
+					[ $token['content'] ]
 				);
 				break;
 			}
