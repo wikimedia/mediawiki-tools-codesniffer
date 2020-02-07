@@ -32,12 +32,22 @@ class MultipleEmptyLinesSniff implements Sniff {
 			return $phpcsFile->numTokens;
 		}
 
-		// Must have at least 3 newlines in a row for a match
-		if ( $tokens[$stackPtr + 2]['code'] !== T_WHITESPACE ||
-			$tokens[$stackPtr + 2]['line'] === $tokens[$stackPtr + 3]['line']
+		// For single line comment token or the php open tag the newline is part of the token
+		// To detect a sequence of newlines after the comment start sequence on previous token
+		$sequenceStartPtr = $stackPtr;
+		if ( $tokens[$stackPtr - 1]['code'] === T_OPEN_TAG ||
+			( $tokens[$stackPtr - 1]['code'] === T_COMMENT &&
+			substr( $tokens[$stackPtr - 1]['content'], -2 ) !== '*/' )
 		) {
-			// There might be another sequence of newlines after this non-newline token
-			return $stackPtr + 3;
+			$sequenceStartPtr--;
+		} else {
+			// Otherwise the code must have at least 3 newlines in a row for a match
+			if ( $tokens[$stackPtr + 2]['code'] !== T_WHITESPACE ||
+				$tokens[$stackPtr + 2]['line'] === $tokens[$stackPtr + 3]['line']
+			) {
+				// There might be another sequence of newlines after this non-newline token
+				return $stackPtr + 3;
+			}
 		}
 
 		if ( $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE ||
@@ -53,7 +63,7 @@ class MultipleEmptyLinesSniff implements Sniff {
 		}
 
 		// We know we found 3 newlines already, no need to check these again
-		$next = $stackPtr + 3;
+		$next = $sequenceStartPtr + 3;
 		while ( isset( $tokens[$next + 1] ) &&
 			$tokens[$next]['code'] === T_WHITESPACE &&
 			$tokens[$next]['line'] !== $tokens[$next + 1]['line']
@@ -63,12 +73,12 @@ class MultipleEmptyLinesSniff implements Sniff {
 
 		if ( $phpcsFile->addFixableError(
 			'Multiple empty lines should not exist in a row; found %s consecutive empty lines',
-			$stackPtr + 1,
+			$sequenceStartPtr + 1,
 			'MultipleEmptyLines',
-			[ $next - $stackPtr - 1 ]
+			[ $next - $sequenceStartPtr - 1 ]
 		) ) {
 			$phpcsFile->fixer->beginChangeset();
-			for ( $i = $stackPtr + 2; $i < $next; $i++ ) {
+			for ( $i = $sequenceStartPtr + 2; $i < $next; $i++ ) {
 				$phpcsFile->fixer->replaceToken( $i, '' );
 			}
 			$phpcsFile->fixer->endChangeset();

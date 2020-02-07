@@ -1,5 +1,10 @@
 <?php
 
+
+/**
+ * license header etc.
+ */
+
 /**
  * Failed examples.
  * @return void
@@ -16,6 +21,20 @@ function wfFailedExamples() {
 	
 	
 	// Comment
+
+
+
+
+	// Comment 2
+
+
+	// Comment 3
+
+	/* Comment 4 */
+
+	# Comment 5
+
+	$c = 3;
 }
 
 /**
