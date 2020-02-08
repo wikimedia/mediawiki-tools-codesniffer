@@ -15,7 +15,11 @@ class MultipleEmptyLinesSniff implements Sniff {
 	 */
 	public function register() {
 		return [
-			T_WHITESPACE
+			// Assume most comments end with a newline
+			T_COMMENT,
+			// Assume all <?php open tags end with a newline
+			T_OPEN_TAG,
+			T_WHITESPACE,
 		];
 	}
 
@@ -28,62 +32,48 @@ class MultipleEmptyLinesSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 
 		// This sniff intentionally doesn't care about whitespace at the end of the file
-		if ( !isset( $tokens[$stackPtr + 3] ) ) {
-			return $phpcsFile->numTokens;
+		if ( !isset( $tokens[$stackPtr + 3] ) ||
+			$tokens[$stackPtr + 2]['line'] === $tokens[$stackPtr + 3]['line']
+		) {
+			return $stackPtr + 3;
 		}
 
-		// For single line comment token or the php open tag the newline is part of the token
-		// To detect a sequence of newlines after the comment start sequence on previous token
-		$sequenceStartPtr = $stackPtr;
-		if ( $tokens[$stackPtr - 1]['code'] === T_OPEN_TAG ||
-			( $tokens[$stackPtr - 1]['code'] === T_COMMENT &&
-			substr( $tokens[$stackPtr - 1]['content'], -2 ) !== '*/' )
-		) {
-			$sequenceStartPtr--;
-		} else {
-			// Otherwise the code must have at least 3 newlines in a row for a match
-			if ( $tokens[$stackPtr + 2]['code'] !== T_WHITESPACE ||
-				$tokens[$stackPtr + 2]['line'] === $tokens[$stackPtr + 3]['line']
-			) {
-				// There might be another sequence of newlines after this non-newline token
-				return $stackPtr + 3;
-			}
-		}
-
-		if ( $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE ||
-			$tokens[$stackPtr + 1]['line'] === $tokens[$stackPtr + 2]['line']
-		) {
-			// There might be another sequence of newlines after this non-newline token
+		if ( $tokens[$stackPtr + 1]['line'] === $tokens[$stackPtr + 2]['line'] ) {
 			return $stackPtr + 2;
 		}
 
-		// Can only happen if there is whitespace at the end of a line, followed by 2 newlines
+		// Finally, check the assumption the current token is or ends with a newline
 		if ( $tokens[$stackPtr]['line'] === $tokens[$stackPtr + 1]['line'] ) {
 			return;
 		}
 
-		// We know we found 3 newlines already, no need to check these again
-		$next = $sequenceStartPtr + 3;
+		// Search for the next non-newline token
+		$next = $stackPtr + 1;
 		while ( isset( $tokens[$next + 1] ) &&
 			$tokens[$next]['code'] === T_WHITESPACE &&
 			$tokens[$next]['line'] !== $tokens[$next + 1]['line']
 		) {
 			$next++;
 		}
+		$count = $next - $stackPtr - 1;
 
-		if ( $phpcsFile->addFixableError(
-			'Multiple empty lines should not exist in a row; found %s consecutive empty lines',
-			$sequenceStartPtr + 1,
-			'MultipleEmptyLines',
-			[ $next - $sequenceStartPtr - 1 ]
-		) ) {
+		if ( $count > 1 &&
+			$phpcsFile->addFixableError(
+				'Multiple empty lines should not exist in a row; found %s consecutive empty lines',
+				$stackPtr + 1,
+				'MultipleEmptyLines',
+				[ $count ]
+			)
+		) {
 			$phpcsFile->fixer->beginChangeset();
-			for ( $i = $sequenceStartPtr + 2; $i < $next; $i++ ) {
+			// Remove all newlines except the first two, i.e. keep one empty line
+			for ( $i = $stackPtr + 2; $i < $next; $i++ ) {
 				$phpcsFile->fixer->replaceToken( $i, '' );
 			}
 			$phpcsFile->fixer->endChangeset();
 		}
 
+		// Don't check the current sequence a second time
 		return $next;
 	}
 }
