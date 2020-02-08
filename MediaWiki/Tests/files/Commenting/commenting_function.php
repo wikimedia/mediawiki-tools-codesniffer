@@ -296,6 +296,27 @@ class TestFailedExamples {
 	private function noDocsPrivate( $foo, $baz ) {
 		echo $foo;
 	}
+
+	/**
+	 * @param int &$refDoc
+	 * @param int $refReal
+	 * @param int $refDoesNotMatch Mixed test for ParamNameNoMatch and ParamPassByReference
+	 * @param int $refNull
+	 */
+	public function testPassByReference( $refDoc, &$refReal, &$refMatch, &$refNull = null ) {
+	}
+
+	/**
+	 * @param int &...$refDoc
+	 */
+	public function testVarArgsDocPassByReference( ...$refDoc ) {
+	}
+
+	/**
+	 * @param int ...$refReal
+	 */
+	public function testVarArgsRealPassByReference( &...$refReal ) {
+	}
 }
 
 class TestPassedExamples {

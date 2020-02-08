@@ -250,37 +250,70 @@
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
  296 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate)
- 301 | ERROR   | [ ] Only one object structure is allowed in a
-     |         |     file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 364 | ERROR   | [ ] Missing function doc comment
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 377 | WARNING | [ ] Comments should start on new line.
-     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 380 | ERROR   | [ ] Doc comment for parameter "$parser" missing
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 380 | ERROR   | [ ] Doc comment for parameter "$operator"
+ 300 | ERROR   | [ ] Doc comment for parameter "$refMatch"
      |         |     missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 380 | ERROR   | [ ] Doc comment for parameter "$oldtext" missing
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 381 | ERROR   | [ ] Missing parameter name
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
- 382 | ERROR   | [ ] Missing parameter name
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
- 383 | ERROR   | [ ] Missing parameter name
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
- 390 | ERROR   | [ ] Only one object structure is allowed in a
+ 301 | ERROR   | [x] Pass-by-reference for parameter $refDoc does not
+     |         |     match pass-by-reference of variable name
+     |         |     $refDoc
+     |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
+ 302 | ERROR   | [x] Pass-by-reference for parameter $refReal does
+     |         |     not match pass-by-reference of variable name
+     |         |     $refReal
+     |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
+ 303 | ERROR   | [x] Pass-by-reference for parameter $refDoesNotMatch
+     |         |     does not match pass-by-reference of variable
+     |         |     name $refMatch
+     |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
+ 303 | ERROR   | [ ] Doc comment for parameter $refDoesNotMatch does
+     |         |     not match actual variable name $refMatch
+     |         |     (MediaWiki.Commenting.FunctionComment.ParamNameNoMatch)
+ 304 | ERROR   | [x] Pass-by-reference for parameter $refNull does
+     |         |     not match pass-by-reference of variable name
+     |         |     $refNull
+     |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
+ 304 | ERROR   | [x] Default of null should be declared in @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
+ 310 | ERROR   | [x] Pass-by-reference for parameter $refDoc does not
+     |         |     match pass-by-reference of variable name
+     |         |     ...$refDoc
+     |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
+ 316 | ERROR   | [x] Pass-by-reference for parameter $refReal does
+     |         |     not match pass-by-reference of variable name
+     |         |     ...$refReal
+     |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
+ 322 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 396 | ERROR   | [ ] Only one object structure is allowed in a
+ 385 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+ 398 | WARNING | [ ] Comments should start on new line.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+ 401 | ERROR   | [ ] Doc comment for parameter "$parser" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 401 | ERROR   | [ ] Doc comment for parameter "$operator"
+     |         |     missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 401 | ERROR   | [ ] Doc comment for parameter "$oldtext" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 402 | ERROR   | [ ] Missing parameter name
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
+ 403 | ERROR   | [ ] Missing parameter name
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
+ 404 | ERROR   | [ ] Missing parameter name
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
+ 411 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 397 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 417 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 418 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 400 | WARNING | [x] Use @param annotation instead of @parma
+ 421 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 410 | ERROR   | [ ] You must use "/**" style comments for a function
+ 431 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
-PHPCBF CAN FIX THE 47 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 54 MARKED SNIFF VIOLATIONS AUTOMATICALLY

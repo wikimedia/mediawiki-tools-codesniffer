@@ -443,6 +443,12 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile->addError( 'Missing parameter type', $tag, 'MissingParamType' );
 			}
 
+			$isPassByReference = substr( $var, 0, 1 ) === '&';
+			// Remove the pass by reference to allow compare with varargs
+			if ( $isPassByReference ) {
+				$var = substr( $var, 1 );
+			}
+
 			$isLegacyVariadicArg = substr( $var, -4 ) === ',...';
 			$isVariadicArg = substr( $var, 0, 4 ) === '...$';
 			// Remove the variadic indicator from the doc name to compare it against the real
@@ -459,6 +465,7 @@ class FunctionCommentSniff implements Sniff {
 				'var' => $var,
 				'variadic_arg' => $isVariadicArg,
 				'legacy_variadic_arg' => $isLegacyVariadicArg,
+				'pass_by_reference' => $isPassByReference,
 				'comment' => $comment,
 				'comment_first' => $commentFirst,
 				'param_space' => $paramSpace,
@@ -471,9 +478,6 @@ class FunctionCommentSniff implements Sniff {
 		// We want to use ... for all variable length arguments, so added
 		// this prefix to the variable name so comparisons are easier.
 		foreach ( $realParams as $pos => $param ) {
-			if ( $realParams[$pos]['pass_by_reference'] === true ) {
-				$realParams[$pos]['name'] = '&' . $realParams[$pos]['name'];
-			}
 			if ( $param['variable_length'] === true ) {
 				$realParams[$pos]['name'] = '...' . $realParams[$pos]['name'];
 			}
@@ -551,6 +555,24 @@ class FunctionCommentSniff implements Sniff {
 			$defaultNull = false;
 			if ( isset( $realParams[$pos] ) ) {
 				$realName = $realParams[$pos]['name'];
+				// If difference is pass by reference, add or remove & from documentation
+				if ( $param['pass_by_reference'] !== $realParams[$pos]['pass_by_reference'] ) {
+					$fix = $phpcsFile->addFixableError(
+						'Pass-by-reference for parameter %s does not match ' .
+							'pass-by-reference of variable name %s',
+						$param['tag'],
+						'ParamPassByReference',
+						[ $var, $realName ]
+					);
+					if ( $fix ) {
+						$this->replaceParamComment(
+							$phpcsFile,
+							$param,
+							[ 'pass_by_reference' => $realParams[$pos]['pass_by_reference'] ]
+						);
+					}
+					$param['pass_by_reference'] = $realParams[$pos]['pass_by_reference'];
+				}
 				if ( $realName !== $var ) {
 					if (
 						substr( $realName, 0, 4 ) === '...$' &&
@@ -713,6 +735,9 @@ class FunctionCommentSniff implements Sniff {
 		// Build the new line
 		$content = $fixParam['type'];
 		$content .= str_repeat( ' ', $fixParam['type_space'] );
+		if ( $fixParam['pass_by_reference'] ) {
+			$content .= '&';
+		}
 		if ( $fixParam['variadic_arg'] ) {
 			$content .= '...';
 		}
