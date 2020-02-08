@@ -18,6 +18,9 @@ class TestFailedExamples {
 	 * AndNoSpacesHere
 	 */
 	public function testSyntaxDoc() {
+		/**/
+		/***/
+		/**************/
 	}
 
 	/**  NoSpaceHere

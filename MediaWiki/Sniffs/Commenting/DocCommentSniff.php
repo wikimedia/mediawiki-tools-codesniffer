@@ -61,9 +61,11 @@ class DocCommentSniff implements Sniff {
 		$isMultiLineDoc = ( $tokens[$commentStart]['line'] !== $tokens[$commentEnd]['line'] );
 
 		// Start token should exact /**
+		// Self-closing comments are tokenized also as open tag, but ignore them
 		if ( $tokens[$commentStart]['code'] === T_DOC_COMMENT_OPEN_TAG &&
 			$tokens[$commentStart]['content'] !== '/**' &&
-			$tokens[$commentStart]['length'] < self::COMMENT_START_ASTERIKS_MAX_LEN
+			$tokens[$commentStart]['length'] < self::COMMENT_START_ASTERIKS_MAX_LEN &&
+			substr( $tokens[$commentStart]['content'], -2 ) !== '*/'
 		) {
 			$error = 'Comment open tag must be \'/**\'';
 			$fix = $phpcsFile->addFixableError( $error, $commentStart, 'SyntaxOpenTag' );
