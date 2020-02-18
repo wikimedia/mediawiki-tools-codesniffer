@@ -1,5 +1,27 @@
 # MediaWiki-Codesniffer release history #
 
+## 30.0.0 / 2020-02-18 ##
+* `ForbiddenFunctions` sniff: Remove little bits of unused code (Thiemo Kreuz)
+* `FunctionComment` sniff: Detect missing `&` for `ParamNameNoMatch` error code and autofix (Umherirrender)
+* `FunctionComment` sniff: Remove a few pieces of unused code (Thiemo Kreuz)
+* `FunctionComment` sniff: Simplify code utilizing isset() (Thiemo Kreuz)
+* `FunctionComment` sniff: Fix sniff destroying comments mentioning other variables (Thiemo Kreuz)
+* `FunctionComment` sniff: Add another test case for `@param` comments containing an `&` (Thiemo Kreuz)
+* `InArrayUsage` sniff: Improve performance (Thiemo Kreuz)
+* `MultipleEmptyLines` sniff: Optimize for performance (again) (Thiemo Kreuz)
+* `MultipleEmptyLines` sniff: Rewrite for performance (Thiemo Kreuz)
+* `MultipleEmptyLines` sniff: Detect multiple empty lines after single line comment or php open (Umherirrender)
+* `UnsortedUseStatement` sniff: Fix handling other content between use statements (mainframe98)
+* `UnsortedUseStatements` sniff: Consolidate duplicate code (Thiemo Kreuz)
+* general: Fix wrong type of error message parameters (Thiemo Kreuz)
+* general: Inline mostly meaningless `$error`/`$data` variables in many sniffs (Thiemo Kreuz)
+* general: Let two use related sniffs skip non top-level scopes (Thiemo Kreuz)
+* build: Remove `| sort` from `gen-changelog.sh` (Kunal Mehta)
+* build: Updating composer dependencies (libraryupgrader)
+* dependencies: Remove space from php version constraint in composer.json (Reedy)
+* dependencies: Update composer/semver from 1.5.0 to 1.5.1 (Reedy)
+* HISTORY.md: Add backticks (Ricordisamoa)
+
 ## 29.0.0 / 2020-01-07 ##
 * Enforce docblock on private methods (Daimona Eaytoy)
 * Treat "mixed" as already including null (Kunal Mehta)
