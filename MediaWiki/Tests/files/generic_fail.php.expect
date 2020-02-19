@@ -1,4 +1,4 @@
-  3 | ERROR   | [ ] Import statements must not begin with a leading
+  3 | ERROR   | [x] Import statements must not begin with a leading
     |         |     backslash
     |         |     (PSR12.Files.ImportStatement.LeadingSlash)
   5 | ERROR   | [ ] Logical operator "or" is prohibited; use "||"
@@ -167,4 +167,4 @@
  48 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1
     |         |     found
     |         |     (Generic.WhiteSpace.SpreadOperatorSpacingAfter.TooMuchSpace)
-PHPCBF CAN FIX THE 58 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 59 MARKED SNIFF VIOLATIONS AUTOMATICALLY
