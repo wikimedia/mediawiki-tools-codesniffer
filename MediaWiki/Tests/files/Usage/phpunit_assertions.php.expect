@@ -61,34 +61,42 @@
  26 | WARNING | [x] assertEquals accepts many non-true values, please
     |         |     use strict alternatives like assertTrue
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.True)
- 27 | WARNING | [x] assertEquals accepts many non-string values,
+ 27 | WARNING | [x] assertEquals accepts many non-numeric values,
+    |         |     please use strict alternatives like
+    |         |     assertSame
+    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Int)
+ 28 | WARNING | [x] assertEquals accepts many non-numeric values,
+    |         |     please use strict alternatives like
+    |         |     assertSame
+    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Float)
+ 29 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.IntegerString)
- 28 | WARNING | [x] assertEquals accepts many non-string values,
+ 30 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
- 31 | WARNING | [x] assertEquals accepts many non-string values,
+ 33 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.NumericString)
- 32 | WARNING | [x] assertEquals accepts many non-string values,
+ 34 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.NumericString)
- 32 | WARNING | [x] Floats should have a leading 0
+ 34 | WARNING | [x] Floats should have a leading 0
     |         |     (MediaWiki.AlternativeSyntax.LeadingZeroInFloat.Found)
- 35 | WARNING | [x] assertEquals accepts many non-null values, please
+ 37 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
- 35 | WARNING | [x] assertEquals accepts many non-string values,
+ 37 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
- 38 | WARNING | [x] assertEquals accepts many non-null values, please
+ 40 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
- 38 | WARNING | [ ] Comments should start on new line.
+ 40 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
-PHPCBF CAN FIX THE 27 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 29 MARKED SNIFF VIOLATIONS AUTOMATICALLY

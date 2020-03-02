@@ -24,6 +24,8 @@ class AssertionsTest extends \PHPUnit\Framework\TestCase {
 
 		// Expected values that can be confused with true
 		$this->assertTrue( 1 );
+		$this->assertSame( 1, true );
+		$this->assertSame( 1.0, true );
 		$this->assertSame( '1', true );
 		$this->assertSame( '01.0', true );
 

@@ -68,19 +68,27 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 				break;
 
 			case T_LNUMBER:
-				// This sniff currently doesn't care about numbers other than 0
-				if ( (int)$tokens[$expected]['content'] ) {
-					break;
+				$number = (int)$tokens[ $expected ]['content'];
+				if ( $number === 0 || $number === 1 ) {
+					$fix = $phpcsFile->addFixableWarning(
+						$msg,
+						$stackPtr,
+						'Int',
+						[ $number ? 'numeric' : 'zero', 'assertSame' ]
+					);
 				}
-				$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Int', [ 'zero', 'assertSame' ] );
 				break;
 
 			case T_DNUMBER:
-				// This sniff currently doesn't care about numbers other than 0.0
-				if ( (float)$tokens[$expected]['content'] ) {
-					break;
+				$number = (float)$tokens[ $expected ]['content'];
+				if ( $number === 0.0 || $number === 1.0 ) {
+					$fix = $phpcsFile->addFixableWarning(
+						$msg,
+						$stackPtr,
+						'Float',
+						[ $number ? 'numeric' : 'zero', 'assertSame' ]
+					);
 				}
-				$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Float', [ 'zero', 'assertSame' ] );
 				break;
 
 			case T_CONSTANT_ENCAPSED_STRING:
