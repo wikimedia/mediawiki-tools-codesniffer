@@ -16,6 +16,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class PHPUnitAssertEqualsSniff implements Sniff {
 
+	private const ASSERTIONS = [
+		'assertEquals' => true,
+		'assertNotEquals' => true,
+		'assertNotSame' => true,
+	];
+
 	/**
 	 * @inheritDoc
 	 */
@@ -31,68 +37,83 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
+		$assertion = $tokens[$stackPtr]['content'];
 
 		// We don't care about stuff that's not in a method in a class
-		if ( $tokens[$stackPtr]['level'] < 2 || $tokens[$stackPtr]['content'] !== 'assertEquals' ) {
+		if ( $tokens[$stackPtr]['level'] < 2 || !isset( self::ASSERTIONS[$assertion] ) ) {
 			return;
 		}
 
 		$opener = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 1, null, true );
-		// Looks like this "assertEquals" string is not a method call
+		// Looks like this string is not a method call
 		if ( !isset( $tokens[$opener]['parenthesis_closer'] ) ) {
 			return $opener;
 		}
 
+		$isAssertEquals = $assertion === 'assertEquals';
 		$expected = $phpcsFile->findNext( T_WHITESPACE, $opener + 1, null, true );
-		$msg = 'assertEquals accepts many non-%s values, please use strict alternatives like %s';
+		$msg = '%s accepts many non-%s values, please use strict alternatives like %s';
 		/** @var bool|string $fix */
 		$fix = false;
 
 		switch ( $tokens[$expected]['code'] ) {
 			case T_NULL:
-				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Null', [ 'null', 'assertNull' ] ) ) {
+				if ( !$isAssertEquals ) {
+					break;
+				}
+
+				$msgParams = [ $assertion, 'null', 'assertNull' ];
+				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Null', $msgParams ) ) {
 					$fix = 'assertNull';
 				}
 				break;
 
 			case T_FALSE:
-				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'False', [ 'false', 'assertFalse' ] ) ) {
-					$fix = 'assertFalse';
+				$replacement = $isAssertEquals ? 'assertFalse' : 'assertTrue';
+				$msgParams = [ $assertion, $isAssertEquals ? 'false' : 'true', $replacement ];
+				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'False', $msgParams ) ) {
+					$fix = $replacement;
 				}
 				break;
 
 			case T_TRUE:
-				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'True', [ 'true', 'assertTrue' ] ) ) {
-					$fix = 'assertTrue';
+				$replacement = $isAssertEquals ? 'assertTrue' : 'assertFalse';
+				$msgParams = [ $assertion, $isAssertEquals ? 'true' : 'false', $replacement ];
+				if ( $phpcsFile->addFixableWarning( $msg, $stackPtr, 'True', $msgParams ) ) {
+					$fix = $replacement;
 				}
 				break;
 
 			case T_LNUMBER:
-				$number = (int)$tokens[ $expected ]['content'];
+				if ( !$isAssertEquals ) {
+					break;
+				}
+
+				$number = (int)$tokens[$expected]['content'];
 				if ( $number === 0 || $number === 1 ) {
-					$fix = $phpcsFile->addFixableWarning(
-						$msg,
-						$stackPtr,
-						'Int',
-						[ $number ? 'numeric' : 'zero', 'assertSame' ]
-					);
+					$msgParams = [ $assertion, $number ? 'numeric' : 'zero', 'assertSame' ];
+					$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Int', $msgParams );
 				}
 				break;
 
 			case T_DNUMBER:
-				$number = (float)$tokens[ $expected ]['content'];
+				if ( !$isAssertEquals ) {
+					break;
+				}
+
+				$number = (float)$tokens[$expected]['content'];
 				if ( $number === 0.0 || $number === 1.0 ) {
-					$fix = $phpcsFile->addFixableWarning(
-						$msg,
-						$stackPtr,
-						'Float',
-						[ $number ? 'numeric' : 'zero', 'assertSame' ]
-					);
+					$msgParams = [ $assertion, $number ? 'numeric' : 'zero', 'assertSame' ];
+					$fix = $phpcsFile->addFixableWarning( $msg, $stackPtr, 'Float', $msgParams );
 				}
 				break;
 
 			case T_CONSTANT_ENCAPSED_STRING:
-				$msgParams = [ 'string', 'assertSame' ];
+				if ( !$isAssertEquals ) {
+					break;
+				}
+
+				$msgParams = [ $assertion, 'string', 'assertSame' ];
 
 				// The empty string as well as "0" are among PHP's "falsy" values
 				if ( strlen( $tokens[$expected]['content'] ) <= 2 ||

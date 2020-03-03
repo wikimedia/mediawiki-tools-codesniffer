@@ -44,5 +44,23 @@ class AssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( 2.0, 2.0 );
 		$this->assertEquals( '9a', '9a' );
 		$this->assertEquals( " .a", ' .a' );
+
+		// Changing these to assertNotSame() will make them *less* strict!
+		$this->assertNotEquals( null, 1 );
+		$this->assertNotEquals( 0, 1 );
+		$this->assertNotEquals( 0.0, 1 );
+		$this->assertNotEquals( '', 1 );
+		$this->assertNotEquals( '0', 1 );
+		$this->assertNotEquals( '0.0', 1 );
+		$this->assertNotEquals( 1, 0 );
+		$this->assertNotEquals( 1.0, 0 );
+		$this->assertNotEquals( '1', 0 );
+		$this->assertNotEquals( '1.0', 0 );
+
+		// These are just confusing
+		$this->assertNotEquals( false, true );
+		$this->assertNotEquals( true, false );
+		$this->assertNotSame( false, true );
+		$this->assertNotSame( true, false );
 	}
 }

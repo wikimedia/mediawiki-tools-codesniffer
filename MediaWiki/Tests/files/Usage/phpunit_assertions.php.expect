@@ -99,4 +99,20 @@
     |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
  40 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
-PHPCBF CAN FIX THE 29 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 61 | WARNING | [x] assertNotEquals accepts many non-true values,
+    |         |     please use strict alternatives like
+    |         |     assertTrue
+    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.False)
+ 62 | WARNING | [x] assertNotEquals accepts many non-false values,
+    |         |     please use strict alternatives like
+    |         |     assertFalse
+    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.True)
+ 63 | WARNING | [x] assertNotSame accepts many non-true values,
+    |         |     please use strict alternatives like
+    |         |     assertTrue
+    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.False)
+ 64 | WARNING | [x] assertNotSame accepts many non-false values,
+    |         |     please use strict alternatives like
+    |         |     assertFalse
+    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.True)
+PHPCBF CAN FIX THE 33 MARKED SNIFF VIOLATIONS AUTOMATICALLY
