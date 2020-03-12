@@ -9,6 +9,8 @@
 
 	<description>A coding standard for MediaWiki.</description>
 
+	<arg name="tab-width" value="4" />
+
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<rule ref="Generic.Classes.DuplicateClassName" />
@@ -32,8 +34,8 @@
 	<rule ref="Generic.Files.LineEndings" />
 	<rule ref="Generic.Files.LineLength">
 		<properties>
-			<!-- More than 100 will throw a warning ... -->
-			<property name="lineLimit" value="100" />
+			<!-- More than 120 will throw a warning ... -->
+			<property name="lineLimit" value="120" />
 			<!-- ... but we will most probably never throw an error -->
 			<property name="absoluteLineLimit" value="9999" />
 		</properties>
