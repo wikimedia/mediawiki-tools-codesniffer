@@ -73,6 +73,12 @@ class FunctionAnnotationsSniff implements Sniff {
 		// Special handling
 		'@access' => true,
 
+		// Stable interface policy tags
+		// @see https://www.mediawiki.org/wiki/Stable_interface_policy
+		'@newable' => true,
+		'@stable' => true,
+		'@unstable' => true,
+
 		// phan
 		'@phan-param' => true,
 		'@phan-return' => true,
