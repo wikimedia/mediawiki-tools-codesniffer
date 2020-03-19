@@ -171,6 +171,8 @@
 	<rule ref="Generic.PHP.BacktickOperator" />
 	<rule ref="Generic.VersionControl.GitMergeConflict" />
 
+	<rule ref="PEAR.Functions.ValidDefaultValue.NotAtEnd" />
+
 	<!-- Exclude common folders from version control or build tools -->
 	<exclude-pattern type="relative">^\.git</exclude-pattern>
 	<exclude-pattern type="relative">^vendor</exclude-pattern>
