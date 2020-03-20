@@ -271,6 +271,7 @@ class FunctionCommentSniff implements Sniff {
 			// Check the type for short types
 			$explodedType = explode( '|', $type );
 			foreach ( $explodedType as $index => $singleType ) {
+				$singleType = lcfirst( $singleType );
 				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
 					$newType = self::$shortTypeMapping[$singleType];
 					// grep: NotShortIntReturn, NotShortIntArrayReturn,
@@ -609,6 +610,7 @@ class FunctionCommentSniff implements Sniff {
 			$nullFound = false;
 			$fixType = false;
 			foreach ( $explodedType as $index => $singleType ) {
+				$singleType = lcfirst( $singleType );
 				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
 					$newType = self::$shortTypeMapping[$singleType];
 					// grep: NotShortIntParam, NotShortIntArrayParam,
