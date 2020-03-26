@@ -78,10 +78,11 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 
 	/**
 	 * @param string $par The test input.
+	 * @param User $user
 	 * @return void
 	 */
-	public function fooBarBaz( $par ) {
-		global $wgBarBarBar, $wgUser;
+	public function fooBarBaz( $par, User $user ) {
+		global $wgBarBarBar;
 
 		if ( $par ) {
 			return;
@@ -94,7 +95,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 			wfMessage( 'import-interwiki-text' )->parse() .
 			Xml::hidden( 'action', 'submit' ) .
 			Xml::hidden( 'source', 'interwiki' ) .
-			Xml::hidden( 'editToken', $wgUser->editToken() ),
+			Xml::hidden( 'editToken', $user->editToken() ),
 			'secondArgument',
 			wfMessage( 'message-key' )
 				->inContentLanguage()

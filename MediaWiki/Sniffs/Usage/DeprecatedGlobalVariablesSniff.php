@@ -47,6 +47,8 @@ class DeprecatedGlobalVariablesSniff implements Sniff {
 		'$parserMemc' => '1.30',
 		// Deprecation done (T160813)
 		'$wgMemc' => '1.35',
+		// Deprecation done (T159299)
+		'$wgUser' => '1.35',
 
 		// Deprecation planned (T212739)
 		// '$wgConf' => '',
@@ -56,8 +58,6 @@ class DeprecatedGlobalVariablesSniff implements Sniff {
 		// '$wgOut' => '',
 		// Deprecation planned (T160810)
 		// '$wgRequest' => '',
-		// Deprecation planned (T159299)
-		// '$wgUser' => '',
 		// Deprecation planned (T212738)
 		// '$wgVersion' => '',
 	];
