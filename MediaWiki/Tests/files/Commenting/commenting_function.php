@@ -105,9 +105,9 @@ class TestFailedExamples {
 	}
 
 	/**
-	 * @param {bool} $aBool: A bool
-	 * @param [int] $anInt: An int
-	 * @param \float[] $aFloatArray: A float array
+	 * @param {bool} [$aBool]: A bool
+	 * @param [int] {$anInt}: An int
+	 * @param \float[] [$aFloatArray]: A float array
 	 * @return {bool}: And some text
 	 * @throws {Exception}
 	 */

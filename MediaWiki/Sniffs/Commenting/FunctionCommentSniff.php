@@ -377,8 +377,26 @@ class FunctionCommentSniff implements Sniff {
 				$paramSpace = strlen( $tokens[$tag + 1]['content'] );
 			}
 			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
-				preg_match( '/^([^&$.]*)(?:((?:\.\.\.)?[&$]\S+)(?:(\s+)(.*))?)?/',
-					$tokens[$tag + 2]['content'], $matches );
+				preg_match( '/^
+						# Match parameter type and separator as a group of
+						((?:
+							# plain letters
+							[^&$.\{\[]
+							|
+							# or pairs of braces around plain letters, never single braces
+							\{ [^&$.\{\}]* \}
+							|
+							# or pairs of brackets around plain letters, never single brackets
+							\[ [^&$.\[\]]* \]
+						)*) (?:
+							# Match parameter name with variadic arg or surround by {} or []
+							( (?: \.\.\. | [\[\{] )? [&$] \S+ )
+							# Match optional rest of line
+							(?: (\s+) (.*) )?
+						)? /x',
+					$tokens[$tag + 2]['content'],
+					$matches
+				);
 				$untrimmedType = $matches[1] ?? '';
 				$type = rtrim( $untrimmedType );
 				$typeSpace = strlen( $untrimmedType ) - strlen( $type );
@@ -492,6 +510,13 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile,
 				$param['tag'],
 				$param['var'],
+				$fixVar,
+				'param name'
+			);
+			$var = $this->fixWrappedParenthesis(
+				$phpcsFile,
+				$param['tag'],
+				$var,
 				$fixVar,
 				'param name'
 			);
