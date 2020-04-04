@@ -15,6 +15,10 @@ function wfFailedExamples( $a, $b ) {
 		'foo' => 'bar',
 		'foo' => [ 'bar', 'baz' ]
 	];
+	// Array with leading space - T246636
+	$a = [
+		'foo' => 'bar',
+	];
 }
 
 /**

@@ -134,7 +134,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		$nextToken = $tokens[$stackPtr + 1];
 		// No space or not single space
 		if ( ( $nextToken['code'] === T_WHITESPACE &&
-				$nextToken['content'] !== $phpcsFile->eolChar
+				$nextToken['line'] === $tokens[$stackPtr + 2]['line']
 				&& $nextToken['content'] !== ' ' )
 			|| $nextToken['code'] !== T_WHITESPACE
 		) {
@@ -145,7 +145,7 @@ class SpaceyParenthesisSniff implements Sniff {
 			);
 			if ( $fix ) {
 				if ( $nextToken['code'] === T_WHITESPACE
-					&& $nextToken['content'] !== $phpcsFile->eolChar
+					&& $nextToken['line'] === $tokens[$stackPtr + 2]['line']
 					&& $nextToken['content'] !== ' '
 				) {
 					$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );

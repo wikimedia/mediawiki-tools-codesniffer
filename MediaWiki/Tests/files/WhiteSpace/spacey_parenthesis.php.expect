@@ -27,4 +27,6 @@
  16 | WARNING | [x] Single space expected before closing
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
-PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 19 | ERROR   | [x] Whitespace found at end of line
+    |         |     (Squiz.WhiteSpace.SuperfluousWhitespace.EndLine)
+PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY
