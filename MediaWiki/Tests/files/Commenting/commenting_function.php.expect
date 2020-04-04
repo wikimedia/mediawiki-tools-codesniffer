@@ -290,19 +290,18 @@
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
  398 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 401 | ERROR   | [ ] Doc comment for parameter "$parser" missing
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 401 | ERROR   | [ ] Doc comment for parameter "$operator"
-     |         |     missing
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 401 | ERROR   | [ ] Doc comment for parameter "$oldtext" missing
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 402 | ERROR   | [ ] Missing parameter name
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
- 403 | ERROR   | [ ] Missing parameter name
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
- 404 | ERROR   | [ ] Missing parameter name
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamName)
+ 402 | ERROR   | [ ] Expected parameter type before parameter name
+     |         |     "$parser"
+     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
+ 403 | ERROR   | [ ] Expected parameter type before parameter name
+     |         |     "$operator:"
+     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
+ 403 | ERROR   | [x] Param name should not end with punctuation
+     |         |     ":"
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
+ 404 | ERROR   | [ ] Expected parameter type before parameter name
+     |         |     "$oldtext"
+     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
  411 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
@@ -316,4 +315,4 @@
  431 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
-PHPCBF CAN FIX THE 54 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 55 MARKED SNIFF VIOLATIONS AUTOMATICALLY

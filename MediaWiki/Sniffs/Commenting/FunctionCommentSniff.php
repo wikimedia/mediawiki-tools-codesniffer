@@ -377,7 +377,7 @@ class FunctionCommentSniff implements Sniff {
 				$paramSpace = strlen( $tokens[$tag + 1]['content'] );
 			}
 			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
-				preg_match( '/^([^&$.]+)(?:((?:\.\.\.)?[&$]\S+)(?:(\s+)(.*))?)?/',
+				preg_match( '/^([^&$.]*)(?:((?:\.\.\.)?[&$]\S+)(?:(\s+)(.*))?)?/',
 					$tokens[$tag + 2]['content'], $matches );
 				$untrimmedType = $matches[1] ?? '';
 				$type = rtrim( $untrimmedType );
@@ -460,20 +460,31 @@ class FunctionCommentSniff implements Sniff {
 					$phpcsFile->fixer->replaceToken( $param['tag'] + 1, str_repeat( ' ', $spaces ) );
 				}
 			}
-			// Check number of spaces after the type.
-			$spaces = 1;
-			if ( $param['type_space'] !== $spaces ) {
-				$fix = $phpcsFile->addFixableWarning(
-					'Expected %s spaces after parameter type; %s found',
-					$param['tag'], 'SpacingAfterParamType',
-					[ $spaces, $param['type_space'] ]
+			// Check if type is provided
+			if ( $param['type'] === '' ) {
+				$phpcsFile->addError(
+					'Expected parameter type before parameter name "%s"',
+					$param['tag'],
+					'NoParamType',
+					[ $param['var'] ]
 				);
-				if ( $fix ) {
-					$this->replaceParamComment(
-						$phpcsFile,
-						$param,
-						[ 'type_space' => $spaces ]
+			} else {
+				// Check number of spaces after the type.
+				$spaces = 1;
+				if ( $param['type_space'] !== $spaces ) {
+					$fix = $phpcsFile->addFixableWarning(
+						'Expected %s spaces after parameter type; %s found',
+						$param['tag'],
+						'SpacingAfterParamType',
+						[ $spaces, $param['type_space'] ]
 					);
+					if ( $fix ) {
+						$this->replaceParamComment(
+							$phpcsFile,
+							$param,
+							[ 'type_space' => $spaces ]
+						);
+					}
 				}
 			}
 			$fixVar = false;
