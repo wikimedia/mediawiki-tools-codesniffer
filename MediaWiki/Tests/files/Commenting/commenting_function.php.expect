@@ -92,30 +92,30 @@
  101 | ERROR   | [x] Use @throws tag in function comment instead of
      |         |     @throw
      |         |     (MediaWiki.Commenting.FunctionComment.SingularThrow)
- 108 | ERROR   | [x] Expected parameter type not wrapped in
-     |         |     parenthesis; { and } found
-     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
  108 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 109 | ERROR   | [x] Expected parameter type not wrapped in
-     |         |     parenthesis; [ and ] found
+ 108 | ERROR   | [x] Param type should not be wrapped in parenthesis;
+     |         |     { and } found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
  109 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
+ 109 | ERROR   | [x] Param type should not be wrapped in parenthesis;
+     |         |     [ and ] found
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
  110 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
  111 | ERROR   | [x] Return type should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturnType)
- 111 | ERROR   | [x] Expected parameter type not wrapped in
+ 111 | ERROR   | [x] Return type should not be wrapped in
      |         |     parenthesis; { and } found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisReturnType)
- 112 | ERROR   | [x] Expected parameter type not wrapped in
+ 112 | ERROR   | [x] Exception type should not be wrapped in
      |         |     parenthesis; { and } found
-     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisException)
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisExceptionType)
  119 | WARNING | [x] Use @inheritDoc annotation instead of
      |         |     @inheritdoc
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)

@@ -249,18 +249,13 @@ class FunctionCommentSniff implements Sniff {
 				$fixType,
 				'return type'
 			);
-			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $type, $matches ) ) {
-				$fix = $phpcsFile->addFixableError(
-					'Expected parameter type not wrapped in parenthesis; %s and %s found',
-					$retType,
-					'NotParenthesisReturnType',
-					[ $matches[1], $matches[3] ]
-				);
-				$type = $matches[2];
-				if ( $fix ) {
-					$fixType = true;
-				}
-			}
+			$type = $this->fixWrappedParenthesis(
+				$phpcsFile,
+				$retType,
+				$type,
+				$fixType,
+				'return type'
+			);
 			// Check the type for short types
 			$type = $this->fixShortTypes( $phpcsFile, $retType, $type, $fixType, 'return' );
 			// Check spacing after type
@@ -322,20 +317,19 @@ class FunctionCommentSniff implements Sniff {
 				$error = 'Exception type missing for @throws tag in function comment';
 				$phpcsFile->addError( $error, $tag, 'InvalidThrows' );
 			} else {
-				// Check for unneeded parenthesis on exceptions
-				if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $exception, $matches ) ) {
-					$fix = $phpcsFile->addFixableError(
-						'Expected parameter type not wrapped in parenthesis; %s and %s found',
-						$tag,
-						'NotParenthesisException',
-						[ $matches[1], $matches[3] ]
+				$fix = false;
+				$exception = $this->fixWrappedParenthesis(
+					$phpcsFile,
+					$tag,
+					$exception,
+					$fix,
+					'exception type'
+				);
+				if ( $fix ) {
+					$phpcsFile->fixer->replaceToken(
+						$tag + 2,
+						$exception . ( $comment === null ? '' : ' ' . $comment )
 					);
-					if ( $fix ) {
-						$phpcsFile->fixer->replaceToken(
-							$tag + 2,
-							$matches[2] . ( $comment === null ? '' : ' ' . $comment )
-						);
-					}
 				}
 			}
 		}
@@ -466,22 +460,6 @@ class FunctionCommentSniff implements Sniff {
 					$phpcsFile->fixer->replaceToken( $param['tag'] + 1, str_repeat( ' ', $spaces ) );
 				}
 			}
-			// Check for unneeded punctation on parameter type
-			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $param['type'], $matches ) ) {
-				$fix = $phpcsFile->addFixableError(
-					'Expected parameter type not wrapped in parenthesis; %s and %s found',
-					$param['tag'],
-					'NotParenthesisParamType',
-					[ $matches[1], $matches[3] ]
-				);
-				if ( $fix ) {
-					$this->replaceParamComment(
-						$phpcsFile,
-						$param,
-						[ 'type' => $matches[2] ]
-					);
-				}
-			}
 			// Check number of spaces after the type.
 			$spaces = 1;
 			if ( $param['type_space'] !== $spaces ) {
@@ -564,8 +542,16 @@ class FunctionCommentSniff implements Sniff {
 			}
 			$foundParams[] = $var;
 			$fixType = false;
+			// Check for unneeded punctation on parameter type
+			$type = $this->fixWrappedParenthesis(
+				$phpcsFile,
+				$param['tag'],
+				$param['type'],
+				$fixType,
+				'param type'
+			);
 			// Check the short type of boolean and integer
-			$type = $this->fixShortTypes( $phpcsFile, $param['tag'], $param['type'], $fixType, 'param' );
+			$type = $this->fixShortTypes( $phpcsFile, $param['tag'], $type, $fixType, 'param' );
 			$explodedType = explode( '|', $type );
 			$nullableDoc = substr( $type, 0, 1 ) === '?';
 			$nullFound = false;
@@ -765,6 +751,27 @@ class FunctionCommentSniff implements Sniff {
 				$stackPtr,
 				'NotPunctuation' . str_replace( ' ', '', ucwords( $annotation ) ),
 				[ ucfirst( $annotation ), $matches[2] ]
+			) || $fix;
+		}
+		return $typesString;
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $typesString
+	 * @param bool &$fix Set when autofix is needed
+	 * @param string $annotation Either "param" or "return" + "name" or "type"
+	 * @return string Updated $typesString
+	 */
+	private function fixWrappedParenthesis( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
+		if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $typesString, $matches ) ) {
+			$typesString = $matches[2];
+			$fix = $phpcsFile->addFixableError(
+				'%s should not be wrapped in parenthesis; %s and %s found',
+				$stackPtr,
+				'NotParenthesis' . str_replace( ' ', '', ucwords( $annotation ) ),
+				[ ucfirst( $annotation ), $matches[1], $matches[3] ]
 			) || $fix;
 		}
 		return $typesString;
