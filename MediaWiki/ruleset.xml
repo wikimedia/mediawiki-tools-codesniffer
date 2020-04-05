@@ -2,7 +2,7 @@
 <!--
 	See:
 	- https://www.mediawiki.org/wiki/Manual:Coding_conventions
-	- http://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php
+	- https://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php
 	- https://github.com/squizlabs/PHP_CodeSniffer/tree/master/CodeSniffer/Standards
 -->
 <ruleset name="MediaWiki">

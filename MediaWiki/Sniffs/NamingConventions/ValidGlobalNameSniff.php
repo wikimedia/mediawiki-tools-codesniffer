@@ -12,7 +12,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class ValidGlobalNameSniff implements Sniff {
 
 	/**
-	 * http://php.net/manual/en/reserved.variables.argv.php
+	 * https://php.net/manual/en/reserved.variables.argv.php
 	 */
 	private static $PHPReserved = [
 		'$GLOBALS',
