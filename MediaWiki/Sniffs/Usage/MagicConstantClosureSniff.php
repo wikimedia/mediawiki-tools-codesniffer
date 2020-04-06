@@ -35,7 +35,7 @@ class MagicConstantClosureSniff extends AbstractScopeSniff {
 	public function __construct() {
 		parent::__construct(
 			[ T_CLOSURE ],
-			// http://php.net/manual/en/language.constants.predefined.php
+			// https://php.net/manual/en/language.constants.predefined.php
 			// T_CLASS_C, T_TRAIT_C and T_NS_C works in closures
 			// ::class also works in closures
 			[ T_METHOD_C, T_FUNC_C ]
