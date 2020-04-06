@@ -269,26 +269,7 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 			// Check the type for short types
-			$explodedType = explode( '|', $type );
-			foreach ( $explodedType as $index => $singleType ) {
-				$singleType = lcfirst( $singleType );
-				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
-					$newType = self::$shortTypeMapping[$singleType];
-					// grep: NotShortIntReturn, NotShortIntArrayReturn,
-					// NotShortBoolReturn, NotShortBoolArrayReturn
-					$code = 'NotShort' . ucfirst( str_replace( '[]', 'Array', $newType ) ) . 'Return';
-					$fix = $phpcsFile->addFixableError(
-						'Short type of "%s" should be used for @return tag',
-						$retType,
-						$code,
-						[ $newType ]
-					);
-					if ( $fix ) {
-						$explodedType[$index] = $newType;
-						$fixType = true;
-					}
-				}
-			}
+			$type = $this->fixShortTypes( $phpcsFile, $retType, $type, $fixType, 'return' );
 			// Check spacing after type
 			if ( $comment !== null ) {
 				$expectedSpaces = 1;
@@ -309,7 +290,7 @@ class FunctionCommentSniff implements Sniff {
 			if ( $fixType ) {
 				$phpcsFile->fixer->replaceToken(
 					$retType,
-					implode( '|', $explodedType ) . ( $comment !== null ? ' ' . $comment : '' )
+					$type . ( $comment !== null ? ' ' . $comment : '' )
 				);
 			}
 		} else {
@@ -604,29 +585,14 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile->addError( $error, $param['tag'], 'ExtraParamComment' );
 			}
 			$foundParams[] = $var;
-			// Check the short type of boolean and integer
-			$explodedType = explode( '|', $param['type'] );
-			$nullableDoc = substr( $param['type'], 0, 1 ) === '?';
-			$nullFound = false;
 			$fixType = false;
+			// Check the short type of boolean and integer
+			$type = $this->fixShortTypes( $phpcsFile, $param['tag'], $param['type'], $fixType, 'param' );
+			$explodedType = explode( '|', $type );
+			$nullableDoc = substr( $type, 0, 1 ) === '?';
+			$nullFound = false;
 			foreach ( $explodedType as $index => $singleType ) {
 				$singleType = lcfirst( $singleType );
-				if ( isset( self::$shortTypeMapping[$singleType] ) ) {
-					$newType = self::$shortTypeMapping[$singleType];
-					// grep: NotShortIntParam, NotShortIntArrayParam,
-					// NotShortBoolParam, NotShortBoolArrayParam
-					$code = 'NotShort' . ucfirst( str_replace( '[]', 'Array', $newType ) ) . 'Param';
-					$fix = $phpcsFile->addFixableError(
-						'Short type of "%s" should be used for @param tag',
-						$param['tag'],
-						$code,
-						[ $newType ]
-					);
-					if ( $fix ) {
-						$explodedType[$index] = $newType;
-						$fixType = true;
-					}
-				}
 				// Either an explicit null, or mixed, which null is a
 				// part of (T218324)
 				if ( $singleType === 'null' || $singleType === 'mixed' ) {
@@ -788,5 +754,32 @@ class FunctionCommentSniff implements Sniff {
 			}
 			$commentPos = $phpcsFile->findNext( T_COMMENT, $commentPos + 1, $argsEnd );
 		}
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $typesString
+	 * @param bool &$fix Set when autofix is needed
+	 * @param string $annotation
+	 * @return string
+	 */
+	protected function fixShortTypes( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
+		$typeList = explode( '|', $typesString );
+		foreach ( $typeList as $index => $single ) {
+			$single = lcfirst( $single );
+			if ( isset( self::$shortTypeMapping[$single] ) ) {
+				$new = self::$shortTypeMapping[$single];
+				$typeList[$index] = $new;
+				$code = 'NotShort' . ucfirst( str_replace( '[]', 'Array', $new ) ) . ucfirst( $annotation );
+				$fix = $phpcsFile->addFixableError(
+					'Short type of "%s" should be used for @%s tag',
+					$stackPtr,
+					$code,
+					[ $new, $annotation ]
+				) || $fix;
+			}
+		}
+		return implode( '|', $typeList );
 	}
 }
