@@ -195,23 +195,23 @@ class FunctionCommentSniff implements Sniff {
 		}
 
 		$return = null;
-		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
-			$tagContent = $tokens[$tag]['content'];
-			if ( $tagContent === '@return' || $tagContent === '@returns' ) {
-				if ( $return !== null ) {
-					$error = 'Only 1 @return tag is allowed in a function comment';
-					$phpcsFile->addError( $error, $tag, 'DuplicateReturn' );
-					return;
+		foreach ( $tokens[$commentStart]['comment_tags'] as $ptr ) {
+			$tag = $tokens[$ptr]['content'];
+			if ( $tag === '@returns' ) {
+				$error = 'Use @return tag in function comment instead of @returns';
+				$fix = $phpcsFile->addFixableError( $error, $ptr, 'PluralReturns' );
+				if ( $fix ) {
+					$phpcsFile->fixer->replaceToken( $ptr, '@return' );
 				}
-				if ( $tagContent === '@returns' ) {
-					$error = 'Use @return tag in function comment instead of @returns';
-					$fix = $phpcsFile->addFixableError( $error, $tag, 'PluralReturns' );
-					if ( $fix ) {
-						$phpcsFile->fixer->replaceToken( $tag, '@return' );
-					}
-				}
-				$return = $tag;
+			} elseif ( $tag !== '@return' ) {
+				continue;
 			}
+			if ( $return ) {
+				$error = 'Only 1 @return tag is allowed in a function comment';
+				$phpcsFile->addError( $error, $ptr, 'DuplicateReturn' );
+				return;
+			}
+			$return = $ptr;
 		}
 		if ( $return !== null ) {
 			$retTypeSpacing = $return + 1;
@@ -242,7 +242,6 @@ class FunctionCommentSniff implements Sniff {
 			$comment = $exploded[1] ?? null;
 			$fixType = false;
 			// Check for unneeded punctation
-			$matches = [];
 			if ( preg_match( '/^(.*)((?:(?![\[\]_{}])\p{P})+)$/', $type, $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Return type should not end with punctuation "%s"',
@@ -255,7 +254,6 @@ class FunctionCommentSniff implements Sniff {
 					$fixType = true;
 				}
 			}
-			$matches = [];
 			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $type, $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Expected parameter type not wrapped in parenthesis; %s and %s found',
@@ -309,32 +307,27 @@ class FunctionCommentSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagContent = $tokens[$tag]['content'];
-			if ( $tagContent !== '@throws' && $tagContent !== '@throw' ) {
-				continue;
-			}
 			if ( $tagContent === '@throw' ) {
 				$error = 'Use @throws tag in function comment instead of @throw';
 				$fix = $phpcsFile->addFixableError( $error, $tag, 'SingularThrow' );
 				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken( $tag, '@throws' );
 				}
+			} elseif ( $tagContent !== '@throws' ) {
+				continue;
 			}
 			$exception = null;
 			$comment = null;
 			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
-				$matches = [];
 				preg_match( '/([^\s]+)(?:\s+(.*))?/', $tokens[$tag + 2]['content'], $matches );
 				$exception = $matches[1];
-				if ( isset( $matches[2] ) ) {
-					$comment = $matches[2];
-				}
+				$comment = $matches[2] ?? null;
 			}
 			if ( $exception === null ) {
 				$error = 'Exception type missing for @throws tag in function comment';
 				$phpcsFile->addError( $error, $tag, 'InvalidThrows' );
 			} else {
 				// Check for unneeded parenthesis on exceptions
-				$matches = [];
 				if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $exception, $matches ) ) {
 					$fix = $phpcsFile->addFixableError(
 						'Expected parameter type not wrapped in parenthesis; %s and %s found',
@@ -407,11 +400,8 @@ class FunctionCommentSniff implements Sniff {
 						$commentFirst = $matches[4];
 						$comment = $commentFirst;
 						// Any strings until the next tag belong to this comment.
-						if ( isset( $tokens[$commentStart]['comment_tags'][$pos + 1] ) ) {
-							$end = $tokens[$commentStart]['comment_tags'][$pos + 1];
-						} else {
-							$end = $tokens[$commentStart]['comment_closer'];
-						}
+						$end = $tokens[$commentStart]['comment_tags'][$pos + 1] ??
+							$tokens[$commentStart]['comment_closer'];
 						for ( $i = $tag + 3; $i < $end; $i++ ) {
 							if ( $tokens[$i]['code'] === T_DOC_COMMENT_STRING ) {
 								$comment .= ' ' . $tokens[$i]['content'];
@@ -461,7 +451,7 @@ class FunctionCommentSniff implements Sniff {
 		// this prefix to the variable name so comparisons are easier.
 		foreach ( $realParams as $pos => $param ) {
 			if ( $param['variable_length'] === true ) {
-				$realParams[$pos]['name'] = '...' . $realParams[$pos]['name'];
+				$realParams[$pos]['name'] = '...' . $param['name'];
 			}
 		}
 		foreach ( $params as $pos => $param ) {
@@ -482,7 +472,6 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 			// Check for unneeded punctation on parameter type
-			$matches = [];
 			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $param['type'], $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Expected parameter type not wrapped in parenthesis; %s and %s found',
@@ -516,7 +505,6 @@ class FunctionCommentSniff implements Sniff {
 			}
 			$var = $param['var'];
 			// Check for unneeded punctation
-			$matches = [];
 			if ( preg_match( '/^(.*?)((?:(?![\[\]_{}])\p{P})+)$/', $var, $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Param name should not end with punctuation "%s"',
@@ -574,9 +562,7 @@ class FunctionCommentSniff implements Sniff {
 						$phpcsFile->addError( $error, $param['tag'], $code, [ $var, $realName ] );
 					}
 				}
-				if ( isset( $realParams[$pos]['default'] ) ) {
-					$defaultNull = $realParams[$pos]['default'] === 'null';
-				}
+				$defaultNull = ( $realParams[$pos]['default'] ?? '' ) === 'null';
 			} elseif ( $param['variadic_arg'] || $param['legacy_variadic_arg'] ) {
 				$error = 'Variadic parameter documented but not present in the signature';
 				$phpcsFile->addError( $error, $param['tag'], 'VariadicDocNotSignature' );
@@ -597,8 +583,7 @@ class FunctionCommentSniff implements Sniff {
 				// part of (T218324)
 				if ( $singleType === 'null' || $singleType === 'mixed' ) {
 					$nullFound = true;
-				}
-				if ( substr( $singleType, -10 ) === '[optional]' ) {
+				} elseif ( substr( $singleType, -10 ) === '[optional]' ) {
 					$fix = $phpcsFile->addFixableError(
 						'Key word "[optional]" on "%s" should not be used',
 						$param['tag'],
@@ -677,12 +662,8 @@ class FunctionCommentSniff implements Sniff {
 				);
 			}
 		}
-		$realNames = [];
-		foreach ( $realParams as $realParam ) {
-			$realNames[] = $realParam['name'];
-		}
 		// Report missing comments.
-		$missing = array_diff( $realNames, $foundParams );
+		$missing = array_diff( array_column( $realParams, 'name' ), $foundParams );
 		foreach ( $missing as $neededParam ) {
 			$error = 'Doc comment for parameter "%s" missing';
 			$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', [ $neededParam ] );
@@ -701,20 +682,14 @@ class FunctionCommentSniff implements Sniff {
 		$fixParam += $param;
 
 		// Build the new line
-		$content = $fixParam['type'];
-		$content .= str_repeat( ' ', $fixParam['type_space'] );
-		if ( $fixParam['pass_by_reference'] ) {
-			$content .= '&';
-		}
-		if ( $fixParam['variadic_arg'] ) {
-			$content .= '...';
-		}
-		$content .= $fixParam['var'];
-		if ( $fixParam['legacy_variadic_arg'] ) {
-			$content .= ',...';
-		}
-		$content .= str_repeat( ' ', $fixParam['var_space'] );
-		$content .= $fixParam['comment_first'];
+		$content = $fixParam['type'] .
+			str_repeat( ' ', $fixParam['type_space'] ) .
+			( $fixParam['pass_by_reference'] ? '&' : '' ) .
+			( $fixParam['variadic_arg'] ? '...' : '' ) .
+			$fixParam['var'] .
+			( $fixParam['legacy_variadic_arg'] ? ',...' : '' ) .
+			str_repeat( ' ', $fixParam['var_space'] ) .
+			$fixParam['comment_first'];
 		$phpcsFile->fixer->replaceToken( $fixParam['tag'] + 2, $content );
 	}
 
@@ -761,22 +736,21 @@ class FunctionCommentSniff implements Sniff {
 	 * @param int $stackPtr
 	 * @param string $typesString
 	 * @param bool &$fix Set when autofix is needed
-	 * @param string $annotation
-	 * @return string
+	 * @param string $annotation Either "param" or "return"
+	 * @return string Updated $typesString
 	 */
-	protected function fixShortTypes( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
+	private function fixShortTypes( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
 		$typeList = explode( '|', $typesString );
-		foreach ( $typeList as $index => $single ) {
-			$single = lcfirst( $single );
-			if ( isset( self::$shortTypeMapping[$single] ) ) {
-				$new = self::$shortTypeMapping[$single];
-				$typeList[$index] = $new;
-				$code = 'NotShort' . ucfirst( str_replace( '[]', 'Array', $new ) ) . ucfirst( $annotation );
+		foreach ( $typeList as &$type ) {
+			$key = lcfirst( $type );
+			if ( isset( self::$shortTypeMapping[$key] ) ) {
+				$type = self::$shortTypeMapping[$key];
+				$code = 'NotShort' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
 				$fix = $phpcsFile->addFixableError(
 					'Short type of "%s" should be used for @%s tag',
 					$stackPtr,
 					$code,
-					[ $new, $annotation ]
+					[ $type, $annotation ]
 				) || $fix;
 			}
 		}
