@@ -11,7 +11,7 @@ is_null( $this->field( $var + 45 / 7 ) );
 is_null( $a ? $b : $c );
 is_null( $a ? $b : ( $c ) );
 $this->is_null( $var );
-is_null[ $var ];
+is_null[$var];
 is_null( $a ? $b : some_function( $c ) );
 
 if ( is_null(

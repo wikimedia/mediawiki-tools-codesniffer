@@ -68,7 +68,7 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 				break;
 
 			case T_LNUMBER:
-				$number = (int)$tokens[ $expected ]['content'];
+				$number = (int)$tokens[$expected]['content'];
 				if ( $number === 0 || $number === 1 ) {
 					$fix = $phpcsFile->addFixableWarning(
 						$msg,
@@ -80,7 +80,7 @@ class PHPUnitAssertEqualsSniff implements Sniff {
 				break;
 
 			case T_DNUMBER:
-				$number = (float)$tokens[ $expected ]['content'];
+				$number = (float)$tokens[$expected]['content'];
 				if ( $number === 0.0 || $number === 1.0 ) {
 					$fix = $phpcsFile->addFixableWarning(
 						$msg,
