@@ -34,7 +34,6 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @var string[]
 	 */
 	private $classTags = [
-		'@expectedException',
 		'@param',
 		'@return',
 		'@throws',
@@ -42,6 +41,7 @@ class UnusedUseStatementSniff implements Sniff {
 		'@property',
 		// Deprecated
 		'@type',
+		'@expectedException',
 	];
 
 	/**
