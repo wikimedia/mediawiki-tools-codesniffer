@@ -83,7 +83,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 			);
 			if ( $fix ) {
 				$phpcsFile->fixer->beginChangeset();
-				for ( $i = ( $pre + 1 ); $i < $openBrace; $i++ ) {
+				for ( $i = $pre + 1; $i < $openBrace; $i++ ) {
 					$phpcsFile->fixer->replaceToken( $i, '' );
 				}
 				$phpcsFile->fixer->endChangeset();

@@ -99,7 +99,7 @@ class UnusedUseStatementSniff implements Sniff {
 		// is allowed even in the same namespace.
 		$aliasUsed = $phpcsFile->findPrevious( T_AS, $classPtr - 1, $stackPtr + 3 );
 
-		$useNamespacePtr = $phpcsFile->findNext( [ T_STRING ], ( $stackPtr + 1 ) );
+		$useNamespacePtr = $phpcsFile->findNext( [ T_STRING ], $stackPtr + 1 );
 		$useNamespaceEnd = $phpcsFile->findNext(
 			[
 				T_NS_SEPARATOR,
@@ -110,7 +110,7 @@ class UnusedUseStatementSniff implements Sniff {
 			true
 		);
 		$use_namespace = rtrim(
-			$phpcsFile->getTokensAsString( $useNamespacePtr, ( $useNamespaceEnd - $useNamespacePtr - 1 ) ),
+			$phpcsFile->getTokensAsString( $useNamespacePtr, $useNamespaceEnd - $useNamespacePtr - 1 ),
 			'\\'
 		);
 
@@ -121,12 +121,12 @@ class UnusedUseStatementSniff implements Sniff {
 					T_STRING,
 					T_WHITESPACE,
 				],
-				( $namespacePtr + 1 ),
+				$namespacePtr + 1,
 				null,
 				true
 			);
 			$namespace = trim(
-				$phpcsFile->getTokensAsString( ( $namespacePtr + 1 ), ( $nsEnd - $namespacePtr - 1 ) )
+				$phpcsFile->getTokensAsString( $namespacePtr + 1, $nsEnd - $namespacePtr - 1 )
 			);
 
 			if ( strcasecmp( $namespace, $use_namespace ) === 0 ) {
@@ -155,7 +155,7 @@ class UnusedUseStatementSniff implements Sniff {
 				if ( strcasecmp( $tokens[$classUsed]['content'], $className ) === 0 ) {
 					$beforeUsage = $phpcsFile->findPrevious(
 						Tokens::$emptyTokens,
-						( $classUsed - 1 ),
+						$classUsed - 1,
 						null,
 						true
 					);

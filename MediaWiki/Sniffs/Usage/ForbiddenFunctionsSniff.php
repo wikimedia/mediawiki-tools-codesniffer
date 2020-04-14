@@ -102,7 +102,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		];
 
 		// Check to make sure it's a PHP function (not $this->, etc.)
-		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, ( $stackPtr - 1 ), null, true );
+		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr - 1, null, true );
 		if ( isset( $ignore[$tokens[$prevToken]['code']] ) ) {
 			return;
 		}

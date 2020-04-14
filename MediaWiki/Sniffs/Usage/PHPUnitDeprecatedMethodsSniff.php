@@ -186,12 +186,12 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 			'MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.' :
 			"The PHPUnit method assert{$not}InternalType() was deprecated in PHPUnit 8.";
 
-		$parensToken = $this->file->findNext( T_WHITESPACE, ( $funcPos + 1 ), null, true );
+		$parensToken = $this->file->findNext( T_WHITESPACE, $funcPos + 1, null, true );
 		if ( $this->tokens[$parensToken]['code'] !== T_OPEN_PARENTHESIS ) {
 			return;
 		}
 
-		$argToken = $this->file->findNext( T_WHITESPACE, ( $parensToken + 1 ), null, true );
+		$argToken = $this->file->findNext( T_WHITESPACE, $parensToken + 1, null, true );
 		if ( $this->tokens[$argToken]['code'] !== T_CONSTANT_ENCAPSED_STRING ) {
 			// Probably a variable.
 			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric' );
@@ -206,7 +206,7 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 			return;
 		}
 
-		$commaToken = $this->file->findNext( T_WHITESPACE, ( $argToken + 1 ), null, true );
+		$commaToken = $this->file->findNext( T_WHITESPACE, $argToken + 1, null, true );
 		if ( $this->tokens[$commaToken]['code'] !== T_COMMA ) {
 			// WTF? This will fail anyway.
 			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric' );

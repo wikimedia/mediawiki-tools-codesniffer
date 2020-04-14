@@ -38,7 +38,7 @@ class DisallowEmptyLineFunctionsSniff implements Sniff {
 		if ( $next === false ) {
 			return;
 		}
-		if ( $tokens[$next]['line'] > ( $tokens[$openBrace]['line'] + 1 ) ) {
+		if ( $tokens[$next]['line'] > $tokens[$openBrace]['line'] + 1 ) {
 			$fix = $phpcsFile->addFixableError(
 				'Unexpected empty line at the begin of function.',
 				$stackPtr,

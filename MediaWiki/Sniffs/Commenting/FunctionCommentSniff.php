@@ -81,13 +81,13 @@ class FunctionCommentSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$find = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
-		$commentEnd = $phpcsFile->findPrevious( $find, ( $stackPtr - 1 ), null, true );
+		$commentEnd = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
 			// Inline comments might just be closing comments for
 			// control structures or functions instead of function comments
 			// using the wrong comment type. If there is other code on the line,
 			// assume they relate to that code.
-			$prev = $phpcsFile->findPrevious( $find, ( $commentEnd - 1 ), null, true );
+			$prev = $phpcsFile->findPrevious( $find, $commentEnd - 1, null, true );
 			if ( $prev !== false && $tokens[$prev]['line'] === $tokens[$commentEnd]['line'] ) {
 				$commentEnd = $prev;
 			}
@@ -116,7 +116,7 @@ class FunctionCommentSniff implements Sniff {
 			$stackPtr, 'WrongStyle' );
 			return;
 		}
-		if ( $tokens[$commentEnd]['line'] !== ( $tokens[$stackPtr]['line'] - 1 ) ) {
+		if ( $tokens[$commentEnd]['line'] !== $tokens[$stackPtr]['line'] - 1 ) {
 			$error = 'There must be no blank lines after the function comment';
 			$phpcsFile->addError( $error, $commentEnd, 'SpacingAfter' );
 		}
@@ -321,9 +321,9 @@ class FunctionCommentSniff implements Sniff {
 			}
 			$exception = null;
 			$comment = null;
-			if ( $tokens[( $tag + 2 )]['code'] === T_DOC_COMMENT_STRING ) {
+			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
 				$matches = [];
-				preg_match( '/([^\s]+)(?:\s+(.*))?/', $tokens[( $tag + 2 )]['content'], $matches );
+				preg_match( '/([^\s]+)(?:\s+(.*))?/', $tokens[$tag + 2]['content'], $matches );
 				$exception = $matches[1];
 				if ( isset( $matches[2] ) ) {
 					$comment = $matches[2];
@@ -391,12 +391,12 @@ class FunctionCommentSniff implements Sniff {
 			$varSpace = 0;
 			$comment = '';
 			$commentFirst = '';
-			if ( $tokens[( $tag + 1 )]['code'] === T_DOC_COMMENT_WHITESPACE ) {
-				$paramSpace = strlen( $tokens[( $tag + 1 )]['content'] );
+			if ( $tokens[$tag + 1]['code'] === T_DOC_COMMENT_WHITESPACE ) {
+				$paramSpace = strlen( $tokens[$tag + 1]['content'] );
 			}
-			if ( $tokens[( $tag + 2 )]['code'] === T_DOC_COMMENT_STRING ) {
+			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
 				preg_match( '/^([^&$.]+)(?:((?:\.\.\.)?[&$]\S+)(?:(\s+)(.*))?)?/',
-					$tokens[( $tag + 2 )]['content'], $matches );
+					$tokens[$tag + 2]['content'], $matches );
 				$untrimmedType = $matches[1] ?? '';
 				$type = rtrim( $untrimmedType );
 				$typeSpace = strlen( $untrimmedType ) - strlen( $type );
@@ -407,12 +407,12 @@ class FunctionCommentSniff implements Sniff {
 						$commentFirst = $matches[4];
 						$comment = $commentFirst;
 						// Any strings until the next tag belong to this comment.
-						if ( isset( $tokens[$commentStart]['comment_tags'][( $pos + 1 )] ) ) {
-							$end = $tokens[$commentStart]['comment_tags'][( $pos + 1 )];
+						if ( isset( $tokens[$commentStart]['comment_tags'][$pos + 1] ) ) {
+							$end = $tokens[$commentStart]['comment_tags'][$pos + 1];
 						} else {
 							$end = $tokens[$commentStart]['comment_closer'];
 						}
-						for ( $i = ( $tag + 3 ); $i < $end; $i++ ) {
+						for ( $i = $tag + 3; $i < $end; $i++ ) {
 							if ( $tokens[$i]['code'] === T_DOC_COMMENT_STRING ) {
 								$comment .= ' ' . $tokens[$i]['content'];
 							}
@@ -478,7 +478,7 @@ class FunctionCommentSniff implements Sniff {
 					[ $spaces, $param['param_space'] ]
 				);
 				if ( $fix ) {
-					$phpcsFile->fixer->replaceToken( ( $param['tag'] + 1 ), str_repeat( ' ', $spaces ) );
+					$phpcsFile->fixer->replaceToken( $param['tag'] + 1, str_repeat( ' ', $spaces ) );
 				}
 			}
 			// Check for unneeded punctation on parameter type
@@ -715,7 +715,7 @@ class FunctionCommentSniff implements Sniff {
 		}
 		$content .= str_repeat( ' ', $fixParam['var_space'] );
 		$content .= $fixParam['comment_first'];
-		$phpcsFile->fixer->replaceToken( ( $fixParam['tag'] + 2 ), $content );
+		$phpcsFile->fixer->replaceToken( $fixParam['tag'] + 2, $content );
 	}
 
 	/**
