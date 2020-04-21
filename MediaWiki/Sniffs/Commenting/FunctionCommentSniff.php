@@ -46,6 +46,31 @@ class FunctionCommentSniff implements Sniff {
 	];
 
 	/**
+	 * Mapping for primitive types to case correct
+	 * Cannot just detect case due to classes being uppercase
+	 *
+	 * @var string[]
+	 */
+	private const PRIMITIVE_TYPE_MAPPING = [
+		'Array' => 'array',
+		'Array[]' => 'array[]',
+		'Bool' => 'bool',
+		'Bool[]' => 'bool[]',
+		'Float' => 'float',
+		'Float[]' => 'float[]',
+		'Int' => 'int',
+		'Int[]' => 'int[]',
+		'Mixed' => 'mixed',
+		'Mixed[]' => 'mixed[]',
+		'Null' => 'null',
+		'Null[]' => 'null[]',
+		'Object' => 'object',
+		'Object[]' => 'object[]',
+		'String' => 'string',
+		'String[]' => 'string[]',
+	];
+
+	/**
 	 * @inheritDoc
 	 */
 	public function register() {
@@ -691,12 +716,22 @@ class FunctionCommentSniff implements Sniff {
 	private function fixShortTypes( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as &$type ) {
+			// Corrects long types from both upper and lowercase to lowercase shorttype
 			$key = lcfirst( $type );
 			if ( isset( self::SHORT_TYPE_MAPPING[$key] ) ) {
 				$type = self::SHORT_TYPE_MAPPING[$key];
 				$code = 'NotShort' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
 				$fix = $phpcsFile->addFixableError(
 					'Short type of "%s" should be used for @%s tag',
+					$stackPtr,
+					$code,
+					[ $type, $annotation ]
+				) || $fix;
+			} elseif ( isset( self::PRIMITIVE_TYPE_MAPPING[$type] ) ) {
+				$type = self::PRIMITIVE_TYPE_MAPPING[$type];
+				$code = 'UppercasePrimitive' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
+				$fix = $phpcsFile->addFixableError(
+					'Lowercase type of "%s" should be used for @%s tag',
 					$stackPtr,
 					$code,
 					[ $type, $annotation ]

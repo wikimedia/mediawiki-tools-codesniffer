@@ -330,6 +330,18 @@ class TestFailedExamples {
 	/** @throws */
 	public function testBadThrowsAnnotation() {
 	}
+
+	/**
+	 * @param Int $i
+	 */
+	public function testUppercasePrimitive( $i ) {
+	}
+
+	/**
+	 * @param String[] $s
+	 */
+	public function testUppercasePrimitiveArray( $s ) {
+	}
 }
 
 class TestPassedExamples {
@@ -430,6 +442,12 @@ class TestPassedExamples {
 	 * @param ?string $key A comment
 	 */
 	public function nullableDocWithNullableTypeAndDefaultVal( ?string $key = null ) {
+	}
+
+	/**
+	 * @param bool $b
+	 */
+	public function testLowercasePrimative( $b ) {
 	}
 }
 

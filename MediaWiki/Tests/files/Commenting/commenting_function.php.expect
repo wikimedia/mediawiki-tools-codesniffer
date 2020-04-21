@@ -308,39 +308,45 @@
  330 | ERROR   | [ ] Exception type missing for @throws tag in
      |         |     function comment
      |         |     (MediaWiki.Commenting.FunctionComment.InvalidThrows)
- 335 | ERROR   | [ ] Only one object structure is allowed in a
+ 335 | ERROR   | [x] Lowercase type of "int" should be used for
+     |         |     @param tag
+     |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveIntParam)
+ 341 | ERROR   | [x] Lowercase type of "string[]" should be used for
+     |         |     @param tag
+     |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveStringArrayParam)
+ 347 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 404 | ERROR   | [ ] Missing function doc comment
+ 416 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 417 | WARNING | [ ] Comments should start on new line.
+ 429 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 421 | ERROR   | [ ] Expected parameter type before parameter name
+ 433 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$parser"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 422 | ERROR   | [ ] Expected parameter type before parameter name
+ 434 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$operator:"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 422 | ERROR   | [x] Param name should not end with punctuation
+ 434 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 423 | ERROR   | [ ] Expected parameter type before parameter name
+ 435 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 423 | ERROR   | [x] Default of null should be declared in @param
+ 435 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 436 | ERROR   | [ ] Only one object structure is allowed in a
+ 454 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 442 | ERROR   | [ ] Only one object structure is allowed in a
+ 460 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 443 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 461 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 446 | WARNING | [x] Use @param annotation instead of @parma
+ 464 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 456 | ERROR   | [ ] You must use "/**" style comments for a function
+ 474 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
-PHPCBF CAN FIX THE 59 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 61 MARKED SNIFF VIOLATIONS AUTOMATICALLY
