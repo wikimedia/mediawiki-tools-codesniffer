@@ -1,0 +1,7 @@
+ 13 | WARNING | [x] Do not use a space after a unary minus
+    |         |     (MediaWiki.WhiteSpace.UnaryMinusSpacing.SpaceFound)
+ 14 | WARNING | [x] Do not use a space after a unary minus
+    |         |     (MediaWiki.WhiteSpace.UnaryMinusSpacing.SpaceFound)
+ 15 | WARNING | [x] Do not use a space after a unary minus
+    |         |     (MediaWiki.WhiteSpace.UnaryMinusSpacing.SpaceFound)
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
