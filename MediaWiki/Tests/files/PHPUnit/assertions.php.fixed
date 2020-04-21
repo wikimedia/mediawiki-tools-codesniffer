@@ -62,5 +62,8 @@ class AssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertFalse( false );
 		$this->assertTrue( true );
 		$this->assertFalse( false );
+
+		// Avoid assertEmpty
+		$this->assertEmpty( [] );
 	}
 }

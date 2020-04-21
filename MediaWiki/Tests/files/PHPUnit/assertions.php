@@ -62,5 +62,8 @@ class AssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertNotEquals( true, false );
 		$this->assertNotSame( false, true );
 		$this->assertNotSame( true, false );
+
+		// Avoid assertEmpty
+		$this->assertEmpty( [] );
 	}
 }

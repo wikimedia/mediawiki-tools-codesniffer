@@ -115,4 +115,7 @@
     |         |     please use strict alternatives like
     |         |     assertFalse
     |         |     (MediaWiki.PHPUnit.AssertEquals.True)
+ 67 | WARNING | [ ] assertEmpty performs loose comparisons and should
+    |         |     not be used.
+    |         |     (MediaWiki.PHPUnit.AssertEmpty.AssertEmptyUsed)
 PHPCBF CAN FIX THE 33 MARKED SNIFF VIOLATIONS AUTOMATICALLY
