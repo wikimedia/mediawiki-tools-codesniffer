@@ -242,18 +242,13 @@ class FunctionCommentSniff implements Sniff {
 			$comment = $exploded[1] ?? null;
 			$fixType = false;
 			// Check for unneeded punctation
-			if ( preg_match( '/^(.*)((?:(?![\[\]_{}])\p{P})+)$/', $type, $matches ) ) {
-				$fix = $phpcsFile->addFixableError(
-					'Return type should not end with punctuation "%s"',
-					$retType,
-					'NotPunctuationReturn',
-					[ $matches[2] ]
-				);
-				$type = $matches[1];
-				if ( $fix ) {
-					$fixType = true;
-				}
-			}
+			$type = $this->fixTrailingPunctation(
+				$phpcsFile,
+				$retType,
+				$type,
+				$fixType,
+				'return type'
+			);
 			if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $type, $matches ) ) {
 				$fix = $phpcsFile->addFixableError(
 					'Expected parameter type not wrapped in parenthesis; %s and %s found',
@@ -503,23 +498,20 @@ class FunctionCommentSniff implements Sniff {
 					);
 				}
 			}
-			$var = $param['var'];
-			// Check for unneeded punctation
-			if ( preg_match( '/^(.*?)((?:(?![\[\]_{}])\p{P})+)$/', $var, $matches ) ) {
-				$fix = $phpcsFile->addFixableError(
-					'Param name should not end with punctuation "%s"',
-					$param['tag'],
-					'NotPunctuationParam',
-					[ $matches[2] ]
+			$fixVar = false;
+			$var = $this->fixTrailingPunctation(
+				$phpcsFile,
+				$param['tag'],
+				$param['var'],
+				$fixVar,
+				'param name'
+			);
+			if ( $fixVar ) {
+				$this->replaceParamComment(
+					$phpcsFile,
+					$param,
+					[ 'var' => $var ]
 				);
-				$var = $matches[1];
-				if ( $fix ) {
-					$this->replaceParamComment(
-						$phpcsFile,
-						$param,
-						[ 'var' => $var ]
-					);
-				}
 			}
 			// Make sure the param name is correct.
 			$defaultNull = false;
@@ -755,5 +747,26 @@ class FunctionCommentSniff implements Sniff {
 			}
 		}
 		return implode( '|', $typeList );
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $typesString
+	 * @param bool &$fix Set when autofix is needed
+	 * @param string $annotation Either "param" or "return" + "name" or "type"
+	 * @return string Updated $typesString
+	 */
+	private function fixTrailingPunctation( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
+		if ( preg_match( '/^(.*)((?:(?![\[\]_{}])\p{P})+)$/', $typesString, $matches ) ) {
+			$typesString = $matches[1];
+			$fix = $phpcsFile->addFixableError(
+				'%s should not end with punctuation "%s"',
+				$stackPtr,
+				'NotPunctuation' . str_replace( ' ', '', ucwords( $annotation ) ),
+				[ ucfirst( $annotation ), $matches[2] ]
+			) || $fix;
+		}
+		return $typesString;
 	}
 }

@@ -97,19 +97,19 @@
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
  108 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
-     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
  109 | ERROR   | [x] Expected parameter type not wrapped in
      |         |     parenthesis; [ and ] found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
  109 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
-     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
  110 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
-     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParam)
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
  111 | ERROR   | [x] Return type should not end with punctuation
      |         |     ":"
-     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturn)
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturnType)
  111 | ERROR   | [x] Expected parameter type not wrapped in
      |         |     parenthesis; { and } found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisReturnType)
