@@ -39,7 +39,7 @@ class SpaceAfterControlStructureSniff implements Sniff {
 				'Control structure "%s" must be followed by a single space',
 				$stackPtr,
 				'Incorrect',
-				[ $tokens[$stackPtr]['content'] ]
+				[ $tokens[ $stackPtr ]['content'] ]
 			);
 			if ( $fix ) {
 				if ( $nextToken['code'] !== T_WHITESPACE ) {

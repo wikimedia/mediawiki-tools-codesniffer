@@ -166,7 +166,6 @@
 		<!-- Implemented as MediaWiki.WhiteSpace.MultipleEmptyLines -->
 		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
 	</rule>
-	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
 
 	<rule ref="Zend.Files.ClosingTag" />
 	<rule ref="Generic.PHP.BacktickOperator" />

@@ -44,8 +44,8 @@ class NullableTypeSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		$argsStart = $tokens[$stackPtr]['parenthesis_opener'];
-		$argsEnd = $tokens[$stackPtr]['parenthesis_closer'];
+		$argsStart = $tokens[ $stackPtr ]['parenthesis_opener'];
+		$argsEnd = $tokens[ $stackPtr ]['parenthesis_closer'];
 
 		$params = $phpcsFile->getMethodParameters( $stackPtr );
 
