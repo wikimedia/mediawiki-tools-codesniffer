@@ -19,6 +19,8 @@ use Something\Partial;
 use Something\Something;
 use Something\That\Is\Unused;
 use Something\That\Is\Used;
+use Something\UsedForPhanVar;
+use Something\UsedForPhanVarForce;
 use Used\But\Always\FullyQualified;
 use Wikimedia\Database;
 use Wikimedia\Rdbms\ILBFactory;
@@ -95,5 +97,25 @@ class Foo {
 	public function __construct( ILBFactory $lbFactory ) {
 		$this->lbFactory = $lbFactory;
 		self::lbFactory();
+	}
+
+	/**
+	 * @param array $arr
+	 * @return int
+	 */
+	public function testPhanVar( $arr ) {
+		'@phan-var UsedForPhanVar $exampleVar';
+		$exampleVar = $arr[1];
+		return $exampleVar->getNumber();
+	}
+
+	/**
+	 * @param array $arr
+	 * @return int
+	 */
+	public function testPhanVarForce( $arr ) {
+		'@phan-var-force UsedForPhanVarForce $exampleVar';
+		$exampleVar = $arr[1];
+		return $exampleVar->getNumber();
 	}
 }

@@ -190,6 +190,18 @@ class UnusedUseStatementSniff implements Sniff {
 				) {
 					return;
 				}
+			} elseif ( $tokens[$classUsed]['code'] === T_CONSTANT_ENCAPSED_STRING
+				&& isset( $tokens[$classUsed + 1] )
+				&& $tokens[$classUsed + 1]['code'] === T_SEMICOLON
+			) {
+				$string = $tokens[$classUsed]['content'];
+				// Ensure class name is followed by a space so that we know its the
+				// end of the class name given to phan
+				if ( stripos( $string, '@phan-var ' . $className . ' ' ) !== false
+					|| stripos( $string, '@phan-var-force ' . $className . ' ' ) !== false
+				) {
+					return;
+				}
 			}
 		}
 
