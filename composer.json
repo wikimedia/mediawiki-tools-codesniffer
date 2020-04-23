@@ -22,14 +22,17 @@
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
 		"jakub-onderka/php-console-highlighter": "0.4.0",
+		"mediawiki/mediawiki-phan-config": "0.10.2",
 		"mediawiki/minus-x": "1.0.0",
 		"phpunit/phpunit": "^8.5"
 	},
 	"scripts": {
+		"phan": "phan -d . -p --allow-polyfill-parser --long-progress-bar",
 		"test": [
 			"parallel-lint . --exclude vendor",
 			"phpunit",
 			"phpcs -p -s",
+			"composer phan",
 			"minus-x check ."
 		],
 		"fix": [

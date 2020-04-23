@@ -686,7 +686,7 @@ class FunctionCommentSniff implements Sniff {
 	}
 
 	/**
-	 * Replace a @param comment
+	 * Replace a {@}param comment
 	 *
 	 * @param File $phpcsFile The file being scanned.
 	 * @param array $param Array of the @param

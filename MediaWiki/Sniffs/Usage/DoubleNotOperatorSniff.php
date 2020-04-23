@@ -30,9 +30,7 @@ use PHP_CodeSniffer\Util\Tokens;
 class DoubleNotOperatorSniff implements Sniff {
 
 	/**
-	 * Registers the tokens that this sniff wants to listen for.
-	 *
-	 * @return int[]
+	 * @inheritDoc
 	 */
 	public function register() : array {
 		return [ T_BOOLEAN_NOT ];

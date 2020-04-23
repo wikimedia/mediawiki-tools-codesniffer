@@ -39,7 +39,7 @@ class UnicodeEscapeSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile File
 	 * @param int $stackPtr Location
-	 * @return void
+	 * @return int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();

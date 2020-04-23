@@ -74,6 +74,7 @@ class PHPUnitTypeHintsSniff implements Sniff {
 		];
 
 		$cur = $phpcsFile->findNext( T_FUNCTION, $cur + 1, $end );
+		// @phan-suppress-next-line PhanRedundantConditionInLoop False positive
 		while ( $cur !== false && $functions ) {
 			$funcNamePos = $phpcsFile->findNext( T_STRING, $cur );
 			$funcName = $tokens[$funcNamePos]['content'];

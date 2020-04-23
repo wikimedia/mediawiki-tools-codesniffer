@@ -47,6 +47,7 @@ class MagicConstantClosureSniff extends AbstractScopeSniff {
 	 * @param int $stackPtr The current token index.
 	 * @param int $currScope The position of the current scope.
 	 * @return void
+	 * @suppress PhanUnusedProtectedMethodParameter Inherit from parent class
 	 */
 	protected function processTokenWithinScope( File $phpcsFile, $stackPtr, $currScope ) {
 		$tokens = $phpcsFile->getTokens();
@@ -63,6 +64,7 @@ class MagicConstantClosureSniff extends AbstractScopeSniff {
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 * @return void
+	 * @suppress PhanUnusedProtectedMethodParameter Inherit from parent class
 	 */
 	protected function processTokenOutsideScope( File $phpcsFile, $stackPtr ) {
 	}

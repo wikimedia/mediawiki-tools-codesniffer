@@ -233,6 +233,7 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 	 * or we should start requiring phpunit-arraysubset-asserts
 	 *
 	 * @param int $funcPos
+	 * @suppress PhanUnusedPrivateMethodParameter Refers to the fixme
 	 */
 	private function handleAssertArraySubset( int $funcPos ) {
 		// FIXME: What to do here? Remove/update/re-enable... T192167#5685401

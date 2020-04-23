@@ -164,7 +164,7 @@ class ExtendClassUsageSniff implements Sniff {
 				}
 			}
 
-			if ( !empty( $eligableFunc )
+			if ( $eligableFunc !== null
 				&& $i > $eligableFunc['scope_start']
 				&& $i < $eligableFunc['scope_end']
 			) {

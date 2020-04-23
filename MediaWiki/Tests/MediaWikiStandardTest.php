@@ -72,7 +72,7 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 	 *
 	 * @param string $file The path string of file.
 	 * @param string $standard The standard string.
-	 * @param boolean $expectedOutputFile The path of expected file.
+	 * @param string $expectedOutputFile The path of expected file.
 	 */
 	public function testFile( $file, $standard, $expectedOutputFile ) {
 		$outputStr = $this->prepareOutput( $this->helper->runPhpCs( $file, $standard ) );

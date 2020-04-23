@@ -28,7 +28,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	/**
 	 * Function => Replacement
 	 *
-	 * @var string[]
+	 * @var (string|false)[]
 	 */
 	private $functions = [
 		'chop' => 'rtrim',

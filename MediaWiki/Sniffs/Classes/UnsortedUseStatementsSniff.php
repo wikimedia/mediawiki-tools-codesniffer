@@ -118,6 +118,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 			$map[$use] = strtolower( $use );
 		}
 		natsort( $map );
+		// @phan-suppress-next-line PhanTypeMismatchReturn False positive as array_keys can return list<string>
 		return array_keys( $map );
 	}
 
