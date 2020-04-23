@@ -76,8 +76,6 @@ class FunctionCommentSniff implements Sniff {
 			return;
 		}
 
-		$this->checkVariadicArgComments( $phpcsFile, $stackPtr );
-
 		$tokens = $phpcsFile->getTokens();
 		$find = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
@@ -706,44 +704,6 @@ class FunctionCommentSniff implements Sniff {
 			str_repeat( ' ', $fixParam['var_space'] ) .
 			$fixParam['comment_first'];
 		$phpcsFile->fixer->replaceToken( $fixParam['tag'] + 2, $content );
-	}
-
-	/**
-	 * Warn if any comment containing hints of a variadic argument is found within the arguments list.
-	 * This includes comment only containing "...", or containing variable names preceded by "...",
-	 * or ",...".
-	 * Actual variadic arguments should be used instead.
-	 *
-	 * @param File $phpcsFile The file being scanned.
-	 * @param int $functionStart The position in the stack where the function declaration starts
-	 */
-	protected function checkVariadicArgComments( File $phpcsFile, $functionStart ) {
-		$tokens = $phpcsFile->getTokens();
-		$argsStart = $tokens[$functionStart]['parenthesis_opener'];
-		$argsEnd = $tokens[$functionStart]['parenthesis_closer'];
-
-		$variargReg = '/^[, \t]*\.\.\.[ \t]*$|[ \t]*\.\.\.\$|\$[a-z_][a-z0-9_]*,\.\.\./i';
-
-		$commentPos = $phpcsFile->findNext( T_COMMENT, $argsStart, $argsEnd );
-		while ( $commentPos !== false ) {
-			$comment = $tokens[$commentPos]['content'];
-			if ( substr( $comment, 0, 2 ) === '/*' ) {
-				$content = substr( $comment, 2, -2 );
-				if ( preg_match( $variargReg, $content ) ) {
-					// An autofix would be trivial to write, but we shouldn't offer that. Removing the
-					// comment is not enough, because people should also add the actual variadic parameter.
-					// For some methods, variadic parameters are only documented via this inline comment,
-					// hence an autofixer would effectively remove any documentation about them.
-					$phpcsFile->addError(
-						'Comments indicating variadic arguments are superfluous and should be replaced ' .
-							'with actual variadic arguments',
-						$commentPos,
-						'SuperfluousVariadicArgComment'
-					);
-				}
-			}
-			$commentPos = $phpcsFile->findNext( T_COMMENT, $commentPos + 1, $argsEnd );
-		}
 	}
 
 	/**

@@ -53,7 +53,7 @@
  30 | ERROR   | [ ] Comments indicating variadic arguments are
     |         |     superfluous and should be replaced with actual
     |         |     variadic arguments
-    |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+    |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  30 | WARNING | [x] Single space expected before closing
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)

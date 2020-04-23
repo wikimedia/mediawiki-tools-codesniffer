@@ -145,13 +145,13 @@
  147 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  155 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  155 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  163 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "...$params"
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
@@ -160,13 +160,13 @@
  163 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  171 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  171 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  179 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "$params,..."
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
@@ -181,7 +181,7 @@
  211 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  216 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
@@ -190,7 +190,7 @@
  218 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  223 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
@@ -199,7 +199,7 @@
  225 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  230 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
@@ -208,7 +208,7 @@
  232 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  235 | ERROR   | [ ] Doc comment for parameter "...$params"
      |         |     missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
@@ -222,7 +222,7 @@
  245 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  250 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
@@ -233,7 +233,7 @@
  252 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
-     |         |     (MediaWiki.Commenting.FunctionComment.SuperfluousVariadicArgComment)
+     |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
  256 | WARNING | [x] Expected 1 spaces after parameter type; 9
      |         |     found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
