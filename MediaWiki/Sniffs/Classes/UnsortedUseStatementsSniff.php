@@ -28,16 +28,13 @@ class UnsortedUseStatementsSniff implements Sniff {
 
 	/**
 	 * @inheritDoc
-	 *
-	 * @return int[]
 	 */
 	public function register() : array {
 		return [ T_USE ];
 	}
 
 	/**
-	 * Called when one of the token types that this sniff is listening for
-	 * is found.
+	 * @inheritDoc
 	 *
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
@@ -105,14 +102,15 @@ class UnsortedUseStatementsSniff implements Sniff {
 			}
 		}
 
-		return $lastUseStatementToken;
+		// Continue *after* the last use token, to not process it twice
+		return $lastUseStatementToken + 1;
 	}
 
 	/**
 	 * This sorts full qualified class names similar to PHPStorm and other tools.
 	 *
-	 * @param string[] $statementList
-	 * @return string[]
+	 * @param int[] $statementList Array mapping class names to stack pointers
+	 * @return string[] Sorted list of class names
 	 */
 	private function sortStatements( array $statementList ) : array {
 		$map = [];
@@ -124,8 +122,8 @@ class UnsortedUseStatementsSniff implements Sniff {
 	}
 
 	/**
-	 * @param array $useStatements
-	 * @param array $sortedStatements
+	 * @param array[] $useStatements Three arrays mapping class names to stack pointers
+	 * @param array[] $sortedStatements Three lists of class names
 	 * @return bool
 	 */
 	private function useStatementsAreSorted( array $useStatements, array $sortedStatements ) : bool {
@@ -141,7 +139,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
-	 * @return array[]
+	 * @return array[] Three arrays mapping full qualified class names to stack pointers
 	 */
 	private function makeUseStatementList( File $phpcsFile, int $stackPtr ) : array {
 		$tokens = $phpcsFile->getTokens();
