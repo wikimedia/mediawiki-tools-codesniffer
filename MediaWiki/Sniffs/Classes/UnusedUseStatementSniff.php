@@ -26,21 +26,24 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
+/**
+ * @author Thiemo Kreuz
+ */
 class UnusedUseStatementSniff implements Sniff {
 
 	/**
 	 * Doc tags where a class name is used
 	 */
 	private const CLASS_TAGS = [
-		'@param',
-		'@return',
-		'@throws',
-		'@var',
-		'@property',
+		'@param' => null,
+		'@return' => null,
+		'@throws' => null,
+		'@var' => null,
+		'@property' => null,
 		// Deprecated
-		'@method',
-		'@type',
-		'@expectedException',
+		'@method' => null,
+		'@type' => null,
+		'@expectedException' => null,
 	];
 
 	/**
@@ -65,172 +68,218 @@ class UnusedUseStatementSniff implements Sniff {
 		if ( !empty( $tokens[$stackPtr]['conditions'] ) ) {
 			// TODO: Use array_key_first() if available
 			$scope = key( $tokens[$stackPtr]['conditions'] );
+			// This avoids checking other use keywords (in traits and closures) in the same scope
 			return $tokens[$scope]['scope_closer'] ?? $stackPtr;
 		}
 
-		// Seek to the end of the statement and get the string before the semi colon.
-		$semiColon = $phpcsFile->findEndOfStatement( $stackPtr );
-		if ( $tokens[$semiColon]['code'] !== T_SEMICOLON ) {
+		$afterUseSection = $stackPtr;
+		$shortClassNames = $this->findUseStatements( $phpcsFile, $stackPtr, $afterUseSection );
+		if ( !$shortClassNames ) {
 			return;
 		}
 
-		$classPtr = $phpcsFile->findPrevious(
-			Tokens::$emptyTokens,
-			$semiColon - 1,
-			null,
-			true
-		);
-
-		if ( $tokens[$classPtr]['code'] !== T_STRING ) {
-			return;
-		}
+		$docPattern = '{(?<!\\\\)\b('
+			. implode( '|', array_map( 'preg_quote', array_keys( $shortClassNames ) ) )
+			. ')\b}i';
 
 		// Search where the class name is used. PHP treats class names case
 		// insensitive, that's why we cannot search for the exact class name string
 		// and need to iterate over all T_STRING tokens in the file.
-		$classUsed = $semiColon + 1;
-		$className = $tokens[$classPtr]['content'];
-
-		// Check if the referenced class is in the same namespace as the current
-		// file. If it is then the use statement is not necessary.
-		$namespacePtr = $phpcsFile->findPrevious( [ T_NAMESPACE ], $stackPtr - 3 );
-		// Check if the use statement does aliasing with the "as" keyword. Aliasing
-		// is allowed even in the same namespace.
-		$aliasUsed = $phpcsFile->findPrevious( T_AS, $classPtr - 1, $stackPtr + 3 );
-
-		$useNamespacePtr = $phpcsFile->findNext( [ T_STRING ], $stackPtr + 1 );
-		$useNamespaceEnd = $phpcsFile->findNext(
-			[
-				T_NS_SEPARATOR,
-				T_STRING,
-			],
-			$useNamespacePtr + 1,
-			null,
-			true
-		);
-		$use_namespace = rtrim(
-			$phpcsFile->getTokensAsString( $useNamespacePtr, $useNamespaceEnd - $useNamespacePtr - 1 ),
-			'\\'
-		);
-
-		if ( $namespacePtr !== false && $aliasUsed === false ) {
-			$nsEnd = $phpcsFile->findNext(
-				[
-					T_NS_SEPARATOR,
-					T_STRING,
-					T_WHITESPACE,
-				],
-				$namespacePtr + 1,
-				null,
-				true
-			);
-			$namespace = trim(
-				$phpcsFile->getTokensAsString( $namespacePtr + 1, $nsEnd - $namespacePtr - 1 )
-			);
-
-			if ( strcasecmp( $namespace, $use_namespace ) === 0 ) {
-				$classUsed = $phpcsFile->numTokens;
-			}
-		}
-
-		// Class has no namespace and use statement has no namespace
-		if ( $namespacePtr === false && $use_namespace === '' ) {
-			$warning = 'Use statement with non-compound name';
-			$fix = $phpcsFile->addFixableWarning( $warning, $stackPtr, 'NonCompoundUse' );
-			if ( $fix ) {
-				$this->removeUseStatement( $phpcsFile, $tokens, $stackPtr, $semiColon );
-			}
-			return;
-		}
-
-		for ( ; $classUsed < $phpcsFile->numTokens; $classUsed++ ) {
-			if ( $tokens[$classUsed]['code'] === T_RETURN_TYPE ) {
+		for ( $i = $afterUseSection; $i < $phpcsFile->numTokens; $i++ ) {
+			if ( $tokens[$i]['code'] === T_RETURN_TYPE ) {
 				// If the name is used in a PHP 7 function return type declaration
-				// stop.
-				if ( strcasecmp( $tokens[$classUsed]['content'], $className ) === 0 ) {
-					return;
+				$className = $tokens[$i]['content'];
+
+			} elseif ( $tokens[$i]['code'] === T_STRING ) {
+				if ( !isset( $shortClassNames[ strtolower( $tokens[$i]['content'] ) ] ) ) {
+					continue;
 				}
-			} elseif ( $tokens[$classUsed]['code'] === T_STRING ) {
-				if ( strcasecmp( $tokens[$classUsed]['content'], $className ) === 0 ) {
-					$beforeUsage = $phpcsFile->findPrevious(
-						Tokens::$emptyTokens,
-						$classUsed - 1,
-						null,
-						true
-					);
 
-					// If a backslash is used before the class name then this is some other
-					// use statement.
-					// T_STRING also used for $this->property or self::function()
-					if ( $tokens[$beforeUsage]['code'] !== T_USE
-						&& $tokens[$beforeUsage]['code'] !== T_NS_SEPARATOR
-						&& $tokens[$beforeUsage]['code'] !== T_OBJECT_OPERATOR
-						&& $tokens[$beforeUsage]['code'] !== T_DOUBLE_COLON
-					) {
-						return;
-					}
-
+				// If a backslash is used before the class name then this is some other
+				// use statement.
+				// T_STRING also used for $this->property or self::function()
+				$before = $phpcsFile->findPrevious( Tokens::$emptyTokens, $i - 1, null, true );
+				if ( $tokens[$before]['code'] === T_OBJECT_OPERATOR
+					|| $tokens[$before]['code'] === T_DOUBLE_COLON
+					|| $tokens[$before]['code'] === T_NS_SEPARATOR
 					// Trait use statement within a class.
-					if ( $tokens[$beforeUsage]['code'] === T_USE
-						&& !empty( $tokens[$beforeUsage]['conditions'] )
-					) {
-						return;
-					}
-				}
-			} elseif ( $tokens[$classUsed]['code'] === T_DOC_COMMENT_TAG ) {
-				// Usage in a doc comment
-				if ( in_array( $tokens[$classUsed]['content'], self::CLASS_TAGS )
-					&& $tokens[$classUsed + 2]['code'] === T_DOC_COMMENT_STRING
-					// We aren't interested in the later, whitespace-separated parts of comments
-					// like `@param (Class1|Class2)[]|Class3<Class4,Class5> $var Description`.
-					&& preg_match(
-						'{^\S*?\b(?<!\\\\)' . preg_quote( $className ) . '\b}i',
-						$tokens[$classUsed + 2]['content']
+					|| ( $tokens[$before]['code'] === T_USE
+						&& empty( $tokens[$before]['conditions'] )
 					)
 				) {
-					return;
+					continue;
 				}
-			} elseif ( $tokens[$classUsed]['code'] === T_CONSTANT_ENCAPSED_STRING
-				&& isset( $tokens[$classUsed + 1] )
-				&& $tokens[$classUsed + 1]['code'] === T_SEMICOLON
-			) {
-				$string = $tokens[$classUsed]['content'];
+
+				$className = $tokens[$i]['content'];
+
+			} elseif ( $tokens[$i]['code'] === T_DOC_COMMENT_TAG ) {
+				// Usage in a doc comment
+				if ( !array_key_exists( $tokens[$i]['content'], self::CLASS_TAGS )
+					|| $tokens[$i + 2]['code'] !== T_DOC_COMMENT_STRING
+				) {
+					continue;
+				}
+
+				// We aren't interested in the later, whitespace-separated parts of comments
+				// like `@param (Class1|Class2)[]|Class3<Class4,Class5> $var Description`.
+				$doc = preg_replace( '/\s.*/s', '', $tokens[$i + 2]['content'] );
+				preg_match_all( $docPattern, $doc, $matches );
+				$className = $matches[1];
+
+			} elseif ( $tokens[$i]['code'] === T_CONSTANT_ENCAPSED_STRING ) {
 				// Ensure class name is followed by a space so that we know its the
 				// end of the class name given to phan
-				if ( stripos( $string, '@phan-var ' . $className . ' ' ) !== false
-					|| stripos( $string, '@phan-var-force ' . $className . ' ' ) !== false
+				if ( $tokens[$i + 1]['code'] !== T_SEMICOLON
+					|| !preg_match( '/\W@phan-var\S*\s+(\w+)\s/i', $tokens[$i]['content'], $matches )
 				) {
-					return;
+					continue;
 				}
+
+				$className = $matches[1];
+
+			} else {
+				continue;
+			}
+
+			$this->markAsUsed( $shortClassNames, $className );
+			if ( $shortClassNames === [] ) {
+				break;
 			}
 		}
 
-		$fix = $phpcsFile->addFixableWarning( 'Unused use statement', $stackPtr, 'UnusedUse' );
+		foreach ( $shortClassNames as $i ) {
+			$fix = $phpcsFile->addFixableWarning( 'Unused use statement', $i, 'UnusedUse' );
+			if ( $fix ) {
+				$this->removeUseStatement( $phpcsFile, $i );
+			}
+		}
+
+		return $afterUseSection;
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param int &$afterUseSection Updated to point to the first token after the found section
+	 *
+	 * @return int[] Array mapping short, lowercased class names to stack pointers
+	 */
+	private function findUseStatements(
+		File $phpcsFile,
+		int $stackPtr,
+		int &$afterUseSection
+	) : array {
+		$tokens = $phpcsFile->getTokens();
+		$currentUsePtr = $stackPtr;
+
+		$namespace = $this->findNamespace( $phpcsFile, $stackPtr );
+		$shortClassNames = [];
+
+		// No need to cache this as we won't execute this often
+		$namespaceTokenTypes = Tokens::$emptyTokens;
+		$namespaceTokenTypes[] = T_NS_SEPARATOR;
+		$namespaceTokenTypes[] = T_STRING;
+		$useTokenTypes = array_merge( $namespaceTokenTypes, [ T_AS ] );
+
+		while ( $currentUsePtr && $tokens[$currentUsePtr]['code'] === T_USE ) {
+			// Seek to the end of the statement and get the string before the semi colon.
+			$semicolon = $phpcsFile->findNext( $useTokenTypes, $currentUsePtr + 1, null, true );
+			if ( $tokens[$semicolon]['code'] !== T_SEMICOLON ) {
+				break;
+			}
+			$afterUseSection = $semicolon + 1;
+
+			// Find the unprefixed class name or "as" alias, if there is one
+			$classNamePtr = $phpcsFile->findPrevious( T_STRING, $semicolon - 1, $currentUsePtr );
+			if ( !$classNamePtr ) {
+				break;
+			}
+			$shortClassNames[ strtolower( $tokens[$classNamePtr]['content'] ) ] = $currentUsePtr;
+
+			// Check if the referenced class is in the same namespace as the current
+			// file. If it is then the use statement is not necessary.
+			$prev = $phpcsFile->findPrevious( $namespaceTokenTypes, $classNamePtr - 1, null, true );
+			// Check if the use statement does aliasing with the "as" keyword. Aliasing
+			// is allowed even in the same namespace.
+			if ( $tokens[$prev]['code'] !== T_AS ) {
+				$useNamespace = trim( $phpcsFile->getTokensAsString( $prev + 1, $classNamePtr - $prev - 2 ) );
+				if ( $useNamespace === $namespace ) {
+					$this->addSameNamespaceWarning( $phpcsFile, $currentUsePtr );
+				}
+			}
+
+			// This intentionally stops at non-empty tokens for performance reasons, and might miss
+			// later use statements. The sniff will be called another time for these.
+			$currentUsePtr = $phpcsFile->findNext( Tokens::$emptyTokens, $semicolon + 1, null, true );
+		}
+
+		return $shortClassNames;
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 *
+	 * @return string
+	 */
+	private function findNamespace( File $phpcsFile, int $stackPtr ) : string {
+		// There are probably less tokens between the start of the file and the namespace token
+		$namespacePtr = $phpcsFile->findNext( T_NAMESPACE, 1, $stackPtr - 1 );
+		if ( !$namespacePtr ) {
+			return '';
+		}
+
+		// No need to cache this as we won't execute this often
+		$types = Tokens::$emptyTokens;
+		$types[] = T_NS_SEPARATOR;
+		$types[] = T_STRING;
+		$end = $phpcsFile->findNext( $types, $namespacePtr + 1, $stackPtr - 1, true );
+		return trim( $phpcsFile->getTokensAsString( $namespacePtr + 1, $end - $namespacePtr - 1 ) );
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 */
+	private function addSameNamespaceWarning( File $phpcsFile, int $stackPtr ) {
+		$warning = 'Unnecessary use statement in the same namespace';
+		$fix = $phpcsFile->addFixableWarning( $warning, $stackPtr, 'UnnecessaryUse' );
 		if ( $fix ) {
-			$this->removeUseStatement( $phpcsFile, $tokens, $stackPtr, $semiColon );
+			$this->removeUseStatement( $phpcsFile, $stackPtr );
+		}
+	}
+
+	/**
+	 * @param array &$classNames List of class names found in the use section
+	 * @param string|string[] $usedClassNames Class name(s) to be marked as used
+	 */
+	private function markAsUsed( array &$classNames, $usedClassNames ) {
+		foreach ( (array)$usedClassNames as $className ) {
+			unset( $classNames[ strtolower( $className ) ] );
 		}
 	}
 
 	/**
 	 * @param File $phpcsFile
-	 * @param array[] $tokens
 	 * @param int $stackPtr
-	 * @param int $semiColon Token position of the ending semicolon
 	 */
-	private function removeUseStatement( File $phpcsFile, array $tokens, $stackPtr, $semiColon ) {
+	private function removeUseStatement( File $phpcsFile, int $stackPtr ) {
+		$tokens = $phpcsFile->getTokens();
 		// Remove the whole use statement line.
 		$phpcsFile->fixer->beginChangeset();
-		for ( $i = $stackPtr; $i <= $semiColon; $i++ ) {
+
+		$i = $stackPtr;
+		do {
 			$phpcsFile->fixer->replaceToken( $i, '' );
-		}
+			$i++;
+		} while ( isset( $tokens[$i] ) && $tokens[$i]['code'] !== T_SEMICOLON );
 
 		// Also remove whitespace after the semicolon (new lines).
-		while ( isset( $tokens[$i] ) && $tokens[$i]['code'] === T_WHITESPACE ) {
+		while ( isset( $tokens[$i] )
+			&& $tokens[$i]['code'] === T_WHITESPACE
+			&& $tokens[$i]['line'] === $tokens[$i - 1]['line']
+		) {
 			$phpcsFile->fixer->replaceToken( $i, '' );
-			if ( $tokens[$i]['content'] === $phpcsFile->eolChar ) {
-				break;
-			}
-
 			$i++;
 		}
 

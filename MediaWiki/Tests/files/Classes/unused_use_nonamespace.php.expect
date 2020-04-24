@@ -1,3 +1,4 @@
- 3 | WARNING | [x] Use statement with non-compound name
-   |         |     (MediaWiki.Classes.UnusedUseStatement.NonCompoundUse)
+ 3 | WARNING | [x] Unnecessary use statement in the same
+   |         |     namespace
+   |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -119,3 +119,7 @@ class Foo {
 		return $exampleVar->getNumber();
 	}
 }
+
+$fn = function () use ( $a ) {
+	return $a->methodCall();
+};
