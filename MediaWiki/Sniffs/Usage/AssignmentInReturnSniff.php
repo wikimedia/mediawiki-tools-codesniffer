@@ -39,7 +39,9 @@ class AssignmentInReturnSniff implements Sniff {
 		$next = $phpcsFile->findNext( $searchToken, $stackPtr + 1 );
 		while ( $next !== false ) {
 			$code = $tokens[$next]['code'];
-			if ( $code === T_CLOSURE || $code === T_FUNCTION || $code === T_ANON_CLASS ) {
+			if ( ( $code === T_CLOSURE || $code === T_FUNCTION || $code === T_ANON_CLASS )
+				&& isset( $tokens[$next]['scope_closer'] )
+			) {
 				// Skip to the end of the closure/inner function and continue
 				$next = $phpcsFile->findNext( $searchToken, $tokens[$next]['scope_closer'] + 1 );
 				continue;

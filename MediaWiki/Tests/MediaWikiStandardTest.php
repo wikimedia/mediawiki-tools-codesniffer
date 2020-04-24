@@ -48,6 +48,7 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 		$standard = dirname( __DIR__ );
 		$directoryIterator = new \RecursiveDirectoryIterator( __DIR__ . '/files' );
 		$iterator = new \RecursiveIteratorIterator( $directoryIterator );
+		/** @var \SplFileInfo $dir */
 		foreach ( $iterator as $dir ) {
 			if ( $dir->isDir() ) {
 				continue;
