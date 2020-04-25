@@ -295,33 +295,33 @@
  322 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 385 | ERROR   | [ ] Missing function doc comment
+ 391 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 398 | WARNING | [ ] Comments should start on new line.
+ 404 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 402 | ERROR   | [ ] Expected parameter type before parameter name
+ 408 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$parser"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 403 | ERROR   | [ ] Expected parameter type before parameter name
+ 409 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$operator:"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 403 | ERROR   | [x] Param name should not end with punctuation
+ 409 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 404 | ERROR   | [ ] Expected parameter type before parameter name
+ 410 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 411 | ERROR   | [ ] Only one object structure is allowed in a
-     |         |     file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  417 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 418 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 423 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 424 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 421 | WARNING | [x] Use @param annotation instead of @parma
+ 427 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 431 | ERROR   | [ ] You must use "/**" style comments for a function
+ 437 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 58 MARKED SNIFF VIOLATIONS AUTOMATICALLY

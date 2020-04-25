@@ -377,6 +377,12 @@ class TestPassedExamples {
 		$a = function () {
 			return '';
 		};
+
+		new class() {
+			public function foo() {
+				return '';
+			}
+		};
 	}
 
 	public function selfDocumenting() {

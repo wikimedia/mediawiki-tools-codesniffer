@@ -174,7 +174,8 @@ class FunctionCommentSniff implements Sniff {
 			$token = $tokens[$i];
 			if ( isset( $token['scope_condition'] ) && (
 				$tokens[$token['scope_condition']]['code'] === T_CLOSURE ||
-				$tokens[$token['scope_condition']]['code'] === T_FUNCTION
+				$tokens[$token['scope_condition']]['code'] === T_FUNCTION ||
+				$tokens[$token['scope_condition']]['code'] === T_ANON_CLASS
 			) ) {
 				// Skip to the other side of the closure/inner function and continue
 				$i = $token['scope_condition'];
