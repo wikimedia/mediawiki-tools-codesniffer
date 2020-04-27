@@ -104,10 +104,7 @@ class FunctionCommentSniff implements Sniff {
 					'MissingDocumentation' . ucfirst( $methodProps['scope'] )
 				);
 			}
-			$phpcsFile->recordMetric( $stackPtr, 'Function has doc comment', 'no' );
 			return;
-		} else {
-			$phpcsFile->recordMetric( $stackPtr, 'Function has doc comment', 'yes' );
 		}
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
 			$phpcsFile->addError( 'You must use "/**" style comments for a function comment',

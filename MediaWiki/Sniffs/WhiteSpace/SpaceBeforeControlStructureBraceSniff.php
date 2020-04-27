@@ -58,7 +58,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 		$lineDifference = ( $openBraceLine - $closeBracketLine );
 		if ( $lineDifference > 0 ) {
 			// if brace on new line
-			$fix = $this->processLineDiff( $phpcsFile, $openBrace, $stackPtr );
+			$fix = $this->processLineDiff( $phpcsFile, $openBrace );
 		} else {
 			// if brace on the same line as closing parenthesis
 			$fix = $this->processLineSame( $phpcsFile, $openBrace, $closeBracket );
@@ -79,11 +79,9 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile
 	 * @param int $openBrace The index of open brace.
-	 * @param int $stackPtr The index of current token.
 	 * @return bool
 	 */
-	protected function processLineDiff( File $phpcsFile, $openBrace, $stackPtr ) {
-		$phpcsFile->recordMetric( $stackPtr, 'Control Structs opening brace placement', 'new line' );
+	protected function processLineDiff( File $phpcsFile, $openBrace ) {
 		$error = 'Opening brace should be on the same line as the declaration';
 		return $phpcsFile->addFixableError( $error, $openBrace, 'BraceOnNewLine' );
 	}
