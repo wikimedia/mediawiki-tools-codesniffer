@@ -36,7 +36,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 		}
 		$openBrace = $tokens[$stackPtr]['scope_opener'];
 		// Find previous non-whitespace token from the opening brace
-		$pre = $phpcsFile->findPrevious( T_WHITESPACE, ( $openBrace - 1 ), null, true );
+		$pre = $phpcsFile->findPrevious( T_WHITESPACE, $openBrace - 1, null, true );
 
 		if ( $tokens[$openBrace]['line'] - $tokens[$stackPtr]['line'] >= 2 ) {
 			// If the class ... { statement is more than two lines, then

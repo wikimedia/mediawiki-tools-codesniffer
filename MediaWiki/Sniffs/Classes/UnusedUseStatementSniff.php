@@ -78,7 +78,7 @@ class UnusedUseStatementSniff implements Sniff {
 
 		$classPtr = $phpcsFile->findPrevious(
 			Tokens::$emptyTokens,
-			( $semiColon - 1 ),
+			$semiColon - 1,
 			null,
 			true
 		);
@@ -106,7 +106,7 @@ class UnusedUseStatementSniff implements Sniff {
 				T_NS_SEPARATOR,
 				T_STRING,
 			],
-			( $useNamespacePtr + 1 ),
+			$useNamespacePtr + 1,
 			null,
 			true
 		);
