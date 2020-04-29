@@ -73,13 +73,6 @@ class IsNullSniff implements Sniff {
 		$stackPtrOpenParenthesis = $nextToken;
 		$stackPtrCloseParenthesis = $tokens[$nextToken]['parenthesis_closer'];
 
-		$nextToken = $phpcsFile->findNext(
-			Tokens::$emptyTokens,
-			$stackPtrCloseParenthesis + 1,
-			null,
-			true
-		);
-
 		$phpcsFile->fixer->beginChangeset();
 
 		// Remove the function name.

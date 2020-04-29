@@ -29,13 +29,8 @@ class Helper {
 
 	protected $rootDir;
 
-	protected $dirName;
-
-	protected $phpcs;
-
 	public function __construct() {
 		$this->rootDir = dirname( __DIR__ );
-		$this->dirName = basename( $this->rootDir );
 	}
 
 	/**

@@ -71,7 +71,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 
 		$tokens = $phpcsFile->getTokens();
 		$lowerFunctionName = strtolower( $functionContent );
-		foreach ( $tokens[$stackPtr]['conditions'] as $scope => $code ) {
+		foreach ( $tokens[$stackPtr]['conditions'] as $code ) {
 			if ( !isset( self::$scopeList[$code] ) ||
 				isset( self::$methodsDoubleUnderscore[$lowerFunctionName] ) ||
 				isset( self::$magicMethods[$lowerFunctionName] )

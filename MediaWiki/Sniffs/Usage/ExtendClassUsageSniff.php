@@ -170,7 +170,7 @@ class ExtendClassUsageSniff implements Sniff {
 			) {
 				// Inside a eligable function,
 				// check the current token against the checklist
-				foreach ( $extClsCheckList as $key => $value ) {
+				foreach ( $extClsCheckList as $value ) {
 					$condition = false;
 					if ( $value['code'] === T_FUNCTION
 						&& strcasecmp( $iToken['content'], $value['content'] ) === 0
