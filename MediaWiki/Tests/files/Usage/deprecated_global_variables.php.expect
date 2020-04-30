@@ -1,4 +1,10 @@
+  9 | WARNING | The 'wg' prefix should only be used with the 'global'
+    |         | keyword
+    |         | (MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgTitle)
  17 | WARNING | Deprecated global $wgTitle used
     |         | (MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle)
+ 29 | WARNING | The 'wg' prefix should only be used with the 'global'
+    |         | keyword
+    |         | (MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgTitle)
  37 | WARNING | Deprecated global $wgTitle used
     |         | (MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle)
