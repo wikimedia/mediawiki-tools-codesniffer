@@ -80,8 +80,8 @@ class MissingCoversSniff implements Sniff {
 			$hasCovers = $this->hasCoversTags( $phpcsFile, $funcPtr );
 			if ( !$hasCovers ) {
 				$phpcsFile->addWarning(
-					"The $name test method has no @covers tags",
-					$funcPtr, 'MissingCovers'
+					'The %s test method has no @covers tags',
+					$funcPtr, 'MissingCovers', [ $name ]
 				);
 			}
 		}

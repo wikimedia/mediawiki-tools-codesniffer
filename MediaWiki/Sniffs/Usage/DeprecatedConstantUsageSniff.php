@@ -74,9 +74,10 @@ class DeprecatedConstantUsageSniff implements Sniff {
 				return;
 			}
 			$fix = $phpcsFile->addFixableWarning(
-				"Deprecated constant $current used",
+				'Deprecated constant %s used',
 				$stackPtr,
-				$current
+				$current,
+				[ $current ]
 			);
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr, self::DEPRECATED_CONSTANTS[$current]['replace'] );

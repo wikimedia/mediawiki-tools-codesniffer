@@ -62,10 +62,10 @@ class InArrayUsageSniff implements Sniff {
 		}
 
 		$phpcsFile->addError(
-			'Found slow in_array( …, ' . $tokens[$stackPtr]['content']
-			. '() ), should be array_key_exists() or isset()',
+			'Found slow in_array( …, %s() ), should be array_key_exists() or isset()',
 			$stackPtr,
-			'Found'
+			'Found',
+			[ $tokens[$stackPtr]['content'] ]
 		);
 	}
 }

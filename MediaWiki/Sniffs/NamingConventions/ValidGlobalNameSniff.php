@@ -77,9 +77,7 @@ class ValidGlobalNameSniff implements Sniff {
 					$expected = '$' . $this->allowedPrefixes[0] . ucfirst( substr( $globalName, 1 ) );
 
 					// Build message telling you the allowed prefix
-					$msg = 'Global variable "%s" is lacking \''
-						. $this->allowedPrefixes[0]
-						. '\' prefix. Should be "%s".';
+					$allowedPrefix = '\'' . $this->allowedPrefixes[0] . '\'';
 				// If there are no prefixes specified, don't do anything
 				} elseif ( $this->allowedPrefixes === [] ) {
 					return;
@@ -91,18 +89,18 @@ class ValidGlobalNameSniff implements Sniff {
 						. '"';
 
 					// Build message telling you which prefixes are allowed
-					$msg = 'Global variable "%s" is lacking an allowed prefix (one of \''
+					$allowedPrefix = 'one of \''
 						. implode( '\', \'', $this->allowedPrefixes )
-						. '\'). Should be "%s"';
+						. '\'';
 				}
 
 				// Verify global is prefixed with an allowed prefix
 				if ( !in_array( substr( $globalName, 1, 2 ), $this->allowedPrefixes ) ) {
 					$phpcsFile->addError(
-						$msg,
+						'Global variable "%s" is lacking an allowed prefix (%s). Should be "%s".',
 						$stackPtr,
 						'allowedPrefix',
-						[ $globalName, $expected ]
+						[ $globalName, $allowedPrefix, $expected ]
 					);
 				} else {
 					// Verify global is probably CamelCase

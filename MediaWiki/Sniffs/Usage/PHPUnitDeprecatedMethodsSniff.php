@@ -182,9 +182,13 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 	 */
 	private function handleAssertInternalType( string $funcName, int $funcPos ) {
 		$not = $funcName === 'assertNotInternalType' ? 'Not' : '';
-		$err = $funcName === 'assertType' ?
-			'MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.' :
-			"The PHPUnit method assert{$not}InternalType() was deprecated in PHPUnit 8.";
+		if ( $funcName === 'assertType' ) {
+			$err = 'MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.';
+			$data = [];
+		} else {
+			$err = 'The PHPUnit method assert%sInternalType() was deprecated in PHPUnit 8.';
+			$data = [ $not ];
+		}
 
 		$parensToken = $this->file->findNext( T_WHITESPACE, $funcPos + 1, null, true );
 		if ( $this->tokens[$parensToken]['code'] !== T_OPEN_PARENTHESIS ) {
@@ -194,7 +198,7 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 		$argToken = $this->file->findNext( T_WHITESPACE, $parensToken + 1, null, true );
 		if ( $this->tokens[$argToken]['code'] !== T_CONSTANT_ENCAPSED_STRING ) {
 			// Probably a variable.
-			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric' );
+			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric', $data );
 			return;
 		}
 
@@ -202,24 +206,25 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 		if ( !array_key_exists( $type, self::INTERNAL_TYPES_REPLACEMENTS ) ) {
 			// If it happens for assert(Not)InternalType, it's likely a bug, so report it.
 			// If it happens for assertType, report it all the same because the method is deprecated.
-			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric' );
+			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric', $data );
 			return;
 		}
 
 		$commaToken = $this->file->findNext( T_WHITESPACE, $argToken + 1, null, true );
 		if ( $this->tokens[$commaToken]['code'] !== T_COMMA ) {
 			// WTF? This will fail anyway.
-			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric' );
+			$this->file->addError( $err, $funcPos, 'AssertInternalTypeGeneric', $data );
 			return;
 		}
 
-		$err .= ' Use %s() instead.';
 		$replacement = str_replace( '*', $not, self::INTERNAL_TYPES_REPLACEMENTS[$type] );
+		$err .= ' Use %s() instead.';
+		$data[] = $replacement;
 		$fix = $this->file->addFixableError(
 			$err,
 			$funcPos,
 			'AssertInternalTypeLiteral',
-			[ $replacement ]
+			$data
 		);
 		if ( $fix ) {
 			$this->file->fixer->replaceToken( $funcPos, $replacement );

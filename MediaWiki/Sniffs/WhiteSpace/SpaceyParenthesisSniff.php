@@ -79,15 +79,14 @@ class SpaceyParenthesisSniff implements Sniff {
 		) {
 			// String (or 'array') followed by whitespace followed by
 			// opening brace is probably a function call.
-			if ( $this->isParenthesis( $currentToken['code'] ) ) {
-				$msg = 'opening parenthesis of function call';
-			} else {
-				$msg = 'opening bracket of array';
-			}
+			$bracketType = $this->isParenthesis( $currentToken['code'] )
+				? 'parenthesis of function call'
+				: 'bracket of array';
 			$fix = $phpcsFile->addFixableWarning(
-				'Space found before ' . $msg,
+				'Space found before opening %s',
 				$stackPtr - 1,
-				'SpaceBeforeOpeningParenthesis'
+				'SpaceBeforeOpeningParenthesis',
+				[ $bracketType ]
 			);
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr - 1, '' );
@@ -104,15 +103,12 @@ class SpaceyParenthesisSniff implements Sniff {
 		if ( $tokens[$stackPtr + 1]['code'] === T_WHITESPACE
 			&& $this->isClosed( $tokens[$stackPtr + 2]['code'] )
 		) {
-			if ( $this->isParenthesis( $currentToken['code'] ) ) {
-				$msg = 'parentheses';
-			} else {
-				$msg = 'brackets';
-			}
+			$bracketType = $this->isParenthesis( $currentToken['code'] ) ? 'parentheses' : 'brackets';
 			$fix = $phpcsFile->addFixableWarning(
-				'Unnecessary space found within ' . $msg,
+				'Unnecessary space found within %s',
 				$stackPtr + 1,
-				'UnnecessarySpaceBetweenParentheses'
+				'UnnecessarySpaceBetweenParentheses',
+				[ $bracketType ]
 			);
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );

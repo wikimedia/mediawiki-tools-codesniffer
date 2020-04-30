@@ -255,11 +255,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 			if ( !$functionToken ||
 				!$this->isFunctionOkay( $phpcsFile, $functionToken, $namingPattern['regex'] )
 			) {
-				$message = 'The phpunit annotation %s should only be used for ' .
-					$namingPattern['message'] . '.';
 				$phpcsFile->addWarning(
-					$message,
-					$tag, $namingPattern['code'], [ $tagText ]
+					'The phpunit annotation %s should only be used for %s.',
+					$tag, $namingPattern['code'], [ $tagText, $namingPattern['message'] ]
 				);
 			}
 		}

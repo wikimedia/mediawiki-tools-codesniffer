@@ -60,9 +60,10 @@ class ClassMatchesFilenameSniff implements Sniff {
 				}
 			}
 			$phpcsFile->addError(
-				"Class name '$name' does not match filename '$base'",
+				'Class name \'%s\' does not match filename \'%s\'',
 				$stackPtr,
-				$wrongCase ? 'WrongCase' : 'NotMatch'
+				$wrongCase ? 'WrongCase' : 'NotMatch',
+				[ $name, $base ]
 			);
 		}
 

@@ -119,9 +119,10 @@ class ForbiddenFunctionsSniff implements Sniff {
 		$replacement = self::FORBIDDEN_FUNCTIONS[$funcName];
 		if ( $replacement ) {
 			$fix = $phpcsFile->addFixableWarning(
-				"Use $replacement() instead of $funcName",
+				'Use %s() instead of %s',
 				$stackPtr,
-				$funcName
+				$funcName,
+				[ $replacement, $funcName ]
 			);
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr, $replacement );
@@ -130,9 +131,10 @@ class ForbiddenFunctionsSniff implements Sniff {
 			$this->addWarningForCondition( $funcName, $phpcsFile, $stackPtr );
 		} else {
 			$phpcsFile->addWarning(
-				"$funcName should not be used",
+				'%s should not be used',
 				$stackPtr,
-				$funcName
+				$funcName,
+				[ $funcName ]
 			);
 		}
 	}
@@ -215,20 +217,23 @@ class ForbiddenFunctionsSniff implements Sniff {
 
 		switch ( $condition ) {
 			case '=':
-				$msg = "%s should not be used with %s argument(s)";
+				$msg = '%s should not be used with %s argument(s)';
+				$data = [ $funcName, $compareCount ];
 				break;
 			case '!=':
-				$msg = "%s should be used with %s argument(s)";
+				$msg = '%s should be used with %s argument(s)';
+				$data = [ $funcName, $compareCount ];
 				break;
 			default:
-				$msg = "%s missing message for condition " . $condition;
+				$msg = '%s missing message for condition %s';
+				$data = [ $funcName, $condition ];
 		}
 
 		$phpcsFile->addWarning(
 			$msg,
 			$stackPtr,
 			$funcName,
-			[ $funcName, $compareCount ]
+			$data
 		);
 	}
 }
