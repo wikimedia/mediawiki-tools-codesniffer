@@ -4,3 +4,7 @@
     |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgSameLine)
  11 | WARNING | Global $wgNextLine is never used.
     |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgNextLine)
+ 14 | WARNING | Global $wgClosureUnused is never used.
+    |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgClosureUnused)
+ 20 | WARNING | Global $wgAnonUnused is never used.
+    |         | (MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgAnonUnused)

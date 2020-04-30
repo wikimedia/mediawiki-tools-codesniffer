@@ -9,6 +9,18 @@ function wfFailedExamples() {
 	global $wgSomething;
 	global $wgSameLine,
 		$wgNextLine;
+
+	function () {
+		global $wgSomething, $wgClosureUnused;
+		return $wgSomething;
+	};
+
+	new class() {
+		public function foo() {
+			global $wgSameLine, $wgAnonUnused;
+			return $wgSameLine;
+		}
+	};
 }
 
 /**
@@ -17,7 +29,7 @@ function wfFailedExamples() {
  */
 function wfPassedExamples() {
 	global $wgNothing;
-	global $wgTwo,
+	global $wgTwo, $wgClosure,
 		$wgThree,
 		$wgFour;
 
@@ -35,4 +47,12 @@ PHP;
 	$foo = "foo$wgThree";
 
 	$foo = "${wgFour}foo";
+
+	function ( $notAGlobal ) use ( $alsoNotAGlobal ) {
+	};
+
+	function ( $wgFour ) use ( $wgClosure ) {
+		global $wgSomething;
+		return $wgSomething . $wgFour . $wgClosure;
+	};
 }

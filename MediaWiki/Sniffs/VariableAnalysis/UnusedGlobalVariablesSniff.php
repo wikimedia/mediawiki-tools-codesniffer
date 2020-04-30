@@ -15,7 +15,7 @@ class UnusedGlobalVariablesSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register() {
-		return [ T_FUNCTION ];
+		return [ T_FUNCTION, T_CLOSURE ];
 	}
 
 	/**
@@ -37,18 +37,41 @@ class UnusedGlobalVariablesSniff implements Sniff {
 		$otherVariables = [];
 		$matches = [];
 		$strVariables = [];
+		$delayedSkip = [];
 
 		for ( $i = $scopeOpener; $i < $scopeCloser; $i++ ) {
-			if ( $tokens[$i]['code'] === T_GLOBAL ) {
+			// Process a delayed skip
+			if ( isset( $delayedSkip[$i] ) ) {
+				$i = $delayedSkip[$i];
+				continue;
+			}
+			$code = $tokens[$i]['code'];
+			if ( ( $code === T_CLOSURE || $code === T_FUNCTION || $code === T_ANON_CLASS )
+				&& isset( $tokens[$i]['scope_closer'] )
+			) {
+				if ( $code === T_CLOSURE && isset( $tokens[$i]['parenthesis_closer'] ) ) {
+					// Cannot skip directly to the end of closure
+					// The use statement needs to be processed
+					$delayedSkip[$tokens[$i]['scope_opener']] = $tokens[$i]['scope_closer'];
+
+					// Skip the argument list of the closure
+					$i = $tokens[$i]['parenthesis_closer'];
+				} else {
+					// Skip to the end of the inner function/anon class and continue
+					$i = $tokens[$i]['scope_closer'];
+				}
+				continue;
+			}
+			if ( $code === T_GLOBAL ) {
 				$endOfGlobal = $phpcsFile->findEndOfStatement( $i, T_COMMA );
-			} elseif ( $tokens[$i]['code'] === T_VARIABLE ) {
+			} elseif ( $code === T_VARIABLE ) {
 				if ( $i < $endOfGlobal ) {
 					$globalVariables[] = [ $tokens[$i]['content'], $i ];
 				} else {
 					$otherVariables[$tokens[$i]['content']] = null;
 				}
-			} elseif ( $tokens[$i]['code'] === T_DOUBLE_QUOTED_STRING
-				|| $tokens[$i]['code'] === T_HEREDOC
+			} elseif ( $code === T_DOUBLE_QUOTED_STRING
+				|| $code === T_HEREDOC
 			) {
 				preg_match_all( '/\${?(\w+)/', $tokens[$i]['content'], $matches );
 				$strVariables += array_flip( $matches[1] );
