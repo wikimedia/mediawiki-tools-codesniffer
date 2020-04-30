@@ -42,7 +42,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 			return;
 		}
 		$openBrace = $tokens[$stackPtr]['scope_opener'];
-		if ( $tokens[$openBrace]['content'] !== '{' ) {
+		if ( $tokens[$openBrace]['code'] !== T_OPEN_CURLY_BRACKET ) {
 			return;
 		}
 		if ( $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE
