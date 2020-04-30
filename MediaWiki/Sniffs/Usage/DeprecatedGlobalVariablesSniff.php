@@ -31,10 +31,8 @@ class DeprecatedGlobalVariablesSniff implements Sniff {
 	/**
 	 * Deprecated global and last
 	 * MW version that old global can still be used
-	 *
-	 * @var array
 	 */
-	private $deprecated = [
+	private const DEPRECATED_GLOBALS = [
 		// Deprecation done (T89459)
 		'$wgAuth' => '1.27',
 		// Deprecation done (T160815)
@@ -87,8 +85,8 @@ class DeprecatedGlobalVariablesSniff implements Sniff {
 			}
 
 			$globalVar = $tokens[$next]['content'];
-			if ( !isset( $this->deprecated[$globalVar] ) ||
-				$extensionInfo->supportsMediaWiki( $this->deprecated[$globalVar] )
+			if ( !isset( self::DEPRECATED_GLOBALS[$globalVar] ) ||
+				$extensionInfo->supportsMediaWiki( self::DEPRECATED_GLOBALS[$globalVar] )
 			) {
 				continue;
 			}

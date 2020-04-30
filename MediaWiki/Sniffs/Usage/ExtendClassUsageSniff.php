@@ -13,7 +13,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ExtendClassUsageSniff implements Sniff {
 
-	public static $msgMap = [
+	private const MSG_MAP = [
 		T_FUNCTION => 'function',
 		T_VARIABLE => 'variable'
 	];
@@ -21,9 +21,8 @@ class ExtendClassUsageSniff implements Sniff {
 	/**
 	 * Blacklist of globals, which cannot be used together with getConfig because there are objects,
 	 * not strings. There are excluded from reporting of this sniff.
-	 * @var string[]
 	 */
-	private static $nonConfigGlobalsMediaWikiCore = [
+	private const NON_CONFIG_GLOBALS_MEDIAWIKI_CORE = [
 		'$wgAuth',
 		'$wgConf',
 		'$wgContLang',
@@ -49,7 +48,7 @@ class ExtendClassUsageSniff implements Sniff {
 	 */
 	public $nonConfigGlobals = [];
 
-	public static $checkConfig = [
+	private const CHECK_CONFIG = [
 		// All extended class name.
 		'extendsCls' => [
 			'ContextSource' => true
@@ -128,17 +127,17 @@ class ExtendClassUsageSniff implements Sniff {
 
 		// Here should be replaced with a mechanism that check if
 		// the base class is in the list of restricted classes
-		if ( !isset( self::$checkConfig['extendsCls'][$extClsContent] ) ) {
+		if ( !isset( self::CHECK_CONFIG['extendsCls'][$extClsContent] ) ) {
 			return;
 		}
 
 		$tokens = $phpcsFile->getTokens();
 		$currToken = $tokens[$stackPtr];
 		$nonConfigGlobals = array_flip( array_merge(
-			self::$nonConfigGlobalsMediaWikiCore, $this->nonConfigGlobals
+			self::NON_CONFIG_GLOBALS_MEDIAWIKI_CORE, $this->nonConfigGlobals
 		) );
 
-		$extClsCheckList = self::$checkConfig['checkList'][$extClsContent];
+		$extClsCheckList = self::CHECK_CONFIG['checkList'][$extClsContent];
 		// Loop over all tokens of the class to check each function
 		$i = $currToken['scope_opener'];
 		$end = $currToken['scope_closer'];
@@ -188,9 +187,9 @@ class ExtendClassUsageSniff implements Sniff {
 							$i,
 							'FunctionVarUsage',
 							[
-								self::$msgMap[$value['expect_code']],
+								self::MSG_MAP[$value['expect_code']],
 								$value['expect_content'],
-								self::$msgMap[$value['code']],
+								self::MSG_MAP[$value['code']],
 								$value['msg_content']
 							]
 						);

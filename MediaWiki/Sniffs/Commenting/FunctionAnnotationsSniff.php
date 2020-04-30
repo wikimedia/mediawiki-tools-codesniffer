@@ -28,10 +28,8 @@ class FunctionAnnotationsSniff implements Sniff {
 	/**
 	 * Annotations allowed for functions. This includes bad annotations that we check for
 	 * elsewhere.
-	 *
-	 * @var array
 	 */
-	private $allowedAnnotations = [
+	private const ALLOWED_ANNOTATIONS = [
 		// Allowed all-lowercase tags
 		'@after' => true,
 		'@author' => true,
@@ -173,9 +171,9 @@ class FunctionAnnotationsSniff implements Sniff {
 	private function normalizeAnnotation( $anno ) {
 		$anno = rtrim( $anno, ':' );
 		$lower = mb_strtolower( $anno );
-		if ( array_key_exists( $lower, $this->allowedAnnotations ) ) {
-			return is_string( $this->allowedAnnotations[$lower] )
-				? $this->allowedAnnotations[$lower]
+		if ( array_key_exists( $lower, self::ALLOWED_ANNOTATIONS ) ) {
+			return is_string( self::ALLOWED_ANNOTATIONS[$lower] )
+				? self::ALLOWED_ANNOTATIONS[$lower]
 				: $lower;
 		}
 

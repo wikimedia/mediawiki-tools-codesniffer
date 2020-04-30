@@ -28,10 +28,8 @@ class FunctionCommentSniff implements Sniff {
 	/**
 	 * Standard class methods that
 	 * don't require documentation
-	 *
-	 * @var string[]
 	 */
-	private $skipStandardMethods = [
+	private const SKIP_STANDARD_METHODS = [
 		'__toString', '__destruct',
 		'__sleep', '__wakeup',
 		'__clone'
@@ -39,10 +37,8 @@ class FunctionCommentSniff implements Sniff {
 
 	/**
 	 * Mapping for swap short types
-	 *
-	 * @var string[]
 	 */
-	private static $shortTypeMapping = [
+	private const SHORT_TYPE_MAPPING = [
 		'boolean' => 'bool',
 		'boolean[]' => 'bool[]',
 		'integer' => 'int',
@@ -71,7 +67,7 @@ class FunctionCommentSniff implements Sniff {
 		}
 
 		$funcName = $phpcsFile->getDeclarationName( $stackPtr );
-		if ( $funcName === null || in_array( $funcName, $this->skipStandardMethods ) ) {
+		if ( $funcName === null || in_array( $funcName, self::SKIP_STANDARD_METHODS ) ) {
 			// Don't require documentation for an obvious method
 			return;
 		}
@@ -715,8 +711,8 @@ class FunctionCommentSniff implements Sniff {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as &$type ) {
 			$key = lcfirst( $type );
-			if ( isset( self::$shortTypeMapping[$key] ) ) {
-				$type = self::$shortTypeMapping[$key];
+			if ( isset( self::SHORT_TYPE_MAPPING[$key] ) ) {
+				$type = self::SHORT_TYPE_MAPPING[$key];
 				$code = 'NotShort' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
 				$fix = $phpcsFile->addFixableError(
 					'Short type of "%s" should be used for @%s tag',

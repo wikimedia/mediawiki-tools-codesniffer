@@ -30,10 +30,6 @@ $cfg['suppress_issue_types'][] = 'PhanUnreferencedClass';
 // public properties can be set by reflection from ruleset.xml
 $cfg['suppress_issue_types'][] = 'PhanReadOnlyPublicProperty';
 
-// FIXME Use constant insteads
-$cfg['suppress_issue_types'][] = 'PhanReadOnlyPrivateProperty';
-$cfg['suppress_issue_types'][] = 'PhanReadOnlyProtectedProperty';
-
 $cfg['plugins'][] = 'PHPUnitNotDeadCodePlugin';
 
 // Remove the exclusion of the codesniffer files

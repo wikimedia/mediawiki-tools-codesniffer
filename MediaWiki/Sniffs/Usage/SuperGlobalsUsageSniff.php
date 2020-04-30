@@ -16,7 +16,7 @@ class SuperGlobalsUsageSniff implements Sniff {
 
 	// The list of forbidden superglobals
 	// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Global_objects
-	public static $forbiddenList = [
+	private const FORBIDDEN_SUPER_GLOBALS = [
 		'$_POST' => true,
 		'$_GET' => true
 	];
@@ -36,7 +36,7 @@ class SuperGlobalsUsageSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currentToken = $tokens[$stackPtr];
-		if ( isset( self::$forbiddenList[$currentToken['content']] ) ) {
+		if ( isset( self::FORBIDDEN_SUPER_GLOBALS[$currentToken['content']] ) ) {
 			$error = '"%s" superglobals should not be accessed.';
 			$phpcsFile->addError( $error, $stackPtr, 'SuperGlobals', [ $currentToken['content'] ] );
 		}

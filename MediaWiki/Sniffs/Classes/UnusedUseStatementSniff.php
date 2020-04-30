@@ -30,10 +30,8 @@ class UnusedUseStatementSniff implements Sniff {
 
 	/**
 	 * Doc tags where a class name is used
-	 *
-	 * @var string[]
 	 */
-	private $classTags = [
+	private const CLASS_TAGS = [
 		'@param',
 		'@return',
 		'@throws',
@@ -181,7 +179,7 @@ class UnusedUseStatementSniff implements Sniff {
 				}
 			} elseif ( $tokens[$classUsed]['code'] === T_DOC_COMMENT_TAG ) {
 				// Usage in a doc comment
-				if ( in_array( $tokens[$classUsed]['content'], $this->classTags )
+				if ( in_array( $tokens[$classUsed]['content'], self::CLASS_TAGS )
 					&& $tokens[$classUsed + 2]['code'] === T_DOC_COMMENT_STRING
 					// We aren't interested in the later, whitespace-separated parts of comments
 					// like `@param (Class1|Class2)[]|Class3<Class4,Class5> $var Description`.

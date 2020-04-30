@@ -34,10 +34,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 *
 	 * If an annotation is found outside of a test classes, it is reported.
 	 *
-	 * @var array
 	 * @see https://phpunit.de/manual/current/en/appendixes.annotations.html
 	 */
-	private static $allowedAnnotations = [
+	private const ALLOWED_ANNOTATIONS = [
 		'@after' => true,
 		'@afterClass' => true,
 
@@ -74,10 +73,8 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * A list of forbidden annotations. True as message will use a default message.
 	 *
 	 * If an annotation is found outside of a test classes, it is reported with another message.
-	 *
-	 * @var array
 	 */
-	private static $forbiddenAnnotations = [
+	private const FORBIDDEN_ANNOTATIONS = [
 		// Name the function with test prefix, some other sniffs depends on that
 		'@test' => 'Do not use %s, name the function to begin with "test".',
 
@@ -96,7 +93,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@expectedExceptionMessageRegExp' => 'Do not use %s, use $this->expectExceptionMessageRegExp().',
 	];
 
-	private static $emptyAnnotations = [
+	private const EMPTY_ANNOTATIONS = [
 		'@coversNothing',
 		'@coverNothing',
 		'@doesNotPerformAssertions',
@@ -112,10 +109,8 @@ class PhpunitAnnotationsSniff implements Sniff {
 	/**
 	 * A list of naming patterns for annotations
 	 * Annotations not found here using default test* name
-	 *
-	 * @var array
 	 */
-	private static $functionNamingPattern = [
+	private const FUNCTION_NAMING_PATTERN = [
 		'@after' => [
 			'regex' => '/TearDown$/',
 			'message' => 'tearDown functions (*TearDown)',
@@ -175,13 +170,13 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 */
 	private function processDocTag( File $phpcsFile, array $tokens, $tag, $end ) {
 		$tagText = $tokens[$tag]['content'];
-		$forbidden = array_key_exists( $tagText, self::$forbiddenAnnotations );
+		$forbidden = array_key_exists( $tagText, self::FORBIDDEN_ANNOTATIONS );
 
 		// Check for forbidden annotations
 		if ( $forbidden ) {
-			$message = self::$forbiddenAnnotations[$tagText] === true
+			$message = self::FORBIDDEN_ANNOTATIONS[$tagText] === true
 				? 'The phpunit annotation %s should not be used.'
-				: self::$forbiddenAnnotations[$tagText];
+				: self::FORBIDDEN_ANNOTATIONS[$tagText];
 			$phpcsFile->addWarning(
 				$message,
 				$tag, $this->createSniffCode( 'Forbidden', $tagText ), [ $tagText ]
@@ -189,7 +184,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 			return;
 		}
 
-		$allowed = array_key_exists( $tagText, self::$allowedAnnotations );
+		$allowed = array_key_exists( $tagText, self::ALLOWED_ANNOTATIONS );
 		if ( !$allowed ) {
 			// Nothing to work in this sniff
 			return;
@@ -225,9 +220,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 
 		// Normalize some tags
-		if ( is_array( self::$allowedAnnotations[$tagText] ) ) {
-			$replacement = self::$allowedAnnotations[$tagText][0];
-			$sniffCode = self::$allowedAnnotations[$tagText][1];
+		if ( is_array( self::ALLOWED_ANNOTATIONS[$tagText] ) ) {
+			$replacement = self::ALLOWED_ANNOTATIONS[$tagText][0];
+			$sniffCode = self::ALLOWED_ANNOTATIONS[$tagText][1];
 			$fix = $phpcsFile->addFixableWarning(
 				'Use %s annotation instead of %s',
 				$tag, $sniffCode, [ $replacement, $tagText ]
@@ -238,7 +233,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 
 		// Check if there is some text behind or not
-		if ( !in_array( $tagText, self::$emptyAnnotations ) ) {
+		if ( !in_array( $tagText, self::EMPTY_ANNOTATIONS ) ) {
 			$next = $phpcsFile->findNext( [ T_DOC_COMMENT_WHITESPACE ], $tag + 1, $end, true );
 			if ( $tokens[$next]['code'] !== T_DOC_COMMENT_STRING ) {
 				$phpcsFile->addWarning(
@@ -250,10 +245,10 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 		// Check the name of the function
 		if ( $tokens[$tag]['level'] > 0 ) {
-			if ( isset( self::$functionNamingPattern[$tagText] ) ) {
-				$namingPattern = self::$functionNamingPattern[$tagText];
+			if ( isset( self::FUNCTION_NAMING_PATTERN[$tagText] ) ) {
+				$namingPattern = self::FUNCTION_NAMING_PATTERN[$tagText];
 			} else {
-				$namingPattern = self::$functionNamingPattern['*'];
+				$namingPattern = self::FUNCTION_NAMING_PATTERN['*'];
 			}
 
 			$functionToken = $this->findFunctionToken( $phpcsFile, $tokens, $end );

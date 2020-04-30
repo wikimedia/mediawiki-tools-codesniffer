@@ -29,10 +29,8 @@ class DeprecatedConstantUsageSniff implements Sniff {
 	/**
 	 * Deprecated constant => Replacement, and last
 	 * MW version that old constant should still be used
-	 *
-	 * @var array
 	 */
-	private $deprecated = [
+	private const DEPRECATED_CONSTANTS = [
 		'DB_SLAVE' => [
 			'replace' => 'DB_REPLICA',
 			'version' => '1.27.3',
@@ -70,9 +68,9 @@ class DeprecatedConstantUsageSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$token = $phpcsFile->getTokens()[$stackPtr];
 		$current = $token['content'];
-		if ( isset( $this->deprecated[$current] ) ) {
+		if ( isset( self::DEPRECATED_CONSTANTS[$current] ) ) {
 			$extensionInfo = ExtensionInfo::newFromFile( $phpcsFile );
-			if ( $extensionInfo->supportsMediaWiki( $this->deprecated[$current]['version'] ) ) {
+			if ( $extensionInfo->supportsMediaWiki( self::DEPRECATED_CONSTANTS[$current]['version'] ) ) {
 				return;
 			}
 			$fix = $phpcsFile->addFixableWarning(
@@ -81,7 +79,7 @@ class DeprecatedConstantUsageSniff implements Sniff {
 				$current
 			);
 			if ( $fix ) {
-				$phpcsFile->fixer->replaceToken( $stackPtr, $this->deprecated[$current]['replace'] );
+				$phpcsFile->fixer->replaceToken( $stackPtr, self::DEPRECATED_CONSTANTS[$current]['replace'] );
 			}
 		}
 	}

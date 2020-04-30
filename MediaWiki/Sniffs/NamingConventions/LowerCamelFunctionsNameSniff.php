@@ -11,7 +11,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class LowerCamelFunctionsNameSniff implements Sniff {
 
 	// Magic methods.
-	private static $magicMethods = [
+	private const MAGIC_METHODS = [
 		'__construct' => true,
 		'__destruct' => true,
 		'__call' => true,
@@ -30,7 +30,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	];
 
 	// A list of non-magic methods with double underscore.
-	private static $methodsDoubleUnderscore = [
+	private const METHOD_DOUBLE_UNDERSCORE = [
 		'__soapcall' => true,
 		'__getlastrequest' => true,
 		'__getlastresponse' => true,
@@ -45,7 +45,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	];
 
 	// Scope list.
-	private static $scopeList = [
+	private const SCOPE_LIST = [
 		T_CLASS => true,
 		T_INTERFACE => true,
 		T_TRAIT => true
@@ -72,9 +72,9 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$lowerFunctionName = strtolower( $functionContent );
 		foreach ( $tokens[$stackPtr]['conditions'] as $code ) {
-			if ( !isset( self::$scopeList[$code] ) ||
-				isset( self::$methodsDoubleUnderscore[$lowerFunctionName] ) ||
-				isset( self::$magicMethods[$lowerFunctionName] )
+			if ( !isset( self::SCOPE_LIST[$code] ) ||
+				isset( self::METHOD_DOUBLE_UNDERSCORE[$lowerFunctionName] ) ||
+				isset( self::MAGIC_METHODS[$lowerFunctionName] )
 			) {
 				continue;
 			}

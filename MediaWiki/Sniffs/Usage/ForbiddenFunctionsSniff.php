@@ -27,10 +27,8 @@ class ForbiddenFunctionsSniff implements Sniff {
 
 	/**
 	 * Function => Replacement
-	 *
-	 * @var (string|false)[]
 	 */
-	private $functions = [
+	private const FORBIDDEN_FUNCTIONS = [
 		'chop' => 'rtrim',
 		'doubleval' => 'floatval',
 		'is_integer' => 'is_int',
@@ -64,10 +62,8 @@ class ForbiddenFunctionsSniff implements Sniff {
 
 	/**
 	 * Number of arguments to be forbidden with condition
-	 *
-	 * @var array[]
 	 */
-	private $functionsArgCount = [
+	private const FORBIDDEN_FUNCTIONS_ARG_COUNT = [
 		'parse_str' => [ '=', 1 ],
 		'mb_parse_str' => [ '=', 1 ],
 		'isset' => [ '!=', 1 ],
@@ -90,7 +86,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 
 		// Check if the function is one of the bad ones
 		$funcName = $tokens[$stackPtr]['content'];
-		if ( !isset( $this->functions[$funcName] ) ) {
+		if ( !isset( self::FORBIDDEN_FUNCTIONS[$funcName] ) ) {
 			return;
 		}
 
@@ -112,7 +108,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		}
 
 		// Check argument count
-		if ( isset( $this->functionsArgCount[$funcName] ) ) {
+		if ( isset( self::FORBIDDEN_FUNCTIONS_ARG_COUNT[$funcName] ) ) {
 			$argCount = $this->argCount( $phpcsFile, $nextToken );
 			if ( !$this->evaluateCondition( $funcName, $argCount ) ) {
 				// Nothing to replace
@@ -120,7 +116,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 			}
 		}
 
-		$replacement = $this->functions[$funcName];
+		$replacement = self::FORBIDDEN_FUNCTIONS[$funcName];
 		if ( $replacement ) {
 			$fix = $phpcsFile->addFixableWarning(
 				"Use $replacement() instead of $funcName",
@@ -130,7 +126,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr, $replacement );
 			}
-		} elseif ( isset( $this->functionsArgCount[$funcName] ) ) {
+		} elseif ( isset( self::FORBIDDEN_FUNCTIONS_ARG_COUNT[$funcName] ) ) {
 			$this->addWarningForCondition( $funcName, $phpcsFile, $stackPtr );
 		} else {
 			$phpcsFile->addWarning(
@@ -197,7 +193,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 * @return bool
 	 */
 	private function evaluateCondition( $funcName, $argCount ) {
-		[ $condition, $compareCount ] = $this->functionsArgCount[$funcName];
+		[ $condition, $compareCount ] = self::FORBIDDEN_FUNCTIONS_ARG_COUNT[$funcName];
 
 		switch ( $condition ) {
 			case '=':
@@ -215,7 +211,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 * @param int $stackPtr
 	 */
 	private function addWarningForCondition( $funcName, $phpcsFile, $stackPtr ) {
-		[ $condition, $compareCount ] = $this->functionsArgCount[$funcName];
+		[ $condition, $compareCount ] = self::FORBIDDEN_FUNCTIONS_ARG_COUNT[$funcName];
 
 		switch ( $condition ) {
 			case '=':

@@ -31,10 +31,8 @@ class LicenseCommentSniff implements Sniff {
 
 	/**
 	 * Common auto-fixable replacements
-	 *
-	 * @var array regex -> replacement
 	 */
-	private $replacements = [
+	private const REPLACEMENTS = [
 		'GNU General Public Licen[sc]e 2(\.0)? or later' => 'GPL-2.0-or-later',
 		'GNU GPL v2\+' => 'GPL-2.0-or-later',
 	];
@@ -112,7 +110,7 @@ class LicenseCommentSniff implements Sniff {
 		$licenseValidator = self::getLicenseValidator();
 		if ( !$licenseValidator->validate( $license ) ) {
 			$fixable = null;
-			foreach ( $this->replacements as $regex => $identifier ) {
+			foreach ( self::REPLACEMENTS as $regex => $identifier ) {
 				// Make sure the entire license matches the regex, and
 				// then a sanity check that the new replacement is valid too
 				if ( preg_match( "/^$regex$/", $license ) === 1

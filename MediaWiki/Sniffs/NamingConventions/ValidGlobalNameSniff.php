@@ -14,7 +14,7 @@ class ValidGlobalNameSniff implements Sniff {
 	/**
 	 * https://php.net/manual/en/reserved.variables.argv.php
 	 */
-	private static $PHPReserved = [
+	private const PHP_RESERVED = [
 		'$GLOBALS',
 		'$_SERVER',
 		'$_GET',
@@ -65,7 +65,7 @@ class ValidGlobalNameSniff implements Sniff {
 				$globalName = $tokens[$nameIndex]['content'];
 
 				if ( in_array( $globalName, $this->ignoreList ) ||
-					in_array( $globalName, self::$PHPReserved )
+					in_array( $globalName, self::PHP_RESERVED )
 				) {
 					return;
 				}
