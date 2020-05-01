@@ -80,18 +80,20 @@
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
   91 | WARNING | [x] Expected 1 spaces after return type; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
-  98 | ERROR   | [x] Use @param tag in function comment instead of
-     |         |     @params
-     |         |     (MediaWiki.Commenting.FunctionComment.PluralParams)
-  99 | ERROR   | [x] Use @param tag in function comment instead of
-     |         |     @params
-     |         |     (MediaWiki.Commenting.FunctionComment.PluralParams)
- 100 | ERROR   | [x] Use @return tag in function comment instead of
-     |         |     @returns
-     |         |     (MediaWiki.Commenting.FunctionComment.PluralReturns)
- 101 | ERROR   | [x] Use @throws tag in function comment instead of
-     |         |     @throw
-     |         |     (MediaWiki.Commenting.FunctionComment.SingularThrow)
+  97 | ERROR   | [ ] Doc comment for parameter "$aBool" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+  97 | ERROR   | [ ] Doc comment for parameter "$anInt" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+  98 | WARNING | [x] Use @param annotation instead of @params
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+  99 | WARNING | [x] Use @param annotation instead of @params
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+ 100 | WARNING | [x] Use @return annotation instead of @returns
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+ 101 | WARNING | [x] Use @throws annotation instead of @throw
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+ 102 | ERROR   | [ ] Missing @return tag in function comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
  108 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
@@ -128,15 +130,19 @@
  119 | WARNING | [x] Use @inheritDoc annotation instead of
      |         |     @inheritdoc
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 133 | ERROR   | [x] Use @param tag in function comment instead of
-     |         |     @param[in]
-     |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
- 134 | ERROR   | [x] Use @param tag in function comment instead of
-     |         |     @param[out]
-     |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
- 135 | ERROR   | [x] Use @param tag in function comment instead of
+ 132 | ERROR   | [ ] Doc comment for parameter "$in" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 132 | ERROR   | [ ] Doc comment for parameter "$out" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 132 | ERROR   | [ ] Doc comment for parameter "$inOut" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 133 | WARNING | [x] Use @param annotation instead of @param[in]
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+ 134 | WARNING | [x] Use @param annotation instead of @param[out]
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+ 135 | WARNING | [x] Use @param annotation instead of
      |         |     @param[in,out]
-     |         |     (MediaWiki.Commenting.FunctionComment.DirectionParam)
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
  147 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "$params,..."
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)

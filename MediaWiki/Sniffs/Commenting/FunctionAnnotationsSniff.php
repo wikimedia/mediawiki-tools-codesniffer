@@ -48,19 +48,21 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@note' => true,
 		'@par' => true,
 		'@param' => true,
-		'@param[in]' => true,
-		'@param[in,out]' => true,
-		'@param[out]' => true,
-		'@params' => true,
 		'@requires' => true,
 		'@return' => true,
-		'@returns' => true,
 		'@see' => true,
 		'@since' => true,
-		'@throw' => true,
 		'@throws' => true,
 		'@todo' => true,
 		'@warning' => true,
+
+		// Automatically replaced
+		'@param[in]' => '@param',
+		'@param[in,out]' => '@param',
+		'@param[out]' => '@param',
+		'@params' => '@param',
+		'@returns' => '@return',
+		'@throw' => '@throws',
 
 		// private and protected is needed when functions stay public
 		// for deprecation or backward compatibility reasons

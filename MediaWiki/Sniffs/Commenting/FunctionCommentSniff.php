@@ -189,13 +189,7 @@ class FunctionCommentSniff implements Sniff {
 		$return = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $ptr ) {
 			$tag = $tokens[$ptr]['content'];
-			if ( $tag === '@returns' ) {
-				$error = 'Use @return tag in function comment instead of @returns';
-				$fix = $phpcsFile->addFixableError( $error, $ptr, 'PluralReturns' );
-				if ( $fix ) {
-					$phpcsFile->fixer->replaceToken( $ptr, '@return' );
-				}
-			} elseif ( $tag !== '@return' ) {
+			if ( $tag !== '@return' ) {
 				continue;
 			}
 			if ( $return ) {
@@ -289,13 +283,7 @@ class FunctionCommentSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagContent = $tokens[$tag]['content'];
-			if ( $tagContent === '@throw' ) {
-				$error = 'Use @throws tag in function comment instead of @throw';
-				$fix = $phpcsFile->addFixableError( $error, $tag, 'SingularThrow' );
-				if ( $fix ) {
-					$phpcsFile->fixer->replaceToken( $tag, '@throws' );
-				}
-			} elseif ( $tagContent !== '@throws' ) {
+			if ( $tagContent !== '@throws' ) {
 				continue;
 			}
 			$exception = null;
@@ -340,21 +328,7 @@ class FunctionCommentSniff implements Sniff {
 		foreach ( $tokens[$commentStart]['comment_tags'] as $pos => $tag ) {
 			$tagContent = $tokens[$tag]['content'];
 
-			if ( $tagContent === '@params' ) {
-				$error = 'Use @param tag in function comment instead of @params';
-				$fix = $phpcsFile->addFixableError( $error, $tag, 'PluralParams' );
-				if ( $fix ) {
-					$phpcsFile->fixer->replaceToken( $tag, '@param' );
-				}
-			} elseif ( $tagContent === '@param[in]' || $tagContent === '@param[out]' ||
-				$tagContent === '@param[in,out]'
-			) {
-				$error = 'Use @param tag in function comment instead of %s';
-				$fix = $phpcsFile->addFixableError( $error, $tag, 'DirectionParam', [ $tagContent ] );
-				if ( $fix ) {
-					$phpcsFile->fixer->replaceToken( $tag, '@param' );
-				}
-			} elseif ( $tagContent !== '@param' ) {
+			if ( $tagContent !== '@param' ) {
 				continue;
 			}
 
