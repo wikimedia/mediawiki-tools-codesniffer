@@ -159,9 +159,9 @@ class UnsortedUseStatementsSniff implements Sniff {
 			$next = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
 
 			// Check if this is an use for a constant or a function.
-			if ( $this->isToken( $tokens, $next, T_FUNCTION, 'function' ) ) {
+			if ( $this->isToken( $tokens, $next, 'function' ) ) {
 				$useStatementList['functions'][$fqnclass] = $stackPtr;
-			} elseif ( $this->isToken( $tokens, $next, T_CONST, 'const' ) ) {
+			} elseif ( $this->isToken( $tokens, $next, 'const' ) ) {
 				$useStatementList['constants'][$fqnclass] = $stackPtr;
 			} else {
 				$useStatementList['classes'][$fqnclass] = $stackPtr;
@@ -176,19 +176,13 @@ class UnsortedUseStatementsSniff implements Sniff {
 	/**
 	 * @param array[] $tokens
 	 * @param int $stackPtr
-	 * @param int $code Token type to compare, e.g. T_FUNCTION or T_CONST
-	 * @param string $content Fallback for PHP <7.4
+	 * @param string $content
 	 * @return bool
 	 */
-	private function isToken( array $tokens, int $stackPtr, int $code, string $content ) : bool {
-		if ( $tokens[$stackPtr]['code'] === $code ) {
-			return true;
-		}
-
-		// PHP 7.4 tokenizes as T_FUNCTION and T_CONST, but PHP 7.3 tokenizes as T_STRING
+	private function isToken( array $tokens, int $stackPtr, string $content ) : bool {
 		return $tokens[$stackPtr]['code'] === T_STRING &&
-			   $tokens[$stackPtr]['content'] === $content &&
-			   // Namespace separators must follow T_STRING, so no white space check is required.
-			   $tokens[$stackPtr + 1]['code'] !== T_NS_SEPARATOR;
+			$tokens[$stackPtr]['content'] === $content &&
+			// Namespace separators must follow T_STRING, so no white space check is required.
+			$tokens[$stackPtr + 1]['code'] !== T_NS_SEPARATOR;
 	}
 }
