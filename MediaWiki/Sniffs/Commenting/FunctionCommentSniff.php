@@ -137,27 +137,14 @@ class FunctionCommentSniff implements Sniff {
 			$phpcsFile->addError( $error, $commentEnd, 'SpacingAfter' );
 		}
 		$commentStart = $tokens[$commentEnd]['comment_opener'];
-		$skipDoc = false;
+
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagText = $tokens[$tag]['content'];
-			if ( $tagText === '@see' ) {
-				// Make sure the tag isn't empty.
-				$string = $phpcsFile->findNext( T_DOC_COMMENT_STRING, $tag, $commentEnd );
-				if ( $string === false || $tokens[$string]['line'] !== $tokens[$tag]['line'] ) {
-					$error = 'Content missing for @see tag in function comment';
-					$phpcsFile->addError( $error, $tag, 'EmptySees' );
-				}
-			} elseif ( strcasecmp( $tagText, '@inheritDoc' ) === 0 ) {
-				$skipDoc = true;
-			} elseif ( $tagText === '@deprecated' ) {
-				// No need to validate deprecated functions
-				$skipDoc = true;
+			if ( strcasecmp( $tagText, '@inheritDoc' ) === 0 || $tagText === '@deprecated' ) {
+				// No need to validate deprecated functions or those that inherit
+				// their documentation
+				return;
 			}
-		}
-
-		if ( $skipDoc ) {
-			// Don't need to validate anything else
-			return;
 		}
 
 		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );

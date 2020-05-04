@@ -1,0 +1,2 @@
+ 6 | ERROR | Content missing for @see tag in function comment
+   |       | (MediaWiki.Commenting.EmptyTag.see)
