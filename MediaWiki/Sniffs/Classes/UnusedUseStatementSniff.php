@@ -211,7 +211,7 @@ class UnusedUseStatementSniff implements Sniff {
 			// Check if the use statement does aliasing with the "as" keyword. Aliasing
 			// is allowed even in the same namespace.
 			if ( $tokens[$prev]['code'] !== T_AS ) {
-				$useNamespace = trim( $phpcsFile->getTokensAsString( $prev + 1, $classNamePtr - $prev - 2 ) );
+				$useNamespace = $this->readNamespace( $phpcsFile, $prev + 1, $classNamePtr - 2 );
 				if ( $useNamespace === $namespace ) {
 					$this->addSameNamespaceWarning( $phpcsFile, $currentUsePtr );
 				}
@@ -238,12 +238,39 @@ class UnusedUseStatementSniff implements Sniff {
 			return '';
 		}
 
-		// No need to cache this as we won't execute this often
-		$types = Tokens::$emptyTokens;
-		$types[] = T_NS_SEPARATOR;
-		$types[] = T_STRING;
-		$end = $phpcsFile->findNext( $types, $namespacePtr + 1, $stackPtr - 1, true );
-		return trim( $phpcsFile->getTokensAsString( $namespacePtr + 1, $end - $namespacePtr - 1 ) );
+		return $this->readNamespace( $phpcsFile, $namespacePtr + 2, $stackPtr - 1 );
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $start
+	 * @param int $end
+	 *
+	 * @return string
+	 */
+	private function readNamespace( File $phpcsFile, int $start, int $end ) : string {
+		$tokens = $phpcsFile->getTokens();
+		$content = '';
+
+		for ( $i = $start; $i <= $end; $i++ ) {
+			if ( isset( Tokens::$emptyTokens[ $tokens[$i]['code'] ] ) ) {
+				continue;
+			}
+			if ( $tokens[$i]['code'] !== T_STRING && $tokens[$i]['code'] !== T_NS_SEPARATOR ) {
+				break;
+			}
+
+			// This skips leading separators as well as a preceding "const" or "function"
+			if ( $content || ( $tokens[$i]['code'] === T_STRING && (
+				strcasecmp( $tokens[$i]['content'], 'const' ) !== 0 &&
+				strcasecmp( $tokens[$i]['content'], 'function' ) !== 0
+			) ) ) {
+				$content .= $tokens[$i]['content'];
+			}
+		}
+
+		// Something like "Namespace\ Class" might leave a trailing separator
+		return rtrim( $content, '\\' );
 	}
 
 	/**

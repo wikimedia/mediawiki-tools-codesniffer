@@ -96,6 +96,7 @@ class Foo {
 	public function __construct( ILBFactory $lbFactory ) {
 		$this->lbFactory = $lbFactory;
 		self::lbFactory();
+		someFunction( [ SOME_CONST ] );
 	}
 
 	/**

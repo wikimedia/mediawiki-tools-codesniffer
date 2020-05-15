@@ -15,10 +15,18 @@
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
   31 | WARNING | [x] Unused use statement
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
-  49 | ERROR   | [ ] Only one object structure is allowed in a
+  32 | WARNING | [x] Unnecessary use statement in the same
+     |         |     namespace
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+  33 | WARNING | [x] Unnecessary use statement in the same
+     |         |     namespace
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+  33 | WARNING | [ ] Comments should start on new line.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+  51 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 137 | ERROR   | [ ] Only one object structure is allowed in a
+ 140 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY

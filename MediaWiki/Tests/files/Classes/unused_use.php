@@ -29,6 +29,8 @@ use Used\But\Always\FullyQualified;
 use Wikimedia\Database;
 use Wikimedia\Rdbms\ILBFactory;
 use Wikimedia\Rdbms\LBFactory;
+use const FooBar \ SOME_CONST;
+use function FooBar/*comment*/\someFunction;
 
 $a = new Baz();
 $b = new Used();
@@ -101,6 +103,7 @@ class Foo {
 	public function __construct( ILBFactory $lbFactory ) {
 		$this->lbFactory = $lbFactory;
 		self::lbFactory();
+		someFunction( [ SOME_CONST ] );
 	}
 
 	/**
