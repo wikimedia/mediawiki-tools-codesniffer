@@ -20,6 +20,7 @@ use Something\Something;
 use Something\That\Is\Unused;
 use Something\That\Is\Used;
 use Something\UsedForPhanVar;
+use Something\UsedForPhanVarComplex;
 use Something\UsedForPhanVarForce;
 use Used\But\Always\FullyQualified;
 use Wikimedia\Database;
@@ -105,6 +106,7 @@ class Foo {
 	 */
 	public function testPhanVar( $arr ) {
 		'@phan-var UsedForPhanVar $exampleVar';
+		'@phan-var InAVar7<InAVar8,UsedForPhanVarComplex> $exampleVar';
 		$exampleVar = $arr[1];
 		return $exampleVar->getNumber();
 	}

@@ -78,7 +78,7 @@ class UnusedUseStatementSniff implements Sniff {
 			return;
 		}
 
-		$docPattern = '{(?<!\\\\)\b('
+		$classNamesPattern = '{(?<!\\\\)\b('
 			. implode( '|', array_map( 'preg_quote', array_keys( $shortClassNames ) ) )
 			. ')\b}i';
 
@@ -116,25 +116,32 @@ class UnusedUseStatementSniff implements Sniff {
 				// Usage in a doc comment
 				if ( !array_key_exists( $tokens[$i]['content'], self::CLASS_TAGS )
 					|| $tokens[$i + 2]['code'] !== T_DOC_COMMENT_STRING
+					|| !preg_match( '/^(\S+)(?=\s|$)/', $tokens[$i + 2]['content'], $matches )
 				) {
 					continue;
 				}
 
 				// We aren't interested in the later, whitespace-separated parts of comments
 				// like `@param (Class1|Class2)[]|Class3<Class4,Class5> $var Description`.
-				$doc = preg_replace( '/\s.*/s', '', $tokens[$i + 2]['content'] );
-				preg_match_all( $docPattern, $doc, $matches );
+				$docType = $matches[1];
+				if ( !preg_match_all( $classNamesPattern, $docType, $matches ) ) {
+					continue;
+				}
 				$className = $matches[1];
 
 			} elseif ( $tokens[$i]['code'] === T_CONSTANT_ENCAPSED_STRING ) {
 				// Ensure class name is followed by a space so that we know its the
 				// end of the class name given to phan
 				if ( $tokens[$i + 1]['code'] !== T_SEMICOLON
-					|| !preg_match( '/\W@phan-var\S*\s+(\w+)\s/i', $tokens[$i]['content'], $matches )
+					|| !preg_match( '/\W@phan-var\S*\s+(\S+)\s/i', $tokens[$i]['content'], $matches )
 				) {
 					continue;
 				}
 
+				$phanVarType = $matches[1];
+				if ( !preg_match_all( $classNamesPattern, $phanVarType, $matches ) ) {
+					continue;
+				}
 				$className = $matches[1];
 
 			} else {
