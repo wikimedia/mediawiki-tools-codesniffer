@@ -110,6 +110,7 @@
 	<rule ref="PSR2.Methods.FunctionClosingBrace" />
 
 	<rule ref="PSR12.Files.ImportStatement" />
+	<rule ref="PSR12.Functions.NullableTypeDeclaration" />
 	<rule ref="PSR12.Keywords.ShortFormTypeKeywords" />
 	<rule ref="PSR12.Properties.ConstantVisibility" />
 	<rule ref="PSR12.Traits.UseDeclaration" />

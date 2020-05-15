@@ -23,13 +23,13 @@ class  Foo  extends  \Bar  implements  \I1  ,  I2 {
 
 	/**
 	 * Test spacing in function and closue declaration
-	 * @param string $a
+	 * @param ?string $a
 	 * @param string $b
 	 * @param string $c
 	 * @param string $d
 	 * @return bool
 	 */
-	public function func(  $a  ,  $b, $c, $d /*...*/  ) {
+	public function func(  ? string $a  ,  $b, $c, $d /*...*/  ) {
 		return function ($e,$f) use (  $a  ,  $b  ) {
 			return function () use (  $e  ) {
 				return true;

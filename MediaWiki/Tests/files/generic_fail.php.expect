@@ -45,6 +45,10 @@
  32 | WARNING | [x] Single space expected after opening
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 32 | ERROR   | [x] There must not be a space between the question
+    |         |     mark and the type in nullable type
+    |         |     declarations
+    |         |     (PSR12.Functions.NullableTypeDeclaration.WhitespaceFound)
  32 | ERROR   | [x] Expected 0 spaces between argument "$a" and
     |         |     comma; 2 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
@@ -170,4 +174,4 @@
  50 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1
     |         |     found
     |         |     (Generic.WhiteSpace.SpreadOperatorSpacingAfter.TooMuchSpace)
-PHPCBF CAN FIX THE 60 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 61 MARKED SNIFF VIOLATIONS AUTOMATICALLY
