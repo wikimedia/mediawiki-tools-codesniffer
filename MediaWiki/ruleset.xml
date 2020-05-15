@@ -112,6 +112,13 @@
 	<rule ref="PSR12.Files.ImportStatement" />
 	<rule ref="PSR12.Keywords.ShortFormTypeKeywords" />
 	<rule ref="PSR12.Properties.ConstantVisibility" />
+	<rule ref="PSR12.Traits.UseDeclaration" />
+	<rule ref="PSR12.Traits.UseDeclaration.UseAfterBrace">
+		<severity>0</severity>
+	</rule>
+	<rule ref="PSR12.Traits.UseDeclaration.BlankLineAfterLastUse">
+		<severity>0</severity>
+	</rule>
 
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />
