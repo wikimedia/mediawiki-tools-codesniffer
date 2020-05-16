@@ -13,6 +13,7 @@ is_null( $a ? $b : ( $c ) );
 $this->is_null( $var );
 is_null[ $var ];
 is_null( $a ? $b : some_function( $c ) );
+!is_null( $a ? $b : some_function( $c ) );
 
 if ( is_null(
 	$this->callSomeSuperLongFunctionToBreakTheLine()

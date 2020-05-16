@@ -13,6 +13,7 @@ $this->field( $var + 45 / 7 ) === null;
 $this->is_null( $var );
 is_null[ $var ];
 ( $a ? $b : some_function( $c ) ) === null;
+( $a ? $b : some_function( $c ) ) !== null;
 
 if ( $this->callSomeSuperLongFunctionToBreakTheLine() === null ) {
 	return;
