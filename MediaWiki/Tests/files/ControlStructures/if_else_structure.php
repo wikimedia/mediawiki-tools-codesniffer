@@ -15,6 +15,14 @@ function wfFailedExamples() {
 	else{
 		# code...
 	}
+
+	if ( $a ) {
+		# code...
+	}elseif ( $b ) {
+		# code...
+	}else     {
+	}
+
 	if ( $a ) :
 		# code...
 	elseif ( $a ) :

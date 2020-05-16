@@ -4,12 +4,18 @@
     |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceBeforeElse)
  15 | WARNING | [x] Single space expected after "else"
     |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceAfterElse)
- 22 | WARNING | [x] No space expected after "else"
+ 21 | WARNING | [x] Single space expected before "elseif"
+    |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceBeforeElse)
+ 23 | WARNING | [x] Single space expected before "else"
+    |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceBeforeElse)
+ 23 | WARNING | [x] Single space expected after "else"
     |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceAfterElse)
- 24 | WARNING | [ ] Alternative syntax such as "endif" should not be
+ 30 | WARNING | [x] No space expected after "else"
+    |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceAfterElse)
+ 32 | WARNING | [ ] Alternative syntax such as "endif" should not be
     |         |     used
     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
- 46 | WARNING | [ ] Alternative syntax such as "endif" should not be
+ 54 | WARNING | [ ] Alternative syntax such as "endif" should not be
     |         |     used
     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
-PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
