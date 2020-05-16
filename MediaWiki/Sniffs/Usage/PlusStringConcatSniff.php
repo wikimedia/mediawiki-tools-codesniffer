@@ -34,7 +34,7 @@ class PlusStringConcatSniff implements Sniff {
 	 * @return array
 	 */
 	public function register() {
-		return [ T_PLUS ];
+		return [ T_PLUS, T_PLUS_EQUAL ];
 	}
 
 	/**
@@ -57,7 +57,12 @@ class PlusStringConcatSniff implements Sniff {
 		if ( isset( Tokens::$stringTokens[$tokens[$prev]['code']] )
 			|| isset( Tokens::$stringTokens[$tokens[$next]['code']] )
 		) {
-			$phpcsFile->addError( 'Use "." for string concat', $stackPtr, 'Found' );
+			$phpcsFile->addError(
+				'Use "%s" for string concat',
+				$stackPtr,
+				'Found',
+				[ $tokens[$stackPtr]['code'] === T_PLUS ? '.' : '.=' ]
+			);
 		}
 	}
 

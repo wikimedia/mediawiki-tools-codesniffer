@@ -9,6 +9,7 @@ class PlusStringConcatSniffTest {
 		$b = 'test' + 'test2';
 		$c = $b + $a;
 		$d = $c + 'string';
+		$d += 'string';
 	}
 
 }

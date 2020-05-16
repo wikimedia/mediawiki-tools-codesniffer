@@ -2,3 +2,5 @@
     |       | (MediaWiki.Usage.PlusStringConcat.Found)
  11 | ERROR | Use "." for string concat
     |       | (MediaWiki.Usage.PlusStringConcat.Found)
+ 12 | ERROR | Use ".=" for string concat
+    |       | (MediaWiki.Usage.PlusStringConcat.Found)
