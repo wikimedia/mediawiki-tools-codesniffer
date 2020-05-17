@@ -1,15 +1,18 @@
-  4 | WARNING | [x] Unnecessary use statement in the same
-    |         |     namespace
-    |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
-  5 | WARNING | [x] Unused use statement
-    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 20 | WARNING | [x] Unused use statement
-    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 25 | WARNING | [x] Unused use statement
-    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 28 | WARNING | [x] Unused use statement
-    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 46 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
-    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+   4 | WARNING | [x] Unnecessary use statement in the same
+     |         |     namespace
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+   5 | WARNING | [x] Unused use statement
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+  23 | WARNING | [x] Unused use statement
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+  28 | WARNING | [x] Unused use statement
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+  31 | WARNING | [x] Unused use statement
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+  49 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 137 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY

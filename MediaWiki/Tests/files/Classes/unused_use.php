@@ -3,6 +3,9 @@ namespace FooBar;
 
 use FooBar\Baz;
 use InvalidArgumentException;
+use Something\ClassProp1;
+use Something\ClassProp2;
+use Something\ClassProp3;
 use Something\InAParam;
 use Something\InAThrows;
 use Something\InAVar;
@@ -125,3 +128,11 @@ class Foo {
 $fn = function () use ( $a ) {
 	return $a->methodCall();
 };
+
+/**
+ * @property ClassProp1 $foo
+ * @property-read ClassProp2 $bar
+ * @property-write ClassProp3 $bar
+ */
+class CommentProps {
+}

@@ -40,6 +40,8 @@ class UnusedUseStatementSniff implements Sniff {
 		'@throws' => null,
 		'@var' => null,
 		'@property' => null,
+		'@property-read' => null,
+		'@property-write' => null,
 		// Deprecated
 		'@method' => null,
 		'@type' => null,
