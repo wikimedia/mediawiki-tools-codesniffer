@@ -115,7 +115,8 @@ class UnsortedUseStatementsSniff implements Sniff {
 	private function sortStatements( array $statementList ) : array {
 		$map = [];
 		foreach ( $statementList as $use => $_ ) {
-			$map[$use] = strtolower( $use );
+			// This is a fast way to strip the leading "use " as well as leading backslashes
+			$map[$use] = strtolower( ltrim( substr( $use, 4 ), '\\' ) );
 		}
 		natsort( $map );
 		// @phan-suppress-next-line PhanTypeMismatchReturn False positive as array_keys can return list<string>

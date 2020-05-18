@@ -3,8 +3,14 @@
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
    5 | WARNING | [x] Unused use statement
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+   5 | ERROR   | [x] Import statements must not begin with a leading
+     |         |     backslash
+     |         |     (PSR12.Files.ImportStatement.LeadingSlash)
   23 | WARNING | [x] Unused use statement
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+  27 | ERROR   | [x] Import statements must not begin with a leading
+     |         |     backslash
+     |         |     (PSR12.Files.ImportStatement.LeadingSlash)
   28 | WARNING | [x] Unused use statement
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
   31 | WARNING | [x] Unused use statement
@@ -15,4 +21,4 @@
  137 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY

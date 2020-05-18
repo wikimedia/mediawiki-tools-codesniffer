@@ -2,7 +2,7 @@
 namespace FooBar;
 
 use FooBar\Baz;
-use InvalidArgumentException;
+use \InvalidArgumentException;
 use Something\ClassProp1;
 use Something\ClassProp2;
 use Something\ClassProp3;
@@ -24,7 +24,7 @@ use Something\That\Is\Unused;
 use Something\That\Is\Used;
 use Something\UsedForPhanVar;
 use Something\UsedForPhanVarComplex;
-use Something\UsedForPhanVarForce;
+use \Something\UsedForPhanVarForce;
 use Used\But\Always\FullyQualified;
 use Wikimedia\Database;
 use Wikimedia\Rdbms\ILBFactory;
