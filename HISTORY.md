@@ -1,5 +1,60 @@
 # MediaWiki-Codesniffer release history #
 
+## 31.0.0 / 2020-06-22
+
+### New and changed sniffs ###
+* Add `MediaWiki.Commenting.FunctionComment.NoParamType` to ensure parameter type before parameter name (Umherirrender)
+* Add `MediaWiki.Commenting.FunctionComment.NotParenthesisParamName` to make sure param name is not wrapped in parentheses (Umherirrender)
+* Add `PEAR.Functions.ValidDefaultValue.NotAtEnd` to prohibit required parameters after optional ones (Max Semenik)
+* Add  `PSR12.Traits.UseDeclaration` to clean up the whitespace in use statements for traits (Umherirrender)
+* `Generic.Files.LineLength` sniff: Add tab-width=4 and increase line length to 120 (Sam Wilson)
+* `DeprecatedGlobalVariables`: Expand to cover `$wgMemc` (Daimona Eaytoy)
+* `DeprecatedGlobalVariables`: Expand to cover `$wgUser` (DannyS712)
+* `DeprecatedGlobalVariables`: Expand to cover `$wgVersion` (DannyS712)
+* `DocComment`: Ignore self-closing doc comments `/***/` (Umherirrender)
+* `FunctionAnnotations`: Update UnrecognizedAnnotation sniff for stable interface policy tags (DannyS712)
+* `FunctionComment`: Ignore anon classes when looking for return (Umherirrender)
+* `FunctionComment`: Reduce code duplication about short type checks (Umherirrender)
+* `FunctionComment`: Sniff for boolean/integer should not be case sensitive (DannyS712)
+* `LowerCamelFunctionsName`: Allow __serialize and __unserialize magic methods (addshore)
+* `PHPUnitAssertEquals`: Add problematic values 1 and 1.0 (Thiemo Kreuz)
+* `PlusStringConcat`: Include `+=` as well as `+` (Umherirrender)
+* `SpacyParenthesis`: Fix newline detection (Umherirrender)
+* `UnsortedUseStatements`: Fix failure with leading backslashes (Thiemo Kreuz)
+* `UnsortedUseStatements`: Remove extra php7.4 code, fixed upstream (Umherirrender)
+* `UnusedUseStatement`: Add `@property-read` and `@property-write`, per PSR 19 (Daimona Eaytoy)
+* `UnusedUseStatement`: Also count uses in `@method` (DannyS712)
+* `UnusedUseStatement`: Fix for complex `@phan-var` (Umherirrender)
+* `UnusedUseStatement`: Fix unnecessary detection for const in same namespace (Umherirrender)
+* `UnusedUseStatement`: Recognize uses in `@phan-var` comments (DannyS712)
+* `UnusedUseStatement`: Update for deprecation of `@expectedException` (DannyS712)
+
+### Code cleanup and testing ###
+* `AssignmentInReturn`: Fix possible index error (Thiemo Kreuz)
+* `FunctionComment`: Reduce code duplication about parenthesis check (Umherirrender)
+* `FunctionComment`: Reduce code duplication about punctation check (Umherirrender)
+* `FunctionComment`: Streamline a few minor details in FunctionComment sniff (Thiemo Kreuz)
+* `is_null`: Add test case for `!is_null` showing that parentheses are kept (Umherirrender)
+* `SpaceAfterControlStructure`: Add test (Umherirrender)
+* `SpaceBeforeControlStructureBrace`: Use `T_OPEN_CURLY_BRACKET` to check for '{' (Umherirrender)
+* `UnsortedUseStatements`: Fix minor performance issue (Thiemo Kreuz)
+* `UnusedUseStatement`: Full rewrite; 4x faster (Thiemo Kreuz)
+* `VariadicArgument`: Check index and avoid some local vars (Umherirrender)
+* Split standalone `SuperfluousVariadicArgComment` out of `FunctionComment` (DannyS712)
+* general: Remove unneeded parenthesis around additions (Umherirrender)
+* general: Remove unused variable and fields (Umherirrender)
+* general: Remove calls to File::recordMetric (Umherirrender)
+* general: Use class constant instead of class properties (Umherirrender)
+* general: Use parameter when building sniff message (Umherirrender)
+
+### Documentation, dependencies and build changes ###
+* Update PHPUnit to 8.5 (Umherirrender)
+* Update squizlabs/php_codesniffer to 3.5.5 (Umherirrender)
+* Allow composer/semver version 2.0.0 (Reedy)
+* docs: Use https for http links in documentation where possible (DannyS712)
+* build: Add mediawiki/mediawiki-phan-config (Umherirrender)
+* build: Relax composer/spdx-licenses to ~1.5.2 (Reedy)
+
 ## 30.0.0 / 2020-02-18 ##
 * `ForbiddenFunctions` sniff: Remove little bits of unused code (Thiemo Kreuz)
 * `FunctionComment` sniff: Detect missing `&` for `ParamNameNoMatch` error code and autofix (Umherirrender)
