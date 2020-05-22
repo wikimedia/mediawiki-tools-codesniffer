@@ -19,3 +19,6 @@
  40 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
     |       | $y")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)
+ 47 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
+    |       | $x")
+    |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)

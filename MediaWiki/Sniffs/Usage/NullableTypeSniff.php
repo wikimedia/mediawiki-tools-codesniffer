@@ -49,11 +49,12 @@ class NullableTypeSniff implements Sniff {
 		foreach ( $params as $param ) {
 			if (
 				$param['type_hint'] &&
+				$param['nullable_type'] === false &&
 				array_key_exists( 'default', $param ) &&
 				$param['default'] === 'null'
 			) {
 				$temp[] = $param;
-			} elseif ( !array_key_exists( 'default', $param ) && $param['nullable_type'] === false ) {
+			} elseif ( !array_key_exists( 'default', $param ) ) {
 				$found = array_merge( $found, $temp );
 				$temp = [];
 			}

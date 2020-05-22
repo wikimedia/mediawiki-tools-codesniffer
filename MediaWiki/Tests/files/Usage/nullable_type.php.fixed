@@ -39,6 +39,13 @@ class FailedExamples {
 	 */
 	public function mixedNullablesAndRequired2( MyClass $x = null, $foo, MyClass $y = null, $bar ) {
 	}
+
+	/**
+	 * @param MyClass|null $x
+	 * @param ?MyClass $y
+	 */
+	public function mixedNullablesAndRequired3( MyClass $x = null, ?MyClass $y ) {
+	}
 }
 
 class PassedExamples {
@@ -68,5 +75,12 @@ class PassedExamples {
 	 * @param MyClass|null $x
 	 */
 	public function docOptionalArgNullable( $foo, ?MyClass $x ) {
+	}
+
+	/**
+	 * @param ?MyClass $x
+	 * @param string $foo
+	 */
+	public function nullableWithDefault( ?MyClass $x = null, string $foo ) {
 	}
 }
