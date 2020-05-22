@@ -602,7 +602,10 @@ class FunctionCommentSniff implements Sniff {
 					}
 				}
 			}
-			if ( $nullableDoc && $defaultNull ) {
+			if (
+				isset( $realParams[$pos] ) && $nullableDoc && $defaultNull &&
+				!$realParams[$pos]['nullable_type']
+			) {
 				// Don't offer autofix, as changing a signature is somewhat delicate
 				$phpcsFile->addError(
 					'Use nullable type("%s") for parameters documented as nullable',

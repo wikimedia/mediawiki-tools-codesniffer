@@ -311,17 +311,17 @@
  410 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 417 | ERROR   | [ ] Only one object structure is allowed in a
-     |         |     file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  423 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 424 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 429 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 430 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 427 | WARNING | [x] Use @param annotation instead of @parma
+ 433 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 437 | ERROR   | [ ] You must use "/**" style comments for a function
+ 443 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 58 MARKED SNIFF VIOLATIONS AUTOMATICALLY

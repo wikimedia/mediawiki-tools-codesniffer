@@ -412,6 +412,12 @@ class TestPassedExamples {
 	 */
 	public function t174761( $parser, $operator, $oldtext ) {
 	}
+
+	/**
+	 * @param ?string $key A comment
+	 */
+	public function nullableDocWithNullableTypeAndDefaultVal( ?string $key = null ) {
+	}
 }
 
 class TestSimpleConstructor {
