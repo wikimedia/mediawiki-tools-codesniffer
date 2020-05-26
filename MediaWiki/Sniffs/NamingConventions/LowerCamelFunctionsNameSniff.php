@@ -26,6 +26,8 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 		'__set_state' => true,
 		'__clone' => true,
 		'__invoke' => true,
+		'__serialize' => true,
+		'__unserialize' => true,
 		'__debuginfo' => true
 	];
 
