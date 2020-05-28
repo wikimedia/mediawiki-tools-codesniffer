@@ -25,6 +25,7 @@ use Something\That\Is\Used;
 use Something\UsedForPhanVar;
 use Something\UsedForPhanVarComplex;
 use \Something\UsedForPhanVarForce;
+use Something\UsedForVar;
 use Used\But\Always\FullyQualified;
 use Wikimedia\Database;
 use Wikimedia\Rdbms\ILBFactory;
@@ -111,6 +112,7 @@ class Foo {
 	 * @return int
 	 */
 	public function testPhanVar( $arr ) {
+		/** @var $exampleVar UsedForVar */
 		'@phan-var UsedForPhanVar $exampleVar';
 		'@phan-var InAVar7<InAVar8,UsedForPhanVarComplex> $exampleVar';
 		$exampleVar = $arr[1];

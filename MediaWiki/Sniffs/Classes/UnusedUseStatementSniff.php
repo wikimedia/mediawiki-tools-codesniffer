@@ -118,7 +118,7 @@ class UnusedUseStatementSniff implements Sniff {
 				// Usage in a doc comment
 				if ( !array_key_exists( $tokens[$i]['content'], self::CLASS_TAGS )
 					|| $tokens[$i + 2]['code'] !== T_DOC_COMMENT_STRING
-					|| !preg_match( '/^(\S+)(?=\s|$)/', $tokens[$i + 2]['content'], $matches )
+					|| !preg_match( '/^(?:\$\w+\h+)?(\S+)(?=\s|$)/', $tokens[$i + 2]['content'], $matches )
 				) {
 					continue;
 				}

@@ -11,22 +11,22 @@
   27 | ERROR   | [x] Import statements must not begin with a leading
      |         |     backslash
      |         |     (PSR12.Files.ImportStatement.LeadingSlash)
-  28 | WARNING | [x] Unused use statement
+  29 | WARNING | [x] Unused use statement
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
-  31 | WARNING | [x] Unused use statement
+  32 | WARNING | [x] Unused use statement
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
-  32 | WARNING | [x] Unnecessary use statement in the same
-     |         |     namespace
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
   33 | WARNING | [x] Unnecessary use statement in the same
      |         |     namespace
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
-  33 | WARNING | [ ] Comments should start on new line.
+  34 | WARNING | [x] Unnecessary use statement in the same
+     |         |     namespace
+     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+  34 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
-  51 | ERROR   | [ ] Only one object structure is allowed in a
+  52 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 140 | ERROR   | [ ] Only one object structure is allowed in a
+ 142 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY
