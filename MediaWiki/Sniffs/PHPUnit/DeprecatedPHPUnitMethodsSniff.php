@@ -15,7 +15,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-namespace MediaWiki\Sniffs\Usage;
+namespace MediaWiki\Sniffs\PHPUnit;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
@@ -25,7 +25,7 @@ use PHP_CodeSniffer\Util\Tokens;
  * Forbids usage of PHPUnit methods deprecated/removed in PHPUnit8
  * @fixme Avoid duplication with other PHPUnit-related sniffs
  */
-class PHPUnitDeprecatedMethodsSniff implements Sniff {
+class DeprecatedPHPUnitMethodsSniff implements Sniff {
 	/**
 	 * Set of PHPUnit base classes, without leading backslash
 	 */

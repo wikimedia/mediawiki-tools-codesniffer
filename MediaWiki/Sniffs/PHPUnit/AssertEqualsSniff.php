@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Sniffs\Usage;
+namespace MediaWiki\Sniffs\PHPUnit;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @author Thiemo Kreuz
  * @license GPL-2.0-or-later
  */
-class PHPUnitAssertEqualsSniff implements Sniff {
+class AssertEqualsSniff implements Sniff {
 
 	private const ASSERTIONS = [
 		'assertEquals' => true,

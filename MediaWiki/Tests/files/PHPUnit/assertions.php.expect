@@ -1,118 +1,118 @@
   7 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Null)
   8 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Null)
   9 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Null)
  10 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Null)
  11 | WARNING | [x] assertEquals accepts many non-false values,
     |         |     please use strict alternatives like
     |         |     assertFalse
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.False)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.False)
  12 | WARNING | [x] assertEquals accepts many non-false values,
     |         |     please use strict alternatives like
     |         |     assertFalse
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.False)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.False)
  13 | WARNING | [x] assertEquals accepts many non-false values,
     |         |     please use strict alternatives like
     |         |     assertFalse
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.False)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.False)
  14 | WARNING | [x] assertEquals accepts many non-zero values, please
     |         |     use strict alternatives like assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Int)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Int)
  15 | WARNING | [x] assertEquals accepts many non-zero values, please
     |         |     use strict alternatives like assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Int)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Int)
  16 | WARNING | [x] assertEquals accepts many non-zero values, please
     |         |     use strict alternatives like assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Float)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Float)
  17 | WARNING | [x] assertEquals accepts many non-zero values, please
     |         |     use strict alternatives like assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Float)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Float)
  18 | WARNING | [x] assertEquals accepts many non-zero values, please
     |         |     use strict alternatives like assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Float)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Float)
  18 | WARNING | [x] Floats should have a leading 0
     |         |     (MediaWiki.AlternativeSyntax.LeadingZeroInFloat.Found)
  19 | WARNING | [x] assertEquals accepts many non-zero values, please
     |         |     use strict alternatives like assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Float)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Float)
  20 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.FalsyString)
  21 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.FalsyString)
  22 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.FalsyString)
  23 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.FalsyString)
  26 | WARNING | [x] assertEquals accepts many non-true values, please
     |         |     use strict alternatives like assertTrue
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.True)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.True)
  27 | WARNING | [x] assertEquals accepts many non-numeric values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Int)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Int)
  28 | WARNING | [x] assertEquals accepts many non-numeric values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Float)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Float)
  29 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.IntegerString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.IntegerString)
  30 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.FalsyString)
  33 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.NumericString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.NumericString)
  34 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.NumericString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.NumericString)
  34 | WARNING | [x] Floats should have a leading 0
     |         |     (MediaWiki.AlternativeSyntax.LeadingZeroInFloat.Found)
  37 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Null)
  37 | WARNING | [x] assertEquals accepts many non-string values,
     |         |     please use strict alternatives like
     |         |     assertSame
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.FalsyString)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.FalsyString)
  40 | WARNING | [x] assertEquals accepts many non-null values, please
     |         |     use strict alternatives like assertNull
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.Null)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.Null)
  40 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  61 | WARNING | [x] assertNotEquals accepts many non-true values,
     |         |     please use strict alternatives like
     |         |     assertTrue
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.False)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.False)
  62 | WARNING | [x] assertNotEquals accepts many non-false values,
     |         |     please use strict alternatives like
     |         |     assertFalse
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.True)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.True)
  63 | WARNING | [x] assertNotSame accepts many non-true values,
     |         |     please use strict alternatives like
     |         |     assertTrue
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.False)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.False)
  64 | WARNING | [x] assertNotSame accepts many non-false values,
     |         |     please use strict alternatives like
     |         |     assertFalse
-    |         |     (MediaWiki.Usage.PHPUnitAssertEquals.True)
+    |         |     (MediaWiki.PHPUnit.AssertEquals.True)
 PHPCBF CAN FIX THE 33 MARKED SNIFF VIOLATIONS AUTOMATICALLY
