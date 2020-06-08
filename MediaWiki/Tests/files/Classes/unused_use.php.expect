@@ -26,7 +26,13 @@
   52 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  62 | ERROR   | [x] Found redundant variable name $thing2 in
+     |         |     @var
+     |         |     (MediaWiki.Commenting.RedundantVarName.Found)
+  67 | ERROR   | [x] Found redundant variable name $thing3 in
+     |         |     @var
+     |         |     (MediaWiki.Commenting.RedundantVarName.Found)
  142 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -47,7 +47,7 @@ class Foo {
 	use AnotherThing;
 
 	/**
-	 * @var InAVar
+	 * @var InAVar $thing2 is another property
 	 */
 	private $thing;
 
@@ -59,7 +59,7 @@ class Foo {
 	/**
 	 * @var null|InAVar3
 	 */
-	private $thing3;
+	private ?InAVar3 $thing3;
 
 	/**
 	 * @var InAVar4[]
