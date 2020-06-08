@@ -185,6 +185,11 @@
 
 	<rule ref="PEAR.Functions.ValidDefaultValue.NotAtEnd" />
 
+	<rule ref="MediaWiki.Classes.FullQualifiedClassName">
+		<!-- Set this to 5 or higher in your .phpcs.xml if you want to use this sniff -->
+		<severity>0</severity>
+	</rule>
+
 	<!-- Exclude common folders from version control or build tools -->
 	<exclude-pattern type="relative">^\.git</exclude-pattern>
 	<exclude-pattern type="relative">^vendor</exclude-pattern>
