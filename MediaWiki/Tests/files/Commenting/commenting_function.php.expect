@@ -311,6 +311,9 @@
  410 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
+ 410 | ERROR   | [x] Default of null should be declared in @param
+     |         |     tag
+     |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
  423 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
@@ -324,4 +327,4 @@
  443 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
-PHPCBF CAN FIX THE 58 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 59 MARKED SNIFF VIOLATIONS AUTOMATICALLY

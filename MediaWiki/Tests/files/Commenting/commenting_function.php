@@ -410,7 +410,7 @@ class TestPassedExamples {
 	 * @param $oldtext string The content of the revision prior to $content.  When
 	 *  null this will be loaded from the database.
 	 */
-	public function t174761( $parser, $operator, $oldtext ) {
+	public function t174761( $parser, $operator, $oldtext = null ) {
 	}
 
 	/**

@@ -580,7 +580,7 @@ class FunctionCommentSniff implements Sniff {
 			);
 			// Check the short type of boolean and integer
 			$type = $this->fixShortTypes( $phpcsFile, $param['tag'], $type, $fixType, 'param' );
-			$explodedType = explode( '|', $type );
+			$explodedType = $type === '' ? [] : explode( '|', $type );
 			$nullableDoc = substr( $type, 0, 1 ) === '?';
 			$nullFound = false;
 			foreach ( $explodedType as $index => $singleType ) {
