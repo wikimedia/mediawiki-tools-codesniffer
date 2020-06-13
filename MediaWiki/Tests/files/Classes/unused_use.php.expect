@@ -29,6 +29,15 @@
   62 | ERROR   | [x] Found redundant variable name $thing2 in
      |         |     @var
      |         |     (MediaWiki.Commenting.RedundantVarName.Found)
+  64 | ERROR   | [ ] The var keyword must not be used to declare a
+     |         |     property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+  64 | ERROR   | [ ] Visibility must be declared on property
+     |         |     "$thing2"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+  64 | ERROR   | [ ] Scope modifier not specified for member variable
+     |         |     "$thing2"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
   67 | ERROR   | [x] Found redundant variable name $thing3 in
      |         |     @var
      |         |     (MediaWiki.Commenting.RedundantVarName.Found)

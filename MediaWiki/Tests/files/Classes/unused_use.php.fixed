@@ -54,7 +54,7 @@ class Foo {
 	/**
 	 * @var InAVar2|null
 	 */
-	private $thing2;
+	var $thing2;
 
 	/**
 	 * @var null|InAVar3

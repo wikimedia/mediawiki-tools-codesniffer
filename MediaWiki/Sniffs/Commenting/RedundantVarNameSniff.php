@@ -50,7 +50,9 @@ class RedundantVarNameSniff implements Sniff {
 			$docPtr + 1,
 			true
 		);
-		if ( !isset( Tokens::$scopeModifiers[ $tokens[$visibilityPtr]['code'] ] ) ) {
+		if ( !$visibilityPtr || ( $tokens[$visibilityPtr]['code'] !== T_VAR &&
+			!isset( Tokens::$scopeModifiers[ $tokens[$visibilityPtr]['code'] ] ) )
+		) {
 			return;
 		}
 
