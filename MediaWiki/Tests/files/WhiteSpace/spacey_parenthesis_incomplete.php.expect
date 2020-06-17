@@ -1,0 +1,2 @@
+ 4 | WARNING | Avoid IF statements that are always true or false
+   |         | (Generic.CodeAnalysis.UnconditionalIfStatement.Found)

@@ -93,6 +93,11 @@ class SpaceyParenthesisSniff implements Sniff {
 			}
 		}
 
+		if ( !isset( $tokens[$stackPtr + 2] ) ) {
+			// Syntax error or live coding, bow out.
+			return;
+		}
+
 		// Shorten out as early as possible on empty parenthesis
 		if ( $this->isClosed( $tokens[$stackPtr + 1]['code'] ) ) {
 			// Intentionally do not process the closing parenthesis again
