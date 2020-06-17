@@ -33,6 +33,11 @@ class SpaceAfterControlStructureSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
+		if ( !isset( $tokens[$stackPtr + 1] ) ) {
+			// Syntax error or live coding, bow out.
+			return;
+		}
+
 		$nextToken = $tokens[$stackPtr + 1];
 		if ( $nextToken['code'] !== T_WHITESPACE || $nextToken['content'] !== ' ' ) {
 			$fix = $phpcsFile->addFixableWarning(
