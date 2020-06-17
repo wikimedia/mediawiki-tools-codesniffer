@@ -43,6 +43,11 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
+		if ( !isset( $tokens[$stackPtr + 2] ) ) {
+			// Syntax error or live coding, bow out.
+			return;
+		}
+
 		$nextToken = $tokens[$stackPtr + 1];
 		$nextSecondToken = $tokens[$stackPtr + 2];
 

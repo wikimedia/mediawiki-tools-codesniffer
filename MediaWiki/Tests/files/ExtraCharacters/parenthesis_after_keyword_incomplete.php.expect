@@ -1,0 +1,5 @@
+ 4 | ERROR | [x] Language constructs must be followed by a single
+   |       |     space; expected 1 space but found
+   |       |     "\n"
+   |       |     (Squiz.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
