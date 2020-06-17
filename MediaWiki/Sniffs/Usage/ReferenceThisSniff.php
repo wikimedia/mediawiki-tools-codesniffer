@@ -46,6 +46,11 @@ class ReferenceThisSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
+		if ( !isset( $tokens[$stackPtr + 1] ) ) {
+			// Syntax error or live coding, bow out.
+			return;
+		}
+
 		$next = $tokens[$stackPtr + 1];
 		if ( $next['code'] === T_VARIABLE && $next['content'] === '$this' ) {
 			$after = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 2, null, true );

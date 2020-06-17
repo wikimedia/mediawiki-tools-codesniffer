@@ -1,0 +1,3 @@
+ 4 | ERROR | [x] Expected 1 newline at end of file; 0 found
+   |       |     (PSR2.Files.EndFileNewline.NoneFound)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
