@@ -56,6 +56,11 @@ class ValidGlobalNameSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 
 		$nameIndex = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
+		if ( !$nameIndex ) {
+			// Avoid possibly running in an endless loop below
+			return;
+		}
+
 		$semicolonIndex = $phpcsFile->findNext( T_SEMICOLON, $stackPtr + 1 );
 
 		while ( $nameIndex < $semicolonIndex ) {
