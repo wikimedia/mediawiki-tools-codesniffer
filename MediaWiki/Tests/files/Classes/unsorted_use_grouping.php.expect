@@ -1,0 +1,10 @@
+ 5 | WARNING | [x] Use statements are not alphabetically sorted
+   |         |     (MediaWiki.Classes.UnsortedUseStatements.UnsortedUse)
+ 7 | WARNING | [ ] Comments should start on new line.
+   |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+ 9 | WARNING | [ ] Comments should start on new line.
+   |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+ 9 | ERROR   | [x] Space found before semicolon; expected "CONST2;"
+   |         |     but found "CONST2 /* more empty tokens */ ;"
+   |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

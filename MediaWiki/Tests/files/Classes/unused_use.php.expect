@@ -18,11 +18,11 @@
   33 | WARNING | [x] Unnecessary use statement in the same
      |         |     namespace
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+  33 | WARNING | [ ] Comments should start on new line.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
   34 | WARNING | [x] Unnecessary use statement in the same
      |         |     namespace
      |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
-  34 | WARNING | [ ] Comments should start on new line.
-     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
   52 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)

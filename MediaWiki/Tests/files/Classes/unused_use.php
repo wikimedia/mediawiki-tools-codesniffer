@@ -30,8 +30,8 @@ use Used\But\Always\FullyQualified;
 use Wikimedia\Database;
 use Wikimedia\Rdbms\ILBFactory;
 use Wikimedia\Rdbms\LBFactory;
-use const FooBar \ SOME_CONST;
 use function FooBar/*comment*/\someFunction;
+use const FooBar \ SOME_CONST;
 
 $a = new Baz();
 $b = new Used();

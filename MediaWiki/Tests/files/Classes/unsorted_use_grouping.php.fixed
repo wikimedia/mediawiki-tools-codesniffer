@@ -1,0 +1,18 @@
+<?php
+
+namespace SomethingElse;
+
+use Class1;
+use /* empty token */Class2;
+use Class3;
+use function function1;
+use function function2;
+use const CONST1;
+use Const CONST2; /* more empty tokens */
+
+/* empty tokens between statements */
+
+$a = ( new Class1(
+	new Class2( CONST2, new Class3() ),
+	CONST1
+) )->do( function1(), function2 );
