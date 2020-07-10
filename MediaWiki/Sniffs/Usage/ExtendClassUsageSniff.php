@@ -49,13 +49,37 @@ class ExtendClassUsageSniff implements Sniff {
 	public $nonConfigGlobals = [];
 
 	private const CHECK_CONFIG = [
-		// All extended class name.
+		// All extended class name. Map of extended class name to the checklist that
+		// should be used.
+		// Note that the SpecialPage class does NOT actually extend ContextSource,
+		// but all of the checks for ContextSource here also apply equally to SpecialPage
 		'extendsCls' => [
-			'ContextSource' => true
+			'ContextSource' => 'ContextSource',
+			'SpecialPage' => 'ContextSource',
+
+			// Subclasses of ContextSource
+			'ApiBase' => 'ContextSource',
+			'ApiQueryBase' => 'ContextSource',
+			'ApiQueryGeneratorBase' => 'ContextSource',
+			'ApiQueryRevisionsBase' => 'ContextSource',
+			'DifferenceEngine' => 'ContextSource',
+			'HTMLForm' => 'ContextSource',
+			'IndexPager' => 'ContextSource',
+			'Skin' => 'ContextSource',
+
+			// Subclasses of SpecialPage
+			'AuthManagerSpecialPage' => 'ContextSource',
+			'FormSpecialPage' => 'ContextSource',
+			'ImageQueryPage' => 'ContextSource',
+			'IncludableSpecialPage' => 'ContextSource',
+			'PageQueryPage' => 'ContextSource',
+			'QueryPage' => 'ContextSource',
+			'UnlistedSpecialPage' => 'ContextSource',
+			'WantedQueryPage' => 'ContextSource',
 		],
 		// All details of usage need to be check.
 		'checkList' => [
-			// Extended class name.
+			// Checklist name, usually the extended class
 			'ContextSource' => [
 				[
 					// The check content.
@@ -137,7 +161,8 @@ class ExtendClassUsageSniff implements Sniff {
 			self::NON_CONFIG_GLOBALS_MEDIAWIKI_CORE, $this->nonConfigGlobals
 		) );
 
-		$extClsCheckList = self::CHECK_CONFIG['checkList'][$extClsContent];
+		$checkListName = self::CHECK_CONFIG['extendsCls'][$extClsContent];
+		$extClsCheckList = self::CHECK_CONFIG['checkList'][$checkListName];
 		// Loop over all tokens of the class to check each function
 		$i = $currToken['scope_opener'];
 		$end = $currToken['scope_closer'];

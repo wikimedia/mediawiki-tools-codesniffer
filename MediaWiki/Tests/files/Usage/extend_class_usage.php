@@ -58,7 +58,7 @@ class OtherTest extends OtherExtendClass {
 	}
 }
 
-class UserTest extends ContextSource {
+class UserTest extends SpecialPage {
 
 	/**
 	 * @return object the user information.
@@ -114,7 +114,7 @@ abstract class RequestTest extends \ContextSource {
 /**
  * Test, if a global not set by config is reported
  */
-class FoundTest extends \ContextSource {
+class FoundTest extends \QueryPage {
 	/**
 	 * @return object the request information.
 	 */
