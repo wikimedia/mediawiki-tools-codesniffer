@@ -63,6 +63,7 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@params' => '@param',
 		'@returns' => '@return',
 		'@throw' => '@throws',
+		'@exception' => '@throws',
 
 		// private and protected is needed when functions stay public
 		// for deprecation or backward compatibility reasons
