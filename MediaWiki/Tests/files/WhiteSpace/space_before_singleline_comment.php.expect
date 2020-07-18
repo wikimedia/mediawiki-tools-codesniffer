@@ -1,20 +1,18 @@
   8 | WARNING | [x] Single space expected between "//" and
     |         |     comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
- 10 | WARNING | [x] Single space expected between "#" and comment
-    |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
- 12 | WARNING | [x] Single space expected between "//" and
+ 10 | WARNING | [x] Single space expected between "//" and
     |         |     comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
- 14 | WARNING | [x] Single space expected between "#" and comment
+ 12 | WARNING | [x] Single space expected between "#" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
- 15 | WARNING | [ ] Comments should start on new line.
+ 13 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 16 | WARNING | [ ] Comments should start on new line.
+ 14 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 19 | WARNING | [x] Single space expected between "//" and
+ 17 | WARNING | [x] Single space expected between "//" and
     |         |     comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
- 22 | WARNING | [x] Single space expected between "#" and comment
+ 20 | WARNING | [x] Single space expected between "#" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
-PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY

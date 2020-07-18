@@ -4,10 +4,10 @@
  13 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 13 | ERROR   | [x] Expected 1 space after class name; 2 found
+ 13 | ERROR   | [x] Expected 1 space after class name; 3 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterName)
  13 | WARNING | [x] Expected 1 space before class open brace. Found
-    |         |     2.
+    |         |     3.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
  20 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file

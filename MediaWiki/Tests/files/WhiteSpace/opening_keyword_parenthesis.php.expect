@@ -2,9 +2,9 @@
     |       |     2
     |       |     (MediaWiki.WhiteSpace.OpeningKeywordParenthesis.WrongWhitespaceBeforeParenthesis)
  11 | ERROR | [x] Expected no space before opening parenthesis; found
-    |       |     3
+    |       |     9
     |       |     (MediaWiki.WhiteSpace.OpeningKeywordParenthesis.WrongWhitespaceBeforeParenthesis)
  12 | ERROR | [x] Expected no space before opening parenthesis; found
-    |       |     1
+    |       |     3
     |       |     (MediaWiki.WhiteSpace.OpeningKeywordParenthesis.WrongWhitespaceBeforeParenthesis)
 PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY

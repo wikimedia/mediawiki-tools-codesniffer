@@ -7,8 +7,6 @@
 function wfFailedExamples() {
 	// a comment with tabs instead of a space
 	$x = 1;
-	# yet another comment with tabs instead of a space.
-	$x = 1;
 	// A comment without a space
 	$x = 1;
 	# Yup, no spaces.
@@ -31,6 +29,8 @@ function wfPassedExamples() {
 	// a valid comment.
 	$x = 1;
 	# another valid comment.
+	$x = 1;
+	#	 	all tabs are currently allowed.
 	$x = 1;
 	/* a comment no warnings would be raised on */
 	$x = 1;

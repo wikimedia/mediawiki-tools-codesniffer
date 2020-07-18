@@ -7,7 +7,7 @@
   22 | WARNING | [x] Expected 1 spaces after parameter name; 2
      |         |     found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
-  23 | WARNING | [x] Expected 1 spaces after parameter name; 3
+  23 | WARNING | [x] Expected 1 spaces after parameter name; 8
      |         |     found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
   31 | ERROR   | [x] Short type of "bool" should be used for @param

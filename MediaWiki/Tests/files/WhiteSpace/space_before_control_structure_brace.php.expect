@@ -8,7 +8,7 @@
     |         |     opening brace; find 3 characters
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeControlStructureBrace.SpaceBeforeControl)
  21 | WARNING | [x] Expected 1 space between closing parenthesis and
-    |         |     opening brace; find 1 characters
+    |         |     opening brace; find 2 characters
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeControlStructureBrace.SpaceBeforeControl)
  34 | ERROR   | [x] Closing brace must be on a line by itself
     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)

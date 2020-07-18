@@ -53,6 +53,7 @@ class Helper {
 		$config->colors = false;
 		$config->reportWidth = 0;
 		$config->showSources = true;
+		$config->tabWidth = 4;
 
 		$ruleset = new Ruleset( $config );
 		$dummy = new DummyFile( file_get_contents( $file ), $ruleset, $config );
@@ -79,6 +80,7 @@ class Helper {
 		$config->standards = [ $standard ];
 		$config->files = [ $file ];
 		$config->encoding = 'utf-8';
+		$config->tabWidth = 4;
 
 		$ruleset = new Ruleset( $config );
 		$dummy = new DummyFile( file_get_contents( $file ), $ruleset, $config );
