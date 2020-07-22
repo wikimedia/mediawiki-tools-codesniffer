@@ -31,7 +31,7 @@ require( "$wmfConfigDir/CommonSettings-labs.php" );
 function wfLoopTest() {
 	while ( true ) {
 		while ( true ) {
-			if ( 1 == 1 ) {
+			if ( $x == 1 ) {
 				continue(2);
 			}
 			break(2);
