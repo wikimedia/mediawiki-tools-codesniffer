@@ -38,6 +38,7 @@ class ValidGlobalNameSniff implements Sniff {
 	 */
 	public $allowedPrefixes = [ 'wg' ];
 
+	/** @var string[] */
 	public $ignoreList = [];
 
 	/**

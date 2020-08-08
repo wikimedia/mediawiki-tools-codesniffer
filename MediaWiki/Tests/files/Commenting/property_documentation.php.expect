@@ -1,0 +1,90 @@
+  6 | ERROR   | [ ] You must use "/**" style comments for a class
+    |         |     property comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.WrongStyle)
+  8 | WARNING | [x] Expected 1 spaces before var type; 3 found
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingBeforeVarType)
+  8 | ERROR   | [x] Short type of "int" should be used for @var
+    |         |     tag
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.NotShortIntVar)
+ 11 | ERROR   | [ ] Missing class property doc comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate)
+ 12 | ERROR   | [ ] Missing class property doc comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationProtected)
+ 13 | ERROR   | [ ] Missing class property doc comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
+ 14 | ERROR   | [ ] Missing class property doc comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
+ 14 | ERROR   | [ ] The var keyword must not be used to declare a
+    |         |     property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 14 | ERROR   | [ ] Visibility must be declared on property
+    |         |     "$missingWithout"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 14 | ERROR   | [ ] Scope modifier not specified for member variable
+    |         |     "$missingWithout"
+    |         |     (Squiz.Scope.MemberVarScope.Missing)
+ 16 | ERROR   | [ ] Missing @var tag in class property comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVar)
+ 21 | ERROR   | [ ] Only 1 @var tag is allowed in a class property
+    |         |     comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.DuplicateVar)
+ 25 | ERROR   | [x] Var type should not be wrapped in parenthesis; {
+    |         |     and } found
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.NotParenthesisVarType)
+ 26 | ERROR   | [ ] The var keyword must not be used to declare a
+    |         |     property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 26 | ERROR   | [ ] Visibility must be declared on property
+    |         |     "$punctationString"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 26 | ERROR   | [ ] Scope modifier not specified for member variable
+    |         |     "$punctationString"
+    |         |     (Squiz.Scope.MemberVarScope.Missing)
+ 29 | ERROR   | [ ] The var keyword must not be used to declare a
+    |         |     property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 29 | ERROR   | [ ] Visibility must be declared on property
+    |         |     "$arrayString"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 29 | ERROR   | [ ] Scope modifier not specified for member variable
+    |         |     "$arrayString"
+    |         |     (Squiz.Scope.MemberVarScope.Missing)
+ 31 | ERROR   | [x] Var type should not end with punctuation ":"
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.NotPunctuationVarType)
+ 32 | ERROR   | [ ] The var keyword must not be used to declare a
+    |         |     property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 32 | ERROR   | [ ] Visibility must be declared on property
+    |         |     "$typeWithPuncation"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 32 | ERROR   | [ ] Scope modifier not specified for member variable
+    |         |     "$typeWithPuncation"
+    |         |     (Squiz.Scope.MemberVarScope.Missing)
+ 34 | ERROR   | [ ] Var type missing for @var tag in class property
+    |         |     comment
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingvarType)
+ 37 | ERROR   | [x] Lowercase type of "int" should be used for @var
+    |         |     tag
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveIntVar)
+ 40 | ERROR   | [x] Lowercase type of "string[]" should be used for
+    |         |     @var tag
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveStringArrayVar)
+ 44 | ERROR   | [ ] Only one object structure is allowed in a
+    |         |     file
+    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 59 | ERROR   | [ ] The var keyword must not be used to declare a
+    |         |     property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 59 | ERROR   | [ ] Visibility must be declared on property "$d"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 59 | ERROR   | [ ] Scope modifier not specified for member variable
+    |         |     "$d" (Squiz.Scope.MemberVarScope.Missing)
+ 62 | ERROR   | [ ] The var keyword must not be used to declare a
+    |         |     property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 62 | ERROR   | [ ] Visibility must be declared on property
+    |         |     "$dep"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 62 | ERROR   | [ ] Scope modifier not specified for member variable
+    |         |     "$dep" (Squiz.Scope.MemberVarScope.Missing)
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY

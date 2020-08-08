@@ -27,6 +27,7 @@ use PHP_CodeSniffer\Ruleset;
 
 class Helper {
 
+	/** @var string */
 	protected $rootDir;
 
 	public function __construct() {

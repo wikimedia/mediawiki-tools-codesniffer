@@ -31,8 +31,10 @@ $namespaceNames = [
 
 class FooBar extends BarBaz implements SomethingSomewhere {
 
+	/** @var string */
 	private $foo = 'halalalalalaa';
 
+	/** @var string */
 	public $var;
 
 	/**

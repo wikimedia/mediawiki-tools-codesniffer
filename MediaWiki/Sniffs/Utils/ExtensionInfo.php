@@ -35,6 +35,7 @@ class ExtensionInfo {
 	 */
 	private $info = null;
 
+	/** @var bool[] */
 	private $supportCache = [];
 
 	/**
