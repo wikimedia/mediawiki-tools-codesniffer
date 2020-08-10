@@ -217,10 +217,14 @@ class FunctionCommentSniff implements Sniff {
 				}
 			}
 			$retType = $return + 2;
-			$content = $tokens[$retType]['content'];
-			if ( empty( $content ) || $tokens[$retType]['code'] !== T_DOC_COMMENT_STRING ) {
+			$content = '';
+			if ( $tokens[$retType]['code'] === T_DOC_COMMENT_STRING ) {
+				$content = $tokens[$retType]['content'];
+			}
+			if ( $content === '' ) {
 				$error = 'Return type missing for @return tag in function comment';
 				$phpcsFile->addError( $error, $return, 'MissingReturnType' );
+				return;
 			}
 			// The first word of the return type is the actual type
 			$exploded = explode( ' ', $content, 2 );

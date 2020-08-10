@@ -317,6 +317,19 @@ class TestFailedExamples {
 	 */
 	public function testVarArgsRealPassByReference( &...$refReal ) {
 	}
+
+	/** @param */
+	public function testBadReturnAnnotation( $arg ) {
+	}
+
+	/** @return */
+	public function testBadParamAnnotation() {
+		return null;
+	}
+
+	/** @throws */
+	public function testBadThrowsAnnotation() {
+	}
 }
 
 class TestPassedExamples {
