@@ -62,6 +62,12 @@ class ExamplesTest {
 	}
 
 	/**
+	 * @afterClass
+	 */
+	public function extraTearDownAfterClass() {
+	}
+
+	/**
 	 * @expectedException \Exception
 	 * @expectedExceptionMessage Foobar
 	 */

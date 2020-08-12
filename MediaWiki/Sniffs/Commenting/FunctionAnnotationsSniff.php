@@ -98,6 +98,8 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@return-taint' => true,
 
 		// Allowed mixed-case tags, mapping from all-lowercase to the expected mixed-case
+		'@beforeclass' => '@beforeClass',
+		'@afterclass' => '@afterClass',
 		'@codecoverageignore' => '@codeCoverageIgnore',
 		'@covernothing' => '@coverNothing',
 		'@coversnothing' => '@coversNothing',

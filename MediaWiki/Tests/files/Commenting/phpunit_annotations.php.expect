@@ -1,62 +1,63 @@
-  5 | WARNING | [ ] The phpunit annotation @coversDefaultClass should
-    |         |     only be used inside test classes.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
- 10 | WARNING | [ ] The phpunit annotation @cover should only be used
-    |         |     inside test classes.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
- 16 | WARNING | [ ] The phpunit annotation @backupGlobals should not
-    |         |     be used.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenBackupGlobals)
- 16 | ERROR   | [ ] @backupGlobals is not a valid function
-    |         |     annotation
-    |         |     (MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation)
- 22 | WARNING | [ ] The phpunit annotation @coversNothing should only
-    |         |     be used inside test classes.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
- 28 | WARNING | [x] Use @coversDefaultClass annotation instead of
-    |         |     @coverDefaultClass
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverDefaultClass)
- 29 | WARNING | [x] Use @group small annotation instead of @small
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.GroupAliasSmall)
- 31 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
-    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 34 | WARNING | [x] Use @covers annotation instead of @cover
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCover)
- 35 | WARNING | [ ] The phpunit annotation @covers must be followed
-    |         |     by text.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.EmptyCovers)
- 41 | WARNING | [x] Use @coversNothing annotation instead of
-    |         |     @coverNothing
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverNothing)
- 43 | WARNING | [ ] The testNothing test method has no @covers
-    |         |     tags
-    |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
- 47 | WARNING | [ ] The phpunit annotation @after should only be used
-    |         |     for tearDown functions (*TearDown).
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTearDownFunction)
- 53 | WARNING | [ ] The phpunit annotation @dataProvider should only
-    |         |     be used for test functions.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
- 65 | WARNING | [ ] Do not use @expectedException, use
-    |         |     $this->expectException().
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenExpectedException)
- 66 | WARNING | [ ] Do not use @expectedExceptionMessage, use
-    |         |     $this->expectExceptionMessage().
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenExpectedExceptionMessage)
- 72 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
-    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 82 | WARNING | [ ] The phpunit annotation @group should only be used
-    |         |     in class level comments.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
- 87 | WARNING | [ ] The phpunit annotation @group should only be used
-    |         |     in class level comments.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
- 89 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
-    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 94 | WARNING | [ ] The phpunit annotation @dataProvider should only
-    |         |     be used inside classes or traits.
-    |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotInClassTrait)
+   5 | WARNING | [ ] The phpunit annotation @coversDefaultClass
+     |         |     should only be used inside test classes.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
+  10 | WARNING | [ ] The phpunit annotation @cover should only be
+     |         |     used inside test classes.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
+  16 | WARNING | [ ] The phpunit annotation @backupGlobals should not
+     |         |     be used.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenBackupGlobals)
+  16 | ERROR   | [ ] @backupGlobals is not a valid function
+     |         |     annotation
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation)
+  22 | WARNING | [ ] The phpunit annotation @coversNothing should
+     |         |     only be used inside test classes.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
+  28 | WARNING | [x] Use @coversDefaultClass annotation instead of
+     |         |     @coverDefaultClass
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverDefaultClass)
+  29 | WARNING | [x] Use @group small annotation instead of
+     |         |     @small
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.GroupAliasSmall)
+  31 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  34 | WARNING | [x] Use @covers annotation instead of @cover
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCover)
+  35 | WARNING | [ ] The phpunit annotation @covers must be followed
+     |         |     by text.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.EmptyCovers)
+  41 | WARNING | [x] Use @coversNothing annotation instead of
+     |         |     @coverNothing
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverNothing)
+  43 | WARNING | [ ] The testNothing test method has no @covers
+     |         |     tags
+     |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
+  47 | WARNING | [ ] The phpunit annotation @after should only be
+     |         |     used for tearDown functions (*TearDown).
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTearDownFunction)
+  53 | WARNING | [ ] The phpunit annotation @dataProvider should only
+     |         |     be used for test functions.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
+  71 | WARNING | [ ] Do not use @expectedException, use
+     |         |     $this->expectException().
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenExpectedException)
+  72 | WARNING | [ ] Do not use @expectedExceptionMessage, use
+     |         |     $this->expectExceptionMessage().
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenExpectedExceptionMessage)
+  78 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  88 | WARNING | [ ] The phpunit annotation @group should only be
+     |         |     used in class level comments.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
+  93 | WARNING | [ ] The phpunit annotation @group should only be
+     |         |     used in class level comments.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
+  95 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 100 | WARNING | [ ] The phpunit annotation @dataProvider should only
+     |         |     be used inside classes or traits.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotInClassTrait)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
