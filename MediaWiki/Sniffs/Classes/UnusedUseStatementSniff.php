@@ -36,16 +36,17 @@ class UnusedUseStatementSniff implements Sniff {
 	 */
 	private const CLASS_TAGS = [
 		'@param' => null,
-		'@return' => null,
-		'@throws' => null,
-		'@var' => null,
 		'@property' => null,
 		'@property-read' => null,
 		'@property-write' => null,
+		'@return' => null,
+		'@see' => null,
+		'@throws' => null,
+		'@var' => null,
 		// Deprecated
+		'@expectedException' => null,
 		'@method' => null,
 		'@type' => null,
-		'@expectedException' => null,
 	];
 
 	/**
