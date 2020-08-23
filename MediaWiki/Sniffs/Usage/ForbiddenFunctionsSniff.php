@@ -58,6 +58,8 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'shell_exec' => false,
 		'system' => false,
 		'isset' => false,
+		// resource type is going away in PHP 8.0+ (T260735)
+		'is_resource' => false,
 	];
 
 	/**
