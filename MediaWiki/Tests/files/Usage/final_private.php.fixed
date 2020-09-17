@@ -1,0 +1,25 @@
+<?php
+
+class ExampleClass {
+
+	final public function passFinalPublic() {
+		// Pass
+	}
+
+	final protected function passFinalProtected() {
+		// Pass
+	}
+
+	private function failFinalPrivate() {
+		// Fail
+	}
+
+	private function failWithDoubleSpace() {
+		// Fail
+	}
+
+	/** comment */ private function failWithComment() {
+		// Fail
+	}
+
+}
