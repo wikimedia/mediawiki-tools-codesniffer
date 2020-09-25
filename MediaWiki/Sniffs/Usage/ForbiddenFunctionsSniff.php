@@ -30,7 +30,9 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 */
 	private const FORBIDDEN_FUNCTIONS = [
 		'chop' => 'rtrim',
+		'diskfreespace' => 'disk_free_space',
 		'doubleval' => 'floatval',
+		'ini_alter' => 'ini_set',
 		'is_integer' => 'is_int',
 		'is_long' => 'is_int',
 		'is_double' => 'is_float',
@@ -40,6 +42,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'key_exists' => 'array_key_exists',
 		'pos' => 'current',
 		'sizeof' => 'count',
+		'strchr' => 'strstr',
 		'assert' => false,
 		'extract' => false,
 		// Deprecated in PHP 7.2
