@@ -52,7 +52,20 @@ class IsNullSniff implements Sniff {
 			return;
 		}
 
-		if ( $this->isComparisonWithIsNull( $phpcsFile, $stackPtr ) ) {
+		$nsToken = null;
+
+		if ( $tokens[$prevToken]['code'] === T_NS_SEPARATOR ) {
+			$nsToken = $prevToken;
+			$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, $prevToken - 1, null, true );
+			if ( $tokens[$prevToken]['code'] === T_STRING ) {
+				// Not in the global namespace.
+				return;
+			}
+		}
+
+		$hasBackslash = $nsToken === null;
+
+		if ( $this->isComparisonWithIsNull( $phpcsFile, $stackPtr, $hasBackslash ) ) {
 			$phpcsFile->addWarning(
 				'Use a comparison against null instead of is_null',
 				$stackPtr,
@@ -75,6 +88,11 @@ class IsNullSniff implements Sniff {
 		$stackPtrCloseParenthesis = $tokens[$nextToken]['parenthesis_closer'];
 
 		$phpcsFile->fixer->beginChangeset();
+
+		// remove the backslash, if in global namespace
+		if ( $nsToken !== null ) {
+			$phpcsFile->fixer->replaceToken( $nsToken, '' );
+		}
 
 		// Remove the function name.
 		$phpcsFile->fixer->replaceToken( $stackPtr, '' );
@@ -199,11 +217,14 @@ class IsNullSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
+	 * @param bool $hasBackslash
 	 * @return bool
 	 */
-	private function isComparisonWithIsNull( File $phpcsFile, $stackPtr ) {
+	private function isComparisonWithIsNull( File $phpcsFile, $stackPtr, $hasBackslash ) {
+		$prevOnStack = $hasBackslash ? 1 : 2;
+
 		$tokens = $phpcsFile->getTokens();
-		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr - 1, null, true );
+		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr - $prevOnStack, null, true );
 		$nextToken = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
 		$nextToken = $phpcsFile->findNext(
 			Tokens::$emptyTokens,
