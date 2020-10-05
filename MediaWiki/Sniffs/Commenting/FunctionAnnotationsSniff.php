@@ -97,6 +97,9 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@param-taint' => true,
 		'@return-taint' => true,
 
+		// T263390
+		'@noinspection' => true,
+
 		// Allowed mixed-case tags, mapping from all-lowercase to the expected mixed-case
 		'@beforeclass' => '@beforeClass',
 		'@afterclass' => '@afterClass',
