@@ -342,6 +342,14 @@ class TestFailedExamples {
 	 */
 	public function testUppercasePrimitiveArray( $s ) {
 	}
+
+	/**
+	 * @param object $obj
+	 * @return object
+	 */
+	public function testDocObject( $obj ) {
+		return $obj;
+	}
 }
 
 class TestPassedExamples {
@@ -448,6 +456,14 @@ class TestPassedExamples {
 	 * @param bool $b
 	 */
 	public function testLowercasePrimative( $b ) {
+	}
+
+	/**
+	 * @param Foo|Bar $obj
+	 * @return Foo|Bar
+	 */
+	public function testObjectTypehintOkay( object $obj ) : object {
+		return $obj;
 	}
 }
 

@@ -314,39 +314,49 @@
  341 | ERROR   | [x] Lowercase type of "string[]" should be used for
      |         |     @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveStringArrayParam)
- 347 | ERROR   | [ ] Only one object structure is allowed in a
+ 347 | ERROR   | [ ] `object` should not be used as a typehint. If
+     |         |     the types are known, list the relevant classes;
+     |         |     if this is meant to refer to stdClass, use
+     |         |     `stdClass` directly.
+     |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintParam)
+ 348 | ERROR   | [ ] `object` should not be used as a typehint. If
+     |         |     the types are known, list the relevant classes;
+     |         |     if this is meant to refer to stdClass, use
+     |         |     `stdClass` directly.
+     |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintReturn)
+ 355 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 416 | ERROR   | [ ] Missing function doc comment
+ 424 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 429 | WARNING | [ ] Comments should start on new line.
+ 437 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 433 | ERROR   | [ ] Expected parameter type before parameter name
+ 441 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$parser"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 434 | ERROR   | [ ] Expected parameter type before parameter name
+ 442 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$operator:"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 434 | ERROR   | [x] Param name should not end with punctuation
+ 442 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 435 | ERROR   | [ ] Expected parameter type before parameter name
+ 443 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 435 | ERROR   | [x] Default of null should be declared in @param
+ 443 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 454 | ERROR   | [ ] Only one object structure is allowed in a
+ 470 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 460 | ERROR   | [ ] Only one object structure is allowed in a
+ 476 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 461 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 477 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 464 | WARNING | [x] Use @param annotation instead of @parma
+ 480 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 474 | ERROR   | [ ] You must use "/**" style comments for a function
+ 490 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 61 MARKED SNIFF VIOLATIONS AUTOMATICALLY

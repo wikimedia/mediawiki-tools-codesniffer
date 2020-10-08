@@ -61,21 +61,21 @@ class OtherTest extends OtherExtendClass {
 class UserTest extends SpecialPage {
 
 	/**
-	 * @return object the user information.
+	 * @return User the user information.
 	 */
 	public static function passedExample() {
 		return $wgUser;
 	}
 
 	/**
-	 * @return object the user information.
+	 * @return User the user information.
 	 */
 	public function failedExample() {
 		return $wgUser;
 	}
 
 	/**
-	 * @return object the user information.
+	 * @return User the user information.
 	 */
 	public function passedExampleTwo() {
 		return $this->getUser();
@@ -90,21 +90,21 @@ abstract class RequestTest extends \ContextSource {
 	abstract public function abstractFunctionExample();
 
 	/**
-	 * @return object the request information.
+	 * @return WebRequest the request information.
 	 */
 	public static function passedExample() {
 		return $wgRequest;
 	}
 
 	/**
-	 * @return object the request information.
+	 * @return WebRequest the request information.
 	 */
 	public function failedExample() {
 		return $wgRequest;
 	}
 
 	/**
-	 * @return object the request information.
+	 * @return WebRequest the request information.
 	 */
 	public function passedExampleTwo() {
 		return $this->getRequest();
@@ -116,7 +116,7 @@ abstract class RequestTest extends \ContextSource {
  */
 class FoundTest extends \QueryPage {
 	/**
-	 * @return object the request information.
+	 * @return mixed the request information.
 	 */
 	public function foundExampleExtensionSet() {
 		global $wgMyNotConfigGlobal;
@@ -130,7 +130,7 @@ class FoundTest extends \QueryPage {
  */
 class NotFoundTest extends \ContextSource {
 	/**
-	 * @return object the request information.
+	 * @return mixed the request information.
 	 */
 	public function notFoundExampleExtensionSet() {
 		global $wgMyNotConfigGlobal;

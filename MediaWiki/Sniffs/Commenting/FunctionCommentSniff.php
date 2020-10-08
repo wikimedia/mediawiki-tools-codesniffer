@@ -271,6 +271,12 @@ class FunctionCommentSniff implements Sniff {
 				$fixType,
 				'return type'
 			);
+			$this->maybeAddObjectTypehintError(
+				$phpcsFile,
+				$retType,
+				$type,
+				'return'
+			);
 			// Check the type for short types
 			$type = $this->fixShortTypes( $phpcsFile, $retType, $type, $fixType, 'return' );
 			// Check spacing after type
@@ -499,6 +505,13 @@ class FunctionCommentSniff implements Sniff {
 						);
 					}
 				}
+
+				$this->maybeAddObjectTypehintError(
+					$phpcsFile,
+					$param['tag'],
+					$param['type'],
+					'param'
+				);
 			}
 			$fixVar = false;
 			$var = $this->fixTrailingPunctation(
@@ -781,5 +794,22 @@ class FunctionCommentSniff implements Sniff {
 			) || $fix;
 		}
 		return $typesString;
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $typesString
+	 * @param string $annotation Either "param" or "return"
+	 */
+	private function maybeAddObjectTypehintError( File $phpcsFile, $stackPtr, $typesString, $annotation ) {
+		if ( $typesString === 'object' ) {
+			$phpcsFile->addError(
+				'`object` should not be used as a typehint. If the types are known, list the relevant ' .
+					'classes; if this is meant to refer to stdClass, use `stdClass` directly.',
+				$stackPtr,
+				'ObjectTypeHint' . ucfirst( $annotation )
+			);
+		}
 	}
 }
