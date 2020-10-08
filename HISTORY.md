@@ -1,5 +1,60 @@
 # MediaWiki-Codesniffer release history #
 
+## 32.0.0 / 2020-10-26
+
+### New and changed sniffs ###
+* Enable `PSR12.Functions.NullableTypeDeclaration` (Umherirrender)
+* Enable `PSR2.ControlStructures.SwitchDeclaration` (Ed Sanders)
+* Enable `Generic.ControlStructures.DisallowYodaConditions` (Ed Sanders)
+* Add RedundantVarNameSniff from WikibaseCodeSniffer (Thiemo Kreuz (WMDE))
+* Add AlphabeticArraySortSniff based on presence of `@phpcs-require-sorted-array` tags (Umherirrender)
+* Add UnaryMinusSpacing to remove spaces after unary minus (DannyS712)
+* `RedundantVarNameSniff`: Add understanding of legacy "var" keyword (Thiemo Kreuz)
+* `NullableTypeSniff`: Fix handling of nullable type with default null (Arlo Breault)
+* `UnusedGlobalVariablesSniff`: add support for closures (Umherirrender)
+* `ExtendClassUsageSniff`: Expand subclasses of ContextSource and SpecialPage (DannyS712)
+* `ForbiddenFunctionsSniff`: Disallow is_resource() (Kunal Mehta)
+* `ForbiddenFunctionsSniff`: Disallow diskfreespace(), ini_alter(), and strchr() (Thiemo Kreuz)
+* `FullQualifiedClassNameSniff`: Optional sniff that enforces using `use` statements (Thiemo Kreuz)
+* `FunctionCommentSniff`: Handle empty type when adding null default (Umherirrender)
+* `FunctionCommentSniff`: Fix handling of nullable doc with nullable type and default null (Arlo Breault)
+* `FunctionCommentSniff`: Enforce lowercase primitive types (DannyS712)
+* `FunctionCommentSniff`: Error on `object` typehints (DannyS712)
+* Move FunctionCommentSniff annotation checks to FunctionAnnotationSniff (DannyS712)
+* Move FunctionCommentSniff EmptySees check to new EmptyTagSniff (DannyS712)
+* `FunctionAnnotationsSniff`: Normalize @exception to @throws (Umherirrender)
+* `FunctionAnnotationsSniff`: Allow `@beforeClass` and `@afterClass` (Timo Tijhof)
+* `FunctionAnnotationsSniff`: Allow @noinspection (DannyS712)
+* `IsNullSniff`: handle backslash-prefixed is_null usage (Michael Moll)
+* `MisleadingGlobalNamesSniff`: Add a sniff for `$wg*` variables that aren't globals (DannyS712)
+* `PHPUnitAssertEqualsSniff`: Report particularly confusing assertNotEquals( false ) (Thiemo Kreuz)
+* `PropertyDocumentationSniff`: Add to validate @var on class properties (Umherirrender)
+* `UnusedUseStatementSniff`: Recognize used classes even if variable/type in a tag are flipped (Thiemo Kreuz)
+* `UnusedUseStatementSniff`: Detect uses in @see tags (Gergő Tisza)
+* Support PHP 8's T_NULLSAFE_OBJECT_OPERATOR (Umherirrender)
+
+### Code cleanup and testing ###
+* Simplify IfElseStructureSniff (Umherirrender)
+* Fix possible index error in ParenthesesAroundKeywordSniff (Thiemo Kreuz)
+* Fix possible index error in SpaceyParenthesisSniff (Thiemo Kreuz)
+* Fix possible index error in SpaceAfterControlStructureSniff (Thiemo Kreuz)
+* Fix possible index error in ReferenceThisSniff (Thiemo Kreuz)
+* Fix ValidGlobalNameSniff possibly running in an endless loop (Thiemo Kreuz)
+* Fix one more index error in ParenthesesAroundKeywordSniff (Thiemo Kreuz)
+* Significant simplification of UnusedGlobalVariables sniff (Thiemo Kreuz)
+* Full rewrite of the UnsortedUseStatementsSniff (Thiemo Kreuz)
+* Set tab width correctly in test runner (Ed Sanders)
+* Fix handling of comment string for MissingReturnType (Umherirrender)
+
+### Documentation, dependencies and build changes ###
+* Relax composer/semver constraint (Reedy)
+* Replaced jakub-onderka/php-parallel-lint with php-parallel-lint/php-parallel-lint and updated to 1.2.0 (Umherirrender)
+* Replaced jakub-onderka/php-console-highlighter with php-parallel-lint/php-console-highlighter and updated to 0.5.0 (Umherirrender)
+* Update mediawiki/minus-x to 1.1.0 (Umherirrender)
+* Update squizlabs/php_codesniffer to 3.5.8 (Umherirrender)
+* Update mediawiki/mediawiki-phan-config to 0.10.3 (libraryupgrader)
+* Declare type `phpcodesniffer-standard` in composer.json (DannyS712)
+
 ## 31.0.0 / 2020-06-22
 
 ### New and changed sniffs ###
