@@ -134,8 +134,9 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 		$cur = $startTok['scope_opener'];
 		$end = $startTok['scope_closer'];
 		$checkMethods = array_merge( self::CHECK_METHODS, self::FORBIDDEN_ATTRIBUTE_METHODS );
+		$nextToken = [ T_PAAMAYIM_NEKUDOTAYIM, T_OBJECT_OPERATOR, T_NULLSAFE_OBJECT_OPERATOR ];
 
-		$cur = $phpcsFile->findNext( [ T_PAAMAYIM_NEKUDOTAYIM, T_OBJECT_OPERATOR ], $cur + 1, $end );
+		$cur = $phpcsFile->findNext( $nextToken, $cur + 1, $end );
 		while ( $cur !== false ) {
 			$prev = $phpcsFile->findPrevious( Tokens::$emptyTokens, $cur - 1, null, true );
 			if (
@@ -172,7 +173,7 @@ class PHPUnitDeprecatedMethodsSniff implements Sniff {
 				$cur = $funcTok;
 			}
 
-			$cur = $phpcsFile->findNext( [ T_PAAMAYIM_NEKUDOTAYIM, T_OBJECT_OPERATOR ], $cur + 1, $end );
+			$cur = $phpcsFile->findNext( $nextToken, $cur + 1, $end );
 		}
 	}
 

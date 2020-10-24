@@ -57,7 +57,7 @@ class ReferenceThisSniff implements Sniff {
 			if ( $after !== false &&
 				in_array(
 					$tokens[$after]['code'],
-					[ T_OBJECT_OPERATOR, T_OPEN_SQUARE_BRACKET, T_DOUBLE_COLON ]
+					[ T_OBJECT_OPERATOR, T_NULLSAFE_OBJECT_OPERATOR, T_OPEN_SQUARE_BRACKET, T_DOUBLE_COLON ]
 				)
 			) {
 				return;

@@ -98,6 +98,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		$ignore = [
 			T_DOUBLE_COLON => true,
 			T_OBJECT_OPERATOR => true,
+			T_NULLSAFE_OBJECT_OPERATOR => true,
 			T_FUNCTION => true,
 			T_CONST => true,
 		];

@@ -53,6 +53,7 @@ class DirUsageSniff implements Sniff {
 		// Check if it's a PHP function
 		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr - 1, null, true );
 		if ( $tokens[$prevToken]['code'] === T_OBJECT_OPERATOR
+			|| $tokens[$prevToken]['code'] === T_NULLSAFE_OBJECT_OPERATOR
 			|| $tokens[$prevToken]['code'] === T_DOUBLE_COLON
 			|| $tokens[$prevToken]['code'] === T_FUNCTION
 			|| $tokens[$prevToken]['code'] === T_CONST
