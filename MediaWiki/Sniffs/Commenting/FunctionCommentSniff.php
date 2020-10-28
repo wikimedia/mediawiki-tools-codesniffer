@@ -790,7 +790,7 @@ class FunctionCommentSniff implements Sniff {
 	 * @param string $annotation Either "param" or "return"
 	 */
 	private function maybeAddObjectTypehintError( File $phpcsFile, $stackPtr, $typesString, $annotation ) {
-		if ( $typesString === 'object' ) {
+		if ( $typesString === 'object' || $typesString === 'object[]' ) {
 			$phpcsFile->addError(
 				'`object` should not be used as a typehint. If the types are known, list the relevant ' .
 					'classes; if this is meant to refer to stdClass, use `stdClass` directly.',
