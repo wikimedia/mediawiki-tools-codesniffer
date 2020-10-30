@@ -1,12 +1,19 @@
 # MediaWiki-Codesniffer release history #
 
+## 33.0.0 / 2020-10-30
+
+### New and changed sniffs ###
+* Re-disable `PSR2.ControlStructures.SwitchDeclaration` (enabled in v32.0.0) due to poor fixer (James D. Forrester)
+* Add `MediaWiki.Commenting.ClassLevelDocumentation` from WikibaseCodeSniffer (Thiemo Kreuz)
+* `FunctionCommentSniff`: Expand to error on `object[]` typehints (DannyS712)
+
 ## 32.0.0 / 2020-10-26
 
 ### New and changed sniffs ###
 * Enable `PSR12.Functions.NullableTypeDeclaration` (Umherirrender)
 * Enable `PSR2.ControlStructures.SwitchDeclaration` (Ed Sanders)
 * Enable `Generic.ControlStructures.DisallowYodaConditions` (Ed Sanders)
-* Add RedundantVarNameSniff from WikibaseCodeSniffer (Thiemo Kreuz (WMDE))
+* Add RedundantVarNameSniff from WikibaseCodeSniffer (Thiemo Kreuz)
 * Add AlphabeticArraySortSniff based on presence of `@phpcs-require-sorted-array` tags (Umherirrender)
 * Add UnaryMinusSpacing to remove spaces after unary minus (DannyS712)
 * `RedundantVarNameSniff`: Add understanding of legacy "var" keyword (Thiemo Kreuz)
