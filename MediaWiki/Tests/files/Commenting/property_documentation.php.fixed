@@ -61,6 +61,9 @@ class TestPassedExamples {
 	/** @deprecated */
 	var $dep;
 
+	/** @inheritDoc */
+	public $inherit;
+
 	/**
 	 * Test should not process local vars
 	 * @param int $a1

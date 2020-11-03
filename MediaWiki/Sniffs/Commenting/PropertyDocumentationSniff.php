@@ -134,18 +134,13 @@ class PropertyDocumentationSniff implements Sniff {
 			$phpcsFile->addError( $error, $commentEnd, 'SpacingAfter' );
 		}
 		$commentStart = $tokens[$commentEnd]['comment_opener'];
-		$skipDoc = false;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagText = $tokens[$tag]['content'];
-			if ( $tagText === '@deprecated' ) {
-				// No need to validate deprecated vars
-				$skipDoc = true;
+			if ( strcasecmp( $tagText, '@inheritDoc' ) === 0 || $tagText === '@deprecated' ) {
+				// No need to validate deprecated properties or those that inherit
+				// their documentation
+				return;
 			}
-		}
-
-		if ( $skipDoc ) {
-			// Don't need to validate anything else
-			return;
 		}
 
 		$this->processVar( $phpcsFile, $commentStart );
