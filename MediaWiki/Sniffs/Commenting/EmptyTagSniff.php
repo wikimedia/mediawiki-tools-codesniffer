@@ -32,6 +32,11 @@ use PHP_CodeSniffer\Util\Tokens;
  */
 class EmptyTagSniff implements Sniff {
 
+	private const MSG_MAP = [
+		T_FUNCTION => 'function',
+		T_VARIABLE => 'property'
+	];
+
 	private const DISALLOWED_EMPTY_TAGS = [
 		'@see' => '@see'
 	];
@@ -40,7 +45,7 @@ class EmptyTagSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register() {
-		return [ T_FUNCTION ];
+		return array_keys( self::MSG_MAP );
 	}
 
 	/**
@@ -54,12 +59,36 @@ class EmptyTagSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		$find = Tokens::$methodPrefixes;
-		$find[] = T_WHITESPACE;
+		switch ( $tokens[$stackPtr]['code'] ) {
+			case T_FUNCTION:
+				$find = Tokens::$methodPrefixes;
+				$find[] = T_WHITESPACE;
+				break;
+			case T_VARIABLE:
+				// Only for class properties
+				$scopes = array_keys( $tokens[$stackPtr]['conditions'] );
+				$scope = array_pop( $scopes );
+				if ( isset( $tokens[$stackPtr]['nested_parenthesis'] )
+					|| $scope === null
+					|| ( $tokens[$scope]['code'] !== T_CLASS && $tokens[$scope]['code'] !== T_TRAIT )
+				) {
+					return;
+				}
+
+				$find = Tokens::$scopeModifiers;
+				$find[] = T_WHITESPACE;
+				$find[] = T_STATIC;
+				$find[] = T_VAR;
+				$find[] = T_NULLABLE;
+				$find[] = T_STRING;
+				break;
+			default:
+				throw new \LogicException( "Unhandled case " . $tokens[$stackPtr]['code'] );
+		}
 		$commentEnd = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
 			// Inline comments might just be closing comments for
-			// control structures or functions instead of function comments
+			// control structures or functions/properties instead of function/properties comments
 			// using the wrong comment type. If there is other code on the line,
 			// assume they relate to that code.
 			$prev = $phpcsFile->findPrevious( $find, $commentEnd - 1, null, true );
@@ -82,10 +111,10 @@ class EmptyTagSniff implements Sniff {
 				$string = $phpcsFile->findNext( T_DOC_COMMENT_STRING, $tag, $commentEnd );
 				if ( $string === false || $tokens[$string]['line'] !== $tokens[$tag]['line'] ) {
 					$phpcsFile->addError(
-						'Content missing for %s tag in function comment',
+						'Content missing for %s tag in %s comment',
 						$tag,
-						substr( $tagText, 1 ),
-						[ $tagText ]
+						ucfirst( self::MSG_MAP[$tokens[$stackPtr]['code']] ) . ucfirst( substr( $tagText, 1 ) ),
+						[ $tagText, self::MSG_MAP[$tokens[$stackPtr]['code']] ]
 					);
 				}
 			}

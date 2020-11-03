@@ -1,2 +1,4 @@
- 6 | ERROR | Content missing for @see tag in function comment
-   |       | (MediaWiki.Commenting.EmptyTag.see)
+  6 | ERROR | Content missing for @see tag in property comment
+    |       | (MediaWiki.Commenting.EmptyTag.PropertySee)
+ 12 | ERROR | Content missing for @see tag in function comment
+    |       | (MediaWiki.Commenting.EmptyTag.FunctionSee)

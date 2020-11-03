@@ -137,14 +137,7 @@ class PropertyDocumentationSniff implements Sniff {
 		$skipDoc = false;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagText = $tokens[$tag]['content'];
-			if ( $tagText === '@see' ) {
-				// Make sure the tag isn't empty.
-				$string = $phpcsFile->findNext( T_DOC_COMMENT_STRING, $tag, $commentEnd );
-				if ( $string === false || $tokens[$string]['line'] !== $tokens[$tag]['line'] ) {
-					$error = 'Content missing for @see tag in class property comment';
-					$phpcsFile->addError( $error, $tag, 'EmptySees' );
-				}
-			} elseif ( $tagText === '@deprecated' ) {
+			if ( $tagText === '@deprecated' ) {
 				// No need to validate deprecated vars
 				$skipDoc = true;
 			}
