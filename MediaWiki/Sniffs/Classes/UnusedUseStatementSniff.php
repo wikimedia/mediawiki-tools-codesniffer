@@ -309,8 +309,7 @@ class UnusedUseStatementSniff implements Sniff {
 		$i = $stackPtr;
 		do {
 			$phpcsFile->fixer->replaceToken( $i, '' );
-			$i++;
-		} while ( isset( $tokens[$i] ) && $tokens[$i]['code'] !== T_SEMICOLON );
+		} while ( $tokens[$i++]['code'] !== T_SEMICOLON && isset( $tokens[$i] ) );
 
 		// Also remove whitespace after the semicolon (new lines).
 		while ( isset( $tokens[$i] )

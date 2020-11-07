@@ -12,9 +12,11 @@ use TestTrait;
 use function array_values;
 use const M_EULER;
 
+
 /**
  * @file comment
  */
+
 
 class Test extends MediaWikiLangTestCase {
 	use TestTrait;

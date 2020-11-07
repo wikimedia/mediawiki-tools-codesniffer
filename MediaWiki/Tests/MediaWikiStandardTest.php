@@ -58,9 +58,14 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 			if ( substr( $file, -4 ) !== '.php' ) {
 				continue;
 			}
+
+			$dirStandard = $standard;
+			if ( file_exists( $dir->getPath() . '/.phpcs.xml' ) ) {
+				$dirStandard = $dir->getPath() . '/.phpcs.xml';
+			}
 			$tests[$dir->getFilename()] = [
 				$file,
-				$standard,
+				$dirStandard,
 				"$file.expect"
 			];
 		}

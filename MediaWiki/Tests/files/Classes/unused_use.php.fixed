@@ -21,7 +21,7 @@ use Something\Something;
 use Something\That\Is\Used;
 use Something\UsedForPhanVar;
 use Something\UsedForPhanVarComplex;
-use Something\UsedForPhanVarForce;
+use \Something\UsedForPhanVarForce;
 use Something\UsedForVar;
 use Wikimedia\Database;
 use Wikimedia\Rdbms\ILBFactory;
@@ -52,12 +52,12 @@ class Foo {
 	private $thing;
 
 	/**
-	 * @var InAVar2|null
+	 * @var InAVar2|null $thing2
 	 */
 	var $thing2;
 
 	/**
-	 * @var null|InAVar3
+	 * @var $thing3 null|InAVar3
 	 */
 	private ?InAVar3 $thing3;
 

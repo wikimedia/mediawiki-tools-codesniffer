@@ -8,8 +8,7 @@ use Class3;
 use function function1;
 use function function2;
 use const CONST1;
-use Const CONST2; /* more empty tokens */
-
+use Const CONST2 /* more empty tokens */ ;
 /* empty tokens between statements */
 
 $a = ( new Class1(

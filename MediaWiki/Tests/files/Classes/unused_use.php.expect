@@ -1,47 +1,18 @@
-   4 | WARNING | [x] Unnecessary use statement in the same
-     |         |     namespace
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
-   5 | WARNING | [x] Unused use statement
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
-   5 | ERROR   | [x] Import statements must not begin with a leading
-     |         |     backslash
-     |         |     (PSR12.Files.ImportStatement.LeadingSlash)
-  23 | WARNING | [x] Unused use statement
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
-  27 | ERROR   | [x] Import statements must not begin with a leading
-     |         |     backslash
-     |         |     (PSR12.Files.ImportStatement.LeadingSlash)
-  29 | WARNING | [x] Unused use statement
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
-  32 | WARNING | [x] Unused use statement
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
-  33 | WARNING | [x] Unnecessary use statement in the same
-     |         |     namespace
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
-  33 | WARNING | [ ] Comments should start on new line.
-     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
-  34 | WARNING | [x] Unnecessary use statement in the same
-     |         |     namespace
-     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
-  52 | ERROR   | [ ] Only one object structure is allowed in a
-     |         |     file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-  62 | ERROR   | [x] Found redundant variable name $thing2 in
-     |         |     @var
-     |         |     (MediaWiki.Commenting.RedundantVarName.Found)
-  64 | ERROR   | [ ] The var keyword must not be used to declare a
-     |         |     property
-     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
-  64 | ERROR   | [ ] Visibility must be declared on property
-     |         |     "$thing2"
-     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
-  64 | ERROR   | [ ] Scope modifier not specified for member variable
-     |         |     "$thing2"
-     |         |     (Squiz.Scope.MemberVarScope.Missing)
-  67 | ERROR   | [x] Found redundant variable name $thing3 in
-     |         |     @var
-     |         |     (MediaWiki.Commenting.RedundantVarName.Found)
- 142 | ERROR   | [ ] Only one object structure is allowed in a
-     |         |     file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+  4 | WARNING | [x] Unnecessary use statement in the same
+    |         |     namespace
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+  5 | WARNING | [x] Unused use statement
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 23 | WARNING | [x] Unused use statement
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 29 | WARNING | [x] Unused use statement
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 32 | WARNING | [x] Unused use statement
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 33 | WARNING | [x] Unnecessary use statement in the same
+    |         |     namespace
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+ 34 | WARNING | [x] Unnecessary use statement in the same
+    |         |     namespace
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
