@@ -68,6 +68,8 @@ class FunctionCommentSniff implements Sniff {
 		'Object[]' => 'object[]',
 		'String' => 'string',
 		'String[]' => 'string[]',
+		'Callable' => 'callable',
+		'Callable[]' => 'callable[]',
 	];
 
 	/**
