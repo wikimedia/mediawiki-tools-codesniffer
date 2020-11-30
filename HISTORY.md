@@ -4,7 +4,7 @@
 
 ### New and changed sniffs ###
 * Re-disable `PSR2.ControlStructures.SwitchDeclaration` (enabled in v32.0.0) due to poor fixer (James D. Forrester)
-* Add `MediaWiki.Commenting.ClassLevelDocumentation` from WikibaseCodeSniffer (Thiemo Kreuz)
+* Add `MediaWiki.Commenting.ClassLevelLicense` from WikibaseCodeSniffer (Thiemo Kreuz)
 * `FunctionCommentSniff`: Expand to error on `object[]` typehints (DannyS712)
 
 ## 32.0.0 / 2020-10-26
