@@ -69,22 +69,35 @@
  40 | ERROR   | [x] Lowercase type of "string[]" should be used for
     |         |     @var tag
     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveStringArrayVar)
- 44 | ERROR   | [ ] Only one object structure is allowed in a
+ 43 | ERROR   | [ ] `object` should not be used as a typehint. If the
+    |         |     types are known, list the relevant classes; if
+    |         |     this is meant to refer to stdClass, use
+    |         |     `stdClass` directly.
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
+ 46 | ERROR   | [x] Lowercase type of "object[]" should be used for
+    |         |     @var tag
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveObjectArrayVar)
+ 46 | ERROR   | [ ] `object` should not be used as a typehint. If the
+    |         |     types are known, list the relevant classes; if
+    |         |     this is meant to refer to stdClass, use
+    |         |     `stdClass` directly.
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
+ 50 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 59 | ERROR   | [ ] The var keyword must not be used to declare a
+ 65 | ERROR   | [ ] The var keyword must not be used to declare a
     |         |     property
     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 59 | ERROR   | [ ] Visibility must be declared on property "$d"
+ 65 | ERROR   | [ ] Visibility must be declared on property "$d"
     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 59 | ERROR   | [ ] Scope modifier not specified for member variable
+ 65 | ERROR   | [ ] Scope modifier not specified for member variable
     |         |     "$d" (Squiz.Scope.MemberVarScope.Missing)
- 62 | ERROR   | [ ] The var keyword must not be used to declare a
+ 68 | ERROR   | [ ] The var keyword must not be used to declare a
     |         |     property
     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 62 | ERROR   | [ ] Visibility must be declared on property
+ 68 | ERROR   | [ ] Visibility must be declared on property
     |         |     "$dep"
     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 62 | ERROR   | [ ] Scope modifier not specified for member variable
+ 68 | ERROR   | [ ] Scope modifier not specified for member variable
     |         |     "$dep" (Squiz.Scope.MemberVarScope.Missing)
-PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY

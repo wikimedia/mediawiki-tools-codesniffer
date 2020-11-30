@@ -25,6 +25,8 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionCommentSniff implements Sniff {
 
+	use DocumentationTypeTrait;
+
 	/**
 	 * Standard class methods that
 	 * don't require documentation
@@ -33,43 +35,6 @@ class FunctionCommentSniff implements Sniff {
 		'__toString', '__destruct',
 		'__sleep', '__wakeup',
 		'__clone'
-	];
-
-	/**
-	 * Mapping for swap short types
-	 */
-	private const SHORT_TYPE_MAPPING = [
-		'boolean' => 'bool',
-		'boolean[]' => 'bool[]',
-		'integer' => 'int',
-		'integer[]' => 'int[]',
-	];
-
-	/**
-	 * Mapping for primitive types to case correct
-	 * Cannot just detect case due to classes being uppercase
-	 *
-	 * @var string[]
-	 */
-	private const PRIMITIVE_TYPE_MAPPING = [
-		'Array' => 'array',
-		'Array[]' => 'array[]',
-		'Bool' => 'bool',
-		'Bool[]' => 'bool[]',
-		'Float' => 'float',
-		'Float[]' => 'float[]',
-		'Int' => 'int',
-		'Int[]' => 'int[]',
-		'Mixed' => 'mixed',
-		'Mixed[]' => 'mixed[]',
-		'Null' => 'null',
-		'Null[]' => 'null[]',
-		'Object' => 'object',
-		'Object[]' => 'object[]',
-		'String' => 'string',
-		'String[]' => 'string[]',
-		'Callable' => 'callable',
-		'Callable[]' => 'callable[]',
 	];
 
 	/**
@@ -707,101 +672,4 @@ class FunctionCommentSniff implements Sniff {
 		$phpcsFile->fixer->replaceToken( $fixParam['tag'] + 2, $content );
 	}
 
-	/**
-	 * @param File $phpcsFile
-	 * @param int $stackPtr
-	 * @param string $typesString
-	 * @param bool &$fix Set when autofix is needed
-	 * @param string $annotation Either "param" or "return"
-	 * @return string Updated $typesString
-	 */
-	private function fixShortTypes( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
-		$typeList = explode( '|', $typesString );
-		foreach ( $typeList as &$type ) {
-			// Corrects long types from both upper and lowercase to lowercase shorttype
-			$key = lcfirst( $type );
-			if ( isset( self::SHORT_TYPE_MAPPING[$key] ) ) {
-				$type = self::SHORT_TYPE_MAPPING[$key];
-				$code = 'NotShort' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
-				$fix = $phpcsFile->addFixableError(
-					'Short type of "%s" should be used for @%s tag',
-					$stackPtr,
-					$code,
-					[ $type, $annotation ]
-				) || $fix;
-			} elseif ( isset( self::PRIMITIVE_TYPE_MAPPING[$type] ) ) {
-				$type = self::PRIMITIVE_TYPE_MAPPING[$type];
-				$code = 'UppercasePrimitive' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
-				$fix = $phpcsFile->addFixableError(
-					'Lowercase type of "%s" should be used for @%s tag',
-					$stackPtr,
-					$code,
-					[ $type, $annotation ]
-				) || $fix;
-			}
-		}
-		return implode( '|', $typeList );
-	}
-
-	/**
-	 * @param File $phpcsFile
-	 * @param int $stackPtr
-	 * @param string $typesString
-	 * @param bool &$fix Set when autofix is needed
-	 * @param string $annotation Either "param" or "return" + "name" or "type"
-	 * @return string Updated $typesString
-	 */
-	private function fixTrailingPunctation( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
-		if ( preg_match( '/^(.*)((?:(?![\[\]_{}])\p{P})+)$/', $typesString, $matches ) ) {
-			$typesString = $matches[1];
-			$fix = $phpcsFile->addFixableError(
-				'%s should not end with punctuation "%s"',
-				$stackPtr,
-				'NotPunctuation' . str_replace( ' ', '', ucwords( $annotation ) ),
-				[ ucfirst( $annotation ), $matches[2] ]
-			) || $fix;
-		}
-		return $typesString;
-	}
-
-	/**
-	 * @param File $phpcsFile
-	 * @param int $stackPtr
-	 * @param string $typesString
-	 * @param bool &$fix Set when autofix is needed
-	 * @param string $annotation Either "param" or "return" + "name" or "type"
-	 * @return string Updated $typesString
-	 */
-	private function fixWrappedParenthesis( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
-		if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $typesString, $matches ) ) {
-			$typesString = $matches[2];
-			$fix = $phpcsFile->addFixableError(
-				'%s should not be wrapped in parenthesis; %s and %s found',
-				$stackPtr,
-				'NotParenthesis' . str_replace( ' ', '', ucwords( $annotation ) ),
-				[ ucfirst( $annotation ), $matches[1], $matches[3] ]
-			) || $fix;
-		}
-		return $typesString;
-	}
-
-	/**
-	 * @param File $phpcsFile
-	 * @param int $stackPtr
-	 * @param string $typesString
-	 * @param string $annotation Either "param" or "return"
-	 */
-	private function maybeAddObjectTypehintError( File $phpcsFile, $stackPtr, $typesString, $annotation ) {
-		$typeList = explode( '|', $typesString );
-		foreach ( $typeList as $type ) {
-			if ( $type === 'object' || $type === 'object[]' ) {
-				$phpcsFile->addError(
-					'`object` should not be used as a typehint. If the types are known, list the relevant ' .
-						'classes; if this is meant to refer to stdClass, use `stdClass` directly.',
-					$stackPtr,
-					'ObjectTypeHint' . ucfirst( $annotation )
-				);
-			}
-		}
-	}
 }

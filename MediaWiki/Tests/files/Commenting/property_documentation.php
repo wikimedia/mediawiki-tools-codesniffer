@@ -39,6 +39,12 @@ class TestFailedExamples {
 
 	/** @var String[] */
 	public $testUppercasePrimitiveArray;
+
+	/** @var object */
+	public $testObjectTypeHint;
+
+	/** @var Object[]|null */
+	public $testObjectArrayTypeHint;
 }
 
 class TestPassedExamples {
