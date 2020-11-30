@@ -319,6 +319,9 @@
      |         |     if this is meant to refer to stdClass, use
      |         |     `stdClass` directly.
      |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintParam)
+ 348 | ERROR   | [x] Lowercase type of "object[]" should be used for
+     |         |     @return tag
+     |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveObjectArrayReturn)
  348 | ERROR   | [ ] `object` should not be used as a typehint. If
      |         |     the types are known, list the relevant classes;
      |         |     if this is meant to refer to stdClass, use
@@ -359,4 +362,4 @@
  490 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
-PHPCBF CAN FIX THE 61 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 62 MARKED SNIFF VIOLATIONS AUTOMATICALLY

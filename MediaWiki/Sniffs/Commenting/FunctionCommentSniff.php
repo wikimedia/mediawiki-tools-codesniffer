@@ -260,14 +260,14 @@ class FunctionCommentSniff implements Sniff {
 				$fixType,
 				'return type'
 			);
+			// Check the type for short types
+			$type = $this->fixShortTypes( $phpcsFile, $retType, $type, $fixType, 'return' );
 			$this->maybeAddObjectTypehintError(
 				$phpcsFile,
 				$retType,
 				$type,
 				'return'
 			);
-			// Check the type for short types
-			$type = $this->fixShortTypes( $phpcsFile, $retType, $type, $fixType, 'return' );
 			// Check spacing after type
 			if ( $comment !== null ) {
 				$expectedSpaces = 1;
@@ -495,12 +495,6 @@ class FunctionCommentSniff implements Sniff {
 					}
 				}
 
-				$this->maybeAddObjectTypehintError(
-					$phpcsFile,
-					$param['tag'],
-					$param['type'],
-					'param'
-				);
 			}
 			$fixVar = false;
 			$var = $this->fixTrailingPunctation(
@@ -585,6 +579,12 @@ class FunctionCommentSniff implements Sniff {
 			);
 			// Check the short type of boolean and integer
 			$type = $this->fixShortTypes( $phpcsFile, $param['tag'], $type, $fixType, 'param' );
+			$this->maybeAddObjectTypehintError(
+				$phpcsFile,
+				$param['tag'],
+				$type,
+				'param'
+			);
 			$explodedType = $type === '' ? [] : explode( '|', $type );
 			$nullableDoc = substr( $type, 0, 1 ) === '?';
 			$nullFound = false;
@@ -792,13 +792,16 @@ class FunctionCommentSniff implements Sniff {
 	 * @param string $annotation Either "param" or "return"
 	 */
 	private function maybeAddObjectTypehintError( File $phpcsFile, $stackPtr, $typesString, $annotation ) {
-		if ( $typesString === 'object' || $typesString === 'object[]' ) {
-			$phpcsFile->addError(
-				'`object` should not be used as a typehint. If the types are known, list the relevant ' .
-					'classes; if this is meant to refer to stdClass, use `stdClass` directly.',
-				$stackPtr,
-				'ObjectTypeHint' . ucfirst( $annotation )
-			);
+		$typeList = explode( '|', $typesString );
+		foreach ( $typeList as $type ) {
+			if ( $type === 'object' || $type === 'object[]' ) {
+				$phpcsFile->addError(
+					'`object` should not be used as a typehint. If the types are known, list the relevant ' .
+						'classes; if this is meant to refer to stdClass, use `stdClass` directly.',
+					$stackPtr,
+					'ObjectTypeHint' . ucfirst( $annotation )
+				);
+			}
 		}
 	}
 }

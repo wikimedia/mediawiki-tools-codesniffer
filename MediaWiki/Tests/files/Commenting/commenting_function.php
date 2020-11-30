@@ -345,10 +345,10 @@ class TestFailedExamples {
 
 	/**
 	 * @param object $obj
-	 * @return object
+	 * @return Object[]
 	 */
 	public function testDocObject( $obj ) {
-		return $obj;
+		return [ $obj ];
 	}
 }
 
