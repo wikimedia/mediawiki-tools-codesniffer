@@ -1,0 +1,38 @@
+<?php
+
+// @phpcs:disable MediaWiki.PHPUnit.AssertEquals
+
+class AssertionsCountTest extends \PHPUnit\Framework\TestCase {
+
+	/**
+	 * @param int $a
+	 * @param int $b
+	 * @return int
+	 */
+	private function add( $a, $b = 0 ) {
+		return $a + $b;
+	}
+
+	/** @coversNothing */
+	public function testAssertions() {
+		$arr = [ 'a', 'b', 'c' ];
+		$c = 3;
+
+		// Simple cases
+		$this->assertCount( 3, $arr );
+		$this->assertCount( 3, $arr, 'Message' );
+		$this->assertCount( 3, $arr );
+		$this->assertCount( 3, $arr, 'Message' );
+
+		// More complex
+		$this->assertCount( 1 + 2, $arr );
+		$this->assertCount( $this->add( 3 ), $arr );
+		$this->assertCount( [ 0, 1, 2, 3 ][ 3 ], $arr );
+		$this->assertCount( $this->add( 1, 2 ), $arr );
+		$this->assertCount( $c, $arr );
+		$this->assertCount( $this->add( 1, count( [ 1, 2 ] ) ), $arr );
+
+		// Not replaced
+		$this->assertSame( 6, count( $arr ) * 2 );
+	}
+}
