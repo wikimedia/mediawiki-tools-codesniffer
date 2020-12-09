@@ -100,10 +100,6 @@
 		<exclude name="PSR2.Classes.ClassDeclaration.ExtendsLine" />
 	</rule>
 	<rule ref="PSR2.Classes.PropertyDeclaration" />
-	<rule ref="PSR2.Classes.PropertyDeclaration.Multiple">
-		<!-- We tend to declare multiple properties with one statement -->
-		<severity>0</severity>
-	</rule>
 	<rule ref="Generic.ControlStructures.InlineControlStructure" />
 	<rule ref="PSR2.Files.EndFileNewline" />
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration" />
