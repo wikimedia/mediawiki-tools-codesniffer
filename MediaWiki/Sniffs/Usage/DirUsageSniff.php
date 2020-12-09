@@ -33,8 +33,8 @@ class DirUsageSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		// Check if the function is dirname()
-		if ( strcasecmp( $tokens[$stackPtr]['content'], 'dirname' ) !== 0 ) {
+		// Don't compare strings that aren't functions anyway, e.g. class names
+		if ( !$tokens[$stackPtr]['conditions'] || $tokens[$stackPtr]['content'] !== 'dirname' ) {
 			return;
 		}
 

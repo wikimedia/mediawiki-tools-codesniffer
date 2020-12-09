@@ -31,12 +31,12 @@ class InArrayUsageSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 
 		// Continue only if the string we found is wrapped in at least one parenthesis
-		if ( empty( $tokens[$stackPtr]['nested_parenthesis'] ) ) {
+		if ( !isset( $tokens[$stackPtr]['nested_parenthesis'] ) ) {
 			return;
 		}
 
-		if ( strcasecmp( $tokens[$stackPtr]['content'], 'array_flip' ) !== 0
-			&& strcasecmp( $tokens[$stackPtr]['content'], 'array_keys' ) !== 0
+		if ( $tokens[$stackPtr]['content'] !== 'array_flip'
+			&& $tokens[$stackPtr]['content'] !== 'array_keys'
 		) {
 			return;
 		}
