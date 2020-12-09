@@ -38,7 +38,17 @@ class EmptyTagSniff implements Sniff {
 	];
 
 	private const DISALLOWED_EMPTY_TAGS = [
-		'@see' => '@see'
+		// There are separate sniffs that cover @param, @return, @throws, and @covers
+		'@access' => '@access',
+		'@author' => '@author',
+		'@dataProvider' => '@dataProvider',
+		'@depends' => '@depends',
+		'@group' => '@group',
+		'@license' => '@license',
+		'@link' => '@link',
+		'@see' => '@see',
+		'@since' => '@since',
+		'@suppress' => '@suppress',
 	];
 
 	/**
@@ -98,7 +108,7 @@ class EmptyTagSniff implements Sniff {
 		}
 
 		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG ) {
-			// Not multiline documentation, won't have @see tags
+			// Not multiline documentation, won't have the tags we're looking for
 			return;
 		}
 
