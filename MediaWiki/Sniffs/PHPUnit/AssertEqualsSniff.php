@@ -137,6 +137,9 @@ class AssertEqualsSniff implements Sniff {
 			$fixer->replaceToken( $stackPtr, $fix );
 			$fixer->replaceToken( $expected, '' );
 			$fixer->replaceToken( $expected + 1, '' );
+			if ( $tokens[$expected + 2]['code'] === T_WHITESPACE ) {
+				$fixer->replaceToken( $expected + 2, '' );
+			}
 		} elseif ( $fix ) {
 			$fixer->replaceToken( $stackPtr, 'assertSame' );
 		}
