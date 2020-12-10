@@ -25,6 +25,8 @@ namespace MediaWiki\Reports;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Reports\Report;
+use SebastianBergmann\Diff\Line;
+use SebastianBergmann\Diff\Parser;
 
 // ignore phan complaining about unused parameters that must be declared to inheritance
 // @phan-file-suppress PhanUnusedPublicMethodParameter
@@ -40,7 +42,7 @@ use PHP_CodeSniffer\Reports\Report;
  *
  * @see https://gerrit.wikimedia.org/r/Documentation/config-robot-comments.html
  * @see https://gerrit.wikimedia.org/r/Documentation/rest-api-changes.html#set-review
- * @see https://gerrit.wikimedia.org/r/Documentation/rest-api-changes.html#robot-comment-info
+ * @see https://gerrit-review.googlesource.com/Documentation/rest-api-changes.html#robot-comment-input
  */
 class GerritRobotComments implements Report {
 
@@ -49,6 +51,9 @@ class GerritRobotComments implements Report {
 
 	/** @var array[] */
 	private $robotComments = [];
+
+	/** @var string[] */
+	private $diffs = [];
 
 	/**
 	 * Generate a partial report for a single processed file.
@@ -70,11 +75,35 @@ class GerritRobotComments implements Report {
 			return false;
 		}
 
+		$path = $phpcsFile->path;
+		$pathPrefix = getenv( 'PHPCS_ROOT_DIR' ) ?: '';
+		$pathPrefix = rtrim( $pathPrefix, '/' ) . '/';
+		if ( $pathPrefix && strpos( $path, $pathPrefix ) === 0 ) {
+			$path = substr( $path, strlen( $pathPrefix ) );
+		}
+
 		foreach ( $report['messages'] as $line => $lineIssues ) {
 			foreach ( $lineIssues as $columnIssues ) {
 				foreach ( $columnIssues as $issue ) {
-					$this->processIssue( $phpcsFile, $line, $issue['message'], $issue['source'], $issue['type'] );
+					$this->processIssue( $path, $line, $issue['message'], $issue['source'], $issue['type'] );
 				}
+			}
+		}
+
+		// Based on the Diff report.
+		if ( $phpcsFile->getFixableCount() ) {
+			$phpcsFile->disableCaching();
+			$tokens = $phpcsFile->getTokens();
+			if ( !$tokens === true ) {
+				$phpcsFile->parse();
+				$phpcsFile->fixer->startFile( $phpcsFile );
+			}
+			$fixed = $phpcsFile->fixer->fixFile();
+			if ( $fixed ) {
+				$diff = $phpcsFile->fixer->generateDiff( null, false );
+				// PHPCS generates diffs via a temporary file so we end up with a weird filename. Fix that.
+				$diff = preg_replace( '/^\+\+\+ PHP_CodeSniffer/m', "+++ $path", $diff );
+				$this->diffs[$path] = $diff;
 			}
 		}
 
@@ -107,15 +136,21 @@ class GerritRobotComments implements Report {
 		$interactive = false,
 		$toScreen = true
 	) {
+		foreach ( $this->diffs as $file => $diff ) {
+			$fixComment = $this->makeRobotComment( 0, 'Click "SHOW FIX" to automatically fix all issues in this file'
+				. ' (click "APPLY FIX" then "PUBLISH EDIT" afterwards).', self::TYPE_ERROR );
+			$fixComment['fix_suggestions'][] = $this->makeFixSuggestionInfoFromDiff( $file, $diff );
+			$this->robotComments[$file][] = $fixComment;
+		}
+
 		if ( !$this->robotComments ) {
 			return;
 		}
-
 		echo json_encode( $this->robotComments, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) . PHP_EOL;
 	}
 
 	/**
-	 * @param File $phpcsFile
+	 * @param string $file
 	 * @param int $line
 	 * @param string $message Human-readable error message
 	 * @param string $source Sniff name
@@ -123,20 +158,14 @@ class GerritRobotComments implements Report {
 	 * @return void
 	 */
 	protected function processIssue(
-		File $phpcsFile,
+		string $file,
 		int $line,
 		string $message,
 		string $source,
 		string $type
 	) {
-		$path = $phpcsFile->path;
-		$pathPrefix = getenv( 'PHPCS_ROOT_DIR' ) ?: '';
-		$pathPrefix = rtrim( $pathPrefix, '/' ) . '/';
-		if ( $pathPrefix && strpos( $path, $pathPrefix ) === 0 ) {
-			$path = substr( $path, strlen( $pathPrefix ) );
-		}
 		$finalMessage = "$message\n($source)";
-		$this->robotComments[$path][] = $this->makeRobotComment( $line, $finalMessage, $type );
+		$this->robotComments[$file][] = $this->makeRobotComment( $line, $finalMessage, $type );
 	}
 
 	/**
@@ -146,7 +175,7 @@ class GerritRobotComments implements Report {
 	 * @param string $message
 	 * @param string $type
 	 * @return array A JSON-compatible data structure.
-	 * @see https://gerrit.wikimedia.org/r/Documentation/rest-api-changes.html#robot-comment-info
+	 * @see https://gerrit.wikimedia.org/r/Documentation/rest-api-changes.html#robot-comment-input
 	 */
 	protected function makeRobotComment(
 		int $line,
@@ -162,6 +191,59 @@ class GerritRobotComments implements Report {
 			'message' => $message,
 			'unresolved' => $type === self::TYPE_ERROR,
 		];
+	}
+
+	/**
+	 * Create a FixSuggestionInfo, a data structure used by the Gerrit API to create a robot
+	 * comment describing a CI error, optionally with an attached fix.
+	 * @param string $file Path to file
+	 * @param string $diffString Changes in unified diff format
+	 * @return array A JSON-compatible data structure.
+	 * @see https://gerrit.wikimedia.org/r/Documentation/rest-api-changes.html#fix-suggestion-info
+	 */
+	protected function makeFixSuggestionInfoFromDiff(
+		string $file,
+		string $diffString
+	) {
+		$info = [
+			'description' => 'PHPCS fixes',
+			'replacements' => [],
+		];
+
+		$diffParser = new Parser();
+		$diffs = $diffParser->parse( $diffString );
+
+		foreach ( $diffs as $diff ) {
+			foreach ( $diff->getChunks() as $chunk ) {
+				$started = false;
+				$startLine = $endLine = $chunk->getStart();
+				$replacement = [];
+				foreach ( $chunk->getLines() as $line ) {
+					if ( $line->getType() === Line::ADDED ) {
+						$started = true;
+						$replacement[] = $line->getContent();
+					} elseif ( $line->getType() === Line::REMOVED ) {
+						$started = true;
+						$endLine++;
+					} elseif ( !$started ) {
+						$startLine++;
+						$endLine++;
+					}
+				}
+				$info['replacements'][] = [
+					'path' => $file,
+					'range' => [
+						'start_line' => $startLine,
+						'start_character' => 0,
+						'end_line' => $endLine,
+						'end_character' => 0,
+					],
+					'replacement' => implode( PHP_EOL, $replacement ) . PHP_EOL,
+				];
+			}
+		}
+
+		return $info;
 	}
 
 }
