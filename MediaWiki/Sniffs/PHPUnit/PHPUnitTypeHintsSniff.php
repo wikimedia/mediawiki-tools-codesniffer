@@ -25,6 +25,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * they were added in PHPUnit 8
  */
 class PHPUnitTypeHintsSniff implements Sniff {
+	use PHPUnitTestTrait;
+
 	/**
 	 * @inheritDoc
 	 */
@@ -33,28 +35,12 @@ class PHPUnitTypeHintsSniff implements Sniff {
 	}
 
 	/**
-	 * Set of PHPUnit base classes, without leading backslash
-	 */
-	private const PHPUNIT_CLASSES = [
-		'MediaWikiTestCase' => true,
-		'MediaWikiUnitTestCase' => true,
-		'MediaWikiIntegrationTestCase' => true,
-		'PHPUnit_Framework_TestCase' => true,
-		// This class may be 'use'd, but checking for that would be complicated
-		'PHPUnit\\Framework\\TestCase' => true,
-	];
-
-	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		$extendedClass = ltrim( $phpcsFile->findExtendedClassName( $stackPtr ), '\\' );
-		if (
-			!$this->isTestClass( $phpcsFile, $stackPtr ) &&
-			!array_key_exists( $extendedClass, self::PHPUNIT_CLASSES )
-		) {
+		if ( !$this->inTestClass( $phpcsFile, $stackPtr ) ) {
 			return;
 		}
 
@@ -104,19 +90,5 @@ class PHPUnitTypeHintsSniff implements Sniff {
 			}
 			$cur = $phpcsFile->findNext( T_FUNCTION, $cur + 1, $end );
 		}
-	}
-
-	/**
-	 * @see PhpunitAnnotationsSniff::isTestClass
-	 * @todo It would be great to have a common interface
-	 *
-	 * @param File $phpcsFile
-	 * @param int $classPtr
-	 * @return bool
-	 */
-	private function isTestClass( File $phpcsFile, $classPtr ) {
-		return (bool)preg_match(
-			'/(?:Test(?:Case)?(?:Base)?|Suite)$/', $phpcsFile->getDeclarationName( $classPtr )
-		);
 	}
 }

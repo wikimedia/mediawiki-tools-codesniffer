@@ -20,10 +20,12 @@
 
 namespace MediaWiki\Sniffs\Commenting;
 
+use MediaWiki\Sniffs\PHPUnit\PHPUnitTestTrait;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 class PhpunitAnnotationsSniff implements Sniff {
+	use PHPUnitTestTrait;
 
 	/**
 	 * Annotations this sniff should work on
@@ -210,7 +212,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 			}
 		}
 		if ( $tokens[$objectToken]['code'] === T_CLASS &&
-			!$this->isTestClass( $phpcsFile, $objectToken )
+			!$this->inTestClass( $phpcsFile, $objectToken )
 		) {
 			$phpcsFile->addWarning(
 				'The phpunit annotation %s should only be used inside test classes.',
@@ -330,17 +332,6 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 
 		return false;
-	}
-
-	/**
-	 * @param File $phpcsFile
-	 * @param int $classPtr Token position of the class declaration
-	 * @return int
-	 */
-	private function isTestClass( File $phpcsFile, $classPtr ) {
-		return preg_match(
-			'/(?:Test(?:Case)?(?:Base)?|Suite)$/', $phpcsFile->getDeclarationName( $classPtr )
-		);
 	}
 
 	/**

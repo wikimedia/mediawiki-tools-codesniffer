@@ -26,17 +26,7 @@ use PHP_CodeSniffer\Util\Tokens;
  * @fixme Avoid duplication with other PHPUnit-related sniffs
  */
 class DeprecatedPHPUnitMethodsSniff implements Sniff {
-	/**
-	 * Set of PHPUnit base classes, without leading backslash
-	 */
-	private const PHPUNIT_CLASSES = [
-		'MediaWikiTestCase' => true,
-		'MediaWikiUnitTestCase' => true,
-		'MediaWikiIntegrationTestCase' => true,
-		'PHPUnit_Framework_TestCase' => true,
-		// This class may be 'use'd, but checking for that would be complicated
-		'PHPUnit\\Framework\\TestCase' => true,
-	];
+	use PHPUnitTestTrait;
 
 	private const FORBIDDEN_ATTRIBUTE_METHODS = [
 		'assertAttributeContains',
@@ -121,11 +111,7 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 		$this->file = $phpcsFile;
 		$this->tokens = $phpcsFile->getTokens();
 
-		$extendedClass = ltrim( $phpcsFile->findExtendedClassName( $stackPtr ), '\\' );
-		if (
-			!$this->isTestClass( $phpcsFile, $stackPtr ) &&
-			!array_key_exists( $extendedClass, self::PHPUNIT_CLASSES )
-		) {
+		if ( !$this->inTestClass( $phpcsFile, $stackPtr ) ) {
 			return;
 		}
 
@@ -264,20 +250,6 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 			$funcPos,
 			'AttributeMethods',
 			[ $funcName ]
-		);
-	}
-
-	/**
-	 * @see PhpunitAnnotationsSniff::isTestClass
-	 * @todo It would be great to have a common interface
-	 *
-	 * @param File $phpcsFile
-	 * @param int $classPtr
-	 * @return bool
-	 */
-	private function isTestClass( File $phpcsFile, $classPtr ) {
-		return (bool)preg_match(
-			'/(?:Test(?:Case)?(?:Base)?|Suite)$/', $phpcsFile->getDeclarationName( $classPtr )
 		);
 	}
 }
