@@ -1,0 +1,83 @@
+ 13 | WARNING | [x] assertArrayHasKey should be used instead of
+    |         |     manually using assertTrue with the result of
+    |         |     array_key_exists
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertArrayHasKey)
+ 14 | WARNING | [x] assertArrayHasKey should be used instead of
+    |         |     manually using assertTrue with the result of
+    |         |     array_key_exists
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertArrayHasKey)
+ 15 | WARNING | [x] assertArrayNotHasKey should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     array_key_exists
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertArrayNotHasKey)
+ 16 | WARNING | [x] assertArrayNotHasKey should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     array_key_exists
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertArrayNotHasKey)
+ 18 | WARNING | [x] assertContains should be used instead of manually
+    |         |     using assertTrue with the result of in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertContains)
+ 19 | WARNING | [x] assertContains should be used instead of manually
+    |         |     using assertTrue with the result of in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertContains)
+ 20 | WARNING | [x] assertContains should be used instead of manually
+    |         |     using assertTrue with the result of in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertContains)
+ 21 | WARNING | [x] assertContains should be used instead of manually
+    |         |     using assertTrue with the result of in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertContains)
+ 22 | WARNING | [x] assertContains should be used instead of manually
+    |         |     using assertTrue with the result of in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertContains)
+ 23 | WARNING | [x] assertContains should be used instead of manually
+    |         |     using assertTrue with the result of in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertContains)
+ 24 | WARNING | [x] assertNotContains should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotContains)
+ 25 | WARNING | [x] assertNotContains should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotContains)
+ 26 | WARNING | [x] assertNotContains should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotContains)
+ 27 | WARNING | [x] assertNotContains should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotContains)
+ 28 | WARNING | [x] assertNotContains should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotContains)
+ 29 | WARNING | [x] assertNotContains should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     in_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotContains)
+ 31 | WARNING | [x] assertStringNotContainsString should be used
+    |         |     instead of manually using assertFalse with the
+    |         |     result of strpos
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertStringNotContainsString)
+ 32 | WARNING | [x] assertStringNotContainsString should be used
+    |         |     instead of manually using assertFalse with the
+    |         |     result of strpos
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertStringNotContainsString)
+ 33 | WARNING | [x] assertStringContainsString should be used instead
+    |         |     of manually using assertNotFalse with the result
+    |         |     of strpos
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertStringContainsString)
+ 34 | WARNING | [x] assertStringContainsString should be used instead
+    |         |     of manually using assertNotFalse with the result
+    |         |     of strpos
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertStringContainsString)
+ 36 | WARNING | [x] assertStringContainsString should be used instead
+    |         |     of manually using assertIsInt with the result of
+    |         |     strpos
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertStringContainsString)
+ 37 | WARNING | [x] assertStringContainsString should be used instead
+    |         |     of manually using assertIsInt with the result of
+    |         |     strpos
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertStringContainsString)
+PHPCBF CAN FIX THE 22 MARKED SNIFF VIOLATIONS AUTOMATICALLY
