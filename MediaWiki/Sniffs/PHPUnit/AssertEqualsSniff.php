@@ -15,6 +15,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @license GPL-2.0-or-later
  */
 class AssertEqualsSniff implements Sniff {
+	use PHPUnitTestTrait;
 
 	private const ASSERTIONS = [
 		'assertEquals' => true,
@@ -36,6 +37,10 @@ class AssertEqualsSniff implements Sniff {
 	 * @return void|int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
+		if ( !$this->inTestClass( $phpcsFile, $stackPtr ) ) {
+			return;
+		}
+
 		$tokens = $phpcsFile->getTokens();
 		$assertion = $tokens[$stackPtr]['content'];
 
