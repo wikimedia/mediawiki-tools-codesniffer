@@ -16,6 +16,10 @@ include 'jfrpg';
 include 'krpg';
 include 'lfrpg';
 include 'rkjgjpr';
+if ( include 'jfrpg' ) {
+}
+if ( include 'jfrpg' ) {
+}
 include_once 'jfrpg';
 include_once 'krpg';
 include_once 'lfrpg';

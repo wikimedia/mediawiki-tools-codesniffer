@@ -43,48 +43,40 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		if ( !isset( $tokens[$stackPtr + 2] ) ) {
-			// Syntax error or live coding, bow out.
+
+		$opener = $phpcsFile->findNext( [ T_WHITESPACE ], $stackPtr + 1, null, true );
+		if ( $opener === false ||
+			$tokens[$opener]['code'] !== T_OPEN_PARENTHESIS ||
+			!isset( $tokens[$opener]['parenthesis_closer'] )
+		) {
+			// not a whitespace and parenthesis after the keyword, possible a comment or live coding
 			return;
 		}
 
-		$nextToken = $tokens[$stackPtr + 1];
-		$nextSecondToken = $tokens[$stackPtr + 2];
+		$fix = $phpcsFile->addFixableWarning(
+			'%s keyword must not be used as a function.',
+			$opener,
+			'ParenthesesAroundKeywords',
+			[ $tokens[$stackPtr]['content'] ]
+		);
 
-		if (
-			(
-				$nextToken['code'] === T_WHITESPACE &&
-				$nextSecondToken['code'] === T_OPEN_PARENTHESIS &&
-				isset( $nextSecondToken['parenthesis_closer'] )
-			) || (
-				$nextToken['code'] === T_OPEN_PARENTHESIS &&
-				isset( $nextToken['parenthesis_closer'] )
-			)
-		) {
-			$fix = $phpcsFile->addFixableWarning(
-				'%s keyword must not be used as a function.',
-				$stackPtr + 1,
-				'ParenthesesAroundKeywords',
-				[ $tokens[$stackPtr]['content'] ]
-			);
-			if ( $fix ) {
-				if ( $nextToken['code'] === T_OPEN_PARENTHESIS ) {
-					if ( $nextSecondToken['code'] === T_WHITESPACE ) {
-						$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
-					} else {
-						// Ensure the both tokens are not mangled together without space
-						$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
-					}
-					$closer = $nextToken['parenthesis_closer'];
-					$phpcsFile->fixer->replaceToken( $closer, '' );
-				} else {
-					$phpcsFile->fixer->replaceToken( $stackPtr + 2, '' );
-					$closer = $nextSecondToken['parenthesis_closer'];
-					$phpcsFile->fixer->replaceToken( $closer, '' );
-					if ( $tokens[$stackPtr + 3]['code'] === T_WHITESPACE ) {
-						$phpcsFile->fixer->replaceToken( $stackPtr + 3, '' );
-					}
-				}
+		if ( $fix ) {
+			if ( $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE ) {
+				// Ensure the both tokens are not mangled together without space
+				$phpcsFile->fixer->addContent( $stackPtr, ' ' );
+			}
+
+			$phpcsFile->fixer->replaceToken( $opener, '' );
+			// remove whitespace after the opener
+			if ( $tokens[$opener + 1]['code'] === T_WHITESPACE ) {
+				$phpcsFile->fixer->replaceToken( $opener + 1, '' );
+			}
+
+			$closer = $tokens[$opener]['parenthesis_closer'];
+			$phpcsFile->fixer->replaceToken( $closer, '' );
+			// remove whitespace before the closer
+			if ( $tokens[$closer - 1]['code'] === T_WHITESPACE ) {
+				$phpcsFile->fixer->replaceToken( $closer - 1, '' );
 			}
 		}
 	}
