@@ -32,11 +32,6 @@ use PHP_CodeSniffer\Util\Tokens;
  */
 class EmptyTagSniff implements Sniff {
 
-	private const MSG_MAP = [
-		T_FUNCTION => 'function',
-		T_VARIABLE => 'property'
-	];
-
 	private const DISALLOWED_EMPTY_TAGS = [
 		// There are separate sniffs that cover @param, @return, @throws, and @covers
 		'@access' => '@access',
@@ -55,7 +50,7 @@ class EmptyTagSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register() {
-		return array_keys( self::MSG_MAP );
+		return [ T_DOC_COMMENT_OPEN_TAG ];
 	}
 
 	/**
@@ -68,67 +63,56 @@ class EmptyTagSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
+		// Delay this because we typically (when there are no errors) don't need it
+		$where = null;
 
-		switch ( $tokens[$stackPtr]['code'] ) {
-			case T_FUNCTION:
-				$find = Tokens::$methodPrefixes;
-				$find[] = T_WHITESPACE;
-				break;
-			case T_VARIABLE:
-				// Only for class properties
-				$scopes = array_keys( $tokens[$stackPtr]['conditions'] );
-				$scope = array_pop( $scopes );
-				if ( isset( $tokens[$stackPtr]['nested_parenthesis'] )
-					|| $scope === null
-					|| ( $tokens[$scope]['code'] !== T_CLASS && $tokens[$scope]['code'] !== T_TRAIT )
-				) {
-					return;
-				}
+		foreach ( $tokens[$stackPtr]['comment_tags'] as $tag ) {
+			$content = $tokens[$tag]['content'];
 
-				$find = Tokens::$scopeModifiers;
-				$find[] = T_WHITESPACE;
-				$find[] = T_STATIC;
-				$find[] = T_VAR;
-				$find[] = T_NULLABLE;
-				$find[] = T_STRING;
-				break;
-			default:
-				throw new \LogicException( "Unhandled case " . $tokens[$stackPtr]['code'] );
-		}
-		$commentEnd = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
-		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
-			// Inline comments might just be closing comments for
-			// control structures or functions/properties instead of function/properties comments
-			// using the wrong comment type. If there is other code on the line,
-			// assume they relate to that code.
-			$prev = $phpcsFile->findPrevious( $find, $commentEnd - 1, null, true );
-			if ( $prev !== false && $tokens[$prev]['line'] === $tokens[$commentEnd]['line'] ) {
-				$commentEnd = $prev;
+			if ( !isset( self::DISALLOWED_EMPTY_TAGS[$content] ) ||
+				!isset( $tokens[$tag + 2] ) ||
+				// The tag is "not empty" only when it's followed by something on the same line
+				( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING &&
+					$tokens[$tag + 2]['line'] === $tokens[$tag]['line'] )
+			) {
+				continue;
 			}
-		}
 
-		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG ) {
-			// Not multiline documentation, won't have the tags we're looking for
-			return;
-		}
-
-		$commentStart = $tokens[$commentEnd]['comment_opener'];
-
-		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
-			$tagText = $tokens[$tag]['content'];
-			if ( isset( self::DISALLOWED_EMPTY_TAGS[$tagText] ) ) {
-				// Make sure the tag isn't empty.
-				$string = $phpcsFile->findNext( T_DOC_COMMENT_STRING, $tag, $commentEnd );
-				if ( $string === false || $tokens[$string]['line'] !== $tokens[$tag]['line'] ) {
-					$phpcsFile->addError(
-						'Content missing for %s tag in %s comment',
-						$tag,
-						ucfirst( self::MSG_MAP[$tokens[$stackPtr]['code']] ) . ucfirst( substr( $tagText, 1 ) ),
-						[ $tagText, self::MSG_MAP[$tokens[$stackPtr]['code']] ]
-					);
-				}
+			if ( !$where ) {
+				$where = $this->findContext( $phpcsFile, $tokens[$stackPtr]['comment_closer'] + 1 );
 			}
+
+			$phpcsFile->addError(
+				'Content missing for %s tag in %s comment',
+				$tag,
+				ucfirst( $where ) . ucfirst( substr( $content, 1 ) ),
+				[ $content, $where ]
+			);
 		}
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $start
+	 *
+	 * @return string Either "property" or "function"
+	 */
+	private function findContext( File $phpcsFile, int $start ) : string {
+		$tokens = $phpcsFile->getTokens();
+		$skip = array_merge(
+			Tokens::$emptyTokens,
+			Tokens::$methodPrefixes,
+			[
+				// Skip outdated `var` keywords as well
+				T_VAR,
+				// Skip type hints, e.g. in `public ?Foo\Bar $var`
+				T_STRING,
+				T_NS_SEPARATOR,
+				T_NULLABLE,
+			]
+		);
+		$next = $phpcsFile->findNext( $skip, $start, null, true );
+		return $tokens[$next]['code'] === T_VARIABLE ? 'property' : $tokens[$next]['content'];
 	}
 
 }

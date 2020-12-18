@@ -5,6 +5,9 @@
     |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
   7 | WARNING | [ ] @license not followed by a license
     |         |     (MediaWiki.Commenting.LicenseComment.LicenseTagEmpty)
+  7 | ERROR   | [ ] Content missing for @license tag in class
+    |         |     comment
+    |         |     (MediaWiki.Commenting.EmptyTag.ClassLicense)
   9 | WARNING | [ ] Deprecated SPDX license identifier "GPL-2.0+",
     |         |     see <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.DeprecatedLicenseTag)
