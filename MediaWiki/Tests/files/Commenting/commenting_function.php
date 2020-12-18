@@ -350,6 +350,19 @@ class TestFailedExamples {
 	public function testDocObject( $obj ) {
 		return [ $obj ];
 	}
+
+	/**
+	 * @param int $i
+	 */
+	public function testReturnTypeHint( $i ) : string {
+		return '' . $i;
+	}
+
+	/**
+	 * @param int $i
+	 */
+	public function testReturnTypeHintVoid( $i ) : void {
+	}
 }
 
 class TestPassedExamples {

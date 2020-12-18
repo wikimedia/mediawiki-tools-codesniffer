@@ -128,37 +128,42 @@ class FunctionCommentSniff implements Sniff {
 	 */
 	protected function processReturn( File $phpcsFile, $stackPtr, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
-		// Return if no scope_opener.
-		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
-			return;
-		}
 
 		// Skip constructors
 		if ( $phpcsFile->getDeclarationName( $stackPtr ) === '__construct' ) {
 			return;
 		}
 
-		$endFunction = $tokens[$stackPtr]['scope_closer'];
 		$found = false;
-		for ( $i = $endFunction - 1; $i > $stackPtr; $i-- ) {
-			$token = $tokens[$i];
-			if ( isset( $token['scope_condition'] ) && (
-				$tokens[$token['scope_condition']]['code'] === T_CLOSURE ||
-				$tokens[$token['scope_condition']]['code'] === T_FUNCTION ||
-				$tokens[$token['scope_condition']]['code'] === T_ANON_CLASS
-			) ) {
-				// Skip to the other side of the closure/inner function and continue
-				$i = $token['scope_condition'];
-				continue;
-			}
-			if ( $token['code'] === T_RETURN ) {
-				if ( isset( $tokens[$i + 1] ) && $tokens[$i + 1]['code'] === T_SEMICOLON ) {
-					// This is a `return;` so it doesn't need documentation
+		// if function has body (not abstract or part of interface)
+		if ( isset( $tokens[$stackPtr]['scope_opener'] ) ) {
+			$endFunction = $tokens[$stackPtr]['scope_closer'];
+			for ( $i = $endFunction - 1; $i > $stackPtr; $i-- ) {
+				$token = $tokens[$i];
+				if ( isset( $token['scope_condition'] ) && (
+					$tokens[$token['scope_condition']]['code'] === T_CLOSURE ||
+					$tokens[$token['scope_condition']]['code'] === T_FUNCTION ||
+					$tokens[$token['scope_condition']]['code'] === T_ANON_CLASS
+				) ) {
+					// Skip to the other side of the closure/inner function and continue
+					$i = $token['scope_condition'];
 					continue;
 				}
-				$found = true;
-				break;
+				if ( $token['code'] === T_RETURN ) {
+					if ( isset( $tokens[$i + 1] ) && $tokens[$i + 1]['code'] === T_SEMICOLON ) {
+						// This is a `return;` so it doesn't need documentation
+						continue;
+					}
+					$found = true;
+					break;
+				}
 			}
+		}
+
+		// If a return type is provided, there should be a @return
+		$returnType = $phpcsFile->getMethodProperties( $stackPtr )['return_type'];
+		if ( $returnType !== '' && $returnType !== 'void' ) {
+			$found = true;
 		}
 
 		if ( !$found ) {
