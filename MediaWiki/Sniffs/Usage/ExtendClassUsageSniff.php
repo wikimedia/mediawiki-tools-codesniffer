@@ -76,6 +76,12 @@ class ExtendClassUsageSniff implements Sniff {
 			'QueryPage' => 'ContextSource',
 			'UnlistedSpecialPage' => 'ContextSource',
 			'WantedQueryPage' => 'ContextSource',
+
+			// Subclasses of IndexPager
+			'AlphabeticPager' => 'ContextSource',
+			'RangeChronologicalPager' => 'ContextSource',
+			'ReverseChronologicalPager' => 'ContextSource',
+			'TablePager' => 'ContextSource',
 		],
 		// All details of usage need to be check.
 		'checkList' => [
