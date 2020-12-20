@@ -62,7 +62,7 @@
     |         |     (Squiz.Scope.MemberVarScope.Missing)
  34 | ERROR   | [ ] Var type missing for @var tag in class property
     |         |     comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingvarType)
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVarType)
  37 | ERROR   | [x] Lowercase type of "int" should be used for @var
     |         |     tag
     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveIntVar)

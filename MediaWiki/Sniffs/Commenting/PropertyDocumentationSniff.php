@@ -158,7 +158,7 @@ class PropertyDocumentationSniff implements Sniff {
 			}
 			if ( $content === '' ) {
 				$error = 'Var type missing for @var tag in class property comment';
-				$phpcsFile->addError( $error, $var, 'MissingvarType' );
+				$phpcsFile->addError( $error, $var, 'MissingVarType' );
 				return;
 			}
 			// The first word of the var type is the actual type
