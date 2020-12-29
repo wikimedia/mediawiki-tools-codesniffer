@@ -31,6 +31,9 @@ class TestFailedExamples {
 	/** @var int: Some text */
 	var $typeWithPuncation;
 
+	/** @var ?callable(DOMNode):(?DOMNode) T268087 */
+	public $combinator = null;
+
 	/** @var */
 	public $noType;
 

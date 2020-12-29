@@ -112,7 +112,7 @@ trait DocumentationTypeTrait {
 	 * @return string Updated $typesString
 	 */
 	private function fixTrailingPunctation( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
-		if ( preg_match( '/^(.*)((?:(?![\[\]_{}])\p{P})+)$/', $typesString, $matches ) ) {
+		if ( preg_match( '/^(.*)((?:(?![\[\]_{}()])\p{P})+)$/', $typesString, $matches ) ) {
 			$typesString = $matches[1];
 			$fix = $phpcsFile->addFixableError(
 				'%s should not end with punctuation "%s"',

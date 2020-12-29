@@ -60,22 +60,15 @@
  32 | ERROR   | [ ] Scope modifier not specified for member variable
     |         |     "$typeWithPuncation"
     |         |     (Squiz.Scope.MemberVarScope.Missing)
- 34 | ERROR   | [ ] Var type missing for @var tag in class property
+ 37 | ERROR   | [ ] Var type missing for @var tag in class property
     |         |     comment
     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVarType)
- 37 | ERROR   | [x] Lowercase type of "int" should be used for @var
+ 40 | ERROR   | [x] Lowercase type of "int" should be used for @var
     |         |     tag
     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveIntVar)
- 40 | ERROR   | [x] Lowercase type of "string[]" should be used for
+ 43 | ERROR   | [x] Lowercase type of "string[]" should be used for
     |         |     @var tag
     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveStringArrayVar)
- 43 | WARNING | [ ] `object` should rarely be used as a typehint. If
-    |         |     more specific types are known, list them. If only
-    |         |     plain anonymous objects are expected, use
-    |         |     `stdClass`. If the intent is indeed to allow any
-    |         |     object, mark it with a // phpcs:… comment or
-    |         |     set this rule's <severity> to 0.
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
  46 | WARNING | [ ] `object` should rarely be used as a typehint. If
     |         |     more specific types are known, list them. If only
     |         |     plain anonymous objects are expected, use
@@ -83,25 +76,32 @@
     |         |     object, mark it with a // phpcs:… comment or
     |         |     set this rule's <severity> to 0.
     |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
- 46 | ERROR   | [x] Lowercase type of "object[]" should be used for
+ 49 | WARNING | [ ] `object` should rarely be used as a typehint. If
+    |         |     more specific types are known, list them. If only
+    |         |     plain anonymous objects are expected, use
+    |         |     `stdClass`. If the intent is indeed to allow any
+    |         |     object, mark it with a // phpcs:… comment or
+    |         |     set this rule's <severity> to 0.
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
+ 49 | ERROR   | [x] Lowercase type of "object[]" should be used for
     |         |     @var tag
     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveObjectArrayVar)
- 50 | ERROR   | [ ] Only one object structure is allowed in a
+ 53 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 65 | ERROR   | [ ] The var keyword must not be used to declare a
-    |         |     property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 65 | ERROR   | [ ] Visibility must be declared on property "$d"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 65 | ERROR   | [ ] Scope modifier not specified for member variable
-    |         |     "$d" (Squiz.Scope.MemberVarScope.Missing)
  68 | ERROR   | [ ] The var keyword must not be used to declare a
     |         |     property
     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 68 | ERROR   | [ ] Visibility must be declared on property
-    |         |     "$dep"
+ 68 | ERROR   | [ ] Visibility must be declared on property "$d"
     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
  68 | ERROR   | [ ] Scope modifier not specified for member variable
+    |         |     "$d" (Squiz.Scope.MemberVarScope.Missing)
+ 71 | ERROR   | [ ] The var keyword must not be used to declare a
+    |         |     property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 71 | ERROR   | [ ] Visibility must be declared on property
+    |         |     "$dep"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 71 | ERROR   | [ ] Scope modifier not specified for member variable
     |         |     "$dep" (Squiz.Scope.MemberVarScope.Missing)
 PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
