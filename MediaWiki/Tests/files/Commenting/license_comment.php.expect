@@ -25,4 +25,7 @@
     |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
  16 | WARNING | [ ] @license should only be used on the top level
     |         |     (MediaWiki.Commenting.LicenseComment.LicenseTagNonFileComment)
+ 23 | ERROR   | [ ] Only one object structure is allowed in a
+    |         |     file
+    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

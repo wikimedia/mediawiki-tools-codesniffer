@@ -99,7 +99,7 @@ class LicenseCommentSniff implements Sniff {
 			);
 			return;
 		}
-		$license = $tokens[$next]['content'];
+		$license = rtrim( $tokens[$next]['content'] );
 
 		// @license can contain a url, use the text behind it
 		$m = [];

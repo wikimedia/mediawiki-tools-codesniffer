@@ -18,3 +18,7 @@ class TestExamples {
 	public function noop() {
 	}
 }
+
+/** @license GPL-2.0-or-later */
+class TestExamplesOneLine {
+}
