@@ -45,6 +45,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'strchr' => 'strstr',
 		'assert' => false,
 		'extract' => false,
+		'compact' => false,
 		// Deprecated in PHP 7.2
 		'create_function' => false,
 		'each' => false,
