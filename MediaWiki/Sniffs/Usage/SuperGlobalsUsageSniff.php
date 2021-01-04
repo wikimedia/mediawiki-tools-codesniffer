@@ -18,7 +18,8 @@ class SuperGlobalsUsageSniff implements Sniff {
 	// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Global_objects
 	private const FORBIDDEN_SUPER_GLOBALS = [
 		'$_POST' => true,
-		'$_GET' => true
+		'$_GET' => true,
+		'$_FILES' => true,
 	];
 
 	/**
