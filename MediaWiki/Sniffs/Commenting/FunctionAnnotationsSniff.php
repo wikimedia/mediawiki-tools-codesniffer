@@ -54,6 +54,7 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@since' => true,
 		'@throws' => true,
 		'@todo' => true,
+		'@uses' => true,
 		'@warning' => true,
 
 		// Automatically replaced
