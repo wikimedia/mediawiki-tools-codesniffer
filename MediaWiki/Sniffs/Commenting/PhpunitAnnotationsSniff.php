@@ -212,7 +212,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 			}
 		}
 		if ( $tokens[$objectToken]['code'] === T_CLASS &&
-			!$this->inTestClass( $phpcsFile, $objectToken )
+			!$this->isTestClass( $phpcsFile, $objectToken )
 		) {
 			$phpcsFile->addWarning(
 				'The phpunit annotation %s should only be used inside test classes.',

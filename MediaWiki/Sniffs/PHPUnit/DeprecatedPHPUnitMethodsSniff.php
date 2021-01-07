@@ -105,15 +105,15 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr Position of extends token
-	 * @return void
+	 * @return void|int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
+		if ( !$this->isTestFile( $phpcsFile, $stackPtr ) ) {
+			return $phpcsFile->numTokens;
+		}
+
 		$this->file = $phpcsFile;
 		$this->tokens = $phpcsFile->getTokens();
-
-		if ( !$this->inTestClass( $phpcsFile, $stackPtr ) ) {
-			return;
-		}
 
 		$tokens = $phpcsFile->getTokens();
 		$startTok = $tokens[$stackPtr];

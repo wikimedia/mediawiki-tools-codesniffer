@@ -3,6 +3,7 @@
 namespace MediaWiki\Sniffs\PHPUnit;
 
 use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Check if a class is a test class
@@ -27,35 +28,47 @@ trait PHPUnitTestTrait {
 
 	/**
 	 * @param File $phpcsFile
-	 * @param int $stackPtr
+	 * @param int|false $stackPtr
 	 *
 	 * @return bool
 	 */
-	private function inTestClass( File $phpcsFile, $stackPtr ) {
-		$classToken = $this->getClassToken( $phpcsFile, $stackPtr );
-
-		if ( $classToken === false ) {
-			return false;
-		}
-
-		$extendedClass = ltrim( $phpcsFile->findExtendedClassName( $classToken ), '\\' );
-		if ( array_key_exists( $extendedClass, self::$PHPUNIT_CLASSES ) ) {
-			return true;
-		}
-
-		return (bool)preg_match(
-			'/(?:Test(?:Case)?(?:Base)?|Suite)$/', $phpcsFile->getDeclarationName( $classToken )
-		);
+	private function isTestFile( File $phpcsFile, $stackPtr = false ) {
+		$classToken = $this->getClassToken( $phpcsFile, $stackPtr ) ?:
+			$phpcsFile->findNext( Tokens::$ooScopeTokens, 0 );
+		return $this->isTestClass( $phpcsFile, $classToken );
 	}
 
 	/**
 	 * @param File $phpcsFile
-	 * @param int $stackPtr
+	 * @param int|false $classToken Must point at a T_CLASS token
+	 *
+	 * @return bool
+	 */
+	private function isTestClass( File $phpcsFile, $classToken ) {
+		$tokens = $phpcsFile->getTokens();
+		if ( !$classToken || $tokens[$classToken]['code'] !== T_CLASS ) {
+			return false;
+		}
+
+		$extendedClass = ltrim( $phpcsFile->findExtendedClassName( $classToken ), '\\' );
+		return array_key_exists( $extendedClass, self::$PHPUNIT_CLASSES ) ||
+			(bool)preg_match(
+				'/(?:Test(?:Case)?(?:Base)?|Suite)$/',
+				$phpcsFile->getDeclarationName( $classToken )
+			);
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int|false $stackPtr Should point at the T_CLASS token or a token in the class
 	 *
 	 * @return int|false
 	 */
 	private function getClassToken( File $phpcsFile, $stackPtr ) {
-		// If $stackPtr isn't for T_CLASS, find the relevant T_CLASS token
+		if ( !$stackPtr ) {
+			return false;
+		}
+
 		$tokens = $phpcsFile->getTokens();
 		if ( $tokens[$stackPtr]['code'] === T_CLASS ) {
 			return $stackPtr;
@@ -66,6 +79,7 @@ trait PHPUnitTestTrait {
 				return $ptr;
 			}
 		}
+
 		return false;
 	}
 

@@ -37,8 +37,8 @@ class AssertEqualsSniff implements Sniff {
 	 * @return void|int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		if ( !$this->inTestClass( $phpcsFile, $stackPtr ) ) {
-			return;
+		if ( !$this->isTestFile( $phpcsFile, $stackPtr ) ) {
+			return $phpcsFile->numTokens;
 		}
 
 		$tokens = $phpcsFile->getTokens();
