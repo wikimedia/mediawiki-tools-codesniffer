@@ -172,12 +172,12 @@ class ExtendClassUsageSniff implements Sniff {
 		// Loop over all tokens of the class to check each function
 		$i = $currToken['scope_opener'];
 		$end = $currToken['scope_closer'];
-		$eligableFunc = null;
+		$eligibleFunc = null;
 		$endOfGlobal = null;
 		while ( $i !== false && $i < $end ) {
 			$iToken = $tokens[$i];
 			if ( $iToken['code'] === T_FUNCTION ) {
-				$eligableFunc = null;
+				$eligibleFunc = null;
 				// If this is a function, make sure it's eligible
 				// (i.e. not static or abstract, and has a body).
 				$methodProps = $phpcsFile->getMethodProperties( $i );
@@ -186,7 +186,7 @@ class ExtendClassUsageSniff implements Sniff {
 					&& isset( $iToken['scope_closer'] );
 				if ( !$isStaticOrAbstract && $hasBody ) {
 					$funcNamePtr = $phpcsFile->findNext( T_STRING, $i );
-					$eligableFunc = [
+					$eligibleFunc = [
 						'name' => $tokens[$funcNamePtr]['content'],
 						'scope_start' => $iToken['scope_opener'],
 						'scope_end' => $iToken['scope_closer']
@@ -194,9 +194,9 @@ class ExtendClassUsageSniff implements Sniff {
 				}
 			}
 
-			if ( $eligableFunc !== null
-				&& $i > $eligableFunc['scope_start']
-				&& $i < $eligableFunc['scope_end']
+			if ( $eligibleFunc !== null
+				&& $i > $eligibleFunc['scope_start']
+				&& $i < $eligibleFunc['scope_end']
 			) {
 				// Inside a eligable function,
 				// check the current token against the checklist
@@ -246,10 +246,10 @@ class ExtendClassUsageSniff implements Sniff {
 				}
 			}
 			// Jump to the next function
-			if ( $eligableFunc === null
-				|| $i >= $eligableFunc['scope_end']
+			if ( $eligibleFunc === null
+				|| $i >= $eligibleFunc['scope_end']
 			) {
-				$start = $eligableFunc === null ? $i : $eligableFunc['scope_end'];
+				$start = $eligibleFunc === null ? $i : $eligibleFunc['scope_end'];
 				$i = $phpcsFile->findNext( T_FUNCTION, $start + 1, $end );
 				continue;
 			}
