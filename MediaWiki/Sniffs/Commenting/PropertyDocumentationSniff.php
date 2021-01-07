@@ -45,10 +45,6 @@ class PropertyDocumentationSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		if ( substr( $phpcsFile->getFilename(), -8 ) === 'Test.php' ) {
-			// Don't check documentation for test cases
-			return;
-		}
 		$tokens = $phpcsFile->getTokens();
 
 		// Only for class properties
