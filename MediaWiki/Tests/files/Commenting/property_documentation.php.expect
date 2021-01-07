@@ -69,19 +69,23 @@
  40 | ERROR   | [x] Lowercase type of "string[]" should be used for
     |         |     @var tag
     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveStringArrayVar)
- 43 | ERROR   | [ ] `object` should not be used as a typehint. If the
-    |         |     types are known, list the relevant classes; if
-    |         |     this is meant to refer to stdClass, use
-    |         |     `stdClass` directly.
+ 43 | WARNING | [ ] `object` should rarely be used as a typehint. If
+    |         |     more specific types are known, list them. If only
+    |         |     plain anonymous objects are expected, use
+    |         |     `stdClass`. If the intent is indeed to allow any
+    |         |     object, mark it with a // phpcs:… comment or
+    |         |     set this rule's <severity> to 0.
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
+ 46 | WARNING | [ ] `object` should rarely be used as a typehint. If
+    |         |     more specific types are known, list them. If only
+    |         |     plain anonymous objects are expected, use
+    |         |     `stdClass`. If the intent is indeed to allow any
+    |         |     object, mark it with a // phpcs:… comment or
+    |         |     set this rule's <severity> to 0.
     |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
  46 | ERROR   | [x] Lowercase type of "object[]" should be used for
     |         |     @var tag
     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveObjectArrayVar)
- 46 | ERROR   | [ ] `object` should not be used as a typehint. If the
-    |         |     types are known, list the relevant classes; if
-    |         |     this is meant to refer to stdClass, use
-    |         |     `stdClass` directly.
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
  50 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)

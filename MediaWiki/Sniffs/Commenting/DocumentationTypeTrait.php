@@ -155,9 +155,11 @@ trait DocumentationTypeTrait {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as $type ) {
 			if ( $type === 'object' || $type === 'object[]' ) {
-				$phpcsFile->addError(
-					'`object` should not be used as a typehint. If the types are known, list the relevant ' .
-						'classes; if this is meant to refer to stdClass, use `stdClass` directly.',
+				$phpcsFile->addWarning(
+					'`object` should rarely be used as a typehint. If more specific types are ' .
+						'known, list them. If only plain anonymous objects are expected, use ' .
+						'`stdClass`. If the intent is indeed to allow any object, mark it with a ' .
+						'// phpcs:… comment or set this rule\'s <severity> to 0.',
 					$stackPtr,
 					'ObjectTypeHint' . ucfirst( $annotation )
 				);

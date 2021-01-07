@@ -314,19 +314,23 @@
  341 | ERROR   | [x] Lowercase type of "string[]" should be used for
      |         |     @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveStringArrayParam)
- 347 | ERROR   | [ ] `object` should not be used as a typehint. If
-     |         |     the types are known, list the relevant classes;
-     |         |     if this is meant to refer to stdClass, use
-     |         |     `stdClass` directly.
+ 347 | WARNING | [ ] `object` should rarely be used as a typehint. If
+     |         |     more specific types are known, list them. If
+     |         |     only plain anonymous objects are expected, use
+     |         |     `stdClass`. If the intent is indeed to allow any
+     |         |     object, mark it with a // phpcs:… comment or
+     |         |     set this rule's <severity> to 0.
      |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintParam)
+ 348 | WARNING | [ ] `object` should rarely be used as a typehint. If
+     |         |     more specific types are known, list them. If
+     |         |     only plain anonymous objects are expected, use
+     |         |     `stdClass`. If the intent is indeed to allow any
+     |         |     object, mark it with a // phpcs:… comment or
+     |         |     set this rule's <severity> to 0.
+     |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintReturn)
  348 | ERROR   | [x] Lowercase type of "object[]" should be used for
      |         |     @return tag
      |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveObjectArrayReturn)
- 348 | ERROR   | [ ] `object` should not be used as a typehint. If
-     |         |     the types are known, list the relevant classes;
-     |         |     if this is meant to refer to stdClass, use
-     |         |     `stdClass` directly.
-     |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintReturn)
  356 | ERROR   | [ ] Missing @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
  368 | ERROR   | [ ] Only one object structure is allowed in a
