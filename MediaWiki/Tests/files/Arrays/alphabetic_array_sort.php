@@ -1,6 +1,6 @@
 <?php
 
-// @phpcs:disable MediaWiki.WhiteSpace
+// phpcs:disable MediaWiki.WhiteSpace
 
 /**
  * Good example

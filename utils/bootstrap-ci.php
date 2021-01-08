@@ -24,7 +24,7 @@
  * @author Antoine Musso
  */
 
-// @phpcs:disable MediaWiki.Usage.ForbiddenFunctions.exec
+// phpcs:disable MediaWiki.Usage.ForbiddenFunctions.exec
 
 # Only filter when running from cli and using Jenkins
 if ( !( PHP_SAPI === 'cli' && getenv( 'JENKINS_URL' ) !== false ) ) {
@@ -91,4 +91,4 @@ if ( empty( $this->config->files ) ) {
 	exit( 0 );
 }
 
-// @phpcs:enable
+// phpcs:enable

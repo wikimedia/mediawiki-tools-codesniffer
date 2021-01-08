@@ -1,5 +1,5 @@
 <?php
-// @phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
+// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
 
 namespace {
 	class MissingTest extends \PHPUnit\Framework\TestCase {

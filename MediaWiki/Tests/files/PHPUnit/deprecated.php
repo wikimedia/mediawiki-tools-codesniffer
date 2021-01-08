@@ -1,5 +1,5 @@
 <?php
-// @phpcs:disable MediaWiki.Commenting.MissingCovers.MissingCovers
+// phpcs:disable MediaWiki.Commenting.MissingCovers.MissingCovers
 
 namespace {
 	class SomethingTest extends \PHPUnit\Framework\TestCase {

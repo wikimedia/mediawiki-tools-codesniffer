@@ -1,6 +1,6 @@
 <?php
 
-// @phpcs:disable Squiz.WhiteSpace.FunctionSpacing
+// phpcs:disable Squiz.WhiteSpace.FunctionSpacing
 // Unexpected behaviour - see https://github.com/squizlabs/PHP_CodeSniffer/issues/2406
 
 /**

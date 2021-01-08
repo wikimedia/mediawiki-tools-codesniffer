@@ -1,6 +1,6 @@
 <?php
 
-// @phpcs:disable MediaWiki.PHPUnit.AssertEquals
+// phpcs:disable MediaWiki.PHPUnit.AssertEquals
 
 class AssertionsCountTest extends \PHPUnit\Framework\TestCase {
 

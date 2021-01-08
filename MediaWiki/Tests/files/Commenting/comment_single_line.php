@@ -1,6 +1,6 @@
 <?php
 
-// @phpcs:disable MediaWiki.Commenting.DocComment
+// phpcs:disable MediaWiki.Commenting.DocComment
 
 /**
  * @return void
