@@ -19,6 +19,7 @@
 
 namespace MediaWiki\Sniffs\Commenting;
 
+use MediaWiki\Sniffs\PHPUnit\PHPUnitTestTrait;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
@@ -26,6 +27,7 @@ use PHP_CodeSniffer\Util\Tokens;
 class FunctionCommentSniff implements Sniff {
 
 	use DocumentationTypeTrait;
+	use PHPUnitTestTrait;
 
 	/**
 	 * Standard class methods that
@@ -53,11 +55,6 @@ class FunctionCommentSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		if ( substr( $phpcsFile->getFilename(), -8 ) === 'Test.php' ) {
-			// Don't check documentation for test cases
-			return;
-		}
-
 		$funcName = $phpcsFile->getDeclarationName( $stackPtr );
 		if ( $funcName === null || in_array( $funcName, self::SKIP_STANDARD_METHODS ) ) {
 			// Don't require documentation for an obvious method
@@ -82,7 +79,9 @@ class FunctionCommentSniff implements Sniff {
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
 			// Don't require documentation for functions with no parameters, except getters
-			if ( substr( $funcName, 0, 3 ) === 'get' || $phpcsFile->getMethodParameters( $stackPtr ) ) {
+			if ( ( substr( $funcName, 0, 3 ) === 'get' || $phpcsFile->getMethodParameters( $stackPtr ) )
+				&& !$this->isTestFile( $phpcsFile, $stackPtr )
+			) {
 				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
 				$phpcsFile->addError(
 					'Missing function doc comment',
@@ -261,7 +260,7 @@ class FunctionCommentSniff implements Sniff {
 					$type . ( $comment !== null ? ' ' . $comment : '' )
 				);
 			}
-		} else {
+		} elseif ( !$this->isTestFile( $phpcsFile, $stackPtr ) ) {
 			$error = 'Missing @return tag in function comment';
 			$phpcsFile->addError( $error, $tokens[$commentStart]['comment_closer'], 'MissingReturn' );
 		}
@@ -646,11 +645,13 @@ class FunctionCommentSniff implements Sniff {
 				);
 			}
 		}
-		// Report missing comments.
+		// Report missing comments. On tests only, when not everything is missing.
 		$missing = array_diff( array_column( $realParams, 'name' ), $foundParams );
-		foreach ( $missing as $neededParam ) {
-			$error = 'Doc comment for parameter "%s" missing';
-			$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', [ $neededParam ] );
+		if ( $foundParams !== [] || !$this->isTestFile( $phpcsFile, $stackPtr ) ) {
+			foreach ( $missing as $neededParam ) {
+				$error = 'Doc comment for parameter "%s" missing';
+				$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', [ $neededParam ] );
+			}
 		}
 	}
 
