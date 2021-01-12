@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## 19.3.0 / 2021-01-12 ##
+* Add tab-width=4 and increase line length to 120 (Sam Wilson)
+
 ## 34.0.0 / 2020-12-05
 
 ### New and changed sniffs ###
@@ -210,7 +213,7 @@
 * Allow @slowThreshold annotation in tests (Max Semenik)
 
 
-## 26.0.0 / 2019-0511 ##
+## 26.0.0 / 2019-05-11 ##
 * Update composer/spdx-licenses from 1.4.0 to 1.5.1 (Reedy)
 * Update composer/semver from 1.4.2 to 1.5.0 (Reedy)
 * Enable sniff to check for newlines between functions (Umherirrender)
@@ -243,6 +246,10 @@
 * Expand ExtendClassUsageSniff to check for config globals (Umherirrender)
 * Also exclude anonymous classes in AssignmentInReturnSniff (mainframe98)
 * Replace sniff for forbidden globals by deprecated globals (Umherirrender)
+
+
+## 19.2.0 / 2019-02-05 ##
+* Disable 'Generic.PHP.DeprecatedFunctions' sniff (Kunal Mehta)
 
 
 ## 23.0.0 / 2018-11-14 ##
