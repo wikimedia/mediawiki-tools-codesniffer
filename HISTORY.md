@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## 19.4.0 / 2021-01-12 ##
+* Replace jakub-onderka/* with php-parallel-lint/* (Reedy)
+
 ## 19.3.0 / 2021-01-12 ##
 * Add tab-width=4 and increase line length to 120 (Sam Wilson)
 
