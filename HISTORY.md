@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## 19.3.0 / 2021-01-12 ##
+* Add tab-width=4 and increase line length to 120 (Sam Wilson)
+
 ## 19.2.0 / 2019-02-05 ##
 * Disable 'Generic.PHP.DeprecatedFunctions' sniff (Kunal Mehta)
 
