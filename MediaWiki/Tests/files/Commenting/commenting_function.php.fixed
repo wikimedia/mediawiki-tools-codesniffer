@@ -478,6 +478,14 @@ class TestPassedExamples {
 	public function testObjectTypehintOkay( object $obj ) : object {
 		return $obj;
 	}
+
+	/**
+	 * @param Foo&Bar $obj
+	 * @return Foo&Bar
+	 */
+	public function testObjectTypehintOkayIntersect( object $obj ) : object {
+		return $obj;
+	}
 }
 
 class TestSimpleConstructor {

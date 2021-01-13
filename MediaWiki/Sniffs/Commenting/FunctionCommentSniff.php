@@ -347,6 +347,9 @@ class FunctionCommentSniff implements Sniff {
 							|
 							# or pairs of brackets around plain letters, never single brackets
 							\[ [^&$.\[\]]* \]
+							|
+							# allow & on intersect types, but not as pass-by-ref
+							& [^$.\[\]]
 						)*) (?:
 							# Match parameter name with variadic arg or surround by {} or []
 							( (?: \.\.\. | [\[\{] )? [&$] \S+ )

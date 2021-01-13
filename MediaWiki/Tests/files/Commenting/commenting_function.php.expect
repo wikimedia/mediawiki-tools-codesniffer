@@ -355,17 +355,17 @@
  456 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 483 | ERROR   | [ ] Only one object structure is allowed in a
+ 491 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 489 | ERROR   | [ ] Only one object structure is allowed in a
+ 497 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 490 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 498 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 493 | WARNING | [x] Use @param annotation instead of @parma
+ 501 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 503 | ERROR   | [ ] You must use "/**" style comments for a function
+ 511 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 62 MARKED SNIFF VIOLATIONS AUTOMATICALLY
