@@ -260,7 +260,7 @@ class FunctionCommentSniff implements Sniff {
 					$type . ( $comment !== null ? ' ' . $comment : '' )
 				);
 			}
-		} elseif ( !$this->isTestFile( $phpcsFile, $stackPtr ) ) {
+		} elseif ( !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
 			$error = 'Missing @return tag in function comment';
 			$phpcsFile->addError( $error, $tokens[$commentStart]['comment_closer'], 'MissingReturn' );
 		}
@@ -650,7 +650,7 @@ class FunctionCommentSniff implements Sniff {
 		}
 		// Report missing comments. On tests only, when not everything is missing.
 		$missing = array_diff( array_column( $realParams, 'name' ), $foundParams );
-		if ( $foundParams !== [] || !$this->isTestFile( $phpcsFile, $stackPtr ) ) {
+		if ( $foundParams !== [] || !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
 			foreach ( $missing as $neededParam ) {
 				$error = 'Doc comment for parameter "%s" missing';
 				$phpcsFile->addError( $error, $commentStart, 'MissingParamTag', [ $neededParam ] );

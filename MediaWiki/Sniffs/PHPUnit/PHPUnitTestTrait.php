@@ -60,6 +60,16 @@ trait PHPUnitTestTrait {
 
 	/**
 	 * @param File $phpcsFile
+	 * @param int $functionToken Token position of the function declaration
+	 * @return bool
+	 */
+	private function isTestFunction( File $phpcsFile, $functionToken ) {
+		return $this->isTestClass( $phpcsFile, $this->getClassToken( $phpcsFile, $functionToken ) )
+			&& preg_match( '/^(?:test|provide)|Provider$/', $phpcsFile->getDeclarationName( $functionToken ) );
+	}
+
+	/**
+	 * @param File $phpcsFile
 	 * @param int|false $stackPtr Should point at the T_CLASS token or a token in the class
 	 *
 	 * @return int|false

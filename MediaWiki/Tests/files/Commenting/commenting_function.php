@@ -511,3 +511,16 @@ class TestReturnConstructor {
 	public function noPhpDocComment() {
 	}
 }
+
+class TestClassTestCase {
+
+	/**
+	 * @dataProvider provideTestData
+	 */
+	public function testFunctionWithoutDocumentation( $a, $b ) {
+	}
+
+	public function provideTestData() {
+		return [ [ 'a', 'b' ] ];
+	}
+}
