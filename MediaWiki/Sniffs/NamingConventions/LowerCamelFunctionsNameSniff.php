@@ -5,10 +5,13 @@
 
 namespace MediaWiki\Sniffs\NamingConventions;
 
+use MediaWiki\Sniffs\PHPUnit\PHPUnitTestTrait;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 class LowerCamelFunctionsNameSniff implements Sniff {
+
+	use PHPUnitTestTrait;
 
 	// Magic methods.
 	private const MAGIC_METHODS = [
@@ -82,9 +85,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 			}
 
 			$pos = strpos( $functionContent, '_' );
-			$isTest = substr( $this->getClassName( $phpcsFile, $stackPtr ), -4 ) === 'Test' &&
-				preg_match( '/^(test|provide)[A-Z]|\wProvider$/', $functionContent );
-			if ( $pos !== false && !$isTest ||
+			if ( $pos !== false && !$this->isTestFunction( $phpcsFile, $stackPtr ) ||
 				$functionContent[0] !== $lowerFunctionName[0]
 			) {
 				$phpcsFile->addError(
@@ -95,23 +96,5 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 				);
 			}
 		}
-	}
-
-	/**
-	 * Gets the name of the class which the $functionPtr points into.
-	 * The stack pointer must point to a function keyword.
-	 * @param File $phpcsFile
-	 * @param int $functionPtr Pointer to a function token inside the class.
-	 * @return string|null
-	 */
-	private function getClassName( $phpcsFile, $functionPtr ) {
-		$tokens = $phpcsFile->getTokens();
-		$token = $tokens[$functionPtr];
-		foreach ( $token['conditions'] as $ptr => $type ) {
-			if ( $type === T_CLASS ) {
-				return $phpcsFile->getDeclarationName( $ptr );
-			}
-		}
-		return null;
 	}
 }

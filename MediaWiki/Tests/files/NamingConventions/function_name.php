@@ -2,7 +2,7 @@
 /**
  * Normal (non-unit-test) class.
  */
-class NotATestCase {
+class NotATestClassCase {
 	/**
 	 * Lower camel case.
 	 * @return void
