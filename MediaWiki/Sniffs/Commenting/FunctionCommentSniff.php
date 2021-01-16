@@ -34,9 +34,22 @@ class FunctionCommentSniff implements Sniff {
 	 * don't require documentation
 	 */
 	private const SKIP_STANDARD_METHODS = [
-		'__toString', '__destruct',
-		'__sleep', '__wakeup',
-		'__clone'
+		'__toString',
+		'__destruct',
+		'__sleep',
+		'__wakeup',
+		'__clone',
+		'__invoke',
+		'__call',
+		'__callStatic',
+		'__get',
+		'__set',
+		'__isset',
+		'__unset',
+		'__serialize',
+		'__unserialize',
+		'__set_state',
+		'__debugInfo',
 	];
 
 	/**
