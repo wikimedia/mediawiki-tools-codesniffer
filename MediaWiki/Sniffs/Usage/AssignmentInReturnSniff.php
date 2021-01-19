@@ -18,17 +18,18 @@ class AssignmentInReturnSniff implements Sniff {
 	public function register() {
 		return [
 			T_RETURN,
+			T_YIELD,
+			T_YIELD_FROM,
 		];
 	}
 
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
-	 * @return void
+	 * @return int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
-		$token = $tokens[$stackPtr];
 
 		$searchToken = Tokens::$assignmentTokens + [
 			T_CLOSURE,
@@ -55,15 +56,26 @@ class AssignmentInReturnSniff implements Sniff {
 			if ( array_key_exists( $code, Tokens::$assignmentTokens )
 				&& $code !== T_DOUBLE_ARROW
 			) {
+				$errorPtr = $stackPtr;
+				// "yield from" could be multiline, get content from more than one token
+				$content = '';
+				do {
+					$content .= $tokens[$stackPtr]['content'];
+					$stackPtr++;
+				} while ( $tokens[$stackPtr]['code'] === T_YIELD_FROM );
+				// Split by any whitespaces and build better looking content with one space
+				$contentPieces = preg_split( '/\s+/', $content );
 				$phpcsFile->addError(
 					'Assignment expression not allowed within "%s".',
-					$stackPtr,
-					'AssignmentInReturn',
-					[ $token['content'] ]
+					$errorPtr,
+					'AssignmentIn' . implode( '', array_map( 'ucfirst', $contentPieces ) ),
+					[ implode( ' ', $contentPieces ) ]
 				);
 				break;
 			}
 			$next = $phpcsFile->findNext( $searchToken, $next + 1 );
 		}
+		// Do not report multiline yield tokens twice
+		return $stackPtr;
 	}
 }

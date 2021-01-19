@@ -2,3 +2,13 @@
     |       | (MediaWiki.Usage.AssignmentInReturn.AssignmentInReturn)
  13 | ERROR | Assignment expression not allowed within "return".
     |       | (MediaWiki.Usage.AssignmentInReturn.AssignmentInReturn)
+ 24 | ERROR | Assignment expression not allowed within "yield".
+    |       | (MediaWiki.Usage.AssignmentInReturn.AssignmentInYield)
+ 27 | ERROR | Assignment expression not allowed within "yield".
+    |       | (MediaWiki.Usage.AssignmentInReturn.AssignmentInYield)
+ 30 | ERROR | Assignment expression not allowed within "yield
+    |       | from".
+    |       | (MediaWiki.Usage.AssignmentInReturn.AssignmentInYieldFrom)
+ 32 | ERROR | Assignment expression not allowed within "yield
+    |       | from".
+    |       | (MediaWiki.Usage.AssignmentInReturn.AssignmentInYieldFrom)

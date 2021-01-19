@@ -17,6 +17,22 @@ function wfFailedExamples() {
 }
 
 /**
+ * Failed examples.
+ * @return Generator
+ */
+function wfFailedExamplesYield() {
+	yield "test" => $foo = 1;
+	yield new class() {
+		public function foo() {
+			yield "inner" => $foo = 1;
+		}
+	};
+	yield
+		from [ 3, $foo = 1 ];
+	yield from [ 3, $foo = 1 ];
+}
+
+/**
  * Passed examples.
  * @return mixed
  */
@@ -35,4 +51,14 @@ function wfPassedExamples() {
 			return $foo;
 		};
 	}
+}
+
+/**
+ * Passed examples.
+ * @return Generator
+ */
+function wfPassedExamplesYield() {
+	yield "test" => [ 'A', 'b' ];
+	yield "test2" => [ 'c', 'D' ];
+	yield from [ 3, 4 ];
 }
