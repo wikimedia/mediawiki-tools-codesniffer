@@ -161,7 +161,10 @@ class FunctionCommentSniff implements Sniff {
 					$i = $token['scope_condition'];
 					continue;
 				}
-				if ( $token['code'] === T_RETURN ) {
+				if ( $token['code'] === T_RETURN ||
+					$token['code'] === T_YIELD ||
+					$token['code'] === T_YIELD_FROM
+				) {
 					if ( isset( $tokens[$i + 1] ) && $tokens[$i + 1]['code'] === T_SEMICOLON ) {
 						// This is a `return;` so it doesn't need documentation
 						continue;

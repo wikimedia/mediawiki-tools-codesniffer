@@ -19,6 +19,14 @@ class TestFailedExamples {
 	}
 
 	/**
+	 * @param int $testVar This should start uppercase and end stop.
+	 *
+	 */
+	public function testNeedReturnFromYield( $testVar ) {
+		yield 'test' => [ 'a', $testVar ];
+	}
+
+	/**
 	 * @param int $testVar This is test.
 	 * @param int $_ For test.
 	 * @return int $testVar This is test.
