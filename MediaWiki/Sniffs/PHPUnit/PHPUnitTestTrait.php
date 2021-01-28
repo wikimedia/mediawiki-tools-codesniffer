@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Sniffs\PHPUnit;
 
+use PHP_CodeSniffer\Files\DummyFile;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
 
@@ -27,15 +28,33 @@ trait PHPUnitTestTrait {
 	];
 
 	/**
+	 * @var bool[]
+	 */
+	private static $isTestFile = [];
+
+	/**
 	 * @param File $phpcsFile
 	 * @param int|false $stackPtr
 	 *
 	 * @return bool
 	 */
 	private function isTestFile( File $phpcsFile, $stackPtr = false ) {
-		$classToken = $this->getClassToken( $phpcsFile, $stackPtr ) ?:
-			$phpcsFile->findNext( Tokens::$ooScopeTokens, 0 );
-		return $this->isTestClass( $phpcsFile, $classToken );
+		$fileName = $phpcsFile->getFilename();
+
+		if ( !isset( self::$isTestFile[$fileName] ) ) {
+			$classToken = $this->getClassToken( $phpcsFile, $stackPtr ) ?:
+				$phpcsFile->findNext( Tokens::$ooScopeTokens, 0 );
+			$isTestFile = $this->isTestClass( $phpcsFile, $classToken );
+
+			// There is no file but STDIN when Helper::runPhpCs() is used
+			if ( $phpcsFile instanceof DummyFile ) {
+				return $isTestFile;
+			}
+
+			self::$isTestFile[$fileName] = $isTestFile;
+		}
+
+		return self::$isTestFile[$fileName];
 	}
 
 	/**
