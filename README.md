@@ -15,7 +15,7 @@ How to install
     ```
     {
     	"require-dev": {
-    		"mediawiki/mediawiki-codesniffer": "34.0.0"
+    		"mediawiki/mediawiki-codesniffer": "35.0.0"
     	},
     	"scripts": {
     		"test": [
@@ -33,7 +33,7 @@ How to install
     	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki"/>
     	<file>.</file>
     	<arg name="bootstrap" value="./vendor/mediawiki/mediawiki-codesniffer/utils/bootstrap-ci.php"/>
-    	<arg name="extensions" value="php,php5,inc"/>
+    	<arg name="extensions" value="php"/>
     	<arg name="encoding" value="UTF-8"/>
     </ruleset>
     ```

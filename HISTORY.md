@@ -1,5 +1,55 @@
 # MediaWiki-Codesniffer release history #
 
+## 35.0.0 / 2021-01-28 ##
+### New sniffs ###
+* Add `AssertCountSniff` to warn when using `assertEquals` or `assertSame` with the results of `count` (DannyS712)
+* Add `AssertionOrderSniff` for PHPUnit assertions in the wrong order (DannyS712)
+* Add `MissingElseBetweenBracketsSniff` to error when `}` is followed by `{` (Majavah)
+* Add `SpaceBeforeBracketSniff` for spaces between variable and array offset (DannyS712)
+* Add `SpecificAssertionsSniff` to encourage dedicated, simpler PHPUnit assertions (DannyS712)
+* Add `WhiteSpaceBeforeFunctionSniff` for whitespace in function signatures (DannyS712)
+* Enable `PSR2.Classes.PropertyDeclaration.Multiple` (DannyS712)
+
+### Changed sniffs ###
+* Move `AssertEqualsSniff`, `DeprecatedPHPUnitMethodsSniff`, `PHPUnitClassUsageSniff`, and `PHPUnitTypeHintsSniff` to new `MediaWiki.PHPUnit` group (DannyS712)
+* `AssertEqualsSniff`: Whitespace handling clean-up (DannyS712)
+* `AssignmentInReturnSniff`: Check for yield (Umherirrender)
+* `EmptyTagSniff`: Also check the `@access`, `@author`, `@dataProvider`, `@depends`, `@group`, `@license`, `@link`, `@since`, and `@suppress` tags (DannyS712)
+* `EmptyTagSniff`: Re-write for performance (Thiemo Kreuz)
+* `ExtendClassUsageSniff`: Add sub classes of `IndexPager` to `ContextSource` checks (Umherirrender)
+* `ExtendClassUsageSniff`: Fix variable name: `$eligableFunc` -> `$eligibleFunc` (Ammarpad)
+* `ExtendClassUsageSniff`: Improve documentation (Ammarpad)
+* `ForbiddenFunctionsSniff`: Add `compact()` as opposite of forbidden `extract()` (Umherirrender)
+* `FunctionAnnotationsSniff`: Add `@uses` (Umherirrender)
+* `FunctionCommentSniff`, `PropertyDocumentationSniff`: Allow parenthesis as punctuation (Umherirrender)
+* `FunctionCommentSniff`, `PropertyDocumentationSniff`: Have sniff convert upper case `NULL` to `null` (Umherirrender)
+* `FunctionCommentSniff`, `PropertyDocumentationSniff`: Update error message about "object" type hints (Thiemo Kreuz)
+* `FunctionCommentSniff`: Allow intersection types (Umherirrender)
+* `FunctionCommentSniff`: Check `@param`/`@return` on files ending in …Test.php (Umherirrender)
+* `FunctionCommentSniff`: Check for yield when looking for `@return` (Umherirrender)
+* `FunctionCommentSniff`: Expand `FunctionCommentSniff::SKIP_STANDARD_METHODS` (Umherirrender)
+* `FunctionCommentSniff`: Improve check for test function (Umherirrender)
+* `FunctionCommentSniff`: Require `@return` on doc block when return type hint is used (Umherirrender)
+* `LicenseCommentSniff`: Handle possible whitespace in license names (Umherirrender)
+* `LowerCamelFunctionsNameSniff`: Use `PHPUnitTestTrait` (Umherirrender)
+* `MissingVarType`: Use camelCase for error type (Umherirrender)
+* `ParenthesesAroundKeywordSniff`: Re-write to fix whitespace handling (Umherirrender)
+* `PropertyDocumentationSniff`: Add checks for `object` and `object[]` in `@var` documentation (Umherirrender)
+* `PropertyDocumentationSniff`: Check and require `@var` on files ending in …Test.php (Umherirrender)
+* `SuperGlobalsUsageSniff`: Forbid use of super global `$_FILES` (Umherirrender)
+* `UnusedUseStatementSniff`: Remove left over semicolons (Umherirrender)
+* Avoid slow `strcasecmp()` where not necessary (Thiemo Kreuz)
+* Add and use `PHPUnitTestTrait` to limit specific sniffs to code in PHPUnit tests (DannyS712)
+* Fix performance bottleneck in PHPUnit assert sniffs (Thiemo Kreuz)
+
+### Documentation, dependencies and build changes ###
+* build: Updating `mediawiki/mediawiki-phan-config` to 0.10.5 (DannyS712)
+* build: Updating `mediawiki/mediawiki-phan-config` to 0.10.6 (libraryupgrader)
+* Bump `composer/semver` versions (Reedy)
+* Make all single-line comments use the `// phpcs:… syntax` (Thiemo Kreuz)
+* HISTORY.md: Add 19.x point release entries (Reedy)
+
+
 ## 19.4.0 / 2021-01-12 ##
 * Replace jakub-onderka/* with php-parallel-lint/* (Reedy)
 
