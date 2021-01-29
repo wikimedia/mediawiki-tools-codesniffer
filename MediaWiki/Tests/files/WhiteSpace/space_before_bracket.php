@@ -9,4 +9,8 @@ function wfSpaceBeforeBracketTests() {
 	// Should fail
 	$x = $a [ 0 ];
 	$y = $b  [ 1 ];
+
+	// Should be skipped
+	$foo = $bar['index']['otherIndex']['reallyLongIndex']
+		['continuedAfterANewLine'];
 }

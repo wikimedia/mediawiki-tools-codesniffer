@@ -52,9 +52,22 @@ class SpaceBeforeBracketSniff implements Sniff {
 			return;
 		}
 
-		// Only triggered on spaces (one or more), allows tabs and newlines
+		// Only triggered on spaces (one or more)
 		if ( $priorToken['content'] === '' ||
 			rtrim( $priorToken['content'], ' ' ) !== ''
+		) {
+			return;
+		}
+
+		// Skip newlines
+		$lastNonWhitespace = $phpcsFile->findPrevious(
+			T_WHITESPACE,
+			$stackPtr - 1,
+			null,
+			true
+		);
+		if ( $lastNonWhitespace &&
+			$tokens[$lastNonWhitespace]['line'] !== $tokens[$stackPtr]['line']
 		) {
 			return;
 		}
