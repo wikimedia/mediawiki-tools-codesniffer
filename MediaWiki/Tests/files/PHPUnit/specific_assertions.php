@@ -48,5 +48,6 @@ class SpecificAssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertIsInt( strpos( 'foo', 'o', 1 ) );
 		$this->assertIsInt( strpos( 'foo', 'o', 1 ), 'Message' );
 		$this->assertIsInt( strpos::intProperty, 'Message' );
+		$this->assertFalse( strpos( 'foo' ) );
 	}
 }

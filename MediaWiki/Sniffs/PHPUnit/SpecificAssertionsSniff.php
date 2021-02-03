@@ -98,7 +98,10 @@ class SpecificAssertionsSniff implements Sniff {
 		$methodContentEnd = $phpcsFile->findPrevious( T_WHITESPACE, $methodCloser - 1, null, true );
 
 		// Depending on the function, if there is a third parameter we might not be able
-		// to fix it
+		// to fix it. We need $firstComma later, so declare it outside of the if statement,
+		// and declare $secondComma here too so that they stay together
+		$firstComma = false;
+		$secondComma = false;
 		if ( $functionCalled === 'in_array' || $functionCalled === 'strpos' ) {
 			// Jump over the first two parameters, whatever they may be
 			$searchTokens = [
@@ -108,8 +111,6 @@ class SpecificAssertionsSniff implements Sniff {
 				T_OPEN_SHORT_ARRAY,
 				T_COMMA
 			];
-			$firstComma = false;
-			$secondComma = false;
 			$next = $phpcsFile->findNext( $searchTokens, $methodOpener + 1, $methodCloser );
 			while ( $secondComma === false ) {
 				if ( $next === false ) {
@@ -137,6 +138,10 @@ class SpecificAssertionsSniff implements Sniff {
 						}
 				}
 				$next = $phpcsFile->findNext( $searchTokens, $next + 1, $methodCloser );
+			}
+			if ( $firstComma === false ) {
+				// Huh? Bad function call
+				return;
 			}
 			if ( $secondComma !== false && $functionCalled === 'strpos' ) {
 				// We can't do the replacement if there is a third parameter
@@ -182,6 +187,36 @@ class SpecificAssertionsSniff implements Sniff {
 			return;
 		}
 
+		$phpcsFile->fixer->beginChangeset();
+
+		// Need to switch the order of parameters from strpos to assertStringContainsString
+		if ( $functionCalled === 'strpos' ) {
+			// strpos( $param1, $param2 )
+			$nonSpaceAfterFirstComma = $phpcsFile->findNext( T_WHITESPACE, $firstComma + 1, null, true );
+			$param1 = $phpcsFile->getTokensAsString(
+				$methodContentStart,
+				$firstComma - $methodContentStart,
+				// keep tabs on multiline statements
+				true
+			);
+			$param2 = $phpcsFile->getTokensAsString(
+				$nonSpaceAfterFirstComma,
+				$methodContentEnd - $nonSpaceAfterFirstComma + 1,
+				// keep tabs on multiline statements
+				true
+			);
+			// Remove the params
+			for ( $i = $methodContentStart; $i <= $methodContentEnd; $i++ ) {
+				if ( $i < $firstComma || $i >= $nonSpaceAfterFirstComma ) {
+					$phpcsFile->fixer->replaceToken( $i, '' );
+				}
+			}
+			// We got ride of the content before the comma and the content after,
+			// now add the switched content around the comma
+			$phpcsFile->fixer->addContent( $nonSpaceAfterFirstComma, $param1 );
+			$phpcsFile->fixer->addContentBefore( $firstComma, $param2 );
+		}
+
 		$phpcsFile->fixer->replaceToken( $stackPtr, $replacementMethod );
 		$phpcsFile->fixer->replaceToken( $method, '' );
 		$phpcsFile->fixer->replaceToken( $methodOpener, '' );
@@ -195,6 +230,8 @@ class SpecificAssertionsSniff implements Sniff {
 			$phpcsFile->fixer->replaceToken( $i, '' );
 		}
 		$phpcsFile->fixer->replaceToken( $methodCloser, '' );
+
+		$phpcsFile->fixer->endChangeset();
 
 		// There is no way the next assertion can be closer than this
 		return $tokens[$opener]['parenthesis_closer'] + 4;

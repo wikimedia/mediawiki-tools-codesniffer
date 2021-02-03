@@ -29,13 +29,13 @@ class SpecificAssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertNotContains( $k, $arr, 'Message' );
 		$this->assertNotContains( $k, $arr, 'Message' );
 
-		$this->assertStringNotContainsString( 'foo', 'o' );
-		$this->assertStringNotContainsString( 'foo', 'o', 'Message' );
-		$this->assertStringContainsString( 'foo', 'o' );
-		$this->assertStringContainsString( 'foo', 'o', 'Message' );
+		$this->assertStringNotContainsString( 'o', 'foo' );
+		$this->assertStringNotContainsString( 'o', 'foo', 'Message' );
+		$this->assertStringContainsString( 'o', 'foo' );
+		$this->assertStringContainsString( 'o', 'foo', 'Message' );
 
-		$this->assertStringContainsString( 'foo', 'o' );
-		$this->assertStringContainsString( 'foo', 'o', 'Message' );
+		$this->assertStringContainsString( 'o', 'foo' );
+		$this->assertStringContainsString( 'o', 'foo', 'Message' );
 
 		// Not replaced
 		$this->assertTrue( array_key_exists( $k, $arr ) || true );
@@ -48,5 +48,6 @@ class SpecificAssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertIsInt( strpos( 'foo', 'o', 1 ) );
 		$this->assertIsInt( strpos( 'foo', 'o', 1 ), 'Message' );
 		$this->assertIsInt( strpos::intProperty, 'Message' );
+		$this->assertFalse( strpos( 'foo' ) );
 	}
 }
