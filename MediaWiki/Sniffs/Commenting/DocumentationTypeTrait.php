@@ -75,21 +75,22 @@ trait DocumentationTypeTrait {
 	 *
 	 * @param string $str
 	 *
-	 * @return string[]
+	 * @return array [ string $type, int|null $separatorLength, string $comment ]
 	 */
 	private function splitTypeAndComment( string $str ) : array {
 		$brackets = 0;
 		for ( $i = 0; $i < strlen( $str ); $i++ ) {
 			$char = $str[$i];
 			if ( $char === ' ' && !$brackets ) {
-				return [ substr( $str, 0, $i ), substr( $str, $i + 1 ) ];
+				$separatorLength = strspn( $str, ' ', $i );
+				return [ substr( $str, 0, $i ), $separatorLength, substr( $str, $i + $separatorLength ) ];
 			} elseif ( $char === '>' && $brackets ) {
 				$brackets--;
 			} elseif ( $char === '<' ) {
 				$brackets++;
 			}
 		}
-		return [ $str, '' ];
+		return [ $str, null, '' ];
 	}
 
 	/**

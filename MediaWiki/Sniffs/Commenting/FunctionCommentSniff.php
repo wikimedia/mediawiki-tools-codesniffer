@@ -200,6 +200,7 @@ class FunctionCommentSniff implements Sniff {
 		}
 		if ( $return !== null ) {
 			$retTypeSpacing = $return + 1;
+			// Check spaces before type
 			if ( $tokens[$retTypeSpacing]['code'] === T_DOC_COMMENT_WHITESPACE ) {
 				$expectedSpaces = 1;
 				$currentSpaces = strlen( $tokens[$retTypeSpacing]['content'] );
@@ -225,7 +226,7 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile->addError( $error, $return, 'MissingReturnType' );
 				return;
 			}
-			[ $type, $comment ] = $this->splitTypeAndComment( $content );
+			[ $type, $separatorLength, $comment ] = $this->splitTypeAndComment( $content );
 			$fixType = false;
 			// Check for unneeded punctation
 			$type = $this->fixTrailingPunctation(
@@ -253,24 +254,23 @@ class FunctionCommentSniff implements Sniff {
 			// Check spacing after type
 			if ( $comment !== '' ) {
 				$expectedSpaces = 1;
-				$currentSpaces = strspn( $comment, ' ' ) + 1;
-				if ( $currentSpaces !== $expectedSpaces ) {
+				if ( $separatorLength !== $expectedSpaces ) {
 					$fix = $phpcsFile->addFixableWarning(
 						'Expected %s spaces after return type; %s found',
 						$retType,
 						'SpacingAfterReturnType',
-						[ $expectedSpaces, $currentSpaces ]
+						[ $expectedSpaces, $separatorLength ]
 					);
 					if ( $fix ) {
 						$fixType = true;
-						$comment = substr( $comment, $currentSpaces - 1 );
+						$separatorLength = $expectedSpaces;
 					}
 				}
 			}
 			if ( $fixType ) {
 				$phpcsFile->fixer->replaceToken(
 					$retType,
-					$type . ( $comment !== '' ? ' ' . $comment : '' )
+					$type . ( $comment !== '' ? str_repeat( ' ', $separatorLength ) . $comment : '' )
 				);
 			}
 		} elseif ( !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
@@ -291,27 +291,60 @@ class FunctionCommentSniff implements Sniff {
 			if ( $tokens[$tag]['content'] !== '@throws' ) {
 				continue;
 			}
+			// Check spaces before exception
+			if ( $tokens[$tag + 1]['code'] === T_DOC_COMMENT_WHITESPACE ) {
+				$expectedSpaces = 1;
+				$currentSpaces = strlen( $tokens[$tag + 1]['content'] );
+				if ( $currentSpaces !== $expectedSpaces ) {
+					$fix = $phpcsFile->addFixableWarning(
+						'Expected %s spaces before exception type; %s found',
+						$tag + 1,
+						'SpacingBeforeExceptionType',
+						[ $expectedSpaces, $currentSpaces ]
+					);
+					if ( $fix ) {
+						$phpcsFile->fixer->replaceToken( $tag + 1, ' ' );
+					}
+				}
+			}
 			$exception = '';
 			$comment = '';
+			$separatorLength = null;
 			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
-				[ $exception, $comment ] = $this->splitTypeAndComment( $tokens[$tag + 2]['content'] );
+				[ $exception, $separatorLength, $comment ] = $this->splitTypeAndComment( $tokens[$tag + 2]['content'] );
 			}
 			if ( $exception === '' ) {
 				$error = 'Exception type missing for @throws tag in function comment';
 				$phpcsFile->addError( $error, $tag, 'InvalidThrows' );
 			} else {
-				$fix = false;
+				$fixType = false;
 				$exception = $this->fixWrappedParenthesis(
 					$phpcsFile,
 					$tag,
 					$exception,
-					$fix,
+					$fixType,
 					'exception type'
 				);
-				if ( $fix ) {
+				// Check spacing after exception
+				if ( $comment !== '' ) {
+					$expectedSpaces = 1;
+					if ( $separatorLength !== $expectedSpaces ) {
+						$fix = $phpcsFile->addFixableWarning(
+							'Expected %s spaces after exception type; %s found',
+							$tag + 2,
+							'SpacingAfterExceptionType',
+							[ $expectedSpaces, $separatorLength ]
+						);
+						if ( $fix ) {
+							$fixType = true;
+							$separatorLength = $expectedSpaces;
+						}
+					}
+				}
+				if ( $fixType ) {
 					$phpcsFile->fixer->replaceToken(
 						$tag + 2,
-						$exception . ( $comment !== '' ? ' ' . $comment : '' )
+						$exception . ( $comment !== '' ? str_repeat( ' ', $separatorLength ) . $comment : '' )
 					);
 				}
 			}

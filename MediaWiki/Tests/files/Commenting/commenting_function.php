@@ -97,6 +97,7 @@ class TestFailedExamples {
 	 * @param  bool    $aBool    A bool
 	 * @param    int    $anInt    An int
 	 * @return    bool    And some text
+	 * @throws    Exception    And some text
 	 */
 	public function testTypesSpacing( $aBool, $anInt ) {
 		return $aBool;

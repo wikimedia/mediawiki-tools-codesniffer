@@ -132,6 +132,7 @@ class PropertyDocumentationSniff implements Sniff {
 		}
 		if ( $var !== null ) {
 			$varTypeSpacing = $var + 1;
+			// Check spaces before var
 			if ( $tokens[$varTypeSpacing]['code'] === T_DOC_COMMENT_WHITESPACE ) {
 				$expectedSpaces = 1;
 				$currentSpaces = strlen( $tokens[$varTypeSpacing]['content'] );
@@ -157,7 +158,7 @@ class PropertyDocumentationSniff implements Sniff {
 				$phpcsFile->addError( $error, $var, 'MissingVarType' );
 				return;
 			}
-			[ $type, $comment ] = $this->splitTypeAndComment( $content );
+			[ $type, $separatorLength, $comment ] = $this->splitTypeAndComment( $content );
 			$fixType = false;
 			// Check for unneeded punctation
 			$type = $this->fixTrailingPunctation(
@@ -185,24 +186,23 @@ class PropertyDocumentationSniff implements Sniff {
 			// Check spacing after type
 			if ( $comment !== '' ) {
 				$expectedSpaces = 1;
-				$currentSpaces = strspn( $comment, ' ' ) + 1;
-				if ( $currentSpaces !== $expectedSpaces ) {
+				if ( $separatorLength !== $expectedSpaces ) {
 					$fix = $phpcsFile->addFixableWarning(
 						'Expected %s spaces after var type; %s found',
 						$varType,
 						'SpacingAfterVarType',
-						[ $expectedSpaces, $currentSpaces ]
+						[ $expectedSpaces, $separatorLength ]
 					);
 					if ( $fix ) {
 						$fixType = true;
-						$comment = substr( $comment, $currentSpaces - 1 );
+						$separatorLength = $expectedSpaces;
 					}
 				}
 			}
 			if ( $fixType ) {
 				$phpcsFile->fixer->replaceToken(
 					$varType,
-					$type . ( $comment !== '' ? ' ' . $comment : '' )
+					$type . ( $comment !== '' ? str_repeat( ' ', $separatorLength ) . $comment : '' )
 				);
 			}
 		} else {

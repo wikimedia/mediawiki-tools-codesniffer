@@ -82,309 +82,315 @@
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeReturnType)
   99 | WARNING | [x] Expected 1 spaces after return type; 4 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterReturnType)
- 105 | ERROR   | [ ] Doc comment for parameter "$aBool" missing
+ 100 | WARNING | [x] Expected 1 spaces before exception type; 4
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingBeforeExceptionType)
+ 100 | WARNING | [x] Expected 1 spaces after exception type; 4
+     |         |     found
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterExceptionType)
+ 106 | ERROR   | [ ] Doc comment for parameter "$aBool" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 105 | ERROR   | [ ] Doc comment for parameter "$anInt" missing
+ 106 | ERROR   | [ ] Doc comment for parameter "$anInt" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 106 | WARNING | [x] Use @param annotation instead of @params
-     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
  107 | WARNING | [x] Use @param annotation instead of @params
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 108 | WARNING | [x] Use @return annotation instead of @returns
+ 108 | WARNING | [x] Use @param annotation instead of @params
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 109 | WARNING | [x] Use @throws annotation instead of @throw
+ 109 | WARNING | [x] Use @return annotation instead of @returns
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 110 | ERROR   | [ ] Missing @return tag in function comment
+ 110 | WARNING | [x] Use @throws annotation instead of @throw
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+ 111 | ERROR   | [ ] Missing @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
- 116 | ERROR   | [x] Param name should not end with punctuation
-     |         |     ":"
-     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 116 | ERROR   | [x] Param name should not be wrapped in parenthesis;
-     |         |     [ and ] found
-     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamName)
- 116 | ERROR   | [x] Param type should not be wrapped in parenthesis;
-     |         |     { and } found
-     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
  117 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
  117 | ERROR   | [x] Param name should not be wrapped in parenthesis;
-     |         |     { and } found
+     |         |     [ and ] found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamName)
  117 | ERROR   | [x] Param type should not be wrapped in parenthesis;
-     |         |     [ and ] found
+     |         |     { and } found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
  118 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
  118 | ERROR   | [x] Param name should not be wrapped in parenthesis;
+     |         |     { and } found
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamName)
+ 118 | ERROR   | [x] Param type should not be wrapped in parenthesis;
+     |         |     [ and ] found
+     |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamType)
+ 119 | ERROR   | [x] Param name should not end with punctuation
+     |         |     ":"
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
+ 119 | ERROR   | [x] Param name should not be wrapped in parenthesis;
      |         |     [ and ] found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisParamName)
- 119 | ERROR   | [x] Return type should not end with punctuation
+ 120 | ERROR   | [x] Return type should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationReturnType)
- 119 | ERROR   | [x] Return type should not be wrapped in
+ 120 | ERROR   | [x] Return type should not be wrapped in
      |         |     parenthesis; { and } found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisReturnType)
- 120 | ERROR   | [x] Exception type should not be wrapped in
+ 121 | ERROR   | [x] Exception type should not be wrapped in
      |         |     parenthesis; { and } found
      |         |     (MediaWiki.Commenting.FunctionComment.NotParenthesisExceptionType)
- 127 | WARNING | [x] Use @inheritDoc annotation instead of
+ 128 | WARNING | [x] Use @inheritDoc annotation instead of
      |         |     @inheritdoc
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 140 | ERROR   | [ ] Doc comment for parameter "$in" missing
+ 141 | ERROR   | [ ] Doc comment for parameter "$in" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 140 | ERROR   | [ ] Doc comment for parameter "$out" missing
+ 141 | ERROR   | [ ] Doc comment for parameter "$out" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 140 | ERROR   | [ ] Doc comment for parameter "$inOut" missing
+ 141 | ERROR   | [ ] Doc comment for parameter "$inOut" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 141 | WARNING | [x] Use @param annotation instead of @param[in]
+ 142 | WARNING | [x] Use @param annotation instead of @param[in]
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 142 | WARNING | [x] Use @param annotation instead of @param[out]
+ 143 | WARNING | [x] Use @param annotation instead of @param[out]
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 143 | WARNING | [x] Use @param annotation instead of
+ 144 | WARNING | [x] Use @param annotation instead of
      |         |     @param[in,out]
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 155 | ERROR   | [ ] Splat operator missing for documented variadic
+ 156 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "$params,..."
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 155 | WARNING | [ ] Comments should start on new line.
+ 156 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 155 | ERROR   | [ ] Comments indicating variadic arguments are
+ 156 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 163 | WARNING | [ ] Comments should start on new line.
+ 164 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 163 | ERROR   | [ ] Comments indicating variadic arguments are
+ 164 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 171 | ERROR   | [ ] Splat operator missing for documented variadic
+ 172 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "...$params"
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 171 | WARNING | [ ] Comments should start on new line.
+ 172 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 171 | ERROR   | [ ] Comments indicating variadic arguments are
+ 172 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 179 | WARNING | [ ] Comments should start on new line.
+ 180 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 179 | ERROR   | [ ] Comments indicating variadic arguments are
+ 180 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 187 | ERROR   | [ ] Splat operator missing for documented variadic
+ 188 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "$params,..."
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 203 | ERROR   | [ ] Splat operator missing for documented variadic
+ 204 | ERROR   | [ ] Splat operator missing for documented variadic
      |         |     parameter "...$params"
      |         |     (MediaWiki.Commenting.FunctionComment.MissingSplatVariadicArg)
- 217 | ERROR   | [ ] Variadic parameter documented but not present in
+ 218 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 219 | WARNING | [ ] Comments should start on new line.
+ 220 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 219 | ERROR   | [ ] Comments indicating variadic arguments are
+ 220 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 224 | ERROR   | [ ] Variadic parameter documented but not present in
+ 225 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 226 | WARNING | [ ] Comments should start on new line.
+ 227 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 226 | ERROR   | [ ] Comments indicating variadic arguments are
+ 227 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 231 | ERROR   | [ ] Variadic parameter documented but not present in
+ 232 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 233 | WARNING | [ ] Comments should start on new line.
+ 234 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 233 | ERROR   | [ ] Comments indicating variadic arguments are
+ 234 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 238 | ERROR   | [ ] Variadic parameter documented but not present in
+ 239 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 240 | WARNING | [ ] Comments should start on new line.
+ 241 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 240 | ERROR   | [ ] Comments indicating variadic arguments are
+ 241 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 243 | ERROR   | [ ] Doc comment for parameter "...$params"
+ 244 | ERROR   | [ ] Doc comment for parameter "...$params"
      |         |     missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 251 | ERROR   | [ ] Variadic parameter documented but not present in
+ 252 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 253 | WARNING | [ ] Comments should start on new line.
+ 254 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 253 | WARNING | [ ] Comments should start on new line.
+ 254 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 253 | ERROR   | [ ] Comments indicating variadic arguments are
+ 254 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 258 | ERROR   | [ ] Variadic parameter documented but not present in
+ 259 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 260 | WARNING | [ ] Comments should start on new line.
+ 261 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 260 | WARNING | [ ] Comments should start on new line.
+ 261 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 260 | ERROR   | [ ] Comments indicating variadic arguments are
+ 261 | ERROR   | [ ] Comments indicating variadic arguments are
      |         |     superfluous and should be replaced with actual
      |         |     variadic arguments
      |         |     (MediaWiki.Commenting.VariadicArgument.SuperfluousVariadicArgComment)
- 264 | WARNING | [x] Expected 1 spaces after parameter type; 9
+ 265 | WARNING | [x] Expected 1 spaces after parameter type; 9
      |         |     found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
- 270 | WARNING | [x] Expected 1 spaces after parameter type; 9
+ 271 | WARNING | [x] Expected 1 spaces after parameter type; 9
      |         |     found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamType)
- 270 | ERROR   | [ ] Variadic parameter documented but not present in
+ 271 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 277 | ERROR   | [x] Default of null should be declared in @param
+ 278 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 286 | ERROR   | [x] Key word "[optional]" on "string[optional]"
+ 287 | ERROR   | [x] Key word "[optional]" on "string[optional]"
      |         |     should not be used
      |         |     (MediaWiki.Commenting.FunctionComment.NoOptionalKeyWord)
- 287 | ERROR   | [x] Key word "[optional]" on "string[optional]|null"
+ 288 | ERROR   | [x] Key word "[optional]" on "string[optional]|null"
      |         |     should not be used
      |         |     (MediaWiki.Commenting.FunctionComment.NoOptionalKeyWord)
- 293 | ERROR   | [ ] Superfluous parameter comment
+ 294 | ERROR   | [ ] Superfluous parameter comment
      |         |     (MediaWiki.Commenting.FunctionComment.ExtraParamComment)
- 299 | ERROR   | [ ] Variadic parameter documented but not present in
+ 300 | ERROR   | [ ] Variadic parameter documented but not present in
      |         |     the signature
      |         |     (MediaWiki.Commenting.FunctionComment.VariadicDocNotSignature)
- 304 | ERROR   | [ ] Missing function doc comment
+ 305 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate)
- 308 | ERROR   | [ ] Doc comment for parameter "$refMatch"
+ 309 | ERROR   | [ ] Doc comment for parameter "$refMatch"
      |         |     missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 309 | ERROR   | [x] Pass-by-reference for parameter $refDoc does not
+ 310 | ERROR   | [x] Pass-by-reference for parameter $refDoc does not
      |         |     match pass-by-reference of variable name
      |         |     $refDoc
      |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
- 310 | ERROR   | [x] Pass-by-reference for parameter $refReal does
+ 311 | ERROR   | [x] Pass-by-reference for parameter $refReal does
      |         |     not match pass-by-reference of variable name
      |         |     $refReal
      |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
- 311 | ERROR   | [x] Pass-by-reference for parameter $refDoesNotMatch
+ 312 | ERROR   | [x] Pass-by-reference for parameter $refDoesNotMatch
      |         |     does not match pass-by-reference of variable
      |         |     name $refMatch
      |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
- 311 | ERROR   | [ ] Doc comment for parameter $refDoesNotMatch does
+ 312 | ERROR   | [ ] Doc comment for parameter $refDoesNotMatch does
      |         |     not match actual variable name $refMatch
      |         |     (MediaWiki.Commenting.FunctionComment.ParamNameNoMatch)
- 312 | ERROR   | [x] Pass-by-reference for parameter $refNull does
+ 313 | ERROR   | [x] Pass-by-reference for parameter $refNull does
      |         |     not match pass-by-reference of variable name
      |         |     $refNull
      |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
- 312 | ERROR   | [x] Default of null should be declared in @param
+ 313 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 318 | ERROR   | [x] Pass-by-reference for parameter $refDoc does not
+ 319 | ERROR   | [x] Pass-by-reference for parameter $refDoc does not
      |         |     match pass-by-reference of variable name
      |         |     ...$refDoc
      |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
- 324 | ERROR   | [x] Pass-by-reference for parameter $refReal does
+ 325 | ERROR   | [x] Pass-by-reference for parameter $refReal does
      |         |     not match pass-by-reference of variable name
      |         |     ...$refReal
      |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
- 329 | ERROR   | [ ] Doc comment for parameter "$arg" missing
+ 330 | ERROR   | [ ] Doc comment for parameter "$arg" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 329 | ERROR   | [ ] Missing parameter type
+ 330 | ERROR   | [ ] Missing parameter type
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamType)
- 333 | ERROR   | [ ] Return type missing for @return tag in function
+ 334 | ERROR   | [ ] Return type missing for @return tag in function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturnType)
- 338 | ERROR   | [ ] Exception type missing for @throws tag in
+ 339 | ERROR   | [ ] Exception type missing for @throws tag in
      |         |     function comment
      |         |     (MediaWiki.Commenting.FunctionComment.InvalidThrows)
- 343 | ERROR   | [x] Lowercase type of "int" should be used for
+ 344 | ERROR   | [x] Lowercase type of "int" should be used for
      |         |     @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveIntParam)
- 349 | ERROR   | [x] Lowercase type of "string[]" should be used for
+ 350 | ERROR   | [x] Lowercase type of "string[]" should be used for
      |         |     @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveStringArrayParam)
- 355 | WARNING | [ ] `object` should rarely be used as a typehint. If
-     |         |     more specific types are known, list them. If
-     |         |     only plain anonymous objects are expected, use
-     |         |     `stdClass`. If the intent is indeed to allow any
-     |         |     object, mark it with a // phpcs:… comment or
-     |         |     set this rule's <severity> to 0.
-     |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintParam)
  356 | WARNING | [ ] `object` should rarely be used as a typehint. If
      |         |     more specific types are known, list them. If
      |         |     only plain anonymous objects are expected, use
      |         |     `stdClass`. If the intent is indeed to allow any
      |         |     object, mark it with a // phpcs:… comment or
      |         |     set this rule's <severity> to 0.
+     |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintParam)
+ 357 | WARNING | [ ] `object` should rarely be used as a typehint. If
+     |         |     more specific types are known, list them. If
+     |         |     only plain anonymous objects are expected, use
+     |         |     `stdClass`. If the intent is indeed to allow any
+     |         |     object, mark it with a // phpcs:… comment or
+     |         |     set this rule's <severity> to 0.
      |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintReturn)
- 356 | ERROR   | [x] Lowercase type of "object[]" should be used for
+ 357 | ERROR   | [x] Lowercase type of "object[]" should be used for
      |         |     @return tag
      |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveObjectArrayReturn)
- 364 | ERROR   | [ ] Missing @return tag in function comment
+ 365 | ERROR   | [ ] Missing @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
- 377 | ERROR   | [ ] Only 1 @return tag is allowed in a function
+ 378 | ERROR   | [ ] Only 1 @return tag is allowed in a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.DuplicateReturn)
- 381 | WARNING | [ ] Comments should start on new line.
+ 382 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 383 | ERROR   | [ ] Missing function doc comment
+ 384 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 386 | ERROR   | [ ] Doc comment for parameter "$notsamecase"
+ 387 | ERROR   | [ ] Doc comment for parameter "$notsamecase"
      |         |     missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 388 | ERROR   | [ ] Doc comment for parameter $notSameCase does not
+ 389 | ERROR   | [ ] Doc comment for parameter $notSameCase does not
      |         |     match case of actual variable name
      |         |     $notsamecase
      |         |     (MediaWiki.Commenting.FunctionComment.ParamNameNoCaseMatch)
- 394 | ERROR   | [ ] Only one object structure is allowed in a
+ 395 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 463 | ERROR   | [ ] Missing function doc comment
+ 464 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 476 | WARNING | [ ] Comments should start on new line.
+ 477 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 480 | ERROR   | [ ] Expected parameter type before parameter name
+ 481 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$parser"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 481 | ERROR   | [ ] Expected parameter type before parameter name
+ 482 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$operator:"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 481 | ERROR   | [x] Param name should not end with punctuation
+ 482 | ERROR   | [x] Param name should not end with punctuation
      |         |     ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 482 | ERROR   | [ ] Expected parameter type before parameter name
+ 483 | ERROR   | [ ] Expected parameter type before parameter name
      |         |     "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 482 | ERROR   | [x] Default of null should be declared in @param
+ 483 | ERROR   | [x] Default of null should be declared in @param
      |         |     tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 525 | ERROR   | [ ] Only one object structure is allowed in a
+ 526 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 531 | ERROR   | [ ] Only one object structure is allowed in a
+ 532 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 532 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 533 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 535 | WARNING | [x] Use @param annotation instead of @parma
+ 536 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 545 | ERROR   | [ ] You must use "/**" style comments for a function
+ 546 | ERROR   | [ ] You must use "/**" style comments for a function
      |         |     comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
- 549 | ERROR   | [ ] Only one object structure is allowed in a
+ 550 | ERROR   | [ ] Only one object structure is allowed in a
      |         |     file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 62 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 64 MARKED SNIFF VIOLATIONS AUTOMATICALLY
