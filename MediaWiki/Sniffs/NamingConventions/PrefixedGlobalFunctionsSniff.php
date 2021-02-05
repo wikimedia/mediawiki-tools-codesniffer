@@ -1,8 +1,13 @@
 <?php
 /**
- * Verify MediaWiki global function naming convention.
- * A global function's name must be prefixed with 'wf' or 'ef'.
- * Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Naming
+ * Verify that global functions start with a valid prefix
+ *
+ * For MediaWiki code, the valid prefixes are `wf` or `ef`,
+ * per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Naming,
+ * so this is the default configuration, but other
+ * repositories can configure this via the `allowedPrefixes` property
+ *
+ * TODO do we still need to support `ef` by default?
  */
 
 namespace MediaWiki\Sniffs\NamingConventions;
@@ -14,6 +19,13 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 
 	/** @var string[] */
 	public $ignoreList = [];
+
+	/**
+	 * A list of global function prefixes allowed.
+	 *
+	 * @var string[]
+	 */
+	public $allowedPrefixes = [ 'wf', 'ef' ];
 
 	/**
 	 * @inheritDoc
@@ -67,9 +79,16 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
-	 * @return void
+	 * @return int|void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
+		// If there are no prefixes specified, we have nothing to do for this file
+		if ( $this->allowedPrefixes === [] ) {
+			// @codeCoverageIgnoreStart
+			return $phpcsFile->numTokens;
+			// @codeCoverageIgnoreEnd
+		}
+
 		$tokens = $phpcsFile->getTokens();
 
 		// Check if function is global
@@ -82,20 +101,40 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 			return;
 		}
 
-		$prefix = substr( $name, 0, 2 );
-		if ( $prefix === 'wf' || $prefix === 'ef' ) {
-			return;
+		foreach ( $this->allowedPrefixes as $allowedPrefix ) {
+			if ( substr( $name, 0, strlen( $allowedPrefix ) ) === $allowedPrefix ) {
+				return;
+			}
 		}
 
 		if ( $this->tokenIsNamespaced( $phpcsFile, $stackPtr ) ) {
 			return;
 		}
 
+		// From ValidGlobalNameSniff
+		if ( count( $this->allowedPrefixes ) === 1 ) {
+			// Build message telling you the allowed prefix
+			$allowedPrefix = '\'' . $this->allowedPrefixes[0] . '\'';
+
+			// Forge a valid global function name
+			$expected = $this->allowedPrefixes[0] . ucfirst( $name ) . "()";
+		} else {
+			// Build message telling you which prefixes are allowed
+			$allowedPrefix = 'one of \''
+				. implode( '\', \'', $this->allowedPrefixes )
+				. '\'';
+
+			// Build a list of forged valid global function names
+			$expected = 'one of "'
+				. implode( ucfirst( $name ) . '()", "', $this->allowedPrefixes )
+				. ucfirst( $name )
+				. '()"';
+		}
 		$phpcsFile->addError(
-			'Global function "%s" is lacking a \'wf\' prefix. Should be "%s".',
+			'Global function "%s()" is lacking a valid prefix (%s). It should be %s.',
 			$stackPtr,
-			'wfPrefix',
-			[ $name, 'wf' . ucfirst( $name ) ]
+			'allowedPrefix',
+			[ $name, $allowedPrefix, $expected ]
 		);
 	}
 }

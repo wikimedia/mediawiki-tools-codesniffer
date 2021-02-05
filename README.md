@@ -85,19 +85,21 @@ Some of the sniffs provided by this codesniffer standard allow you to configure 
     </rule>
     ```
 
-* `MediaWiki.NamingConventions.PrefixedGlobalFunctions`: This sniff lets you specify a list of global functions that
-  should not be reported by the sniff, even if they are not prefixed with `wf…()`.
+* `MediaWiki.NamingConventions.PrefixedGlobalFunctions`: This sniff lets you define a list of ignored global
+  functions and a list of allowed prefixes. By default the only allowed prefixes are 'wf' and 'ef', corresponding
+  to global functions `wf...()` and `ef...()`.
 
     ```
     <rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions">
         <properties>
+            <property name="allowedPrefixes[]" value="wf,ef,..." />
             <property name="ignoreList[]" value="...,..." />
         </properties>
     </rule>
     ```
 
-* `MediaWiki.NamingConventions.ValidGlobalName`: This sniff lets you define list of ignored globals and list of allowed
-  prefixes.
+* `MediaWiki.NamingConventions.ValidGlobalName`: This sniff lets you define a list of ignored globals and a list of allowed
+  prefixes. By default the only allowed prefix is 'wg', for global variables `$wg...`.
 
     ```
     <rule ref="MediaWiki.NamingConventions.ValidGlobalName">

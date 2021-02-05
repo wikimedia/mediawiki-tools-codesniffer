@@ -1,3 +1,4 @@
- 9 | ERROR | Global function "failedExamples" is lacking a 'wf'
-   |       | prefix. Should be "wfFailedExamples".
-   |       | (MediaWiki.NamingConventions.PrefixedGlobalFunctions.wfPrefix)
+ 9 | ERROR | Global function "failedExamples()" is lacking a valid
+   |       | prefix (one of 'wf', 'ef'). It should be one of
+   |       | "wfFailedExamples()", "efFailedExamples()".
+   |       | (MediaWiki.NamingConventions.PrefixedGlobalFunctions.allowedPrefix)
