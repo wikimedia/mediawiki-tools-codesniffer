@@ -57,7 +57,7 @@ class TestFailedExamples {
 	 * and a closure, so a return tag is needed.
 	 */
 	public function testComplexClosureReturn() {
-		$a = function () {
+		$a = static function () {
 			return '';
 		};
 
@@ -428,7 +428,7 @@ class TestPassedExamples {
 	 * but no return tag is needed.
 	 */
 	public function testClosureReturn() {
-		$a = function () {
+		$a = static function () {
 			return '';
 		};
 

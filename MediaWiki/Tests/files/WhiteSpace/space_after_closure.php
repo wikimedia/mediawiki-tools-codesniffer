@@ -1,20 +1,20 @@
 <?php
-$good = function () {
+$good = static function () {
 	// pass
 };
 
-$good_with_arg = function ( $arg ) {
+$good_with_arg = static function ( $arg ) {
 	// pass
 };
 
-$bad = function() {
+$bad = static function() {
 	// fail
 };
 
-$alsobad = function         () {
+$alsobad = static function         () {
 	// fail
 };
 
-$bad_with_arg = function( $param ) {
+$bad_with_arg = static function( $param ) {
 	// fail
 };

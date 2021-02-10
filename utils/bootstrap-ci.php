@@ -78,7 +78,7 @@ if ( in_array( 'composer.json', $_head_files ) ) {
 $_extensions = array_keys( $this->config->extensions );
 $this->config->files = array_filter(
 	$_head_files,
-	function ( $file ) use ( $_extensions ) {
+	static function ( $file ) use ( $_extensions ) {
 		$pinfo = pathinfo( $file );
 		return in_array( strtolower( $pinfo['extension'] ), $_extensions );
 	}

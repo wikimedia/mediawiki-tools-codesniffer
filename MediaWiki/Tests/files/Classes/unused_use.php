@@ -130,7 +130,7 @@ class Foo {
 	}
 }
 
-$fn = function () use ( $a ) {
+$fn = static function () use ( $a ) {
 	return $a->methodCall();
 };
 

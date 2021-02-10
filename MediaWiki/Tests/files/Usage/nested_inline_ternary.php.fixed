@@ -54,19 +54,19 @@ function wfLetterToDigitConfusing( $ltr ) {
 // Ternary operators inside closures should not be flagged just because the
 // closures are part of an inline ternary statement
 $x = $foo ?
-	function ( $x ) {
+	static function ( $x ) {
 		return $x ? 12 : 34;
 	} :
-	function ( $x ) {
+	static function ( $x ) {
 		return $x ? 56 : 78;
 	};
 
 // But the bodies of closures should themselves be checked
 $x = $foo ?
-	function ( $x, $y ) {
+	static function ( $x, $y ) {
 		return $x ? ( $y ? 1 : 2 ) : 34;
 	} :
-	function ( $x, $y ) {
+	static function ( $x, $y ) {
 		return $x ? 56 : $y ? 7 : 8;
 	};
 

@@ -164,7 +164,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 	 * @return array[]
 	 */
 	private function sortByFullQualifiedClassName( array $list ) : array {
-		usort( $list, function ( array $a, array $b ) {
+		usort( $list, static function ( array $a, array $b ) {
 			if ( $a['group'] !== $b['group'] ) {
 				return $a['group'] <=> $b['group'];
 			}

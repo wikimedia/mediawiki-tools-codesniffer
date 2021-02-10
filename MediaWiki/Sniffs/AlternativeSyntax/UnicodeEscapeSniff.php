@@ -99,7 +99,7 @@ class UnicodeEscapeSniff implements Sniff {
 			// skipping escaped backslashes to prevent false matches.
 			$content .= preg_replace_callback(
 				'/\\\\(?:u\{([0-9A-Fa-f]+)\}|\\\\(*SKIP)(*FAIL))/',
-				function ( array $m ) use ( &$warn ) {
+				static function ( array $m ) use ( &$warn ) {
 					// Decode the codepoint-digits.
 					$cp = hexdec( $m[1] );
 					if ( $cp > 0x10FFFF ) {

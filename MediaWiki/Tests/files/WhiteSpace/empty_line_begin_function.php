@@ -17,11 +17,11 @@ function wfPassedExamples() {
 	# code...
 }
 
-$foo = function () {
+$foo = static function () {
 
 	$a = 'b';
 };
 
-$foo2 = function () {
+$foo2 = static function () {
 	$a = 'b';
 };

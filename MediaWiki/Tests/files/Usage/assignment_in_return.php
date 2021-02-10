@@ -46,7 +46,7 @@ function wfPassedExamples() {
 			public $skinname = 'vector';
 		};
 	} else {
-		return function () use ( $foo ) {
+		return static function () use ( $foo ) {
 			$foo = 1;
 			return $foo;
 		};

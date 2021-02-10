@@ -20,14 +20,14 @@ function wfFoo() {
 		echo 'fail!';
 	}
 
-	$allowed = function () {
+	$allowed = static function () {
 		echo 'pass';
 	};
 
 	$allowed();
 }
 
-$bar = function () {
+$bar = static function () {
 	{
 		/**
 		 * Don't touch this

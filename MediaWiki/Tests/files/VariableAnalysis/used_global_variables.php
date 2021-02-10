@@ -10,7 +10,7 @@ function wfFailedExamples() {
 	global $wgSameLine,
 		$wgNextLine;
 
-	function () {
+	static function () {
 		global $wgSomething, $wgClosureUnused;
 		return $wgSomething;
 	};
@@ -48,10 +48,10 @@ PHP;
 
 	$foo = "${wgFour}foo";
 
-	function ( $notAGlobal ) use ( $alsoNotAGlobal ) {
+	static function ( $notAGlobal ) use ( $alsoNotAGlobal ) {
 	};
 
-	function ( $wgFour ) use ( $wgClosure ) {
+	static function ( $wgFour ) use ( $wgClosure ) {
 		global $wgSomething;
 		return $wgSomething . $wgFour . $wgClosure;
 	};
