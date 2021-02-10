@@ -30,8 +30,8 @@ class Foo extends \Bar implements \I1, I2 {
 	 * @return bool
 	 */
 	public function func( ?string $a, $b, $c, $d /*...*/ ) {
-		return function ( $e, $f ) use ( $a, $b ) {
-			return function () use ( $e ) {
+		return static function ( $e, $f ) use ( $a, $b ) {
+			return static function () use ( $e ) {
 				return true;
 			};
 		};

@@ -71,6 +71,8 @@
  32 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2
     |         |     found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+ 33 | WARNING | [x] Use static closure
+    |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
  33 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0
     |         |     found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
@@ -104,6 +106,8 @@
  33 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2
     |         |     found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+ 34 | WARNING | [x] Use static closure
+    |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
  34 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 2
     |         |     found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
@@ -178,4 +182,4 @@
  50 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1
     |         |     found
     |         |     (Generic.WhiteSpace.SpreadOperatorSpacingAfter.TooMuchSpace)
-PHPCBF CAN FIX THE 62 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 64 MARKED SNIFF VIOLATIONS AUTOMATICALLY

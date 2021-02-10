@@ -31,7 +31,6 @@
 	"scripts": {
 		"phan": "phan -d . -p --allow-polyfill-parser --long-progress-bar",
 		"test": [
-			"parallel-lint . --exclude vendor --exclude MediaWiki/Tests/files",
 			"phpunit",
 			"phpcs -p -s",
 			"composer phan",

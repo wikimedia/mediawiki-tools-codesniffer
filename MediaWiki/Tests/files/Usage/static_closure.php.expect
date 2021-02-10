@@ -1,0 +1,15 @@
+ 21 | ERROR   | [ ] Only one object structure is allowed in a
+    |         |     file
+    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 41 | WARNING | [x] Use static closure
+    |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 64 | ERROR   | [x] Cannot not use static closure in class
+    |         |     context
+    |         |     (MediaWiki.Usage.StaticClosure.NonStaticClosure)
+ 77 | WARNING | [x] Use static closure
+    |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 88 | WARNING | [x] Use static closure
+    |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 89 | WARNING | [x] Use static closure
+    |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
