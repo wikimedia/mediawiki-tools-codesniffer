@@ -22,6 +22,7 @@ use Something\Partial;
 use Something\Something;
 use Something\That\Is\Unused;
 use Something\That\Is\Used;
+use Something\UnusedAlias as SomeAlias;
 use Something\UsedForPhanVar;
 use Something\UsedForPhanVarComplex;
 use \Something\UsedForPhanVarForce;

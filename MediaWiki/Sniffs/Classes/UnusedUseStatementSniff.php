@@ -154,8 +154,13 @@ class UnusedUseStatementSniff implements Sniff {
 			}
 		}
 
-		foreach ( $shortClassNames as $i ) {
-			$fix = $phpcsFile->addFixableWarning( 'Unused use statement', $i, 'UnusedUse' );
+		foreach ( $shortClassNames as [ $i, $shortClassName ] ) {
+			$fix = $phpcsFile->addFixableWarning(
+				'Unused use statement "%s"',
+				$i,
+				'UnusedUse',
+				[ $shortClassName ]
+			);
 			if ( $fix ) {
 				$this->removeUseStatement( $phpcsFile, $i );
 			}
@@ -232,7 +237,8 @@ class UnusedUseStatementSniff implements Sniff {
 				// Live coding
 				break;
 			}
-			$shortClassNames[ strtolower( $tokens[$classNamePtr]['content'] ) ] = $currentUsePtr;
+			$shortClassName = $tokens[$classNamePtr]['content'];
+			$shortClassNames[strtolower( $shortClassName )] = [ $currentUsePtr, $shortClassName ];
 
 			// Check if the referenced class is in the same namespace as the current
 			// file. If it is then the use statement is not necessary.
@@ -242,7 +248,7 @@ class UnusedUseStatementSniff implements Sniff {
 			if ( $tokens[$prev]['code'] !== T_AS ) {
 				$useNamespace = $this->readNamespace( $phpcsFile, $prev + 1, $classNamePtr - 2 );
 				if ( $useNamespace === $namespace ) {
-					$this->addSameNamespaceWarning( $phpcsFile, $currentUsePtr );
+					$this->addSameNamespaceWarning( $phpcsFile, $currentUsePtr, $shortClassName );
 				}
 			}
 
@@ -304,10 +310,15 @@ class UnusedUseStatementSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
+	 * @param string $shortClassName
 	 */
-	private function addSameNamespaceWarning( File $phpcsFile, int $stackPtr ) {
-		$warning = 'Unnecessary use statement in the same namespace';
-		$fix = $phpcsFile->addFixableWarning( $warning, $stackPtr, 'UnnecessaryUse' );
+	private function addSameNamespaceWarning( File $phpcsFile, int $stackPtr, string $shortClassName ) {
+		$fix = $phpcsFile->addFixableWarning(
+			'Unnecessary use statement "%s" in the same namespace',
+			$stackPtr,
+			'UnnecessaryUse',
+			[ $shortClassName ]
+		);
 		if ( $fix ) {
 			$this->removeUseStatement( $phpcsFile, $stackPtr );
 		}
