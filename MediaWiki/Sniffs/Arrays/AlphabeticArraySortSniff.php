@@ -200,7 +200,9 @@ class AlphabeticArraySortSniff implements Sniff {
 			if ( $lastEnd !== false ) {
 				$newArray .= $phpcsFile->getTokensAsString(
 					$lastEnd + 1,
-					$values['key'] - $lastEnd - 1
+					$values['key'] - $lastEnd - 1,
+					// keep tabs on multiline statements
+					true
 				);
 			}
 			$lastEnd = $values['end'];
@@ -210,7 +212,9 @@ class AlphabeticArraySortSniff implements Sniff {
 			$unsortedToken = $unsorted[$sortedKey];
 			$newArray .= $phpcsFile->getTokensAsString(
 				$unsortedToken['key'],
-				$unsortedToken['end'] - $unsortedToken['key'] + 1
+				$unsortedToken['end'] - $unsortedToken['key'] + 1,
+				// keep tabs on multiline statements
+				true
 			);
 			$iteratorSorted->next();
 
