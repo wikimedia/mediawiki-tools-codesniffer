@@ -7,9 +7,6 @@
   16 | WARNING | [ ] The phpunit annotation @backupGlobals should not
      |         |     be used.
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenBackupGlobals)
-  16 | ERROR   | [ ] @backupGlobals is not a valid function
-     |         |     annotation
-     |         |     (MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation)
   22 | WARNING | [ ] The phpunit annotation @coversNothing should
      |         |     only be used inside test classes.
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)

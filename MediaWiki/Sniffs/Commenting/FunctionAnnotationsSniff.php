@@ -101,17 +101,33 @@ class FunctionAnnotationsSniff implements Sniff {
 		// T263390
 		'@noinspection' => true,
 
-		// Allowed mixed-case tags, mapping from all-lowercase to the expected mixed-case
-		'@beforeclass' => '@beforeClass',
+		// phpunit tags that are mixed-case - map lowercase to preferred mixed-case
+		// phpunit tags that are already all-lowercase, like @after and @before
+		// are listed above
 		'@afterclass' => '@afterClass',
+		'@beforeclass' => '@beforeClass',
 		'@codecoverageignore' => '@codeCoverageIgnore',
 		'@covernothing' => '@coverNothing',
 		'@coversnothing' => '@coversNothing',
 		'@dataprovider' => '@dataProvider',
+		'@doesnotperformassertions' => '@doesNotPerformAssertions',
+		'@testwith' => '@testWith',
+
+		// Other phpunit annotations that we recognize, even if PhpunitAnnotationsSniff
+		// complains about them. See T276971
+		'@small' => true,
+		'@medium' => true,
+		'@large' => true,
+		'@test' => true,
+		'@testdox' => true,
+		'@backupglobals' => '@backupGlobals',
+		'@backupstaticattributes' => '@backupStaticAttributes',
+		'@runinseparateprocess' => '@runInSeparateProcess',
 		'@expectedexception' => '@expectedException',
 		'@expectedexceptioncode' => '@expectedExceptionCode',
 		'@expectedexceptionmessage' => '@expectedExceptionMessage',
 		'@expectedexceptionmessageregexp' => '@expectedExceptionMessageRegExp',
+
 		'@inheritdoc' => '@inheritDoc',
 
 		// Tags to automatically fix
