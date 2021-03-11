@@ -494,6 +494,14 @@ class TestPassedExamples {
 	public function testObjectTypehintOkayIntersect( object $obj ) : object {
 		return $obj;
 	}
+
+	/**
+	 * @param array<int, string> $a
+	 * @return array<int, string>
+	 */
+	public function javaStyle( $a ) {
+		return $a;
+	}
 }
 
 class TestSimpleConstructor {

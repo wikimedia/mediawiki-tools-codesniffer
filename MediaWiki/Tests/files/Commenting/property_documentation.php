@@ -85,6 +85,9 @@ class TestPassedExamples {
 	/** @inheritDoc */
 	public $inherit;
 
+	/** @var array<int, string> */
+	public $javaStyle;
+
 	/**
 	 * Test should not process local vars
 	 * @param int $a1

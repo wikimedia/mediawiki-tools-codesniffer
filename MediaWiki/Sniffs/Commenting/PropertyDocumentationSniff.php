@@ -157,10 +157,7 @@ class PropertyDocumentationSniff implements Sniff {
 				$phpcsFile->addError( $error, $var, 'MissingVarType' );
 				return;
 			}
-			// The first word of the var type is the actual type
-			$exploded = explode( ' ', $content, 2 );
-			$type = $exploded[0];
-			$comment = $exploded[1] ?? null;
+			[ $type, $comment ] = $this->splitTypeAndComment( $content );
 			$fixType = false;
 			// Check for unneeded punctation
 			$type = $this->fixTrailingPunctation(
@@ -186,7 +183,7 @@ class PropertyDocumentationSniff implements Sniff {
 				'var'
 			);
 			// Check spacing after type
-			if ( $comment !== null ) {
+			if ( $comment !== '' ) {
 				$expectedSpaces = 1;
 				$currentSpaces = strspn( $comment, ' ' ) + 1;
 				if ( $currentSpaces !== $expectedSpaces ) {
@@ -205,13 +202,36 @@ class PropertyDocumentationSniff implements Sniff {
 			if ( $fixType ) {
 				$phpcsFile->fixer->replaceToken(
 					$varType,
-					$type . ( $comment !== null ? ' ' . $comment : '' )
+					$type . ( $comment !== '' ? ' ' . $comment : '' )
 				);
 			}
 		} else {
 			$error = 'Missing @var tag in class property comment';
 			$phpcsFile->addError( $error, $tokens[$commentStart]['comment_closer'], 'MissingVar' );
 		}
+	}
+
+	/**
+	 * Split PHPDoc comment strings like "bool[] Comment" into type and comment, while respecting
+	 * types like "array<int, array<string, bool>>".
+	 *
+	 * @param string $str
+	 *
+	 * @return string[]
+	 */
+	private function splitTypeAndComment( string $str ) : array {
+		$brackets = 0;
+		for ( $i = 0; $i < strlen( $str ); $i++ ) {
+			$char = $str[$i];
+			if ( $char === ' ' && !$brackets ) {
+				return [ substr( $str, 0, $i ), substr( $str, $i + 1 ) ];
+			} elseif ( $char === '>' && $brackets ) {
+				$brackets--;
+			} elseif ( $char === '<' ) {
+				$brackets++;
+			}
+		}
+		return [ $str, '' ];
 	}
 
 }
