@@ -1,0 +1,4 @@
+ 3 | WARNING | Possible parse error: class missing opening or closing
+   |         | brace (PSR2.Classes.ClassDeclaration.MissingBrace)
+ 3 | WARNING | Possible parse error: class missing opening or closing
+   |         | brace (Squiz.Classes.ValidClassName.MissingBrace)
