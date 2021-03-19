@@ -1,0 +1,4 @@
+ 11 | ERROR | Global variable "$notMyGlobal" is lacking an allowed
+    |       | prefix (one of 'test', 'code'). Should be "one of
+    |       | "$testNotMyGlobal", "$codeNotMyGlobal"".
+    |       | (MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix)

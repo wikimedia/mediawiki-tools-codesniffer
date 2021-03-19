@@ -86,7 +86,9 @@ class ValidGlobalNameSniff implements Sniff {
 					$allowedPrefix = '\'' . $this->allowedPrefixes[0] . '\'';
 				// If there are no prefixes specified, don't do anything
 				} elseif ( $this->allowedPrefixes === [] ) {
+					// @codeCoverageIgnoreStart
 					return;
+					// @codeCoverageIgnoreEnd
 				} else {
 					// Build a list of forged valid global variable names
 					$expected = 'one of "$'
