@@ -12,7 +12,7 @@ function wfFailedExamples( $arg ) {
 		unset	( $arg['test'] );
 		return $one;
 	}
-	return $two;
+	exit;
 }
 
 /**
