@@ -49,4 +49,8 @@ function wfPassedExamples() {
 	# And the same goes
 	#   if #-style comments
 	#      are used
+	// Have some
+	//
+	#
+	// empty comments
 }
