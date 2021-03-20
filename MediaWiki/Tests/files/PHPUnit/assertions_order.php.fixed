@@ -5,6 +5,7 @@ class AssertionsOrderTest extends \PHPUnit\Framework\TestCase {
 	public function testAssertions() {
 		// Should be replaced
 		$var = 123;
+		$d = Foo::assertEquals;
 		$this->assertSame( false, $var );
 		$this->assertSame( false, $var, 'Message' );
 
@@ -22,5 +23,6 @@ class AssertionsOrderTest extends \PHPUnit\Framework\TestCase {
 		// Not just variable
 		$this->assertSame( wfFunctionCall( true ), true );
 		$this->assertSame( $var * 2, 246 );
+		$this->assertSame( $var, 246 * 2 );
 	}
 }
