@@ -28,6 +28,16 @@ function 	wfFailedExampleThree() {
 }
 
 /**
+ * Failed examples
+ * Has newline
+ * @return void
+ */
+function
+	wfFailedExampleFour() {
+	# code
+}
+
+/**
  * Passed examples.
  * @return void
  */
