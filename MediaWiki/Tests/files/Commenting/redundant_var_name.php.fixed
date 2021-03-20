@@ -1,0 +1,32 @@
+<?php
+
+class TestFailedExamples {
+
+	/** @var */
+	private $failNoType;
+
+	/** @var string */
+	private $failType;
+
+	/** @var string */
+	private $failTypeWrongOrder;
+
+	/** @var string */
+	var $failOldStyle;
+
+}
+
+class TestPassedExamples {
+
+	/** @var string */
+	private $passed;
+
+	/** @var string */
+	private static $passedStatic;
+
+	private const CONST = 42;
+
+	/** @var string $passStatic */
+	private static $passStatic;
+
+}

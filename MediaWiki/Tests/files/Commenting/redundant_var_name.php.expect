@@ -1,0 +1,23 @@
+  5 | ERROR | [x] Found redundant variable name $failNoType in
+    |       |     @var
+    |       |     (MediaWiki.Commenting.RedundantVarName.Found)
+  8 | ERROR | [x] Found redundant variable name $failType in @var
+    |       |     (MediaWiki.Commenting.RedundantVarName.Found)
+ 11 | ERROR | [x] Found redundant variable name $failTypeWrongOrder
+    |       |     in @var
+    |       |     (MediaWiki.Commenting.RedundantVarName.Found)
+ 14 | ERROR | [x] Found redundant variable name $failOldStyle in
+    |       |     @var
+    |       |     (MediaWiki.Commenting.RedundantVarName.Found)
+ 15 | ERROR | [ ] The var keyword must not be used to declare a
+    |       |     property
+    |       |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 15 | ERROR | [ ] Visibility must be declared on property
+    |       |     "$failOldStyle"
+    |       |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 15 | ERROR | [ ] Scope modifier not specified for member variable
+    |       |     "$failOldStyle"
+    |       |     (Squiz.Scope.MemberVarScope.Missing)
+ 19 | ERROR | [ ] Only one object structure is allowed in a file
+    |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
