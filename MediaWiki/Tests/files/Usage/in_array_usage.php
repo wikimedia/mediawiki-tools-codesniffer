@@ -11,6 +11,7 @@ array_keys( $array );
 array_key_exists( $key, $array );
 in_array( $key ) && array_keys( $array );
 in_array( array_keys( $key ), $array );
+Foo::test( array_keys( $array ) );
 
 // Nested parenthesis
 if ( !in_array( $key, array_keys( $array ) ) ) {

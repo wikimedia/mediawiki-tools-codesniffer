@@ -7,6 +7,6 @@
   6 | ERROR | Found slow in_array( …, array_keys() ), should be
     |       | array_key_exists() or isset()
     |       | (MediaWiki.Usage.InArrayUsage.Found)
- 16 | ERROR | Found slow in_array( …, array_keys() ), should be
+ 17 | ERROR | Found slow in_array( …, array_keys() ), should be
     |       | array_key_exists() or isset()
     |       | (MediaWiki.Usage.InArrayUsage.Found)
