@@ -19,3 +19,5 @@ FooBar::is_real( 20 );
 $this->is_real( 21 );
 isset( $x['a'], $x['b'], $x['c'] );
 isset( $x['a'] ) && isset( $x['b'] ) && isset( $x['c'] );
+parse_str( $x['a'] . ( true ? 1 : 0 ), $someArray );
+$a = FooBar::sizeof['b'];
