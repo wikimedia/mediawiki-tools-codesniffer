@@ -21,6 +21,7 @@ class FOO extends BAR {
 	 * @return string
 	 */
 	public function foo( $a ) {
+		$b = BAR::dirname;
 		return BAR::foo( __FILE__ );
 	}
 

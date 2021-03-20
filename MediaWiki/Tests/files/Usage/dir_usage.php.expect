@@ -1,4 +1,4 @@
- 41 | ERROR | [x] Use __DIR__ constant instead of calling
+ 42 | ERROR | [x] Use __DIR__ constant instead of calling
     |       |     dirname(__FILE__)
     |       |     (MediaWiki.Usage.DirUsage.FunctionFound)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

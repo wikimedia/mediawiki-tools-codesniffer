@@ -40,19 +40,24 @@ class DirUsageSniff implements Sniff {
 
 		// Find the paranthesis for the function
 		$nextToken = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 1, null, true );
-		if ( $tokens[$nextToken]['code'] !== T_OPEN_PARENTHESIS ) {
+		if ( $nextToken === false
+			|| $tokens[$nextToken]['code'] !== T_OPEN_PARENTHESIS
+		) {
 			return;
 		}
 
 		// Check if __FILE__ is inside it
 		$nextToken = $phpcsFile->findNext( T_WHITESPACE, $nextToken + 1, null, true );
-		if ( $tokens[$nextToken]['code'] !== T_FILE ) {
+		if ( $nextToken == false
+			|| $tokens[$nextToken]['code'] !== T_FILE
+		) {
 			return;
 		}
 
 		// Check if it's a PHP function
 		$prevToken = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr - 1, null, true );
-		if ( $tokens[$prevToken]['code'] === T_OBJECT_OPERATOR
+		if ( $prevToken === false
+			|| $tokens[$prevToken]['code'] === T_OBJECT_OPERATOR
 			|| $tokens[$prevToken]['code'] === T_NULLSAFE_OBJECT_OPERATOR
 			|| $tokens[$prevToken]['code'] === T_DOUBLE_COLON
 			|| $tokens[$prevToken]['code'] === T_FUNCTION
@@ -63,7 +68,9 @@ class DirUsageSniff implements Sniff {
 
 		// Find close paranthesis
 		$nextToken = $phpcsFile->findNext( T_WHITESPACE, $nextToken + 1, null, true );
-		if ( $tokens[$nextToken]['code'] !== T_CLOSE_PARENTHESIS ) {
+		if ( $nextToken === false
+			|| $tokens[$nextToken]['code'] !== T_CLOSE_PARENTHESIS
+		) {
 			return;
 		}
 
