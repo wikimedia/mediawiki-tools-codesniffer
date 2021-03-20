@@ -3,6 +3,9 @@
 
 namespace {
 	class SomethingTest extends \PHPUnit\Framework\TestCase {
+		/** @var string */
+		private static $assertInternalType;
+
 		public function testAssertInternalType() {
 			$e = 'foo';
 			$a = 'bar';
@@ -16,6 +19,7 @@ namespace {
 			self::assertInternalType( 'callable', $e );
 			static::assertInternalType( 'iterable', $e );
 
+			$d = self::assertInternalType;
 			$e->assertInternalType( 'NOT A PHPUNIT FUNCTION', 'foo' );
 		}
 
