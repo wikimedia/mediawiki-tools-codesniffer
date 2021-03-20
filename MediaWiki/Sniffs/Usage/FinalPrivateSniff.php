@@ -40,14 +40,10 @@ class FinalPrivateSniff implements Sniff {
 			null,
 			true
 		);
-		if ( $next === false ) {
-			// Nothing after this, must be live coding
-			return;
-		}
-
-		$nextToken = $tokens[$next];
-		if ( $nextToken['code'] !== T_PRIVATE ) {
-			// Not a private function
+		if ( $next === false
+			|| $tokens[$next]['code'] !== T_PRIVATE
+		) {
+			// Not a private function or nothing after this, must be live coding
 			return;
 		}
 
