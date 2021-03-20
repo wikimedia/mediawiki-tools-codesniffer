@@ -371,6 +371,24 @@ class TestFailedExamples {
 	 */
 	public function testReturnTypeHintVoid( $i ) : void {
 	}
+
+	/**
+	 * @return string
+	 * @return int
+	 */
+	public function testDuplicateReturn() {
+		return 42;
+	} // function
+
+	public function testCommentDoesNotBelongsToFunction( $needsTest ) {
+	}
+
+	/**
+	 * @param string $sameCase
+	 * @param string $notSameCase
+	 */
+	public function testBadParamName( $sameCase, $notsamecase ) {
+	}
 }
 
 class TestPassedExamples {
