@@ -95,11 +95,7 @@ class UnusedUseStatementSniff implements Sniff {
 		// insensitive, that's why we cannot search for the exact class name string
 		// and need to iterate over all T_STRING tokens in the file.
 		for ( $i = $afterUseSection; $i < $phpcsFile->numTokens; $i++ ) {
-			if ( $tokens[$i]['code'] === T_RETURN_TYPE ) {
-				// If the name is used in a PHP 7 function return type declaration
-				$className = $tokens[$i]['content'];
-
-			} elseif ( $tokens[$i]['code'] === T_STRING ) {
+			if ( $tokens[$i]['code'] === T_STRING ) {
 				if ( !isset( $shortClassNames[ strtolower( $tokens[$i]['content'] ) ] ) ) {
 					continue;
 				}
