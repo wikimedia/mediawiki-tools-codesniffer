@@ -23,6 +23,14 @@ function wfFailedExamples() {
 	}else     {
 	}
 
+	if ( $a ) {
+		# code...
+	}
+	else
+	{
+		# code...
+	}
+
 	if ( $a ) :
 		# code...
 	elseif ( $a ) :
