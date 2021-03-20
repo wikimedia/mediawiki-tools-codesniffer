@@ -52,3 +52,4 @@ $var === \is_null( $var );
 \is_null( $a ) === \is_null( $b );
 \is_null( $a ) != \is_null( $b );
 \is_null( $a ) !== \is_null( $b );
+\NamespaceName\ClassName\is_null( \NamespaceName\ClassName::method( $parameter1, $parameter2 ) );

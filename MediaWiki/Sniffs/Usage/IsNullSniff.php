@@ -48,7 +48,10 @@ class IsNullSniff implements Sniff {
 			return;
 		}
 		$nextToken = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
-		if ( $tokens[$nextToken]['code'] !== T_OPEN_PARENTHESIS ) {
+		if ( $nextToken === false
+			|| $tokens[$nextToken]['code'] !== T_OPEN_PARENTHESIS
+			|| !isset( $tokens[$nextToken]['parenthesis_closer'] )
+		) {
 			return;
 		}
 
