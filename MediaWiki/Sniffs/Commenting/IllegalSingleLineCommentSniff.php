@@ -57,20 +57,6 @@ class IllegalSingleLineCommentSniff implements Sniff {
 					);
 				}
 			} else {
-				// Determine whether multiple "*" appears right after the "/*"
-				if ( preg_match( '/\/(\*){2,}/', $currentToken['content'] ) !== 0 ) {
-					$fix = $phpcsFile->addFixableWarning(
-						'Invalid start of a single line comment',
-						$stackPtr,
-						'IllegalSingleLineCommentStart'
-					);
-					if ( $fix ) {
-						$phpcsFile->fixer->replaceToken(
-							$stackPtr,
-							preg_replace( '/\/(\*){2,}/', '/*', $currentToken['content'] )
-						);
-					}
-				}
 				// Determine whether multiple "*" appears right before the "*/"
 				if ( preg_match( '/(\*){2,}\//', $currentToken['content'] ) !== 0 ) {
 					$fix = $phpcsFile->addFixableWarning(

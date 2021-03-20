@@ -114,13 +114,6 @@ class DocCommentSniff implements Sniff {
 
 			// Star token should exact *
 			if ( $tokens[$i]['code'] === T_DOC_COMMENT_STAR ) {
-				if ( $tokens[$i]['content'] !== '*' ) {
-					$error = 'Comment star must be \'*\'';
-					$fix = $phpcsFile->addFixableError( $error, $i, 'SyntaxDocStar' );
-					if ( $fix ) {
-						$phpcsFile->fixer->replaceToken( $i, '*' );
-					}
-				}
 				// Multi stars in a line are parsed as a new token
 				$initialStarChars = strspn( $tokens[$i + 1]['content'], '*' );
 				if ( $initialStarChars > 0 ) {
