@@ -239,7 +239,7 @@
 * Also require return type for setUpBeforeClass() and tearDownAfterClass() (Max Semenik)
 * Forbid usage of is_null() (Prateek Saxena)
 * Use severity instead of excludes to allow local overrides (Thiemo Kreuz)
-* FunctionAnnotationsSniff: whitelist @before (Max Semenik)
+* FunctionAnnotationsSniff: allow @before (Max Semenik)
 * Temporarily disable the sniff for assertArraySubset (Daimona Eaytoy)
 
 
@@ -279,11 +279,11 @@
 * Prohibit aliases is_long, is_double and is_real (mainframe98)
 * Streamline PHPDoc comment parsing in UnusedUseStatement sniff (Thiemo Kreuz)
 * Upgrade PHP_CodeSniffer to 3.4.1 (Kunal Mehta)
-* Whitelist more phan annotations (Kunal Mehta)
+* Enable more phan annotations (Kunal Mehta)
 
 
 ## 24.0.0 / 2019-02-05 ##
-* Whitelist @after and @before phpunit annotations (Umherirrender)
+* Allow @after and @before phpunit annotations (Umherirrender)
 * Update PHP_CodeSniffer to 3.4.0 (Kunal Mehta)
 * Enable new Generic.VersionControl.GitMergeConflict sniff (Kunal Mehta)
 * Copyedit comments (Max Semenik)
@@ -330,7 +330,7 @@
 * Cleanups to the UnusedUseStatement sniff (Thiemo Kreuz)
 * Update DB_REPLICA's last version to 1.27.3 (Kunal Mehta)
 * Upgrade squizlabs/php_codesniffer to 3.3.1 (Reedy)
-* Whitelist @param-taint and @return-taint (Umherirrender)
+* Allow @param-taint and @return-taint (Umherirrender)
 
 
 ## 21.0.0 / 2018-07-26 ##

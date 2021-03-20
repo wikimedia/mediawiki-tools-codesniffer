@@ -90,7 +90,7 @@ class AssertionOrderSniff implements Sniff {
 		$expectedToken = $phpcsFile->findNext( T_WHITESPACE, $commaToken + 1, null, true );
 		$codesToReplace = [ T_NULL, T_FALSE, T_TRUE, T_LNUMBER, T_DNUMBER, T_CONSTANT_ENCAPSED_STRING ];
 		if ( !in_array( $tokens[$expectedToken]['code'], $codesToReplace ) ) {
-			// Not a comparison to one of the whitelisted literals
+			// Not a comparison to one of the allowed literals
 			return;
 		}
 
