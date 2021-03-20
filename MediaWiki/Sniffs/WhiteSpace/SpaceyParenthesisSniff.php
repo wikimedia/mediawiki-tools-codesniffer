@@ -77,9 +77,9 @@ class SpaceyParenthesisSniff implements Sniff {
 			&& ( $tokens[$stackPtr - 2]['code'] === T_STRING
 				|| $tokens[$stackPtr - 2]['code'] === T_ARRAY )
 		) {
-			// String (or 'array') followed by whitespace followed by
+			// String followed by whitespace followed by
 			// opening brace is probably a function call.
-			$bracketType = $this->isParenthesis( $currentToken['code'] )
+			$bracketType = $tokens[$stackPtr - 2]['code'] === T_STRING
 				? 'parenthesis of function call'
 				: 'bracket of array';
 			$fix = $phpcsFile->addFixableWarning(

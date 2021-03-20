@@ -11,6 +11,7 @@ function wfFailedExamples( $a, $b ) {
 	$a->foo(  $b  );
 	$a->foo( 	$b  	);
 	$c = array( );
+	$d = array ( 1, 2 );
 	$a = [
 		'foo' => 'bar',
 		'foo' => ['bar', 'baz']

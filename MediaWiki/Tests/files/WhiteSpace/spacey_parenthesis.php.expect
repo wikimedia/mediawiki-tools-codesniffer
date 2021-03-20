@@ -21,12 +21,20 @@
     |         |     (Generic.Arrays.DisallowLongArraySyntax.Found)
  13 | WARNING | [x] Unnecessary space found within parentheses
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
- 16 | WARNING | [x] Single space expected after opening
+ 14 | ERROR   | [x] Short array syntax must be used to define
+    |         |     arrays
+    |         |     (Generic.Arrays.DisallowLongArraySyntax.Found)
+ 14 | WARNING | [x] Space found before opening bracket of array
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
+ 14 | ERROR   | [x] Expected no space before opening parenthesis;
+    |         |     found 1
+    |         |     (MediaWiki.WhiteSpace.OpeningKeywordParenthesis.WrongWhitespaceBeforeParenthesis)
+ 17 | WARNING | [x] Single space expected after opening
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 16 | WARNING | [x] Single space expected before closing
+ 17 | WARNING | [x] Single space expected before closing
     |         |     parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 19 | ERROR   | [x] Whitespace found at end of line
+ 20 | ERROR   | [x] Whitespace found at end of line
     |         |     (Squiz.WhiteSpace.SuperfluousWhitespace.EndLine)
-PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 14 MARKED SNIFF VIOLATIONS AUTOMATICALLY
