@@ -71,14 +71,10 @@
     |       |     (MediaWiki.Commenting.DocComment.SyntaxCloseTag)
  42 | ERROR | [x] Comment close tag should have own line
     |       |     (MediaWiki.Commenting.DocComment.CloseTagOwnLine)
- 47 | ERROR | [x] Expected 1 spaces before @param; 0 found
-    |       |     (MediaWiki.Commenting.DocComment.SpacingDocTag)
  47 | ERROR | [x] Expected at least 1 spaces after doc star; 0
     |       |     found
     |       |     (MediaWiki.Commenting.DocComment.SpacingDocStar)
  48 | ERROR | [x] Expected 1 spaces before @return; 2 found
-    |       |     (MediaWiki.Commenting.DocComment.SpacingDocTag)
- 49 | ERROR | [x] Expected 1 spaces before @see; 0 found
     |       |     (MediaWiki.Commenting.DocComment.SpacingDocTag)
  49 | ERROR | [x] Expected at least 1 spaces after doc star; 0
     |       |     found
@@ -95,4 +91,4 @@
     |       |     (MediaWiki.Commenting.DocComment.NoDocStar)
  86 | ERROR | [ ] Only one object structure is allowed in a file
     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 42 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 40 MARKED SNIFF VIOLATIONS AUTOMATICALLY

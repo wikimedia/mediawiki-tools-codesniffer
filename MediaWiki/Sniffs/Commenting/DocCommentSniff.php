@@ -194,12 +194,9 @@ class DocCommentSniff implements Sniff {
 				$commentTagSpacing = $i - 1;
 				$expectedSpaces = 1;
 				$currentSpaces = strspn( strrev( $tokens[$commentTagSpacing]['content'] ), ' ' );
-				// Relax the check for a list of annotations for multi spaces before the annotation,
-				// but report missing spaces
-				if ( $currentSpaces < $expectedSpaces || (
-						$currentSpaces > $expectedSpaces &&
-						!in_array( $tokens[$i]['content'], self::ANNOTATIONS_IGNORE_MULTI_SPACE_BEFORE, true )
-					)
+				// Relax the check for a list of annotations for multi spaces before the annotation
+				if ( $currentSpaces > $expectedSpaces &&
+					!in_array( $tokens[$i]['content'], self::ANNOTATIONS_IGNORE_MULTI_SPACE_BEFORE, true )
 				) {
 					$data = [
 						$expectedSpaces,
@@ -213,19 +210,12 @@ class DocCommentSniff implements Sniff {
 						$data
 					);
 					if ( $fix ) {
-						if ( $currentSpaces > $expectedSpaces ) {
-							// Remove whitespace
-							$content = $tokens[$commentTagSpacing]['content'];
-							$phpcsFile->fixer->replaceToken(
-								$commentTagSpacing,
-								substr( $content, 0, $expectedSpaces - $currentSpaces )
-							);
-						} elseif ( $tokens[$commentTagSpacing]['code'] !== T_DOC_COMMENT_STAR ) {
-							// Add whitespace, when not conflict with the addition of spacing for doc star
-							$phpcsFile->fixer->addContentBefore(
-								$i, str_repeat( ' ', $expectedSpaces )
-							);
-						}
+						// Remove whitespace
+						$content = $tokens[$commentTagSpacing]['content'];
+						$phpcsFile->fixer->replaceToken(
+							$commentTagSpacing,
+							substr( $content, 0, $expectedSpaces - $currentSpaces )
+						);
 					}
 				}
 
