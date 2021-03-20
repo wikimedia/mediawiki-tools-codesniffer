@@ -115,6 +115,8 @@ class Foo {
 		/** @var $exampleVar UsedForVar */
 		'@phan-var UsedForPhanVar $exampleVar';
 		'@phan-var InAVar7<InAVar8,UsedForPhanVarComplex> $exampleVar';
+		'@phan-var BadCode$bad';
+		'@phan-var NonExistClass $nonExist';
 		$exampleVar = $arr[1];
 		return $exampleVar->getNumber();
 	}
