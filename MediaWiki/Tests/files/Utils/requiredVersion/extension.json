@@ -1,0 +1,6 @@
+{
+	"name": "requiredVersion",
+	"requires": {
+		"MediaWiki": ">= 1.34.0"
+	}
+}

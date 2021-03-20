@@ -12,6 +12,7 @@
 	<testsuites>
 		<testsuite name="phpcs/MediaWiki">
 			<file>./MediaWiki/Tests/MediaWikiStandardTest.php</file>
+			<file>./MediaWiki/Tests/ExtensionInfoTest.php</file>
 		</testsuite>
 	</testsuites>
 	<filter>
