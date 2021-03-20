@@ -1,0 +1,26 @@
+ 15 | ERROR | [x] All code in this codebase should be tagged with
+    |       |     "@license myLicense", found "@license myLicense2"
+    |       |     instead
+    |       |     (MediaWiki.Commenting.ClassLevelLicense.WrongLicense)
+ 17 | ERROR | [ ] Only one object structure is allowed in a file
+    |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 21 | ERROR | [x] All code in this codebase should have a @license
+    |       |     tag
+    |       |     (MediaWiki.Commenting.ClassLevelLicense.Missing)
+ 24 | ERROR | [ ] Only one object structure is allowed in a file
+    |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 30 | ERROR | [ ] Content missing for @license tag in class
+    |       |     comment
+    |       |     (MediaWiki.Commenting.EmptyTag.ClassLicense)
+ 30 | ERROR | [x] All code in this codebase should be tagged with
+    |       |     "@license myLicense", found empty "@license"
+    |       |     instead
+    |       |     (MediaWiki.Commenting.ClassLevelLicense.Empty)
+ 32 | ERROR | [ ] Only one object structure is allowed in a file
+    |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 36 | ERROR | [ ] Only one object structure is allowed in a file
+    |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 36 | ERROR | [x] All code in this codebase should have a @license
+    |       |     tag
+    |       |     (MediaWiki.Commenting.ClassLevelLicense.Missing)
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

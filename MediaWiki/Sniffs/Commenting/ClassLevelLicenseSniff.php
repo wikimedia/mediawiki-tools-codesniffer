@@ -49,7 +49,9 @@ class ClassLevelLicenseSniff implements Sniff {
 
 		// All auto-fixes below assume we are on the top level
 		if ( $tokens[$stackPtr]['level'] !== 0 ) {
+			// @codeCoverageIgnoreStart
 			return;
+			// @codeCoverageIgnoreEnd
 		}
 
 		$skip = Tokens::$methodPrefixes;
@@ -72,7 +74,10 @@ class ClassLevelLicenseSniff implements Sniff {
 		}
 
 		if ( !isset( $tokens[$closer]['comment_opener'] ) ) {
+			// @codeCoverageIgnoreStart
+			// Live coding
 			return;
+			// @codeCoverageIgnoreEnd
 		}
 
 		$opener = $tokens[$closer]['comment_opener'];
