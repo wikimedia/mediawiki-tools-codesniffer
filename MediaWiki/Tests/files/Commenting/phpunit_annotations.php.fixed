@@ -101,3 +101,20 @@ interface InterfaceTesting {
 	 */
 	public function testNothing();
 }
+
+/**
+ * Not a class comment
+ * @coverDefaultClass Test
+ */
+
+class Examples2Test {
+
+	/**
+	 * Comment does not belong to the function
+	 * @group large
+	 */
+
+	public function testDoc() {
+	}
+
+}

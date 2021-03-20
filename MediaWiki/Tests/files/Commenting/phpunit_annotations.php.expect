@@ -57,4 +57,18 @@
  100 | WARNING | [ ] The phpunit annotation @dataProvider should only
      |         |     be used inside classes or traits.
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotInClassTrait)
+ 107 | WARNING | [ ] The phpunit annotation @coverDefaultClass should
+     |         |     only be used in class level comments.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
+ 110 | ERROR   | [ ] Only one object structure is allowed in a
+     |         |     file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 114 | WARNING | [ ] The phpunit annotation @group should only be
+     |         |     used for test functions.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
+ 115 | ERROR   | [ ] There must be no blank lines after the function
+     |         |     comment
+     |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfter)
+ 117 | WARNING | [ ] The testDoc test method has no @covers tags
+     |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
