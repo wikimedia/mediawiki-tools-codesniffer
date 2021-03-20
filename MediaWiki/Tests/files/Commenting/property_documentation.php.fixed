@@ -48,6 +48,18 @@ class TestFailedExamples {
 
 	/** @var object[]|null */
 	public $testObjectArrayTypeHint;
+
+	/** @var string Comment */
+	public $testSpacing;
+
+	public $testInlineComments; // some special comment
+
+	public $testInlineCommentsNotBelongs;
+
+	/** @var string */
+
+	public $testCommentDoesNotBelongsToProperty;
+
 }
 
 class TestPassedExamples {
