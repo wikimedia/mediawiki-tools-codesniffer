@@ -80,7 +80,7 @@ class ValidGlobalNameSniff implements Sniff {
 
 				if ( count( $this->allowedPrefixes ) === 1 ) {
 					// Skip '$' and forge a valid global variable name
-					$expected = '$' . $this->allowedPrefixes[0] . ucfirst( substr( $globalName, 1 ) );
+					$expected = '"$' . $this->allowedPrefixes[0] . ucfirst( substr( $globalName, 1 ) ) . '"';
 
 					// Build message telling you the allowed prefix
 					$allowedPrefix = '\'' . $this->allowedPrefixes[0] . '\'';
@@ -105,7 +105,7 @@ class ValidGlobalNameSniff implements Sniff {
 				// Verify global is prefixed with an allowed prefix
 				if ( !in_array( substr( $globalName, 1, 2 ), $this->allowedPrefixes ) ) {
 					$phpcsFile->addError(
-						'Global variable "%s" is lacking an allowed prefix (%s). Should be "%s".',
+						'Global variable "%s" is lacking an allowed prefix (%s). Should be %s.',
 						$stackPtr,
 						'allowedPrefix',
 						[ $globalName, $allowedPrefix, $expected ]
@@ -115,7 +115,7 @@ class ValidGlobalNameSniff implements Sniff {
 					$val = ord( substr( $globalName, 3, 1 ) );
 					if ( !( $val >= 65 && $val <= 90 ) && !( $val >= 48 && $val <= 57 ) ) {
 						$phpcsFile->addError(
-							'Global variable "%s" should use CamelCase: "%s"',
+							'Global variable "%s" should use CamelCase: %s',
 							$stackPtr,
 							'CamelCase',
 							[ $globalName, $expected ]
