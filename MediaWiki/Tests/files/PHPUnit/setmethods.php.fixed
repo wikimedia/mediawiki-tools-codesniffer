@@ -1,0 +1,30 @@
+<?php
+
+use PHPUnit\Framework\TestCase;
+
+class SomethingTest extends TestCase {
+	public function main() {
+		$this->getMockBuilder( stdClass::class )
+			->onlyMethods( [ 'foo', 'bar' ] )
+			->getMock();
+		$this->getMockBuilder( stdClass::class )
+			->onlyMethods( [] )
+			->getMock();
+		$this->getMockBuilder( stdClass::class )
+			->onlyMethods( [] )
+			->getMock();
+		$mockBuilder = $this->getMockBuilder( stdClass::class );
+		$mockBuilder->onlyMethods( [ 'x' ] );
+		$this->getCoolMockBuilder()->onlyMethods( [] );
+		// Documented false positive here
+		$this->onlyMethods( 1 );
+	}
+
+	private function setMethods( ...$args ) {
+		return 'This is not what we want :-/';
+	}
+
+	private function getCoolMockBuilder() {
+		return $this->getMockBuilder( stdClass::class );
+	}
+}
