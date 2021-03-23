@@ -120,14 +120,10 @@ class UnusedUseStatementSniff implements Sniff {
 				// Usage in a doc comment
 				if ( !array_key_exists( $tokens[$i]['content'], self::CLASS_TAGS )
 					|| $tokens[$i + 2]['code'] !== T_DOC_COMMENT_STRING
-					|| !preg_match( '/^(?:\$\w+\h+)?(\S+)(?=\s|$)/', $tokens[$i + 2]['content'], $matches )
 				) {
 					continue;
 				}
-
-				// We aren't interested in the later, whitespace-separated parts of comments
-				// like `@param (Class1|Class2)[]|Class3<Class4,Class5> $var Description`.
-				$docType = $matches[1];
+				$docType = $this->extractType( $tokens[$i + 2]['content'] );
 				if ( !preg_match_all( $classNamesPattern, $docType, $matches ) ) {
 					continue;
 				}
@@ -166,6 +162,35 @@ class UnusedUseStatementSniff implements Sniff {
 		}
 
 		return $afterUseSection;
+	}
+
+	/**
+	 * Extracts the type from PHPDoc comment strings like "bool[] $var Comment" and
+	 * "$var bool[] Comment" (wrong order, but that's for another sniff), while respecting types
+	 * like "array<int, array<string, bool>>".
+	 *
+	 * @param string $str
+	 *
+	 * @return string
+	 */
+	private function extractType( string $str ) : string {
+		$start = 0;
+		$brackets = 0;
+		for ( $i = 0; $i < strlen( $str ); $i++ ) {
+			$char = $str[$i];
+			if ( $char === ' ' && !$brackets ) {
+				// Skip variable name in case it is before the type
+				if ( $str[$start] !== '$' ) {
+					return substr( $str, $start, $i );
+				}
+				$start = $i + 1;
+			} elseif ( $char === '>' && $brackets ) {
+				$brackets--;
+			} elseif ( $char === '<' ) {
+				$brackets++;
+			}
+		}
+		return substr( $str, $start );
 	}
 
 	/**

@@ -59,7 +59,7 @@ class Foo {
 	private $thing;
 
 	/**
-	 * @var InAVar2|null $thing2
+	 * @var array<int, array<int, InAVar2>>|null $thing2
 	 */
 	var $thing2;
 
