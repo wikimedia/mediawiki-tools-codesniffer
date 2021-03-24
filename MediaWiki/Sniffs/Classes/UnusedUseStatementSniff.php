@@ -234,8 +234,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @return string
 	 */
 	private function findNamespace( File $phpcsFile, int $stackPtr ) : string {
-		// There are probably less tokens between the start of the file and the namespace token
-		$namespacePtr = $phpcsFile->findNext( T_NAMESPACE, 1, $stackPtr - 1 );
+		$namespacePtr = $phpcsFile->findPrevious( T_NAMESPACE, $stackPtr - 1 );
 		if ( !$namespacePtr ) {
 			return '';
 		}
