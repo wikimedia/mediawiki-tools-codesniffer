@@ -17,7 +17,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"MediaWiki\\": "MediaWiki"
+			"MediaWiki\\Sniffs\\": "MediaWiki/Sniffs/",
+			"MediaWiki\\Sniffs\\Tests\\": "MediaWiki/Tests/"
 		}
 	},
 	"require-dev": {
