@@ -113,7 +113,7 @@ class Foo {
 	 */
 	public function testPhanVar( $arr ) {
 		/** @var $exampleVar UsedForVar */
-		'@phan-var UsedForPhanVar $exampleVar';
+		'@phan-var array<int, array<int, UsedForPhanVar>> $exampleVar';
 		'@phan-var InAVar7<InAVar8,UsedForPhanVarComplex> $exampleVar';
 		'@phan-var BadCode$bad';
 		'@phan-var NonExistClass $nonExist';

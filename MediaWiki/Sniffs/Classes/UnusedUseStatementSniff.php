@@ -130,15 +130,13 @@ class UnusedUseStatementSniff implements Sniff {
 				$className = $matches[1];
 
 			} elseif ( $tokens[$i]['code'] === T_CONSTANT_ENCAPSED_STRING ) {
-				// Ensure class name is followed by a space so that we know its the
-				// end of the class name given to phan
 				if ( $tokens[$i + 1]['code'] !== T_SEMICOLON
-					|| !preg_match( '/\W@phan-var\S*\s+(\S+)\s/i', $tokens[$i]['content'], $matches )
+					|| !preg_match( '/^.@phan-var\S*\s+(.*)/i', $tokens[$i]['content'], $matches )
 				) {
 					continue;
 				}
 
-				$phanVarType = $matches[1];
+				$phanVarType = $this->extractType( $matches[1] );
 				if ( !preg_match_all( $classNamesPattern, $phanVarType, $matches ) ) {
 					continue;
 				}
@@ -179,7 +177,7 @@ class UnusedUseStatementSniff implements Sniff {
 		for ( $i = 0; $i < strlen( $str ); $i++ ) {
 			$char = $str[$i];
 			if ( $char === ' ' && !$brackets ) {
-				// Skip variable name in case it is before the type
+				// If we find the variable name before the type, continue
 				if ( $str[$start] !== '$' ) {
 					return substr( $str, $start, $i );
 				}
