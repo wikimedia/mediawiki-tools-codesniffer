@@ -30,6 +30,10 @@
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeComma)
  11 | ERROR   | [x] Expected 1 space before "I2"; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
+ 13 | ERROR   | [x] Language constructs must be followed by a single
+    |         |     space; expected 1 space but found
+    |         |     "···"
+    |         |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
  13 | ERROR   | [x] Expected 1 space after USE in trait import
     |         |     statement; 3 found
     |         |     (PSR12.Traits.UseDeclaration.SpaceAfterAs)
@@ -174,4 +178,4 @@
  50 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1
     |         |     found
     |         |     (Generic.WhiteSpace.SpreadOperatorSpacingAfter.TooMuchSpace)
-PHPCBF CAN FIX THE 61 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 62 MARKED SNIFF VIOLATIONS AUTOMATICALLY

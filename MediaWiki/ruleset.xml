@@ -89,6 +89,7 @@
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
 	<rule ref="Generic.WhiteSpace.IncrementDecrementSpacing" />
 	<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter" />
+	<rule ref="Generic.WhiteSpace.LanguageConstructSpacing" />
 
 	<rule ref="PSR2.Classes.ClassDeclaration">
 		<exclude name="PSR2.Classes.ClassDeclaration.SpaceBeforeBrace" />
@@ -143,7 +144,6 @@
 			<property name="ignoreNewlines" value="true" />
 		</properties>
 	</rule>
-	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing" />
 	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
 	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
 		<properties>
