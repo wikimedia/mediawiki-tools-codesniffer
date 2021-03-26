@@ -151,8 +151,8 @@ class IsNullSniff implements Sniff {
 	 * @return bool
 	 */
 	private function keepParentheses(
-		File $phpcsFile, $stackPtrOpenParenthesis, $stackPtrCloseParenthesis
-	) {
+		File $phpcsFile, int $stackPtrOpenParenthesis, int $stackPtrCloseParenthesis
+	) : bool {
 		$tokens = $phpcsFile->getTokens();
 
 		// Skip first whitespace, if any.
@@ -223,7 +223,7 @@ class IsNullSniff implements Sniff {
 	 * @param bool $hasBackslash
 	 * @return bool
 	 */
-	private function isComparisonWithIsNull( File $phpcsFile, $stackPtr, $hasBackslash ) {
+	private function isComparisonWithIsNull( File $phpcsFile, int $stackPtr, bool $hasBackslash ) : bool {
 		$prevOnStack = $hasBackslash ? 1 : 2;
 
 		$tokens = $phpcsFile->getTokens();

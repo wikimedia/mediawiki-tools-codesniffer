@@ -170,7 +170,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @param int $tag Token position of the tag
 	 * @param int $end Token position of the end of the comment
 	 */
-	private function processDocTag( File $phpcsFile, array $tokens, $tag, $end ) {
+	private function processDocTag( File $phpcsFile, array $tokens, int $tag, int $end ) : void {
 		$tagText = $tokens[$tag]['content'];
 		$forbidden = array_key_exists( $tagText, self::FORBIDDEN_ANNOTATIONS );
 
@@ -271,7 +271,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 *
 	 * @return string
 	 */
-	private function createSniffCode( $prefix, $annotation ) {
+	private function createSniffCode( string $prefix, string $annotation ) : string {
 		return $prefix . ucfirst( ltrim( $annotation, '@' ) );
 	}
 
@@ -283,7 +283,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @param int $commentEnd
 	 * @return int|false
 	 */
-	private function findClassToken( File $phpcsFile, array $tokens, $commentEnd ) {
+	private function findClassToken( File $phpcsFile, array $tokens, int $commentEnd ) {
 		$next = $phpcsFile->findNext( [ T_CLASS ], $commentEnd + 1 );
 
 		// Only process class directly located after the comment
@@ -303,7 +303,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @param int $commentEnd
 	 * @return int|false
 	 */
-	private function findObjectStructureTokenFunctionLevel( array $tokens, $commentEnd ) {
+	private function findObjectStructureTokenFunctionLevel( array $tokens, int $commentEnd ) {
 		foreach ( $tokens[$commentEnd]['conditions'] as $ptr => $type ) {
 			if ( $type === T_CLASS || $type === T_TRAIT ) {
 				return $ptr;
@@ -321,7 +321,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @param int $commentEnd
 	 * @return int|false
 	 */
-	private function findFunctionToken( File $phpcsFile, array $tokens, $commentEnd ) {
+	private function findFunctionToken( File $phpcsFile, array $tokens, int $commentEnd ) {
 		$next = $phpcsFile->findNext( [ T_FUNCTION ], $commentEnd + 1 );
 
 		// Only process class directly located after the comment
@@ -340,7 +340,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @param string $pattern Regex to match against the name of the function
 	 * @return int
 	 */
-	private function isFunctionOkay( File $phpcsFile, $functionPtr, $pattern ) {
+	private function isFunctionOkay( File $phpcsFile, int $functionPtr, string $pattern ) {
 		return preg_match(
 			$pattern, $phpcsFile->getDeclarationName( $functionPtr )
 		);

@@ -77,7 +77,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 	 *
 	 * @return bool
 	 */
-	private function isMaintenanceScript( File $phpcsFile ) {
+	private function isMaintenanceScript( File $phpcsFile ) : bool {
 		$tokens = $phpcsFile->getTokens();
 
 		// Per convention the line we are looking for is the last in all maintenance scripts

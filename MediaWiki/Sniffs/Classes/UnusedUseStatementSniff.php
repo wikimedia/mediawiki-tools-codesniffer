@@ -312,7 +312,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @param int $stackPtr
 	 * @param string $shortClassName
 	 */
-	private function addSameNamespaceWarning( File $phpcsFile, int $stackPtr, string $shortClassName ) {
+	private function addSameNamespaceWarning( File $phpcsFile, int $stackPtr, string $shortClassName ) : void {
 		$fix = $phpcsFile->addFixableWarning(
 			'Unnecessary use statement "%s" in the same namespace',
 			$stackPtr,
@@ -328,7 +328,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @param array &$classNames List of class names found in the use section
 	 * @param string|string[] $usedClassNames Class name(s) to be marked as used
 	 */
-	private function markAsUsed( array &$classNames, $usedClassNames ) {
+	private function markAsUsed( array &$classNames, $usedClassNames ) : void {
 		foreach ( (array)$usedClassNames as $className ) {
 			unset( $classNames[ strtolower( $className ) ] );
 		}
@@ -338,7 +338,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
 	 */
-	private function removeUseStatement( File $phpcsFile, int $stackPtr ) {
+	private function removeUseStatement( File $phpcsFile, int $stackPtr ) : void {
 		$tokens = $phpcsFile->getTokens();
 		// Remove the whole use statement line.
 		$phpcsFile->fixer->beginChangeset();

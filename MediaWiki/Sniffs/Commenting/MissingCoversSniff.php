@@ -95,7 +95,7 @@ class MissingCoversSniff implements Sniff {
 	 *
 	 * @return bool
 	 */
-	protected function hasCoversTags( File $phpcsFile, $stackPtr ) {
+	protected function hasCoversTags( File $phpcsFile, int $stackPtr ) : bool {
 		$exclude = array_merge(
 			Tokens::$methodPrefixes,
 			[ T_WHITESPACE ]

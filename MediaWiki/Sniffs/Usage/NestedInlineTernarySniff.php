@@ -187,7 +187,7 @@ class NestedInlineTernarySniff implements Sniff {
 	 * @param int $i Location of T_INLINE_THEN
 	 * @return bool
 	 */
-	private function isShortTernary( File $phpcsFile, $i ) {
+	private function isShortTernary( File $phpcsFile, int $i ) : bool {
 		$tokens = $phpcsFile->getTokens();
 		$i = $phpcsFile->findNext( Tokens::$emptyTokens, $i + 1, null, true );
 		return $i !== false && $tokens[$i]['code'] === T_INLINE_ELSE;

@@ -340,7 +340,7 @@ class DocCommentSniff implements Sniff {
 	 * @param int $stackPtr
 	 * @return string
 	 */
-	private function getCommentIndent( File $phpcsFile, $stackPtr ) {
+	private function getCommentIndent( File $phpcsFile, int $stackPtr ) : string {
 		$firstLineToken = $phpcsFile->findFirstOnLine( [ T_WHITESPACE ], $stackPtr );
 		if ( $firstLineToken === false ) {
 			// no indent before the comment, but the doc star has one space indent
@@ -354,7 +354,7 @@ class DocCommentSniff implements Sniff {
 	 * @param int $stackPtr
 	 * @return int
 	 */
-	private function getDocStarColumn( File $phpcsFile, $stackPtr ) {
+	private function getDocStarColumn( File $phpcsFile, int $stackPtr ) : int {
 		$tokens = $phpcsFile->getTokens();
 		// Handle special case /*****//** to look for the column of the first comment start
 		if ( $tokens[$stackPtr - 1]['code'] === T_DOC_COMMENT_CLOSE_TAG ) {

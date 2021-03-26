@@ -193,7 +193,7 @@ class FunctionAnnotationsSniff implements Sniff {
 	 * @param string $anno
 	 * @return string|false Tag or false if it's not canonical
 	 */
-	private function normalizeAnnotation( $anno ) {
+	private function normalizeAnnotation( string $anno ) {
 		$anno = rtrim( $anno, ':' );
 		$lower = mb_strtolower( $anno );
 		if ( array_key_exists( $lower, self::ALLOWED_ANNOTATIONS ) ) {
@@ -215,7 +215,7 @@ class FunctionAnnotationsSniff implements Sniff {
 	 * @param int $tag Token position of the annotation tag
 	 * @param string $tagContent Content of the annotation
 	 */
-	private function handleAccessAnnotation( File $phpcsFile, $tokens, $tag, $tagContent ) {
+	private function handleAccessAnnotation( File $phpcsFile, array $tokens, int $tag, string $tagContent ) : void {
 		if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
 			$text = strtolower( $tokens[$tag + 2]['content'] );
 			if ( $text === 'protected' || $text === 'private' ) {

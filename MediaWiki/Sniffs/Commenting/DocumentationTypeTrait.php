@@ -101,7 +101,13 @@ trait DocumentationTypeTrait {
 	 * @param string $annotation Either "param" or "return" or "var"
 	 * @return string Updated $typesString
 	 */
-	private function fixShortTypes( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
+	private function fixShortTypes(
+		File $phpcsFile,
+		int $stackPtr,
+		string $typesString,
+		bool &$fix,
+		string $annotation
+	) : string {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as &$type ) {
 			// Corrects long types from both upper and lowercase to lowercase shorttype
@@ -137,7 +143,13 @@ trait DocumentationTypeTrait {
 	 * @param string $annotation Either "param" or "return" or "var" + "name" or "type"
 	 * @return string Updated $typesString
 	 */
-	private function fixTrailingPunctation( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
+	private function fixTrailingPunctation(
+		File $phpcsFile,
+		int $stackPtr,
+		string $typesString,
+		bool &$fix,
+		string $annotation
+	) : string {
 		if ( preg_match( '/^(.*)((?:(?![\[\]_{}()])\p{P})+)$/', $typesString, $matches ) ) {
 			$typesString = $matches[1];
 			$fix = $phpcsFile->addFixableError(
@@ -158,7 +170,13 @@ trait DocumentationTypeTrait {
 	 * @param string $annotation Either "param" or "return" or "var" + "name" or "type"
 	 * @return string Updated $typesString
 	 */
-	private function fixWrappedParenthesis( File $phpcsFile, $stackPtr, $typesString, &$fix, $annotation ) {
+	private function fixWrappedParenthesis(
+		File $phpcsFile,
+		int $stackPtr,
+		string $typesString,
+		bool &$fix,
+		string $annotation
+	) : string {
 		if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $typesString, $matches ) ) {
 			$typesString = $matches[2];
 			$fix = $phpcsFile->addFixableError(
@@ -177,7 +195,12 @@ trait DocumentationTypeTrait {
 	 * @param string $typesString
 	 * @param string $annotation Either "param" or "return" or "var"
 	 */
-	private function maybeAddObjectTypehintError( File $phpcsFile, $stackPtr, $typesString, $annotation ) {
+	private function maybeAddObjectTypehintError(
+		File $phpcsFile,
+		int $stackPtr,
+		string $typesString,
+		string $annotation
+	) : void {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as $type ) {
 			if ( $type === 'object' || $type === 'object[]' ) {

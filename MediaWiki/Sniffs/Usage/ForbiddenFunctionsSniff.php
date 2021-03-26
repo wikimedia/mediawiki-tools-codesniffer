@@ -157,7 +157,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 * @param int $parenthesis The parenthesis token index.
 	 * @return int
 	 */
-	private function argCount( File $phpcsFile, $parenthesis ) {
+	private function argCount( File $phpcsFile, int $parenthesis ) : int {
 		$tokens = $phpcsFile->getTokens();
 		if ( !isset( $tokens[$parenthesis]['parenthesis_closer'] ) ) {
 			return 0;
@@ -204,7 +204,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 * @param int $argCount
 	 * @return bool
 	 */
-	private function evaluateCondition( $funcName, $argCount ) {
+	private function evaluateCondition( string $funcName, int $argCount ) : bool {
 		[ $condition, $compareCount ] = self::FORBIDDEN_FUNCTIONS_ARG_COUNT[$funcName];
 
 		switch ( $condition ) {
@@ -222,7 +222,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
 	 */
-	private function addWarningForCondition( $funcName, $phpcsFile, $stackPtr ) {
+	private function addWarningForCondition( string $funcName, File $phpcsFile, int $stackPtr ) : void {
 		[ $condition, $compareCount ] = self::FORBIDDEN_FUNCTIONS_ARG_COUNT[$funcName];
 
 		switch ( $condition ) {
