@@ -280,29 +280,6 @@ class FunctionCommentSniff implements Sniff {
 	}
 
 	/**
-	 * Split PHPDoc comment strings like "bool[] Comment" into type and comment, while respecting
-	 * types like "array<int, array<string, bool>>".
-	 *
-	 * @param string $str
-	 *
-	 * @return string[]
-	 */
-	private function splitTypeAndComment( string $str ) : array {
-		$brackets = 0;
-		for ( $i = 0; $i < strlen( $str ); $i++ ) {
-			$char = $str[$i];
-			if ( $char === ' ' && !$brackets ) {
-				return [ substr( $str, 0, $i ), substr( $str, $i + 1 ) ];
-			} elseif ( $char === '>' && $brackets ) {
-				$brackets--;
-			} elseif ( $char === '<' ) {
-				$brackets++;
-			}
-		}
-		return [ $str, '' ];
-	}
-
-	/**
 	 * Process any throw tags that this function comment has.
 	 *
 	 * @param File $phpcsFile The file being scanned.
@@ -311,18 +288,15 @@ class FunctionCommentSniff implements Sniff {
 	protected function processThrows( File $phpcsFile, $commentStart ) {
 		$tokens = $phpcsFile->getTokens();
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
-			$tagContent = $tokens[$tag]['content'];
-			if ( $tagContent !== '@throws' ) {
+			if ( $tokens[$tag]['content'] !== '@throws' ) {
 				continue;
 			}
-			$exception = null;
-			$comment = null;
+			$exception = '';
+			$comment = '';
 			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
-				preg_match( '/([^\s]+)(?:\s+(.*))?/', $tokens[$tag + 2]['content'], $matches );
-				$exception = $matches[1];
-				$comment = $matches[2] ?? null;
+				[ $exception, $comment ] = $this->splitTypeAndComment( $tokens[$tag + 2]['content'] );
 			}
-			if ( $exception === null ) {
+			if ( $exception === '' ) {
 				$error = 'Exception type missing for @throws tag in function comment';
 				$phpcsFile->addError( $error, $tag, 'InvalidThrows' );
 			} else {
@@ -337,7 +311,7 @@ class FunctionCommentSniff implements Sniff {
 				if ( $fix ) {
 					$phpcsFile->fixer->replaceToken(
 						$tag + 2,
-						$exception . ( $comment === null ? '' : ' ' . $comment )
+						$exception . ( $comment !== '' ? ' ' . $comment : '' )
 					);
 				}
 			}

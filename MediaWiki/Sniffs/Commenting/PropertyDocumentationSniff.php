@@ -211,27 +211,4 @@ class PropertyDocumentationSniff implements Sniff {
 		}
 	}
 
-	/**
-	 * Split PHPDoc comment strings like "bool[] Comment" into type and comment, while respecting
-	 * types like "array<int, array<string, bool>>".
-	 *
-	 * @param string $str
-	 *
-	 * @return string[]
-	 */
-	private function splitTypeAndComment( string $str ) : array {
-		$brackets = 0;
-		for ( $i = 0; $i < strlen( $str ); $i++ ) {
-			$char = $str[$i];
-			if ( $char === ' ' && !$brackets ) {
-				return [ substr( $str, 0, $i ), substr( $str, $i + 1 ) ];
-			} elseif ( $char === '>' && $brackets ) {
-				$brackets--;
-			} elseif ( $char === '<' ) {
-				$brackets++;
-			}
-		}
-		return [ $str, '' ];
-	}
-
 }
