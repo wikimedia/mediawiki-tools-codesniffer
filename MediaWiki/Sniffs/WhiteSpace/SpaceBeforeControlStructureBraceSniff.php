@@ -19,7 +19,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() {
+	public function register() : array {
 		return [
 			T_IF,
 			T_ELSEIF,

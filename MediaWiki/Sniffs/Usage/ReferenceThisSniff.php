@@ -32,7 +32,7 @@ class ReferenceThisSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() {
+	public function register() : array {
 		// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Other
 		return [
 			T_BITWISE_AND

@@ -14,7 +14,7 @@ class DbrQueryUsageSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() {
+	public function register() : array {
 		return [ T_OBJECT_OPERATOR ];
 	}
 

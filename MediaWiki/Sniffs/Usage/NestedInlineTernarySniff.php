@@ -36,7 +36,7 @@ class NestedInlineTernarySniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() {
+	public function register() : array {
 		$this->endTokens = Tokens::$assignmentTokens + Tokens::$includeTokens + [
 			// Operators having a lower precedence than the ternary operator,
 			// or left associative operators having the same precedence, can

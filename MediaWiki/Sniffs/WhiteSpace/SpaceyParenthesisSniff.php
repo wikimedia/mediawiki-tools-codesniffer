@@ -19,7 +19,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() {
+	public function register() : array {
 		return [
 			T_OPEN_PARENTHESIS,
 			T_CLOSE_PARENTHESIS,

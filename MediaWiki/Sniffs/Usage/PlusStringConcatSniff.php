@@ -33,7 +33,7 @@ class PlusStringConcatSniff implements Sniff {
 	 *
 	 * @return array
 	 */
-	public function register() {
+	public function register() : array {
 		return [ T_PLUS, T_PLUS_EQUAL ];
 	}
 

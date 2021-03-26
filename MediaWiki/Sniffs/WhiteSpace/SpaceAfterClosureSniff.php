@@ -27,7 +27,7 @@ class SpaceAfterClosureSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() {
+	public function register() : array {
 		return [
 			T_CLOSURE,
 		];
