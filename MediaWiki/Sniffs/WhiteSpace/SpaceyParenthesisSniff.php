@@ -29,7 +29,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param int $token PHPCS token code.
+	 * @param int|string $token PHPCS token code.
 	 * @return bool Whether the token code is closed.
 	 */
 	private function isClosed( $token ) {
@@ -38,7 +38,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param int $token PHPCS token code.
+	 * @param int|string $token PHPCS token code.
 	 * @return bool Whether the token code is parenthesis.
 	 */
 	private function isParenthesis( $token ) {
@@ -47,7 +47,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param int $token PHPCS token code.
+	 * @param int|string $token PHPCS token code.
 	 * @return bool Whether the token code is a comment.
 	 */
 	private function isComment( $token ) {
