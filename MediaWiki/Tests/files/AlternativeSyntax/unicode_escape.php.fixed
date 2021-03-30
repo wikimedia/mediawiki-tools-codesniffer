@@ -158,4 +158,6 @@ $singleWithMultilineBracedExpressionWithDouble = '{$myFunction(
 	"\u{202a}"
 )}';
 
+$invalid = "\u{202abcdef}$s";
+
 // The End
