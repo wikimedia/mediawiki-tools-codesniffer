@@ -103,6 +103,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 	 */
 	private function makeUseStatementList( File $phpcsFile, int $stackPtr ) : array {
 		$tokens = $phpcsFile->getTokens();
+		$next = $stackPtr;
 		$list = [];
 
 		do {
@@ -110,10 +111,11 @@ class UnsortedUseStatementsSniff implements Sniff {
 			$group = 0;
 			$sortKey = '';
 			$collectSortKey = false;
+			$start = $next;
 
 			// The end condition here is for when a file ends directly after a "use"
-			for ( $i = $stackPtr; $i < $phpcsFile->numTokens; $i++ ) {
-				[ 'code' => $code, 'content' => $content ] = $tokens[$i];
+			for ( ; $next < $phpcsFile->numTokens; $next++ ) {
+				[ 'code' => $code, 'content' => $content ] = $tokens[$next];
 				$originalContent .= $content;
 
 				if ( $code === T_STRING ) {
@@ -131,8 +133,8 @@ class UnsortedUseStatementsSniff implements Sniff {
 					$collectSortKey = false;
 				} elseif ( $code === T_SEMICOLON && $sortKey ) {
 					$list[] = [
-						'start' => $stackPtr,
-						'end' => $i,
+						'start' => $start,
+						'end' => $next,
 						'originalContent' => $originalContent,
 						'group' => $group,
 						// No need to trim(), no spaces or leading backslashes have been collected
@@ -140,7 +142,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 					];
 
 					// Try to find the next "use" token after the current one
-					$stackPtr = $phpcsFile->findNext( Tokens::$emptyTokens, $i + 1, null, true );
+					$next = $phpcsFile->findNext( Tokens::$emptyTokens, $next + 1, null, true );
 					break;
 				} elseif ( isset( Tokens::$emptyTokens[$code] ) ) {
 					// We never want any space or comment in the sort key
@@ -154,7 +156,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 					$sortKey .= $content;
 				}
 			}
-		} while ( $stackPtr && $tokens[$stackPtr]['code'] === T_USE );
+		} while ( $next && isset( $tokens[$next] ) && $tokens[$next]['code'] === T_USE );
 
 		return $list;
 	}
