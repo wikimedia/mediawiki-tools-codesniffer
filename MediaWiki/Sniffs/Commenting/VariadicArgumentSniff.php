@@ -31,6 +31,7 @@ class VariadicArgumentSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		if ( !isset( $tokens[$stackPtr]['parenthesis_opener'] ) ) {
+			// Live coding
 			return;
 		}
 
