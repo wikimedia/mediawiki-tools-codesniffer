@@ -127,7 +127,7 @@ class Foo {
 	 */
 	public function testPhanVarForce( $arr ) {
 		'@phan-var-force UsedForPhanVarForce $exampleVar';
-		$exampleVar = $arr[1];
+		$exampleVar = $arr['key'];
 		return $exampleVar->getNumber();
 	}
 }

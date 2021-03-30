@@ -226,6 +226,7 @@ class UnusedUseStatementSniff implements Sniff {
 			// Find the unprefixed class name or "as" alias, if there is one
 			$classNamePtr = $phpcsFile->findPrevious( T_STRING, $semicolon - 1, $currentUsePtr );
 			if ( !$classNamePtr ) {
+				// Live coding
 				break;
 			}
 			$shortClassNames[ strtolower( $tokens[$classNamePtr]['content'] ) ] = $currentUsePtr;
