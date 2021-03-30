@@ -1,7 +1,5 @@
 <?php
 
-// phpcs:disable MediaWiki.WhiteSpace
-
 /**
  * Good example
  * @phpcs-require-sorted-array
