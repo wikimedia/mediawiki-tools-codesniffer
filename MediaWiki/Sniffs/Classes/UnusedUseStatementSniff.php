@@ -43,9 +43,15 @@ class UnusedUseStatementSniff implements Sniff {
 		'@see' => null,
 		'@throws' => null,
 		'@var' => null,
+		// phan
+		'@phan-param' => null,
+		'@phan-property' => null,
+		'@phan-return' => null,
+		'@phan-var' => null,
 		// Deprecated
 		'@expectedException' => null,
 		'@method' => null,
+		'@phan-method' => null,
 		'@type' => null,
 	];
 
