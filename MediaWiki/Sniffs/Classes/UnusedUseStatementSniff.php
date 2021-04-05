@@ -180,7 +180,8 @@ class UnusedUseStatementSniff implements Sniff {
 	private function extractType( string $str ) : string {
 		$start = 0;
 		$brackets = 0;
-		for ( $i = 0; $i < strlen( $str ); $i++ ) {
+		$strLen = strlen( $str );
+		for ( $i = 0; $i < $strLen; $i += strcspn( $str, ' <>', $i + 1 ) + 1 ) {
 			$char = $str[$i];
 			if ( $char === ' ' && !$brackets ) {
 				// If we find the variable name before the type, continue
