@@ -13,4 +13,6 @@
     |         |     (MediaWiki.Usage.ForbiddenFunctions.is_real)
  20 | WARNING | [ ] isset should be used with 1 argument(s)
     |         |     (MediaWiki.Usage.ForbiddenFunctions.isset)
+ 25 | WARNING | [ ] define should not be used with 3 argument(s)
+    |         |     (MediaWiki.Usage.ForbiddenFunctions.define)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

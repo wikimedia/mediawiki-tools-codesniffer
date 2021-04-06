@@ -21,3 +21,5 @@ isset( $x['a'], $x['b'], $x['c'] );
 isset( $x['a'] ) && isset( $x['b'] ) && isset( $x['c'] );
 parse_str( $x['a'] . ( true ? 1 : 0 ), $someArray );
 $a = FooBar::sizeof['b'];
+define( 'ALLOWED', 42 );
+define( 'FORBIDDEN_CASE_SENSITIVE', 42, true );

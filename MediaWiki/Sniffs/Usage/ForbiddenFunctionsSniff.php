@@ -64,6 +64,8 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'isset' => false,
 		// resource type is going away in PHP 8.0+ (T260735)
 		'is_resource' => false,
+		// define third parameter is deprecated in 7.3
+		'define' => false,
 	];
 
 	/**
@@ -73,6 +75,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'parse_str' => [ '=', 1 ],
 		'mb_parse_str' => [ '=', 1 ],
 		'isset' => [ '!=', 1 ],
+		'define' => [ '=', 3 ],
 	];
 
 	/**
