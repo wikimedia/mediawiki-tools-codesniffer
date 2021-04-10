@@ -62,6 +62,8 @@ class ValidGlobalNameSniff implements Sniff {
 			return;
 		}
 
+		// Note: This requires at least 1 character after the prefix
+		$allowedPrefixesPattern = '/^\$(?:' . implode( '|', $this->allowedPrefixes ) . ')(.)/';
 		$semicolonIndex = $phpcsFile->findNext( T_SEMICOLON, $stackPtr + 1 );
 
 		while ( $nameIndex < $semicolonIndex ) {
@@ -103,24 +105,21 @@ class ValidGlobalNameSniff implements Sniff {
 				}
 
 				// Verify global is prefixed with an allowed prefix
-				if ( !in_array( substr( $globalName, 1, 2 ), $this->allowedPrefixes ) ) {
+				$isAllowed = preg_match( $allowedPrefixesPattern, $globalName, $matches );
+				if ( !$isAllowed ) {
 					$phpcsFile->addError(
 						'Global variable "%s" is lacking an allowed prefix (%s). Should be %s.',
 						$stackPtr,
 						'allowedPrefix',
 						[ $globalName, $allowedPrefix, $expected ]
 					);
-				} else {
-					// Verify global is probably CamelCase
-					$val = ord( substr( $globalName, 3, 1 ) );
-					if ( !( $val >= 65 && $val <= 90 ) && !( $val >= 48 && $val <= 57 ) ) {
-						$phpcsFile->addError(
-							'Global variable "%s" should use CamelCase: %s',
-							$stackPtr,
-							'CamelCase',
-							[ $globalName, $expected ]
-						);
-					}
+				} elseif ( ctype_lower( $matches[1] ) ) {
+					$phpcsFile->addError(
+						'Global variable "%s" should use CamelCase: %s',
+						$stackPtr,
+						'CamelCase',
+						[ $globalName, $expected ]
+					);
 				}
 			}
 			$nameIndex++;
