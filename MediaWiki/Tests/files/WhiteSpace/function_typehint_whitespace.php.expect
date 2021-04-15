@@ -1,0 +1,40 @@
+ 10 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+ 14 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+ 18 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+ 22 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+ 24 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+ 26 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+ 26 | WARNING | [x] There should be nothing between the typehint and
+    |         |     the following semicolon for methods with no
+    |         |     body
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingAfterNoBody)
+ 26 | ERROR   | [x] Space found before semicolon; expected "bool;"
+    |         |     but found "bool ;"
+    |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+ 28 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+ 30 | WARNING | [x] There should be no space between the closing
+    |         |     parenthesis and the colon, and a single space
+    |         |     between the colon and the typehint
+    |         |     (MediaWiki.WhiteSpace.FunctionTypehintWhiteSpace.SpacingBefore)
+PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
