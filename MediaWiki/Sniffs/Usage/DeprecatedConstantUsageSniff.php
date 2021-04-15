@@ -35,6 +35,10 @@ class DeprecatedConstantUsageSniff implements Sniff {
 			'replace' => 'DB_REPLICA',
 			'version' => '1.27.3',
 		],
+		'DB_MASTER' => [
+			'replace' => 'DB_PRIMARY',
+			'version' => '1.35.2',
+		],
 		'NS_IMAGE' => [
 			'replace' => 'NS_FILE',
 			'version' => '1.13',
