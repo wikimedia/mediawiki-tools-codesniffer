@@ -1,6 +1,7 @@
- 9 | ERROR | Global variable "$wgsomething" should use CamelCase:
-   |       | "$wgWgsomething"
-   |       | (MediaWiki.NamingConventions.ValidGlobalName.CamelCase)
- 9 | ERROR | Global variable "$LocalInterwikis" is lacking an allowed
-   |       | prefix ('wg'). Should be "$wgLocalInterwikis".
-   |       | (MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix)
+ 11 | ERROR | Global variable "$wgsomething" should use CamelCase:
+    |       | "$wgWgsomething"
+    |       | (MediaWiki.NamingConventions.ValidGlobalName.CamelCase)
+ 11 | ERROR | Global variable "$LocalInterwikis" is lacking an
+    |       | allowed prefix ('wg'). Should be
+    |       | "$wgLocalInterwikis".
+    |       | (MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix)

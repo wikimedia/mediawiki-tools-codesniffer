@@ -51,9 +51,16 @@ class ValidGlobalNameSniff implements Sniff {
 	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
-	 * @return void
+	 * @return int|void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
+		// If there are no prefixes specified, we have nothing to do for this file
+		if ( $this->allowedPrefixes === [] ) {
+			// @codeCoverageIgnoreStart
+			return $phpcsFile->numTokens;
+			// @codeCoverageIgnoreEnd
+		}
+
 		$tokens = $phpcsFile->getTokens();
 
 		$nameIndex = $phpcsFile->findNext( T_VARIABLE, $stackPtr + 1 );
@@ -75,7 +82,10 @@ class ValidGlobalNameSniff implements Sniff {
 				if ( in_array( $globalName, $this->ignoreList ) ||
 					in_array( $globalName, self::PHP_RESERVED )
 				) {
-					return;
+					// need to manually increment $nameIndex here since
+					// we won't reach the line at the end that does it
+					$nameIndex++;
+					continue;
 				}
 
 				// Determine if a simple error message can be used
@@ -86,13 +96,10 @@ class ValidGlobalNameSniff implements Sniff {
 
 					// Build message telling you the allowed prefix
 					$allowedPrefix = '\'' . $this->allowedPrefixes[0] . '\'';
-				// If there are no prefixes specified, don't do anything
-				} elseif ( $this->allowedPrefixes === [] ) {
-					// @codeCoverageIgnoreStart
-					return;
-					// @codeCoverageIgnoreEnd
 				} else {
-					// Build a list of forged valid global variable names
+					// We already checked for an empty set of allowed prefixes earlier,
+					// so if the count is not 1 them it must be multiple;
+					// build a list of forged valid global variable names
 					$expected = 'one of "$'
 						. implode( ucfirst( substr( $globalName, 1 ) . '", "$' ), $this->allowedPrefixes )
 						. ucfirst( substr( $globalName, 1 ) )

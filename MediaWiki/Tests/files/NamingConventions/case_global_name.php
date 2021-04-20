@@ -6,8 +6,10 @@
  */
 function wfFailedExamples() {
 	// The below should have capital after wg
-	global $wgsomething, $LocalInterwikis;
-	$wgsomething = 5;
+	// Testing with a valid variable in the middle to ensure that the global after
+	// it is still checked, see T279968
+	global $wgsomething, $wgValidName, $LocalInterwikis;
+	$wgsomething = $wgValidName;
 	$LocalInterwikis = false;
 }
 
