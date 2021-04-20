@@ -30,15 +30,20 @@
 	},
 	"scripts": {
 		"phan": "phan -d . -p --allow-polyfill-parser --long-progress-bar",
+		"phpcs": "phpcs -p -s",
+		"phpcbf": "phpcbf",
+		"phpunit": "phpunit",
+		"lint": "parallel-lint . --exclude vendor --exclude MediaWiki/Tests/files",
 		"test": [
-			"phpunit",
-			"phpcs -p -s",
-			"composer phan",
+			"@lint",
+			"@phpunit",
+			"@phpcs",
+			"@phan",
 			"minus-x check ."
 		],
 		"fix": [
 			"minus-x fix .",
-			"phpcbf"
+			"@phpcbf"
 		]
 	}
 }
