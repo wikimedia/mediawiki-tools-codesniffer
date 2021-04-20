@@ -1,7 +1,4 @@
 <?php
-/**
- * Make sure lower camel function name.
- */
 
 namespace MediaWiki\Sniffs\NamingConventions;
 
@@ -9,6 +6,9 @@ use MediaWiki\Sniffs\PHPUnit\PHPUnitTestTrait;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
+/**
+ * Make sure lower camel function name.
+ */
 class LowerCamelFunctionsNameSniff implements Sniff {
 
 	use PHPUnitTestTrait;
@@ -69,32 +69,40 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		$functionContent = $phpcsFile->getDeclarationName( $stackPtr );
-		if ( $functionContent === null ) {
+		$originalFunctionName = $phpcsFile->getDeclarationName( $stackPtr );
+		if ( $originalFunctionName === null ) {
+			return;
+		}
+
+		$lowerFunctionName = strtolower( $originalFunctionName );
+		if ( isset( self::METHOD_DOUBLE_UNDERSCORE[$lowerFunctionName] ) ||
+			isset( self::MAGIC_METHODS[$lowerFunctionName] )
+		) {
+			// Method is excluded from this sniff
+			return;
+		}
+
+		$containsUnderscores = strpos( $originalFunctionName, '_' ) !== false;
+		if ( $originalFunctionName[0] === $lowerFunctionName[0] &&
+			( !$containsUnderscores || $this->isTestFunction( $phpcsFile, $stackPtr ) )
+		) {
+			// Everything is ok when the first letter is lowercase and there are no underscores
+			// (except in tests where they are allowed)
 			return;
 		}
 
 		$tokens = $phpcsFile->getTokens();
-		$lowerFunctionName = strtolower( $functionContent );
 		foreach ( $tokens[$stackPtr]['conditions'] as $code ) {
-			if ( !isset( self::SCOPE_LIST[$code] ) ||
-				isset( self::METHOD_DOUBLE_UNDERSCORE[$lowerFunctionName] ) ||
-				isset( self::MAGIC_METHODS[$lowerFunctionName] )
-			) {
+			if ( !isset( self::SCOPE_LIST[$code] ) ) {
 				continue;
 			}
 
-			$pos = strpos( $functionContent, '_' );
-			if ( $pos !== false && !$this->isTestFunction( $phpcsFile, $stackPtr ) ||
-				$functionContent[0] !== $lowerFunctionName[0]
-			) {
-				$phpcsFile->addError(
-					'Function name "%s" should use lower camel case.',
-					$stackPtr,
-					'FunctionName',
-					[ $functionContent ]
-				);
-			}
+			$phpcsFile->addError(
+				'Function name "%s" should use lower camel case.',
+				$stackPtr,
+				'FunctionName',
+				[ $originalFunctionName ]
+			);
 		}
 	}
 }
