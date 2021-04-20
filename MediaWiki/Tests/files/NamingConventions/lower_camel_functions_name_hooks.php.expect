@@ -1,0 +1,4 @@
+ 40 | ERROR | Method name "onUploadForm_initial" should use lower camel case.
+    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+ 50 | ERROR | Method name "getThe_thing" should use lower camel case.
+    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)

@@ -19,6 +19,7 @@
 * `FunctionCommentSniff`: Actually check if a method returns anything (thiemowmde)
 * `FunctionAnnotationsSniff`: Add `@phan-type` as an allowed annotation (Umherirrender)
 * `FunctionAnnotationsSniff`: Add `@phan-side-effect-free` as an allowed annotation (Bartosz Dziewoński)
+* `LowerCamelFunctionsNameSniff`: Ignore hook methods (DannyS712)
 
 ### Removed sniffs ###
 * `OneSpaceInlineArraySniff`: Superseded by `Universal.WhiteSpace.CommaSpacing`

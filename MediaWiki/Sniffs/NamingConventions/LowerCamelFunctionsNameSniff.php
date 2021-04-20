@@ -8,7 +8,15 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
 /**
- * Make sure lower camel method name.
+ * Make sure function names follow lower camel case
+ *
+ * This ignores methods in the form on(Something) where the class
+ * implements an interface with the name (Something)Hook, to avoid
+ * sending warnings for code in MediaWiki extensions and skins for
+ * hook handlers where the method cannot be renamed because it is
+ * inherited from the hook interface
+ *
+ * @author DannyS712
  */
 class LowerCamelFunctionsNameSniff implements Sniff {
 
@@ -76,12 +84,22 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 			return;
 		}
 
+		$containsUnderscores = str_contains( $originalFunctionName, '_' );
 		if ( $originalFunctionName[0] === $lowerFunctionName[0] &&
-			( !str_contains( $originalFunctionName, '_' ) || $this->isTestFunction( $phpcsFile, $stackPtr ) )
+			( !$containsUnderscores || $this->isTestFunction( $phpcsFile, $stackPtr ) )
 		) {
 			// Everything is ok when the first letter is lowercase and there are no underscores
 			// (except in tests where they are allowed)
 			return;
+		}
+
+		if ( $containsUnderscores ) {
+			// Check for MediaWiki hooks
+			// Only matters if there is an underscore, all hook handlers have methods beginning
+			// with "on" and so start with lowercase
+			if ( $this->shouldIgnoreHookHandler( $phpcsFile, $stackPtr, $originalFunctionName ) ) {
+				return;
+			}
 		}
 
 		$tokens = $phpcsFile->getTokens();
@@ -98,4 +116,56 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 			);
 		}
 	}
+
+	/**
+	 * Check if the method should be ignored because it is a hook handler and the method
+	 * name is inherited from an interface
+	 *
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $functionName
+	 * @return bool
+	 */
+	private function shouldIgnoreHookHandler(
+		File $phpcsFile,
+		int $stackPtr,
+		string $functionName
+	): bool {
+		$matches = [];
+		if ( !( preg_match( '/^on([A-Z]\S+)$/', $functionName, $matches ) ) ) {
+			return false;
+		}
+
+		// Method name looks like a hook handler, check if the class implements
+		// a hook by that name
+
+		$classToken = $this->getClassToken( $phpcsFile, $stackPtr );
+		if ( !$classToken ) {
+			// Not within a class, don't skip
+			return false;
+		}
+
+		$implementedInterfaces = $phpcsFile->findImplementedInterfaceNames( $classToken );
+		if ( !$implementedInterfaces ) {
+			// Not implementing the hook interface
+			return false;
+		}
+
+		$hookMethodName = $matches[1];
+		$hookInterfaceName = $hookMethodName . 'Hook';
+
+		// We need to account for the interface name in both the fully qualified form,
+		// and just the interface name. If we have the fully qualified form, explode()
+		// will return an array of the different namespaces and sub namespaces, with the
+		// last entry being the actual interface name, and if we just have the interface
+		// name, explode() will return an array of just that string
+		foreach ( $implementedInterfaces as $interface ) {
+			$parts = explode( '\\', $interface );
+			if ( end( $parts ) === $hookInterfaceName ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
