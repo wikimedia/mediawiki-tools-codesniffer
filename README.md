@@ -46,6 +46,68 @@ How to install
 Note that for most MediaWiki projects, we'd also recommend adding a PHP linter
 to your `composer.json` – see the [full documentation][2] for more details.
 
+Configuration
+-------------
+Some of the sniffs provided by this codesniffer standard allow you to configure details of how they work.
+
+* `MediaWiki.Classes.FullQualifiedClassName`: This sniff is disabled by default.
+
+    ```
+    <rule ref="MediaWiki.Classes.FullQualifiedClassName">
+        <severity>5</severity>
+        <properties>
+            <property name="allowMainNamespace" value="false" />
+            <property name="allowInheritance" value="false" />
+            <property name="allowFunctions" value="false" />
+        </properties>
+    </rule>
+    ```
+
+* `MediaWiki.Usage.ExtendClassUsage`: This sniff lets you exclude globals from being reported by the sniff, in case they
+  cannot be replaced with a Config::getConfig() call. Examples that are already in the list include `$wgTitle` and
+  `$wgUser`.
+
+    ```
+    <rule ref="MediaWiki.Usage.ExtendClassUsage">
+        <properties>
+            <property name="nonConfigGlobals[]" type="array" value="$wg...,$wg..." />
+        </properties>
+    </rule>
+    ```
+
+* `MediaWiki.Commenting.ClassLevelLicense`: This sniff does nothing by default.
+
+    ```
+    <rule ref="MediaWiki.Commenting.ClassLevelLicense">
+        <properties>
+            <property name="license" value="GPL-2.0-or-later" />
+        </properties>
+    </rule>
+    ```
+
+* `MediaWiki.NamingConventions.PrefixedGlobalFunctions`: This sniff lets you specify a list of global functions that
+  should not be reported by the sniff, even if they are not prefixed with `wf…()`.
+
+    ```
+    <rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions">
+        <properties>
+            <property name="ignoreList[]" value="...,..." />
+        </properties>
+    </rule>
+    ```
+
+* `MediaWiki.NamingConventions.ValidGlobalName`: This sniff lets you define list of ignored globals and list of allowed
+  prefixes.
+
+    ```
+    <rule ref="MediaWiki.NamingConventions.ValidGlobalName">
+        <properties>
+            <property name="allowedPrefixes[]" value="wg,..." />
+            <property name="ignoreList[]" value="...,..." />
+        </properties>
+    </rule>
+    ```
+
 TODO
 ----
 * Migrate the old code-utils/check-vars.php
