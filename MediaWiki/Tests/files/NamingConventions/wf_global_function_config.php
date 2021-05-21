@@ -1,6 +1,7 @@
 <?php
 
 // phpcs:set MediaWiki.NamingConventions.PrefixedGlobalFunctions ignoreList[] myPassedExamples
+// phpcs:set MediaWiki.NamingConventions.PrefixedGlobalFunctions allowedPrefixes[] wf,ef
 
 /**
  * Failed examples.

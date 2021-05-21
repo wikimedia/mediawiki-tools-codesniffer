@@ -2,12 +2,10 @@
 /**
  * Verify that global functions start with a valid prefix
  *
- * For MediaWiki code, the valid prefixes are `wf` or `ef`,
- * per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Naming,
- * so this is the default configuration, but other
- * repositories can configure this via the `allowedPrefixes` property
- *
- * TODO do we still need to support `ef` by default?
+ * For MediaWiki code, the valid prefixes are `wf` (or `ef` in some legacy
+ * extension code, per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Naming),
+ * by default the sniff only allows `wf`, but repositories
+ * can configure this via the `allowedPrefixes` property.
  */
 
 namespace MediaWiki\Sniffs\NamingConventions;
@@ -25,7 +23,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 	 *
 	 * @var string[]
 	 */
-	public $allowedPrefixes = [ 'wf', 'ef' ];
+	public $allowedPrefixes = [ 'wf' ];
 
 	/**
 	 * @inheritDoc

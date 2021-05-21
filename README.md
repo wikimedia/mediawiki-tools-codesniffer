@@ -86,13 +86,13 @@ Some of the sniffs provided by this codesniffer standard allow you to configure 
     ```
 
 * `MediaWiki.NamingConventions.PrefixedGlobalFunctions`: This sniff lets you define a list of ignored global
-  functions and a list of allowed prefixes. By default the only allowed prefixes are 'wf' and 'ef', corresponding
-  to global functions `wf...()` and `ef...()`.
+  functions and a list of allowed prefixes. By default the only allowed prefix is 'wf', corresponding
+  to the global function `wf...()`.
 
     ```
     <rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions">
         <properties>
-            <property name="allowedPrefixes[]" value="wf,ef,..." />
+            <property name="allowedPrefixes[]" value="wf,..." />
             <property name="ignoreList[]" value="...,..." />
         </properties>
     </rule>
