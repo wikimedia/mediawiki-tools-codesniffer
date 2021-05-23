@@ -16,4 +16,19 @@
  16 | WARNING | [x] The expected value goes before the actual value
     |         |     in assertions
     |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
-PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 18 | WARNING | [x] The expected value goes before the actual value
+    |         |     in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 19 | WARNING | [x] The expected value goes before the actual value
+    |         |     in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 20 | WARNING | [x] The expected value goes before the actual value
+    |         |     in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 21 | WARNING | [x] The expected value goes before the actual value
+    |         |     in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 22 | WARNING | [x] The expected value goes before the actual value
+    |         |     in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY

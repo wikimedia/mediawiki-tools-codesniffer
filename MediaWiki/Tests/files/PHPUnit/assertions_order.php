@@ -15,14 +15,24 @@ class AssertionsOrderTest extends \PHPUnit\Framework\TestCase {
 		$this->assertSame( $var, 'Foo' );
 		$this->assertEquals( $var, 'Foo', 'Message' );
 
+		$this->assertSame( $var * 2, 246 );
+		$this->assertSame( $obj->method(), 'Foo' );
+		$this->assertSame( $obj->method2()->toString(), 'Foo' );
+		$this->assertSame( $arr['key'], 'Foo' );
+		$this->assertSame(
+			$obj->method2()
+				->method3()
+				->toString(),
+			'bar'
+		);
+
 		// Should not be replaced
 		$expected = true;
 		$this->assertSame( $var, $expected );
 		$this->assertEquals( $var, $expected, 'Message' );
 
-		// Not just variable
+		// Cannot yet handle
 		$this->assertSame( wfFunctionCall( true ), true );
-		$this->assertSame( $var * 2, 246 );
 		$this->assertSame( $var, 246 * 2 );
 	}
 }

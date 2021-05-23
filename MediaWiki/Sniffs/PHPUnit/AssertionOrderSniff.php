@@ -26,8 +26,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Fix uses of assertEquals or assertSame with the actual value before the expected
- * Currently, only catches assertions where the actual value is a variable, and the expected is
- * a literal value (string, boolean, null, number)
+ * Currently, only catches assertions where the actual value is a variable, or at least
+ * starts with a variable token, and the expected is a literal value (string, boolean, null, number)
  *
  * @author DannyS712
  */
@@ -81,11 +81,49 @@ class AssertionOrderSniff implements Sniff {
 			return;
 		}
 
-		$commaToken = $phpcsFile->findNext( T_WHITESPACE, $varToken + 1, null, true );
-		if ( $tokens[$commaToken]['code'] !== T_COMMA ) {
-			// Not followed by a comma, something more complex is going on
-			return;
+		// First parameter could just be a variable $foo, or something more complicated,
+		// like $foo->method() or $foo['key'] - regardless, since it starts with a variable,
+		// if the second parameter is a literal then they should be swapped
+		// Jump over the expected parameter, whatever it is
+		$end = $tokens[$opener]['parenthesis_closer'];
+		$searchTokens = [
+			T_OPEN_CURLY_BRACKET,
+			T_OPEN_SQUARE_BRACKET,
+			T_OPEN_PARENTHESIS,
+			T_OPEN_SHORT_ARRAY,
+			T_COMMA,
+		];
+		$commaToken = false;
+		$next = $phpcsFile->findNext( $searchTokens, $varToken, $end );
+		while ( $commaToken === false ) {
+			if ( $next === false ) {
+				// No token
+				return;
+			}
+			switch ( $tokens[$next]['code'] ) {
+				case T_OPEN_CURLY_BRACKET:
+				case T_OPEN_SQUARE_BRACKET:
+				case T_OPEN_PARENTHESIS:
+				case T_OPEN_SHORT_ARRAY:
+					if ( isset( $tokens[$next]['parenthesis_closer'] ) ) {
+						// jump to closing parenthesis to ignore commas between opener and closer
+						$next = $tokens[$next]['parenthesis_closer'];
+					} elseif ( isset( $tokens[$next]['bracket_closer'] ) ) {
+						// jump to closing bracket
+						$next = $tokens[$next]['bracket_closer'];
+					}
+					break;
+				case T_COMMA:
+					$commaToken = $next;
+					break;
+			}
+			$next = $phpcsFile->findNext( $searchTokens, $next + 1, $end );
 		}
+
+		// If we got here, then we know there is a first parameter based on a variable,
+		// and then $commaToken - check the second parameter (should be the "actual" value,
+		// but if its a literal then we assume it was meant to be the "expected" value and
+		// switch them.
 
 		$expectedToken = $phpcsFile->findNext( T_WHITESPACE, $commaToken + 1, null, true );
 		$codesToReplace = [ T_NULL, T_FALSE, T_TRUE, T_LNUMBER, T_DNUMBER, T_CONSTANT_ENCAPSED_STRING ];
@@ -98,6 +136,8 @@ class AssertionOrderSniff implements Sniff {
 		if ( !in_array( $tokens[$nextToken]['code'], [ T_COMMA, T_CLOSE_PARENTHESIS ] ) ) {
 			// Not followed by a comma and a third parameter, or a closing parenthesis
 			// something more complex is going on
+			// TODO handle complex cases where the second parameter isn't just a literal,
+			// but is a combination thereof because it has no variables, eg 2+2
 			return;
 		}
 
@@ -106,15 +146,42 @@ class AssertionOrderSniff implements Sniff {
 			$stackPtr,
 			'WrongOrder'
 		);
-		if ( $fix ) {
-			$expectedVal = $tokens[$expectedToken]['content'];
-			$actualVal = $tokens[$varToken]['content'];
-			$phpcsFile->fixer->replaceToken( $varToken, $expectedVal );
-			$phpcsFile->fixer->replaceToken( $expectedToken, $actualVal );
+		if ( !$fix ) {
+			// There is no way the next assertion can be closer than this
+			return $end + 4;
 		}
 
+		// $varToken is the start of the actual, find the end excluding the whitespace
+		// before the comma
+		$actualParamEnd = $phpcsFile->findPrevious( T_WHITESPACE, $commaToken - 1, null, true );
+		$actualParamContent = $phpcsFile->getTokensAsString(
+			$varToken,
+			$actualParamEnd - $varToken + 1,
+			// keep tabs on multiline statements
+			true
+		);
+
+		// For now we know that the expected param is only a single token, so its easier,
+		// but this will eventually need to have the same handling as the actual param
+		$expectedParamContent = $tokens[$expectedToken]['content'];
+
+		$phpcsFile->fixer->beginChangeset();
+
+		// Remove the first parameter that previously held the actual value,
+		// and replace with the expected
+		$phpcsFile->fixer->replaceToken( $varToken, $expectedParamContent );
+		for ( $i = $varToken + 1; $i <= $actualParamEnd; $i++ ) {
+			$phpcsFile->fixer->replaceToken( $i, '' );
+		}
+
+		// Remove the second parameter that previously held the expeced value,
+		// and replace with the actual
+		$phpcsFile->fixer->replaceToken( $expectedToken, $actualParamContent );
+
+		$phpcsFile->fixer->endChangeset();
+
 		// There is no way the next assertion can be closer than this
-		return $tokens[$opener]['parenthesis_closer'] + 4;
+		return $end + 4;
 	}
 
 }
