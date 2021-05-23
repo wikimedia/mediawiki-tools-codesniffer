@@ -36,5 +36,6 @@ class AssertionsCountTest extends \PHPUnit\Framework\TestCase {
 		$this->assertSame( 6, count( $arr ) * 2 );
 		$d = Foo::assertEquals;
 		$this->assertSame( Foo::assertEquals, count::assertEquals, 'Message' );
+		$this->assertSame( count( $arr ), count( $otherArr ) );
 	}
 }

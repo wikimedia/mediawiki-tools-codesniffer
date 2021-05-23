@@ -51,9 +51,20 @@ class AssertCountSniff implements Sniff {
 			// Looks like this string is not a method call
 			return $opener;
 		}
+		$end = $tokens[$opener]['parenthesis_closer'];
+
+		// Don't complain about the second parameter using count() if the first does
+		// too, see T273352
+		$expectedStart = $phpcsFile->findNext( T_WHITESPACE, $opener + 1, null, true );
+		if ( $expectedStart
+			&& $tokens[$expectedStart]['code'] === T_STRING
+			&& $tokens[$expectedStart]['content'] === 'count'
+		) {
+			// Don't trigger again for this line
+			return $end;
+		}
 
 		// Jump over the expected parameter, whatever it is
-		$end = $tokens[$opener]['parenthesis_closer'];
 		$searchTokens = [
 			T_OPEN_CURLY_BRACKET,
 			T_OPEN_SQUARE_BRACKET,
