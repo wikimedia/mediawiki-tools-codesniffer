@@ -1,0 +1,5 @@
+ 14 | WARNING | [x] There should not be empty lines between use statements
+    |         |     (MediaWiki.WhiteSpace.EmptyLinesBetweenUse.Found)
+ 17 | WARNING | [x] There should not be empty lines between use statements
+    |         |     (MediaWiki.WhiteSpace.EmptyLinesBetweenUse.Found)
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
