@@ -12,6 +12,12 @@ class TestFailedExamples {
 	private $failTypeWrongOrder;
 
 	/** @var string */
+	private static $failStatic;
+
+	/** @var string */
+	private static $failStaticWrongOrder;
+
+	/** @var string */
 	var $failOldStyle;
 
 }
@@ -25,8 +31,5 @@ class TestPassedExamples {
 	private static $passedStatic;
 
 	private const CONST = 42;
-
-	/** @var string $passStatic */
-	private static $passStatic;
 
 }
