@@ -73,12 +73,24 @@ class UnusedUseStatementSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		// Only check use statements in the global scope.
+		// In case this is a `use` of a class (or constant or function) within
+		// a bracketed namespace rather than in the global scope, update the end
+		// accordingly
+		$useScopeEnd = $phpcsFile->numTokens;
+
 		if ( !empty( $tokens[$stackPtr]['conditions'] ) ) {
+			// We only care about use statements in the global scope, or the
+			// equivalent for bracketed namespace (use statements in the namespace
+			// and not in any class, etc.)
 			// TODO: Use array_key_first() if available
 			$scope = key( $tokens[$stackPtr]['conditions'] );
-			// This avoids checking other use keywords (in traits and closures) in the same scope
-			return $tokens[$scope]['scope_closer'] ?? $stackPtr;
+			if ( count( $tokens[$stackPtr]['conditions'] ) === 1
+				&& $tokens[$stackPtr]['conditions'][$scope] === T_NAMESPACE
+			) {
+				$useScopeEnd = $tokens[$scope]['scope_closer'];
+			} else {
+				return $tokens[$scope]['scope_closer'] ?? $stackPtr;
+			}
 		}
 
 		$afterUseSection = $stackPtr;
@@ -94,7 +106,7 @@ class UnusedUseStatementSniff implements Sniff {
 		// Search where the class name is used. PHP treats class names case
 		// insensitive, that's why we cannot search for the exact class name string
 		// and need to iterate over all T_STRING tokens in the file.
-		for ( $i = $afterUseSection; $i < $phpcsFile->numTokens; $i++ ) {
+		for ( $i = $afterUseSection; $i < $useScopeEnd; $i++ ) {
 			if ( $tokens[$i]['code'] === T_STRING ) {
 				if ( !isset( $shortClassNames[ strtolower( $tokens[$i]['content'] ) ] ) ) {
 					continue;
@@ -343,7 +355,13 @@ class UnusedUseStatementSniff implements Sniff {
 		// Remove the whole use statement line.
 		$phpcsFile->fixer->beginChangeset();
 
-		$i = $stackPtr;
+		// Removing any whitespace before the use statement, for use statements in bracketed
+		// namespaces
+		$i = $phpcsFile->findFirstOnLine( [ T_WHITESPACE ], $stackPtr );
+		if ( !$i ) {
+			// No whitespace beforehand
+			$i = $stackPtr;
+		}
 		do {
 			$phpcsFile->fixer->replaceToken( $i, '' );
 		} while ( $tokens[$i++]['code'] !== T_SEMICOLON && isset( $tokens[$i] ) );
