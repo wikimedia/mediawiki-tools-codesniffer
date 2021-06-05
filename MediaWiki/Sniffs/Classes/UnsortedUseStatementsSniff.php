@@ -60,40 +60,44 @@ class UnsortedUseStatementsSniff implements Sniff {
 		}
 
 		$sortedStatements = $this->sortByFullQualifiedClassName( $useStatementList );
+		// Continue *after* the last use token to not process it twice
+		$afterLastUse = end( $useStatementList )['end'] + 1;
 
-		if ( $useStatementList !== $sortedStatements ) {
-			$fix = $phpcsFile->addFixableWarning(
-				'Use statements are not alphabetically sorted',
-				$stackPtr,
-				'UnsortedUse'
-			);
+		if ( $useStatementList === $sortedStatements ) {
+			return $afterLastUse;
+		}
 
-			if ( $fix ) {
-				$phpcsFile->fixer->beginChangeset();
+		$fix = $phpcsFile->addFixableWarning(
+			'Use statements are not alphabetically sorted',
+			$stackPtr,
+			'UnsortedUse'
+		);
+		if ( !$fix ) {
+			return $afterLastUse;
+		}
 
-				foreach ( $useStatementList as $statement ) {
-					for ( $i = $statement['start']; $i <= $statement['end']; $i++ ) {
-						$phpcsFile->fixer->replaceToken( $i, '' );
-					}
-					// Also remove the newline at the end of the line, if there is one
-					if ( $tokens[$i]['code'] === T_WHITESPACE
-						&& $tokens[$i]['line'] < $tokens[$i + 1]['line']
-					) {
-						$phpcsFile->fixer->replaceToken( $i, '' );
-					}
-				}
+		$phpcsFile->fixer->beginChangeset();
 
-				foreach ( $sortedStatements as $statement ) {
-					$phpcsFile->fixer->addContent( $stackPtr, $statement['originalContent'] );
-					$phpcsFile->fixer->addNewline( $stackPtr );
-				}
-
-				$phpcsFile->fixer->endChangeset();
+		foreach ( $useStatementList as $statement ) {
+			for ( $i = $statement['start']; $i <= $statement['end']; $i++ ) {
+				$phpcsFile->fixer->replaceToken( $i, '' );
+			}
+			// Also remove the newline at the end of the line, if there is one
+			if ( $tokens[$i]['code'] === T_WHITESPACE
+				&& $tokens[$i]['line'] < $tokens[$i + 1]['line']
+			) {
+				$phpcsFile->fixer->replaceToken( $i, '' );
 			}
 		}
 
-		// Continue *after* the last use token, to not process it twice
-		return end( $useStatementList )['end'] + 1;
+		foreach ( $sortedStatements as $statement ) {
+			$phpcsFile->fixer->addContent( $stackPtr, $statement['originalContent'] );
+			$phpcsFile->fixer->addNewline( $stackPtr );
+		}
+
+		$phpcsFile->fixer->endChangeset();
+
+		return $afterLastUse;
 	}
 
 	/**
