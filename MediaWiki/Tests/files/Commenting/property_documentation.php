@@ -94,6 +94,21 @@ class TestPassedExamples {
 	/** @var array<int, string> */
 	public $javaStyle;
 
+	// phpcs:disable Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect
+
+	/**
+	 * Visibility is on its own line, which is rare because a Squiz
+	 * sniff complains about it, but if that sniff is suppressed
+	 * SpacingAfter shouldn't complain that the variable is not
+	 * on the line after the comment ends, see T271267
+	 *
+	 * @var int
+	 */
+	private
+		$intOnOwnLine;
+
+	// phpcs:enable Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect
+
 	/**
 	 * Test should not process local vars
 	 * @param int $a1

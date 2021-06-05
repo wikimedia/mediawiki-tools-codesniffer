@@ -57,13 +57,17 @@ class PropertyDocumentationSniff implements Sniff {
 			return;
 		}
 
-		$find = Tokens::$scopeModifiers;
-		$find[] = T_WHITESPACE;
+		$find = Tokens::$emptyTokens;
 		$find[] = T_STATIC;
-		$find[] = T_VAR;
 		$find[] = T_NULLABLE;
 		$find[] = T_STRING;
-		$commentEnd = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
+		$visibilityPtr = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
+		if ( !$visibilityPtr || ( $tokens[$visibilityPtr]['code'] !== T_VAR &&
+			!isset( Tokens::$scopeModifiers[ $tokens[$visibilityPtr]['code'] ] ) )
+		) {
+			return;
+		}
+		$commentEnd = $phpcsFile->findPrevious( [ T_WHITESPACE ], $visibilityPtr - 1, null, true );
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
 			// Inline comments might just be closing comments for
 			// control structures or functions instead of function comments
@@ -92,7 +96,7 @@ class PropertyDocumentationSniff implements Sniff {
 			$stackPtr, 'WrongStyle' );
 			return;
 		}
-		if ( $tokens[$commentEnd]['line'] !== $tokens[$stackPtr]['line'] - 1 ) {
+		if ( $tokens[$commentEnd]['line'] !== $tokens[$visibilityPtr]['line'] - 1 ) {
 			$error = 'There must be no blank lines after the class property comment';
 			$phpcsFile->addError( $error, $commentEnd, 'SpacingAfter' );
 		}
