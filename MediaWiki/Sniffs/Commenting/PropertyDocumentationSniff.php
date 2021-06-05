@@ -183,6 +183,12 @@ class PropertyDocumentationSniff implements Sniff {
 				$type,
 				'var'
 			);
+			$this->maybeAddTypeTypehintError(
+				$phpcsFile,
+				$varType,
+				$type,
+				'var'
+			);
 			// Check spacing after type
 			if ( $comment !== '' ) {
 				$expectedSpaces = 1;

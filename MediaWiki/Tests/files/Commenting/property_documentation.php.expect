@@ -99,22 +99,25 @@
  59 | ERROR   | [ ] There must be no blank lines after the class
     |         |     property comment
     |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingAfter)
- 65 | ERROR   | [ ] Only one object structure is allowed in a
+ 63 | WARNING | [ ] `type` should not be used as a typehint, the
+    |         |     actual type should be used
+    |         |     (MediaWiki.Commenting.PropertyDocumentation.TypeTypeHintVar)
+ 71 | ERROR   | [ ] Only one object structure is allowed in a
     |         |     file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 80 | ERROR   | [ ] The var keyword must not be used to declare a
+ 86 | ERROR   | [ ] The var keyword must not be used to declare a
     |         |     property
     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 80 | ERROR   | [ ] Visibility must be declared on property "$d"
+ 86 | ERROR   | [ ] Visibility must be declared on property "$d"
     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 80 | ERROR   | [ ] Scope modifier not specified for member variable
+ 86 | ERROR   | [ ] Scope modifier not specified for member variable
     |         |     "$d" (Squiz.Scope.MemberVarScope.Missing)
- 83 | ERROR   | [ ] The var keyword must not be used to declare a
+ 89 | ERROR   | [ ] The var keyword must not be used to declare a
     |         |     property
     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 83 | ERROR   | [ ] Visibility must be declared on property
+ 89 | ERROR   | [ ] Visibility must be declared on property
     |         |     "$dep"
     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 83 | ERROR   | [ ] Scope modifier not specified for member variable
+ 89 | ERROR   | [ ] Scope modifier not specified for member variable
     |         |     "$dep" (Squiz.Scope.MemberVarScope.Missing)
 PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY

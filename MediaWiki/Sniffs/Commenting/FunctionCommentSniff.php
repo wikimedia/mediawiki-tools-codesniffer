@@ -266,6 +266,12 @@ class FunctionCommentSniff implements Sniff {
 				$type,
 				'return'
 			);
+			$this->maybeAddTypeTypehintError(
+				$phpcsFile,
+				$retTypePtr,
+				$type,
+				'return'
+			);
 			// Check spacing after type
 			if ( $comment !== '' ) {
 				$expectedSpaces = 1;
@@ -616,6 +622,12 @@ class FunctionCommentSniff implements Sniff {
 			// Check the short type of boolean and integer
 			$type = $this->fixShortTypes( $phpcsFile, $param['tag'], $type, $fixType, 'param' );
 			$this->maybeAddObjectTypehintError(
+				$phpcsFile,
+				$param['tag'],
+				$type,
+				'param'
+			);
+			$this->maybeAddTypeTypehintError(
 				$phpcsFile,
 				$param['tag'],
 				$type,
