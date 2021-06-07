@@ -132,6 +132,14 @@ class FunctionCommentSniff implements Sniff {
 			}
 		}
 
+		// Don't validate functions with {@inheritDoc}, per T270830
+		// Not available in comment_tags, need to check manually
+		$end = reset( $tokens[$commentStart]['comment_tags'] ) ?: $commentEnd;
+		$rawComment = $phpcsFile->getTokensAsString( $commentStart + 1, $end - $commentStart - 1 );
+		if ( stripos( $rawComment, '{@inheritDoc}' ) !== false ) {
+			return;
+		}
+
 		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
 		$this->processThrows( $phpcsFile, $commentStart );
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );

@@ -429,6 +429,13 @@ class TestPassedExamples {
 		$blah = $more . $stuff . $blah;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	public function inherit2( $stuff, $more, $blah ) {
+		$blah = $more . $stuff . $blah;
+	}
+
 	public function __toString() {
 		return 'no documentation because obvious';
 	}
@@ -478,7 +485,7 @@ class TestPassedExamples {
 	}
 
 	/**
-	 * @param $parser Parser (not necessarily $wgParser)
+	 * @param $parser Parser {@inheritDoc}
 	 * @param $operator Expected '&' or '|'
 	 * @param null $oldtext string The content of the revision prior to $content.  When
 	 *  null this will be loaded from the database.
