@@ -19,7 +19,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			T_OPEN_PARENTHESIS,
 			T_CLOSE_PARENTHESIS,
@@ -32,7 +32,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	 * @param int|string $token PHPCS token code.
 	 * @return bool Whether the token code is closed.
 	 */
-	private function isClosed( $token ) : bool {
+	private function isClosed( $token ): bool {
 		return $token === T_CLOSE_PARENTHESIS
 			|| $token === T_CLOSE_SHORT_ARRAY;
 	}
@@ -41,7 +41,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	 * @param int|string $token PHPCS token code.
 	 * @return bool Whether the token code is parenthesis.
 	 */
-	private function isParenthesis( $token ) : bool {
+	private function isParenthesis( $token ): bool {
 		return $token === T_OPEN_PARENTHESIS
 			|| $token === T_CLOSE_PARENTHESIS;
 	}
@@ -50,7 +50,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	 * @param int|string $token PHPCS token code.
 	 * @return bool Whether the token code is a comment.
 	 */
-	private function isComment( $token ) : bool {
+	private function isComment( $token ): bool {
 		return $token === T_COMMENT
 			|| $token === T_PHPCS_ENABLE
 			|| $token === T_PHPCS_DISABLE
@@ -130,7 +130,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 */
-	protected function processOpenParenthesis( File $phpcsFile, int $stackPtr ) : void {
+	protected function processOpenParenthesis( File $phpcsFile, int $stackPtr ): void {
 		$tokens = $phpcsFile->getTokens();
 		$nextToken = $tokens[$stackPtr + 1];
 		// No space or not single space
@@ -161,7 +161,7 @@ class SpaceyParenthesisSniff implements Sniff {
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 */
-	protected function processCloseParenthesis( File $phpcsFile, int $stackPtr ) : void {
+	protected function processCloseParenthesis( File $phpcsFile, int $stackPtr ): void {
 		$tokens = $phpcsFile->getTokens();
 		$previousToken = $tokens[$stackPtr - 1];
 

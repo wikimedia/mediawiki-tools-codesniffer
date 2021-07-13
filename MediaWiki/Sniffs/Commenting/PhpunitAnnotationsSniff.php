@@ -145,7 +145,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 *
 	 * @return array
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_DOC_COMMENT_OPEN_TAG ];
 	}
 
@@ -170,7 +170,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @param int $tag Token position of the tag
 	 * @param int $end Token position of the end of the comment
 	 */
-	private function processDocTag( File $phpcsFile, array $tokens, int $tag, int $end ) : void {
+	private function processDocTag( File $phpcsFile, array $tokens, int $tag, int $end ): void {
 		$tagText = $tokens[$tag]['content'];
 		$forbidden = array_key_exists( $tagText, self::FORBIDDEN_ANNOTATIONS );
 
@@ -271,7 +271,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 *
 	 * @return string
 	 */
-	private function createSniffCode( string $prefix, string $annotation ) : string {
+	private function createSniffCode( string $prefix, string $annotation ): string {
 		return $prefix . ucfirst( ltrim( $annotation, '@' ) );
 	}
 

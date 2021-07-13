@@ -140,7 +140,7 @@ class FunctionAnnotationsSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_FUNCTION ];
 	}
 
@@ -215,7 +215,7 @@ class FunctionAnnotationsSniff implements Sniff {
 	 * @param int $tag Token position of the annotation tag
 	 * @param string $tagContent Content of the annotation
 	 */
-	private function handleAccessAnnotation( File $phpcsFile, array $tokens, int $tag, string $tagContent ) : void {
+	private function handleAccessAnnotation( File $phpcsFile, array $tokens, int $tag, string $tagContent ): void {
 		if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
 			$text = strtolower( $tokens[$tag + 2]['content'] );
 			if ( $text === 'protected' || $text === 'private' ) {

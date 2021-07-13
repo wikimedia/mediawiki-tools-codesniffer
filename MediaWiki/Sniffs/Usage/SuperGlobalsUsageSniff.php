@@ -25,7 +25,7 @@ class SuperGlobalsUsageSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_VARIABLE ];
 	}
 

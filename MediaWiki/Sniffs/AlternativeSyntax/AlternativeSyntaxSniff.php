@@ -12,7 +12,7 @@ class AlternativeSyntaxSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP
 		// section on alternative syntax.
 		return [

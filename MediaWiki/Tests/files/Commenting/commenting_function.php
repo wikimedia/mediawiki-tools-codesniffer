@@ -363,14 +363,14 @@ class TestFailedExamples {
 	/**
 	 * @param int $i
 	 */
-	public function testReturnTypeHint( $i ) : string {
+	public function testReturnTypeHint( $i ): string {
 		return '' . $i;
 	}
 
 	/**
 	 * @param int $i
 	 */
-	public function testReturnTypeHintVoid( $i ) : void {
+	public function testReturnTypeHintVoid( $i ): void {
 	}
 
 	/**
@@ -509,7 +509,7 @@ class TestPassedExamples {
 	 * @param Foo|Bar $obj
 	 * @return Foo|Bar
 	 */
-	public function testObjectTypehintOkay( object $obj ) : object {
+	public function testObjectTypehintOkay( object $obj ): object {
 		return $obj;
 	}
 
@@ -517,7 +517,7 @@ class TestPassedExamples {
 	 * @param Foo&Bar $obj
 	 * @return Foo&Bar
 	 */
-	public function testObjectTypehintOkayIntersect( object $obj ) : object {
+	public function testObjectTypehintOkayIntersect( object $obj ): object {
 		return $obj;
 	}
 

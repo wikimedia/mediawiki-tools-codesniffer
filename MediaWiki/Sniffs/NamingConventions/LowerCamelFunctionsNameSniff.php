@@ -59,7 +59,7 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_FUNCTION ];
 	}
 

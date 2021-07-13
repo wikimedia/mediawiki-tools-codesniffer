@@ -15,7 +15,7 @@ class AssignmentInReturnSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			T_RETURN,
 			T_YIELD,

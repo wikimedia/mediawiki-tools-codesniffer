@@ -20,7 +20,7 @@ class DirUsageSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		// As per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Other
 		return [ T_STRING ];
 	}

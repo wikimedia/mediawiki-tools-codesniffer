@@ -28,7 +28,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_FUNCTION ];
 	}
 
@@ -43,7 +43,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 	 *
 	 * @return bool Does a namespace statement exist before this position in the file?
 	 */
-	private function tokenIsNamespaced( File $phpcsFile, int $ptr ) : bool {
+	private function tokenIsNamespaced( File $phpcsFile, int $ptr ): bool {
 		$fileName = $phpcsFile->getFilename();
 
 		// Check if we already know if the token is namespaced or not

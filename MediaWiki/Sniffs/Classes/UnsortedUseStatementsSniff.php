@@ -32,7 +32,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_USE ];
 	}
 
@@ -105,7 +105,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 	 * @param int $stackPtr
 	 * @return array[]
 	 */
-	private function makeUseStatementList( File $phpcsFile, int $stackPtr ) : array {
+	private function makeUseStatementList( File $phpcsFile, int $stackPtr ): array {
 		$tokens = $phpcsFile->getTokens();
 		$next = $stackPtr;
 		$list = [];
@@ -169,7 +169,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 	 * @param array[] $list
 	 * @return array[]
 	 */
-	private function sortByFullQualifiedClassName( array $list ) : array {
+	private function sortByFullQualifiedClassName( array $list ): array {
 		usort( $list, static function ( array $a, array $b ) {
 			if ( $a['group'] !== $b['group'] ) {
 				return $a['group'] <=> $b['group'];

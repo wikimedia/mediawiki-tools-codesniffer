@@ -75,7 +75,7 @@ class MagicConstantClosureSniff extends AbstractScopeSniff {
 	 *
 	 * @return string
 	 */
-	private function createSniffCode( string $prefix, string $constant ) : string {
+	private function createSniffCode( string $prefix, string $constant ): string {
 		return $prefix . ucfirst( strtolower( trim( $constant, '_' ) ) );
 	}
 }

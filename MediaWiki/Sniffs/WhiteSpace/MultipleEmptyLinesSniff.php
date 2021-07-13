@@ -13,7 +13,7 @@ class MultipleEmptyLinesSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			// Assume most comments end with a newline
 			T_COMMENT,

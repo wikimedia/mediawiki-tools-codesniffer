@@ -32,7 +32,7 @@ class PropertyDocumentationSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_VARIABLE ];
 	}
 
@@ -115,7 +115,7 @@ class PropertyDocumentationSniff implements Sniff {
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 */
-	private function processVar( File $phpcsFile, int $commentStart ) : void {
+	private function processVar( File $phpcsFile, int $commentStart ): void {
 		$tokens = $phpcsFile->getTokens();
 		$var = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $ptr ) {

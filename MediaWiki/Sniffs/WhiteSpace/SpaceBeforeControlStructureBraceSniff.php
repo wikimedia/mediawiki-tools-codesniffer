@@ -19,7 +19,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			T_IF,
 			T_ELSEIF,
@@ -81,7 +81,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 * @param int $openBrace The index of open brace.
 	 * @return bool
 	 */
-	protected function processLineDiff( File $phpcsFile, int $openBrace ) : bool {
+	protected function processLineDiff( File $phpcsFile, int $openBrace ): bool {
 		$error = 'Opening brace should be on the same line as the declaration';
 		return $phpcsFile->addFixableError( $error, $openBrace, 'BraceOnNewLine' );
 	}
@@ -94,7 +94,7 @@ class SpaceBeforeControlStructureBraceSniff implements Sniff {
 	 * @param int $closeBracket The index of close bracket.
 	 * @return bool
 	 */
-	protected function processLineSame( File $phpcsFile, int $openBrace, int $closeBracket ) : bool {
+	protected function processLineSame( File $phpcsFile, int $openBrace, int $closeBracket ): bool {
 		$tokens = $phpcsFile->getTokens();
 		$content = $phpcsFile->getTokensAsString( $closeBracket + 1, $openBrace - $closeBracket - 1 );
 		$length = strlen( $content );

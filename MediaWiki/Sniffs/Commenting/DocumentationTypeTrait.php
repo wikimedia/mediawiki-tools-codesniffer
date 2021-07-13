@@ -77,7 +77,7 @@ trait DocumentationTypeTrait {
 	 *
 	 * @return array [ string $type, int|null $separatorLength, string $comment ]
 	 */
-	private function splitTypeAndComment( string $str ) : array {
+	private function splitTypeAndComment( string $str ): array {
 		$brackets = 0;
 		for ( $i = 0; $i < strlen( $str ); $i++ ) {
 			$char = $str[$i];
@@ -107,7 +107,7 @@ trait DocumentationTypeTrait {
 		string $typesString,
 		bool &$fix,
 		string $annotation
-	) : string {
+	): string {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as &$type ) {
 			// Corrects long types from both upper and lowercase to lowercase shorttype
@@ -149,7 +149,7 @@ trait DocumentationTypeTrait {
 		string $typesString,
 		bool &$fix,
 		string $annotation
-	) : string {
+	): string {
 		if ( preg_match( '/^(.*)((?:(?![\[\]_{}()])\p{P})+)$/', $typesString, $matches ) ) {
 			$typesString = $matches[1];
 			$fix = $phpcsFile->addFixableError(
@@ -176,7 +176,7 @@ trait DocumentationTypeTrait {
 		string $typesString,
 		bool &$fix,
 		string $annotation
-	) : string {
+	): string {
 		if ( preg_match( '/^([{\[]+)(.*)([\]}]+)$/', $typesString, $matches ) ) {
 			$typesString = $matches[2];
 			$fix = $phpcsFile->addFixableError(
@@ -200,7 +200,7 @@ trait DocumentationTypeTrait {
 		int $stackPtr,
 		string $typesString,
 		string $annotation
-	) : void {
+	): void {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as $type ) {
 			if ( $type === 'object' || $type === 'object[]' ) {
@@ -231,7 +231,7 @@ trait DocumentationTypeTrait {
 		int $stackPtr,
 		string $typesString,
 		string $annotation
-	) : void {
+	): void {
 		$typeList = explode( '|', $typesString );
 		foreach ( $typeList as $type ) {
 			if ( $type === 'type' || $type === 'type[]' ) {

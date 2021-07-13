@@ -30,7 +30,7 @@ class PHPUnitTypeHintsSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_CLASS ];
 	}
 
@@ -80,7 +80,7 @@ class PHPUnitTypeHintsSniff implements Sniff {
 							[ $funcName ]
 						);
 						if ( $fix ) {
-							$phpcsFile->fixer->addContent( $tokens[$cur]['parenthesis_closer'], ' : void ' );
+							$phpcsFile->fixer->addContent( $tokens[$cur]['parenthesis_closer'], ': void ' );
 						}
 					} else {
 						// There's already a return type hint. No autofix, as the method must be manually checked

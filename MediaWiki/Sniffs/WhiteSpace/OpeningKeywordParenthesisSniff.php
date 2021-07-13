@@ -27,7 +27,7 @@ class OpeningKeywordParenthesisSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			T_EMPTY,
 			T_EVAL,

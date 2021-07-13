@@ -38,7 +38,7 @@ trait PHPUnitTestTrait {
 	 *
 	 * @return bool
 	 */
-	private function isTestFile( File $phpcsFile, $stackPtr = false ) : bool {
+	private function isTestFile( File $phpcsFile, $stackPtr = false ): bool {
 		$fileName = $phpcsFile->getFilename();
 
 		if ( !isset( self::$isTestFile[$fileName] ) ) {
@@ -63,7 +63,7 @@ trait PHPUnitTestTrait {
 	 *
 	 * @return bool
 	 */
-	private function isTestClass( File $phpcsFile, $classToken ) : bool {
+	private function isTestClass( File $phpcsFile, $classToken ): bool {
 		$tokens = $phpcsFile->getTokens();
 		if ( !$classToken || $tokens[$classToken]['code'] !== T_CLASS ) {
 			return false;
@@ -82,7 +82,7 @@ trait PHPUnitTestTrait {
 	 * @param int $functionToken Token position of the function declaration
 	 * @return bool
 	 */
-	private function isTestFunction( File $phpcsFile, $functionToken ) : bool {
+	private function isTestFunction( File $phpcsFile, $functionToken ): bool {
 		return $this->isTestClass( $phpcsFile, $this->getClassToken( $phpcsFile, $functionToken ) )
 			&& preg_match( '/^(?:test|provide)|Provider$/', $phpcsFile->getDeclarationName( $functionToken ) );
 	}

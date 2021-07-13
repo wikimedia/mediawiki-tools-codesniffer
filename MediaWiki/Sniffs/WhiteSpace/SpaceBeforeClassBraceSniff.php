@@ -16,7 +16,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			T_CLASS,
 			T_INTERFACE,

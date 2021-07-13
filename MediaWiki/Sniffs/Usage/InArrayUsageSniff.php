@@ -17,7 +17,7 @@ class InArrayUsageSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_STRING ];
 	}
 

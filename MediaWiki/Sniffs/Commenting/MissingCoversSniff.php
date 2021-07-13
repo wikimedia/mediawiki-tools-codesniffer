@@ -33,7 +33,7 @@ class MissingCoversSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_CLASS ];
 	}
 
@@ -95,7 +95,7 @@ class MissingCoversSniff implements Sniff {
 	 *
 	 * @return bool
 	 */
-	protected function hasCoversTags( File $phpcsFile, int $stackPtr ) : bool {
+	protected function hasCoversTags( File $phpcsFile, int $stackPtr ): bool {
 		$exclude = array_merge(
 			Tokens::$methodPrefixes,
 			[ T_WHITESPACE ]

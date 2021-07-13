@@ -98,7 +98,7 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_CLASS ];
 	}
 
@@ -167,7 +167,7 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 	 * @param string $funcName Either assertInternalType, assertNotInternalType, or assertType
 	 * @param int $funcPos Token position of the function call
 	 */
-	private function handleAssertInternalType( string $funcName, int $funcPos ) : void {
+	private function handleAssertInternalType( string $funcName, int $funcPos ): void {
 		$not = $funcName === 'assertNotInternalType' ? 'Not' : '';
 		if ( $funcName === 'assertType' ) {
 			$err = 'MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.';
@@ -227,7 +227,7 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 	 * @param int $funcPos
 	 * @suppress PhanUnusedPrivateMethodParameter Refers to the fixme
 	 */
-	private function handleAssertArraySubset( int $funcPos ) : void {
+	private function handleAssertArraySubset( int $funcPos ): void {
 		// FIXME: What to do here? Remove/update/re-enable... T192167#5685401
 		/*
 		$this->file->addError(
@@ -244,7 +244,7 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 	 * @param string $funcName
 	 * @param int $funcPos
 	 */
-	private function handleAttributeMethod( string $funcName, int $funcPos ) : void {
+	private function handleAttributeMethod( string $funcName, int $funcPos ): void {
 		$this->file->addError(
 			'The PHPUnit method %s() was deprecated in PHPUnit 8.',
 			$funcPos,

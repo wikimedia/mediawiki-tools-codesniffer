@@ -24,7 +24,7 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			T_CLONE,
 			T_REQUIRE,

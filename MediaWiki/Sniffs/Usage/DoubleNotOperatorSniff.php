@@ -32,7 +32,7 @@ class DoubleNotOperatorSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_BOOLEAN_NOT ];
 	}
 

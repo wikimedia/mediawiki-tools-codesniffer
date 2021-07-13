@@ -55,7 +55,7 @@ class FunctionCommentSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_FUNCTION ];
 	}
 
@@ -152,7 +152,7 @@ class FunctionCommentSniff implements Sniff {
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 */
-	protected function processReturn( File $phpcsFile, int $stackPtr, int $commentStart ) : void {
+	protected function processReturn( File $phpcsFile, int $stackPtr, int $commentStart ): void {
 		$tokens = $phpcsFile->getTokens();
 
 		// Skip constructors
@@ -309,7 +309,7 @@ class FunctionCommentSniff implements Sniff {
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 */
-	protected function processThrows( File $phpcsFile, int $commentStart ) : void {
+	protected function processThrows( File $phpcsFile, int $commentStart ): void {
 		$tokens = $phpcsFile->getTokens();
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			if ( $tokens[$tag]['content'] !== '@throws' ) {
@@ -385,7 +385,7 @@ class FunctionCommentSniff implements Sniff {
 	 * @param int $stackPtr The position of the current token in the stack passed in $tokens.
 	 * @param int $commentStart The position in the stack where the comment started.
 	 */
-	protected function processParams( File $phpcsFile, int $stackPtr, int $commentStart ) : void {
+	protected function processParams( File $phpcsFile, int $stackPtr, int $commentStart ): void {
 		$tokens = $phpcsFile->getTokens();
 		$params = [];
 		foreach ( $tokens[$commentStart]['comment_tags'] as $pos => $tag ) {
@@ -745,7 +745,7 @@ class FunctionCommentSniff implements Sniff {
 	 * @param array $param Array of the @param
 	 * @param array $fixParam Array with fixes to @param. Only provide keys to replace
 	 */
-	protected function replaceParamComment( File $phpcsFile, array $param, array $fixParam ) : void {
+	protected function replaceParamComment( File $phpcsFile, array $param, array $fixParam ): void {
 		// Use the old value for unchanged keys
 		$fixParam += $param;
 

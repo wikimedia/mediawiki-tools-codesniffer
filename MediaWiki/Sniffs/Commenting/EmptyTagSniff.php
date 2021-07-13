@@ -49,7 +49,7 @@ class EmptyTagSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_DOC_COMMENT_OPEN_TAG ];
 	}
 
@@ -97,7 +97,7 @@ class EmptyTagSniff implements Sniff {
 	 *
 	 * @return string Either "property" or "function"
 	 */
-	private function findContext( File $phpcsFile, int $start ) : string {
+	private function findContext( File $phpcsFile, int $start ): string {
 		$tokens = $phpcsFile->getTokens();
 		$skip = array_merge(
 			Tokens::$emptyTokens,

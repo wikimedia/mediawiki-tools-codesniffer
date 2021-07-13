@@ -28,7 +28,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_CLASS, T_INTERFACE, T_TRAIT ];
 	}
 
@@ -77,7 +77,7 @@ class ClassMatchesFilenameSniff implements Sniff {
 	 *
 	 * @return bool
 	 */
-	private function isMaintenanceScript( File $phpcsFile ) : bool {
+	private function isMaintenanceScript( File $phpcsFile ): bool {
 		$tokens = $phpcsFile->getTokens();
 
 		// Per convention the line we are looking for is the last in all maintenance scripts

@@ -21,7 +21,7 @@ class AssignmentInControlStructuresSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [
 			T_IF,
 			T_WHILE,

@@ -13,7 +13,7 @@ class SpaceAfterControlStructureSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		// Per https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Spaces
 		return [
 			T_IF,

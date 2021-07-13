@@ -32,7 +32,7 @@ class StaticClosureSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_CLOSURE ];
 	}
 
@@ -169,7 +169,7 @@ class StaticClosureSniff implements Sniff {
 	 * @param int $end
 	 * @return bool
 	 */
-	private function isStaticClassProperty( File $phpcsFile, array $tokens, int &$stackPtr, int $end ) : bool {
+	private function isStaticClassProperty( File $phpcsFile, array $tokens, int &$stackPtr, int $end ): bool {
 		// No ::, no const
 		if ( $tokens[$stackPtr]['code'] !== T_DOUBLE_COLON ) {
 			return false;

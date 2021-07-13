@@ -58,7 +58,7 @@ class UnusedUseStatementSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_USE ];
 	}
 
@@ -178,7 +178,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 *
 	 * @return string
 	 */
-	private function extractType( string $str ) : string {
+	private function extractType( string $str ): string {
 		$start = 0;
 		$brackets = 0;
 		$strLen = strlen( $str );
@@ -210,7 +210,7 @@ class UnusedUseStatementSniff implements Sniff {
 		File $phpcsFile,
 		int $stackPtr,
 		int &$afterUseSection
-	) : array {
+	): array {
 		$tokens = $phpcsFile->getTokens();
 		$currentUsePtr = $stackPtr;
 
@@ -266,7 +266,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 *
 	 * @return string
 	 */
-	private function findNamespace( File $phpcsFile, int $stackPtr ) : string {
+	private function findNamespace( File $phpcsFile, int $stackPtr ): string {
 		$namespacePtr = $phpcsFile->findPrevious( T_NAMESPACE, $stackPtr - 1 );
 		if ( !$namespacePtr ) {
 			return '';
@@ -282,7 +282,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 *
 	 * @return string
 	 */
-	private function readNamespace( File $phpcsFile, int $start, int $end ) : string {
+	private function readNamespace( File $phpcsFile, int $start, int $end ): string {
 		$tokens = $phpcsFile->getTokens();
 		$content = '';
 
@@ -312,7 +312,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @param int $stackPtr
 	 * @param string $shortClassName
 	 */
-	private function addSameNamespaceWarning( File $phpcsFile, int $stackPtr, string $shortClassName ) : void {
+	private function addSameNamespaceWarning( File $phpcsFile, int $stackPtr, string $shortClassName ): void {
 		$fix = $phpcsFile->addFixableWarning(
 			'Unnecessary use statement "%s" in the same namespace',
 			$stackPtr,
@@ -328,7 +328,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @param array &$classNames List of class names found in the use section
 	 * @param string|string[] $usedClassNames Class name(s) to be marked as used
 	 */
-	private function markAsUsed( array &$classNames, $usedClassNames ) : void {
+	private function markAsUsed( array &$classNames, $usedClassNames ): void {
 		foreach ( (array)$usedClassNames as $className ) {
 			unset( $classNames[ strtolower( $className ) ] );
 		}
@@ -338,7 +338,7 @@ class UnusedUseStatementSniff implements Sniff {
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
 	 */
-	private function removeUseStatement( File $phpcsFile, int $stackPtr ) : void {
+	private function removeUseStatement( File $phpcsFile, int $stackPtr ): void {
 		$tokens = $phpcsFile->getTokens();
 		// Remove the whole use statement line.
 		$phpcsFile->fixer->beginChangeset();

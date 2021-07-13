@@ -42,7 +42,7 @@ class LicenseCommentSniff implements Sniff {
 	 *
 	 * @return array
 	 */
-	public function register() : array {
+	public function register(): array {
 		return [ T_DOC_COMMENT_OPEN_TAG ];
 	}
 
@@ -67,7 +67,7 @@ class LicenseCommentSniff implements Sniff {
 	 * @param int $tag Token position of the tag
 	 * @param int $end Token position of the end of the doc comment
 	 */
-	private function processDocTag( File $phpcsFile, array $tokens, int $tag, int $end ) : void {
+	private function processDocTag( File $phpcsFile, array $tokens, int $tag, int $end ): void {
 		$tagText = $tokens[$tag]['content'];
 
 		if ( $tagText === '@licence' ) {
@@ -161,7 +161,7 @@ class LicenseCommentSniff implements Sniff {
 	/**
 	 * @return SpdxLicenses
 	 */
-	private static function getLicenseValidator() : SpdxLicenses {
+	private static function getLicenseValidator(): SpdxLicenses {
 		if ( self::$licenses === null ) {
 			self::$licenses = new SpdxLicenses();
 		}
