@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *   doesn't really make code better readable.
  * - Full qualified class names in "extends" and "implements" are allowed, by default. This is a
  *   very common code style, especially in tests. Since these can only appear once per class, and
- *   are guaranteed to be at the very top, moving them to "use" statements doesn't relly make code
+ *   are guaranteed to be at the very top, moving them to "use" statements doesn't really make code
  *   better readable.
  * - Function calls like \Wikimedia\suppressWarnings() are allowed, by default.
  *
