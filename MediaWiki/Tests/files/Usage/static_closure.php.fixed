@@ -85,8 +85,8 @@ class Foo extends Bar {
 		} );
 
 		// type hints
-		$c = static function ( self $test ) : self {
-			$innerC = static function ( self $innerTest ) : self {
+		$c = static function ( self $test ): self {
+			$innerC = static function ( self $innerTest ): self {
 				if ( $test->fake === self::$static ) {
 					return new self;
 				}

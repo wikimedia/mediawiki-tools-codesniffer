@@ -10,6 +10,12 @@
     |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
  88 | WARNING | [x] Use static closure
     |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 88 | ERROR   | [x] There must not be a space before the colon in a
+    |         |     return type declaration
+    |         |     (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon)
  89 | WARNING | [x] Use static closure
     |         |     (MediaWiki.Usage.StaticClosure.StaticClosure)
-PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 89 | ERROR   | [x] There must not be a space before the colon in a
+    |         |     return type declaration
+    |         |     (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon)
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
