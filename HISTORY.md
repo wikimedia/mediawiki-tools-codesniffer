@@ -1,5 +1,29 @@
 # MediaWiki-Codesniffer release history #
 
+## 37.0.0 / 2021-07-16 ##
+### New sniffs ###
+* Enable `PSR12.Functions.ReturnTypeDeclaration` for typehint spacing (DannyS712 & Daimona Eaytoy)
+
+### Changed sniffs ###
+* `AssertCountSniff`: Allow manual `count` on both sides (DannyS712)
+* `DocumentationTypeTrait`: Complain about `type` as a type (DannyS712)
+* `FunctionCommentSniff`: Also skip `{@inheritDoc}` (DannyS712)
+* `PrefixedGlobalFunctionsSniff`: Allow configuring prefixes (DannyS712)
+* `PrefixedGlobalFunctionsSniff`: Drop `ef` from default prefixes (DannyS712)
+* `RedundantVarNameSniff`: Also check static properties (DannyS712)
+* `UnsortedUseStatementsSniff`: Add support for bracketed namespaces (DannyS712)
+* `UnusedUseStatementSniff`: Add support for bracketed namespaces (DannyS712)
+
+### Documentation, dependencies and build changes ###
+* Add Gerrit report format (Gergő Tisza)
+* Add fix reporting to Gerrit robot comment reporter (Gergő Tisza)
+* `FullQualifiedClassNameSniff`: Fix docs typo (relly -> really) (DannyS712)
+* `LowerCamelFunctionsNameSniff`: Minor clean up (DannyS712)
+* `UnsortedUseStatementsSniff`: add early returns (DannyS712)
+* internal: Remove spaces before return typehints in existing code (DannyS712)
+* build: Update php-parallel-lint/php-parallel-lint (Umherirrender)
+
+
 ## 36.0.0 / 2021-04-28 ##
 ### New sniffs ###
 * Enable `PSR2.ControlStructures.SwitchDeclaration` (re-apply) (James D. Forrester)
