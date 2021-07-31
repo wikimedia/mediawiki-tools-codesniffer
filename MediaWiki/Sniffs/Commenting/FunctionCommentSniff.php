@@ -195,10 +195,6 @@ class FunctionCommentSniff implements Sniff {
 			$found = true;
 		}
 
-		if ( !$found ) {
-			return;
-		}
-
 		$returnPtr = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $ptr ) {
 			if ( $tokens[$ptr]['content'] !== '@return' ) {
@@ -294,7 +290,7 @@ class FunctionCommentSniff implements Sniff {
 					$type . ( $comment !== '' ? str_repeat( ' ', $separatorLength ) . $comment : '' )
 				);
 			}
-		} elseif ( !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
+		} elseif ( $found && !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
 			$phpcsFile->addError(
 				'Missing @return tag in function comment',
 				$tokens[$commentStart]['comment_closer'],

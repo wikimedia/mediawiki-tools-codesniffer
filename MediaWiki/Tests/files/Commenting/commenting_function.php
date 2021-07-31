@@ -1,6 +1,6 @@
 <?php
 
-class TestFailedExamples {
+abstract class TestFailedExamples {
 
 	public function __construct( $a ) {
 		$this->a = $a;
@@ -390,6 +390,20 @@ class TestFailedExamples {
 	 */
 	public function testBadParamName( $sameCase, $notsamecase ) {
 	}
+
+	/**
+	 * @return boolean
+	 */
+	abstract public function testAbstractBadReturnType();
+
+	/**
+	 */
+	abstract public function testAbstractWithPhpReturnType(): bool;
+
+	/**
+	 * @param integer $param
+	 */
+	abstract public function testAbstractBadParameterType( $param );
 }
 
 class TestPassedExamples {
