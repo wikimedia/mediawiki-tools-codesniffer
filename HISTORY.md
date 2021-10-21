@@ -1,5 +1,16 @@
 # MediaWiki-Codesniffer release history #
 
+## 38.0.0 / 2021-10-21 ##
+### Changed sniffs ###
+* `AssertionOrderSniff`: Expand for slightly more complex cases (DannyS712)
+* `FunctionCommentSniff`: Validate @return annotations of abstract methods (Tpt)
+
+### Documentation, dependencies and build changes ###
+* build: Update squizlabs/php_codesniffer to 3.6.1 (Alexander Vorwerk)
+* build: Updating composer dependencies (libraryupgrader)
+* Drop GerritRobotComments PHPCS report (Gergő Tisza)
+
+
 ## 37.0.0 / 2021-07-16 ##
 ### New sniffs ###
 * Enable `PSR12.Functions.ReturnTypeDeclaration` for typehint spacing (DannyS712 & Daimona Eaytoy)
