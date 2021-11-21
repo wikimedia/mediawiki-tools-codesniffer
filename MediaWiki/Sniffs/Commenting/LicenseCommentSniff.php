@@ -112,7 +112,7 @@ class LicenseCommentSniff implements Sniff {
 			$fixable = null;
 			foreach ( self::REPLACEMENTS as $regex => $identifier ) {
 				// Make sure the entire license matches the regex, and
-				// then a sanity check that the new replacement is valid too
+				// then check that the new replacement is valid too
 				if ( preg_match( "/^$regex$/", $license ) === 1
 					&& $licenseValidator->validate( $identifier )
 				) {
