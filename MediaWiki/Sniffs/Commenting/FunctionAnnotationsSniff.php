@@ -98,6 +98,11 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@param-taint' => true,
 		'@return-taint' => true,
 
+		// psalm
+		'@psalm-template' => true,
+		'@psalm-param' => true,
+		'@psalm-return' => true,
+
 		// T263390
 		'@noinspection' => true,
 
