@@ -37,6 +37,11 @@ class SpecificAssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertIsInt( strpos( 'foo', 'o' ) );
 		$this->assertIsInt( strpos( 'foo', 'o' ), 'Message' );
 
+		$this->assertTrue( is_array( $arr ) );
+		$this->assertTrue( is_array( $arr ), 'Message' );
+		$this->assertFalse( is_array( $k ) );
+		$this->assertFalse( is_array( $k ), 'Message' );
+
 		// Not replaced
 		$this->assertTrue( array_key_exists( $k, $arr ) || true );
 		$this->assertFalse( in_array( $k, $arr, true || true ) );

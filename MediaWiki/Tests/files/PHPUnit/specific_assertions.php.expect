@@ -80,4 +80,18 @@
     |         |     of manually using assertIsInt with the result of
     |         |     strpos
     |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertStringContainsString)
-PHPCBF CAN FIX THE 22 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 40 | WARNING | [x] assertIsArray should be used instead of manually
+    |         |     using assertTrue with the result of is_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertIsArray)
+ 41 | WARNING | [x] assertIsArray should be used instead of manually
+    |         |     using assertTrue with the result of is_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertIsArray)
+ 42 | WARNING | [x] assertIsNotArray should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     is_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertIsNotArray)
+ 43 | WARNING | [x] assertIsNotArray should be used instead of
+    |         |     manually using assertFalse with the result of
+    |         |     is_array
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertIsNotArray)
+PHPCBF CAN FIX THE 26 MARKED SNIFF VIOLATIONS AUTOMATICALLY

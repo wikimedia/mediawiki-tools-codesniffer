@@ -7,9 +7,10 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Replace generic assertions about specific conditions
- *   - assertArrayHasKey
- *   - assertContains
- *   - assertStringContainsString
+ *   - assertArrayHasKey (and assertArrayNotHasKey)
+ *   - assertContains (and assertNotContains)
+ *   - assertStringContainsString (and assertStringNotContainsString)
+ *   - assertIsArray (and assertIsNotArray)
  *
  * @author DannyS712
  * @license GPL-2.0-or-later
@@ -21,10 +22,12 @@ class SpecificAssertionsSniff implements Sniff {
 		'assertTrue' => [
 			'array_key_exists' => 'assertArrayHasKey',
 			'in_array' => 'assertContains',
+			'is_array' => 'assertIsArray',
 		],
 		'assertFalse' => [
 			'array_key_exists' => 'assertArrayNotHasKey',
 			'in_array' => 'assertNotContains',
+			'is_array' => 'assertIsNotArray',
 			'strpos' => 'assertStringNotContainsString',
 		],
 		'assertNotFalse' => [

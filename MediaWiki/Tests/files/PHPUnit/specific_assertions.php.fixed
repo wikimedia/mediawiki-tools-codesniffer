@@ -37,6 +37,11 @@ class SpecificAssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertStringContainsString( 'o', 'foo' );
 		$this->assertStringContainsString( 'o', 'foo', 'Message' );
 
+		$this->assertIsArray( $arr );
+		$this->assertIsArray( $arr, 'Message' );
+		$this->assertIsNotArray( $k );
+		$this->assertIsNotArray( $k, 'Message' );
+
 		// Not replaced
 		$this->assertTrue( array_key_exists( $k, $arr ) || true );
 		$this->assertFalse( in_array( $k, $arr, true || true ) );
