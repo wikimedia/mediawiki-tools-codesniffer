@@ -26,10 +26,18 @@ class AssertionsOrderTest extends \PHPUnit\Framework\TestCase {
 			'bar'
 		);
 
-		// Should not be replaced
+		// Variables named $expected* are assumed to be the expected value
 		$expected = true;
 		$this->assertSame( $var, $expected );
 		$this->assertEquals( $var, $expected, 'Message' );
+		$expectedResult = true;
+		$this->assertSame( $var, $expectedResult );
+		$this->assertEquals( $var, $expectedResult, 'Message' );
+
+		// Should not be replaced
+		$otherVariable = false;
+		$this->assertSame( $var, $otherVariable );
+		$this->assertEquals( $var, $otherVariable, 'Message' );
 
 		// Cannot yet handle
 		$this->assertSame( wfFunctionCall( true ), true );

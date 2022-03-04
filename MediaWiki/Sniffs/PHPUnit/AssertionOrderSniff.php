@@ -27,7 +27,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Fix uses of assertEquals or assertSame with the actual value before the expected
  * Currently, only catches assertions where the actual value is a variable, or at least
- * starts with a variable token, and the expected is a literal value (string, boolean, null, number)
+ * starts with a variable token, and the expected is a literal value (string, boolean, null, or
+ * number) or a variable named $expected.
  *
  * @author DannyS712
  */
@@ -121,15 +122,25 @@ class AssertionOrderSniff implements Sniff {
 		}
 
 		// If we got here, then we know there is a first parameter based on a variable,
-		// and then $commaToken - check the second parameter (should be the "actual" value,
-		// but if its a literal then we assume it was meant to be the "expected" value and
-		// switch them.
+		// and then $commaToken - check the second parameter. It should be the "actual"
+		// value, but if its a literal, or a variable named $expected*, then we assume it
+		// was meant to be the "expected" value and switch them.
 
 		$expectedToken = $phpcsFile->findNext( T_WHITESPACE, $commaToken + 1, null, true );
 		$codesToReplace = [ T_NULL, T_FALSE, T_TRUE, T_LNUMBER, T_DNUMBER, T_CONSTANT_ENCAPSED_STRING ];
 		if ( !in_array( $tokens[$expectedToken]['code'], $codesToReplace ) ) {
-			// Not a comparison to one of the allowed literals
-			return;
+			// Not a comparison to one of the allowed literals, check variable name
+			if ( $tokens[$expectedToken]['code'] !== T_VARIABLE ) {
+				return;
+			}
+			$expectedVarName = $tokens[$expectedToken]['content'];
+			// optimize for common case - full name is $expected
+			if ( $expectedVarName !== '$expected'
+				// but also handle $expectedRes and similar
+				&& substr( $expectedVarName, 0, 9 ) !== '$expected'
+			) {
+				return;
+			}
 		}
 
 		$nextToken = $phpcsFile->findNext( T_WHITESPACE, $expectedToken + 1, null, true );
