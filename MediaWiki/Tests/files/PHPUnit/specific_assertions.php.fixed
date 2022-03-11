@@ -42,6 +42,11 @@ class SpecificAssertionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertIsNotArray( $k );
 		$this->assertIsNotArray( $k, 'Message' );
 
+		$this->assertEmpty( $arr );
+		$this->assertEmpty( $arr, 'Message' );
+		$this->assertNotEmpty( $arr );
+		$this->assertNotEmpty( $arr, 'Message' );
+
 		// Not replaced
 		$this->assertTrue( array_key_exists( $k, $arr ) || true );
 		$this->assertFalse( in_array( $k, $arr, true || true ) );

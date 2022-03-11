@@ -94,4 +94,16 @@
     |         |     manually using assertFalse with the result of
     |         |     is_array
     |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertIsNotArray)
-PHPCBF CAN FIX THE 26 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 45 | WARNING | [x] assertEmpty should be used instead of manually
+    |         |     using assertTrue with the result of empty
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertEmpty)
+ 46 | WARNING | [x] assertEmpty should be used instead of manually
+    |         |     using assertTrue with the result of empty
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertEmpty)
+ 47 | WARNING | [x] assertNotEmpty should be used instead of manually
+    |         |     using assertFalse with the result of empty
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotEmpty)
+ 48 | WARNING | [x] assertNotEmpty should be used instead of manually
+    |         |     using assertFalse with the result of empty
+    |         |     (MediaWiki.PHPUnit.SpecificAssertions.assertNotEmpty)
+PHPCBF CAN FIX THE 30 MARKED SNIFF VIOLATIONS AUTOMATICALLY
