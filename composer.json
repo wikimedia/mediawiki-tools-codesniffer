@@ -12,7 +12,7 @@
 		"php": ">=7.2.0",
 		"ext-json": "*",
 		"ext-mbstring": "*",
-		"composer/semver": "^1.7.2|^3.2.4",
+		"composer/semver": "3.3.2",
 		"composer/spdx-licenses": "~1.5.2",
 		"squizlabs/php_codesniffer": "3.6.2"
 	},
