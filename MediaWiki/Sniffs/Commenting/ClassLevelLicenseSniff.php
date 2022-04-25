@@ -42,7 +42,7 @@ class ClassLevelLicenseSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		// This sniff requires you to set a <property name="license" …> in your .phpcs.xml
 		if ( !$this->license ) {
-			return;
+			return $phpcsFile->numTokens;
 		}
 
 		$tokens = $phpcsFile->getTokens();
