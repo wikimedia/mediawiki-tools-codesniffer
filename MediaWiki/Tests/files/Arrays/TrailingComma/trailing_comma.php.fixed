@@ -1,0 +1,73 @@
+<?php
+
+// good example, multi-line array
+$a = [
+	'a' => '1',
+	'b' => '2',
+	'c' => '3',
+	'd' => '4',
+	'e' => '5',
+];
+
+// good example, multi-line array (empty)
+$a = [
+];
+
+// good example, multi-line array (line comments)
+$a = [
+	'a', // the letter A
+	'b', // the letter B
+];
+
+// good example, multi-line array (block comments)
+$a = [
+	'a', /* the letter A */
+	'b', /* the letter B */
+];
+
+// good example, single-line array
+$a = [ 'a', 'b', 'c', 'd', 'e' ];
+
+// good example, single-line array (empty)
+$a = [];
+
+// good example, single-line array (block comment)
+$a = [ 'a', 'b' /* ... */ ];
+
+// bad example, multi-line array
+$a = [
+	'a' => '1',
+	'b' => '2',
+	'c' => '3',
+	'd' => '4',
+	'e' => '5',
+];
+
+// bad example, multi-line array (line comments)
+$a = [
+	'a', // the letter A
+	'b', // the letter B
+];
+
+// bad example, multi-line array (block comments)
+$a = [
+	'a', /* the letter A */
+	'b', /* the letter B */
+];
+
+// bad example, single-line array
+$a = [ 'a', 'b', 'c', 'd', 'e' ];
+
+// bad example, single-line array (block comment)
+$a = [ 'a', 'b' /* ... */ ];
+
+// keep indentation and comments
+$a = [
+	// This is a comment
+					'a',
+				'b',
+			'c',
+		'd',
+	'e',
+	// This is another comment
+];

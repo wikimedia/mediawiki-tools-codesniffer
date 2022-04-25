@@ -110,6 +110,20 @@ Some of the sniffs provided by this codesniffer standard allow you to configure 
     </rule>
     ```
 
+* `MediaWiki.Arrays.TrailingComma`: This sniff lets you enforce that multi-line arrays have trailing commas,
+  which makes Git diffs nicer.
+  It can also enforce that single-line arrays have no trailing comma.
+  By default, it does nothing.
+
+    ```
+    <rule ref="MediaWiki.Arrays.TrailingComma">
+        <properties>
+            <property name="singleLine" value="false" />
+            <property name="multiLine" value="true" />
+        </properties>
+    </rule>
+    ```
+
 TODO
 ----
 * Migrate the old code-utils/check-vars.php

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset>
+	<arg name="tab-width" value="4" />
+	<rule ref="../../../../Sniffs/Arrays/TrailingCommaSniff.php">
+		<properties>
+			<property name="singleLine" value="false" />
+			<property name="multiLine" value="true" />
+		</properties>
+	</rule>
+</ruleset>

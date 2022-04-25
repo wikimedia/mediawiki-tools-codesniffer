@@ -1,0 +1,13 @@
+ 43 | WARNING | [x] Multi-line array without trailing comma
+    |         |     (MediaWiki.Arrays.TrailingComma.MultiLine)
+ 49 | WARNING | [x] Multi-line array without trailing comma
+    |         |     (MediaWiki.Arrays.TrailingComma.MultiLine)
+ 55 | WARNING | [x] Multi-line array without trailing comma
+    |         |     (MediaWiki.Arrays.TrailingComma.MultiLine)
+ 59 | WARNING | [x] Single-line array with trailing comma
+    |         |     (MediaWiki.Arrays.TrailingComma.SingleLine)
+ 62 | WARNING | [x] Single-line array with trailing comma
+    |         |     (MediaWiki.Arrays.TrailingComma.SingleLine)
+ 71 | WARNING | [x] Multi-line array without trailing comma
+    |         |     (MediaWiki.Arrays.TrailingComma.MultiLine)
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
