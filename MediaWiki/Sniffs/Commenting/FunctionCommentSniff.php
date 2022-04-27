@@ -77,7 +77,19 @@ class FunctionCommentSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$find = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
-		$commentEnd = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
+		$searchBefore = $stackPtr;
+		$linesBetweenDocAndFunction = 1;
+		do {
+			$commentEnd = $phpcsFile->findPrevious( $find, $searchBefore - 1, null, true );
+			// Allow attributes between doc block and function, T306941
+			if ( isset( $tokens[$commentEnd]['attribute_opener'] ) ) {
+				$searchBefore = $tokens[$commentEnd]['attribute_opener'];
+				// Attributes should be on their own lines
+				$linesBetweenDocAndFunction++;
+				continue;
+			}
+			break;
+		} while ( true );
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
 			// Inline comments might just be closing comments for
 			// control structures or functions instead of function comments
@@ -114,7 +126,7 @@ class FunctionCommentSniff implements Sniff {
 			);
 			return;
 		}
-		if ( $tokens[$commentEnd]['line'] !== $tokens[$stackPtr]['line'] - 1 ) {
+		if ( $tokens[$commentEnd]['line'] !== $tokens[$stackPtr]['line'] - $linesBetweenDocAndFunction ) {
 			$phpcsFile->addError(
 				'There must be no blank lines after the function comment',
 				$commentEnd,

@@ -542,6 +542,39 @@ class TestPassedExamples {
 	public function javaStyle( $a ) {
 		return $a;
 	}
+
+	/**
+	 * This documentation block should still be accepted despite the attribute between
+	 * it and the function, test for T306941. Same with the next two cases below.
+	 *
+	 * @param int $offset
+	 * @return mixed
+	 */
+	#[\ReturnTypeWillChange]
+	public function offsetGet( $offset ) {
+		if ( !is_numeric( $offset ) || (float)(int)$offset !== (float)$offset ) {
+			throw new InvalidArgumentException( 'Offset must be an integer.' );
+		}
+		if ( $offset < 0 || $offset > count( $this->objects ) ) {
+			throw new OutOfBoundsException( 'Offset is out of range.' );
+		}
+		return $this->objects[$offset];
+	}
+
+	/**
+	 * @param bool $b
+	 */
+	#[AttributeFoo]
+	#[AttributeBar]
+	public function multipleAttributeLines( bool $b ) {
+	}
+
+	/**
+	 * @param bool $b
+	 */
+	#[AttributeFoo, AttributeBar]
+	public function multipleAttributesSameLine( bool $b ) {
+	}
 }
 
 class TestSimpleConstructor {
