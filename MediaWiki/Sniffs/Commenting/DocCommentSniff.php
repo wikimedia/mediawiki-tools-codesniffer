@@ -25,8 +25,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class DocCommentSniff implements Sniff {
 
-	/** Do not report very long asteriks line, there are eye catchers for structure of the code */
-	private const COMMENT_START_ASTERIKS_MAX_LEN = 10;
+	/** Do not report very long asterisks line, there are eye-catchers for structure of the code */
+	private const COMMENT_START_ASTERISKS_MAX_LEN = 10;
 
 	/**
 	 * List of annotations where the spacing before is not checked.
@@ -64,7 +64,7 @@ class DocCommentSniff implements Sniff {
 		// Self-closing comments are tokenized also as open tag, but ignore them
 		if ( $tokens[$commentStart]['code'] === T_DOC_COMMENT_OPEN_TAG &&
 			$tokens[$commentStart]['content'] !== '/**' &&
-			$tokens[$commentStart]['length'] < self::COMMENT_START_ASTERIKS_MAX_LEN &&
+			$tokens[$commentStart]['length'] < self::COMMENT_START_ASTERISKS_MAX_LEN &&
 			substr( $tokens[$commentStart]['content'], -2 ) !== '*/'
 		) {
 			$error = 'Comment open tag must be \'/**\'';

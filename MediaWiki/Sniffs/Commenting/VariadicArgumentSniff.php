@@ -39,7 +39,7 @@ class VariadicArgumentSniff implements Sniff {
 		$commentPos = $phpcsFile->findNext( T_COMMENT, $tokens[$stackPtr]['parenthesis_opener'] + 1, $end );
 		while ( $commentPos !== false ) {
 			$comment = $tokens[$commentPos]['content'];
-			if ( substr( $comment, 0, 2 ) === '/*' ) {
+			if ( strpos( $comment, '/*' ) === 0 ) {
 				$content = substr( $comment, 2, -2 );
 				if ( preg_match( '/^[,\s]*\.\.\.\s*$|\.\.\.\$|\$[a-z_][a-z0-9_]*,\.\.\./i', $content ) ) {
 					// An autofix would be trivial to write, but we shouldn't offer that. Removing the

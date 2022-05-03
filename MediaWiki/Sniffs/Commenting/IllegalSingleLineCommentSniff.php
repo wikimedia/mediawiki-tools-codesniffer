@@ -31,7 +31,7 @@ class IllegalSingleLineCommentSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$currentToken = $tokens[$stackPtr];
 
-		if ( substr( $currentToken['content'], 0, 2 ) === '/*' ) {
+		if ( strpos( $currentToken['content'], '/*' ) === 0 ) {
 			// Possible inline comment
 			if ( substr( $currentToken['content'], -2 ) !== '*/' ) {
 				// Whether it's a comment across multiple lines
@@ -39,7 +39,7 @@ class IllegalSingleLineCommentSniff implements Sniff {
 				for ( $i = $stackPtr + 1; $i < $numOfTokens; $i++ ) {
 					$token = $tokens[$i];
 					if ( ( $token['code'] !== T_COMMENT && $token['code'] !== T_WHITESPACE ) || (
-						substr( $token['content'], 0, 2 ) !== '/*' &&
+						strpos( $token['content'], '/*' ) !== 0 &&
 						substr( $token['content'], -2 ) === '*/'
 					) ) {
 						return;

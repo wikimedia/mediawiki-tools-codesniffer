@@ -137,7 +137,7 @@ class AssertionOrderSniff implements Sniff {
 			// optimize for common case - full name is $expected
 			if ( $expectedVarName !== '$expected'
 				// but also handle $expectedRes and similar
-				&& substr( $expectedVarName, 0, 9 ) !== '$expected'
+				&& strpos( $expectedVarName, '$expected' ) !== 0
 			) {
 				return;
 			}
@@ -172,7 +172,7 @@ class AssertionOrderSniff implements Sniff {
 			true
 		);
 
-		// For now we know that the expected param is only a single token, so its easier,
+		// For now, we know that the expected param is only a single token, so its easier,
 		// but this will eventually need to have the same handling as the actual param
 		$expectedParamContent = $tokens[$expectedToken]['content'];
 
@@ -185,7 +185,7 @@ class AssertionOrderSniff implements Sniff {
 			$phpcsFile->fixer->replaceToken( $i, '' );
 		}
 
-		// Remove the second parameter that previously held the expeced value,
+		// Remove the second parameter that previously held the expected value,
 		// and replace with the actual
 		$phpcsFile->fixer->replaceToken( $expectedToken, $actualParamContent );
 

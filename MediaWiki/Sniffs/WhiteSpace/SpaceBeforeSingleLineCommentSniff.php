@@ -1,6 +1,6 @@
 <?php
 /**
- * Verify that comments are preceeded by a single space. However, allow it if there are
+ * Verify that comments are preceded by a single space. However, allow it if there are
  * multiple single-line comments on consecutive lines (also with empty lines in between).
  */
 
@@ -43,14 +43,14 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 			// use only '//' and '#'
 			// Also ignoring PHPDoc comments starting with '///',
 			// as there are no coding standards documented for these
-			if ( substr( $currToken['content'], 0, 2 ) === '/*'
-				|| substr( $currToken['content'], 0, 3 ) === '///'
+			if ( strpos( $currToken['content'], '/*' ) === 0
+				|| strpos( $currToken['content'], '///' ) === 0
 			) {
 				return;
 			}
 
 			// Checking whether the comment is an empty one
-			if ( ( substr( $currToken['content'], 0, 2 ) === '//' &&
+			if ( ( strpos( $currToken['content'], '//' ) === 0 &&
 				rtrim( $currToken['content'] ) === '//' ) ||
 				( $currToken['content'][0] === '#' &&
 					rtrim( $currToken['content'] ) === '#' )
@@ -66,7 +66,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 
 			// Checking whether there is a space between the comment delimiter
 			// and the comment
-			if ( substr( $currToken['content'], 0, 2 ) === '//' ) {
+			if ( strpos( $currToken['content'], '//' ) === 0 ) {
 				$commentContent = substr( $currToken['content'], 2 );
 				$commentTrim = ltrim( $commentContent );
 				if (
@@ -88,7 +88,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 				// Find number of `#` used.
 				$startComment = 0;
 				while ( $currToken['content'][$startComment] === '#' ) {
-					$startComment += 1;
+					$startComment++;
 				}
 				if ( $currToken['content'][$startComment] !== ' ' ) {
 					$fix = $phpcsFile->addFixableWarning(

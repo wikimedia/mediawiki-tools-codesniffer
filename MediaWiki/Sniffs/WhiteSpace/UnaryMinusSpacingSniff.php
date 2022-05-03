@@ -42,7 +42,7 @@ class UnaryMinusSpacingSniff implements Sniff {
 	}
 
 	/**
-	 * Tokens that can preceed subtraction rather than unary minus
+	 * Tokens that can precede subtraction rather than unary minus
 	 *
 	 * Comment tokens are accessed at runtime
 	 */

@@ -57,7 +57,9 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 					// In the format of "namespace Foo;", which applies to everything below
 					$this->firstNamespaceLocations[$fileName] = $tokenIndex;
 					break;
-				} elseif ( isset( $token['scope_closer'] ) ) {
+				}
+
+				if ( isset( $token['scope_closer'] ) ) {
 					// Skip any non-zero level code as it can not contain a relevant namespace
 					$tokenIndex = $token['scope_closer'];
 					continue;
@@ -100,7 +102,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 		}
 
 		foreach ( $this->allowedPrefixes as $allowedPrefix ) {
-			if ( substr( $name, 0, strlen( $allowedPrefix ) ) === $allowedPrefix ) {
+			if ( strpos( $name, $allowedPrefix ) === 0 ) {
 				return;
 			}
 		}

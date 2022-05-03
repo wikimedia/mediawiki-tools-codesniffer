@@ -236,7 +236,7 @@ class UnusedUseStatementSniff implements Sniff {
 		$useTokenTypes = array_merge( $namespaceTokenTypes, [ T_AS ] );
 
 		while ( $currentUsePtr && $tokens[$currentUsePtr]['code'] === T_USE ) {
-			// Seek to the end of the statement and get the string before the semi colon.
+			// Seek to the end of the statement and get the string before the semicolon.
 			$semicolon = $phpcsFile->findNext( $useTokenTypes, $currentUsePtr + 1, null, true );
 			if ( $tokens[$semicolon]['code'] !== T_SEMICOLON ) {
 				break;

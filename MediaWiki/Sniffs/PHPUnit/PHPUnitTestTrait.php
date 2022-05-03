@@ -5,6 +5,7 @@ namespace MediaWiki\Sniffs\PHPUnit;
 use PHP_CodeSniffer\Files\DummyFile;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Check if a class is a test class
@@ -23,8 +24,8 @@ trait PHPUnitTestTrait {
 		'MediaWikiUnitTestCase' => 'MediaWikiUnitTestCase',
 		'MediaWikiIntegrationTestCase' => 'MediaWikiIntegrationTestCase',
 		'PHPUnit_Framework_TestCase' => 'PHPUnit_Framework_TestCase',
-		// This class may be 'use'd, but checking for that would be complicated
-		'PHPUnit\\Framework\\TestCase' => 'PHPUnit\\Framework\\TestCase',
+		// This class may be 'used', but checking for that would be complicated
+		TestCase::class => TestCase::class,
 	];
 
 	/**

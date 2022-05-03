@@ -38,7 +38,7 @@ class DirUsageSniff implements Sniff {
 			return;
 		}
 
-		// Find the paranthesis for the function
+		// Find the parenthesis for the function
 		$nextToken = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 1, null, true );
 		if ( $nextToken === false
 			|| $tokens[$nextToken]['code'] !== T_OPEN_PARENTHESIS
@@ -66,7 +66,7 @@ class DirUsageSniff implements Sniff {
 			return;
 		}
 
-		// Find close paranthesis
+		// Find close parenthesis
 		$nextToken = $phpcsFile->findNext( T_WHITESPACE, $nextToken + 1, null, true );
 		if ( $nextToken === false
 			|| $tokens[$nextToken]['code'] !== T_CLOSE_PARENTHESIS
@@ -87,7 +87,7 @@ class DirUsageSniff implements Sniff {
 				} else {
 					$phpcsFile->fixer->replaceToken( $curToken, '' );
 				}
-				$curToken += 1;
+				$curToken++;
 			}
 		}
 	}

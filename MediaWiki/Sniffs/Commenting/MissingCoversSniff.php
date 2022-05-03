@@ -72,7 +72,7 @@ class MissingCoversSniff implements Sniff {
 			}
 
 			$name = $phpcsFile->getDeclarationName( $funcPtr );
-			if ( substr( $name, 0, 4 ) !== 'test' ) {
+			if ( strpos( $name, 'test' ) !== 0 ) {
 				// If it doesn't start with "test", skip
 				continue;
 			}

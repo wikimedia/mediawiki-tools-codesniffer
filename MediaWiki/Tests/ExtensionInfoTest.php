@@ -21,11 +21,12 @@
 namespace MediaWiki\Sniffs\Tests;
 
 use MediaWiki\Sniffs\Utils\ExtensionInfo;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \MediaWiki\Sniffs\Utils\ExtensionInfo
  */
-class ExtensionInfoTest extends \PHPUnit\Framework\TestCase {
+class ExtensionInfoTest extends TestCase {
 
 	public function testSupportsMediaWikiNorequiredVersion() {
 		$extensionInfo = new ExtensionInfo( __DIR__ . '/files/Utils/norequiredVersion' );

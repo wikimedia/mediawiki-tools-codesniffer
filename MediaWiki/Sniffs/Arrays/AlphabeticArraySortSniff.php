@@ -96,7 +96,7 @@ class AlphabeticArraySortSniff implements Sniff {
 		$endArray = $phpcsFile->findPrevious( Tokens::$emptyTokens, $endArray, $startArray, true );
 		if ( $tokens[$endArray]['code'] === T_COMMA ) {
 			// Ignore trailing commas
-			$endArray -= 1;
+			$endArray--;
 		}
 
 		$keys = [];

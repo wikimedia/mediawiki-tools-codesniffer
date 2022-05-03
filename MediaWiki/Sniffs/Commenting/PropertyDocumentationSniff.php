@@ -164,8 +164,8 @@ class PropertyDocumentationSniff implements Sniff {
 			}
 			[ $type, $separatorLength, $comment ] = $this->splitTypeAndComment( $content );
 			$fixType = false;
-			// Check for unneeded punctation
-			$type = $this->fixTrailingPunctation(
+			// Check for unneeded punctuation
+			$type = $this->fixTrailingPunctuation(
 				$phpcsFile,
 				$varType,
 				$type,

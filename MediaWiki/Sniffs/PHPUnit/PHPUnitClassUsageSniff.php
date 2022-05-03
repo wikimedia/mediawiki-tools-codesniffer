@@ -22,6 +22,7 @@ namespace MediaWiki\Sniffs\PHPUnit;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Converts PHPUnit_Framework_TestCase to the new
@@ -65,7 +66,7 @@ class PHPUnitClassUsageSniff implements Sniff {
 			'NotNamespaced'
 		);
 		if ( $fix ) {
-			$new = 'PHPUnit\\Framework\\TestCase';
+			$new = TestCase::class;
 			// If this file is namespaced, we need a leading \
 			$inANamespace = $phpcsFile->findPrevious( T_NAMESPACE, $classPtr ) !== false;
 			$classNameWithSlash = $phpcsFile->findExtendedClassName( $classPtr );

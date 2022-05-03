@@ -104,7 +104,7 @@ class FunctionCommentSniff implements Sniff {
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
 			// Don't require documentation for functions with no parameters, except getters
-			if ( ( substr( $funcName, 0, 3 ) === 'get' || $phpcsFile->getMethodParameters( $stackPtr ) )
+			if ( ( strpos( $funcName, 'get' ) === 0 || $phpcsFile->getMethodParameters( $stackPtr ) )
 				&& !$this->isTestFile( $phpcsFile, $stackPtr )
 			) {
 				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
@@ -251,8 +251,8 @@ class FunctionCommentSniff implements Sniff {
 			}
 			[ $type, $separatorLength, $comment ] = $this->splitTypeAndComment( $content );
 			$fixType = false;
-			// Check for unneeded punctation
-			$type = $this->fixTrailingPunctation(
+			// Check for unneeded punctuation
+			$type = $this->fixTrailingPunctuation(
 				$phpcsFile,
 				$retTypePtr,
 				$type,
@@ -460,14 +460,14 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile->addError( 'Missing parameter type', $tag, 'MissingParamType' );
 			}
 
-			$isPassByReference = substr( $var, 0, 1 ) === '&';
+			$isPassByReference = strpos( $var, '&' ) === 0;
 			// Remove the pass by reference to allow compare with varargs
 			if ( $isPassByReference ) {
 				$var = substr( $var, 1 );
 			}
 
 			$isLegacyVariadicArg = substr( $var, -4 ) === ',...';
-			$isVariadicArg = substr( $var, 0, 4 ) === '...$';
+			$isVariadicArg = strpos( $var, '...$' ) === 0;
 			// Remove the variadic indicator from the doc name to compare it against the real
 			// name, so that we can allow both formats.
 			if ( $isLegacyVariadicArg ) {
@@ -526,7 +526,6 @@ class FunctionCommentSniff implements Sniff {
 				);
 			} else {
 				// Check number of spaces after the type.
-				$spaces = 1;
 				if ( $param['type_space'] !== $spaces ) {
 					$fix = $phpcsFile->addFixableWarning(
 						'Expected %s spaces after parameter type; %s found',
@@ -545,7 +544,7 @@ class FunctionCommentSniff implements Sniff {
 
 			}
 			$fixVar = false;
-			$var = $this->fixTrailingPunctation(
+			$var = $this->fixTrailingPunctuation(
 				$phpcsFile,
 				$param['tag'],
 				$param['var'],
@@ -590,7 +589,7 @@ class FunctionCommentSniff implements Sniff {
 				}
 				if ( $realName !== $var ) {
 					if (
-						substr( $realName, 0, 4 ) === '...$' &&
+						strpos( $realName, '...$' ) === 0 &&
 						( $param['legacy_variadic_arg'] || $param['variadic_arg'] )
 					) {
 						// Mark all variants as found
@@ -619,7 +618,7 @@ class FunctionCommentSniff implements Sniff {
 			}
 			$foundParams[] = $var;
 			$fixType = false;
-			// Check for unneeded punctation on parameter type
+			// Check for unneeded punctuation on parameter type
 			$type = $this->fixWrappedParenthesis(
 				$phpcsFile,
 				$param['tag'],
@@ -642,7 +641,7 @@ class FunctionCommentSniff implements Sniff {
 				'param'
 			);
 			$explodedType = $type === '' ? [] : explode( '|', $type );
-			$nullableDoc = substr( $type, 0, 1 ) === '?';
+			$nullableDoc = strpos( $type, '?' ) === 0;
 			$nullFound = false;
 			foreach ( $explodedType as $index => $singleType ) {
 				$singleType = lcfirst( $singleType );
@@ -698,7 +697,6 @@ class FunctionCommentSniff implements Sniff {
 				continue;
 			}
 			// Check number of spaces after the var name.
-			$spaces = 1;
 			if ( $param['var_space'] !== $spaces &&
 				ltrim( $param['comment'] ) !== ''
 			) {

@@ -142,7 +142,7 @@ class IsNullSniff implements Sniff {
 	}
 
 	/**
-	 * Determines if the content between parenthesis warants keeping the parenthesis for the null
+	 * Determines if the content between parenthesis warrants keeping the parenthesis for the null
 	 * comparison.
 	 *
 	 * @param File $phpcsFile
@@ -216,7 +216,7 @@ class IsNullSniff implements Sniff {
 	 * Comparisons that compare a variable to the result of is_null or to the result of another
 	 * is_null, like $var === is_null( $var ) or is_null( $var ) === is_null( $var ).
 	 *
-	 * These can't replaced by other constructions and should remain untouched.
+	 * These can't be replaced by other constructions and should remain untouched.
 	 *
 	 * @param File $phpcsFile
 	 * @param int $stackPtr
@@ -237,12 +237,12 @@ class IsNullSniff implements Sniff {
 		);
 
 		return $tokens[$prevToken]['code'] === T_IS_EQUAL ||
-			   $tokens[$prevToken]['code'] === T_IS_IDENTICAL ||
-			   $tokens[$prevToken]['code'] === T_IS_NOT_EQUAL ||
-			   $tokens[$prevToken]['code'] === T_IS_NOT_IDENTICAL ||
-			   $tokens[$nextToken]['code'] === T_IS_EQUAL ||
-			   $tokens[$nextToken]['code'] === T_IS_IDENTICAL ||
-			   $tokens[$nextToken]['code'] === T_IS_NOT_EQUAL ||
-			   $tokens[$nextToken]['code'] === T_IS_NOT_IDENTICAL;
+			$tokens[$prevToken]['code'] === T_IS_IDENTICAL ||
+			$tokens[$prevToken]['code'] === T_IS_NOT_EQUAL ||
+			$tokens[$prevToken]['code'] === T_IS_NOT_IDENTICAL ||
+			$tokens[$nextToken]['code'] === T_IS_EQUAL ||
+			$tokens[$nextToken]['code'] === T_IS_IDENTICAL ||
+			$tokens[$nextToken]['code'] === T_IS_NOT_EQUAL ||
+			$tokens[$nextToken]['code'] === T_IS_NOT_IDENTICAL;
 	}
 }

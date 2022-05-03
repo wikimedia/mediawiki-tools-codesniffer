@@ -79,7 +79,8 @@ trait DocumentationTypeTrait {
 	 */
 	private function splitTypeAndComment( string $str ): array {
 		$brackets = 0;
-		for ( $i = 0; $i < strlen( $str ); $i++ ) {
+		$len = strlen( $str );
+		for ( $i = 0; $i < $len; $i++ ) {
 			$char = $str[$i];
 			if ( $char === ' ' && !$brackets ) {
 				$separatorLength = strspn( $str, ' ', $i );
@@ -143,7 +144,7 @@ trait DocumentationTypeTrait {
 	 * @param string $annotation Either "param" or "return" or "var" + "name" or "type"
 	 * @return string Updated $typesString
 	 */
-	private function fixTrailingPunctation(
+	private function fixTrailingPunctuation(
 		File $phpcsFile,
 		int $stackPtr,
 		string $typesString,

@@ -109,7 +109,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 	];
 
 	/**
-	 * A list of naming patterns for annotations
+	 * A list of naming patterns for annotations.
 	 * Annotations not found here using default test* name
 	 */
 	private const FUNCTION_NAMING_PATTERN = [
@@ -223,8 +223,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 		// Normalize some tags
 		if ( is_array( self::ALLOWED_ANNOTATIONS[$tagText] ) ) {
-			$replacement = self::ALLOWED_ANNOTATIONS[$tagText][0];
-			$sniffCode = self::ALLOWED_ANNOTATIONS[$tagText][1];
+			[ $replacement, $sniffCode ] = self::ALLOWED_ANNOTATIONS[$tagText];
 			$fix = $phpcsFile->addFixableWarning(
 				'Use %s annotation instead of %s',
 				$tag, $sniffCode, [ $replacement, $tagText ]
@@ -247,11 +246,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 		// Check the name of the function
 		if ( $tokens[$tag]['level'] > 0 ) {
-			if ( isset( self::FUNCTION_NAMING_PATTERN[$tagText] ) ) {
-				$namingPattern = self::FUNCTION_NAMING_PATTERN[$tagText];
-			} else {
-				$namingPattern = self::FUNCTION_NAMING_PATTERN['*'];
-			}
+			$namingPattern = self::FUNCTION_NAMING_PATTERN[$tagText] ?? self::FUNCTION_NAMING_PATTERN['*'];
 
 			$functionToken = $this->findFunctionToken( $phpcsFile, $tokens, $end );
 			if ( !$functionToken ||

@@ -23,7 +23,12 @@
 
 namespace MediaWiki\Sniffs\Tests;
 
-class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
+use PHPUnit\Framework\TestCase;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
+
+class MediaWikiStandardTest extends TestCase {
 
 	/**
 	 * @var Helper
@@ -46,9 +51,9 @@ class MediaWikiStandardTest extends \PHPUnit\Framework\TestCase {
 		$tests = [];
 
 		$standard = dirname( __DIR__ );
-		$directoryIterator = new \RecursiveDirectoryIterator( __DIR__ . '/files' );
-		$iterator = new \RecursiveIteratorIterator( $directoryIterator );
-		/** @var \SplFileInfo $dir */
+		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/files' );
+		$iterator = new RecursiveIteratorIterator( $directoryIterator );
+		/** @var SplFileInfo $dir */
 		foreach ( $iterator as $dir ) {
 			if ( $dir->isDir() ) {
 				continue;

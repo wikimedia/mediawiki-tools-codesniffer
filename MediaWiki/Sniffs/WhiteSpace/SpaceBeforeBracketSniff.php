@@ -46,7 +46,7 @@ class SpaceBeforeBracketSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		// Check if the open bracket is preceeded by whitespace
+		// Check if the open bracket is preceded by whitespace
 		$priorToken = $tokens[$stackPtr - 1];
 		if ( $priorToken['code'] !== T_WHITESPACE ) {
 			return;
