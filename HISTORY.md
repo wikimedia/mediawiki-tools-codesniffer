@@ -562,7 +562,7 @@ Note: This will be the final release with PHP 5.5 and 5.6 support.
 * Move phpcs.xml to .phpcs.xml (Umherirrender)
 * Remove WhiteSpace.SpaceBeforeSingleLineComment.EmptyComment (Gergő Tisza)
 * Replace PEAR with Packagist in README.md link (Ricordisamoa)
-* Require that an explicit visiblity is set on methods and properties (Kunal Mehta)
+* Require that an explicit visibility is set on methods and properties (Kunal Mehta)
 * Rework ExtendClassUageSniff to avoid private class member (Umherirrender)
 * Skip inner functions in FunctionCommentSniff::processReturn (Umherirrender)
 * Update PHP_CodeSniffer to 3.2.2 (Ricordisamoa, Kunal Mehta)
