@@ -1,5 +1,28 @@
 # MediaWiki-Codesniffer release history #
 
+## 39.0.0 / 2022-05-04 ##
+### New sniffs ###
+* Create `PHPUnitAssertEmpty` sniff to warn against using `assertEmpty` (DannyS712)
+
+### Changed sniffs ###
+* `AssertionOrderSniff`: Also re-order actual value named `$expected*` (DannyS712)
+* `ClassLevelLicense`: Skip whole rest of file (Lucas Werkmeister)
+* `FunctionAnnotationsSniff`: Add some Psalm tags (Gergő Tisza)
+* `FunctionCommentSniff`: Skip attributes when checking for doc block (DannyS712)
+* `PropertyDocumentationSniff`: Handle visibility on its own line (DannyS712)
+* `SpecificAssertionsSniff`: Add `assertEmpty()` and `assertNotEmpty()` (DannyS712)
+* `SpecificAssertionsSniff`: Add `assertIsArray()` and `assertIsNotArray()` (DannyS712)
+
+### Documentation, dependencies and build changes ###
+* HISTORY: Fix 'visiblity' typo (Klein Muçi)
+* docs: Remove or replace usages of "sanity" (Reedy)
+* tests: Move AlphabeticArraySort tests into own directory (Lucas Werkmeister)
+* build: Lock down composer/semver version again now everything's upgraded (James D. Forrester)
+* build: Updating composer dependencies (libraryupgrader)
+* build: Update squizlabs/php_codesniffer to 3.6.2 (Alexander Vorwerk)
+* build: Updating mediawiki/mediawiki-phan-config to 0.11.1 (libraryupgrader)
+
+
 ## 38.0.0 / 2021-10-21 ##
 ### Changed sniffs ###
 * `AssertionOrderSniff`: Expand for slightly more complex cases (DannyS712)
