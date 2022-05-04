@@ -168,7 +168,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		if ( ( $previousToken['code'] === T_WHITESPACE
 				&& $previousToken['content'] === ' ' )
 			|| ( $this->isComment( $previousToken['code'] )
-				&& substr( $previousToken['content'], -1, 1 ) === "\n" )
+				&& str_ends_with( $previousToken['content'], "\n" ) )
 		) {
 			// If previous token was
 			// '(' or ' ' or a comment ending with a newline
@@ -186,7 +186,7 @@ class SpaceyParenthesisSniff implements Sniff {
 
 		// If the comment before all the whitespaces immediately preceding the ')' ends with a newline
 		if ( $this->isComment( $tokens[$ptr]['code'] )
-			&& substr( $tokens[$ptr]['content'], -1, 1 ) === "\n"
+			&& str_ends_with( $tokens[$ptr]['content'], "\n" )
 		) {
 			return;
 		}

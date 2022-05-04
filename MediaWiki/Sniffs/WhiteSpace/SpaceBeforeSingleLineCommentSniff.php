@@ -43,14 +43,14 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 			// use only '//' and '#'
 			// Also ignoring PHPDoc comments starting with '///',
 			// as there are no coding standards documented for these
-			if ( strpos( $currToken['content'], '/*' ) === 0
-				|| strpos( $currToken['content'], '///' ) === 0
+			if ( str_starts_with( $currToken['content'], '/*' )
+				|| str_starts_with( $currToken['content'], '///' )
 			) {
 				return;
 			}
 
 			// Checking whether the comment is an empty one
-			if ( ( strpos( $currToken['content'], '//' ) === 0 &&
+			if ( ( str_starts_with( $currToken['content'], '//' ) &&
 				rtrim( $currToken['content'] ) === '//' ) ||
 				( $currToken['content'][0] === '#' &&
 					rtrim( $currToken['content'] ) === '#' )
@@ -66,7 +66,7 @@ class SpaceBeforeSingleLineCommentSniff implements Sniff {
 
 			// Checking whether there is a space between the comment delimiter
 			// and the comment
-			if ( strpos( $currToken['content'], '//' ) === 0 ) {
+			if ( str_starts_with( $currToken['content'], '//' ) ) {
 				$commentContent = substr( $currToken['content'], 2 );
 				$commentTrim = ltrim( $commentContent );
 				if (

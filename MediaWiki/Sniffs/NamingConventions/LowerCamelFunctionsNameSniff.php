@@ -82,9 +82,8 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 			return;
 		}
 
-		$containsUnderscores = strpos( $originalFunctionName, '_' ) !== false;
 		if ( $originalFunctionName[0] === $lowerFunctionName[0] &&
-			( !$containsUnderscores || $this->isTestFunction( $phpcsFile, $stackPtr ) )
+			( !str_contains( $originalFunctionName, '_' ) || $this->isTestFunction( $phpcsFile, $stackPtr ) )
 		) {
 			// Everything is ok when the first letter is lowercase and there are no underscores
 			// (except in tests where they are allowed)

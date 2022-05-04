@@ -102,7 +102,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 		}
 
 		foreach ( $this->allowedPrefixes as $allowedPrefix ) {
-			if ( strpos( $name, $allowedPrefix ) === 0 ) {
+			if ( str_starts_with( $name, $allowedPrefix ) ) {
 				return;
 			}
 		}

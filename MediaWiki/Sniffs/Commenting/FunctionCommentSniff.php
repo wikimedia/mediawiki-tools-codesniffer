@@ -104,7 +104,7 @@ class FunctionCommentSniff implements Sniff {
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
 			// Don't require documentation for functions with no parameters, except getters
-			if ( ( strpos( $funcName, 'get' ) === 0 || $phpcsFile->getMethodParameters( $stackPtr ) )
+			if ( ( str_starts_with( $funcName, 'get' ) || $phpcsFile->getMethodParameters( $stackPtr ) )
 				&& !$this->isTestFile( $phpcsFile, $stackPtr )
 			) {
 				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
@@ -460,14 +460,14 @@ class FunctionCommentSniff implements Sniff {
 				$phpcsFile->addError( 'Missing parameter type', $tag, 'MissingParamType' );
 			}
 
-			$isPassByReference = strpos( $var, '&' ) === 0;
+			$isPassByReference = str_starts_with( $var, '&' );
 			// Remove the pass by reference to allow compare with varargs
 			if ( $isPassByReference ) {
 				$var = substr( $var, 1 );
 			}
 
-			$isLegacyVariadicArg = substr( $var, -4 ) === ',...';
-			$isVariadicArg = strpos( $var, '...$' ) === 0;
+			$isLegacyVariadicArg = str_ends_with( $var, ',...' );
+			$isVariadicArg = str_starts_with( $var, '...$' );
 			// Remove the variadic indicator from the doc name to compare it against the real
 			// name, so that we can allow both formats.
 			if ( $isLegacyVariadicArg ) {
@@ -589,7 +589,7 @@ class FunctionCommentSniff implements Sniff {
 				}
 				if ( $realName !== $var ) {
 					if (
-						strpos( $realName, '...$' ) === 0 &&
+						str_starts_with( $realName, '...$' ) &&
 						( $param['legacy_variadic_arg'] || $param['variadic_arg'] )
 					) {
 						// Mark all variants as found
@@ -641,7 +641,7 @@ class FunctionCommentSniff implements Sniff {
 				'param'
 			);
 			$explodedType = $type === '' ? [] : explode( '|', $type );
-			$nullableDoc = strpos( $type, '?' ) === 0;
+			$nullableDoc = str_starts_with( $type, '?' );
 			$nullFound = false;
 			foreach ( $explodedType as $index => $singleType ) {
 				$singleType = lcfirst( $singleType );
@@ -649,7 +649,7 @@ class FunctionCommentSniff implements Sniff {
 				// part of (T218324)
 				if ( $singleType === 'null' || $singleType === 'mixed' ) {
 					$nullFound = true;
-				} elseif ( substr( $singleType, -10 ) === '[optional]' ) {
+				} elseif ( str_ends_with( $singleType, '[optional]' ) ) {
 					$fix = $phpcsFile->addFixableError(
 						'Key word "[optional]" on "%s" should not be used',
 						$param['tag'],

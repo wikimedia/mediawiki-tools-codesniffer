@@ -137,7 +137,7 @@ class AssertionOrderSniff implements Sniff {
 			// optimize for common case - full name is $expected
 			if ( $expectedVarName !== '$expected'
 				// but also handle $expectedRes and similar
-				&& strpos( $expectedVarName, '$expected' ) !== 0
+				&& !str_starts_with( $expectedVarName, '$expected' )
 			) {
 				return;
 			}

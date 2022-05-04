@@ -65,7 +65,7 @@ class DocCommentSniff implements Sniff {
 		if ( $tokens[$commentStart]['code'] === T_DOC_COMMENT_OPEN_TAG &&
 			$tokens[$commentStart]['content'] !== '/**' &&
 			$tokens[$commentStart]['length'] < self::COMMENT_START_ASTERISKS_MAX_LEN &&
-			substr( $tokens[$commentStart]['content'], -2 ) !== '*/'
+			!str_ends_with( $tokens[$commentStart]['content'], '*/' )
 		) {
 			$error = 'Comment open tag must be \'/**\'';
 			$fix = $phpcsFile->addFixableError( $error, $commentStart, 'SyntaxOpenTag' );

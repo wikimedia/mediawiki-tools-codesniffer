@@ -44,7 +44,7 @@ class MissingCoversSniff implements Sniff {
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
 		$name = $phpcsFile->getDeclarationName( $stackPtr );
-		if ( substr( $name, -4 ) !== 'Test' ) {
+		if ( !str_ends_with( $name, 'Test' ) ) {
 			// Only want to validate classes that end in test
 			return;
 		}
@@ -72,7 +72,7 @@ class MissingCoversSniff implements Sniff {
 			}
 
 			$name = $phpcsFile->getDeclarationName( $funcPtr );
-			if ( strpos( $name, 'test' ) !== 0 ) {
+			if ( !str_starts_with( $name, 'test' ) ) {
 				// If it doesn't start with "test", skip
 				continue;
 			}

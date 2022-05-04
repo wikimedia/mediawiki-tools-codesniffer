@@ -44,7 +44,7 @@ class MediaWikiStandardTest extends TestCase {
 			}
 
 			$file = $dir->getPathname();
-			if ( substr( $file, -4 ) !== '.php' ) {
+			if ( !str_ends_with( $file, '.php' ) ) {
 				continue;
 			}
 
