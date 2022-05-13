@@ -1,8 +1,6 @@
-  8 | WARNING | [x] Single space expected between "//" and
-    |         |     comment
+  8 | WARNING | [x] Single space expected between "//" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
- 10 | WARNING | [x] Single space expected between "//" and
-    |         |     comment
+ 10 | WARNING | [x] Single space expected between "//" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
  12 | WARNING | [x] Single space expected between "#" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
@@ -10,8 +8,7 @@
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  14 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 17 | WARNING | [x] Single space expected between "//" and
-    |         |     comment
+ 17 | WARNING | [x] Single space expected between "//" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)
  20 | WARNING | [x] Single space expected between "#" and comment
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment)

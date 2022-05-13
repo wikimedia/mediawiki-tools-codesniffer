@@ -1,111 +1,78 @@
- 12 | ERROR | [x] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsFloat()
-    |       |     instead.
+ 12 | ERROR | [x] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsFloat() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 13 | ERROR | [ ] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 13 | ERROR | [ ] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 14 | ERROR | [x] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsBool()
-    |       |     instead.
+ 14 | ERROR | [x] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsBool() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 15 | ERROR | [ ] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 15 | ERROR | [ ] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 16 | ERROR | [ ] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 16 | ERROR | [ ] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 17 | ERROR | [ ] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 17 | ERROR | [ ] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 18 | ERROR | [x] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsInt()
-    |       |     instead.
+ 18 | ERROR | [x] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsInt() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 19 | ERROR | [x] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsCallable()
-    |       |     instead.
+ 19 | ERROR | [x] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsCallable() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 20 | ERROR | [x] The PHPUnit method assertInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsIterable()
-    |       |     instead.
+ 20 | ERROR | [x] The PHPUnit method assertInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsIterable() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 29 | ERROR | [x] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsNotFloat()
-    |       |     instead.
+ 29 | ERROR | [x] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsNotFloat() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 30 | ERROR | [ ] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 30 | ERROR | [ ] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 31 | ERROR | [x] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsNotBool()
-    |       |     instead.
+ 31 | ERROR | [x] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsNotBool() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 32 | ERROR | [ ] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 32 | ERROR | [ ] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 33 | ERROR | [ ] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 33 | ERROR | [ ] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 34 | ERROR | [ ] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8.
+ 34 | ERROR | [ ] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 35 | ERROR | [x] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsNotInt()
-    |       |     instead.
+ 35 | ERROR | [x] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsNotInt() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 36 | ERROR | [x] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsNotCallable()
-    |       |     instead.
+ 36 | ERROR | [x] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsNotCallable() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 37 | ERROR | [x] The PHPUnit method assertNotInternalType() was
-    |       |     deprecated in PHPUnit 8. Use assertIsNotIterable()
-    |       |     instead.
+ 37 | ERROR | [x] The PHPUnit method assertNotInternalType() was deprecated in PHPUnit 8. Use
+    |       |     assertIsNotIterable() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 45 | ERROR | [x] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35. Use assertIsFloat()
-    |       |     instead.
+ 45 | ERROR | [x] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35. Use
+    |       |     assertIsFloat() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 46 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35.
+ 46 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 47 | ERROR | [x] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35. Use assertIsBool()
-    |       |     instead.
+ 47 | ERROR | [x] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35. Use
+    |       |     assertIsBool() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 48 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35.
+ 48 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 49 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35.
+ 49 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 50 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35.
+ 50 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 51 | ERROR | [x] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35. Use assertIsInt()
-    |       |     instead.
+ 51 | ERROR | [x] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35. Use
+    |       |     assertIsInt() instead.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeLiteral)
- 52 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35.
+ 52 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 53 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was
-    |       |     deprecated in MW 1.35.
+ 53 | ERROR | [ ] MediaWikiIntegrationTestCase::assertType was deprecated in MW 1.35.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AssertInternalTypeGeneric)
- 67 | ERROR | [ ] The PHPUnit method assertAttributeContains() was
-    |       |     deprecated in PHPUnit 8.
+ 67 | ERROR | [ ] The PHPUnit method assertAttributeContains() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
- 68 | ERROR | [ ] The PHPUnit method
-    |       |     assertAttributeGreaterThanOrEqual() was deprecated
-    |       |     in PHPUnit 8.
+ 68 | ERROR | [ ] The PHPUnit method assertAttributeGreaterThanOrEqual() was deprecated in PHPUnit
+    |       |     8. (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
+ 69 | ERROR | [ ] The PHPUnit method assertAttributeNotInstanceOf() was deprecated in PHPUnit
+    |       |     8. (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
+ 70 | ERROR | [ ] The PHPUnit method getStaticAttribute() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
- 69 | ERROR | [ ] The PHPUnit method assertAttributeNotInstanceOf()
-    |       |     was deprecated in PHPUnit 8.
-    |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
- 70 | ERROR | [ ] The PHPUnit method getStaticAttribute() was
-    |       |     deprecated in PHPUnit 8.
-    |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
- 71 | ERROR | [ ] The PHPUnit method attribute() was deprecated in
-    |       |     PHPUnit 8.
+ 71 | ERROR | [ ] The PHPUnit method attribute() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
 PHPCBF CAN FIX THE 13 MARKED SNIFF VIOLATIONS AUTOMATICALLY

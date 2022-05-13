@@ -1,9 +1,7 @@
   9 | WARNING | [x] Invalid end of a single line comment
     |         |     (MediaWiki.Commenting.IllegalSingleLineComment.IllegalSingleLineCommentEnd)
- 35 | ERROR   | [x] Missing proper ending of a single line
-    |         |     comment
+ 35 | ERROR   | [x] Missing proper ending of a single line comment
     |         |     (MediaWiki.Commenting.IllegalSingleLineComment.MissingCommentEnding)
- 39 | ERROR   | [x] Missing proper ending of a single line
-    |         |     comment
+ 39 | ERROR   | [x] Missing proper ending of a single line comment
     |         |     (MediaWiki.Commenting.IllegalSingleLineComment.MissingCommentEnding)
 PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY

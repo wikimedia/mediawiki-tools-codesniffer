@@ -1,10 +1,9 @@
- 13 | ERROR | [x] The `final` modifier should not be used for private
-    |       |     methods (MediaWiki.Usage.FinalPrivate.Found)
- 17 | ERROR | [x] The `final` modifier should not be used for private
-    |       |     methods (MediaWiki.Usage.FinalPrivate.Found)
- 21 | ERROR | [x] The `final` modifier should not be used for private
-    |       |     methods (MediaWiki.Usage.FinalPrivate.Found)
- 21 | ERROR | [ ] There must be no blank lines after the function
-    |       |     comment
+ 13 | ERROR | [x] The `final` modifier should not be used for private methods
+    |       |     (MediaWiki.Usage.FinalPrivate.Found)
+ 17 | ERROR | [x] The `final` modifier should not be used for private methods
+    |       |     (MediaWiki.Usage.FinalPrivate.Found)
+ 21 | ERROR | [x] The `final` modifier should not be used for private methods
+    |       |     (MediaWiki.Usage.FinalPrivate.Found)
+ 21 | ERROR | [ ] There must be no blank lines after the function comment
     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfter)
 PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY

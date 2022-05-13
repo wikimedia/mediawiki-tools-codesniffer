@@ -1,13 +1,9 @@
-  8 | ERROR | [x] Extra whitespace found after the `function`
-    |       |     keyword; only a single space should be used
-    |       |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
- 17 | ERROR | [x] Extra whitespace found after the `function`
-    |       |     keyword; only a single space should be used
-    |       |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
- 26 | ERROR | [x] Extra whitespace found after the `function`
-    |       |     keyword; only a single space should be used
-    |       |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
- 35 | ERROR | [x] Extra whitespace found after the `function`
-    |       |     keyword; only a single space should be used
-    |       |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+  8 | ERROR | [x] Extra whitespace found after the `function` keyword; only a single space should
+    |       |     be used (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+ 17 | ERROR | [x] Extra whitespace found after the `function` keyword; only a single space should
+    |       |     be used (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+ 26 | ERROR | [x] Extra whitespace found after the `function` keyword; only a single space should
+    |       |     be used (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+ 35 | ERROR | [x] Extra whitespace found after the `function` keyword; only a single space should
+    |       |     be used (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

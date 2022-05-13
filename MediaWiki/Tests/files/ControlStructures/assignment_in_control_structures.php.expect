@@ -10,6 +10,5 @@
     |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)
  19 | ERROR | Assignment expression not allowed within "while".
     |       | (MediaWiki.ControlStructures.AssignmentInControlStructures.AssignmentInControlStructures)
- 39 | ERROR | Usage of Yoda conditions is not allowed; switch the
-    |       | expression order
+ 39 | ERROR | Usage of Yoda conditions is not allowed; switch the expression order
     |       | (Generic.ControlStructures.DisallowYodaConditions.Found)

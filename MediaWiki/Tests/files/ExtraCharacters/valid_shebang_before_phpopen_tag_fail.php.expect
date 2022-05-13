@@ -1,3 +1,2 @@
- 3 | ERROR | The opening PHP tag must be the first content in the
-   |       | file
+ 3 | ERROR | The opening PHP tag must be the first content in the file
    |       | (Generic.PHP.CharacterBeforePHPOpeningTag.Found)

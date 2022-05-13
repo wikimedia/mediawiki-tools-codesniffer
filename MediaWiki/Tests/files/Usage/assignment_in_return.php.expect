@@ -1,23 +1,16 @@
-  9 | ERROR | [ ] Assignment expression not allowed within
-    |       |     "return".
+  9 | ERROR | [ ] Assignment expression not allowed within "return".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInReturn)
- 13 | ERROR | [ ] Assignment expression not allowed within
-    |       |     "return".
+ 13 | ERROR | [ ] Assignment expression not allowed within "return".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInReturn)
- 24 | ERROR | [ ] Assignment expression not allowed within
-    |       |     "yield".
+ 24 | ERROR | [ ] Assignment expression not allowed within "yield".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInYield)
- 27 | ERROR | [ ] Assignment expression not allowed within
-    |       |     "yield".
+ 27 | ERROR | [ ] Assignment expression not allowed within "yield".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInYield)
- 30 | ERROR | [ ] Assignment expression not allowed within "yield
-    |       |     from".
+ 30 | ERROR | [ ] Assignment expression not allowed within "yield from".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInYieldFrom)
- 30 | ERROR | [x] Language constructs must be followed by a single
-    |       |     space; expected 1 space between YIELD FROM found
-    |       |     "yield\n\t\tfrom"
+ 30 | ERROR | [x] Language constructs must be followed by a single space; expected 1 space between
+    |       |     YIELD FROM found "yield\n\t\tfrom"
     |       |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectYieldFrom)
- 32 | ERROR | [ ] Assignment expression not allowed within "yield
-    |       |     from".
+ 32 | ERROR | [ ] Assignment expression not allowed within "yield from".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInYieldFrom)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

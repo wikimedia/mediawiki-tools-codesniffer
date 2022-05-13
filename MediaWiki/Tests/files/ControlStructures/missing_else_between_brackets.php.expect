@@ -1,12 +1,8 @@
- 13 | ERROR | Missing `else` between closing an opening and closing
-    |       | bracket
+ 13 | ERROR | Missing `else` between closing an opening and closing bracket
     |       | (MediaWiki.ControlStructures.MissingElseBetweenBrackets.Missing)
- 19 | ERROR | Missing `else` between closing an opening and closing
-    |       | bracket
+ 19 | ERROR | Missing `else` between closing an opening and closing bracket
     |       | (MediaWiki.ControlStructures.MissingElseBetweenBrackets.Missing)
- 26 | ERROR | Missing `else` between closing an opening and closing
-    |       | bracket
+ 26 | ERROR | Missing `else` between closing an opening and closing bracket
     |       | (MediaWiki.ControlStructures.MissingElseBetweenBrackets.Missing)
- 34 | ERROR | Missing `else` between closing an opening and closing
-    |       | bracket
+ 34 | ERROR | Missing `else` between closing an opening and closing bracket
     |       | (MediaWiki.ControlStructures.MissingElseBetweenBrackets.Missing)

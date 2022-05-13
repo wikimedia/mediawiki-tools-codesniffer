@@ -1,7 +1,5 @@
- 3 | WARNING | [x] Control structure "if" must be followed by a
-   |         |     single space
+ 3 | WARNING | [x] Control structure "if" must be followed by a single space
    |         |     (MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect)
- 5 | WARNING | [x] Control structure "elseif" must be followed by a
-   |         |     single space
+ 5 | WARNING | [x] Control structure "elseif" must be followed by a single space
    |         |     (MediaWiki.WhiteSpace.SpaceAfterControlStructure.Incorrect)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

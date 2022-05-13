@@ -1,17 +1,12 @@
- 10 | ERROR | Function name "FailedExamples" should use lower camel
-    |       | case.
+ 10 | ERROR | Function name "FailedExamples" should use lower camel case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 18 | ERROR | Function name "failed_Examples" should use lower camel
-    |       | case.
+ 18 | ERROR | Function name "failed_Examples" should use lower camel case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 46 | ERROR | Function name "testSomeMethod_foo" should use lower
-    |       | camel case.
+ 46 | ERROR | Function name "testSomeMethod_foo" should use lower camel case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 53 | ERROR | Function name "failed_ReferenceExamples" should use
-    |       | lower camel case.
+ 53 | ERROR | Function name "failed_ReferenceExamples" should use lower camel case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
  60 | ERROR | Only one object structure is allowed in a file
     |       | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 80 | ERROR | Function name "helper_method" should use lower camel
-    |       | case.
+ 80 | ERROR | Function name "helper_method" should use lower camel case.
     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)

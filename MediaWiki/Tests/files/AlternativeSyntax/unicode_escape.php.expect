@@ -1,351 +1,211 @@
-   4 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-   5 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-   6 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-   8 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-   9 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  10 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  11 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  13 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  14 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  15 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  16 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  17 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  19 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  20 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  21 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  22 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  23 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  24 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  25 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  26 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  28 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  29 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  30 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  32 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  33 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  34 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  35 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  36 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  37 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  38 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  39 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  41 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  43 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  44 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  45 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  46 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  47 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  48 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  49 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  50 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  52 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  54 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  55 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  56 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  57 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  58 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  59 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  61 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  63 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  64 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  65 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  66 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  70 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  71 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  72 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  73 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  75 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  80 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  85 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  90 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
-  95 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 101 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 105 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 121 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 123 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 125 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 129 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 136 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 142 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
-     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
- 150 | WARNING | [x] Unicode code points should be expressed using
-     |         |     four to six uppercase hex digits, with leading
-     |         |     zeros used only as necessary for \u{0FFF} and
-     |         |     below
+   4 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+   5 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+   6 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+   8 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+   9 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  10 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  11 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  13 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  14 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  15 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  16 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  17 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  19 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  20 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  21 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  22 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  23 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  24 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  25 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  26 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  28 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  29 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  30 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  32 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  33 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  34 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  35 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  36 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  37 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  38 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  39 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  41 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  43 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  44 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  45 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  46 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  47 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  48 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  49 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  50 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  52 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  54 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  55 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  56 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  57 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  58 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  59 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  61 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  63 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  64 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  65 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  66 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  70 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  71 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  72 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  73 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  75 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  80 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  85 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  90 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+  95 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 101 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 105 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 121 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 123 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 125 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 129 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 136 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 142 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
+     |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
+ 150 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex
+     |         |     digits, with leading zeros used only as necessary for \u{0FFF} and below
      |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
 PHPCBF CAN FIX THE 70 MARKED SNIFF VIOLATIONS AUTOMATICALLY

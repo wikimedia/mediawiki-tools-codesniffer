@@ -1,3 +1,2 @@
- 12 | WARNING | Call $dbr->select() wrapper instead of
-    |         | $dbr->query()
+ 12 | WARNING | Call $dbr->select() wrapper instead of $dbr->query()
     |         | (MediaWiki.Usage.DbrQueryUsage.DbrQueryFound)

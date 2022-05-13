@@ -1,3 +1,3 @@
- 7 | ERROR | Global function "failedExamples()" is lacking a valid
-   |       | prefix ('wf'). It should be wfFailedExamples().
+ 7 | ERROR | Global function "failedExamples()" is lacking a valid prefix ('wf'). It should be
+   |       | wfFailedExamples().
    |       | (MediaWiki.NamingConventions.PrefixedGlobalFunctions.allowedPrefix)

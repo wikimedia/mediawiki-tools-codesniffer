@@ -1,5 +1,4 @@
-  4 | WARNING | [x] Use @code{.comma} annotation instead of
-    |         |     @code{,COMMA}
+  4 | WARNING | [x] Use @code{.comma} annotation instead of @code{,COMMA}
     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
   7 | WARNING | [x] Use @todo annotation instead of @TODO
     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
@@ -9,14 +8,11 @@
     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
  10 | ERROR   | [ ] @retrun is not a valid function annotation
     |         |     (MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation)
- 17 | WARNING | [x] Use @inheritDoc annotation instead of
-    |         |     @inheritdoc
+ 17 | WARNING | [x] Use @inheritDoc annotation instead of @inheritdoc
     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 26 | WARNING | [x] Use @private annotation instead of "@access
-    |         |     private"
+ 26 | WARNING | [x] Use @private annotation instead of "@access private"
     |         |     (MediaWiki.Commenting.FunctionAnnotations.AccessAnnotationReplacement)
- 32 | WARNING | [x] Use @protected annotation instead of "@access
-    |         |     protected"
+ 32 | WARNING | [x] Use @protected annotation instead of "@access protected"
     |         |     (MediaWiki.Commenting.FunctionAnnotations.AccessAnnotationReplacement)
  38 | ERROR   | [ ] @access is not a valid function annotation
     |         |     (MediaWiki.Commenting.FunctionAnnotations.AccessAnnotationInvalid)

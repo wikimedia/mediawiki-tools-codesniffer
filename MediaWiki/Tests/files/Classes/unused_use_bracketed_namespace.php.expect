@@ -1,6 +1,5 @@
   5 | WARNING | [x] Unused use statement "SecondInterface"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 29 | WARNING | [x] Unnecessary use statement "Demo" in the same
-    |         |     namespace
+ 29 | WARNING | [x] Unnecessary use statement "Demo" in the same namespace
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,89 +1,89 @@
-  3 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
-  4 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
-  5 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
-  6 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
-  7 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
-  9 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 10 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 11 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 12 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 15 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 16 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 18 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 23 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 24 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 25 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 25 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 26 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 26 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 27 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 27 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 28 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 28 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 30 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 31 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 32 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 33 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 34 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 36 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 37 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 38 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 39 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 41 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 42 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 44 | WARNING | [x] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 49 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 50 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 51 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 51 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 52 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 52 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 53 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 53 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 54 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
- 54 | WARNING | [ ] Use a comparison against null instead of
-    |         |     is_null (MediaWiki.Usage.IsNull.IsNull)
+  3 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+  4 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+  5 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+  6 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+  7 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+  9 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 10 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 11 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 12 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 15 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 16 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 18 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 23 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 24 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 25 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 25 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 26 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 26 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 27 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 27 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 28 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 28 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 30 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 31 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 32 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 33 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 34 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 36 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 37 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 38 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 39 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 41 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 42 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 44 | WARNING | [x] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 49 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 50 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 51 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 51 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 52 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 52 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 53 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 53 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 54 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
+ 54 | WARNING | [ ] Use a comparison against null instead of is_null
+    |         |     (MediaWiki.Usage.IsNull.IsNull)
 PHPCBF CAN FIX THE 24 MARKED SNIFF VIOLATIONS AUTOMATICALLY

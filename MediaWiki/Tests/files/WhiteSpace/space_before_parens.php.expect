@@ -1,7 +1,5 @@
- 7 | WARNING | [x] Space found before opening parenthesis of function
-   |         |     call
+ 7 | WARNING | [x] Space found before opening parenthesis of function call
    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
- 8 | WARNING | [x] Space found before opening parenthesis of function
-   |         |     call
+ 8 | WARNING | [x] Space found before opening parenthesis of function call
    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

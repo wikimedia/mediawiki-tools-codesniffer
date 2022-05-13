@@ -1,20 +1,15 @@
-  2 | ERROR | [x] Multiple empty lines should not exist in a row;
-    |       |     found 2 consecutive empty lines
-    |       |     (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
- 14 | ERROR | [x] Multiple empty lines should not exist in a row;
-    |       |     found 6 consecutive empty lines
-    |       |     (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
- 21 | ERROR | [x] Multiple empty lines should not exist in a row;
-    |       |     found 2 consecutive empty lines
-    |       |     (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
+  2 | ERROR | [x] Multiple empty lines should not exist in a row; found 2 consecutive empty
+    |       |     lines (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
+ 14 | ERROR | [x] Multiple empty lines should not exist in a row; found 6 consecutive empty
+    |       |     lines (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
+ 21 | ERROR | [x] Multiple empty lines should not exist in a row; found 2 consecutive empty
+    |       |     lines (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
  21 | ERROR | [x] Whitespace found at end of line
     |       |     (Squiz.WhiteSpace.SuperfluousWhitespace.EndLine)
  22 | ERROR | [x] Whitespace found at end of line
     |       |     (Squiz.WhiteSpace.SuperfluousWhitespace.EndLine)
- 24 | ERROR | [x] Multiple empty lines should not exist in a row;
-    |       |     found 4 consecutive empty lines
-    |       |     (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
- 29 | ERROR | [x] Multiple empty lines should not exist in a row;
-    |       |     found 2 consecutive empty lines
-    |       |     (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
+ 24 | ERROR | [x] Multiple empty lines should not exist in a row; found 4 consecutive empty
+    |       |     lines (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
+ 29 | ERROR | [x] Multiple empty lines should not exist in a row; found 2 consecutive empty
+    |       |     lines (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
 PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY

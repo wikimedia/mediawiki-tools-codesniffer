@@ -1,24 +1,16 @@
-  8 | ERROR | Use nullable type("?MyClass") for parameters documented
-    |       | as nullable
+  8 | ERROR | Use nullable type("?MyClass") for parameters documented as nullable
     |       | (MediaWiki.Commenting.FunctionComment.PHP71NullableDocOptionalArg)
- 15 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
-    |       | $x")
+ 15 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass $x")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)
- 23 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
-    |       | $x")
+ 23 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass $x")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)
- 23 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
-    |       | $y")
+ 23 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass $y")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)
- 31 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
-    |       | $x")
+ 31 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass $x")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)
- 40 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
-    |       | $x")
+ 40 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass $x")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)
- 40 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
-    |       | $y")
+ 40 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass $y")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)
- 47 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass
-    |       | $x")
+ 47 | ERROR | Use PHP 7.1 syntax for nullable parameters ("?MyClass $x")
     |       | (MediaWiki.Usage.NullableType.PHP71NullableStyle)

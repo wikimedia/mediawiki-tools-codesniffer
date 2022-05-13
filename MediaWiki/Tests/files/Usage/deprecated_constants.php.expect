@@ -2,7 +2,6 @@
     |         |     (MediaWiki.Usage.DeprecatedConstantUsage.DB_SLAVE)
   6 | WARNING | [x] Deprecated constant DB_MASTER used
     |         |     (MediaWiki.Usage.DeprecatedConstantUsage.DB_MASTER)
-
  12 | WARNING | [x] Deprecated constant NS_IMAGE used
     |         |     (MediaWiki.Usage.DeprecatedConstantUsage.NS_IMAGE)
  13 | WARNING | [x] Deprecated constant NS_IMAGE_TALK used

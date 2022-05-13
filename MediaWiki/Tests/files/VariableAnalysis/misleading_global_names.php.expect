@@ -1,3 +1,2 @@
- 16 | WARNING | The 'wg' prefix should only be used with the 'global'
-    |         | keyword
+ 16 | WARNING | The 'wg' prefix should only be used with the 'global' keyword
     |         | (MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgBar)

@@ -1,7 +1,5 @@
- 10 | WARNING | [x] Do not include whitespace between variable
-    |         |     expression and array offset
+ 10 | WARNING | [x] Do not include whitespace between variable expression and array offset
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeBracket.SpaceFound)
- 11 | WARNING | [x] Do not include whitespace between variable
-    |         |     expression and array offset
+ 11 | WARNING | [x] Do not include whitespace between variable expression and array offset
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeBracket.SpaceFound)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

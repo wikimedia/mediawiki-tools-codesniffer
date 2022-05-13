@@ -1,34 +1,24 @@
-  6 | WARNING | [x] Expected 1 space before class open brace. Found
-    |         |     0.
+  6 | WARNING | [x] Expected 1 space before class open brace. Found 0.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
- 13 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+ 13 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  13 | ERROR   | [x] Expected 1 space after class name; 3 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterName)
- 13 | WARNING | [x] Expected 1 space before class open brace. Found
-    |         |     3.
+ 13 | WARNING | [x] Expected 1 space before class open brace. Found 3.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
- 20 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+ 20 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 21 | WARNING | [x] Expected class open brace to be on the same line
-    |         |     as class keyword.
+ 21 | WARNING | [x] Expected class open brace to be on the same line as class keyword.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnSameLine)
- 25 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+ 25 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 29 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+ 29 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 29 | WARNING | [x] Expected 1 space before class open brace. Found
-    |         |     0.
+ 29 | WARNING | [x] Expected 1 space before class open brace. Found 0.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
- 33 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+ 33 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 39 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+ 39 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  41 | WARNING | [x] Expected class open brace to be on a new line
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnOwnLine)

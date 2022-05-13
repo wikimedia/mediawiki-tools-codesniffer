@@ -1,5 +1,3 @@
- 3 | WARNING | [x] Unnecessary use statement
-   |         |     "InvalidArgumentException" in the same
-   |         |     namespace
+ 3 | WARNING | [x] Unnecessary use statement "InvalidArgumentException" in the same namespace
    |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

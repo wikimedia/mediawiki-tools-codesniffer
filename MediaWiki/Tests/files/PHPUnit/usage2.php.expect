@@ -1,5 +1,4 @@
- 5 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
-   |         |     instead
+ 5 | WARNING | [x] Namespaced PHPUnit TestCase class should be used instead
    |         |     (MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced)
  8 | ERROR   | [ ] Only one object structure is allowed in a file
    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)

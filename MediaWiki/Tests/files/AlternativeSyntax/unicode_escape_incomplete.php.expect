@@ -1,6 +1,5 @@
- 4 | WARNING | [x] Unicode code points should be expressed using four
-   |         |     to six uppercase hex digits, with leading zeros
-   |         |     used only as necessary for \u{0FFF} and below
+ 4 | WARNING | [x] Unicode code points should be expressed using four to six uppercase hex digits,
+   |         |     with leading zeros used only as necessary for \u{0FFF} and below
    |         |     (MediaWiki.AlternativeSyntax.UnicodeEscape.DigitsNotNormalized)
  4 | ERROR   | [x] Expected 1 newline at end of file; 0 found
    |         |     (PSR2.Files.EndFileNewline.NoneFound)

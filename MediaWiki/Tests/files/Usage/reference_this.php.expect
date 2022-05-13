@@ -1,8 +1,6 @@
- 9 | ERROR | The ampersand in "&$this" must be removed. If you plan
-   |       | to get back another instance of this class, assign $this
-   |       | to a temporary variable.
+ 9 | ERROR | The ampersand in "&$this" must be removed. If you plan to get back another instance of
+   |       | this class, assign $this to a temporary variable.
    |       | (MediaWiki.Usage.ReferenceThis.Found)
- 9 | ERROR | The ampersand in "&$this" must be removed. If you plan
-   |       | to get back another instance of this class, assign $this
-   |       | to a temporary variable.
+ 9 | ERROR | The ampersand in "&$this" must be removed. If you plan to get back another instance of
+   |       | this class, assign $this to a temporary variable.
    |       | (MediaWiki.Usage.ReferenceThis.Found)

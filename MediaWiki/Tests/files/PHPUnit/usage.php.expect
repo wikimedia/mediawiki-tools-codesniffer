@@ -1,16 +1,11 @@
-  3 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
-    |         |     instead
+  3 | WARNING | [x] Namespaced PHPUnit TestCase class should be used instead
     |         |     (MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced)
-  6 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+  6 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-  9 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+  9 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-  9 | WARNING | [x] Namespaced PHPUnit TestCase class should be used
-    |         |     instead
+  9 | WARNING | [x] Namespaced PHPUnit TestCase class should be used instead
     |         |     (MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced)
- 12 | ERROR   | [ ] Only one object structure is allowed in a
-    |         |     file
+ 12 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,19 +1,13 @@
-  8 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should
-    |         |     be replaced with onlyMethods or addMethods
-    |         |     (MediaWiki.PHPUnit.SetMethods.SetMethods)
- 11 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should
-    |         |     be replaced with onlyMethods or addMethods
-    |         |     (MediaWiki.PHPUnit.SetMethods.SetMethods)
- 14 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should
-    |         |     be replaced with onlyMethods or addMethods
-    |         |     (MediaWiki.PHPUnit.SetMethods.SetMethods)
- 17 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should
-    |         |     be replaced with onlyMethods or addMethods
-    |         |     (MediaWiki.PHPUnit.SetMethods.SetMethods)
- 18 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should
-    |         |     be replaced with onlyMethods or addMethods
-    |         |     (MediaWiki.PHPUnit.SetMethods.SetMethods)
- 20 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should
-    |         |     be replaced with onlyMethods or addMethods
-    |         |     (MediaWiki.PHPUnit.SetMethods.SetMethods)
+  8 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should be replaced with onlyMethods
+    |         |     or addMethods (MediaWiki.PHPUnit.SetMethods.SetMethods)
+ 11 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should be replaced with onlyMethods
+    |         |     or addMethods (MediaWiki.PHPUnit.SetMethods.SetMethods)
+ 14 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should be replaced with onlyMethods
+    |         |     or addMethods (MediaWiki.PHPUnit.SetMethods.SetMethods)
+ 17 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should be replaced with onlyMethods
+    |         |     or addMethods (MediaWiki.PHPUnit.SetMethods.SetMethods)
+ 18 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should be replaced with onlyMethods
+    |         |     or addMethods (MediaWiki.PHPUnit.SetMethods.SetMethods)
+ 20 | WARNING | [x] setMethods is deprecated in PHPUnit 8 and should be replaced with onlyMethods
+    |         |     or addMethods (MediaWiki.PHPUnit.SetMethods.SetMethods)
 PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,14 +1,12 @@
-  4 | ERROR   | [x] Opening brace should be on the same line as the
-    |         |     declaration
+  4 | ERROR   | [x] Opening brace should be on the same line as the declaration
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeControlStructureBrace.BraceOnNewLine)
-  7 | ERROR   | [x] Opening brace should be on the same line as the
-    |         |     declaration
+  7 | ERROR   | [x] Opening brace should be on the same line as the declaration
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeControlStructureBrace.BraceOnNewLine)
- 11 | WARNING | [x] Expected 1 space between closing parenthesis and
-    |         |     opening brace; find 3 characters
+ 11 | WARNING | [x] Expected 1 space between closing parenthesis and opening brace; find 3
+    |         |     characters
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeControlStructureBrace.SpaceBeforeControl)
- 21 | WARNING | [x] Expected 1 space between closing parenthesis and
-    |         |     opening brace; find 2 characters
+ 21 | WARNING | [x] Expected 1 space between closing parenthesis and opening brace; find 2
+    |         |     characters
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeControlStructureBrace.SpaceBeforeControl)
  34 | ERROR   | [x] Closing brace must be on a line by itself
     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)

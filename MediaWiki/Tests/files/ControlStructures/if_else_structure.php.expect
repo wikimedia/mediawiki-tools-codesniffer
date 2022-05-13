@@ -16,10 +16,8 @@
     |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceAfterElse)
  38 | WARNING | [x] No space expected after "else"
     |         |     (MediaWiki.ControlStructures.IfElseStructure.SpaceAfterElse)
- 40 | WARNING | [ ] Alternative syntax such as "endif" should not be
-    |         |     used
+ 40 | WARNING | [ ] Alternative syntax such as "endif" should not be used
     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
- 62 | WARNING | [ ] Alternative syntax such as "endif" should not be
-    |         |     used
+ 62 | WARNING | [ ] Alternative syntax such as "endif" should not be used
     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
 PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,52 +1,41 @@
   30 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  33 | WARNING | [x] This key is out of order (Needs 'a', got
-     |         |     'e')
+  33 | WARNING | [x] This key is out of order (Needs 'a', got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
   42 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  45 | WARNING | [x] This key is out of order (Needs 'a', got
-     |         |     'e')
+  45 | WARNING | [x] This key is out of order (Needs 'a', got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
   54 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  60 | WARNING | [x] This key is out of order (Needs 'd', got
-     |         |     'e')
+  60 | WARNING | [x] This key is out of order (Needs 'd', got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
   66 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  70 | WARNING | [x] This key is out of order (Needs 'a', got
-     |         |     'e')
+  70 | WARNING | [x] This key is out of order (Needs 'a', got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
-  80 | WARNING | [ ] No array found after
-     |         |     @phpcs-require-sorted-array
+  80 | WARNING | [ ] No array found after @phpcs-require-sorted-array
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsupported)
   88 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  88 | WARNING | [x] This key is out of order (Needs 'a', got
-     |         |     'e')
+  88 | WARNING | [x] This key is out of order (Needs 'a', got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
   91 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  91 | WARNING | [x] This key is out of order (Needs 'a', got
-     |         |     'e')
+  91 | WARNING | [x] This key is out of order (Needs 'a', got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
   94 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  94 | WARNING | [x] This key is out of order (Needs "a", got
-     |         |     'e')
+  94 | WARNING | [x] This key is out of order (Needs "a", got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
   97 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
-  98 | WARNING | [x] This key is out of order (Needs 'a', got
-     |         |     'e')
+  98 | WARNING | [x] This key is out of order (Needs 'a', got 'e')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
  102 | WARNING | [x] Array is not sorted alphabetically
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Unsorted)
- 106 | WARNING | [x] This key is out of order (Needs 'b', got
-     |         |     'c')
+ 106 | WARNING | [x] This key is out of order (Needs 'b', got 'c')
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.UnsortedHint)
- 110 | WARNING | [ ] Found duplicate key "'c'" on array required
-     |         |     sorting
+ 110 | WARNING | [ ] Found duplicate key "'c'" on array required sorting
      |         |     (MediaWiki.Arrays.AlphabeticArraySort.Duplicate)
 PHPCBF CAN FIX THE 18 MARKED SNIFF VIOLATIONS AUTOMATICALLY

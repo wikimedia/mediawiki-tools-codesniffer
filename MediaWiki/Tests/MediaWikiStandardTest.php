@@ -78,7 +78,7 @@ class MediaWikiStandardTest extends TestCase {
 		$config->encoding = 'utf-8';
 		$config->reports = [ 'full' => null ];
 		$config->colors = false;
-		$config->reportWidth = 0;
+		$config->reportWidth = 100;
 		$config->showSources = true;
 		$config->tabWidth = 4;
 
