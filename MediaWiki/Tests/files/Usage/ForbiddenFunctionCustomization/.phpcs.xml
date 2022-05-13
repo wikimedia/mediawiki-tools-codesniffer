@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ruleset>
+	<rule ref="../../../../Sniffs/Usage/ForbiddenFunctionsSniff.php">
+		<properties>
+			<property name="forbiddenFunctions" type="array">
+				<element key="eval" value="eval" />
+				<element key="customFunctionAlias" value="customFunction" />
+			</property>
+		</properties>
+	</rule>
+</ruleset>

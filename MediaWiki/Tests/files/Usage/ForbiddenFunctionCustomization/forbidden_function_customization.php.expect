@@ -1,0 +1,3 @@
+ 5 | WARNING | [x] Use customFunction() instead of customFunctionAlias
+   |         |     (MediaWiki.Usage.ForbiddenFunctions.customFunctionAlias)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY

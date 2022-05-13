@@ -23,10 +23,27 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
+/**
+ * Use e.g. <exclude name="MediaWiki.Usage.ForbiddenFunctions.eval" /> in your .phpcs.xml to remove
+ * a function from the predefined list of forbidden functions.
+ *
+ * You can also add entries or modify existing ones. Note that an empty `value=""` won't work. Use
+ * "null" for forbidden functions and any other non-empty value for replacements.
+ *
+ * <rule ref="MediaWiki.Usage.ForbiddenFunctions">
+ *     <properties>
+ *         <property name="forbiddenFunctions" type="array">
+ *             <element key="eval" value="null" />
+ *             <element key="sizeof" value="count" />
+ *         </property>
+ *     </properties>
+ * </rule>
+ */
 class ForbiddenFunctionsSniff implements Sniff {
 
 	/**
-	 * Function => Replacement
+	 * Predefined list of deprecated functions and their replacements, or any empty value for
+	 * forbidden functions.
 	 */
 	private const FORBIDDEN_FUNCTIONS = [
 		'chop' => 'rtrim',
@@ -44,6 +61,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'sizeof' => 'count',
 		'strchr' => 'strstr',
 		'assert' => false,
+		'eval' => false,
 		'extract' => false,
 		'compact' => false,
 		// Deprecated in PHP 7.2
@@ -79,10 +97,16 @@ class ForbiddenFunctionsSniff implements Sniff {
 	];
 
 	/**
+	 * @var string[] Key-value pairs as provided via .phpcs.xml. Maps deprecated function names to
+	 *  their replacement, or the literal string "null" for forbidden functions.
+	 */
+	public $forbiddenFunctions = [];
+
+	/**
 	 * @inheritDoc
 	 */
 	public function register(): array {
-		return [ T_STRING, T_ISSET ];
+		return [ T_STRING, T_EVAL, T_ISSET ];
 	}
 
 	/**
@@ -93,9 +117,23 @@ class ForbiddenFunctionsSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
+		$nextToken = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 1, null, true );
+		if ( $tokens[$nextToken]['code'] !== T_OPEN_PARENTHESIS ||
+			!isset( $tokens[$nextToken]['parenthesis_closer'] )
+		) {
+			return;
+		}
+
 		// Check if the function is one of the bad ones
 		$funcName = $tokens[$stackPtr]['content'];
-		if ( !isset( self::FORBIDDEN_FUNCTIONS[$funcName] ) ) {
+		if ( array_key_exists( $funcName, $this->forbiddenFunctions ) ) {
+			$replacement = $this->forbiddenFunctions[$funcName];
+			if ( $replacement === $funcName ) {
+				return;
+			}
+		} elseif ( array_key_exists( $funcName, self::FORBIDDEN_FUNCTIONS ) ) {
+			$replacement = self::FORBIDDEN_FUNCTIONS[$funcName];
+		} else {
 			return;
 		}
 
@@ -112,12 +150,6 @@ class ForbiddenFunctionsSniff implements Sniff {
 		if ( isset( $ignore[$tokens[$prevToken]['code']] ) ) {
 			return;
 		}
-		$nextToken = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
-		if ( $tokens[$nextToken]['code'] !== T_OPEN_PARENTHESIS ||
-			!isset( $tokens[$nextToken]['parenthesis_closer'] )
-		) {
-			return;
-		}
 
 		// Check argument count
 		$allowedArgCount = self::ALLOWED_ARG_COUNT[$funcName] ?? null;
@@ -128,8 +160,10 @@ class ForbiddenFunctionsSniff implements Sniff {
 			return;
 		}
 
-		$replacement = self::FORBIDDEN_FUNCTIONS[$funcName];
-		if ( $replacement ) {
+		// The hard-coded FORBIDDEN_FUNCTIONS can use false, but values from .phpcs.xml are always
+		// strings. We use the same special string "null" as in the Generic.PHP.ForbiddenFunctions
+		// sniff.
+		if ( $replacement && $replacement !== 'null' ) {
 			$fix = $phpcsFile->addFixableWarning(
 				'Use %s() instead of %s',
 				$stackPtr,
@@ -161,10 +195,6 @@ class ForbiddenFunctionsSniff implements Sniff {
 	 */
 	private function argCount( File $phpcsFile, int $parenthesis ): int {
 		$tokens = $phpcsFile->getTokens();
-		if ( !isset( $tokens[$parenthesis]['parenthesis_closer'] ) ) {
-			return 0;
-		}
-
 		$end = $tokens[$parenthesis]['parenthesis_closer'];
 		$next = $phpcsFile->findNext( Tokens::$emptyTokens, $parenthesis + 1, $end, true );
 		$argCount = 0;

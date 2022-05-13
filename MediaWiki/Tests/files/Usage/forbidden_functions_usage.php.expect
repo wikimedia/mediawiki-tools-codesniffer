@@ -13,4 +13,5 @@
     |         |     (MediaWiki.Usage.ForbiddenFunctions.isset)
  25 | WARNING | [ ] define should be used with 2 argument(s)
     |         |     (MediaWiki.Usage.ForbiddenFunctions.define)
+ 26 | WARNING | [ ] eval should not be used (MediaWiki.Usage.ForbiddenFunctions.eval)
 PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
