@@ -18,11 +18,13 @@
  * @file
  */
 
-// This project does not use covers tags:
-// phpcs:disable MediaWiki.Commenting.MissingCovers.MissingCovers
-
 namespace MediaWiki\Sniffs\Tests;
 
+use PHP_CodeSniffer\Config;
+use PHP_CodeSniffer\Files\DummyFile;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Reporter;
+use PHP_CodeSniffer\Ruleset;
 use PHPUnit\Framework\TestCase;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -30,29 +32,11 @@ use SplFileInfo;
 
 class MediaWikiStandardTest extends TestCase {
 
-	/**
-	 * @var Helper
-	 */
-	private $helper;
-
-	public function setUp(): void {
-		parent::setUp();
-		if ( empty( $this->helper ) ) {
-			$this->helper = new Helper();
-		}
-	}
-
-	/**
-	 * Run simple syntax checks, comparing the phpcs output for the test.
-	 * file against an expected output.
-	 * @return array $tests The test string[].
-	 */
 	public static function fileDataProvider() {
-		$tests = [];
-
 		$standard = dirname( __DIR__ );
 		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/files' );
 		$iterator = new RecursiveIteratorIterator( $directoryIterator );
+
 		/** @var SplFileInfo $dir */
 		foreach ( $iterator as $dir ) {
 			if ( $dir->isDir() ) {
@@ -64,69 +48,86 @@ class MediaWikiStandardTest extends TestCase {
 				continue;
 			}
 
-			$dirStandard = $standard;
-			if ( file_exists( $dir->getPath() . '/.phpcs.xml' ) ) {
-				$dirStandard = $dir->getPath() . '/.phpcs.xml';
+			$dirStandard = $dir->getPath() . '/.phpcs.xml';
+			if ( !file_exists( $dirStandard ) ) {
+				$dirStandard = $standard;
 			}
-			$tests[$dir->getFilename()] = [
+
+			$fixed = "$file.fixed";
+			if ( !file_exists( $fixed ) ) {
+				$fixed = $file;
+			}
+
+			yield $dir->getFilename() => [
 				$file,
 				$dirStandard,
-				"$file.expect"
+				"$file.expect",
+				$fixed
 			];
 		}
-		return $tests;
 	}
 
 	/**
+	 * @coversNothing
 	 * @dataProvider fileDataProvider
-	 *
-	 * @param string $file The path string of file.
-	 * @param string $standard The standard string.
-	 * @param string $expectedOutputFile The path of expected file.
 	 */
-	public function testFile( $file, $standard, $expectedOutputFile ) {
-		$outputStr = $this->prepareOutput( $this->helper->runPhpCs( $file, $standard ) );
-		$expect = $this->prepareOutput( file_get_contents( $expectedOutputFile ) );
-		$this->assertEquals( $expect, $outputStr );
-	}
+	public function testFile( string $file, string $standard, string $expectedReport, string $expectedFixed ) {
+		$config = new Config();
+		$config->standards = [ $standard ];
+		$config->files = [ $file ];
+		$config->encoding = 'utf-8';
+		$config->reports = [ 'full' => null ];
+		$config->colors = false;
+		$config->reportWidth = 0;
+		$config->showSources = true;
+		$config->tabWidth = 4;
 
-	/**
-	 * @return array $tests The array of test.
-	 */
-	public static function fixDataProvider() {
-		$tests = self::fileDataProvider();
-		foreach ( array_keys( $tests ) as $idx ) {
-			$fixed = $tests[$idx][0] . ".fixed";
-			if ( file_exists( $fixed ) ) {
-				$tests[$idx][2] = $fixed;
-			} else {
-				// no fixes should be applied, assert fixed
-				// file matches original
-				$tests[$idx][2] = $tests[$idx][0];
-			}
+		// This is like running `phpcs`
+		$dummy = new DummyFile( file_get_contents( $file ), new Ruleset( $config ), $config );
+		$dummy->process();
+
+		$report = $this->getReport( $dummy, $config );
+		$this->assertEquals(
+			$this->prepareOutput( file_get_contents( $expectedReport ) ),
+			$this->prepareOutput( $report )
+		);
+
+		// This is like running `phpcbf`
+		$fixed = $this->getFixed( $dummy );
+		// No point in comparing a file with itself in case there was nothing to fix
+		if ( $fixed !== null ) {
+			$this->assertEquals( file_get_contents( $expectedFixed ), $fixed );
 		}
-		return $tests;
 	}
 
-	/**
-	 * @dataProvider fixDataProvider
-	 * @param string $file The path of file.
-	 * @param string $standard The standard string.
-	 * @param string $fixedFile The path of fixed file.
-	 */
-	public function testFix( $file, $standard, $fixedFile ) {
-		$outputStr = $this->helper->runPhpCbf( $file, $standard );
-		$expect = file_get_contents( $fixedFile );
-		$this->assertEquals( $expect, $outputStr );
+	private function getReport( File $phpcsFile, Config $config ): string {
+		$reporter = new Reporter( $config );
+		$reporter->cacheFileReport( $phpcsFile );
+
+		ob_start();
+		$reporter->printReport( 'full' );
+		$report = ob_get_contents();
+		ob_end_clean();
+
+		return $report;
+	}
+
+	private function getFixed( File $phpcsFile ): ?string {
+		if ( $phpcsFile->getFixableCount() ) {
+			$phpcsFile->fixer->fixFile();
+			return $phpcsFile->fixer->getContents();
+		}
+
+		return null;
 	}
 
 	/**
 	 * strip down the output to only the warnings
 	 *
-	 * @param string $outputStr PHPCS output.
-	 * @return string $outputStr PHPCS output.
+	 * @param string $outputStr
+	 * @return string $outputStr
 	 */
-	private function prepareOutput( $outputStr ) {
+	private function prepareOutput( string $outputStr ): string {
 		if ( $outputStr ) {
 			// Do a "\r\n" -> "\n" and "\r" -> "\n" transformation for windows machine
 			$outputStr = str_replace( [ "\r\n", "\r" ], "\n", $outputStr );
@@ -147,4 +148,3 @@ class MediaWikiStandardTest extends TestCase {
 	}
 
 }
-// phpcs:enable MediaWiki.Commenting.MissingCovers.MissingCovers
