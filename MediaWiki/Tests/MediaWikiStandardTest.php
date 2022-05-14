@@ -53,16 +53,11 @@ class MediaWikiStandardTest extends TestCase {
 				$dirStandard = $standard;
 			}
 
-			$fixed = "$file.fixed";
-			if ( !file_exists( $fixed ) ) {
-				$fixed = $file;
-			}
-
 			yield $dir->getFilename() => [
 				$file,
 				$dirStandard,
 				"$file.expect",
-				$fixed
+				"$file.fixed",
 			];
 		}
 	}
@@ -87,7 +82,8 @@ class MediaWikiStandardTest extends TestCase {
 		$dummy->process();
 
 		$report = $this->getReport( $dummy, $config );
-		$this->assertEquals(
+		$this->assertFileExists( $expectedReport );
+		$this->assertSame(
 			$this->prepareOutput( file_get_contents( $expectedReport ) ),
 			$this->prepareOutput( $report )
 		);
@@ -96,7 +92,10 @@ class MediaWikiStandardTest extends TestCase {
 		$fixed = $this->getFixed( $dummy );
 		// No point in comparing a file with itself in case there was nothing to fix
 		if ( $fixed !== null ) {
-			$this->assertEquals( file_get_contents( $expectedFixed ), $fixed );
+			$this->assertFileExists( $expectedFixed, 'There are automatic fixes, the .fixed file must exists' );
+			$this->assertSame( file_get_contents( $expectedFixed ), $fixed );
+		} else {
+			$this->assertFileNotExists( $expectedFixed, 'No automatic fixes in this test, delete the .fixed file' );
 		}
 	}
 
