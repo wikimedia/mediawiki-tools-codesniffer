@@ -216,7 +216,7 @@ class ExtendClassUsageSniff implements Sniff {
 					}
 					if ( $condition ) {
 						$phpcsFile->addWarning(
-							'Should use %s %s rather than %s %s .',
+							'Should use %s %s rather than %s %s',
 							$i,
 							'FunctionVarUsage',
 							[
@@ -240,7 +240,7 @@ class ExtendClassUsageSniff implements Sniff {
 					!isset( $nonConfigGlobals[$iToken['content']] )
 				) {
 					$phpcsFile->addWarning(
-						'Should use function %s rather than global %s .',
+						'Should use function %s rather than global %s',
 						$i,
 						'FunctionConfigUsage',
 						[ '$this->getConfig()->get()', $iToken['content'] ]

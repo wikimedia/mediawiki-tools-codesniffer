@@ -1,7 +1,7 @@
-  16 | WARNING | Should use function $this->msg() rather than function wfMessage() .
+  16 | WARNING | Should use function $this->msg() rather than function wfMessage()
      |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
-  27 | WARNING | Should use function $this->getConfig()->get() rather than global $wgMyConfigGlobal
-     |         | . (MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage)
+  27 | WARNING | Should use function $this->getConfig()->get() rather than global
+     |         | $wgMyConfigGlobal (MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage)
   32 | WARNING | Deprecated global $wgContLang used
      |         | (MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgContLang)
   37 | ERROR   | Only one object structure is allowed in a file
@@ -10,7 +10,7 @@
      |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
   67 | WARNING | The 'wg' prefix should only be used with the 'global' keyword
      |         | (MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgUser)
-  74 | WARNING | Should use function $this->getUser() rather than variable $wgUser .
+  74 | WARNING | Should use function $this->getUser() rather than variable $wgUser
      |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
   74 | WARNING | The 'wg' prefix should only be used with the 'global' keyword
      |         | (MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgUser)
@@ -18,13 +18,13 @@
      |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
   96 | WARNING | The 'wg' prefix should only be used with the 'global' keyword
      |         | (MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgRequest)
- 103 | WARNING | Should use function $this->getRequest() rather than variable $wgRequest .
+ 103 | WARNING | Should use function $this->getRequest() rather than variable $wgRequest
      |         | (MediaWiki.Usage.ExtendClassUsage.FunctionVarUsage)
  103 | WARNING | The 'wg' prefix should only be used with the 'global' keyword
      |         | (MediaWiki.VariableAnalysis.MisleadingGlobalNames.Misleading$wgRequest)
  117 | ERROR   | Only one object structure is allowed in a file
      |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  122 | WARNING | Should use function $this->getConfig()->get() rather than global
-     |         | $wgMyNotConfigGlobal . (MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage)
+     |         | $wgMyNotConfigGlobal (MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage)
  131 | ERROR   | Only one object structure is allowed in a file
      |         | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
