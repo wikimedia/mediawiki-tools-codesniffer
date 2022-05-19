@@ -1,0 +1,29 @@
+  8 | WARNING | [x] Use the shortcut willReturn() rather that manually stubbing a method with
+    |         |     returnValue() (MediaWiki.PHPUnit.MockBoilerplate.returnValue)
+ 10 | WARNING | [x] Use the shortcut willReturn() rather that manually stubbing a method with
+    |         |     returnValue() (MediaWiki.PHPUnit.MockBoilerplate.returnValue)
+ 11 | WARNING | [x] Use the shortcut willReturnArgument() rather that manually stubbing a method
+    |         |     with returnArgument() (MediaWiki.PHPUnit.MockBoilerplate.returnArgument)
+ 12 | WARNING | [x] Use the shortcut willReturnCallback() rather that manually stubbing a method
+    |         |     with returnCallback() (MediaWiki.PHPUnit.MockBoilerplate.returnCallback)
+ 13 | WARNING | [x] Use the shortcut willReturnMap() rather that manually stubbing a method with
+    |         |     returnValueMap() (MediaWiki.PHPUnit.MockBoilerplate.returnValueMap)
+ 17 | WARNING | [x] Use the shortcut willReturnSelf() rather that manually stubbing a method with
+    |         |     returnSelf() (MediaWiki.PHPUnit.MockBoilerplate.returnSelf)
+ 18 | WARNING | [x] Use the shortcut willThrowException() rather that manually stubbing a method
+    |         |     with throwException() (MediaWiki.PHPUnit.MockBoilerplate.throwException)
+ 24 | WARNING | [x] Matcher ->exactly( 1 ) should be replaced with shortcut ->once()
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ExactlyOnce)
+ 25 | WARNING | [x] Matcher ->exactly( 0 ) should be replaced with shortcut ->never()
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ExactlyNever)
+ 32 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstaintEqualTo)
+ 33 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstaintEqualTo)
+ 35 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstaintEqualTo)
+ 37 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstaintEqualTo)
+ 41 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstaintEqualTo)
+PHPCBF CAN FIX THE 14 MARKED SNIFF VIOLATIONS AUTOMATICALLY
