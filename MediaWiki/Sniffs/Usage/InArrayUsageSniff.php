@@ -41,8 +41,7 @@ class InArrayUsageSniff implements Sniff {
 			return;
 		}
 
-		end( $tokens[$stackPtr]['nested_parenthesis'] );
-		$openParenthesisPtr = key( $tokens[$stackPtr]['nested_parenthesis'] );
+		$openParenthesisPtr = array_key_last( $tokens[$stackPtr]['nested_parenthesis'] );
 
 		// Continue only if the parenthesis belongs to an in_array() call
 		if ( $tokens[$openParenthesisPtr - 1]['code'] !== T_STRING

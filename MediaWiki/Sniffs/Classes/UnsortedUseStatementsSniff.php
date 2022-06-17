@@ -55,8 +55,7 @@ class UnsortedUseStatementsSniff implements Sniff {
 			// We only care about use statements in the global scope, or the
 			// equivalent for bracketed namespace (use statements in the namespace
 			// and not in any class, etc.)
-			// TODO: Use array_key_first() if available
-			$scope = key( $tokens[$stackPtr]['conditions'] );
+			$scope = array_key_first( $tokens[$stackPtr]['conditions'] );
 			if ( count( $tokens[$stackPtr]['conditions'] ) === 1
 				&& $tokens[$stackPtr]['conditions'][$scope] === T_NAMESPACE
 			) {
