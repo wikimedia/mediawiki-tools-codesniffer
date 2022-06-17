@@ -14,7 +14,7 @@
 		"ext-mbstring": "*",
 		"composer/semver": "3.3.2",
 		"composer/spdx-licenses": "~1.5.2",
-		"squizlabs/php_codesniffer": "3.6.2",
+		"squizlabs/php_codesniffer": "3.7.0",
 		"symfony/polyfill-php80": "~1.25.0"
 	},
 	"autoload": {
