@@ -28,4 +28,22 @@
     |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
  35 | WARNING | [x] The expected value goes before the actual value in assertions
     |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
-PHPCBF CAN FIX THE 15 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 38 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 39 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 43 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 44 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 48 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 49 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 50 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 51 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 52 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+PHPCBF CAN FIX THE 24 MARKED SNIFF VIOLATIONS AUTOMATICALLY

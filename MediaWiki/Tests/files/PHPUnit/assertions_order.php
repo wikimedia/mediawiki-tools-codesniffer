@@ -34,13 +34,45 @@ class AssertionsOrderTest extends \PHPUnit\Framework\TestCase {
 		$this->assertSame( $var, $expectedResult );
 		$this->assertEquals( $var, $expectedResult, 'Message' );
 
+		// Not just a variable and a literal
+		$this->assertSame( wfFunctionCall( true ), 'abc' );
+		$this->assertSame(
+			wfFunctionCall( false )->bar(),
+			'xyz'
+		);
+		$this->assertSame( $var, 246 * 2 );
+		$this->assertSame( $var, SomeClass::SOME_CONST );
+
+		// Actual value is an array with no variables/functions (except $expected*),
+		// should be the actual
+		$this->assertSame( $emptyArray, [], 'Message' );
+		$this->assertSame( $result, [ 'something' => 'other' ], 'Message' );
+		$this->assertSame( $resultWithValue, [ 'key' => $expectedValue ], 'Message' );
+		$this->assertSame( $intArray, [ 1, 2, 3 ], 'Message' );
+		$this->assertSame(
+			$bigArray,
+			[
+				'first' => 'a',
+				'second' => $expected,
+				'nested' => [ true, false ],
+				500
+			],
+			'Message'
+		);
+
 		// Should not be replaced
 		$otherVariable = false;
 		$this->assertSame( $var, $otherVariable );
 		$this->assertEquals( $var, $otherVariable, 'Message' );
-
-		// Cannot yet handle
-		$this->assertSame( wfFunctionCall( true ), true );
-		$this->assertSame( $var, 246 * 2 );
+		$this->assertSame(
+			$bigArray,
+			[
+				'first' => 'a',
+				'second' => $actual,
+				'nested' => [ true, false ],
+				500
+			],
+			'Message'
+		);
 	}
 }
