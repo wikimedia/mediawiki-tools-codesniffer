@@ -28,7 +28,7 @@ class ExtensionInfo {
 	/**
 	 * @var string Extension root path
 	 */
-	private $dir;
+	private string $dir;
 
 	/**
 	 * @var array|false|null Parsed extension.json
@@ -36,7 +36,7 @@ class ExtensionInfo {
 	private $info = null;
 
 	/** @var bool[] */
-	private $supportCache = [];
+	private array $supportCache = [];
 
 	/**
 	 * @param File $phpcsFile

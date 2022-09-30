@@ -16,14 +16,14 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class PrefixedGlobalFunctionsSniff implements Sniff {
 
 	/** @var string[] */
-	public $ignoreList = [];
+	public array $ignoreList = [];
 
 	/**
 	 * A list of global function prefixes allowed.
 	 *
 	 * @var string[]
 	 */
-	public $allowedPrefixes = [ 'wf' ];
+	public array $allowedPrefixes = [ 'wf' ];
 
 	/**
 	 * @inheritDoc
@@ -35,7 +35,7 @@ class PrefixedGlobalFunctionsSniff implements Sniff {
 	/**
 	 * @var int[] array containing the first locations of namespaces in files that we have seen so far.
 	 */
-	private $firstNamespaceLocations = [];
+	private array $firstNamespaceLocations = [];
 
 	/**
 	 * @param File $phpcsFile

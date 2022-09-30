@@ -48,7 +48,7 @@ class ExtendClassUsageSniff implements Sniff {
 	 * Allow extensions add to the above list of non-config globals via .phpcs.xml
 	 * @var string[]
 	 */
-	public $nonConfigGlobals = [];
+	public array $nonConfigGlobals = [];
 
 	private const CHECK_CONFIG = [
 		// All extended class name. Map of extended class name to the checklist that

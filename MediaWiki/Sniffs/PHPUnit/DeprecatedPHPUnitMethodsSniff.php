@@ -91,10 +91,10 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 	];
 
 	/** @var File */
-	private $file;
+	private File $file;
 
 	/** @var array */
-	private $tokens;
+	private array $tokens;
 
 	/**
 	 * @inheritDoc

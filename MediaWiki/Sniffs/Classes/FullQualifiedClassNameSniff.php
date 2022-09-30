@@ -40,17 +40,17 @@ class FullQualifiedClassNameSniff implements Sniff {
 	/**
 	 * @var bool Allows full qualified class names in the main namespace, e.g. \Title
 	 */
-	public $allowMainNamespace = true;
+	public bool $allowMainNamespace = true;
 
 	/**
 	 * @var bool Allows to use full qualified class names in "extends" and "implements"
 	 */
-	public $allowInheritance = true;
+	public bool $allowInheritance = true;
 
 	/**
 	 * @var bool Allows function calls like \Wikimedia\suppressWarnings()
 	 */
-	public $allowFunctions = true;
+	public bool $allowFunctions = true;
 
 	/**
 	 * @inheritDoc

@@ -27,7 +27,7 @@ class ClassLevelLicenseSniff implements Sniff {
 	/**
 	 * @var string Typically "GPL-2.0-or-later", empty by default
 	 */
-	public $license = '';
+	public string $license = '';
 
 	/**
 	 * @inheritDoc

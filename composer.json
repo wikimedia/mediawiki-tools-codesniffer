@@ -9,7 +9,7 @@
 	"license": "GPL-2.0-or-later",
 	"type": "phpcodesniffer-standard",
 	"require": {
-		"php": ">=7.3.0",
+		"php": ">=7.4.0",
 		"ext-json": "*",
 		"ext-mbstring": "*",
 		"composer/semver": "3.3.2",

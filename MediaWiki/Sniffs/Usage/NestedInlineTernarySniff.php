@@ -31,7 +31,7 @@ class NestedInlineTernarySniff implements Sniff {
 	 *
 	 * @var array
 	 */
-	private $endTokens = [];
+	private array $endTokens = [];
 
 	/**
 	 * @inheritDoc

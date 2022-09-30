@@ -45,14 +45,14 @@ class TrailingCommaSniff implements Sniff {
 	 * By default (null), do nothing.
 	 * @var bool|null
 	 */
-	public $singleLine = null;
+	public ?bool $singleLine = null;
 
 	/**
 	 * Enforce the presence (true) or absence (false) of trailing commas in multi-line arrays.
 	 * By default (null), do nothing.
 	 * @var bool|null
 	 */
-	public $multiLine = null;
+	public ?bool $multiLine = null;
 
 	public function register(): array {
 		return [ T_CLOSE_SHORT_ARRAY ];
