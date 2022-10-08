@@ -92,7 +92,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@expectedException' => 'Do not use %s, use $this->expectException().',
 		'@expectedExceptionCode' => 'Do not use %s, use $this->expectExceptionCode().',
 		'@expectedExceptionMessage' => 'Do not use %s, use $this->expectExceptionMessage().',
-		'@expectedExceptionMessageRegExp' => 'Do not use %s, use $this->expectExceptionMessageRegExp().',
+		'@expectedExceptionMessageRegExp' => 'Do not use %s, use $this->expectExceptionMessageMatches().',
 	];
 
 	private const EMPTY_ANNOTATIONS = [
