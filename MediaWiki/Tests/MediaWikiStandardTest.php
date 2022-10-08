@@ -95,7 +95,7 @@ class MediaWikiStandardTest extends TestCase {
 			$this->assertFileExists( $expectedFixed, 'There are automatic fixes, the .fixed file must exists' );
 			$this->assertSame( file_get_contents( $expectedFixed ), $fixed );
 		} else {
-			$this->assertFileNotExists( $expectedFixed, 'No automatic fixes in this test, delete the .fixed file' );
+			$this->assertFileDoesNotExist( $expectedFixed, 'No automatic fixes in this test, delete the .fixed file' );
 		}
 	}
 

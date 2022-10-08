@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="true"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+		 backupGlobals="true"
 		 colors="false"
 		 convertErrorsToExceptions="true"
 		 convertNoticesToExceptions="true"
@@ -14,9 +16,9 @@
 			<file>./MediaWiki/Tests/ExtensionInfoTest.php</file>
 		</testsuite>
 	</testsuites>
-	<filter>
-		<whitelist>
+	<coverage>
+		<include>
 			<directory suffix=".php">MediaWiki/Sniffs/</directory>
-		</whitelist>
-	</filter>
+		</include>
+	</coverage>
 </phpunit>
