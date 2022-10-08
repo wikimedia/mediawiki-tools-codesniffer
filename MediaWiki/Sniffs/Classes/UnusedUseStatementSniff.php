@@ -84,6 +84,7 @@ class UnusedUseStatementSniff implements Sniff {
 			// and not in any class, etc.)
 			$scope = array_key_first( $tokens[$stackPtr]['conditions'] );
 			if ( count( $tokens[$stackPtr]['conditions'] ) === 1
+				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable False positive
 				&& $tokens[$stackPtr]['conditions'][$scope] === T_NAMESPACE
 			) {
 				$useScopeEnd = $tokens[$scope]['scope_closer'];
