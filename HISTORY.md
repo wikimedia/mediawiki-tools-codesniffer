@@ -1,5 +1,28 @@
 # MediaWiki-Codesniffer release history #
 
+## 40.0.0 / 2022-11-01
+### New sniffs ###
+* Create `SameLineCatch` sniff to warn when a catch statement is not in the same
+  line as the preceding closing bracket. (Taavi Väänänen)
+* Create `EmptyLinesBetweenUse` sniff to complain about blank lines between use
+  statements. (DannyS712)
+* Create `TrailingComma` sniff to complain about missing trailing commas in
+  multiline arrays. (Lucas Werkmeister)
+
+### Changed sniffs ###
+* `AnnotationsSniff`: Suggest expectExceptionMessageMatches() (Umherirrender)
+* `ForbiddenFunctionsSniff`: Make forbidden argument count reporting more generic (Thiemo Kreuz)
+* `ExtendClassUsage`: Remove dot from error message (Umherirrender)
+
+### Documentation, dependencies and build changes ###
+* Require php7.4 and type hint class properties (Umherirrender)
+* build: Upgrade PHPUnit from 8.5+ to 9.5+ (Umherirrender)
+* build: Update mediawiki/mediawiki-phan-config to 0.12.0 (Daimona Eaytoy)
+* Require php7.3 and use new functions (Umherirrender)
+* build: Update squizlabs/php_codesniffer to 3.7.1 (Alexander Vorwerk)
+* build: Update squizlabs/php_codesniffer to 3.7.0 (Umherirrender)
+* Allow to use php8 functions with polyfill (Umherirrender)
+
 ## 39.0.0 / 2022-05-04 ##
 ### New sniffs ###
 * Create `PHPUnitAssertEmpty` sniff to warn against using `assertEmpty` (DannyS712)
