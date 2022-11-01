@@ -1,5 +1,9 @@
 # MediaWiki-Codesniffer release history #
 
+## 40.0.1 / 2022-11-01
+### Documentation, dependencies and build changes ###
+* build: Loosen symfony/polyfill-php80 requirement (Alexander Vorwerk)
+
 ## 40.0.0 / 2022-11-01
 ### New sniffs ###
 * Create `SameLineCatch` sniff to warn when a catch statement is not in the same
