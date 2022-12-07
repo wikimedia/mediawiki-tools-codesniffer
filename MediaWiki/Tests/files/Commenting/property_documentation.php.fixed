@@ -99,6 +99,9 @@ class TestPassedExamples {
 	protected bool $tc;
 	private string $td;
 
+	/** A variable with prose documentation but only a static type. */
+	public string $tdoc;
+
 	// phpcs:disable Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect
 
 	/**

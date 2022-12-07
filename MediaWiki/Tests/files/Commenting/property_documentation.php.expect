@@ -18,7 +18,7 @@
     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
  14 | ERROR   | [ ] Scope modifier not specified for member variable "$missingWithout"
     |         |     (Squiz.Scope.MemberVarScope.Missing)
- 16 | ERROR   | [ ] Missing @var tag in class property comment
+ 16 | ERROR   | [ ] Missing type or @var tag in class property comment
     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVar)
  21 | ERROR   | [ ] Only 1 @var tag is allowed in a class property comment
     |         |     (MediaWiki.Commenting.PropertyDocumentation.DuplicateVar)

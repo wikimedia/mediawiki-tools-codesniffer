@@ -112,7 +112,7 @@ class PropertyDocumentationSniff implements Sniff {
 			}
 		}
 
-		$this->processVar( $phpcsFile, $commentStart );
+		$this->processVar( $phpcsFile, $commentStart, $stackPtr );
 	}
 
 	/**
@@ -120,8 +120,9 @@ class PropertyDocumentationSniff implements Sniff {
 	 *
 	 * @param File $phpcsFile The file being scanned.
 	 * @param int $commentStart The position in the stack where the comment started.
+	 * @param int $stackPtr The position in the stack where the property itself started (T_VARIABLE)
 	 */
-	private function processVar( File $phpcsFile, int $commentStart ): void {
+	private function processVar( File $phpcsFile, int $commentStart, int $stackPtr ): void {
 		$tokens = $phpcsFile->getTokens();
 		$var = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $ptr ) {
@@ -217,8 +218,8 @@ class PropertyDocumentationSniff implements Sniff {
 					$type . ( $comment !== '' ? str_repeat( ' ', $separatorLength ) . $comment : '' )
 				);
 			}
-		} else {
-			$error = 'Missing @var tag in class property comment';
+		} elseif ( $phpcsFile->getMemberProperties( $stackPtr )['type'] === '' ) {
+			$error = 'Missing type or @var tag in class property comment';
 			$phpcsFile->addError( $error, $tokens[$commentStart]['comment_closer'], 'MissingVar' );
 		}
 	}
