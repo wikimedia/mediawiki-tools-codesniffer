@@ -81,14 +81,16 @@ class PropertyDocumentationSniff implements Sniff {
 		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
-			$methodProps = $phpcsFile->getMemberProperties( $stackPtr );
-			$phpcsFile->addError(
-				'Missing class property doc comment',
-				$stackPtr,
-				// Messages used: MissingDocumentationPublic, MissingDocumentationProtected,
-				// MissingDocumentationPrivate
-				'MissingDocumentation' . ucfirst( $methodProps['scope'] )
-			);
+			$memberProps = $phpcsFile->getMemberProperties( $stackPtr );
+			if ( $memberProps['type'] === '' ) {
+				$phpcsFile->addError(
+					'Missing class property doc comment',
+					$stackPtr,
+					// Messages used: MissingDocumentationPublic, MissingDocumentationProtected,
+					// MissingDocumentationPrivate
+					'MissingDocumentation' . ucfirst( $memberProps['scope'] )
+				);
+			}
 			return;
 		}
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {

@@ -90,4 +90,10 @@
     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
  89 | ERROR   | [ ] Scope modifier not specified for member variable "$dep"
     |         |     (Squiz.Scope.MemberVarScope.Missing)
+ 97 | ERROR   | [ ] The var keyword must not be used to declare a property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 97 | ERROR   | [ ] Visibility must be declared on property "$ta"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 97 | ERROR   | [ ] Scope modifier not specified for member variable "$ta"
+    |         |     (Squiz.Scope.MemberVarScope.Missing)
 PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY

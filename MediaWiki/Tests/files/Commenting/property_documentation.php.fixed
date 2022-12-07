@@ -94,6 +94,11 @@ class TestPassedExamples {
 	/** @var array<int, string> */
 	public $javaStyle;
 
+	var array $ta;
+	public int $tb;
+	protected bool $tc;
+	private string $td;
+
 	// phpcs:disable Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect
 
 	/**
