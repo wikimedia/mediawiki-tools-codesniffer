@@ -103,11 +103,27 @@ class FunctionCommentSniff implements Sniff {
 		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
 		) {
-			// Don't require documentation for functions with no parameters, except getters
-			if ( ( str_starts_with( $funcName, 'get' ) || $phpcsFile->getMethodParameters( $stackPtr ) )
-				&& !$this->isTestFile( $phpcsFile, $stackPtr )
-			) {
-				$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
+			// Function has no documentation; check if this is allowed or not
+			$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
+			$methodParams = $phpcsFile->getMethodParameters( $stackPtr );
+			$hasReturnType = $methodProps['return_type'] !== '';
+			$hasParams = $methodParams !== [];
+			$isGetter = str_starts_with( $funcName, 'get' ) && !$hasParams;
+			$allParamsTyped = true;
+			foreach ( $methodParams as $parameter ) {
+				if ( $parameter['type_hint'] === '' ) {
+					$allParamsTyped = false;
+					break;
+				}
+			}
+			$isFullyTyped = $hasReturnType && $allParamsTyped;
+			$isTestFile = $this->isTestFile( $phpcsFile, $stackPtr );
+			// A function is *allowed* to omit the documentation comment
+			// (but in many cases, documentation comments still make sense, and are not discouraged)
+			// if it is fully typed (parameter and return type declarations), or in a test file,
+			// or has no parameters and is not a getter.
+			// The last exception, allowing parameterless non-getters to omit their return type, may be removed later.
+			if ( !$isFullyTyped && !$isTestFile && ( $isGetter || $hasParams ) ) {
 				$phpcsFile->addError(
 					'Missing function doc comment',
 					$stackPtr,

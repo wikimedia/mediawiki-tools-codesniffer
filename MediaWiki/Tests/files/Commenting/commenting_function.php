@@ -575,6 +575,27 @@ class TestPassedExamples {
 	#[AttributeFoo, AttributeBar]
 	public function multipleAttributesSameLine( bool $b ) {
 	}
+
+	public function staticParamTypesVoid( bool $b, int $i ): void {
+		// when static types for all parameters and the return type are possible,
+		// then doc comments are encouraged where useful, but not required:
+		// no need to repeat the type in @param or @return when there is nothing else to say
+	}
+
+	public function staticParamTypesReturn( bool $b, int $i ): bool {
+		return $b;
+	}
+
+	public function noParamsVoid(): void {
+	}
+
+	public function noParamsReturn(): string {
+		return '';
+	}
+
+	public function getSomething(): int {
+		return 0;
+	}
 }
 
 class TestSimpleConstructor {
