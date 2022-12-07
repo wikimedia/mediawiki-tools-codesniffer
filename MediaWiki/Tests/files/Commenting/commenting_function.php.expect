@@ -2,9 +2,9 @@
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
    9 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
-  16 | ERROR   | [ ] Missing @return tag in function comment
+  16 | ERROR   | [ ] Missing return type or @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
-  24 | ERROR   | [ ] Missing @return tag in function comment
+  24 | ERROR   | [ ] Missing return type or @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
   30 | WARNING | [x] Expected 1 spaces after parameter name; 2 found
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfterParamName)
@@ -18,7 +18,7 @@
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
   49 | ERROR   | [x] Short type of "int" should be used for @return tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntReturn)
-  58 | ERROR   | [ ] Missing @return tag in function comment
+  58 | ERROR   | [ ] Missing return type or @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
   70 | ERROR   | [x] Short type of "bool" should be used for @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolParam)
@@ -74,7 +74,7 @@
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
  110 | WARNING | [x] Use @throws annotation instead of @throw
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 111 | ERROR   | [ ] Missing @return tag in function comment
+ 111 | ERROR   | [ ] Missing return type or @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
  117 | ERROR   | [x] Param name should not end with punctuation ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
@@ -254,8 +254,6 @@
      |         |     (MediaWiki.Commenting.FunctionComment.ObjectTypeHintReturn)
  357 | ERROR   | [x] Lowercase type of "object[]" should be used for @return tag
      |         |     (MediaWiki.Commenting.FunctionComment.UppercasePrimitiveObjectArrayReturn)
- 365 | ERROR   | [ ] Missing @return tag in function comment
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
  378 | ERROR   | [ ] Only 1 @return tag is allowed in a function comment
      |         |     (MediaWiki.Commenting.FunctionComment.DuplicateReturn)
  382 | WARNING | [ ] Comments should start on new line.
@@ -269,36 +267,36 @@
      |         |     (MediaWiki.Commenting.FunctionComment.ParamNameNoCaseMatch)
  395 | ERROR   | [x] Short type of "bool" should be used for @return tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
- 400 | ERROR   | [ ] Missing @return tag in function comment
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
  404 | ERROR   | [x] Short type of "int" should be used for @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
- 409 | ERROR   | [ ] Only one object structure is allowed in a file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 485 | ERROR   | [ ] Missing function doc comment
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 498 | WARNING | [ ] Comments should start on new line.
-     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 502 | ERROR   | [ ] Expected parameter type before parameter name "$parser"
-     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 503 | ERROR   | [ ] Expected parameter type before parameter name "$operator:"
-     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 503 | ERROR   | [x] Param name should not end with punctuation ":"
-     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 504 | ERROR   | [ ] Expected parameter type before parameter name "$oldtext"
-     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 504 | ERROR   | [x] Default of null should be declared in @param tag
-     |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 601 | ERROR   | [ ] Only one object structure is allowed in a file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 607 | ERROR   | [ ] Only one object structure is allowed in a file
-     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 608 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 408 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 611 | WARNING | [x] Use @param annotation instead of @parma
+ 415 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 491 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+ 504 | WARNING | [ ] Comments should start on new line.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+ 508 | ERROR   | [ ] Expected parameter type before parameter name "$parser"
+     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
+ 509 | ERROR   | [ ] Expected parameter type before parameter name "$operator:"
+     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
+ 509 | ERROR   | [x] Param name should not end with punctuation ":"
+     |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
+ 510 | ERROR   | [ ] Expected parameter type before parameter name "$oldtext"
+     |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
+ 510 | ERROR   | [x] Default of null should be declared in @param tag
+     |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
+ 612 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 618 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 619 | ERROR   | [ ] Doc comment for parameter "$b" missing
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
+ 622 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 621 | ERROR   | [ ] You must use "/**" style comments for a function comment
+ 632 | ERROR   | [ ] You must use "/**" style comments for a function comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
- 625 | ERROR   | [ ] Only one object structure is allowed in a file
+ 636 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 66 MARKED SNIFF VIOLATIONS AUTOMATICALLY

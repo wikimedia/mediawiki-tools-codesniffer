@@ -188,7 +188,8 @@ class FunctionCommentSniff implements Sniff {
 			return;
 		}
 
-		$found = false;
+		$hasReturnType = $phpcsFile->getMethodProperties( $stackPtr )['return_type'] !== '';
+		$returnsValue = false;
 		// if function has body (not abstract or part of interface)
 		if ( isset( $tokens[$stackPtr]['scope_opener'] ) ) {
 			$endFunction = $tokens[$stackPtr]['scope_closer'];
@@ -211,16 +212,10 @@ class FunctionCommentSniff implements Sniff {
 						// This is a `return;` so it doesn't need documentation
 						continue;
 					}
-					$found = true;
+					$returnsValue = true;
 					break;
 				}
 			}
-		}
-
-		// If a return type is provided, there should be a @return
-		$returnType = $phpcsFile->getMethodProperties( $stackPtr )['return_type'];
-		if ( $returnType !== '' && $returnType !== 'void' ) {
-			$found = true;
 		}
 
 		$returnPtr = null;
@@ -318,9 +313,9 @@ class FunctionCommentSniff implements Sniff {
 					$type . ( $comment !== '' ? str_repeat( ' ', $separatorLength ) . $comment : '' )
 				);
 			}
-		} elseif ( $found && !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
+		} elseif ( $returnsValue && !$hasReturnType && !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
 			$phpcsFile->addError(
-				'Missing @return tag in function comment',
+				'Missing return type or @return tag in function comment',
 				$tokens[$commentStart]['comment_closer'],
 				'MissingReturn'
 			);
@@ -746,10 +741,19 @@ class FunctionCommentSniff implements Sniff {
 				);
 			}
 		}
-		// Report missing comments. On tests only, when not everything is missing.
-		$missing = array_diff( array_column( $realParams, 'name' ), $foundParams );
-		if ( $foundParams !== [] || !$this->isTestFunction( $phpcsFile, $stackPtr ) ) {
-			foreach ( $missing as $neededParam ) {
+		$missingParams = [];
+		$hasUntypedParams = false;
+		foreach ( $realParams as $param ) {
+			$hasUntypedParams = $hasUntypedParams || $param['type_hint'] === '';
+			if ( !in_array( $param['name'], $foundParams ) ) {
+				$missingParams[] = $param['name'];
+			}
+		}
+		$isTestFunction = $this->isTestFunction( $phpcsFile, $stackPtr );
+		// Report missing comments, unless *all* parameters have types.
+		// As an exception, tests are allowed to omit comments an long as they omit *all* comments.
+		if ( $hasUntypedParams && ( !$isTestFunction || $foundParams !== [] ) ) {
+			foreach ( $missingParams as $neededParam ) {
 				$phpcsFile->addError(
 					'Doc comment for parameter "%s" missing',
 					$commentStart,

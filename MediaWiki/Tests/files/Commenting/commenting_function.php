@@ -404,6 +404,12 @@ abstract class TestFailedExamples {
 	 * @param integer $param
 	 */
 	abstract public function testAbstractBadParameterType( $param );
+
+	/**
+	 * @param int|string $a
+	 */
+	public function testPartiallyStaticParamTypes( $a, int $b ): void {
+	}
 }
 
 class TestPassedExamples {
@@ -595,6 +601,11 @@ class TestPassedExamples {
 
 	public function getSomething(): int {
 		return 0;
+	}
+
+	/** Convert a Message to a MessageValue. */
+	public function convertMessage( Message $m ): MessageValue {
+		// function documentation without repeating types
 	}
 }
 
