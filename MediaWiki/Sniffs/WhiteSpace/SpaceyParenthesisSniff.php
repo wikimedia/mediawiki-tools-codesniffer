@@ -13,6 +13,7 @@ namespace MediaWiki\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 class SpaceyParenthesisSniff implements Sniff {
 
@@ -29,37 +30,6 @@ class SpaceyParenthesisSniff implements Sniff {
 	}
 
 	/**
-	 * @param int|string $token PHPCS token code.
-	 * @return bool Whether the token code is closed.
-	 */
-	private function isClosed( $token ): bool {
-		return $token === T_CLOSE_PARENTHESIS
-			|| $token === T_CLOSE_SHORT_ARRAY;
-	}
-
-	/**
-	 * @param int|string $token PHPCS token code.
-	 * @return bool Whether the token code is parenthesis.
-	 */
-	private function isParenthesis( $token ): bool {
-		return $token === T_OPEN_PARENTHESIS
-			|| $token === T_CLOSE_PARENTHESIS;
-	}
-
-	/**
-	 * @param int|string $token PHPCS token code.
-	 * @return bool Whether the token code is a comment.
-	 */
-	private function isComment( $token ): bool {
-		return $token === T_COMMENT
-			|| $token === T_PHPCS_ENABLE
-			|| $token === T_PHPCS_DISABLE
-			|| $token === T_PHPCS_SET
-			|| $token === T_PHPCS_IGNORE
-			|| $token === T_PHPCS_IGNORE_FILE;
-	}
-
-	/**
 	 * @param File $phpcsFile
 	 * @param int $stackPtr The current token index.
 	 * @return void|int
@@ -67,8 +37,14 @@ class SpaceyParenthesisSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$currentToken = $tokens[$stackPtr];
+		$closer = $currentToken['parenthesis_closer'] ?? $currentToken['bracket_closer'] ?? null;
 
-		if ( $this->isClosed( $currentToken['code'] ) ) {
+		if ( !$closer ) {
+			// Syntax error or live coding, bow out.
+			return;
+		}
+
+		if ( $closer === $stackPtr ) {
 			$this->processCloseParenthesis( $phpcsFile, $stackPtr );
 			return;
 		}
@@ -93,22 +69,15 @@ class SpaceyParenthesisSniff implements Sniff {
 			}
 		}
 
-		if ( !isset( $tokens[$stackPtr + 2] ) ) {
-			// Syntax error or live coding, bow out.
-			return;
-		}
-
 		// Shorten out as early as possible on empty parenthesis
-		if ( $this->isClosed( $tokens[$stackPtr + 1]['code'] ) ) {
+		if ( $closer === $stackPtr + 1 ) {
 			// Intentionally do not process the closing parenthesis again
 			return $stackPtr + 2;
 		}
 
 		// Check for space between parentheses without any arguments
-		if ( $tokens[$stackPtr + 1]['code'] === T_WHITESPACE
-			&& $this->isClosed( $tokens[$stackPtr + 2]['code'] )
-		) {
-			$bracketType = $this->isParenthesis( $currentToken['code'] ) ? 'parentheses' : 'brackets';
+		if ( $closer === $stackPtr + 2 && $tokens[$stackPtr + 1]['code'] === T_WHITESPACE ) {
+			$bracketType = $currentToken['code'] === T_OPEN_PARENTHESIS ? 'parentheses' : 'brackets';
 			$fix = $phpcsFile->addFixableWarning(
 				'Unnecessary space found within %s',
 				$stackPtr + 1,
@@ -167,7 +136,7 @@ class SpaceyParenthesisSniff implements Sniff {
 
 		if ( ( $previousToken['code'] === T_WHITESPACE
 				&& $previousToken['content'] === ' ' )
-			|| ( $this->isComment( $previousToken['code'] )
+			|| ( isset( Tokens::$commentTokens[ $previousToken['code'] ] )
 				&& str_ends_with( $previousToken['content'], "\n" ) )
 		) {
 			// If previous token was
@@ -185,7 +154,7 @@ class SpaceyParenthesisSniff implements Sniff {
 		}
 
 		// If the comment before all the whitespaces immediately preceding the ')' ends with a newline
-		if ( $this->isComment( $tokens[$ptr]['code'] )
+		if ( isset( Tokens::$commentTokens[ $tokens[$ptr]['code'] ] )
 			&& str_ends_with( $tokens[$ptr]['content'], "\n" )
 		) {
 			return;
