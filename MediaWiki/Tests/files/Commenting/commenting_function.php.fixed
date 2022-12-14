@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Generic.Files.OneObjectStructurePerFile
+
 abstract class TestFailedExamples {
 
 	public function __construct( $a ) {
