@@ -633,6 +633,11 @@ class TestReturnConstructor {
 	}
 }
 
+class TestFullyTypedConstructor {
+	public function __construct( int $a ) {
+	}
+}
+
 class TestClassTestCase {
 
 	/**

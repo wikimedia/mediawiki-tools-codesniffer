@@ -299,4 +299,6 @@
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
  636 | ERROR   | [ ] Only one object structure is allowed in a file
      |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+ 641 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
 PHPCBF CAN FIX THE 66 MARKED SNIFF VIOLATIONS AUTOMATICALLY

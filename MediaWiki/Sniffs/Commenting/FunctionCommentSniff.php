@@ -106,7 +106,7 @@ class FunctionCommentSniff implements Sniff {
 			// Function has no documentation; check if this is allowed or not
 			$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
 			$methodParams = $phpcsFile->getMethodParameters( $stackPtr );
-			$hasReturnType = $methodProps['return_type'] !== '';
+			$hasReturnType = $methodProps['return_type'] !== '' || $funcName === '__construct';
 			$hasParams = $methodParams !== [];
 			$isGetter = str_starts_with( $funcName, 'get' ) && !$hasParams;
 			$allParamsTyped = true;
