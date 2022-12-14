@@ -60,6 +60,10 @@ class AssertionsOrderTest extends \PHPUnit\Framework\TestCase {
 			'Message'
 		);
 
+		// Simple tests for the Not variants, there are handled the same
+		$this->assertNotSame( 'NotSame', $var );
+		$this->assertNotEquals( 'NotEquals', $var );
+
 		// Should not be replaced
 		$otherVariable = false;
 		$this->assertSame( $var, $otherVariable );

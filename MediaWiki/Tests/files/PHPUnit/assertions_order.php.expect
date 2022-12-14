@@ -46,4 +46,8 @@
     |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
  52 | WARNING | [x] The expected value goes before the actual value in assertions
     |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
-PHPCBF CAN FIX THE 24 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 64 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+ 65 | WARNING | [x] The expected value goes before the actual value in assertions
+    |         |     (MediaWiki.PHPUnit.AssertionOrder.WrongOrder)
+PHPCBF CAN FIX THE 26 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -25,7 +25,7 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
- * Fix uses of assertEquals or assertSame with the actual value before the expected
+ * Fix uses of assertEquals/assertNotEquals or assertSame/assertNotSame with the actual value before the expected
  * Currently, only catches assertions where the actual value is a variable, or at least
  * starts with a variable token, and the expected is a literal value or a variable in the form
  * $expected*, or an array of such values (including nested arrays).
@@ -38,6 +38,8 @@ class AssertionOrderSniff implements Sniff {
 	private const ASSERTIONS = [
 		'assertEquals' => true,
 		'assertSame' => true,
+		'assertNotEquals' => true,
+		'assertNotSame' => true,
 	];
 
 	private const LITERALS = [
