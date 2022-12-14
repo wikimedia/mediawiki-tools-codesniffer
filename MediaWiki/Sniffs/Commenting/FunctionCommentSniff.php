@@ -168,7 +168,9 @@ class FunctionCommentSniff implements Sniff {
 			return;
 		}
 
-		$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
+		if ( $funcName !== '__construct' ) {
+			$this->processReturn( $phpcsFile, $stackPtr, $commentStart );
+		}
 		$this->processThrows( $phpcsFile, $commentStart );
 		$this->processParams( $phpcsFile, $stackPtr, $commentStart );
 	}
@@ -182,11 +184,6 @@ class FunctionCommentSniff implements Sniff {
 	 */
 	protected function processReturn( File $phpcsFile, int $stackPtr, int $commentStart ): void {
 		$tokens = $phpcsFile->getTokens();
-
-		// Skip constructors
-		if ( $phpcsFile->getDeclarationName( $stackPtr ) === '__construct' ) {
-			return;
-		}
 
 		$hasReturnType = $phpcsFile->getMethodProperties( $stackPtr )['return_type'] !== '';
 		$returnsValue = false;
