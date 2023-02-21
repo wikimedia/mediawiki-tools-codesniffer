@@ -11,3 +11,5 @@
 .idea
 
 .phpunit.result.cache
+
+/doc/
