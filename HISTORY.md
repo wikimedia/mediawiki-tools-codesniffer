@@ -1,5 +1,25 @@
 # MediaWiki-Codesniffer release history #
 
+## 41.0.0 / 2023-02-25
+### Changed sniffs ###
+* `AssertionOrderSniff`: Also run for `assertNotEquals`/`assertNotSame` (Umherirrender)
+* `AssertionOrderSniff`: Handle more wrong actual values (DannyS712)
+* `ForbiddenFunctionsSniff`: Forbid `eval()` and make `ForbiddenFunctions` sniff more flexible (Thiemo Kreuz)
+* `FunctionCommentSniff`: Allow fully-typed functions to omit documentation (Lucas Werkmeister)
+* `FunctionCommentSniff`: Allow fully typed `__constructor` without `@param` tags (thiemowmde)
+* `FunctionCommentSniff`: Allow prose-only documentation for statically typed functions (Lucas Werkmeister)
+* `FunctionCommentSniff`: Tiny performance optimization (thiemowmde)
+* `PropertyDocumentationSniff`: Allow prose-only documentation for statically typed properties (Lucas Werkmeister)
+* `PropertyDocumentationSniff`: Allow typed properties to omit documentation (Lucas Werkmeister)
+* `SpaceyParenthesisSniff`: Minor performance optimization (thiemowmde)
+
+### Documentation, dependencies and build changes ###
+* README: Remove todo about check-vars.php (Umherirrender)
+* build: Add Doxygen (James D. Forrester)
+* build: Pin PHPUnit to 9.5.28 (James D. Forrester)
+* build: Update squizlabs/PHP_CodeSniffer to 3.7.2 (Taavi Väänänen)
+* code: Disable `OneObjectStructurePerFile` during `FunctionComment` tests (thiemowmde)
+
 ## 40.0.1 / 2022-11-01
 ### Documentation, dependencies and build changes ###
 * build: Loosen symfony/polyfill-php80 requirement (Alexander Vorwerk)
