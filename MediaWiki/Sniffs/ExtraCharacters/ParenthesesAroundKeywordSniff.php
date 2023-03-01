@@ -61,6 +61,7 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 		);
 
 		if ( $fix ) {
+			$phpcsFile->fixer->beginChangeset();
 			if ( $tokens[$stackPtr + 1]['code'] !== T_WHITESPACE ) {
 				// Ensure the both tokens are not mangled together without space
 				$phpcsFile->fixer->addContent( $stackPtr, ' ' );
@@ -78,6 +79,7 @@ class ParenthesesAroundKeywordSniff implements Sniff {
 			if ( $tokens[$closer - 1]['code'] === T_WHITESPACE ) {
 				$phpcsFile->fixer->replaceToken( $closer - 1, '' );
 			}
+			$phpcsFile->fixer->endChangeset();
 		}
 	}
 }
