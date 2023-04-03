@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable MediaWiki.Usage.ShortListSyntax
+
 /**
  * Failed examples.
  * @param array $arg An arg
