@@ -29,6 +29,7 @@ use PHPUnit\Framework\TestCase;
 class ExtensionInfoTest extends TestCase {
 
 	public function testSupportsMediaWikiNorequiredVersion() {
+		// @phan-suppress-next-line PhanAccessMethodInternal
 		$extensionInfo = new ExtensionInfo( __DIR__ . '/files/Utils/norequiredVersion' );
 		$this->assertFalse( $extensionInfo->supportsMediaWiki( '1.33' ) );
 		$this->assertFalse( $extensionInfo->supportsMediaWiki( '1.34' ) );
@@ -36,6 +37,7 @@ class ExtensionInfoTest extends TestCase {
 	}
 
 	public function testSupportsMediaWikiRequiredVersion() {
+		// @phan-suppress-next-line PhanAccessMethodInternal
 		$extensionInfo = new ExtensionInfo( __DIR__ . '/files/Utils/requiredVersion' );
 		$this->assertFalse( $extensionInfo->supportsMediaWiki( '1.33' ) );
 		$this->assertTrue( $extensionInfo->supportsMediaWiki( '1.34' ) );
@@ -45,6 +47,7 @@ class ExtensionInfoTest extends TestCase {
 	}
 
 	public function testJsonFileNotFound() {
+		// @phan-suppress-next-line PhanAccessMethodInternal
 		$extensionInfo = new ExtensionInfo( __DIR__ . '/files/Utils/notfound' );
 		$this->assertFalse( $extensionInfo->supportsMediaWiki( '1.33' ) );
 		$this->assertFalse( $extensionInfo->supportsMediaWiki( '1.34' ) );
