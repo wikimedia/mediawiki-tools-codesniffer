@@ -1,0 +1,95 @@
+   3 | ERROR   | [x] Expected 1 space(s) after IF keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+   3 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 3
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+   5 | ERROR   | [x] Expected 1 space after closing brace; 2 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+   5 | ERROR   | [x] Expected 1 space(s) after ELSEIF keyword; 3 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+   5 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 0
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+   7 | ERROR   | [x] Expected 1 space after closing brace; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+   7 | ERROR   | [x] Expected 1 space(s) after ELSE keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  11 | ERROR   | [x] Expected 1 space(s) after TRY keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  13 | ERROR   | [x] Expected 1 space after closing brace; 3 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+  13 | ERROR   | [x] Expected 1 space(s) after CATCH keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  15 | ERROR   | [x] Expected 1 space after closing brace; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+  15 | ERROR   | [x] Expected 1 space(s) after FINALLY keyword; 4 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  19 | ERROR   | [x] Expected 1 space(s) after DO keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  21 | ERROR   | [x] Expected 1 space(s) after WHILE keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  23 | ERROR   | [x] Expected 1 space(s) after WHILE keyword; 4 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  23 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 0
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  27 | ERROR   | [x] Expected 1 space(s) after FOR keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  27 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 4
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  31 | ERROR   | [x] Expected 1 space(s) after SWITCH keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  31 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 3
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  35 | ERROR   | [x] Expected 1 space(s) after MATCH keyword; 2 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  35 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  35 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  35 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 0
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  43 | ERROR   | [x] Expected 1 space after closing brace; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+  46 | ERROR   | [x] Expected 1 space after closing brace; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+  47 | ERROR   | [x] Expected 1 space(s) after ELSE keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  53 | ERROR   | [x] Expected 1 space after closing brace; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+  55 | ERROR   | [x] Expected 1 space after closing brace; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+  55 | ERROR   | [x] Expected 1 space(s) after ELSE keyword; 5 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  60 | ERROR   | [x] Expected 1 space after closing brace; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+  61 | ERROR   | [x] Expected 1 space(s) after ELSE keyword; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  66 | ERROR   | [x] Expected 0 space(s) after closing parenthesis; found 1
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  68 | ERROR   | [x] Expected 0 space(s) after closing parenthesis; found 1
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  70 | ERROR   | [x] Expected 0 space(s) after ELSE keyword; 1 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  72 | WARNING | [ ] Alternative syntax such as "endif" should not be used
+     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
+  94 | WARNING | [ ] Alternative syntax such as "endif" should not be used
+     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
+  98 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+ 101 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+ 106 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 3
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+ 116 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 2
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+ 129 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+ 129 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+ 161 | ERROR   | [x] Expected 1 space after closing brace; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+ 168 | ERROR   | [x] Expected 1 space after closing brace; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+ 171 | ERROR   | [x] Expected 1 space after closing brace; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+ 180 | ERROR   | [x] Expected 1 space after closing brace; newline found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
+PHPCBF CAN FIX THE 45 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,9 +1,0 @@
- 30 | WARNING | [x] Expected catch to be on the same line as previous closing brace
-    |         |     (MediaWiki.WhiteSpace.SameLineCatch.CatchNotOnSameLine)
- 37 | WARNING | [x] Expected catch to be on the same line as previous closing brace
-    |         |     (MediaWiki.WhiteSpace.SameLineCatch.CatchNotOnSameLine)
- 41 | WARNING | [x] Expected catch to be on the same line as previous closing brace
-    |         |     (MediaWiki.WhiteSpace.SameLineCatch.CatchNotOnSameLine)
- 49 | WARNING | [x] Expected catch to be on the same line as previous closing brace
-    |         |     (MediaWiki.WhiteSpace.SameLineCatch.CatchNotOnSameLine)
-PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
