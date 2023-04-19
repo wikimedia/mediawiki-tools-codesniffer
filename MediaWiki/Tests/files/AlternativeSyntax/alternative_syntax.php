@@ -6,7 +6,7 @@
  */
 function wfFailedExamples() {
 	declare ( ticks = 1 ):
-	echo "foo";
+		echo "foo";
 	enddeclare;
 
 	for ( $i = 0; $i < 5; $i++ ):
@@ -44,7 +44,7 @@ function wfFailedExamples() {
  */
 function wfPassedExamples() {
 	declare ( ticks = 1 ) {
-	echo "foo";
+		echo "foo";
 	}
 
 	for ( $i = 0; $i < 5; $i++ ) {

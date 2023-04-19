@@ -1,7 +1,7 @@
 <?php
 
-// phpcs:disable Squiz.WhiteSpace.FunctionSpacing
-// Unexpected behaviour - see https://github.com/squizlabs/PHP_CodeSniffer/issues/2406
+// phpcs:disable Generic.WhiteSpace.ScopeIndent.IncorrectExact
+// Curly braces not introducing a new scope confuse this sniff.
 
 /**
  * This thing is here to test for scope checks

@@ -90,6 +90,23 @@
 	<rule ref="Generic.WhiteSpace.IncrementDecrementSpacing" />
 	<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter" />
 	<rule ref="Generic.WhiteSpace.LanguageConstructSpacing" />
+	<rule ref="Generic.WhiteSpace.ScopeIndent">
+		<properties>
+			<property name="tabIndent" value="true" />
+			<property name="ignoreIndentationTokens" type="array">
+				<!-- Comments before else(if) branches are sometimes aligned with the else(if) line -->
+				<element value="T_COMMENT" />
+				<!-- Long strings and heredoc/nowdoc sometimes start at the beginning of the line -->
+				<element value="T_CONSTANT_ENCAPSED_STRING" />
+				<element value="T_DOUBLE_QUOTED_STRING" />
+				<element value="T_START_HEREDOC" />
+				<element value="T_START_NOWDOC" />
+				<!-- PHP opening and closing tag don't have to be indented -->
+				<element value="T_OPEN_TAG" />
+				<element value="T_CLOSE_TAG" />
+			</property>
+		</properties>
+	</rule>
 
 	<rule ref="PSR2.Classes.ClassDeclaration">
 		<exclude name="PSR2.Classes.ClassDeclaration.SpaceBeforeBrace" />

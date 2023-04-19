@@ -1,5 +1,8 @@
 <?php
 
+// phpcs:disable Generic.WhiteSpace.ScopeIndent.Incorrect
+// Sniff fails with multiline `yield from`: https://github.com/squizlabs/PHP_CodeSniffer/issues/3808
+
 /**
  * Failed examples.
  * @return mixed
