@@ -14,6 +14,7 @@
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<rule ref="Generic.Classes.DuplicateClassName" />
+	<rule ref="Generic.CodeAnalysis.AssignmentInCondition" />
 	<rule ref="Generic.CodeAnalysis.EmptyPHPStatement" />
 	<!-- Some people like else { /** comment */ }
 	<rule ref="Generic.CodeAnalysis.EmptyStatement" />
@@ -168,6 +169,7 @@
 		</properties>
 	</rule>
 	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
+	<rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace" />
 	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
 		<properties>
 			<property name="spacing" value="1" />
