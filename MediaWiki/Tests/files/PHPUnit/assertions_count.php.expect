@@ -6,16 +6,24 @@
     |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
  25 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
     |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
- 28 | WARNING | [x] assertCount can be used instead of manually using assertEquals with the result
+ 26 | WARNING | [x] assertSameSize can be used instead of manually using assertSame with the result
+    |         |     of count() (MediaWiki.PHPUnit.AssertCount.AssertSameSize)
+ 27 | WARNING | [x] assertSameSize can be used instead of manually using assertSame with the result
+    |         |     of count() (MediaWiki.PHPUnit.AssertCount.AssertSameSize)
+ 28 | WARNING | [x] assertSameSize can be used instead of manually using assertCount with the
+    |         |     result of count() (MediaWiki.PHPUnit.AssertCount.AssertSameSize)
+ 29 | WARNING | [x] assertSameSize can be used instead of manually using assertCount with the
+    |         |     result of count() (MediaWiki.PHPUnit.AssertCount.AssertSameSize)
+ 32 | WARNING | [x] assertCount can be used instead of manually using assertEquals with the result
     |         |     of count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
- 29 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
-    |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
- 30 | WARNING | [x] assertCount can be used instead of manually using assertEquals with the result
-    |         |     of count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
- 31 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
-    |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
- 32 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
-    |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
  33 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
     |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
-PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 34 | WARNING | [x] assertCount can be used instead of manually using assertEquals with the result
+    |         |     of count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
+ 35 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
+    |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
+ 36 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
+    |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
+ 37 | WARNING | [x] assertCount can be used instead of manually using assertSame with the result of
+    |         |     count() (MediaWiki.PHPUnit.AssertCount.NotUsed)
+PHPCBF CAN FIX THE 14 MARKED SNIFF VIOLATIONS AUTOMATICALLY

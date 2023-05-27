@@ -23,6 +23,10 @@ class AssertionsCountTest extends \PHPUnit\Framework\TestCase {
 		$this->assertCount( 3, $arr, 'Message' );
 		$this->assertCount( 3, $arr );
 		$this->assertCount( 3, $arr, 'Message' );
+		$this->assertSameSize( $arr, $otherArr );
+		$this->assertSameSize( $arr, $otherArr, 'Message' );
+		$this->assertSameSize( $arr, $otherArr );
+		$this->assertSameSize( $arr, $otherArr, 'Message' );
 
 		// More complex
 		$this->assertCount( 1 + 2, $arr );
@@ -36,6 +40,8 @@ class AssertionsCountTest extends \PHPUnit\Framework\TestCase {
 		$this->assertSame( 6, count( $arr ) * 2 );
 		$d = Foo::assertEquals;
 		$this->assertSame( Foo::assertEquals, count::assertEquals, 'Message' );
-		$this->assertSame( count( $arr ), count( $otherArr ) );
+		$this->assertCount( 3, $arr );
+		$this->assertCount( 3, $arr, 'Message' );
+		$this->assertCount( count( $arr ), count( $otherArr ) );
 	}
 }

@@ -18,6 +18,7 @@ class AssertCountSniff implements Sniff {
 	private const ASSERTIONS = [
 		'assertEquals' => true,
 		'assertSame' => true,
+		'assertCount' => true,
 	];
 
 	/**
@@ -53,14 +54,8 @@ class AssertCountSniff implements Sniff {
 		}
 		$end = $tokens[$opener]['parenthesis_closer'];
 
-		// Don't complain about the second parameter using count() if the first does
-		// too, see T273352
-		$expectedStart = $phpcsFile->findNext( T_WHITESPACE, $opener + 1, null, true );
-		if ( $expectedStart
-			&& $tokens[$expectedStart]['code'] === T_STRING
-			&& $tokens[$expectedStart]['content'] === 'count'
-		) {
-			// Don't trigger again for this line
+		$firstCount = $this->parseCount( $phpcsFile, $opener );
+		if ( !$firstCount && $assertion === 'assertCount' ) {
 			return $end;
 		}
 
@@ -99,7 +94,43 @@ class AssertCountSniff implements Sniff {
 			$next = $phpcsFile->findNext( $searchTokens, $next + 1, $end );
 		}
 
-		$countToken = $phpcsFile->findNext( T_WHITESPACE, $commaToken + 1, null, true );
+		$secondCount = $this->parseCount( $phpcsFile, $commaToken );
+		if ( !( $secondCount xor $assertion === 'assertCount' ) ) {
+			return $end;
+		}
+
+		// T330008: Prefer assertSameSize when both part of comparison are count()
+		$newAssert = $firstCount ? 'assertSameSize' : 'assertCount';
+		$fix = $phpcsFile->addFixableWarning(
+			'%s can be used instead of manually using %s with the result of count()',
+			$stackPtr,
+			$newAssert === 'assertSameSize' ? 'AssertSameSize' : 'NotUsed',
+			[ $newAssert, $assertion ]
+		);
+		if ( !$fix ) {
+			return;
+		}
+
+		$phpcsFile->fixer->replaceToken( $stackPtr, $newAssert );
+		if ( $firstCount ) {
+			$this->replaceCountContent( $phpcsFile, $firstCount );
+		}
+		if ( $secondCount ) {
+			$this->replaceCountContent( $phpcsFile, $secondCount );
+		}
+
+		// There is no way the next assertEquals() or assertSame() can be closer than this
+		return $tokens[$opener]['parenthesis_closer'] + 4;
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @return array|void
+	 */
+	private function parseCount( File $phpcsFile, int $stackPtr ) {
+		$tokens = $phpcsFile->getTokens();
+		$countToken = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 1, null, true );
 		if ( $tokens[$countToken]['code'] !== T_STRING ||
 			$tokens[$countToken]['content'] !== 'count'
 		) {
@@ -121,19 +152,19 @@ class AssertCountSniff implements Sniff {
 			return;
 		}
 
-		$fix = $phpcsFile->addFixableWarning(
-			'assertCount can be used instead of manually using %s with the result of count()',
-			$stackPtr,
-			'NotUsed',
-			[ $assertion ]
-		);
-		if ( !$fix ) {
-			return;
-		}
+		return [ $countToken, $countOpen, $countClose ];
+	}
 
+	/**
+	 * @param File $phpcsFile
+	 * @param int[] $parsed
+	 * @return void
+	 */
+	private function replaceCountContent( File $phpcsFile, array $parsed ) {
+		[ $countToken, $countOpen, $countClose ] = $parsed;
 		$countContentStart = $phpcsFile->findNext( T_WHITESPACE, $countOpen + 1, null, true );
 		$countContentEnd = $phpcsFile->findPrevious( T_WHITESPACE, $countClose - 1, null, true );
-		$phpcsFile->fixer->replaceToken( $stackPtr, 'assertCount' );
+
 		$phpcsFile->fixer->replaceToken( $countToken, '' );
 		$phpcsFile->fixer->replaceToken( $countOpen, '' );
 		for ( $i = $countOpen + 1; $i < $countContentStart; $i++ ) {
@@ -145,9 +176,6 @@ class AssertCountSniff implements Sniff {
 			$phpcsFile->fixer->replaceToken( $i, '' );
 		}
 		$phpcsFile->fixer->replaceToken( $countClose, '' );
-
-		// There is no way the next assertEquals() or assertSame() can be closer than this
-		return $tokens[$opener]['parenthesis_closer'] + 4;
 	}
 
 }
