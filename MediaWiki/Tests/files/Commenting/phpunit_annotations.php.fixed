@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
+
 /**
  * Not a Test file
  * @coversDefaultClass Test
@@ -117,4 +119,35 @@ class Examples2Test {
 	public function testDoc() {
 	}
 
+}
+
+use Path\To\AnotherClass;
+use Path\To\OtherClass;
+
+/**
+ * @covers \Path\To\OtherClass
+ */
+class RelativeCoversTest {
+
+	/**
+	 * @covers \Path\To\OtherClass::foo
+	 */
+	public function testFoo() {
+		$instance = new OtherClass();
+		$this->assertTrue( $instance->foo() );
+	}
+}
+
+/**
+ * @coversDefaultClass \Path\To\AnotherClass
+ */
+class RelativeCoversDefaultClassTest {
+
+	/**
+	 * @covers ::foo
+	 */
+	public function testFoo() {
+		$instance = new AnotherClass();
+		$this->assertTrue( $instance->foo() );
+	}
 }

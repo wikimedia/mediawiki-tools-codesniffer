@@ -23,6 +23,7 @@ namespace MediaWiki\Sniffs\Commenting;
 use MediaWiki\Sniffs\PHPUnit\PHPUnitTestTrait;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 class PhpunitAnnotationsSniff implements Sniff {
 	use PHPUnitTestTrait;
@@ -140,13 +141,20 @@ class PhpunitAnnotationsSniff implements Sniff {
 		],
 	];
 
+	private const ABSOLUTE_CLASS_ANNOTATIONS = [
+		'@covers' => 'AbsoluteCovers',
+		'@coversDefaultClass' => 'AbsoluteCoversDefaultClass',
+	];
+
+	private array $useClasses = [];
+
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
 	 * @return array
 	 */
 	public function register(): array {
-		return [ T_DOC_COMMENT_OPEN_TAG ];
+		return [ T_OPEN_TAG, T_USE, T_DOC_COMMENT_OPEN_TAG ];
 	}
 
 	/**
@@ -157,6 +165,48 @@ class PhpunitAnnotationsSniff implements Sniff {
 	 * @return void
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
+		$tokens = $phpcsFile->getTokens();
+		if ( $tokens[$stackPtr]['code'] === T_OPEN_TAG ) {
+			// Run into a new file.
+			$this->useClasses = [];
+		} elseif ( $tokens[$stackPtr]['code'] === T_USE ) {
+			$this->processUse( $phpcsFile, $stackPtr );
+		} else {
+			$this->processDocBlock( $phpcsFile, $stackPtr );
+		}
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr Position of T_USE
+	 * @return void
+	 */
+	private function processUse( File $phpcsFile, int $stackPtr ) {
+		$tokens = $phpcsFile->getTokens();
+		$next = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
+
+		$className = '';
+		while ( in_array( $tokens[$next]['code'], [ T_STRING, T_NS_SEPARATOR ] ) ) {
+			$className .= $tokens[$next++]['content'];
+		}
+		$className = ltrim( $className, '\\' );
+
+		if (
+			// Exclude: not `use` for classes, group of use statements or use of `as`;
+			$tokens[$next]['code'] === T_SEMICOLON &&
+			// Exclude: classes without namespaces.
+			str_contains( $className, '\\' )
+		) {
+			$this->useClasses[$tokens[$next - 1]['content']] = '\\' . $className;
+		}
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr Position of T_DOC_COMMENT_OPEN_TAG
+	 * @return void
+	 */
+	public function processDocBlock( File $phpcsFile, int $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$end = $tokens[$stackPtr]['comment_closer'];
 		foreach ( $tokens[$stackPtr]['comment_tags'] as $tag ) {
@@ -241,6 +291,20 @@ class PhpunitAnnotationsSniff implements Sniff {
 					'The phpunit annotation %s must be followed by text.',
 					$tag, $this->createSniffCode( 'Empty', $tagText ), [ $tagText ]
 				);
+			} elseif ( isset( self::ABSOLUTE_CLASS_ANNOTATIONS[$tagText] ) ) {
+				$coveredClass = explode( '::', $tokens[$next]['content'] )[0];
+				if ( isset( $this->useClasses[$coveredClass] ) ) {
+					$fix = $phpcsFile->addFixableWarning(
+						'Use absolute class name (%s) for %s annotation instead',
+						$next, self::ABSOLUTE_CLASS_ANNOTATIONS[$tagText],
+						[ $this->useClasses[$coveredClass], $tagText ]
+					);
+					if ( $fix ) {
+						$replace = $this->useClasses[$coveredClass] .
+							substr( $tokens[$next]['content'], strlen( $coveredClass ) );
+						$phpcsFile->fixer->replaceToken( $next, $replace );
+					}
+				}
 			}
 		}
 

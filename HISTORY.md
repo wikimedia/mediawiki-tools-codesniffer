@@ -20,6 +20,7 @@
 * `FunctionAnnotationsSniff`: Add `@phan-type` as an allowed annotation (Umherirrender)
 * `FunctionAnnotationsSniff`: Add `@phan-side-effect-free` as an allowed annotation (Bartosz Dziewoński)
 * `LowerCamelFunctionsNameSniff`: Ignore hook methods (DannyS712)
+* `PhpunitAnnotationsSniff`: Enforce absolute class path for coverage annotations (Func)
 
 ### Removed sniffs ###
 * `OneSpaceInlineArraySniff`: Superseded by `Universal.WhiteSpace.CommaSpacing`
