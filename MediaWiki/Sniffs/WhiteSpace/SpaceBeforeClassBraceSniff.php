@@ -11,17 +11,15 @@ namespace MediaWiki\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
+use UnexpectedValueException;
 
 class SpaceBeforeClassBraceSniff implements Sniff {
 	/**
 	 * @inheritDoc
 	 */
 	public function register(): array {
-		return [
-			T_CLASS,
-			T_INTERFACE,
-			T_TRAIT,
-		];
+		return Tokens::$ooScopeTokens;
 	}
 
 	/**
@@ -34,6 +32,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 		if ( !isset( $tokens[$stackPtr]['scope_opener'] ) ) {
 			return;
 		}
+		$structKeyword = $this->getStructureKeyword( $tokens[$stackPtr]['code'] );
 		$openBrace = $tokens[$stackPtr]['scope_opener'];
 		// Find previous non-whitespace token from the opening brace
 		$pre = $phpcsFile->findPrevious( T_WHITESPACE, $openBrace - 1, null, true );
@@ -43,7 +42,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 			// the { should be on a line by itself.
 			if ( $tokens[$pre]['line'] === $tokens[$openBrace]['line'] ) {
 				$fix = $phpcsFile->addFixableWarning(
-					'Expected class open brace to be on a new line',
+					"Expected $structKeyword open brace to be on a new line",
 					$openBrace,
 					'BraceNotOnOwnLine'
 				);
@@ -62,7 +61,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 
 		if ( $spaceCount !== 1 ) {
 			$fix = $phpcsFile->addFixableWarning(
-				'Expected 1 space before class open brace. Found %s.',
+				"Expected 1 space before $structKeyword open brace. Found %s.",
 				$openBrace,
 				'NoSpaceBeforeBrace',
 				[ $spaceCount ]
@@ -77,7 +76,7 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 
 		if ( $tokens[$openBrace]['line'] !== $tokens[$pre]['line'] ) {
 			$fix = $phpcsFile->addFixableWarning(
-				'Expected class open brace to be on the same line as class keyword.',
+				"Expected $structKeyword open brace to be on the same line as the `$structKeyword` keyword.",
 				$openBrace,
 				'BraceNotOnSameLine'
 			);
@@ -88,6 +87,28 @@ class SpaceBeforeClassBraceSniff implements Sniff {
 				}
 				$phpcsFile->fixer->endChangeset();
 			}
+		}
+	}
+
+	/**
+	 * Returns the keyword used to define the OOP structure of the given type.
+	 *
+	 * @param int|string $tokenType
+	 * @return string
+	 */
+	private function getStructureKeyword( $tokenType ): string {
+		switch ( $tokenType ) {
+			case T_CLASS:
+			case T_ANON_CLASS:
+				return 'class';
+			case T_INTERFACE:
+				return 'interface';
+			case T_TRAIT:
+				return 'trait';
+			case T_ENUM:
+				return 'enum';
+			default:
+				throw new UnexpectedValueException( "Token $tokenType not handled" );
 		}
 	}
 }

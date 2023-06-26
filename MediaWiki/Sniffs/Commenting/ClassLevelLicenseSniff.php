@@ -7,7 +7,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
 /**
- * Custom sniff that requires all classes, interfaces, and traits in a codebase to have the same
+ * Custom sniff that requires all classes, interfaces, traits, and enums in a codebase to have the same
  * license doc tag. Note this sniff doesn't do anything by default. You need to enable it in your
  * .phpcs.xml if you want to use it:
  * <rule ref="MediaWiki.Commenting.ClassLevelLicense">
@@ -33,7 +33,7 @@ class ClassLevelLicenseSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register(): array {
-		return [ T_CLASS, T_INTERFACE, T_TRAIT ];
+		return [ T_CLASS, T_INTERFACE, T_TRAIT, T_ENUM ];
 	}
 
 	/**

@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
+
 /**
  * no space before class brace.
  */
@@ -41,3 +43,21 @@ class TestThisIsNotOk
 	implements AnotherReallyLongClassName {
 	# code...
 }
+
+interface ThisInterfaceIsOK {
+}
+
+interface ThisInterfaceShouldFail{
+}
+
+trait ThisTraitIsOK {
+}
+
+trait ThisTraitShouldFail{
+}
+
+$thisIsOK = new class () {
+};
+
+$thisShouldFail = new class (){
+};

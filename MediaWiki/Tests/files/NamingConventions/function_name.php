@@ -1,4 +1,7 @@
 <?php
+
+// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
+
 /**
  * Normal (non-unit-test) class.
  */
@@ -53,6 +56,30 @@ class NotATestClassCase {
 	public function &failed_ReferenceExamples() {
 	}
 }
+
+interface TestInterface {
+	public function thisIsOK() {
+	}
+
+	public function This_IsNotOK() {
+	}
+}
+
+trait TestTrait {
+	public function thisIsOK() {
+	}
+
+	public function This_IsNotOK() {
+	}
+}
+
+new class () {
+	public function thisIsOK() {
+	}
+
+	public function This_IsNotOK() {
+	}
+};
 
 /**
  * Unit tests have different naming conventions.

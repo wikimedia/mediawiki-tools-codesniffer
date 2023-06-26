@@ -5,9 +5,10 @@ namespace MediaWiki\Sniffs\NamingConventions;
 use MediaWiki\Sniffs\PHPUnit\PHPUnitTestTrait;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 /**
- * Make sure lower camel function name.
+ * Make sure lower camel method name.
  */
 class LowerCamelFunctionsNameSniff implements Sniff {
 
@@ -49,13 +50,6 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 		'__setsoapheaders' => true
 	];
 
-	// Scope list.
-	private const SCOPE_LIST = [
-		T_CLASS => true,
-		T_INTERFACE => true,
-		T_TRAIT => true
-	];
-
 	/**
 	 * @inheritDoc
 	 */
@@ -92,12 +86,12 @@ class LowerCamelFunctionsNameSniff implements Sniff {
 
 		$tokens = $phpcsFile->getTokens();
 		foreach ( $tokens[$stackPtr]['conditions'] as $code ) {
-			if ( !isset( self::SCOPE_LIST[$code] ) ) {
+			if ( !isset( Tokens::$ooScopeTokens[$code] ) ) {
 				continue;
 			}
 
 			$phpcsFile->addError(
-				'Function name "%s" should use lower camel case.',
+				'Method name "%s" should use lower camel case.',
 				$stackPtr,
 				'FunctionName',
 				[ $originalFunctionName ]

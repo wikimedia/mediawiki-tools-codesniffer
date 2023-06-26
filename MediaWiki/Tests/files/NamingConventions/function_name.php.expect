@@ -1,12 +1,16 @@
- 10 | ERROR | Function name "FailedExamples" should use lower camel case.
-    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 18 | ERROR | Function name "failed_Examples" should use lower camel case.
-    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 46 | ERROR | Function name "testSomeMethod_foo" should use lower camel case.
-    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 53 | ERROR | Function name "failed_ReferenceExamples" should use lower camel case.
-    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
- 60 | ERROR | Only one object structure is allowed in a file
-    |       | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 80 | ERROR | Function name "helper_method" should use lower camel case.
-    |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+  13 | ERROR | Method name "FailedExamples" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+  21 | ERROR | Method name "failed_Examples" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+  49 | ERROR | Method name "testSomeMethod_foo" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+  56 | ERROR | Method name "failed_ReferenceExamples" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+  64 | ERROR | Method name "This_IsNotOK" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+  72 | ERROR | Method name "This_IsNotOK" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+  80 | ERROR | Method name "This_IsNotOK" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
+ 107 | ERROR | Method name "helper_method" should use lower camel case.
+     |       | (MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName)
