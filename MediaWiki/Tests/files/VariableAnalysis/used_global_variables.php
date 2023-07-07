@@ -9,6 +9,7 @@ function wfFailedExamples() {
 	global $wgSomething;
 	global $wgSameLine,
 		$wgNextLine;
+	global $wgThisIsNotUsed, $$skipThisButNotThePreviousOne;
 
 	static function () {
 		global $wgSomething, $wgClosureUnused;
@@ -32,6 +33,7 @@ function wfPassedExamples() {
 	global $wgTwo, $wgClosure,
 		$wgThree,
 		$wgFour;
+	global $$dynamicNameShouldBeSkipped;
 
 	// global variable used via heredoc.
 	$foo = <<<PHP

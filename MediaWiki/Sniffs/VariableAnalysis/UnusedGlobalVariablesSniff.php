@@ -64,7 +64,8 @@ class UnusedGlobalVariablesSniff implements Sniff {
 
 			if ( $code === T_GLOBAL ) {
 				$endOfGlobal = $phpcsFile->findEndOfStatement( $i, T_COMMA );
-			} elseif ( $code === T_VARIABLE ) {
+			} elseif ( $code === T_VARIABLE && $tokens[$i - 1]['code'] !== T_DOLLAR ) {
+				// Note, this skips dynamic variable names.
 				$variableName = $tokens[$i]['content'];
 				if ( $i < $endOfGlobal ) {
 					$globalVariables[$variableName] = $i;
@@ -82,10 +83,10 @@ class UnusedGlobalVariablesSniff implements Sniff {
 			}
 		}
 
-		foreach ( $globalVariables as $variableName => $stackPtr ) {
+		foreach ( $globalVariables as $variableName => $variableIndex ) {
 			$phpcsFile->addWarning(
 				'Global %s is never used.',
-				$stackPtr,
+				$variableIndex,
 				'UnusedGlobal' . $variableName,
 				[ $variableName ]
 			);

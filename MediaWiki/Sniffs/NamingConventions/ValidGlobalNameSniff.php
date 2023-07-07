@@ -74,9 +74,8 @@ class ValidGlobalNameSniff implements Sniff {
 		$semicolonIndex = $phpcsFile->findNext( T_SEMICOLON, $stackPtr + 1 );
 
 		while ( $nameIndex < $semicolonIndex ) {
-			if ( $tokens[$nameIndex ]['code'] !== T_WHITESPACE
-				&& $tokens[$nameIndex ]['code'] !== T_COMMA
-			) {
+			// Note, this skips dynamic identifiers.
+			if ( $tokens[$nameIndex ]['code'] === T_VARIABLE && $tokens[$nameIndex - 1]['code'] !== T_DOLLAR ) {
 				$globalName = $tokens[$nameIndex]['content'];
 
 				if ( in_array( $globalName, $this->ignoreList ) ||

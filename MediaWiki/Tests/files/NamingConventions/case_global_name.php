@@ -9,8 +9,10 @@ function wfFailedExamples() {
 	// Testing with a valid variable in the middle to ensure that the global after
 	// it is still checked, see T279968
 	global $wgsomething, $wgValidName, $LocalInterwikis;
+	global $thisIsWrong, $$thisShouldBeSkipped;
 	$wgsomething = $wgValidName;
 	$LocalInterwikis = false;
+	echo $thisIsWrong;
 }
 
 /**
@@ -19,6 +21,8 @@ function wfFailedExamples() {
  */
 function wfPassedExamples() {
 	global $wgSomething, $wgLocalInterwikis, $wg3dProcessor;
+	global $$dynamicNameShouldBeSkipped;
+	global $$$$$$thisShouldAlsoBeSkipped;
 	$wgSomething = 5;
 	$wgLocalInterwikis = false;
 	$wg3dProcessor = null;
