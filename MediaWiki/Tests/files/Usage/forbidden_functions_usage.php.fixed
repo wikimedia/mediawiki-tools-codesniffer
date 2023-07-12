@@ -24,3 +24,4 @@ $a = FooBar::sizeof['b'];
 define( 'ALLOWED', 42 );
 define( 'FORBIDDEN_CASE_SENSITIVE', 42, true );
 eval( '' );
+define( 'ARRAY_AS_SECOND_ARGUMENT_ALLOWED', [ 1, 2 ] );

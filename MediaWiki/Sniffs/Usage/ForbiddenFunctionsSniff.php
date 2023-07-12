@@ -206,6 +206,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 			$searchTokens = [
 				T_OPEN_CURLY_BRACKET,
 				T_OPEN_SQUARE_BRACKET,
+				T_OPEN_SHORT_ARRAY,
 				T_OPEN_PARENTHESIS,
 				T_COMMA
 			];
@@ -217,6 +218,12 @@ class ForbiddenFunctionsSniff implements Sniff {
 						if ( isset( $tokens[$next]['parenthesis_closer'] ) ) {
 							// jump to closing parenthesis to ignore commas between opener and closer
 							$next = $tokens[$next]['parenthesis_closer'];
+						}
+						break;
+					case T_OPEN_SHORT_ARRAY:
+						if ( isset( $tokens[$next]['bracket_closer'] ) ) {
+							// jump to closing bracket to ignore commas between opener and closer
+							$next = $tokens[$next]['bracket_closer'];
 						}
 						break;
 					case T_COMMA:
