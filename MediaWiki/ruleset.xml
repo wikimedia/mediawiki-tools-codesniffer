@@ -211,6 +211,11 @@
 		<severity>0</severity>
 	</rule>
 
+	<rule ref="MediaWiki.PHPUnit.MockBoilerplate.ConstaintEqualTo">
+		<!-- Set this to 5 or higher in your .phpcs.xml if you want to use this sniff -->
+		<severity>0</severity>
+	</rule>
+
 	<!-- Exclude common folders from version control or build tools -->
 	<exclude-pattern type="relative">^(\.git|coverage|node_modules|vendor)/*</exclude-pattern>
 </ruleset>

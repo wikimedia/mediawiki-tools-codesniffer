@@ -29,16 +29,16 @@ class MockBoilerplateTest extends \PHPUnit\Framework\TestCase {
 	/** @coversNothing */
 	public function testWithEqualTo() {
 		$mock = $this->createMock( FooBar::class );
-		$mock->method( 'has' )->with( 'value' )->willReturn( true );
-		$mock->method( 'get' )->with( 'value' )->willReturn( 1 );
+		$mock->method( 'has' )->with( $this->equalTo( 'value' ) )->willReturn( true );
+		$mock->method( 'get' )->with( $this->equalTo( 'value' ) )->willReturn( 1 );
 		$mock->method( 'multi' )->with(
-			'first',
+			$this->equalTo( 'first' ),
 			'second',
-			$this->logicalOr( 'third-a', 'third-b' )
+			$this->logicalOr( $this->equalTo( 'third-a' ), 'third-b' )
 		)->willReturn( false );
 		// equalTo() with a parameter that includes a comma (function call)
 		$mock->method( 'calculated' )->with(
-			addValues( 1, 2 )
+			$this->equalTo( addValues( 1, 2 ) )
 		)->willReturn( false );
 	}
 
