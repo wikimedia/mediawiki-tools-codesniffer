@@ -2,16 +2,18 @@
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
   5 | WARNING | [x] Unused use statement "InvalidArgumentException"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 23 | WARNING | [x] Unused use statement "Unused"
+  6 | WARNING | [x] Unused use statement "AFunctionName"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 25 | WARNING | [x] Unused use statement "SomeAlias"
+ 24 | WARNING | [x] Unused use statement "Unused"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 30 | WARNING | [x] Unused use statement "FullyQualified"
+ 26 | WARNING | [x] Unused use statement "SomeAlias"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 33 | WARNING | [x] Unused use statement "LBFactory"
+ 31 | WARNING | [x] Unused use statement "FullyQualified"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 34 | WARNING | [x] Unnecessary use statement "someFunction" in the same namespace
+ 34 | WARNING | [x] Unused use statement "LBFactory"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 35 | WARNING | [x] Unnecessary use statement "someFunction" in the same namespace
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
- 35 | WARNING | [x] Unnecessary use statement "SOME_CONST" in the same namespace
+ 36 | WARNING | [x] Unnecessary use statement "SOME_CONST" in the same namespace
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
-PHPCBF CAN FIX THE 8 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -114,12 +114,13 @@ class UnusedUseStatementSniff implements Sniff {
 
 				// If a backslash is used before the class name then this is some other
 				// use statement.
-				// T_STRING also used for $this->property or self::function()
+				// T_STRING also used for $this->property or self::function() or "function namedFuncton()"
 				$before = $phpcsFile->findPrevious( Tokens::$emptyTokens, $i - 1, null, true );
 				if ( $tokens[$before]['code'] === T_OBJECT_OPERATOR
 					|| $tokens[$before]['code'] === T_NULLSAFE_OBJECT_OPERATOR
 					|| $tokens[$before]['code'] === T_DOUBLE_COLON
 					|| $tokens[$before]['code'] === T_NS_SEPARATOR
+					|| $tokens[$before]['code'] === T_FUNCTION
 					// Trait use statement within a class.
 					|| ( $tokens[$before]['code'] === T_USE
 						&& empty( $tokens[$before]['conditions'] )

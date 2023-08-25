@@ -3,6 +3,7 @@ namespace FooBar;
 
 use FooBar\Baz;
 use \InvalidArgumentException;
+use Something\AFunctionName;
 use Something\ClassProp1;
 use Something\ClassProp2;
 use Something\ClassProp3;
@@ -130,6 +131,9 @@ class Foo {
 		'@phan-var-force UsedForPhanVarForce $exampleVar';
 		$exampleVar = $arr['key'];
 		return $exampleVar->getNumber();
+	}
+
+	public function aFunctionName() {
 	}
 }
 

@@ -123,6 +123,9 @@ class Foo {
 		$exampleVar = $arr['key'];
 		return $exampleVar->getNumber();
 	}
+
+	public function aFunctionName() {
+	}
 }
 
 $fn = static function () use ( $a ) {
