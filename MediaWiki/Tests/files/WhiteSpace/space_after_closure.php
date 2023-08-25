@@ -7,6 +7,9 @@ $good_with_arg = static function ( $arg ) {
 	// pass
 };
 
+array_filter( $a, static fn ( $val ) => $val === 1 );
+array_filter( $a, fn ( $val ) => $val === 1 );
+
 $bad = static function() {
 	// fail
 };
@@ -18,3 +21,6 @@ $alsobad = static function         () {
 $bad_with_arg = static function( $param ) {
 	// fail
 };
+
+array_filter( $a, static fn( $val ) => $val === 1 );
+array_filter( $a, fn( $val ) => $val === 1 );

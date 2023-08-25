@@ -1,7 +1,11 @@
- 10 | ERROR | [x] A single space should be after the function keyword in closures
+ 13 | ERROR | [x] A single space should be after the function keyword in closures
     |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure)
- 14 | ERROR | [x] A single space should be after the function keyword in closures
+ 17 | ERROR | [x] A single space should be after the function keyword in closures
     |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.WrongWhitespaceAfterClosure)
- 18 | ERROR | [x] A single space should be after the function keyword in closures
+ 21 | ERROR | [x] A single space should be after the function keyword in closures
     |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure)
-PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 25 | ERROR | [x] A single space should be after the fn keyword in closures
+    |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterArrow)
+ 26 | ERROR | [x] A single space should be after the fn keyword in closures
+    |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterArrow)
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY

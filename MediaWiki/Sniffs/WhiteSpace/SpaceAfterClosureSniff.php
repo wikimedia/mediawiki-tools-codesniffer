@@ -30,6 +30,7 @@ class SpaceAfterClosureSniff implements Sniff {
 	public function register(): array {
 		return [
 			T_CLOSURE,
+			T_FN,
 		];
 	}
 
@@ -46,19 +47,23 @@ class SpaceAfterClosureSniff implements Sniff {
 				return;
 			}
 			// It's whitespace, but not a single space.
+			$token = $tokens[$stackPtr];
 			$fix = $phpcsFile->addFixableError(
-				'A single space should be after the function keyword in closures',
+				'A single space should be after the %s keyword in closures',
 				$stackPtr + 1,
-				'WrongWhitespaceAfterClosure'
+				$token['code'] === T_CLOSURE ? 'WrongWhitespaceAfterClosure' : 'WrongWhitespaceAfterArrow',
+				[ $token['content'] ]
 			);
 			if ( $fix ) {
 				$phpcsFile->fixer->replaceToken( $stackPtr + 1, ' ' );
 			}
 		} elseif ( $next['code'] === T_OPEN_PARENTHESIS ) {
+			$token = $tokens[$stackPtr];
 			$fix = $phpcsFile->addFixableError(
-				'A single space should be after the function keyword in closures',
+				'A single space should be after the %s keyword in closures',
 				$stackPtr,
-				'NoWhitespaceAfterClosure'
+				$token['code'] === T_CLOSURE ? 'NoWhitespaceAfterClosure' : 'NoWhitespaceAfterArrow',
+				[ $token['content'] ]
 			);
 			if ( $fix ) {
 				$phpcsFile->fixer->addContent( $stackPtr, ' ' );
