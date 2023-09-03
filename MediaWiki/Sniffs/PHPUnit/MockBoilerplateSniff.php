@@ -348,9 +348,10 @@ class MockBoilerplateSniff implements Sniff {
 				$withCloser,
 				true
 			);
+			// if its $this->logicalNot() or similar we want to skip past the closing
+			// parenthesis, just make sure its a function call here
 			if ( !$methodPtr
 				|| $tokens[$methodPtr]['code'] !== T_STRING
-				|| $tokens[$methodPtr]['content'] !== 'equalTo'
 			) {
 				continue;
 			}
@@ -368,6 +369,10 @@ class MockBoilerplateSniff implements Sniff {
 				continue;
 			}
 			$methodCloser = $tokens[$methodOpener]['parenthesis_closer'];
+			if ( $tokens[$methodPtr]['content'] !== 'equalTo' ) {
+				$thisPtr = $methodCloser;
+				continue;
+			}
 
 			// Check for equalTo() with a second parameter, which we cannot fix
 			$shouldSkip = false;
@@ -399,7 +404,7 @@ class MockBoilerplateSniff implements Sniff {
 			$fix = $phpcsFile->addFixableWarning(
 				'Default constraint equalTo() is unneeded and should be removed',
 				$methodPtr,
-				'ConstaintEqualTo'
+				'ConstraintEqualTo'
 			);
 			if ( !$fix ) {
 				// Next $this->equalTo() cannot be until after the current one

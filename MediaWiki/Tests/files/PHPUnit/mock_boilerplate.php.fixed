@@ -29,16 +29,16 @@ class MockBoilerplateTest extends \PHPUnit\Framework\TestCase {
 	/** @coversNothing */
 	public function testWithEqualTo() {
 		$mock = $this->createMock( FooBar::class );
-		$mock->method( 'has' )->with( $this->equalTo( 'value' ) )->willReturn( true );
-		$mock->method( 'get' )->with( $this->equalTo( 'value' ) )->willReturn( 1 );
+		$mock->method( 'has' )->with( 'value' )->willReturn( true );
+		$mock->method( 'get' )->with( 'value' )->willReturn( 1 );
 		$mock->method( 'multi' )->with(
-			$this->equalTo( 'first' ),
+			'first',
 			'second',
-			$this->logicalOr( $this->equalTo( 'third-a' ), 'third-b' )
+			'third'
 		)->willReturn( false );
 		// equalTo() with a parameter that includes a comma (function call)
 		$mock->method( 'calculated' )->with(
-			$this->equalTo( addValues( 1, 2 ) )
+			addValues( 1, 2 )
 		)->willReturn( false );
 	}
 
@@ -53,6 +53,26 @@ class MockBoilerplateTest extends \PHPUnit\Framework\TestCase {
 		$mock->method( 'baz' )->with(
 			$this->equalTo( 10, 0.1 )
 		)->willReturn( false );
+
+		// equalTo() within a logicalNot()
+		$mock->method( 'qux' )
+			->with(
+				$this->logicalNot(
+					$this->equalTo( 'quxParam' )
+				)
+			)
+			->willThrowException(
+				$this->createMock( InvalidArgumentException::class )
+			);
+		// equalTo() within a logicalOr()
+		$mock->method( 'other' )
+			->with(
+				$this->logicalOr(
+					$this->equalTo( 'other1' ),
+					$this->equalTo( 'other2' )
+				)
+			)
+			->willReturn( true );
 	}
 
 }

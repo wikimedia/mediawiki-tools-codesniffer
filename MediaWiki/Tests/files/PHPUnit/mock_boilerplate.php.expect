@@ -16,4 +16,14 @@
     |         |     (MediaWiki.PHPUnit.MockBoilerplate.ExactlyOnce)
  25 | WARNING | [x] Matcher ->exactly( 0 ) should be replaced with shortcut ->never()
     |         |     (MediaWiki.PHPUnit.MockBoilerplate.ExactlyNever)
-PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 32 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstraintEqualTo)
+ 33 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstraintEqualTo)
+ 35 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstraintEqualTo)
+ 37 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstraintEqualTo)
+ 41 | WARNING | [x] Default constraint equalTo() is unneeded and should be removed
+    |         |     (MediaWiki.PHPUnit.MockBoilerplate.ConstraintEqualTo)
+PHPCBF CAN FIX THE 14 MARKED SNIFF VIOLATIONS AUTOMATICALLY

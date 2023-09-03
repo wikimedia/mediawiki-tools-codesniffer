@@ -34,7 +34,7 @@ class MockBoilerplateTest extends \PHPUnit\Framework\TestCase {
 		$mock->method( 'multi' )->with(
 			$this->equalTo( 'first' ),
 			'second',
-			$this->logicalOr( $this->equalTo( 'third-a' ), 'third-b' )
+			$this->equalTo( 'third' )
 		)->willReturn( false );
 		// equalTo() with a parameter that includes a comma (function call)
 		$mock->method( 'calculated' )->with(
@@ -53,6 +53,26 @@ class MockBoilerplateTest extends \PHPUnit\Framework\TestCase {
 		$mock->method( 'baz' )->with(
 			$this->equalTo( 10, 0.1 )
 		)->willReturn( false );
+
+		// equalTo() within a logicalNot()
+		$mock->method( 'qux' )
+			->with(
+				$this->logicalNot(
+					$this->equalTo( 'quxParam' )
+				)
+			)
+			->willThrowException(
+				$this->createMock( InvalidArgumentException::class )
+			);
+		// equalTo() within a logicalOr()
+		$mock->method( 'other' )
+			->with(
+				$this->logicalOr(
+					$this->equalTo( 'other1' ),
+					$this->equalTo( 'other2' )
+				)
+			)
+			->willReturn( true );
 	}
 
 }
