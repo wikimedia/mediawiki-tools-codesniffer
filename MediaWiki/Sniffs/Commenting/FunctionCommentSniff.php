@@ -116,7 +116,10 @@ class FunctionCommentSniff implements Sniff {
 					break;
 				}
 			}
-			$isFullyTyped = $hasReturnType && $allParamsTyped;
+			// Enforce strict return type or @return documentation for interfaces/abstract methods,
+			// but only if they are entirely undocumented at the moment
+			$returnsValue = $this->functionReturnsValue( $phpcsFile, $stackPtr ) ?? true;
+			$isFullyTyped = $allParamsTyped && ( $hasReturnType || !$returnsValue );
 			$isTestFile = $this->isTestFile( $phpcsFile, $stackPtr );
 			// A function is *allowed* to omit the documentation comment
 			// (but in many cases, documentation comments still make sense, and are not discouraged)
@@ -186,34 +189,9 @@ class FunctionCommentSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 
 		$hasReturnType = $phpcsFile->getMethodProperties( $stackPtr )['return_type'] !== '';
-		$returnsValue = false;
-		// if function has body (not abstract or part of interface)
-		if ( isset( $tokens[$stackPtr]['scope_opener'] ) ) {
-			$endFunction = $tokens[$stackPtr]['scope_closer'];
-			for ( $i = $endFunction - 1; $i > $stackPtr; $i-- ) {
-				$token = $tokens[$i];
-				if ( isset( $token['scope_condition'] ) && (
-					$tokens[$token['scope_condition']]['code'] === T_CLOSURE ||
-					$tokens[$token['scope_condition']]['code'] === T_FUNCTION ||
-					$tokens[$token['scope_condition']]['code'] === T_ANON_CLASS
-				) ) {
-					// Skip to the other side of the closure/inner function and continue
-					$i = $token['scope_condition'];
-					continue;
-				}
-				if ( $token['code'] === T_RETURN ||
-					$token['code'] === T_YIELD ||
-					$token['code'] === T_YIELD_FROM
-				) {
-					if ( isset( $tokens[$i + 1] ) && $tokens[$i + 1]['code'] === T_SEMICOLON ) {
-						// This is a `return;` so it doesn't need documentation
-						continue;
-					}
-					$returnsValue = true;
-					break;
-				}
-			}
-		}
+		// Assume interfaces/abstract methods don't return anything when they have some comment
+		// already, no matter what the comment says
+		$returnsValue = $this->functionReturnsValue( $phpcsFile, $stackPtr ) ?? false;
 
 		$returnPtr = null;
 		foreach ( $tokens[$commentStart]['comment_tags'] as $ptr ) {
@@ -317,6 +295,36 @@ class FunctionCommentSniff implements Sniff {
 				'MissingReturn'
 			);
 		}
+	}
+
+	private function functionReturnsValue( File $phpcsFile, int $stackPtr ): ?bool {
+		$tokens = $phpcsFile->getTokens();
+
+		// Interfaces or abstract functions don't have a body
+		if ( !isset( $tokens[$stackPtr]['scope_closer'] ) ) {
+			return null;
+		}
+
+		for ( $i = $tokens[$stackPtr]['scope_closer'] - 1; $i > $stackPtr; $i-- ) {
+			$token = $tokens[$i];
+			if ( isset( $token['scope_condition'] ) ) {
+				$scope = $tokens[$token['scope_condition']]['code'];
+				if ( $scope === T_FUNCTION || $scope === T_CLOSURE || $scope === T_ANON_CLASS ) {
+					// Skip to the other side of the closure/inner function and continue
+					$i = $token['scope_condition'];
+					continue;
+				}
+			}
+			if ( $token['code'] === T_YIELD || $token['code'] === T_YIELD_FROM ) {
+				return true;
+			} elseif ( $token['code'] === T_RETURN &&
+				// Ignore empty `return;` and continue searching
+				isset( $tokens[$i + 1] ) && $tokens[$i + 1]['code'] !== T_SEMICOLON
+			) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

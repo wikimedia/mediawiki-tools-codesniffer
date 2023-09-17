@@ -271,26 +271,26 @@
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
  410 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 493 | ERROR   | [ ] Missing function doc comment
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
  496 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 510 | WARNING | [ ] Comments should start on new line.
+ 500 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+ 519 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 514 | ERROR   | [ ] Expected parameter type before parameter name "$parser"
+ 523 | ERROR   | [ ] Expected parameter type before parameter name "$parser"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 515 | ERROR   | [ ] Expected parameter type before parameter name "$operator:"
+ 524 | ERROR   | [ ] Expected parameter type before parameter name "$operator:"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 515 | ERROR   | [x] Param name should not end with punctuation ":"
+ 524 | ERROR   | [x] Param name should not end with punctuation ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 516 | ERROR   | [ ] Expected parameter type before parameter name "$oldtext"
+ 525 | ERROR   | [ ] Expected parameter type before parameter name "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 516 | ERROR   | [x] Default of null should be declared in @param tag
+ 525 | ERROR   | [x] Default of null should be declared in @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 625 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 634 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 628 | WARNING | [x] Use @param annotation instead of @parma
+ 637 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 638 | ERROR   | [ ] You must use "/**" style comments for a function comment
+ 647 | ERROR   | [ ] You must use "/**" style comments for a function comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 66 MARKED SNIFF VIOLATIONS AUTOMATICALLY

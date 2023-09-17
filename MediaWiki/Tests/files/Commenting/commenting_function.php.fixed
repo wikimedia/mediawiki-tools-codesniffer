@@ -490,10 +490,19 @@ class TestPassedExamples {
 	public function selfDocumenting() {
 	}
 
-	public function getReturnMissing() {
+	public function getButWeCanSeeThereIsNoReturn() {
 	}
 
-	abstract public function isReturnMissing();
+	public function getReturnMissing() {
+		return true;
+	}
+
+	abstract public function isAbstractSoWeMustAssumeReturnIsMissing();
+
+	/**
+	 * This is fine
+	 */
+	abstract public function isAbstractButAlreadyCommented();
 
 	abstract public function isFullyDocumented(): bool;
 
