@@ -108,7 +108,7 @@ class FunctionCommentSniff implements Sniff {
 			$methodParams = $phpcsFile->getMethodParameters( $stackPtr );
 			$hasReturnType = $methodProps['return_type'] !== '' || $funcName === '__construct';
 			$hasParams = $methodParams !== [];
-			$isGetter = str_starts_with( $funcName, 'get' ) && !$hasParams;
+			$getterWithoutParams = !$hasParams && preg_match( '/^(get|is)[A-Z]/', $funcName );
 			$allParamsTyped = true;
 			foreach ( $methodParams as $parameter ) {
 				if ( $parameter['type_hint'] === '' ) {
@@ -123,7 +123,7 @@ class FunctionCommentSniff implements Sniff {
 			// if it is fully typed (parameter and return type declarations), or in a test file,
 			// or has no parameters and is not a getter.
 			// The last exception, allowing parameterless non-getters to omit their return type, may be removed later.
-			if ( !$isFullyTyped && !$isTestFile && ( $isGetter || $hasParams ) ) {
+			if ( !$isFullyTyped && !$isTestFile && ( $getterWithoutParams || $hasParams ) ) {
 				$phpcsFile->addError(
 					'Missing function doc comment',
 					$stackPtr,

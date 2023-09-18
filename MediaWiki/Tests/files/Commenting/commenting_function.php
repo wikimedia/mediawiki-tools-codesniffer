@@ -493,6 +493,10 @@ class TestPassedExamples {
 	public function getReturnMissing() {
 	}
 
+	abstract public function isReturnMissing();
+
+	abstract public function isFullyDocumented(): bool;
+
 	/**
 	 * @param string $key
 	 * @param string ...$params

@@ -273,22 +273,24 @@
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
  493 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
- 506 | WARNING | [ ] Comments should start on new line.
+ 496 | ERROR   | [ ] Missing function doc comment
+     |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+ 510 | WARNING | [ ] Comments should start on new line.
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 510 | ERROR   | [ ] Expected parameter type before parameter name "$parser"
+ 514 | ERROR   | [ ] Expected parameter type before parameter name "$parser"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 511 | ERROR   | [ ] Expected parameter type before parameter name "$operator:"
+ 515 | ERROR   | [ ] Expected parameter type before parameter name "$operator:"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 511 | ERROR   | [x] Param name should not end with punctuation ":"
+ 515 | ERROR   | [x] Param name should not end with punctuation ":"
      |         |     (MediaWiki.Commenting.FunctionComment.NotPunctuationParamName)
- 512 | ERROR   | [ ] Expected parameter type before parameter name "$oldtext"
+ 516 | ERROR   | [ ] Expected parameter type before parameter name "$oldtext"
      |         |     (MediaWiki.Commenting.FunctionComment.NoParamType)
- 512 | ERROR   | [x] Default of null should be declared in @param tag
+ 516 | ERROR   | [x] Default of null should be declared in @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.DefaultNullTypeParam)
- 621 | ERROR   | [ ] Doc comment for parameter "$b" missing
+ 625 | ERROR   | [ ] Doc comment for parameter "$b" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 624 | WARNING | [x] Use @param annotation instead of @parma
+ 628 | WARNING | [x] Use @param annotation instead of @parma
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
- 634 | ERROR   | [ ] You must use "/**" style comments for a function comment
+ 638 | ERROR   | [ ] You must use "/**" style comments for a function comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
 PHPCBF CAN FIX THE 66 MARKED SNIFF VIOLATIONS AUTOMATICALLY
