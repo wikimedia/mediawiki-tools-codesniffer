@@ -1,5 +1,29 @@
 # MediaWiki-Codesniffer release history #
 
+## 42.0.0 / 2023-09-21
+### New sniffs ###
+* Create `MockBoilerplateSniff` for PHPUnit tests (DannyS712)
+* Create `OneSpaceInlineArraySniff` (Amir Sarabadani)
+* Create `ShortListSyntaxSniff` to replace `list()` by short array syntax (Umherirrender)
+* Enable `Generic.WhiteSpace.ScopeIndent` (Daimona Eaytoy)
+* Enable `Squiz.ControlStructures.ControlSignature` (Daimona Eaytoy)
+* Replace `AssignmentInControlStructuresSniff` with `Generic.CodeAnalysis.AssignmentInCondition` (Daimona Eaytoy)
+* Replace `DisallowEmptyLineFunctionsSniff` with `Squiz.WhiteSpace.FunctionOpeningBraceSpace` (Daimona Eaytoy)
+
+### Changed sniffs ###
+* `AssertCountSniff`: Prefer `assertSameSize` when both parts are `count()` (Func)
+* `DeprecatedGlobalVariablesSniff`: Add `$wgHooks` (Umherirrender)
+* `ForbiddenFunctionsSniff`: Fix not counting arguments correctly (Daimona Eaytoy)
+* `SpaceAfterClosureSniff`: Expand to enforce space after arrow functions (Umherirrender)
+* `UnusedUseStatement`: Ignore function name when detect unused use (Umherirrender)
+* `ValidGlobalNameSniff` & `UnusedGlobalVariablesSniff`: Make sniffs skip dynamic names (Daimona Eaytoy)
+
+### Documentation, dependencies and build changes ###
+* `ParenthesesAroundKeyword`: Use `fixer->beginChangeset/endChangeset` (Umherirrender)
+* Make some sniffs work for more OOP structures (Daimona Eaytoy)
+* build: Switch phan to special library mode (James D. Forrester)
+* build: Clean up of phan config (Umherirrender)
+
 ## 41.0.0 / 2023-02-25
 ### Changed sniffs ###
 * `AssertionOrderSniff`: Also run for `assertNotEquals`/`assertNotSame` (Umherirrender)
