@@ -71,7 +71,7 @@ trait DocumentationTypeTrait {
 
 	/**
 	 * Split PHPDoc comment strings like "bool[] Comment" into type and comment, while respecting
-	 * types like "array<int, array<string, bool>>".
+	 * types like `array<int, array<string, bool>>` and `array{id: int, name: string}`.
 	 *
 	 * @param string $str
 	 *
@@ -79,16 +79,22 @@ trait DocumentationTypeTrait {
 	 */
 	private function splitTypeAndComment( string $str ): array {
 		$brackets = 0;
+		$curly = 0;
 		$len = strlen( $str );
 		for ( $i = 0; $i < $len; $i++ ) {
 			$char = $str[$i];
-			if ( $char === ' ' && !$brackets ) {
+			// Stop at the first space that is not part of a valid pair of brackets
+			if ( $char === ' ' && !$brackets && !$curly ) {
 				$separatorLength = strspn( $str, ' ', $i );
 				return [ substr( $str, 0, $i ), $separatorLength, substr( $str, $i + $separatorLength ) ];
 			} elseif ( $char === '>' && $brackets ) {
 				$brackets--;
 			} elseif ( $char === '<' ) {
 				$brackets++;
+			} elseif ( $char === '}' && $curly ) {
+				$curly--;
+			} elseif ( $char === '{' ) {
+				$curly++;
 			}
 		}
 		return [ $str, null, '' ];
