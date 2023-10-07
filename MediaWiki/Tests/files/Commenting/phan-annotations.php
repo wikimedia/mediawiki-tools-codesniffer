@@ -22,13 +22,16 @@ class PhanTests {
 	}
 
 	/**
+	 * @phan-type TestData = array{name:string,case:callable}
 	 * @param MyClass $a
 	 * @param mixed $t
 	 * @param mixed $f
+	 * @param array $data
+	 * @phan-param TestData $data
 	 * @phan-assert MySpecificClass $a
 	 * @phan-assert-true-condition $t
 	 * @phan-assert-false-condition $f
 	 */
-	public static function assertsTests( $a, $t, $f ) {
+	public static function assertsTests( $a, $t, $f, $data ) {
 	}
 }
