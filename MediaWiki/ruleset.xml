@@ -206,6 +206,13 @@
 
 	<rule ref="PEAR.Functions.ValidDefaultValue.NotAtEnd" />
 
+	<rule ref="Universal.Constants.LowercaseClassResolutionKeyword" />
+	<rule ref="Universal.Constants.UppercaseMagicConstants" />
+	<rule ref="Universal.Operators.TypeSeparatorSpacing" />
+	<rule ref="Universal.UseStatements.KeywordSpacing" />
+	<rule ref="Universal.UseStatements.LowercaseFunctionConst" />
+	<rule ref="Universal.UseStatements.NoUselessAliases" />
+
 	<rule ref="MediaWiki.Classes.FullQualifiedClassName">
 		<!-- Set this to 5 or higher in your .phpcs.xml if you want to use this sniff -->
 		<severity>0</severity>

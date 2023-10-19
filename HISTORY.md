@@ -1,6 +1,14 @@
 # MediaWiki-Codesniffer release history #
 
 ## UNRELEASED / YYYY-MM-DD
+### New sniffs ###
+* Added the following sniffs from the PHPCSExtra standards:
+  * `Universal.Constants.LowercaseClassResolutionKeyword`: Enforce lowercase `::class`
+  * `Universal.Constants.UppercaseMagicConstants`: Enforce uppercase magic constants
+  * `Universal.Operators.TypeSeparatorSpacing`: Forbid spaces in union and intersection types
+  * `Universal.UseStatements.KeywordSpacing`: Enforce a single space around keywords in `use` statements
+  * `Universal.UseStatements.LowercaseFunctionConst`: Enforce lowercase `function` and `const` in `use` statements
+  * `Universal.UseStatements.NoUselessAliases`: Forbids aliases in `use` statements where the alias is the same as the original name
 ### Changed sniffs ###
 * `FunctionCommentSniff` & `PropertyDocumentationSniff`: Allow array shapes in PHPDoc comments (thiemowmde)
 * `FunctionCommentSniff`: Require documentation of getters starting with "is", not only "get" (thiemowmde)
