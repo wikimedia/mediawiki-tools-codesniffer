@@ -5,6 +5,7 @@
 * Added the following sniffs from the PHPCSExtra standards:
   * `Universal.Constants.LowercaseClassResolutionKeyword`: Enforce lowercase `::class`
   * `Universal.Constants.UppercaseMagicConstants`: Enforce uppercase magic constants
+  * `Universal.ControlStructures.DisallowAlternativeSyntax`: Disallow alternative PHP syntax
   * `Universal.Lists.DisallowLongListSyntax`: Disallow the long `list()`syntax
   * `Universal.Operators.TypeSeparatorSpacing`: Forbid spaces in union and intersection types
   * `Universal.UseStatements.KeywordSpacing`: Enforce a single space around keywords in `use` statements
@@ -21,6 +22,7 @@
 ### Removed sniffs ###
 * `OneSpaceInlineArraySniff`: Superseded by `Universal.WhiteSpace.CommaSpacing`
 * `ShortListSyntaxSniff`: Superseded by `Universal.Lists.DisallowLongListSyntax`
+* `AlternativeSyntaxSniff`: Superseded by `Universal.ControlStructures.DisallowAlternativeSyntax`
 
 
 ## 42.0.0 / 2023-09-21

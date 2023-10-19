@@ -1,0 +1,22 @@
+  8 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found:
+    |       |     declare(): ... enddeclare;
+    |       |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundDeclare)
+ 12 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found:
+    |       |     for(): ... endfor;
+    |       |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundFor)
+ 16 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found:
+    |       |     foreach(): ... endforeach;
+    |       |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundForeach)
+ 22 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found: if():
+    |       |     ... endif; (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
+ 24 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found: if():
+    |       |     ... endif; (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
+ 26 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found: if():
+    |       |     ... endif; (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
+ 30 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found:
+    |       |     switch(): ... endswitch;
+    |       |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundSwitch)
+ 36 | ERROR | [x] Using control structures with the alternative syntax is not allowed. Found:
+    |       |     while(): ... endwhile;
+    |       |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundWhile)
+PHPCBF CAN FIX THE 8 MARKED SNIFF VIOLATIONS AUTOMATICALLY

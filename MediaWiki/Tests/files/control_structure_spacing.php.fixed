@@ -59,13 +59,13 @@ function wfFailedConditionalExamples() {
 		# code...
 	}
 
-	if ( $a ):
+	if ( $a ) {
 		# code...
-	elseif ( $a ):
+	} elseif ( $a ) {
 		# code...
-	else:
+	} else {
 		# code...
-	endif;
+	}
 }
 
 /**
@@ -81,13 +81,13 @@ function wfPassedConditionalExamples() {
 	} else {
 		# code...
 	}
-	if ( $a ):
+	if ( $a ) {
 		# code...
-	elseif ( $a ):
+	} elseif ( $a ) {
 		# code...
-	else:
+	} else {
 		# code...
-	endif;
+	}
 }
 
 function wfSpaceBeforeControlStructureTest() {

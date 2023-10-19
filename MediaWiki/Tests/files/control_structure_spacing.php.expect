@@ -64,14 +64,28 @@
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
   66 | ERROR   | [x] Expected 0 space(s) after closing parenthesis; found 1
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  66 | ERROR   | [x] Using control structures with the alternative syntax is not allowed. Found:
+     |         |     if(): ... endif;
+     |         |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
   68 | ERROR   | [x] Expected 0 space(s) after closing parenthesis; found 1
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  68 | ERROR   | [x] Using control structures with the alternative syntax is not allowed. Found:
+     |         |     if(): ... endif;
+     |         |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
   70 | ERROR   | [x] Expected 0 space(s) after ELSE keyword; 1 found
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
-  72 | WARNING | [ ] Alternative syntax such as "endif" should not be used
-     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
-  94 | WARNING | [ ] Alternative syntax such as "endif" should not be used
-     |         |     (MediaWiki.AlternativeSyntax.AlternativeSyntax.AlternativeSyntax)
+  70 | ERROR   | [x] Using control structures with the alternative syntax is not allowed. Found:
+     |         |     if(): ... endif;
+     |         |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
+  88 | ERROR   | [x] Using control structures with the alternative syntax is not allowed. Found:
+     |         |     if(): ... endif;
+     |         |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
+  90 | ERROR   | [x] Using control structures with the alternative syntax is not allowed. Found:
+     |         |     if(): ... endif;
+     |         |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
+  92 | ERROR   | [x] Using control structures with the alternative syntax is not allowed. Found:
+     |         |     if(): ... endif;
+     |         |     (Universal.ControlStructures.DisallowAlternativeSyntax.FoundIf)
   98 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
  101 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
@@ -92,4 +106,4 @@
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
  180 | ERROR   | [x] Expected 1 space after closing brace; newline found
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace)
-PHPCBF CAN FIX THE 45 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 51 MARKED SNIFF VIOLATIONS AUTOMATICALLY
