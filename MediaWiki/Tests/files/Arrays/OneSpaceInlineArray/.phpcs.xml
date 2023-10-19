@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<ruleset>
-	<arg name="tab-width" value="4" />
-	<rule ref="../../../../Sniffs/Arrays/OneSpaceInlineArraySniff.php" />
-</ruleset>

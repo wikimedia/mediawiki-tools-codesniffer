@@ -9,11 +9,16 @@
   * `Universal.UseStatements.KeywordSpacing`: Enforce a single space around keywords in `use` statements
   * `Universal.UseStatements.LowercaseFunctionConst`: Enforce lowercase `function` and `const` in `use` statements
   * `Universal.UseStatements.NoUselessAliases`: Forbids aliases in `use` statements where the alias is the same as the original name
+  * `Universal.WhiteSpace.CommaSpacing`: Enforce correct spacing around commas
+
 ### Changed sniffs ###
 * `FunctionCommentSniff` & `PropertyDocumentationSniff`: Allow array shapes in PHPDoc comments (thiemowmde)
 * `FunctionCommentSniff`: Require documentation of getters starting with "is", not only "get" (thiemowmde)
 * `FunctionCommentSniff`: Actually check if a method returns anything (thiemowmde)
 * `FunctionAnnotationsSniff`: Add `@phan-type` as an allowed annotation (Umherirrender)
+
+### Removed sniffs ###
+* `OneSpaceInlineArraySniff`: Superseded by `Universal.WhiteSpace.CommaSpacing`
 
 
 ## 42.0.0 / 2023-09-21

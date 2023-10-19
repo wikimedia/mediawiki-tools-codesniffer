@@ -22,6 +22,10 @@
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
  11 | ERROR   | [x] Expected 0 spaces between "I1" and comma; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeComma)
+ 11 | ERROR   | [x] Expected no space between "I1" and the comma. Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
+ 11 | ERROR   | [x] Expected 1 space between the comma and "I2". Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfter)
  11 | ERROR   | [x] Expected 1 space before "I2"; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceBeforeName)
  13 | ERROR   | [x] Language constructs must be followed by a single space; expected 1 space but
@@ -43,6 +47,10 @@
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
  32 | ERROR   | [x] Expected 1 space between comma and argument "$b"; 2 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeArg)
+ 32 | ERROR   | [x] Expected no space between "$a" and the comma. Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBeforeInFunctionDeclaration)
+ 32 | ERROR   | [x] Expected 1 space between the comma and "$b". Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfterInFunctionDeclaration)
  32 | WARNING | [ ] Comments should start on new line.
     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
  32 | ERROR   | [ ] Comments indicating variadic arguments are superfluous and should be replaced
@@ -59,6 +67,8 @@
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
  33 | ERROR   | [x] Expected 1 space between comma and argument "$f"; 0 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg)
+ 33 | ERROR   | [x] Expected 1 space between the comma and "$f". Found: no spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfterInFunctionDeclaration)
  33 | WARNING | [x] Single space expected before closing parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
  33 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0 found
@@ -71,6 +81,10 @@
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
  33 | ERROR   | [x] Expected 1 space between comma and argument "$b"; 2 found
     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeArg)
+ 33 | ERROR   | [x] Expected no space between "$a" and the comma. Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBeforeInClosureUse)
+ 33 | ERROR   | [x] Expected 1 space between the comma and "$b". Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfterInClosureUse)
  33 | WARNING | [x] Single space expected before closing parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
  33 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 2 found
@@ -140,4 +154,16 @@
     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
  50 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1 found
     |         |     (Generic.WhiteSpace.SpreadOperatorSpacingAfter.TooMuchSpace)
-PHPCBF CAN FIX THE 64 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 52 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 52 | ERROR   | [x] Expected 1 space between the comma and "'b'". Found: no spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfter)
+ 52 | ERROR   | [x] Expected no space between "'b'" and the comma. Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
+ 52 | ERROR   | [x] Expected 1 space between the comma and "'c'". Found: no spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfter)
+ 52 | ERROR   | [x] Expected 1 space between the comma and "'d'". Found: 2 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfter)
+ 52 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+PHPCBF CAN FIX THE 77 MARKED SNIFF VIOLATIONS AUTOMATICALLY

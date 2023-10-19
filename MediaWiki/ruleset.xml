@@ -212,6 +212,7 @@
 	<rule ref="Universal.UseStatements.KeywordSpacing" />
 	<rule ref="Universal.UseStatements.LowercaseFunctionConst" />
 	<rule ref="Universal.UseStatements.NoUselessAliases" />
+	<rule ref="Universal.WhiteSpace.CommaSpacing" />
 
 	<rule ref="MediaWiki.Classes.FullQualifiedClassName">
 		<!-- Set this to 5 or higher in your .phpcs.xml if you want to use this sniff -->
