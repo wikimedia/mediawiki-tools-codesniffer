@@ -170,5 +170,7 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 
 $a = [ 'spaces!', FooBar::class, FooBar::$var ];
 
+[ $foo, $bar ] = [ 1, 2 ];
+
 Hooks::run( 'RevisionDataUpdates', [ $title, $renderedRevision, &$updates ] );
 // This file has a new line at the end!

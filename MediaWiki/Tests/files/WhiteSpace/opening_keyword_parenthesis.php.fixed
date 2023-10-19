@@ -1,6 +1,6 @@
 <?php
 
-// phpcs:disable MediaWiki.Usage.ShortListSyntax
+// phpcs:disable Universal.Lists.DisallowLongListSyntax.Found
 
 /**
  * Failed examples.

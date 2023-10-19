@@ -208,6 +208,7 @@
 
 	<rule ref="Universal.Constants.LowercaseClassResolutionKeyword" />
 	<rule ref="Universal.Constants.UppercaseMagicConstants" />
+	<rule ref="Universal.Lists.DisallowLongListSyntax" />
 	<rule ref="Universal.Operators.TypeSeparatorSpacing" />
 	<rule ref="Universal.UseStatements.KeywordSpacing" />
 	<rule ref="Universal.UseStatements.LowercaseFunctionConst" />
