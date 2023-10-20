@@ -1,5 +1,13 @@
 # MediaWiki-Codesniffer release history #
 
+## UNRELEASED / YYYY-MM-DD
+### Changed sniffs ###
+* `FunctionCommentSniff` & `PropertyDocumentationSniff`: Allow array shapes in PHPDoc comments (thiemowmde)
+* `FunctionCommentSniff`: Require documentation of getters starting with "is", not only "get" (thiemowmde)
+* `FunctionCommentSniff`: Actually check if a method returns anything (thiemowmde)
+* `FunctionAnnotationsSniff`: Add `@phan-type` as an allowed annotation (Umherirrender)
+
+
 ## 42.0.0 / 2023-09-21
 ### New sniffs ###
 * Create `MockBoilerplateSniff` for PHPUnit tests (DannyS712)
