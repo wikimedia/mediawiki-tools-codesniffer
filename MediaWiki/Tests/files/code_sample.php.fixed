@@ -1,0 +1,196 @@
+<?php
+
+// Integration test for the MediaWiki standard to see how it behaves on extremely bad code.
+// The .fixed result is particularly interesting, as it shows what PHPCS would consider
+// correct after a pass of phpcbf. Unfixable errors are not as relevant and therefore excluded.
+
+// phpcs:disable MediaWiki.Commenting.PropertyDocumentation
+// phpcs:disable MediaWiki.Commenting.FunctionComment
+// phpcs:disable Generic.Files.OneObjectStructurePerFile
+
+class Person {private $name;
+	private $age;
+
+	public function __construct( $name, $age ) {
+		$this->name = $name;
+		$this->age = $age;
+	}
+
+	/** @param $foo : string
+	 * @param string  $bar
+	 *
+	 */
+	public function greet( $foo = 0, $bar = 1 ) {
+		echo "Hello, my name is " . $this->name . " and I am " . $this->age . " years old.";
+	}
+}
+
+$people	= [
+	new Person( "Alice", 30 ),
+  new Person( "Bob", 25 ),
+new Person( "Eve", 35 ),
+new Person( "John", 28 )
+			];
+
+echo "<div>";foreach ( $people
+  as $person ) {
+	$person->greet();
+}
+
+$numbers = [ 1, 2, 3 ];
+echo "<h3>Array</h3>";
+foreach ( $numbers as $number ) {
+	echo "Value: " . $number;
+}echo "</div>";
+
+/**
+ * @return boolean
+ */
+function wfgenerateRandomNumbers( $count ) {
+	for ( $i = 0;$i < $count;++$i ) {
+		$randomNumber = rand( 1, 100 );
+		echo $randomNumber;
+	}
+}
+
+echo "<div>";
+wfgenerateRandomNumbers( 5 );
+echo "<h3>Random Numbers</h3>";
+
+$colors = [ "red", "green", "blue" ];
+$favoriteColor = "green";
+echo "My favorite color is " . $favoriteColor . ".";
+
+$counter = 0;
+if ( $favoriteColor == "blue" ) {
+	$counter++;
+}
+if ( $favoriteColor == "green" ) {
+	$counter--;
+	echo "My favorite color is green, and I can't decide between red and blue.";
+}
+
+while ( $counter < 5 ) {
+	echo "The counter is: " . $counter;
+	$counter++;
+}
+echo "</div>";
+
+class Animal {private $name;
+
+	public function __construct( $name ) {
+		$this->name = $name;
+	}
+
+	public function speak() {
+		echo $this->name . " makes a sound.";
+	}
+}
+
+$animals = [
+  new Animal( "Dog" ),
+new Animal( "Cat" ),
+new Animal( "Horse"
+)
+];
+
+foreach ( $animals as $animal ) {
+	$animal->speak();
+}
+
+$fruits = [ "apple", "banana", "orange" ];
+$selectedFruit = "banana";
+if ( in_array( $selectedFruit, $fruits )
+) {
+	echo "<p>" . $selectedFruit . " is in the list of fruits.</p>";
+}
+
+/** @param integer $a, @param int $b; @param number $c
+ * @return the sum, a number
+ */
+function wfCalculateSum( $a, $b, $c,
+						$d, $e ) {
+	return $a + $b
+		+ $c +
+		$d + $e;
+}
+
+$result1 = wfCalculateSum( 1, 2, 3, 4, 5 );
+
+$result2 = wfCalculateSum(
+	1, 2, 3, 4, 5 );
+
+$result3 = wfCalculateSum(
+	1, 2, 3, 4, 5
+);
+
+$result4 = wfCalculateSum( 1, 2, 3, 4, 5
+);
+
+$result5 = wfCalculateSum( 1,
+	2,
+	3,
+	4,
+	5 );
+
+$result6 = wfCalculateSum( 1, 2,
+	3, 4,
+	5 );
+
+$result7 = wfCalculateSum(
+	1, 2, 3,
+	4, 5 );
+
+$result8 = wfCalculateSum( 1, 2,
+	3, 4, 5 );
+
+/** @param integer $numbers */
+function wfMyTartagliaTriangle( ...$numbers ): void {
+}
+
+wfMyTartagliaTriangle(
+	1,
+	1, 1,
+	1, 2, 1,
+	1, 3, 3, 1,
+	1, 4, 6, 4, 1,
+	1, 5, 10, 10, 5, 1
+);
+
+$myComplexArray =
+	[
+		1,
+		[
+			42
+		]
+];
+foreach ( $myComplexArray as [ $a, $b,
+$c, $d, $ewww,
+$f ] ) {
+
+}
+
+class SomeBuilder {
+
+	private $answer;	public static function instance() {
+		return new self;
+	} public function start() {
+
+		return $this;
+	}
+
+	public function doMagic() {
+		$this->answer = 42;
+		return $this;
+	}
+
+	public function end() {
+		return $this->
+				answer;
+	}
+}
+
+SomeBuilder::instance()
+->start()
+	->doMagic()
+		->end();

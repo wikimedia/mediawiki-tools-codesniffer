@@ -1,0 +1,544 @@
+  11 | ERROR   | [x] Line indented incorrectly; expected 0 tabs, found 2 spaces
+     |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
+  11 | ERROR   | [x] Expected 1 space after class keyword; newline found
+     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterKeyword)
+  12 | WARNING | [x] Expected 1 space before class open brace. Found 0.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
+  13 | ERROR   | [x] Line indented incorrectly; expected at least 1 tabs, found 2 spaces
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  14 | ERROR   | [x] Line indented incorrectly; expected 1 tabs, found 2 spaces
+     |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
+  14 | ERROR   | [x] Scope keyword "public" must be followed by a single space; found newline
+     |         |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
+  15 | ERROR   | [x] Line indented incorrectly; expected 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
+  15 | ERROR   | [x] Expected 1 blank line before function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.Before)
+  15 | ERROR   | [x] Extra whitespace found after the `function` keyword; only a single space
+     |         |     should be used
+     |         |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+  15 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+  15 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  15 | ERROR   | [x] Expected 1 space between comma and argument "$age"; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg)
+  15 | ERROR   | [x] Expected 1 space between the comma and "$age". Found: no spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfterInFunctionDeclaration)
+  15 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  15 | ERROR   | [x] Expected 1 space before opening brace; found 0
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.SpaceBeforeBrace)
+  15 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+  15 | ERROR   | [x] Opening brace must be the last content on the line
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
+  15 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  16 | ERROR   | [x] Line indented incorrectly; expected at least 2 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  16 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  16 | ERROR   | [x] Expected 1 blank line after function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.After)
+  16 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  18 | ERROR   | [x] Comment star tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocStar)
+  19 | ERROR   | [x] Expected '*' on each line (MediaWiki.Commenting.DocComment.NoDocStar)
+  20 | ERROR   | [x] Comment close tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocClose)
+  21 | ERROR   | [x] Line indented incorrectly; expected 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
+  21 | ERROR   | [x] Scope keyword "public" must be followed by a single space; found newline
+     |         |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
+  22 | ERROR   | [x] Line indented incorrectly; expected 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
+  22 | ERROR   | [x] Expected 1 blank line before function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.Before)
+  22 | ERROR   | [x] Extra whitespace found after the `function` keyword; only a single space
+     |         |     should be used
+     |         |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+  23 | ERROR   | [x] Line indented incorrectly; expected at least 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  23 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+  23 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  23 | ERROR   | [x] Incorrect spacing between default value and equals sign for argument "$foo";
+     |         |     expected 1 but found 0
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceAfterEquals)
+  23 | ERROR   | [x] Incorrect spacing between argument "$bar" and equals sign; expected 1 but
+     |         |     found 0
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeEquals)
+  23 | ERROR   | [x] Expected 1 space before opening brace; found 0
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.SpaceBeforeBrace)
+  23 | ERROR   | [x] Opening brace must be the last content on the line
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
+  23 | ERROR   | [x] Space found before object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+  23 | ERROR   | [x] Space found after object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
+  23 | ERROR   | [x] Space found before object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+  23 | ERROR   | [x] Space found after object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
+  23 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  23 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  25 | ERROR   | [x] Expected 1 space after "="; 3 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.SpacingAfter)
+  26 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  26 | ERROR   | [x] No space found after comma in argument list
+     |         |     (Generic.Functions.FunctionCallArgumentSpacing.NoSpaceAfterComma)
+  26 | ERROR   | [x] Expected 1 space between the comma and "30". Found: no spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfterInFunctionCall)
+  26 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  27 | ERROR   | [x] Language constructs must be followed by a single space; expected 1 space but
+     |         |     found "\n"
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
+  28 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  28 | ERROR   | [x] Expected 1 space between the comma and "25". Found: 4 spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfterInFunctionCall)
+  28 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  29 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  29 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  30 | ERROR   | [x] Language constructs must be followed by a single space; expected 1 space but
+     |         |     found "\n"
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
+  31 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  31 | ERROR   | [x] Expected 1 space between the comma and "28". Found: 2 spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfterInFunctionCall)
+  31 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  34 | ERROR   | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  34 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  35 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  35 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  36 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  36 | ERROR   | [x] Space found before object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+  36 | ERROR   | [x] Space found after object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
+  36 | WARNING | [x] Unnecessary space found within parentheses
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
+  39 | WARNING | [x] Equals sign not aligned correctly; expected 1 space but found 0 spaces
+     |         |     (Generic.Formatting.MultipleStatementAlignment.IncorrectWarning)
+  39 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  39 | ERROR   | [x] Short array syntax must be used to define arrays
+     |         |     (Generic.Arrays.DisallowLongArraySyntax.Found)
+  39 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  39 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  40 | ERROR   | [x] Language constructs must be followed by a single space; expected "echo
+     |         |     "<h3>Array</h3>"" but found "echo"<h3>Array</h3>""
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.Incorrect)
+  41 | ERROR   | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  41 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  41 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  41 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 0
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  41 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  41 | ERROR   | [x] Concat operator must be surrounded by a single space
+     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+  41 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  41 | ERROR   | [x] Language constructs must be followed by a single space; expected 1 space but
+     |         |     found "\n"
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
+  44 | ERROR   | [x] Comment open tag must be '/**'
+     |         |     (MediaWiki.Commenting.DocComment.SyntaxOpenTag)
+  45 | WARNING | [x] Use @return annotation instead of @returns:
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+  46 | ERROR   | [x] Comment close tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocClose)
+  47 | ERROR   | [x] Extra whitespace found after the `function` keyword; only a single space
+     |         |     should be used
+     |         |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+  48 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+  48 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  48 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  48 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+  49 | ERROR   | [x] Opening brace should be on the same line as the declaration
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine)
+  49 | ERROR   | [x] Opening brace must be the last content on the line
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
+  49 | ERROR   | [x] Expected 1 space(s) after FOR keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  49 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  49 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  49 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  49 | ERROR   | [x] Expected 1 space before "<"; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  49 | ERROR   | [x] Expected no spaces between the increment operator and $i; 1 found
+     |         |     (Generic.WhiteSpace.IncrementDecrementSpacing.SpaceAfterIncrement)
+  49 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  49 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  50 | ERROR   | [x] Line indented incorrectly; expected at least 1 tabs, found 2 spaces
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  50 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  50 | WARNING | [x] Equals sign not aligned correctly; expected 1 space but found 0 spaces
+     |         |     (Generic.Formatting.MultipleStatementAlignment.IncorrectWarning)
+  50 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  50 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  50 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  50 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  50 | ERROR   | [x] Each PHP statement must be on a line by itself
+     |         |     (Generic.Formatting.DisallowMultipleStatements.SameLine)
+  50 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  50 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  52 | ERROR   | [x] Language constructs must be followed by a single space; expected "echo
+     |         |     "<div>"" but found "echo"<div>""
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.Incorrect)
+  52 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  52 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  52 | ERROR   | [x] Each PHP statement must be on a line by itself
+     |         |     (Generic.Formatting.DisallowMultipleStatements.SameLine)
+  52 | ERROR   | [x] Language constructs must be followed by a single space; expected "echo
+     |         |     "<h3>Random Numbers</h3>"" but found "echo"<h3>Random Numbers</h3>""
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.Incorrect)
+  52 | ERROR   | [x] Each PHP statement must be on a line by itself
+     |         |     (Generic.Formatting.DisallowMultipleStatements.SameLine)
+  54 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  54 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  54 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  54 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  54 | ERROR   | [x] Each PHP statement must be on a line by itself
+     |         |     (Generic.Formatting.DisallowMultipleStatements.SameLine)
+  55 | ERROR   | [x] Concat operator must be surrounded by a single space
+     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+  56 | ERROR   | [x] Space found before semicolon; expected "".";" but found ""."\n;"
+     |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+  58 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  59 | ERROR   | [x] Expected 1 space(s) after IF keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  59 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  59 | ERROR   | [x] Expected 1 space before "=="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  59 | ERROR   | [x] Expected 1 space after "=="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  59 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  59 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  60 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  60 | ERROR   | [x] Expected no spaces between $counter and the increment operator; 1 found
+     |         |     (Generic.WhiteSpace.IncrementDecrementSpacing.SpaceAfterIncrement)
+  60 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  61 | ERROR   | [x] Expected 1 space(s) after IF keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  61 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  61 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  61 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  62 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  63 | ERROR   | [x] Line indented incorrectly; expected at least 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  63 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  65 | ERROR   | [x] Expected 1 space(s) after WHILE keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  65 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  65 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  65 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  66 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  66 | ERROR   | [x] Concat operator must be surrounded by a single space
+     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+  67 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  68 | ERROR   | [x] Language constructs must be followed by a single space; expected 1 space but
+     |         |     found "\n"
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
+  70 | ERROR   | [x] Space found before semicolon; expected ""</div>";" but found ""</div>"\n;"
+     |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+  71 | ERROR   | [x] Multiple empty lines should not exist in a row; found 2 consecutive empty
+     |         |     lines (MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines)
+  73 | WARNING | [x] Expected 1 space before class open brace. Found 0.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.NoSpaceBeforeBrace)
+  73 | ERROR   | [x] Expected 1 blank line before function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.Before)
+  73 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+  73 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  73 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  73 | ERROR   | [x] Expected 1 space before opening brace; found 0
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.SpaceBeforeBrace)
+  73 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+  73 | ERROR   | [x] Opening brace must be the last content on the line
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
+  73 | WARNING | [x] Equals sign not aligned correctly; expected 1 space but found 0 spaces
+     |         |     (Generic.Formatting.MultipleStatementAlignment.IncorrectWarning)
+  73 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  73 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  73 | ERROR   | [x] Each PHP statement must be on a line by itself
+     |         |     (Generic.Formatting.DisallowMultipleStatements.SameLine)
+  73 | ERROR   | [x] Space found before semicolon; expected "$name;" but found "$name ;"
+     |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+  73 | ERROR   | [x] Expected 1 blank line after function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.After)
+  73 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  74 | ERROR   | [x] Line indented incorrectly; expected 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
+  74 | ERROR   | [x] Extra whitespace found after the `function` keyword; only a single space
+     |         |     should be used
+     |         |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
+  75 | ERROR   | [x] Line indented incorrectly; expected at least 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  76 | ERROR   | [x] Line indented incorrectly; expected at least 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  76 | ERROR   | [x] Opening brace should be on the same line as the declaration
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine)
+  76 | ERROR   | [x] Opening brace must be the last content on the line
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
+  76 | ERROR   | [x] Language constructs must be followed by a single space; expected 1 space but
+     |         |     found "\n"
+     |         |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
+  77 | ERROR   | [x] Line indented incorrectly; expected at least 2 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  77 | ERROR   | [x] Space found before object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+  77 | ERROR   | [x] Space found after object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
+  77 | ERROR   | [x] Concat operator must be surrounded by a single space
+     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+  77 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  77 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  79 | WARNING | [x] Equals sign not aligned correctly; expected 1 space but found 0 spaces
+     |         |     (Generic.Formatting.MultipleStatementAlignment.IncorrectWarning)
+  79 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  79 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  80 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  80 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  81 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  81 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  81 | ERROR   | [x] Expected no space between ")" and the comma. Found: 1 space
+     |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
+  82 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  86 | ERROR   | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  86 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  86 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  86 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  87 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  87 | ERROR   | [x] Space found before object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+  87 | WARNING | [x] Unnecessary space found within parentheses
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
+  88 | ERROR   | [x] Line indented incorrectly; expected at least 1 tabs, found 0
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+  88 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  90 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  90 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  90 | ERROR   | [x] Expected 1 space between the comma and ""banana"". Found: no spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfter)
+  91 | ERROR   | [x] Expected no space between ""banana"" and the comma. Found: a new line
+     |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
+  91 | ERROR   | [x] Expected 1 space between the comma and ""orange"". Found: no spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfter)
+  91 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  92 | ERROR   | [x] Expected 1 space before "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+  92 | ERROR   | [x] Expected 1 space after "="; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+  93 | ERROR   | [x] Expected 1 space(s) after IF keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+  93 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  93 | WARNING | [x] Space found before opening parenthesis of function call
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
+  94 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  94 | ERROR   | [x] No space found after comma in argument list
+     |         |     (Generic.Functions.FunctionCallArgumentSpacing.NoSpaceAfterComma)
+  94 | ERROR   | [x] Expected 1 space between the comma and "$fruits". Found: no spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfterInFunctionCall)
+  94 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  95 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found newline
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+  96 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+  96 | ERROR   | [x] Concat operator must be surrounded by a single space
+     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+  96 | ERROR   | [x] Concat operator must be surrounded by a single space
+     |         |     (Squiz.Strings.ConcatenationSpacing.PaddingFound)
+  96 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+  99 | ERROR   | [x] Comment close tag not aligned with open tag
+     |         |     (MediaWiki.Commenting.DocComment.SyntaxAlignedDocClose)
+  99 | ERROR   | [x] Comment close tag should have own line
+     |         |     (MediaWiki.Commenting.DocComment.CloseTagOwnLine)
+ 100 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 101 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 102 | ERROR   | [x] Expected 1 space before "+"; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 102 | ERROR   | [x] Expected 1 space after "+"; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 103 | ERROR   | [x] Expected 1 space before "+"; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+ 104 | ERROR   | [x] Expected 1 space after "+"; 0 found
+     |         |     (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+ 105 | ERROR   | [x] Space found before semicolon; expected "$e;" but found "$e\n        ;"
+     |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+ 108 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 108 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 111 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 117 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 120 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 124 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 126 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 128 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 132 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 134 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 135 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 137 | WARNING | [x] Use @param annotation instead of @params
+     |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
+ 138 | ERROR   | [x] Expected 0 spaces after variadic operator for argument "$numbers"; 1 found
+     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterVariadic)
+ 138 | ERROR   | [x] Expected 0 space(s) after the spread operator; 1 found
+     |         |     (Generic.WhiteSpace.SpreadOperatorSpacingAfter.TooMuchSpace)
+ 139 | ERROR   | [x] There must not be a space before the colon in a return type declaration
+     |         |     (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon)
+ 139 | ERROR   | [x] There must be a single space between the colon and type in a return type
+     |         |     declaration (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeReturnType)
+ 140 | ERROR   | [x] Line indented incorrectly; expected 0 tabs, found 1
+     |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
+ 140 | ERROR   | [x] Closing brace indented incorrectly; expected 0 spaces, found 4
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.Indent)
+ 156 | ERROR   | [x] Line indented incorrectly; expected at least 2 tabs, found 1
+     |         |     (Generic.WhiteSpace.ScopeIndent.Incorrect)
+ 158 | ERROR   | [x] Expected 1 space(s) after FOREACH keyword; 0 found
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+ 158 | WARNING | [x] Single space expected after opening parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 160 | ERROR   | [x] Expected no space between "$d" and the comma. Found: a new line
+     |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
+ 160 | ERROR   | [x] Expected 1 space between the comma and "$ewww". Found: no spaces
+     |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfter)
+ 161 | WARNING | [x] Single space expected before closing parenthesis
+     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 161 | ERROR   | [x] Expected 1 space(s) after closing parenthesis; found 0
+     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis)
+ 161 | ERROR   | [x] Newline required after opening brace
+     |         |     (Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace)
+ 161 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+ 164 | WARNING | [x] Expected class open brace to be on the same line as the `class` keyword.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnSameLine)
+ 165 | ERROR   | [x] The static declaration must come after the visibility declaration
+     |         |     (PSR2.Methods.MethodDeclaration.StaticBeforeVisibility)
+ 165 | ERROR   | [x] Expected 1 blank line before function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.Before)
+ 167 | ERROR   | [x] Expected 1 blank line after function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.After)
+ 167 | ERROR   | [x] Scope keyword "public" must be followed by a single space; found 4
+     |         |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
+ 167 | ERROR   | [x] Opening brace must be the last content on the line
+     |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
+ 167 | ERROR   | [x] Expected 1 blank line after function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.After)
+ 167 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+ 168 | ERROR   | [x] Scope keyword "public" must be followed by a single space; found 6
+     |         |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
+ 169 | ERROR   | [x] Each PHP statement must be on a line by itself
+     |         |     (Generic.Formatting.DisallowMultipleStatements.SameLine)
+ 170 | ERROR   | [x] Expected 1 blank line after function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.After)
+ 171 | ERROR   | [x] Scope keyword "public" must be followed by a single space; found 2
+     |         |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
+ 174 | ERROR   | [x] Closing brace must be on a line by itself
+     |         |     (Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore)
+ 176 | ERROR   | [x] Space found before object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+ 176 | ERROR   | [x] Space found after object operator
+     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
+PHPCBF CAN FIX THE 265 MARKED SNIFF VIOLATIONS AUTOMATICALLY
