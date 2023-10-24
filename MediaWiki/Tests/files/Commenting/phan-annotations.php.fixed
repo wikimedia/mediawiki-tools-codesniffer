@@ -17,6 +17,7 @@ class PhanTests {
 	 * @param bool $allowSubclasses
 	 * @return AuthenticationRequest|null
 	 * @phan-return T|null
+	 * @phan-side-effect-free
 	 */
 	public static function getSomething( array $reqs, $class, $allowSubclasses = false ) {
 	}

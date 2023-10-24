@@ -89,6 +89,7 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@phan-assert' => true,
 		'@phan-assert-true-condition' => true,
 		'@phan-assert-false-condition' => true,
+		'@phan-side-effect-free' => true,
 		'@suppress' => true,
 		'@phan-template' => true,
 		'@phan-type' => true,
