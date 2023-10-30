@@ -18,6 +18,7 @@
 * `FunctionCommentSniff`: Require documentation of getters starting with "is", not only "get" (thiemowmde)
 * `FunctionCommentSniff`: Actually check if a method returns anything (thiemowmde)
 * `FunctionAnnotationsSniff`: Add `@phan-type` as an allowed annotation (Umherirrender)
+* `FunctionAnnotationsSniff`: Add `@phan-side-effect-free` as an allowed annotation (Bartosz Dziewoński)
 
 ### Removed sniffs ###
 * `OneSpaceInlineArraySniff`: Superseded by `Universal.WhiteSpace.CommaSpacing`
