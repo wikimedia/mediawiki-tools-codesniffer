@@ -2,7 +2,7 @@
 
 ## UNRELEASED / YYYY-MM-DD
 ### New sniffs ###
-* Added the following sniffs from the PHPCSExtra standards:
+* Added the following sniffs from the PHPCSExtra standards: (Daimona Eaytoy)
   * `Universal.Constants.LowercaseClassResolutionKeyword`: Enforce lowercase `::class`
   * `Universal.Constants.UppercaseMagicConstants`: Enforce uppercase magic constants
   * `Universal.ControlStructures.DisallowAlternativeSyntax`: Disallow alternative PHP syntax
@@ -24,6 +24,8 @@
 * `ShortListSyntaxSniff`: Superseded by `Universal.Lists.DisallowLongListSyntax`
 * `AlternativeSyntaxSniff`: Superseded by `Universal.ControlStructures.DisallowAlternativeSyntax`
 
+### Documentation, dependencies and build changes ###
+* tests: Add test for awfully inconsistent code (Daimona Eaytoy)
 
 ## 42.0.0 / 2023-09-21
 ### New sniffs ###
