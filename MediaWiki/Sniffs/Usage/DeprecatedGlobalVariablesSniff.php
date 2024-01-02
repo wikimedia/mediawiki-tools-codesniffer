@@ -51,6 +51,8 @@ class DeprecatedGlobalVariablesSniff implements Sniff {
 		'$wgVersion' => '1.35',
 		// Deprecation done (T331602)
 		'$wgHooks' => '1.40',
+		// Deprecation done (T313841)
+		'$wgCommandLineMode' => '1.42',
 
 		// Deprecation planned (T212739)
 		// '$wgConf' => '',
