@@ -6,11 +6,11 @@
     |         |     (MediaWiki.Usage.DoubleNotOperator.DoubleNotOperator)
  12 | WARNING | [x] Use (bool) instead of !!
     |         |     (MediaWiki.Usage.DoubleNotOperator.DoubleNotOperator)
- 12 | ERROR   | [x] Expected 0 space(s) after NOT operator; 1 found
+ 12 | ERROR   | [x] Expected 0 spaces after NOT operator; 1 found
     |         |     (Generic.Formatting.SpaceAfterNot.Incorrect)
  13 | WARNING | [x] Use (bool) instead of !!
     |         |     (MediaWiki.Usage.DoubleNotOperator.DoubleNotOperator)
- 13 | ERROR   | [x] Expected 0 space(s) after NOT operator; 4 found
+ 13 | ERROR   | [x] Expected 0 spaces after NOT operator; 4 found
     |         |     (Generic.Formatting.SpaceAfterNot.Incorrect)
  14 | WARNING | [x] Use (bool) instead of !!
     |         |     (MediaWiki.Usage.DoubleNotOperator.DoubleNotOperator)
