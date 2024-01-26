@@ -14,8 +14,8 @@
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
   14 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
-  17 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  17 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
   31 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
   32 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
@@ -34,46 +34,46 @@
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
   39 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
-  49 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  49 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  49 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  51 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
-  67 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  49 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  49 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  49 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  50 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  51 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  67 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
   70 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
-  75 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  75 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
   75 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
-  79 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  79 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
   79 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
-  81 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  81 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
   81 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
-  84 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  84 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
   85 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
-  87 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+  87 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
   88 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
   92 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
@@ -102,46 +102,46 @@
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
  117 | ERROR   | [ ] Logical operator "or" is prohibited; use "||" instead
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
- 125 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
- 129 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 125 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 129 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
  129 | ERROR   | [ ] Logical operator "and" is prohibited; use "&&" instead
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
  130 | ERROR   | [ ] Logical operator "and" is prohibited; use "&&" instead
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
- 130 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 130 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
  131 | ERROR   | [ ] Logical operator "and" is prohibited; use "&&" instead
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
- 131 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
- 132 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
- 133 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
- 134 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
- 135 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 131 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 132 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 133 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 134 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 135 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
  135 | ERROR   | [ ] Logical operator "or" is prohibited; use "||" instead
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
  136 | ERROR   | [ ] Logical operator "or" is prohibited; use "||" instead
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
- 136 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 136 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
  137 | ERROR   | [ ] Logical operator "or" is prohibited; use "||" instead
      |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
- 137 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
- 140 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
- 141 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 137 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 140 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 141 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
  148 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
  149 | ERROR   | [ ] Nested inline ternary statements, in PHP, may not behave as you intend without
      |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedTernary)
- 150 | WARNING | [x] Nested inline ternary statements can be difficult to read without
-     |         |     parentheses (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
+ 150 | WARNING | [x] Nested inline ternary statements can be difficult to read without parentheses
+     |         |     (MediaWiki.Usage.NestedInlineTernary.UnparenthesizedThen)
 PHPCBF CAN FIX THE 29 MARKED SNIFF VIOLATIONS AUTOMATICALLY

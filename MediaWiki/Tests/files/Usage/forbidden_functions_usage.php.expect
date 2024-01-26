@@ -3,12 +3,10 @@
   7 | WARNING | [ ] extract should not be used (MediaWiki.Usage.ForbiddenFunctions.extract)
   8 | WARNING | [ ] parse_str should be used with 2 argument(s)
     |         |     (MediaWiki.Usage.ForbiddenFunctions.parse_str)
- 10 | WARNING | [x] Use is_int() instead of is_long
-    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_long)
+ 10 | WARNING | [x] Use is_int() instead of is_long (MediaWiki.Usage.ForbiddenFunctions.is_long)
  14 | WARNING | [x] Use is_float() instead of is_double
     |         |     (MediaWiki.Usage.ForbiddenFunctions.is_double)
- 17 | WARNING | [x] Use is_float() instead of is_real
-    |         |     (MediaWiki.Usage.ForbiddenFunctions.is_real)
+ 17 | WARNING | [x] Use is_float() instead of is_real (MediaWiki.Usage.ForbiddenFunctions.is_real)
  20 | WARNING | [ ] isset should be used with 1 argument(s)
     |         |     (MediaWiki.Usage.ForbiddenFunctions.isset)
  25 | WARNING | [ ] define should be used with 2 argument(s)

@@ -232,8 +232,7 @@
      |         |     (MediaWiki.Commenting.FunctionComment.ParamPassByReference)
  332 | ERROR   | [ ] Doc comment for parameter "$arg" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
- 332 | ERROR   | [ ] Missing parameter type
-     |         |     (MediaWiki.Commenting.FunctionComment.MissingParamType)
+ 332 | ERROR   | [ ] Missing parameter type (MediaWiki.Commenting.FunctionComment.MissingParamType)
  336 | ERROR   | [ ] Return type missing for @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturnType)
  341 | ERROR   | [ ] Exception type missing for @throws tag in function comment
@@ -263,8 +262,7 @@
  389 | ERROR   | [ ] Doc comment for parameter "$notsamecase" missing
      |         |     (MediaWiki.Commenting.FunctionComment.MissingParamTag)
  391 | ERROR   | [ ] Doc comment for parameter $notSameCase does not match case of actual variable
-     |         |     name $notsamecase
-     |         |     (MediaWiki.Commenting.FunctionComment.ParamNameNoCaseMatch)
+     |         |     name $notsamecase (MediaWiki.Commenting.FunctionComment.ParamNameNoCaseMatch)
  397 | ERROR   | [x] Short type of "bool" should be used for @return tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
  406 | ERROR   | [x] Short type of "int" should be used for @param tag

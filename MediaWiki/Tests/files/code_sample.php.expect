@@ -69,8 +69,7 @@
      |         |     expected 1 but found 0
      |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceAfterEquals)
   23 | ERROR   | [x] Incorrect spacing between argument "$bar" and equals sign; expected 1 but
-     |         |     found 0
-     |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeEquals)
+     |         |     found 0 (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeEquals)
   23 | ERROR   | [x] Opening brace must be the last content on the line
      |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
   23 | ERROR   | [x] Expected 1 space before opening brace; found 0
@@ -165,8 +164,7 @@
   41 | ERROR   | [x] Language constructs must be followed by a single space; expected 1 space but
      |         |     found "\n"
      |         |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectSingle)
-  44 | ERROR   | [x] Comment open tag must be '/**'
-     |         |     (MediaWiki.Commenting.DocComment.SyntaxOpenTag)
+  44 | ERROR   | [x] Comment open tag must be '/**' (MediaWiki.Commenting.DocComment.SyntaxOpenTag)
   45 | WARNING | [x] Use @return annotation instead of @returns:
      |         |     (MediaWiki.Commenting.FunctionAnnotations.NonNormalizedAnnotation)
   46 | ERROR   | [x] Comment close tag not aligned with open tag

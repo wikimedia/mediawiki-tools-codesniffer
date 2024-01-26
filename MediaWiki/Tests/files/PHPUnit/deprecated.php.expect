@@ -69,8 +69,8 @@
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
  68 | ERROR | [ ] The PHPUnit method assertAttributeGreaterThanOrEqual() was deprecated in PHPUnit
     |       |     8. (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
- 69 | ERROR | [ ] The PHPUnit method assertAttributeNotInstanceOf() was deprecated in PHPUnit
-    |       |     8. (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
+ 69 | ERROR | [ ] The PHPUnit method assertAttributeNotInstanceOf() was deprecated in PHPUnit 8.
+    |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
  70 | ERROR | [ ] The PHPUnit method getStaticAttribute() was deprecated in PHPUnit 8.
     |       |     (MediaWiki.PHPUnit.DeprecatedPHPUnitMethods.AttributeMethods)
  71 | ERROR | [ ] The PHPUnit method attribute() was deprecated in PHPUnit 8.

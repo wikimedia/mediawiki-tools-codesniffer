@@ -4,8 +4,8 @@
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
   18 | WARNING | [ ] The phpunit annotation @backupGlobals should not be used.
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenBackupGlobals)
-  24 | WARNING | [ ] The phpunit annotation @coversNothing should only be used inside test
-     |         |     classes. (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
+  24 | WARNING | [ ] The phpunit annotation @coversNothing should only be used inside test classes.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
   30 | WARNING | [x] Use @coversDefaultClass annotation instead of @coverDefaultClass
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverDefaultClass)
   31 | WARNING | [x] Use @group small annotation instead of @small
@@ -20,8 +20,8 @@
      |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
   49 | WARNING | [ ] The phpunit annotation @after should only be used for tearDown functions
      |         |     (*TearDown). (MediaWiki.Commenting.PhpunitAnnotations.NotTearDownFunction)
-  55 | WARNING | [ ] The phpunit annotation @dataProvider should only be used for test
-     |         |     functions. (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
+  55 | WARNING | [ ] The phpunit annotation @dataProvider should only be used for test functions.
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
   73 | WARNING | [ ] Do not use @expectedException, use $this->expectException().
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.ForbiddenExpectedException)
   74 | WARNING | [ ] Do not use @expectedExceptionMessage, use $this->expectExceptionMessage().
@@ -42,10 +42,10 @@
      |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
  124 | ERROR   | [x] Import statements must not begin with a leading backslash
      |         |     (PSR12.Files.ImportStatement.LeadingSlash)
- 128 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation
-     |         |     instead (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
- 133 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation
-     |         |     instead (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
+ 128 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation instead
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
+ 133 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation instead
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
  142 | WARNING | [x] Use absolute class name (\Path\To\AnotherClass) for @coversDefaultClass
      |         |     annotation instead
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCoversDefaultClass)

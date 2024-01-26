@@ -1,20 +1,15 @@
-  5 | WARNING | [x] Incorrect wording of @license
-    |         |     (MediaWiki.Commenting.LicenseComment.LicenceTag)
-  6 | WARNING | [ ] Invalid SPDX license identifier "BSD Clause", see
-    |         |     <https://spdx.org/licenses/>
+  5 | WARNING | [x] Incorrect wording of @license (MediaWiki.Commenting.LicenseComment.LicenceTag)
+  6 | WARNING | [ ] Invalid SPDX license identifier "BSD Clause", see <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
   7 | WARNING | [ ] @license not followed by a license
     |         |     (MediaWiki.Commenting.LicenseComment.LicenseTagEmpty)
   7 | ERROR   | [ ] Content missing for @license tag in class comment
     |         |     (MediaWiki.Commenting.EmptyTag.ClassLicense)
-  9 | WARNING | [ ] Deprecated SPDX license identifier "GPL-2.0+", see
-    |         |     <https://spdx.org/licenses/>
+  9 | WARNING | [ ] Deprecated SPDX license identifier "GPL-2.0+", see <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.DeprecatedLicenseTag)
- 10 | WARNING | [x] Invalid SPDX license identifier "GNU GPL v2+", see
-    |         |     <https://spdx.org/licenses/>
+ 10 | WARNING | [x] Invalid SPDX license identifier "GNU GPL v2+", see <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.InvalidLicenseTag)
- 11 | WARNING | [ ] Deprecated SPDX license identifier "GPL-2.0+", see
-    |         |     <https://spdx.org/licenses/>
+ 11 | WARNING | [ ] Deprecated SPDX license identifier "GPL-2.0+", see <https://spdx.org/licenses/>
     |         |     (MediaWiki.Commenting.LicenseComment.DeprecatedLicenseTag)
  11 | WARNING | [ ] Deprecated SPDX license identifier "LGPL-2.1+", see
     |         |     <https://spdx.org/licenses/>

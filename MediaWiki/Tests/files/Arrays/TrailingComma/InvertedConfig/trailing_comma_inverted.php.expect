@@ -1,5 +1,4 @@
- 21 | WARNING | [x] Multi-line array with trailing comma
-    |         |     (MediaWiki.Arrays.TrailingComma.MultiLine)
+ 21 | WARNING | [x] Multi-line array with trailing comma (MediaWiki.Arrays.TrailingComma.MultiLine)
  25 | WARNING | [x] Single-line array without trailing comma
     |         |     (MediaWiki.Arrays.TrailingComma.SingleLine)
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY

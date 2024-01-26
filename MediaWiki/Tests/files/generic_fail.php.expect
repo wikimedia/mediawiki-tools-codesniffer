@@ -4,10 +4,8 @@
     |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
   6 | ERROR   | [ ] Logical operator "and" is prohibited; use "&&" instead
     |         |     (Squiz.Operators.ValidLogicalOperators.NotAllowed)
-  9 | ERROR   | [ ] Use of the backtick operator is forbidden
-    |         |     (Generic.PHP.BacktickOperator.Found)
-  9 | ERROR   | [ ] Use of the backtick operator is forbidden
-    |         |     (Generic.PHP.BacktickOperator.Found)
+  9 | ERROR   | [ ] Use of the backtick operator is forbidden (Generic.PHP.BacktickOperator.Found)
+  9 | ERROR   | [ ] Use of the backtick operator is forbidden (Generic.PHP.BacktickOperator.Found)
  11 | ERROR   | [x] Expected 1 space after class keyword; 2 found
     |         |     (PSR2.Classes.ClassDeclaration.SpaceAfterKeyword)
  11 | ERROR   | [x] Expected 1 space after class name; 2 found
@@ -166,6 +164,5 @@
     |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfter)
  52 | WARNING | [x] Single space expected before closing parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 54 | ERROR   | [x] Long list syntax is not allowed
-    |         |     (Universal.Lists.DisallowLongListSyntax.Found)
+ 54 | ERROR   | [x] Long list syntax is not allowed (Universal.Lists.DisallowLongListSyntax.Found)
 PHPCBF CAN FIX THE 78 MARKED SNIFF VIOLATIONS AUTOMATICALLY
