@@ -32,6 +32,8 @@
 * Run in parallel with 64 jobs by default (Kunal Mehta, Antoine Musso)
 * build: Allow composer/semver 3.4.0 as well as 3.3.2 (Reedy)
 * tests: Add test for awfully inconsistent code (Daimona Eaytoy)
+* build: Update squizlabs/PHP_CodeSniffer to 3.8.1 (Umherirrender)
+
 
 ## 42.0.0 / 2023-09-21
 ### New sniffs ###
