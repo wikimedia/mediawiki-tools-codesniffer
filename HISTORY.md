@@ -1,5 +1,18 @@
 # MediaWiki-Codesniffer release history #
 
+## UNRELEASED / YYYY-MM-DD
+### New sniffs ###
+* …
+
+### Changed sniffs ###
+* …
+
+### Removed sniffs ###
+* …
+
+### Documentation, dependencies and build changes ###
+* …
+
 ## 43.0.0 / 2024-01-29
 ### New sniffs ###
 * Added the following sniffs from the PHPCSExtra standards: (Daimona Eaytoy)
