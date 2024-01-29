@@ -14,6 +14,7 @@
   * `Universal.WhiteSpace.CommaSpacing`: Enforce correct spacing around commas
 
 ### Changed sniffs ###
+* `DeprecatedGlobalVariablesSniff`: Add `$wgCommandLineMode` (Bartosz Dziewoński)
 * `FunctionCommentSniff` & `PropertyDocumentationSniff`: Allow array shapes in PHPDoc comments (thiemowmde)
 * `FunctionCommentSniff`: Require documentation of getters starting with "is", not only "get" (thiemowmde)
 * `FunctionCommentSniff`: Actually check if a method returns anything (thiemowmde)
