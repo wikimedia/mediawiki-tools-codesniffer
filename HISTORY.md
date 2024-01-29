@@ -1,6 +1,6 @@
 # MediaWiki-Codesniffer release history #
 
-## UNRELEASED / YYYY-MM-DD
+## 43.0.0 / 2024-01-29
 ### New sniffs ###
 * Added the following sniffs from the PHPCSExtra standards: (Daimona Eaytoy)
   * `Universal.Constants.LowercaseClassResolutionKeyword`: Enforce lowercase `::class`
