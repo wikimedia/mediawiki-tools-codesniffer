@@ -52,3 +52,5 @@ f( ... $a );
 $arrayWithWrongCommaSpacing = ['a','b'  ,'c',  'd'  ];
 
 list( $a, $b ) = [ 1, 2 ];
+
+$doubleNegative = !!random_int( 0, 1 );
