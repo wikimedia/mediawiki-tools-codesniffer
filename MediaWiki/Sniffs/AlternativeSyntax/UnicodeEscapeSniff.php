@@ -89,7 +89,7 @@ class UnicodeEscapeSniff implements Sniff {
 			$origToken = (array)$origToken;
 			if ( !(
 				$origToken[0] === T_ENCAPSED_AND_WHITESPACE ||
-				$origToken[0] === T_CONSTANT_ENCAPSED_STRING && $origToken[1][0] !== "'"
+				( $origToken[0] === T_CONSTANT_ENCAPSED_STRING && $origToken[1][0] !== "'" )
 			) ) {
 				$content .= $origToken[1] ?? $origToken[0];
 				continue;

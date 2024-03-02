@@ -3,6 +3,7 @@
 ## UNRELEASED / YYYY-MM-DD
 ### New sniffs ###
 * Add `Universal.PHP.LowercasePHPTag` (Daimona Eaytoy)
+* Add `Generic.CodeAnalysis.RequireExplicitBooleanOperatorPrecedence` (Daimona Eaytoy)
 
 ### Changed sniffs ###
 * Replace `DoubleNotOperatorSniff` with `Universal.CodeAnalysis.NoDoubleNegative` (Daimona Eaytoy)
