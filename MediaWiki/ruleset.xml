@@ -213,6 +213,7 @@
 	<rule ref="Universal.ControlStructures.DisallowAlternativeSyntax" />
 	<rule ref="Universal.Lists.DisallowLongListSyntax" />
 	<rule ref="Universal.Operators.TypeSeparatorSpacing" />
+	<rule ref="Universal.PHP.LowercasePHPTag" />
 	<rule ref="Universal.UseStatements.KeywordSpacing" />
 	<rule ref="Universal.UseStatements.LowercaseFunctionConst" />
 	<rule ref="Universal.UseStatements.NoUselessAliases" />

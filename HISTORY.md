@@ -2,7 +2,7 @@
 
 ## UNRELEASED / YYYY-MM-DD
 ### New sniffs ###
-* …
+* Add `Universal.PHP.LowercasePHPTag` (Daimona Eaytoy)
 
 ### Changed sniffs ###
 * Replace `DoubleNotOperatorSniff` with `Universal.CodeAnalysis.NoDoubleNegative` (Daimona Eaytoy)
