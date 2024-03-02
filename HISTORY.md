@@ -11,7 +11,7 @@
 * …
 
 ### Documentation, dependencies and build changes ###
-* …
+* build: Update codesniffer to 3.9.0, phpcsextra to 1.2.1 (Daimona Eaytoy)
 
 ## 43.0.0 / 2024-01-29
 ### New sniffs ###
