@@ -43,11 +43,13 @@ class UnusedUseStatementSniff implements Sniff {
 		'@see' => null,
 		'@throws' => null,
 		'@var' => null,
-		// phan
+		// Static code analyzers like Phan, PHPStan, or Psalm
 		'@phan-param' => null,
 		'@phan-property' => null,
 		'@phan-return' => null,
 		'@phan-var' => null,
+		'@phpstan-import-type' => null,
+		'@psalm-import-type' => null,
 		// Deprecated
 		'@expectedException' => null,
 		'@method' => null,
@@ -138,7 +140,13 @@ class UnusedUseStatementSniff implements Sniff {
 				) {
 					continue;
 				}
-				$docType = $this->extractType( $tokens[$i + 2]['content'] );
+				if ( str_ends_with( $tokens[$i]['content'], 'import-type' ) &&
+					preg_match( '/^\S+\s+from\s+(\S+)/is', $tokens[$i + 2]['content'], $matches )
+				) {
+					$docType = $matches[1];
+				} else {
+					$docType = $this->extractType( $tokens[$i + 2]['content'] );
+				}
 				if ( !preg_match_all( $classNamesPattern, $docType, $matches ) ) {
 					continue;
 				}

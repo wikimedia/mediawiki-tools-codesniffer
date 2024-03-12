@@ -20,6 +20,8 @@ use Something\InAVar8;
 use Something\InAVar9;
 use Something\OneTwo as ThreeFour;
 use Something\Partial;
+use Something\PHPStanClass;
+use Something\PsalmClass;
 use Something\Something;
 use Something\That\Is\Unused;
 use Something\That\Is\Used;
@@ -145,6 +147,8 @@ $fn = static function () use ( $a ) {
  * @property ClassProp1 $foo
  * @property-read ClassProp2 $bar
  * @property-write ClassProp3 $bar
+ * @phpstan-import-type PHPStanLocalType from PHPStanClass
+ * @psalm-import-type PsalmLocalType from PsalmClass as PsalmAlias
  */
 class CommentProps {
 }

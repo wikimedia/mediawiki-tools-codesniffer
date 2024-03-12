@@ -4,15 +4,15 @@
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
   6 | WARNING | [x] Unused use statement "AFunctionName"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 24 | WARNING | [x] Unused use statement "Unused" (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 26 | WARNING | [x] Unused use statement "SomeAlias"
+ 26 | WARNING | [x] Unused use statement "Unused" (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 28 | WARNING | [x] Unused use statement "SomeAlias"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 31 | WARNING | [x] Unused use statement "FullyQualified"
+ 33 | WARNING | [x] Unused use statement "FullyQualified"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 34 | WARNING | [x] Unused use statement "LBFactory"
+ 36 | WARNING | [x] Unused use statement "LBFactory"
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
- 35 | WARNING | [x] Unnecessary use statement "someFunction" in the same namespace
+ 37 | WARNING | [x] Unnecessary use statement "someFunction" in the same namespace
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
- 36 | WARNING | [x] Unnecessary use statement "SOME_CONST" in the same namespace
+ 38 | WARNING | [x] Unnecessary use statement "SOME_CONST" in the same namespace
     |         |     (MediaWiki.Classes.UnusedUseStatement.UnnecessaryUse)
 PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY
