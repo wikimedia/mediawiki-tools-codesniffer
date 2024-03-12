@@ -48,8 +48,8 @@ class UnusedUseStatementSniff implements Sniff {
 		'@phan-property' => null,
 		'@phan-return' => null,
 		'@phan-var' => null,
-		'@phpstan-import-type' => null,
-		'@psalm-import-type' => null,
+		'@phpstan-import-type' => '/\bfrom\h+(.*)/',
+		'@psalm-import-type' => '/\bfrom\h+(.*)/',
 		// Deprecated
 		'@expectedException' => null,
 		'@method' => null,
@@ -135,18 +135,19 @@ class UnusedUseStatementSniff implements Sniff {
 
 			} elseif ( $tokens[$i]['code'] === T_DOC_COMMENT_TAG ) {
 				// Usage in a doc comment
-				if ( !array_key_exists( $tokens[$i]['content'], self::CLASS_TAGS )
+				$tag = $tokens[$i]['content'];
+				if ( !array_key_exists( $tag, self::CLASS_TAGS )
 					|| $tokens[$i + 2]['code'] !== T_DOC_COMMENT_STRING
 				) {
 					continue;
 				}
-				if ( str_ends_with( $tokens[$i]['content'], 'import-type' ) &&
-					preg_match( '/^\S+\s+from\s+(\S+)/is', $tokens[$i + 2]['content'], $matches )
+				$content = $tokens[$i + 2]['content'];
+				if ( is_string( self::CLASS_TAGS[$tag] ) &&
+					preg_match( self::CLASS_TAGS[$tag], $content, $matches )
 				) {
-					$docType = $matches[1];
-				} else {
-					$docType = $this->extractType( $tokens[$i + 2]['content'] );
+					$content = $matches[1];
 				}
+				$docType = $this->extractType( $content );
 				if ( !preg_match_all( $classNamesPattern, $docType, $matches ) ) {
 					continue;
 				}
