@@ -61,3 +61,8 @@ $thisIsOK = new class () {
 
 $thisShouldFail = new class () {
 };
+
+$thisIsOK2 = new class( [
+	'foo' => 'bar',
+] ) extends AClass {
+};
