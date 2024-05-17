@@ -36,6 +36,7 @@ class ExtendClassUsageSniff implements Sniff {
 		'$wgTitle',
 		'$wgUser',
 		'$wgVersion',
+		'$wgInitialSessionId',
 
 		// special global from WebStart.php
 		'$IP',
