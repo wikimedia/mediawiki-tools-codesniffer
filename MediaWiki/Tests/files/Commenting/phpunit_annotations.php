@@ -151,3 +151,17 @@ class RelativeCoversDefaultClassTest {
 		$this->assertTrue( $instance->foo() );
 	}
 }
+
+/**
+ * @covers \OtherClass
+ */
+class AbsoluteCoversTest {
+
+	/**
+	 * @covers \OtherClass::foo
+	 */
+	public function testFoo() {
+		$instance = new \OtherClass();
+		$this->assertTrue( $instance->foo() );
+	}
+}

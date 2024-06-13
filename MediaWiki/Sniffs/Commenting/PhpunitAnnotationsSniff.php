@@ -293,14 +293,15 @@ class PhpunitAnnotationsSniff implements Sniff {
 				);
 			} elseif ( isset( self::ABSOLUTE_CLASS_ANNOTATIONS[$tagText] ) ) {
 				$coveredClass = explode( '::', $tokens[$next]['content'] )[0];
-				if ( isset( $this->useClasses[$coveredClass] ) ) {
+				$searchClass = ltrim( $coveredClass, '\\' );
+				if ( isset( $this->useClasses[$searchClass] ) ) {
 					$fix = $phpcsFile->addFixableWarning(
 						'Use absolute class name (%s) for %s annotation instead',
 						$next, self::ABSOLUTE_CLASS_ANNOTATIONS[$tagText],
-						[ $this->useClasses[$coveredClass], $tagText ]
+						[ $this->useClasses[$searchClass], $tagText ]
 					);
 					if ( $fix ) {
-						$replace = $this->useClasses[$coveredClass] .
+						$replace = $this->useClasses[$searchClass] .
 							substr( $tokens[$next]['content'], strlen( $coveredClass ) );
 						$phpcsFile->fixer->replaceToken( $next, $replace );
 					}

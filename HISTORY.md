@@ -7,6 +7,7 @@
 
 ### Changed sniffs ###
 * Replace `DoubleNotOperatorSniff` with `Universal.CodeAnalysis.NoDoubleNegative` (Daimona Eaytoy)
+* `PhpunitAnnotationsSniff` now update absolute class name in @covers tag (Umherirrender)
 
 ### Removed sniffs ###
 * …

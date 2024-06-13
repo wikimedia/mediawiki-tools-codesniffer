@@ -49,4 +49,8 @@
  142 | WARNING | [x] Use absolute class name (\Path\To\AnotherClass) for @coversDefaultClass
      |         |     annotation instead
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCoversDefaultClass)
-PHPCBF CAN FIX THE 8 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 156 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation instead
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
+ 161 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation instead
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
+PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
