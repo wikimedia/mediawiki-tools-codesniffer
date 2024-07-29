@@ -2,18 +2,28 @@
 
 ## UNRELEASED / YYYY-MM-DD
 ### New sniffs ###
-* Add `Universal.PHP.LowercasePHPTag` (Daimona Eaytoy)
 * Add `Generic.CodeAnalysis.RequireExplicitBooleanOperatorPrecedence` (Daimona Eaytoy)
+* Add `Universal.CodeAnalysis.NoDoubleNegative` to replace `DoubleNotOperatorSniff` (Daimona Eaytoy)
+* Add `Universal.PHP.LowercasePHPTag` (Daimona Eaytoy)
 
 ### Changed sniffs ###
-* Replace `DoubleNotOperatorSniff` with `Universal.CodeAnalysis.NoDoubleNegative` (Daimona Eaytoy)
-* `PhpunitAnnotationsSniff` now update absolute class name in @covers tag (Umherirrender)
+* `ExtendClassUsageSniff`: Add `$wgInitialSessionId` to non-config variables (Func)
+* `PhpunitAnnotationsSniff`: Update also absolute class names in `@covers` (Umherirrender)
+* `SpaceBeforeClassBrace.BraceNotOnOwnLine`: Handle multi-line anon class (Umherirrender)
+* `UnusedUseStatementSniff`: Don't report unused classes in`@phpstan…` and `@psalm-import-type` (thiemowmde)
+* `UnusedUseStatementSniff`: Replace hard-coded`@…-import-type` with more flexible config (thiemowmde)
 
 ### Removed sniffs ###
-* …
+* `DoubleNotOperatorSniff`, replaced by `Universal.CodeAnalysis.NoDoubleNegative` (Daimona Eaytoy)
 
 ### Documentation, dependencies and build changes ###
+* Support composer/semver 3.4.2 (Kunal Mehta)
 * build: Update codesniffer to 3.9.0, phpcsextra to 1.2.1 (Daimona Eaytoy)
+* build: Update minus-x to 1.1.3 (Alexander Vorwerk)
+* build: Upgrade mediawiki/mediawiki-phan-config to 0.14.0 (James D. Forrester)
+* build: Upgrade php-parallel-lint/php-parallel-lint to 1.4.0 (Umherirrender)
+* build: Upgrade phpunit to 9.6.16 (James D. Forrester)
+
 
 ## 43.0.0 / 2024-01-29
 ### New sniffs ###
