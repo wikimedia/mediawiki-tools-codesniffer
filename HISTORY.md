@@ -1,6 +1,6 @@
 # MediaWiki-Codesniffer release history #
 
-## UNRELEASED / YYYY-MM-DD
+## v44.0.0 / 2024-08-10
 ### New sniffs ###
 * Add `Generic.CodeAnalysis.RequireExplicitBooleanOperatorPrecedence` (Daimona Eaytoy)
 * Add `Universal.CodeAnalysis.NoDoubleNegative` to replace `DoubleNotOperatorSniff` (Daimona Eaytoy)
