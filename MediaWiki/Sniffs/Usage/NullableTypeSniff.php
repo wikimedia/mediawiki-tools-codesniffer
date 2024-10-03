@@ -24,10 +24,7 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
- * Enforce use of `?MyClass $x` instead of `MyClass $x = null`, which is (correctly)
- * misinterpreted as optional by IDEs and static analysis tools.
- * This is only done for nullable types followed by required parameters.
- * Note that we don't offer an autofix, because changing a signature should be verified carefully.
+ * Enforce use of `?MyClass $x = null` or `?MyClass $x` instead of `MyClass $x = null`, which is deprecated in php8.4.
  */
 class NullableTypeSniff implements Sniff {
 	/**
@@ -45,7 +42,6 @@ class NullableTypeSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$params = $phpcsFile->getMethodParameters( $stackPtr );
 
-		$found = $temp = [];
 		foreach ( $params as $param ) {
 			if (
 				$param['type_hint'] &&
@@ -53,20 +49,16 @@ class NullableTypeSniff implements Sniff {
 				array_key_exists( 'default', $param ) &&
 				$param['default'] === 'null'
 			) {
-				$temp[] = $param;
-			} elseif ( !array_key_exists( 'default', $param ) ) {
-				$found = array_merge( $found, $temp );
-				$temp = [];
+				$fix = $phpcsFile->addFixableError(
+					'Use PHP 8.4 compatible syntax for explicit nullable types ("?%s %s = %s")',
+					$param['type_hint_token'],
+					'ExplicitNullableTypes',
+					[ $param['type_hint'], $param['name'], $param['default'] ]
+				);
+				if ( $fix ) {
+					$phpcsFile->fixer->addContentBefore( $param['type_hint_token'], '?' );
+				}
 			}
-		}
-
-		foreach ( $found as $param ) {
-			$phpcsFile->addError(
-				'Use PHP 7.1 syntax for nullable parameters ("?%s %s")',
-				$param['token'],
-				'PHP71NullableStyle',
-				[ $param['type_hint'], $param['name'] ]
-			);
 		}
 	}
 }
