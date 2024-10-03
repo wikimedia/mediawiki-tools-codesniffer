@@ -132,6 +132,7 @@ class DocCommentSniff implements Sniff {
 			// Ensure whitespace or tab after /** or *
 			if ( ( $tokens[$i]['code'] === T_DOC_COMMENT_OPEN_TAG ||
 				$tokens[$i]['code'] === T_DOC_COMMENT_STAR ) &&
+				$tokens[$i + 1]['code'] !== T_DOC_COMMENT_CLOSE_TAG &&
 				$tokens[$i + 1]['length'] > 0
 			) {
 				$commentStarSpacing = $i + 1;
@@ -284,7 +285,9 @@ class DocCommentSniff implements Sniff {
 					$phpcsFile->fixer->endChangeset();
 				}
 			}
-		} elseif ( $tokens[$commentEnd]['length'] > 0 ) {
+		} elseif ( $tokens[$commentEnd]['length'] > 0 &&
+			$tokens[$commentEnd - 1]['code'] !== T_DOC_COMMENT_OPEN_TAG
+		) {
 			// Ensure a whitespace before the token
 			$commentCloseSpacing = $commentEnd - 1;
 			$expectedSpaces = 1;

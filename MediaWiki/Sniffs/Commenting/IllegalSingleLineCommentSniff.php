@@ -58,7 +58,7 @@ class IllegalSingleLineCommentSniff implements Sniff {
 				}
 			} else {
 				// Determine whether multiple "*" appears right before the "*/"
-				if ( preg_match( '/(\*){2,}\//', $currentToken['content'] ) !== 0 ) {
+				if ( preg_match( '/[^\/*](\*){2,}\//', $currentToken['content'] ) !== 0 ) {
 					$fix = $phpcsFile->addFixableWarning(
 						'Invalid end of a single line comment',
 						$stackPtr,
