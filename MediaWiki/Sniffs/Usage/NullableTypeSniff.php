@@ -31,7 +31,7 @@ class NullableTypeSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register(): array {
-		return [ T_FUNCTION ];
+		return [ T_FUNCTION, T_CLOSURE, T_FN ];
 	}
 
 	/**

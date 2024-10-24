@@ -10,4 +10,8 @@
     |       |     (MediaWiki.Usage.NullableType.ExplicitNullableTypes)
  29 | ERROR | [x] Use PHP 8.4 compatible syntax for explicit nullable types ("?MyClass $x = null")
     |       |     (MediaWiki.Usage.NullableType.ExplicitNullableTypes)
-PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 33 | ERROR | [x] Use PHP 8.4 compatible syntax for explicit nullable types ("?MyClass $x = null")
+    |       |     (MediaWiki.Usage.NullableType.ExplicitNullableTypes)
+ 39 | ERROR | [x] Use PHP 8.4 compatible syntax for explicit nullable types ("?MyClass $x = null")
+    |       |     (MediaWiki.Usage.NullableType.ExplicitNullableTypes)
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY

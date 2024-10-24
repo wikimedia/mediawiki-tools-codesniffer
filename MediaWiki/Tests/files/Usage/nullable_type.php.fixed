@@ -28,6 +28,16 @@ class FailedExamples {
 	 */
 	public function nullableOnly( ?MyClass $x = null ) {
 	}
+
+	public function testClosure(): void {
+		$c = static function ( ?MyClass $x = null ) {
+			return $x;
+		};
+	}
+
+	public function testArrowFunctions(): void {
+		$c = fn ( ?MyClass $x = null ) => $x;
+	}
 }
 
 class PassedExamples {
@@ -44,5 +54,15 @@ class PassedExamples {
 	 * @param MyClass|null $x
 	 */
 	public function docOptionalArgNullable( $foo, ?MyClass $x ) {
+	}
+
+	public function testClosure(): void {
+		$c = static function ( ?MyClass $x ) {
+			return $x;
+		};
+	}
+
+	public function testArrowFunctions(): void {
+		$c = fn ( ?MyClass $x ) => $x;
 	}
 }
