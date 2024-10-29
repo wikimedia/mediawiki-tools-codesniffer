@@ -1,5 +1,19 @@
 # MediaWiki-Codesniffer release history #
 
+## v45.0.0 / 2024-10-29
+### New sniffs ###
+* Add `MediaWiki.Usage.NullableType.ExplicitNullableTypes` to check for implicitly nullable types in PHP 8.4 (Umherirrender)
+
+### Changed sniffs ###
+* `NullableTypeSniff`: Also check closure and arrow functions (Umherirrender)
+
+### Documentation, dependencies and build changes ###
+* Update squizlabs/php_codesniffer to 3.10.3 (Umherirrender)
+* build: Support composer/semver 3.4.3 (C. Scott Ananian)
+* build: Drop support for older composer/semver versions (Alexander Vorwerk)
+* build: Add ext-dom to require-dev, used in a test (Reedy)
+
+
 ## v44.0.0 / 2024-08-10
 ### New sniffs ###
 * Add `Generic.CodeAnalysis.RequireExplicitBooleanOperatorPrecedence` (Daimona Eaytoy)
