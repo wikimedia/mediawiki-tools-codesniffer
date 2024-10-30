@@ -140,7 +140,7 @@ class MediaWikiStandardTest extends TestCase {
 
 			// Remove lines that start with 'Time:', 'FOUND', or 'FILE:':
 			$outputLines = preg_grep( '/^(Time:|FOUND|FILE:) .*$/', $outputLines, PREG_GREP_INVERT );
-			$outputStr = implode( "\n", $outputLines );
+			$outputStr = implode( "\n", $outputLines ) . "\n";
 		}
 
 		return $outputStr;
