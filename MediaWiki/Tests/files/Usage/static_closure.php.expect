@@ -1,13 +1,14 @@
  21 | ERROR   | [ ] Only one object structure is allowed in a file
     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
  41 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
- 64 | ERROR   | [x] Cannot not use static closure in class context
+ 46 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 67 | ERROR   | [x] Cannot not use static closure in class context
     |         |     (MediaWiki.Usage.StaticClosure.NonStaticClosure)
- 77 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
- 88 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
- 88 | ERROR   | [x] There must not be a space before the colon in a return type declaration
+ 80 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 91 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 91 | ERROR   | [x] There must not be a space before the colon in a return type declaration
     |         |     (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon)
- 89 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
- 89 | ERROR   | [x] There must not be a space before the colon in a return type declaration
+ 92 | WARNING | [x] Use static closure (MediaWiki.Usage.StaticClosure.StaticClosure)
+ 92 | ERROR   | [x] There must not be a space before the colon in a return type declaration
     |         |     (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon)
-PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 8 MARKED SNIFF VIOLATIONS AUTOMATICALLY

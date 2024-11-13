@@ -42,6 +42,9 @@ class Foo extends Bar {
 			return $val === 1;
 		} );
 
+		array_filter( $a, static fn ( $val ) => $val === 1 );
+		array_filter( $a, fn ( $val ) => $val === 1 );
+
 		// Class context needed
 		array_filter( $a, function ( $val ) {
 			return parent::doParentStuff();

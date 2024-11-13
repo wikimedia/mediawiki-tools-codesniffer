@@ -1,11 +1,11 @@
- 13 | ERROR | [x] A single space should be after the function keyword in closures
+ 14 | ERROR | [x] A single space should be after the function keyword in closures
     |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure)
- 17 | ERROR | [x] A single space should be after the function keyword in closures
+ 18 | ERROR | [x] A single space should be after the function keyword in closures
     |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.WrongWhitespaceAfterClosure)
- 21 | ERROR | [x] A single space should be after the function keyword in closures
+ 22 | ERROR | [x] A single space should be after the function keyword in closures
     |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure)
- 25 | ERROR | [x] A single space should be after the fn keyword in closures
-    |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterArrow)
  26 | ERROR | [x] A single space should be after the fn keyword in closures
+    |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterArrow)
+ 28 | ERROR | [x] A single space should be after the fn keyword in closures
     |       |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterArrow)
 PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -36,6 +36,7 @@ class FailedExamples {
 	}
 
 	public function testArrowFunctions(): void {
+		// phpcs:ignore MediaWiki.Usage.StaticClosure.StaticClosure
 		$c = fn ( ?MyClass $x = null ) => $x;
 	}
 
@@ -66,6 +67,7 @@ class PassedExamples {
 	}
 
 	public function testArrowFunctions(): void {
+		// phpcs:ignore MediaWiki.Usage.StaticClosure.StaticClosure
 		$c = fn ( ?MyClass $x ) => $x;
 	}
 }

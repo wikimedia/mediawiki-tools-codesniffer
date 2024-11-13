@@ -8,6 +8,7 @@ $good_with_arg = static function ( $arg ) {
 };
 
 array_filter( $a, static fn ( $val ) => $val === 1 );
+// phpcs:ignore MediaWiki.Usage.StaticClosure.StaticClosure
 array_filter( $a, fn ( $val ) => $val === 1 );
 
 $bad = static function () {
@@ -23,4 +24,5 @@ $bad_with_arg = static function ( $param ) {
 };
 
 array_filter( $a, static fn ( $val ) => $val === 1 );
+// phpcs:ignore MediaWiki.Usage.StaticClosure.StaticClosure
 array_filter( $a, fn ( $val ) => $val === 1 );

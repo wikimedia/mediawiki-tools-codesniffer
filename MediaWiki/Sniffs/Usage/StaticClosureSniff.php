@@ -33,7 +33,7 @@ class StaticClosureSniff implements Sniff {
 	 * @inheritDoc
 	 */
 	public function register(): array {
-		return [ T_CLOSURE ];
+		return [ T_CLOSURE, T_FN ];
 	}
 
 	/**
