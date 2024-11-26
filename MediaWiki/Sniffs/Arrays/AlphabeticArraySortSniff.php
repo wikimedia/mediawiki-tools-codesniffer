@@ -112,13 +112,21 @@ class AlphabeticArraySortSniff implements Sniff {
 				// Do not track comma
 				$endItem = $endStatement - 1;
 			}
-			$keyToken = $phpcsFile->findNext( Tokens::$emptyTokens, $next, $endItem + 1, true );
 
-			$arrayKey = $tokens[$keyToken]['content'];
+			$keyStart = $phpcsFile->findNext( Tokens::$emptyTokens, $next, $endItem + 1, true );
+			$keyEnd = $phpcsFile->findNext( [ T_DOUBLE_ARROW ], $keyStart, $endItem + 1 );
+
+			// Determine if it's a key-value pair or just a value
+			if ( $keyEnd !== false ) {
+				$arrayKey = trim( $phpcsFile->getTokensAsString( $keyStart, $keyEnd - $keyStart ) );
+			} else {
+				$arrayKey = trim( $phpcsFile->getTokensAsString( $keyStart, $endItem - $keyStart + 1 ) );
+			}
+
 			if ( isset( $keys[$arrayKey] ) ) {
 				$phpcsFile->addWarning(
 					'Found duplicate key "%s" on array required sorting',
-					$keyToken,
+					$keyStart,
 					'Duplicate',
 					[ $arrayKey ]
 				);
@@ -128,7 +136,7 @@ class AlphabeticArraySortSniff implements Sniff {
 			}
 
 			$keys[$arrayKey] = [
-				'key' => $keyToken,
+				'key' => $keyStart,
 				'end' => $endItem,
 				'startLocation' => $next,
 				'endLocation' => $endStatement,

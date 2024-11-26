@@ -1,5 +1,9 @@
 <?php
 
+const ANOTHER_TESTING_CONST = 'another_testing_const';
+const BEST_TESTING_CONST = 'best_testing_const';
+const TESTING_CONST = 'testing_const';
+
 /**
  * Good example
  * @phpcs-require-sorted-array
@@ -10,6 +14,28 @@ $a = [
 	'c' => '3',
 	'd' => '4',
 	'e' => '5',
+];
+
+/**
+ * Good example - php consts
+ * @phpcs-require-sorted-array
+ */
+$a = [
+	$this->ANOTHER_TESTING_CONST => '1',
+	$this->BEST_TESTING_CONST => '2',
+	$this->TESTING_CONST => '3',
+];
+
+/**
+ * Good example - sequential array containing constants
+ * @phpcs-require-sorted-array
+ */
+$a = [
+	$this->ANOTHER_TESTING_CONST,
+	$this->BEST_TESTING_CONST,
+	$this->TESTING_CONST,
+	'y',
+	'z',
 ];
 
 /**
@@ -38,6 +64,15 @@ $a = [
 ];
 
 /**
+ * Bad example - php consts
+ * @phpcs-require-sorted-array
+ */
+$a = [
+	$this->TESTING_CONST => '2',
+	$this->ANOTHER_TESTING_CONST => '1',
+];
+
+/**
  * Bad example - no trailing comma
  * @phpcs-require-sorted-array
  */
@@ -47,6 +82,18 @@ $a = [
 	'b' => '2',
 	'c' => '3',
 	'd' => '4'
+];
+
+/**
+ * Bad example - sequential array
+ * @phpcs-require-sorted-array
+ */
+$a = [
+	$this->ANOTHER_TESTING_CONST,
+	'z',
+	$this->TESTING_CONST,
+	'y',
+	$this->BEST_TESTING_CONST,
 ];
 
 /**
