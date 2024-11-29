@@ -1,5 +1,21 @@
 # MediaWiki-Codesniffer release history #
 
+## v46.0.0 / 2025-01-27
+
+### Changed sniffs ###
+* `AlphabeticArraySortSniff`: Support sorting by symbol name, e.g. const keys (Muhammad Yasser Jazirahly)
+* `FunctionAnnotationsSniff`: Allow use of `@preCondition` and `@postCondition` PHPUnit annotations (Umherirrender)
+* `NullableTypeSniff`: Don't try to fix `mixed` to add `null`, it is already nullable (Taavi Väänänen)
+* `StaticClosureSniff`: Work on `fn()` too (Reedy)
+
+### Documentation, dependencies and build changes ###
+* Raise PHP CodeSniffer from 3.10.3 to 3.11.3 (James D. Forrester, Reedy)
+* build: Updating mediawiki/mediawiki-phan-config to 0.15.1 (libraryupgrader)
+* build: Updating phpunit/phpunit to 9.6.21 (libraryupgrader)
+* tests: Add newline at end of all .expect files (Bartosz Dziewoński)
+* tests: Re-enable ScopeIndent sniff on test that was previously failing (Daimona Eaytoy)
+
+
 ## v45.0.0 / 2024-10-29
 ### New sniffs ###
 * Add `MediaWiki.Usage.NullableType.ExplicitNullableTypes` to check for implicitly nullable types in PHP 8.4 (Umherirrender)
