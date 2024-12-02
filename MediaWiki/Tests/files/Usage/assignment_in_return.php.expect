@@ -9,7 +9,8 @@
  33 | ERROR | [ ] Assignment expression not allowed within "yield from".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInYieldFrom)
  33 | ERROR | [x] Language constructs must be followed by a single space; expected 1 space between
-    |       |     YIELD FROM found "yield\n\t\tfrom"
+    |       |     YIELD FROM found
+    |       |     "yield\n········from"
     |       |     (Generic.WhiteSpace.LanguageConstructSpacing.IncorrectYieldFrom)
  35 | ERROR | [ ] Assignment expression not allowed within "yield from".
     |       |     (MediaWiki.Usage.AssignmentInReturn.AssignmentInYieldFrom)

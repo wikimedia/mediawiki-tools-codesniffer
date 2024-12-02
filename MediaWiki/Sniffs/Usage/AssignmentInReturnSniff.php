@@ -55,12 +55,25 @@ class AssignmentInReturnSniff implements Sniff {
 				&& $code !== T_DOUBLE_ARROW
 			) {
 				$errorPtr = $stackPtr;
-				// "yield from" could be multiline, get content from more than one token
-				$content = '';
-				do {
-					$content .= $tokens[$stackPtr]['content'];
+				$content = $tokens[$stackPtr]['content'];
+				// "yield from" could have whitespace and comments in the middle. If we only got a `yield`, skip
+				// forwards until we find the `from`. See https://github.com/PHPCSStandards/PHP_CodeSniffer/pull/647
+				if ( $tokens[$stackPtr]['code'] === T_YIELD_FROM && $content === 'yield' ) {
+					$nextNotNoop = $phpcsFile->findNext( [ T_COMMENT, T_WHITESPACE ], $stackPtr + 1, null, true );
+					if (
+						$nextNotNoop === false ||
+						$tokens[$nextNotNoop]['code'] !== T_YIELD_FROM ||
+						$tokens[$nextNotNoop]['content'] !== 'from'
+					) {
+						// Should never happen.
+						$stackPtr++;
+					} else {
+						$content .= ' from';
+						$stackPtr = $nextNotNoop + 1;
+					}
+				} else {
 					$stackPtr++;
-				} while ( $tokens[$stackPtr]['code'] === T_YIELD_FROM );
+				}
 				// Split by any whitespaces and build better looking content with one space
 				$contentPieces = preg_split( '/\s+/', $content );
 				$phpcsFile->addError(
