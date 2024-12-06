@@ -45,6 +45,7 @@ class NullableTypeSniff implements Sniff {
 		foreach ( $params as $param ) {
 			if (
 				$param['type_hint'] &&
+				$param['type_hint'] !== 'mixed' &&
 				$param['nullable_type'] === false &&
 				array_key_exists( 'default', $param ) &&
 				$param['default'] === 'null'

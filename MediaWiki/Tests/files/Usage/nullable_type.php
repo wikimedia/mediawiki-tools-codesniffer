@@ -38,6 +38,9 @@ class FailedExamples {
 	public function testArrowFunctions(): void {
 		$c = fn ( MyClass $x = null ) => $x;
 	}
+
+	public function testMixedDefaultsToNull( mixed $x = null ): void {
+	}
 }
 
 class PassedExamples {
