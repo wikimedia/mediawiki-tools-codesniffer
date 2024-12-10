@@ -167,4 +167,22 @@
  54 | ERROR   | [x] Long list syntax is not allowed (Universal.Lists.DisallowLongListSyntax.Found)
  56 | ERROR   | [x] Double negative detected. Use a (bool) cast  instead. Found: !!
     |         |     (Universal.CodeAnalysis.NoDoubleNegative.FoundDouble)
-PHPCBF CAN FIX THE 79 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 58 | ERROR   | [x] TRUE, FALSE and NULL must be lowercase; expected "true" but found "True"
+    |         |     (Generic.PHP.LowerCaseConstant.Found)
+ 59 | ERROR   | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but found "FALSE"
+    |         |     (Generic.PHP.LowerCaseConstant.Found)
+ 62 | ERROR   | [x] Space found before semicolon; expected "true;" but found "true\n    ;"
+    |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+ 63 | ERROR   | [x] Space found before semicolon; expected "true;" but found "true\n    ;"
+    |         |     (Squiz.WhiteSpace.SemicolonSpacing.Incorrect)
+ 67 | ERROR   | [x] Expected no space between "'First'" and the comma. Found: a new line
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
+ 68 | ERROR   | [x] Expected no space between "'Second'" and the comma. Found: a new line
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
+ 72 | ERROR   | [x] Expected 1 space after IF keyword; newline found
+    |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
+ 78 | WARNING | [x] Space found before opening parenthesis of function call
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
+ 79 | ERROR   | [x] Space found before object operator
+    |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+PHPCBF CAN FIX THE 88 MARKED SNIFF VIOLATIONS AUTOMATICALLY

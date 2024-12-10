@@ -54,3 +54,22 @@ $arrayWithWrongCommaSpacing = [ 'a', 'b', 'c', 'd' ];
 [ $a, $b ] = [ 1, 2 ];
 
 $doubleNegative = (bool)random_int( 0, 1 );
+
+$wrongConstantCase1 = true;
+$wrongConstantCase2 = false;
+
+$misplacedSemicolon = true;
+$becauseItIsOnADiferentLine = true;
+
+$misplacedCommas = [
+	'First', 'Second',
+];
+
+// Check spacing after the `if` keyword
+if (
+	rand()
+) {
+}
+
+$spaceBeforeCallParentheses = rand();
+$spaceBeforeMethodCallOp = $someObj->someCall();

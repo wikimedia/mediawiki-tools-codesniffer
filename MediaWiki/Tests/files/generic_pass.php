@@ -166,11 +166,30 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		$param3
 	) {
 	}
+
+	public static function declarationTest5
+		( string $param ) {
+		// TODO: Forbid this.
+	}
 }
 
 $a = [ 'spaces!', FooBar::class, FooBar::$var ];
 
 [ $foo, $bar ] = [ 1, 2 ];
+
+// TODO: Consider forbidding case mismatches: T381926.
+$caseMismatchBuiltin
+	= HTMLspecialchars( STR_REPLACE( 'a', 'b', 'c' ) );
+$caseMismatchUserland = foobar::Declarationtest5();
+
+function wfTakesSomeParameters(
+	int $first,
+		int $second,
+			int $third,
+	int $fourth, string $fifth
+) {
+	// TODO: enforce consistent formatting of function parameters.
+}
 
 Hooks::run( 'RevisionDataUpdates', [ $title, $renderedRevision, &$updates ] );
 // This file has a new line at the end!
