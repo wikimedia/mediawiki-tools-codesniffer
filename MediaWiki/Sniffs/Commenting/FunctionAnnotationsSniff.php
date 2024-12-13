@@ -113,6 +113,8 @@ class FunctionAnnotationsSniff implements Sniff {
 		// are listed above
 		'@afterclass' => '@afterClass',
 		'@beforeclass' => '@beforeClass',
+		'@precondition' => '@preCondition',
+		'@postcondition' => '@postCondition',
 		'@codecoverageignore' => '@codeCoverageIgnore',
 		'@covernothing' => '@coverNothing',
 		'@coversnothing' => '@coversNothing',

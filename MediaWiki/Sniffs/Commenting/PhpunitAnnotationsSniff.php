@@ -46,6 +46,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@before' => true,
 		'@beforeClass' => true,
 
+		'@preCondition' => true,
+		'@postCondition' => true,
+
 		'@covers' => true,
 		'@cover' => [ '@covers', 'SingularCover' ],
 
@@ -107,6 +110,8 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@afterClass',
 		'@before',
 		'@beforeClass',
+		'@preCondition',
+		'@postCondition',
 	];
 
 	/**
@@ -133,6 +138,16 @@ class PhpunitAnnotationsSniff implements Sniff {
 			'regex' => '/SetUpBeforeClass$/',
 			'message' => 'setUp functions (*SetUpBeforeClass)',
 			'code' => 'NotSetUpBeforeClassFunction',
+		],
+		'@preCondition' => [
+			'regex' => '/PreConditions$/',
+			'message' => 'assertPreConditions functions (*PreConditions)',
+			'code' => 'NotAssertPreConditionsFunction',
+		],
+		'@postCondition' => [
+			'regex' => '/PostConditions$/',
+			'message' => 'assertPostConditions functions (*PostConditions)',
+			'code' => 'NotAssertPostConditionsFunction',
 		],
 		'*' => [
 			'regex' => '/^(?:test|provide)|Provider$/',
