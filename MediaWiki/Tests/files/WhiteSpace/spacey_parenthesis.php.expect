@@ -1,29 +1,33 @@
- 10 | WARNING | [x] Single space expected after opening parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 10 | WARNING | [x] Single space expected before closing parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 11 | WARNING | [x] Single space expected after opening parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 11 | WARNING | [x] Single space expected before closing parenthesis
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
  12 | WARNING | [x] Single space expected after opening parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
  12 | WARNING | [x] Single space expected before closing parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 13 | ERROR   | [x] Short array syntax must be used to define arrays
-    |         |     (Generic.Arrays.DisallowLongArraySyntax.Found)
- 13 | WARNING | [x] Unnecessary space found within parentheses
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
- 14 | ERROR   | [x] Short array syntax must be used to define arrays
-    |         |     (Generic.Arrays.DisallowLongArraySyntax.Found)
- 14 | WARNING | [x] Space found before opening bracket of array
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
- 14 | ERROR   | [x] Expected no space before opening parenthesis; found 1
-    |         |     (MediaWiki.WhiteSpace.OpeningKeywordParenthesis.WrongWhitespaceBeforeParenthesis)
- 17 | WARNING | [x] Single space expected after opening parenthesis
+ 13 | WARNING | [x] Single space expected after opening parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
- 17 | WARNING | [x] Single space expected before closing parenthesis
+ 13 | WARNING | [x] Single space expected before closing parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
- 20 | ERROR   | [x] Whitespace found at end of line
+ 14 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 14 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 15 | WARNING | [x] Space found before opening bracket of array
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
+ 15 | ERROR   | [x] Expected no space before opening parenthesis; found 1
+    |         |     (MediaWiki.WhiteSpace.OpeningKeywordParenthesis.WrongWhitespaceBeforeParenthesis)
+ 18 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 18 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 21 | ERROR   | [x] Whitespace found at end of line
     |         |     (Squiz.WhiteSpace.SuperfluousWhitespace.EndLine)
-PHPCBF CAN FIX THE 14 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 24 | WARNING | [x] Unnecessary space found within parentheses
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
+ 26 | WARNING | [x] Unnecessary space found within parentheses
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
+ 29 | WARNING | [x] Unnecessary space found within parentheses
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
+ 32 | WARNING | [x] Unnecessary space found within brackets
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
+ 34 | WARNING | [x] Unnecessary space found within parentheses
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses)
+PHPCBF CAN FIX THE 16 MARKED SNIFF VIOLATIONS AUTOMATICALLY

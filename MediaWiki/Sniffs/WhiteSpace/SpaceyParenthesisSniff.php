@@ -76,11 +76,27 @@ class SpaceyParenthesisSniff implements Sniff {
 		// Shorten out as early as possible on empty parenthesis
 		if ( $closer === $stackPtr + 1 ) {
 			// Intentionally do not process the closing parenthesis again
-			return $stackPtr + 2;
+			return $closer + 1;
 		}
 
-		// Check for space between parentheses without any arguments
-		if ( $closer === $stackPtr + 2 && $tokens[$stackPtr + 1]['code'] === T_WHITESPACE ) {
+		// Check for space between parentheses without any arguments. Empty arrays (long and short) are not checked if
+		// they contain a newline, as that is sometimes used to facilitate adding new elements.
+		// TODO: Ideally, in that case we would only allow a newline and closer indentation, not any other random
+		// whitespace. This seems tricky as we need to figure out what the correct indentation would be.
+		if ( $currentToken['code'] === T_OPEN_SHORT_ARRAY ) {
+			$isArray = true;
+		} else {
+			$prevNonEmpty = $phpcsFile->findPrevious( Tokens::$emptyTokens, $stackPtr - 1, null, true );
+			$isArray = $tokens[$prevNonEmpty]['code'] === T_ARRAY;
+		}
+
+		if ( $isArray ) {
+			$hasUnnecessarySpace = $closer === $stackPtr + 2 && $tokens[$stackPtr + 1]['code'] === T_WHITESPACE;
+		} else {
+			$nextNonSpace = $phpcsFile->findNext( T_WHITESPACE, $stackPtr + 1, $closer + 1, true );
+			$hasUnnecessarySpace = $nextNonSpace === $closer;
+		}
+		if ( $hasUnnecessarySpace ) {
 			$bracketType = $currentToken['code'] === T_OPEN_PARENTHESIS ? 'parentheses' : 'brackets';
 			$fix = $phpcsFile->addFixableWarning(
 				'Unnecessary space found within %s',
@@ -89,11 +105,15 @@ class SpaceyParenthesisSniff implements Sniff {
 				[ $bracketType ]
 			);
 			if ( $fix ) {
-				$phpcsFile->fixer->replaceToken( $stackPtr + 1, '' );
+				$phpcsFile->fixer->beginChangeset();
+				for ( $replace = $stackPtr + 1; $replace < $closer; $replace++ ) {
+					$phpcsFile->fixer->replaceToken( $replace, '' );
+				}
+				$phpcsFile->fixer->endChangeset();
 			}
 
 			// Intentionally do not process the closing parenthesis again
-			return $stackPtr + 3;
+			return $closer + 1;
 		}
 
 		$this->processOpenParenthesis( $phpcsFile, $stackPtr );

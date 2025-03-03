@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable Generic.Arrays.DisallowLongArraySyntax
+
 /**
  * Failed examples.
  * @param int $a Just for test.
@@ -10,7 +12,6 @@ function wfFailedExamples( $a, $b ) {
 	$a->foo($b);
 	$a->foo(  $b  );
 	$a->foo( 	$b  	);
-	$c = array( );
 	$d = array ( 1, 2 );
 	$a = [
 		'foo' => 'bar',
@@ -20,6 +21,17 @@ function wfFailedExamples( $a, $b ) {
 	$a = [ 
 		'foo' => 'bar',
 	];
+	$unnecessarySpaceInParentheses1 = rand(
+	);
+	$unnecessarySpaceInParentheses2 = rand(
+
+	);
+	$unnecessarySpaceInParentheses3 = rand(
+			);
+
+	$unnecessarySpaceInShortArray1 = [     ];
+
+	$unnecessarySpaceInLongArray1 = array(     );
 }
 
 /**
@@ -37,7 +49,6 @@ function wfPassedExamples( $arg, $arg1 ) {
 	(int)$arg->bar();
 
 	$fooArray = [
-		// phpcs:disable Generic.Files.LineLength
 		[
 			'Some',
 			'Parameter',
@@ -50,6 +61,24 @@ function wfPassedExamples( $arg, $arg1 ) {
 			'For',
 			'Testprovider',
 		],
-		// phpcs:enable
 	];
+	$emptyShortArrayWithNewLine = [
+	];
+	// TODO: Ideally flag this.
+	$unnecessarySpaceInShortArray2 = [
+
+	];
+	// TODO: Ideally flag this.
+	$unnecessarySpaceInShortArray3 = [
+				];
+	$emptyLongArrayWithNewLine = array(
+	);
+
+	// TODO: Ideally flag this.
+	$unnecessarySpaceInLongArray2 = array(
+
+	);
+	// TODO: Ideally flag this.
+	$unnecessarySpaceInLongArray3 = array(
+				);
 }
