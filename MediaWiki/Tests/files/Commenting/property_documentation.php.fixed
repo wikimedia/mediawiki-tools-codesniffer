@@ -102,6 +102,10 @@ class TestPassedExamples {
 	/** A variable with prose documentation but only a static type. */
 	public string $tdoc;
 
+	// Some comment with wrong style, but typed property is okay to have it
+
+	public string $wrongStyleDoc;
+
 	// phpcs:disable Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect
 
 	/**

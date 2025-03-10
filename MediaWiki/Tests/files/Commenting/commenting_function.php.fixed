@@ -622,6 +622,12 @@ class TestPassedExamples {
 	public function convertMessage( Message $m ): MessageValue {
 		// function documentation without repeating types
 	}
+
+	// Some comment with wrong style, but typed function is okay to have it
+
+	public function functionWithWrongStyleComment( int $b ): int {
+		return $b;
+	}
 }
 
 class TestSimpleConstructor {
@@ -645,6 +651,12 @@ class TestReturnConstructor {
 
 	/* @noPhpDocComment */
 	public function noPhpDocComment() {
+	}
+
+	// Wrong style comment, but function with parameter is not allowed to have it
+
+	public function returnTypeMissingFunctionWithWrongStyleComment( $b ) {
+		return $b;
 	}
 }
 

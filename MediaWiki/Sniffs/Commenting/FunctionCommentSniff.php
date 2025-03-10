@@ -100,9 +100,7 @@ class FunctionCommentSniff implements Sniff {
 				$commentEnd = $prev;
 			}
 		}
-		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
-			&& $tokens[$commentEnd]['code'] !== T_COMMENT
-		) {
+		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG ) {
 			// Function has no documentation; check if this is allowed or not
 			$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
 			$methodParams = $phpcsFile->getMethodParameters( $stackPtr );
@@ -121,6 +119,17 @@ class FunctionCommentSniff implements Sniff {
 			$returnsValue = $this->functionReturnsValue( $phpcsFile, $stackPtr ) ?? true;
 			$isFullyTyped = $allParamsTyped && ( $hasReturnType || !$returnsValue );
 			$isTestFile = $this->isTestFile( $phpcsFile, $stackPtr );
+			// A wrong style comment before this function is okay, when function is fully typed
+			if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
+				if ( ( !$allParamsTyped || !$hasReturnType ) && !$isTestFile ) {
+					$phpcsFile->addError(
+						'You must use "/**" style comments for a function comment',
+						$stackPtr,
+						'WrongStyle'
+					);
+				}
+				return;
+			}
 			// A function is *allowed* to omit the documentation comment
 			// (but in many cases, documentation comments still make sense, and are not discouraged)
 			// if it is fully typed (parameter and return type declarations), or in a test file,
@@ -135,14 +144,6 @@ class FunctionCommentSniff implements Sniff {
 					'MissingDocumentation' . ucfirst( $methodProps['scope'] )
 				);
 			}
-			return;
-		}
-		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
-			$phpcsFile->addError(
-				'You must use "/**" style comments for a function comment',
-				$stackPtr,
-				'WrongStyle'
-			);
 			return;
 		}
 		if ( $tokens[$commentEnd]['line'] !== $tokens[$stackPtr]['line'] - $linesBetweenDocAndFunction ) {

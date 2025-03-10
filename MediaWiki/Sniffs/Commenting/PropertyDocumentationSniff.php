@@ -78,11 +78,17 @@ class PropertyDocumentationSniff implements Sniff {
 				$commentEnd = $prev;
 			}
 		}
-		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
-			&& $tokens[$commentEnd]['code'] !== T_COMMENT
-		) {
+		if ( $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG ) {
 			$memberProps = $phpcsFile->getMemberProperties( $stackPtr );
 			if ( $memberProps['type'] === '' ) {
+				if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
+					$phpcsFile->addError(
+						'You must use "/**" style comments for a class property comment',
+						$stackPtr,
+						'WrongStyle'
+					);
+					return;
+				}
 				$phpcsFile->addError(
 					'Missing class property doc comment',
 					$stackPtr,
@@ -91,11 +97,6 @@ class PropertyDocumentationSniff implements Sniff {
 					'MissingDocumentation' . ucfirst( $memberProps['scope'] )
 				);
 			}
-			return;
-		}
-		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
-			$phpcsFile->addError( 'You must use "/**" style comments for a class property comment',
-			$stackPtr, 'WrongStyle' );
 			return;
 		}
 		if ( $tokens[$commentEnd]['line'] !== $tokens[$visibilityPtr]['line'] - 1 ) {
