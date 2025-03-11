@@ -1,0 +1,63 @@
+  3 | ERROR   | [x] A single space should be after the function keyword in closures
+    |         |     (MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure)
+  3 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 2 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+  3 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  3 | ERROR   | [x] Expected 1 space between type hint and argument "$a"; 2 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterHint)
+  3 | ERROR   | [x] Expected 0 spaces between argument "$a" and comma; 1 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
+  3 | ERROR   | [x] Expected 1 space between comma and type hint "string"; 0 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeHint)
+  3 | ERROR   | [x] Expected no space between "$a" and the comma. Found: 1 space
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBeforeInFunctionDeclaration)
+  3 | ERROR   | [x] Expected 1 space between the comma and "string". Found: no spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.NoSpaceAfterInFunctionDeclaration)
+  3 | ERROR   | [x] Expected 1 space between type hint and argument "$b"; 0 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterHint)
+  3 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  3 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+  3 | ERROR   | [x] There must not be a space before the colon in a return type declaration
+    |         |     (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon)
+  7 | ERROR   | [x] A single space should be after the function keyword in closures
+    |         |     (MediaWiki.WhiteSpace.SpaceAfterClosure.WrongWhitespaceAfterClosure)
+  7 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 0 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+  7 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+  7 | ERROR   | [x] Expected 1 space between comma and type hint "string"; 4 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeHint)
+  7 | ERROR   | [x] Expected 1 space between the comma and "string". Found: 4 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.TooMuchSpaceAfterInFunctionDeclaration)
+  7 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+  7 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 3 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+  7 | ERROR   | [x] There must not be a space before the colon in a return type declaration
+    |         |     (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon)
+ 10 | ERROR   | [x] There must be a single space between the colon and type in a return type
+    |         |     declaration (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeReturnType)
+ 14 | ERROR   | [x] Expected 1 spaces after opening parenthesis; 4 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen)
+ 14 | WARNING | [x] Single space expected after opening parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
+ 14 | ERROR   | [x] Expected 0 spaces between argument "$closure1" and comma; 1 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
+ 14 | ERROR   | [x] Expected no space between "$closure1" and the comma. Found: 1 space
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBeforeInClosureUse)
+ 14 | ERROR   | [x] Expected 0 spaces between argument "$closure2" and comma; 4 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma)
+ 14 | ERROR   | [x] Expected no space between "$closure2" and the comma. Found: 4 spaces
+    |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBeforeInClosureUse)
+ 14 | WARNING | [x] Single space expected before closing parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis)
+ 14 | ERROR   | [x] Expected 1 spaces before closing parenthesis; 0 found
+    |         |     (Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose)
+ 14 | ERROR   | [x] There must be a single space between the colon and type in a return type
+    |         |     declaration (PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeReturnType)
+ 22 | ERROR   | [x] A single space should be after the function keyword in closures
+    |         |     (MediaWiki.WhiteSpace.SpaceAfterClosure.WrongWhitespaceAfterClosure)
+PHPCBF CAN FIX THE 31 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,0 +1,41 @@
+<?php
+
+$closure1 = static function ( int $a, string $b ): void
+{
+};
+
+$closure2 = static function ( int $x, string $y ): void{
+};
+
+$closure3 = static function (): string{ $ans = 42;
+	return $ans;
+};
+
+$closureWithUse = static function ()use( $closure1, $closure2, $closure3 ): void {
+};
+
+$multilineStyle1 = static function ( string $a, string $b, string $c, string $d )
+	use ( $closure1, $closure2, $closure3 ): void
+{
+};
+
+$multilineStyle2 = static function ( string $a, string $b, string $c, string $d ) use ( $closure1, $closure2, $closure3 ): void {
+};
+
+$multilineStyle3 = static function (
+	string $a, string $b, string $c, string $d
+) use ( $closure1, $closure2, $closure3 ): void {
+};
+
+$multilineStyle4 = static function (
+	string $a, string $b, string $c, string $d
+) use (
+	$closure1, $closure2, $closure3 ): void {
+};
+
+$multilineStyle5 = static function (
+	string $a, string $b, string $c, string $d
+) use (
+	$closure1, $closure2, $closure3
+): void {
+};
