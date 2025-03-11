@@ -4,6 +4,7 @@ namespace MediaWiki\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Complain about empty lines between the different `use` statements at the top
@@ -38,6 +39,12 @@ class EmptyLinesBetweenUseSniff implements Sniff {
 
 		if ( !empty( $tokens[$stackPtr]['conditions'] ) ) {
 			// Not in the global scope
+			return $phpcsFile->numTokens;
+		}
+
+		$nextNonEmpty = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
+		if ( $nextNonEmpty === false || $tokens[$nextNonEmpty]['code'] === T_OPEN_PARENTHESIS ) {
+			// Syntax error or closure `use`. Either way, bail out.
 			return $phpcsFile->numTokens;
 		}
 
