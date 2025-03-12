@@ -75,5 +75,4 @@ if
 ) {
 }
 
-$spaceBeforeCallParentheses = rand	    ();
 $spaceBeforeMethodCallOp = $someObj	     ->someCall();

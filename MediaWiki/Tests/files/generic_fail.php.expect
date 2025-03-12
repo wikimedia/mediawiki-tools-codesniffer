@@ -181,8 +181,6 @@
     |         |     (Universal.WhiteSpace.CommaSpacing.SpaceBefore)
  72 | ERROR   | [x] Expected 1 space after IF keyword; newline found
     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
- 78 | WARNING | [x] Space found before opening parenthesis of function call
-    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
- 79 | ERROR   | [x] Space found before object operator
+ 78 | ERROR   | [x] Space found before object operator
     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
-PHPCBF CAN FIX THE 88 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 87 MARKED SNIFF VIOLATIONS AUTOMATICALLY

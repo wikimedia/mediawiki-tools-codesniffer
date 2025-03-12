@@ -19,13 +19,3 @@ $someObject
 ->missingIndentation();
 $someObject->
 missingIndentation();
-
-// TODO: Forbid detached parentheses
-rand
-	();
-SomeClass::detachedParens
-	();
-$someObject->detachedParens
-	();
-$detachedParens = new SomeClass
-	();

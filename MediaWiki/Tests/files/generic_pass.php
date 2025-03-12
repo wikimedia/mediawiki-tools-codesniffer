@@ -166,11 +166,6 @@ class FooBar extends BarBaz implements SomethingSomewhere {
 		$param3
 	) {
 	}
-
-	public static function declarationTest5
-		( string $param ) {
-		// TODO: Forbid this.
-	}
 }
 
 $a = [ 'spaces!', FooBar::class, FooBar::$var ];
