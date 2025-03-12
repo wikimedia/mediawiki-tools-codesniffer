@@ -417,7 +417,7 @@
      |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
   93 | WARNING | [x] Single space expected after opening parenthesis
      |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
-  93 | WARNING | [x] Space found before opening parenthesis of function call
+  93 | WARNING | [x] Space found before opening function parenthesis
      |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
   94 | WARNING | [x] Single space expected after opening parenthesis
      |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis)
