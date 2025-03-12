@@ -1,7 +1,13 @@
   4 | WARNING | [x] Space found before opening function parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
+  7 | WARNING | [x] Space found before opening function parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
   9 | WARNING | [x] Space found before opening function parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
+ 12 | WARNING | [x] Space found before opening function parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
  14 | WARNING | [x] Space found before opening function parenthesis
     |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
-PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 19 | WARNING | [x] Space found before opening function parenthesis
+    |         |     (MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis)
+PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY

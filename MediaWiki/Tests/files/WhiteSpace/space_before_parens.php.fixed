@@ -2,21 +2,15 @@
 
 /** Invalid examples */
 $spacesInCall = rand();
-$newLinesInCall = rand
-
-				();
+$newLinesInCall = rand();
 
 $spaceInNew = new stdClass();
-$newLinesInNew = new stdClass
-
-				();
+$newLinesInNew = new stdClass();
 
 function wfSpaceBeforeParensInDecl() {
 }
 
-function wfNewLinesBeforeParensInDecl
-
-		() {
+function wfNewLinesBeforeParensInDecl() {
 }
 
 /** Valid examples */

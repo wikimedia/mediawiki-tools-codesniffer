@@ -49,22 +49,27 @@ class SpaceyParenthesisSniff implements Sniff {
 			return;
 		}
 
-		if ( $tokens[$stackPtr - 1]['code'] === T_WHITESPACE
-			&& ( $tokens[$stackPtr - 2]['code'] === T_STRING
-				|| $tokens[$stackPtr - 2]['code'] === T_ARRAY )
-		) {
-			// Should always be function or array.
-			$bracketType = $tokens[$stackPtr - 2]['code'] === T_STRING
-				? 'function parenthesis'
-				: 'bracket of array';
-			$fix = $phpcsFile->addFixableWarning(
-				'Space found before opening %s',
-				$stackPtr - 1,
-				'SpaceBeforeOpeningParenthesis',
-				[ $bracketType ]
-			);
-			if ( $fix ) {
-				$phpcsFile->fixer->replaceToken( $stackPtr - 1, '' );
+		if ( $tokens[$stackPtr - 1]['code'] === T_WHITESPACE ) {
+			$prevNonSpace = $phpcsFile->findPrevious( T_WHITESPACE, $stackPtr - 1, null, true );
+			$prevNonSpaceCode = $tokens[$prevNonSpace]['code'];
+			if ( $prevNonSpaceCode === T_STRING || $prevNonSpaceCode === T_ARRAY ) {
+				// Should always be function or array.
+				$bracketType = $prevNonSpaceCode === T_STRING
+					? 'function parenthesis'
+					: 'bracket of array';
+				$fix = $phpcsFile->addFixableWarning(
+					'Space found before opening %s',
+					$stackPtr - 1,
+					'SpaceBeforeOpeningParenthesis',
+					[ $bracketType ]
+				);
+				if ( $fix ) {
+					$phpcsFile->fixer->beginChangeset();
+					for ( $replace = $stackPtr - 1; $replace > $prevNonSpace; $replace-- ) {
+						$phpcsFile->fixer->replaceToken( $replace, '' );
+					}
+					$phpcsFile->fixer->endChangeset();
+				}
 			}
 		}
 
