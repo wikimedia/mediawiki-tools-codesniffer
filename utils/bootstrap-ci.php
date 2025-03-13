@@ -38,6 +38,7 @@ exec(
 	$_head_files, $_return
 );
 if ( $_return !== 0 ) {
+	echo "'git show HEAD' returned exit code $_return - analyzing all files\n";
 	unset( $_head_files );
 	unset( $_return );
 	return;
@@ -45,6 +46,7 @@ if ( $_return !== 0 ) {
 
 # Changes to phpcs.xml or .phpcs.xml affect all files
 if ( in_array( 'phpcs.xml', $_head_files ) || in_array( '.phpcs.xml', $_head_files ) ) {
+	echo "phpcs.xml and/or .phpcs.xml changed - analyzing all files\n";
 	unset( $_head_files );
 	unset( $_return );
 	return;
@@ -53,12 +55,14 @@ if ( in_array( 'phpcs.xml', $_head_files ) || in_array( '.phpcs.xml', $_head_fil
 if ( in_array( 'composer.json', $_head_files ) ) {
 	exec( 'git show HEAD^:composer.json', $_prev_composer, $_return );
 	if ( $_return !== 0 ) {
+		echo "'git show HEAD^:composer.json' returned exit code $_return - analyzing all files\n";
 		unset( $_head_files );
 		unset( $_return );
 		return;
 	}
 	exec( 'git show HEAD:composer.json', $_cur_composer, $_return );
 	if ( $_return !== 0 ) {
+		echo "'git show HEAD:composer.json' returned exit code $_return - analyzing all files\n";
 		unset( $_head_files );
 		unset( $_return );
 		return;
@@ -68,6 +72,7 @@ if ( in_array( 'composer.json', $_head_files ) ) {
 	if ( $_prev_composer['require-dev']['mediawiki/mediawiki-codesniffer']
 		!== $_cur_composer['require-dev']['mediawiki/mediawiki-codesniffer']
 	) {
+		echo "'mediawiki/mediawiki-codesniffer' version changed - analyzing all files\n";
 		unset( $_head_files );
 		unset( $_return );
 		return;
@@ -75,6 +80,7 @@ if ( in_array( 'composer.json', $_head_files ) ) {
 }
 
 # Only keep files out of git head that matches phpcs.xml/.phpcs.xml extensions.
+echo "Only analyzing files changed in HEAD\n";
 $_extensions = array_keys( $this->config->extensions );
 $this->config->files = array_filter(
 	$_head_files,
