@@ -33,19 +33,24 @@ class EmptyLinesBetweenUseSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		// Note: this sniff is triggered by the first `use` in a file, and
-		// then goes on to process the rest, before returning $phpcsFile->numTokens
-		// so that it is only run once
+		// In case this is a `use` of a class (or constant or function) within
+		// a bracketed namespace rather than in the global scope, update the end
+		// accordingly
+		$useScopeEnd = $phpcsFile->numTokens;
 
 		if ( !empty( $tokens[$stackPtr]['conditions'] ) ) {
-			// Not in the global scope
-			return $phpcsFile->numTokens;
-		}
-
-		$nextNonEmpty = $phpcsFile->findNext( Tokens::$emptyTokens, $stackPtr + 1, null, true );
-		if ( $nextNonEmpty === false || $tokens[$nextNonEmpty]['code'] === T_OPEN_PARENTHESIS ) {
-			// Syntax error or closure `use`. Either way, bail out.
-			return $phpcsFile->numTokens;
+			// We only care about use statements in the global scope, or the
+			// equivalent for bracketed namespace (use statements in the namespace
+			// and not in any class, etc.)
+			$scope = array_key_first( $tokens[$stackPtr]['conditions'] );
+			if ( count( $tokens[$stackPtr]['conditions'] ) === 1
+				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable False positive
+				&& $tokens[$stackPtr]['conditions'][$scope] === T_NAMESPACE
+			) {
+				$useScopeEnd = $tokens[$scope]['scope_closer'];
+			} else {
+				return $tokens[$scope]['scope_closer'] ?? $stackPtr;
+			}
 		}
 
 		// Every `use` after here, if its for imports (rather than using a trait), should
@@ -56,22 +61,25 @@ class EmptyLinesBetweenUseSniff implements Sniff {
 		// for issues (not all are due to empty lines, could have comments)
 		$toCheck = [];
 
-		$next = $phpcsFile->findNext( T_USE, $stackPtr + 1 );
+		$next = $phpcsFile->findNext( T_USE, $stackPtr + 1, $useScopeEnd );
 		while ( $next !== false ) {
-			if ( !empty( $tokens[$next]['conditions'] ) ) {
-				// We are past the initial `use` statements for imports
+			$nextNonEmpty = $phpcsFile->findNext( Tokens::$emptyTokens, $next + 1, $useScopeEnd, true );
+			if ( $tokens[$stackPtr]['level'] !== $tokens[$next]['level']
+				|| $nextNonEmpty === false || $tokens[$nextNonEmpty]['code'] === T_OPEN_PARENTHESIS
+			) {
+				// We are past the initial `use` statements for imports or closure `use`.
 				break;
 			}
 			if ( $tokens[$next]['line'] !== $priorLine + 1 ) {
 				$toCheck[] = $next;
 			}
 			$priorLine = $tokens[$next]['line'];
-			$next = $phpcsFile->findNext( T_USE, $next + 1 );
+			$next = $phpcsFile->findNext( T_USE, $nextNonEmpty + 1, $useScopeEnd );
 		}
 
 		if ( !$toCheck ) {
 			// No need to process further
-			return $phpcsFile->numTokens;
+			return $useScopeEnd;
 		}
 
 		$linesToRemove = [];
@@ -98,7 +106,7 @@ class EmptyLinesBetweenUseSniff implements Sniff {
 		}
 
 		if ( !$fix ) {
-			return $phpcsFile->numTokens;
+			return $useScopeEnd;
 		}
 
 		$phpcsFile->fixer->beginChangeset();
@@ -107,6 +115,6 @@ class EmptyLinesBetweenUseSniff implements Sniff {
 		}
 		$phpcsFile->fixer->endChangeset();
 
-		return $phpcsFile->numTokens;
+		return $useScopeEnd;
 	}
 }

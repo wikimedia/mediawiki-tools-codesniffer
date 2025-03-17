@@ -1,0 +1,5 @@
+  5 | WARNING | [x] There should not be empty lines between use statements
+    |         |     (MediaWiki.WhiteSpace.EmptyLinesBetweenUse.Found)
+ 20 | ERROR   | [ ] Only one object structure is allowed in a file
+    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
