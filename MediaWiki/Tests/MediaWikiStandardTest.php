@@ -84,7 +84,7 @@ class MediaWikiStandardTest extends TestCase {
 		$report = $this->getReport( $dummy, $config );
 		$this->assertFileExists( $expectedReport );
 		$this->assertSame(
-			$this->prepareOutput( file_get_contents( $expectedReport ) ),
+			file_get_contents( $expectedReport ),
 			$this->prepareOutput( $report )
 		);
 
