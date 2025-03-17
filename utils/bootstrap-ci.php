@@ -34,7 +34,7 @@ if ( !( PHP_SAPI === 'cli' && getenv( 'JENKINS_URL' ) !== false ) ) {
 # From integration/jenkins.git bin/git-changed-in-head
 $_head_files = [];
 exec(
-	'git show HEAD --name-only --diff-filter=ACM -m --first-parent --format=format:',
+	'git show HEAD --name-only --diff-filter=ACMR -m --first-parent --format=format:',
 	$_head_files, $_return
 );
 if ( $_return !== 0 ) {
