@@ -1,4 +1,4 @@
 <?php
 
-function wfLivecoding() {
+function wfLivecoding(): void {
 	$b = 'test' +

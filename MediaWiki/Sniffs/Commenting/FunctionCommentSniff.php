@@ -75,6 +75,10 @@ class FunctionCommentSniff implements Sniff {
 		}
 
 		$tokens = $phpcsFile->getTokens();
+		if ( !isset( $tokens[$stackPtr]['parenthesis_opener'] ) ) {
+			// Live coding
+			return;
+		}
 		$find = Tokens::$methodPrefixes;
 		$find[] = T_WHITESPACE;
 		$searchBefore = $stackPtr;
@@ -105,8 +109,6 @@ class FunctionCommentSniff implements Sniff {
 			$methodProps = $phpcsFile->getMethodProperties( $stackPtr );
 			$methodParams = $phpcsFile->getMethodParameters( $stackPtr );
 			$hasReturnType = $methodProps['return_type'] !== '' || $funcName === '__construct';
-			$hasParams = $methodParams !== [];
-			$getterWithoutParams = !$hasParams && preg_match( '/^(get|is)[A-Z]/', $funcName );
 			$allParamsTyped = true;
 			foreach ( $methodParams as $parameter ) {
 				if ( $parameter['type_hint'] === '' ) {
@@ -133,9 +135,8 @@ class FunctionCommentSniff implements Sniff {
 			// A function is *allowed* to omit the documentation comment
 			// (but in many cases, documentation comments still make sense, and are not discouraged)
 			// if it is fully typed (parameter and return type declarations), or in a test file,
-			// or has no parameters and is not a getter.
-			// The last exception, allowing parameterless non-getters to omit their return type, may be removed later.
-			if ( !$isFullyTyped && !$isTestFile && ( $getterWithoutParams || $hasParams ) ) {
+			// or has no parameters and returns no value.
+			if ( !$isFullyTyped && !$isTestFile ) {
 				$phpcsFile->addError(
 					'Missing function doc comment',
 					$stackPtr,

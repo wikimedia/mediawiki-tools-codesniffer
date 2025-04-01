@@ -41,7 +41,7 @@ $bar = static function () {
 $bar();
 
 class Foo {
-	public function returnAnonymousClass() {
+	public function returnAnonymousClass(): callable {
 		return new class() {
 			public function baz() {
 				echo 'pass';

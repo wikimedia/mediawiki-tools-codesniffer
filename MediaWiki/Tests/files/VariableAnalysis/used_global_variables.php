@@ -17,7 +17,7 @@ function wfFailedExamples() {
 	};
 
 	new class() {
-		public function foo() {
+		public function foo(): string {
 			global $wgSameLine, $wgAnonUnused;
 			return $wgSameLine;
 		}

@@ -105,7 +105,7 @@ class Foo extends Bar {
 		// anon class
 		$d = static function ( $key ) {
 			return new class( $key ) extends AClass {
-				protected function aFunction() {
+				protected function aFunction(): string {
 					return "($this->key$*)";
 				}
 			};

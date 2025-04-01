@@ -481,7 +481,7 @@ class TestPassedExamples {
 		};
 
 		new class() {
-			public function foo() {
+			public function foo(): string {
 				return '';
 			}
 		};
@@ -494,6 +494,10 @@ class TestPassedExamples {
 	}
 
 	public function getReturnMissing() {
+		return true;
+	}
+
+	public function doReturnMissing() {
 		return true;
 	}
 

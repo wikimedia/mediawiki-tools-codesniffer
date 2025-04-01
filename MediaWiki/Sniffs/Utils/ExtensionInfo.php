@@ -92,6 +92,7 @@ class ExtensionInfo {
 		return $matches;
 	}
 
+	/** @return array|false */
 	private function readInfo() {
 		if ( $this->info !== null ) {
 			return $this->info;

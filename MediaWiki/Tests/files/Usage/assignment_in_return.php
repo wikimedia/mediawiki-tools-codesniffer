@@ -9,7 +9,7 @@ function wfFailedExamples() {
 		return $foo = 1;
 	} else {
 		return new class() {
-			public function foo() {
+			public function foo(): int {
 				return $foo = 1;
 			}
 		};
@@ -23,7 +23,7 @@ function wfFailedExamples() {
 function wfFailedExamplesYield() {
 	yield "test" => $foo = 1;
 	yield new class() {
-		public function foo() {
+		public function foo(): iterable {
 			yield "inner" => $foo = 1;
 		}
 	};
