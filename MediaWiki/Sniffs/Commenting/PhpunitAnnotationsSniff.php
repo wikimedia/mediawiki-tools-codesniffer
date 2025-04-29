@@ -321,6 +321,30 @@ class PhpunitAnnotationsSniff implements Sniff {
 						$phpcsFile->fixer->replaceToken( $next, $replace );
 					}
 				}
+			} elseif ( $tagText === '@dataProvider' ) {
+				$providerName = trim( $tokens[$next]['content'] );
+				if ( preg_match( '/^([^\p{P}]*)(\p{P}+)$/', $providerName, $matches ) ) {
+					$providerName = $matches[1];
+					$fix = $phpcsFile->addFixableWarning(
+						'The phpunit annotation @dataProvider should not end with punctuation "%s"',
+						$tag,
+						'NotPunctuationDataProvider',
+						[ $matches[2] ]
+					);
+					if ( $fix ) {
+						$phpcsFile->fixer->replaceToken( $next, $providerName );
+					}
+				}
+				// Ignore data provider in another class
+				if ( !str_contains( $providerName, '::' ) &&
+					!str_starts_with( $providerName, 'provide' ) &&
+					!str_ends_with( $providerName, 'Provider' )
+				) {
+					$phpcsFile->addWarning(
+						'The data provider function "%s" should start with "provide" or end with "Provider".',
+						$tag, 'WrongDataProviderName', [ $providerName ]
+					);
+				}
 			}
 		}
 

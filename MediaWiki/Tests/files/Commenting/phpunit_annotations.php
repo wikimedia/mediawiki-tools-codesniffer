@@ -52,7 +52,7 @@ class ExamplesTest {
 	}
 
 	/**
-	 * @dataProvider isAfterTest
+	 * @dataProvider isAfterTest()
 	 */
 	public function notATestNamedFunction() {
 	}

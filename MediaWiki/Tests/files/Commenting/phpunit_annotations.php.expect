@@ -20,6 +20,11 @@
      |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
   49 | WARNING | [ ] The phpunit annotation @after should only be used for tearDown functions
      |         |     (*TearDown). (MediaWiki.Commenting.PhpunitAnnotations.NotTearDownFunction)
+  55 | WARNING | [x] The phpunit annotation @dataProvider should not end with punctuation "()"
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotPunctuationDataProvider)
+  55 | WARNING | [ ] The data provider function "isAfterTest" should start with "provide" or end
+     |         |     with "Provider".
+     |         |     (MediaWiki.Commenting.PhpunitAnnotations.WrongDataProviderName)
   55 | WARNING | [ ] The phpunit annotation @dataProvider should only be used for test functions.
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
   73 | WARNING | [ ] Do not use @expectedException, use $this->expectException().
@@ -53,4 +58,4 @@
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
  161 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation instead
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
-PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY
