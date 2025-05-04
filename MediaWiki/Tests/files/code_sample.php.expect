@@ -54,8 +54,6 @@
      |         |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
   22 | ERROR   | [x] Line indented incorrectly; expected 1 tabs, found 0
      |         |     (Generic.WhiteSpace.ScopeIndent.IncorrectExact)
-  22 | ERROR   | [x] Expected 1 blank line before function; 0 found
-     |         |     (Squiz.WhiteSpace.FunctionSpacing.Before)
   22 | ERROR   | [x] Extra whitespace found after the `function` keyword; only a single space
      |         |     should be used
      |         |     (MediaWiki.WhiteSpace.WhiteSpaceBeforeFunction.ExtraWhiteSpaceFound)
@@ -513,12 +511,12 @@
      |         |     (MediaWiki.WhiteSpace.SpaceBeforeClassBrace.BraceNotOnSameLine)
  165 | ERROR   | [x] The static declaration must come after the visibility declaration
      |         |     (PSR2.Methods.MethodDeclaration.StaticBeforeVisibility)
- 165 | ERROR   | [x] Expected 1 blank line before function; 0 found
-     |         |     (Squiz.WhiteSpace.FunctionSpacing.Before)
  167 | ERROR   | [x] Expected 1 blank line after function; 0 found
      |         |     (Squiz.WhiteSpace.FunctionSpacing.After)
  167 | ERROR   | [x] Scope keyword "public" must be followed by a single space; found 4
      |         |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
+ 167 | ERROR   | [x] Expected 1 blank line before function; 0 found
+     |         |     (Squiz.WhiteSpace.FunctionSpacing.Before)
  167 | ERROR   | [x] Opening brace must be the last content on the line
      |         |     (Generic.Functions.OpeningFunctionBraceKernighanRitchie.ContentAfterBrace)
  167 | ERROR   | [x] Expected 1 blank line after function; 0 found
@@ -539,4 +537,4 @@
      |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
  176 | ERROR   | [x] Space found after object operator
      |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.After)
-PHPCBF CAN FIX THE 265 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 264 MARKED SNIFF VIOLATIONS AUTOMATICALLY

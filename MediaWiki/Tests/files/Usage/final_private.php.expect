@@ -2,8 +2,10 @@
     |       |     (MediaWiki.Usage.FinalPrivate.Found)
  17 | ERROR | [x] The `final` modifier should not be used for private methods
     |       |     (MediaWiki.Usage.FinalPrivate.Found)
+ 17 | ERROR | [x] Scope keyword "final" must be followed by a single space; found 2
+    |       |     (Squiz.WhiteSpace.ScopeKeywordSpacing.Incorrect)
  21 | ERROR | [x] The `final` modifier should not be used for private methods
     |       |     (MediaWiki.Usage.FinalPrivate.Found)
  21 | ERROR | [ ] There must be no blank lines after the function comment
     |       |     (MediaWiki.Commenting.FunctionComment.SpacingAfter)
-PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY

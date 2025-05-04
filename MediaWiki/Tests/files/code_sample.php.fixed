@@ -171,7 +171,6 @@ $f ] ) {
 }
 
 class SomeBuilder {
-
 	private $answer;	public static function instance() {
 		return new self;
 	} public function start() {
