@@ -118,6 +118,10 @@ class DeprecatedPHPUnitMethodsSniff implements Sniff {
 
 		$tokens = $phpcsFile->getTokens();
 		$startTok = $tokens[$stackPtr];
+		if ( !isset( $startTok['scope_opener'] ) ) {
+			// live coding
+			return;
+		}
 		$cur = $startTok['scope_opener'];
 		$end = $startTok['scope_closer'];
 		$checkMethods = array_merge( self::CHECK_METHODS, self::FORBIDDEN_ATTRIBUTE_METHODS );

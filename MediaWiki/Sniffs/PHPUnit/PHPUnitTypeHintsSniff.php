@@ -46,6 +46,10 @@ class PHPUnitTypeHintsSniff implements Sniff {
 
 		$tokens = $phpcsFile->getTokens();
 		$startTok = $tokens[$stackPtr];
+		if ( !isset( $startTok['scope_opener'] ) ) {
+			// live coding
+			return;
+		}
 		$cur = $startTok['scope_opener'];
 		$end = $startTok['scope_closer'];
 
