@@ -1,5 +1,26 @@
 # MediaWiki-Codesniffer release history #
 
+## v47.0.0 / 2025-05-04
+
+### Changed sniffs ###
+* `EmptyLinesBetweenUseSniff`: Allow to work with bracketed namespaces (Umherirrender)
+* `EmptyLinesBetweenUseSniff`: Fix edge case with closures (Daimona Eaytoy)
+* `FunctionCommentSniff`: Relax WrongStyle warning for property and function documentations (Umherirrender)
+* `PhpunitAnnotationsSniff`: Enforce naming convention for `@dataProvider` (Umherirrender)
+* `SpaceyParenthesisSniff`: Account for multiple spaces before parens (Daimona Eaytoy)
+* `SpaceyParenthesisSniff`: Avoid wrong guesses of function calls (Daimona Eaytoy)
+* `SpaceyParenthesisSniff`: Detect unnecessary whitespace in more cases (Daimona Eaytoy)
+
+### Documentation, dependencies and build changes ###
+* Upgrade PHP CodeSniffer from 3.11.3 to 3.12.2 (James D. Forrester)
+* build: Add basic output to bootstrap-ci.php (Ollie)
+* tests: Add tests for closure declarations (Daimona Eaytoy)
+* tests: Add tests for miscellaneous style inconsistencies seen in the wild (Daimona Eaytoy)
+* tests: Consolidate tests for space before parenthesis (Daimona Eaytoy)
+* tests: Readd newline at end of all .expect files (Umherirrender)
+* utils: Include renamed files when using bootstrap-ci.php (Umherirrender)
+
+
 ## v46.0.0 / 2025-01-27
 
 ### Changed sniffs ###
