@@ -87,6 +87,8 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@testdox' => true,
 		'@backupGlobals' => true,
 		'@backupStaticAttributes' => true,
+		'@excludeGlobalVariableFromBackup' => true,
+		'@excludeStaticPropertyFromBackup' => true,
 		'@preserveGlobalState' => true,
 
 		'@runTestsInSeparateProcesses' => true,

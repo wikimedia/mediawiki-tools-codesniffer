@@ -131,6 +131,8 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@testdox' => true,
 		'@backupglobals' => '@backupGlobals',
 		'@backupstaticattributes' => '@backupStaticAttributes',
+		'@excludeglobalvariablefrombackup' => '@excludeGlobalVariableFromBackup',
+		'@excludestaticpropertyfrombackup' => '@excludeStaticPropertyFromBackup',
 		'@runinseparateprocess' => '@runInSeparateProcess',
 		'@expectedexception' => '@expectedException',
 		'@expectedexceptioncode' => '@expectedExceptionCode',
