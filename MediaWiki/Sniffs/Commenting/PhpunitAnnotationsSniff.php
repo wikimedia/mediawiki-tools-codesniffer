@@ -74,6 +74,9 @@ class PhpunitAnnotationsSniff implements Sniff {
 
 		// From johnkary/phpunit-speedtrap
 		'@slowThreshold' => true,
+
+		// From ergebnis/phpunit-slow-test-detector
+		'@maximumDuration' => true,
 	];
 
 	/**
