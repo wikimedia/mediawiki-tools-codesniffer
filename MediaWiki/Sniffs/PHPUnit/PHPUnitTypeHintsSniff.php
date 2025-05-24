@@ -65,6 +65,14 @@ class PHPUnitTypeHintsSniff implements Sniff {
 
 		$cur = $phpcsFile->findNext( T_FUNCTION, $cur + 1, $end );
 		while ( $cur !== false && $functions ) {
+			if ( $phpcsFile->hasCondition( $cur, [ T_ANON_CLASS ] ) ) {
+				if ( isset( $tokens[$cur]['scope_closer'] ) ) {
+					// Skip to the end of the inner function/anon class and continue
+					$cur = $tokens[$cur]['scope_closer'];
+				}
+				$cur = $phpcsFile->findNext( T_FUNCTION, $cur + 1, $end );
+				continue;
+			}
 			$funcNamePos = $phpcsFile->findNext( T_STRING, $cur );
 			$funcName = $tokens[$funcNamePos]['content'];
 			if ( isset( $functions[$funcName] ) ) {

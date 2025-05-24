@@ -141,4 +141,22 @@ namespace {
 		public static function tearDownAfterClass(): void {
 		}
 	}
+
+	class TestAnonClassTest extends \PHPUnit\Framework\TestCase {
+		public function doSomething(): void {
+			$c = new class() {
+				public function setUp(): \stdClass {
+				}
+
+				public function tearDown(): \stdClass {
+				}
+
+				public static function setUpBeforeClass(): \stdClass {
+				}
+
+				public static function tearDownAfterClass(): \stdClass {
+				}
+			};
+		}
+	}
 }
