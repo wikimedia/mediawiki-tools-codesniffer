@@ -76,3 +76,9 @@ if
 }
 
 $spaceBeforeMethodCallOp = $someObj	     ->someCall();
+
+function wfTestNestedFunction() {
+	function thisShouldBeFlagged() {
+		echo 'fail!';
+	}
+}

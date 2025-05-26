@@ -159,6 +159,7 @@
 	</rule>
 	<rule ref="Squiz.Functions.FunctionDuplicateArgument" />
 	<rule ref="Squiz.Operators.ValidLogicalOperators" />
+	<rule ref="Squiz.PHP.InnerFunctions" />
 	<rule ref="Squiz.PHP.NonExecutableCode" />
 	<rule ref="Squiz.Scope.StaticThisUsage" />
 	<rule ref="Squiz.Scope.MemberVarScope" />

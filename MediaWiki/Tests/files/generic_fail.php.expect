@@ -183,4 +183,5 @@
     |         |     (Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword)
  78 | ERROR   | [x] Space found before object operator
     |         |     (Squiz.WhiteSpace.ObjectOperatorSpacing.Before)
+ 81 | ERROR   | [ ] The use of inner functions is forbidden (Squiz.PHP.InnerFunctions.NotAllowed)
 PHPCBF CAN FIX THE 87 MARKED SNIFF VIOLATIONS AUTOMATICALLY
