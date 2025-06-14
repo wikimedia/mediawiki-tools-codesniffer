@@ -1,0 +1,31 @@
+ 13 | ERROR   | [x] Duplicate use statement "DuplicateNameUsed"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.DuplicateUse)
+ 14 | ERROR   | [ ] Conflicting use statement "ConflictingNameAliasUsed", the alias is already in
+    |         |     use for a different class (MediaWiki.Classes.UnusedUseStatement.ConflictingUse)
+ 15 | ERROR   | [ ] Conflicting use statement "ConflictingAliasUsed", the alias is already in use
+    |         |     for a different class (MediaWiki.Classes.UnusedUseStatement.ConflictingUse)
+ 16 | ERROR   | [ ] Conflicting use statement "ConflictingAliasNameUsed", the alias is already in
+    |         |     use for a different class (MediaWiki.Classes.UnusedUseStatement.ConflictingUse)
+ 17 | ERROR   | [x] Duplicate use statement "DuplicateAliasUsed"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.DuplicateUse)
+ 20 | WARNING | [x] Unused use statement "DuplicateNameUnused"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 21 | WARNING | [x] Unused use statement "ConflictingNameAliasUnused"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 22 | WARNING | [x] Unused use statement "ConflictingAliasUnused"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 23 | WARNING | [x] Unused use statement "ConflictingAliasNameUnused"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 24 | WARNING | [x] Unused use statement "DuplicateAliasUnused"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.UnusedUse)
+ 27 | ERROR   | [x] Duplicate use statement "DuplicateNameUnused"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.DuplicateUse)
+ 28 | ERROR   | [ ] Conflicting use statement "ConflictingNameAliasUnused", the alias is already in
+    |         |     use for a different class (MediaWiki.Classes.UnusedUseStatement.ConflictingUse)
+ 29 | ERROR   | [ ] Conflicting use statement "ConflictingAliasUnused", the alias is already in use
+    |         |     for a different class (MediaWiki.Classes.UnusedUseStatement.ConflictingUse)
+ 30 | ERROR   | [ ] Conflicting use statement "ConflictingAliasNameUnused", the alias is already in
+    |         |     use for a different class (MediaWiki.Classes.UnusedUseStatement.ConflictingUse)
+ 31 | ERROR   | [x] Duplicate use statement "DuplicateAliasUnused"
+    |         |     (MediaWiki.Classes.UnusedUseStatement.DuplicateUse)
+PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY

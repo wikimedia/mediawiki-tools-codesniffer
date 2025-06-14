@@ -260,7 +260,24 @@ class UnusedUseStatementSniff implements Sniff {
 				break;
 			}
 			$shortClassName = $tokens[$classNamePtr]['content'];
-			$shortClassNames[strtolower( $shortClassName )] = [ $currentUsePtr, $shortClassName ];
+
+			if ( isset( $shortClassNames[strtolower( $shortClassName )] ) ) {
+				// This unprefixed class name or "as" alias is already in use.
+				// Report error, and if the other use is identical, suggest fixing.
+				$currentUseStmt = $phpcsFile->getTokensAsString( $currentUsePtr, $semicolon - $currentUsePtr );
+
+				$prevUsePtr = $shortClassNames[strtolower( $shortClassName )][0];
+				$prevSemicolon = $phpcsFile->findNext( $useTokenTypes, $prevUsePtr + 1, null, true );
+				$prevUseStmt = $phpcsFile->getTokensAsString( $prevUsePtr, $prevSemicolon - $prevUsePtr );
+
+				if ( $currentUseStmt === $prevUseStmt ) {
+					$this->addDuplicateUseError( $phpcsFile, $currentUsePtr, $shortClassName );
+				} else {
+					$this->addConflictingUseError( $phpcsFile, $currentUsePtr, $shortClassName );
+				}
+			} else {
+				$shortClassNames[strtolower( $shortClassName )] = [ $currentUsePtr, $shortClassName ];
+			}
 
 			// Check if the referenced class is in the same namespace as the current
 			// file. If it is then the use statement is not necessary.
@@ -339,6 +356,37 @@ class UnusedUseStatementSniff implements Sniff {
 			'Unnecessary use statement "%s" in the same namespace',
 			$stackPtr,
 			'UnnecessaryUse',
+			[ $shortClassName ]
+		);
+		if ( $fix ) {
+			$this->removeUseStatement( $phpcsFile, $stackPtr );
+		}
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $shortClassName
+	 */
+	private function addConflictingUseError( File $phpcsFile, int $stackPtr, string $shortClassName ): void {
+		$phpcsFile->addError(
+			'Conflicting use statement "%s", the alias is already in use for a different class',
+			$stackPtr,
+			'ConflictingUse',
+			[ $shortClassName ]
+		);
+	}
+
+	/**
+	 * @param File $phpcsFile
+	 * @param int $stackPtr
+	 * @param string $shortClassName
+	 */
+	private function addDuplicateUseError( File $phpcsFile, int $stackPtr, string $shortClassName ): void {
+		$fix = $phpcsFile->addFixableError(
+			'Duplicate use statement "%s"',
+			$stackPtr,
+			'DuplicateUse',
 			[ $shortClassName ]
 		);
 		if ( $fix ) {
