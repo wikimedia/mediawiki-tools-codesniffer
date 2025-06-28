@@ -1,99 +1,99 @@
-  6 | ERROR   | [ ] You must use "/**" style comments for a class property comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.WrongStyle)
-  8 | WARNING | [x] Expected 1 spaces before var type; 3 found
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingBeforeVarType)
-  8 | ERROR   | [x] Short type of "int" should be used for @var tag
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.NotShortIntVar)
- 11 | ERROR   | [ ] Missing class property doc comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate)
- 12 | ERROR   | [ ] Missing class property doc comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationProtected)
- 13 | ERROR   | [ ] Missing class property doc comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
- 14 | ERROR   | [ ] Missing class property doc comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
- 14 | ERROR   | [ ] The var keyword must not be used to declare a property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 14 | ERROR   | [ ] Visibility must be declared on property "$missingWithout"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 14 | ERROR   | [ ] Scope modifier not specified for member variable "$missingWithout"
-    |         |     (Squiz.Scope.MemberVarScope.Missing)
- 16 | ERROR   | [ ] Missing type or @var tag in class property comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVar)
- 21 | ERROR   | [ ] Only 1 @var tag is allowed in a class property comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.DuplicateVar)
- 25 | ERROR   | [x] Var type should not be wrapped in parenthesis; { and } found
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.NotParenthesisVarType)
- 26 | ERROR   | [ ] The var keyword must not be used to declare a property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 26 | ERROR   | [ ] Visibility must be declared on property "$punctationString"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 26 | ERROR   | [ ] Scope modifier not specified for member variable "$punctationString"
-    |         |     (Squiz.Scope.MemberVarScope.Missing)
- 29 | ERROR   | [ ] The var keyword must not be used to declare a property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 29 | ERROR   | [ ] Visibility must be declared on property "$arrayString"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 29 | ERROR   | [ ] Scope modifier not specified for member variable "$arrayString"
-    |         |     (Squiz.Scope.MemberVarScope.Missing)
- 31 | ERROR   | [x] Var type should not end with punctuation ":"
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.NotPunctuationVarType)
- 32 | ERROR   | [ ] The var keyword must not be used to declare a property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 32 | ERROR   | [ ] Visibility must be declared on property "$typeWithPuncation"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 32 | ERROR   | [ ] Scope modifier not specified for member variable "$typeWithPuncation"
-    |         |     (Squiz.Scope.MemberVarScope.Missing)
- 37 | ERROR   | [ ] Var type missing for @var tag in class property comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVarType)
- 40 | ERROR   | [x] Lowercase type of "int" should be used for @var tag
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveIntVar)
- 43 | ERROR   | [x] Lowercase type of "string[]" should be used for @var tag
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveStringArrayVar)
- 46 | WARNING | [ ] `object` should rarely be used as a typehint. If more specific types are known,
-    |         |     list them. If only plain anonymous objects are expected, use `stdClass`. If the
-    |         |     intent is indeed to allow any object, mark it with a // phpcs:… comment or
-    |         |     set this rule's <severity> to 0.
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
- 49 | WARNING | [ ] `object` should rarely be used as a typehint. If more specific types are known,
-    |         |     list them. If only plain anonymous objects are expected, use `stdClass`. If the
-    |         |     intent is indeed to allow any object, mark it with a // phpcs:… comment or
-    |         |     set this rule's <severity> to 0.
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
- 49 | ERROR   | [x] Lowercase type of "object[]" should be used for @var tag
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveObjectArrayVar)
- 52 | WARNING | [x] Expected 1 spaces before var type; 4 found
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingBeforeVarType)
- 52 | WARNING | [x] Expected 1 spaces after var type; 3 found
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingAfterVarType)
- 55 | ERROR   | [ ] Missing class property doc comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
- 55 | WARNING | [ ] Comments should start on new line.
-    |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
- 57 | ERROR   | [ ] Missing class property doc comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
- 59 | ERROR   | [ ] There must be no blank lines after the class property comment
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingAfter)
- 63 | WARNING | [ ] `type` should not be used as a typehint, the actual type should be used
-    |         |     (MediaWiki.Commenting.PropertyDocumentation.TypeTypeHintVar)
- 71 | ERROR   | [ ] Only one object structure is allowed in a file
-    |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
- 86 | ERROR   | [ ] The var keyword must not be used to declare a property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 86 | ERROR   | [ ] Visibility must be declared on property "$d"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 86 | ERROR   | [ ] Scope modifier not specified for member variable "$d"
-    |         |     (Squiz.Scope.MemberVarScope.Missing)
- 89 | ERROR   | [ ] The var keyword must not be used to declare a property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 89 | ERROR   | [ ] Visibility must be declared on property "$dep"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 89 | ERROR   | [ ] Scope modifier not specified for member variable "$dep"
-    |         |     (Squiz.Scope.MemberVarScope.Missing)
- 97 | ERROR   | [ ] The var keyword must not be used to declare a property
-    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
- 97 | ERROR   | [ ] Visibility must be declared on property "$ta"
-    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
- 97 | ERROR   | [ ] Scope modifier not specified for member variable "$ta"
-    |         |     (Squiz.Scope.MemberVarScope.Missing)
+   6 | ERROR   | [ ] You must use "/**" style comments for a class property comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.WrongStyle)
+   8 | WARNING | [x] Expected 1 spaces before var type; 3 found
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingBeforeVarType)
+   8 | ERROR   | [x] Short type of "int" should be used for @var tag
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.NotShortIntVar)
+  11 | ERROR   | [ ] Missing class property doc comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate)
+  12 | ERROR   | [ ] Missing class property doc comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationProtected)
+  13 | ERROR   | [ ] Missing class property doc comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
+  14 | ERROR   | [ ] Missing class property doc comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
+  14 | ERROR   | [ ] The var keyword must not be used to declare a property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+  14 | ERROR   | [ ] Visibility must be declared on property "$missingWithout"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+  14 | ERROR   | [ ] Scope modifier not specified for member variable "$missingWithout"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
+  16 | ERROR   | [ ] Missing type or @var tag in class property comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVar)
+  21 | ERROR   | [ ] Only 1 @var tag is allowed in a class property comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.DuplicateVar)
+  25 | ERROR   | [x] Var type should not be wrapped in parenthesis; { and } found
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.NotParenthesisVarType)
+  26 | ERROR   | [ ] The var keyword must not be used to declare a property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+  26 | ERROR   | [ ] Visibility must be declared on property "$punctationString"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+  26 | ERROR   | [ ] Scope modifier not specified for member variable "$punctationString"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
+  29 | ERROR   | [ ] The var keyword must not be used to declare a property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+  29 | ERROR   | [ ] Visibility must be declared on property "$arrayString"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+  29 | ERROR   | [ ] Scope modifier not specified for member variable "$arrayString"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
+  31 | ERROR   | [x] Var type should not end with punctuation ":"
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.NotPunctuationVarType)
+  32 | ERROR   | [ ] The var keyword must not be used to declare a property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+  32 | ERROR   | [ ] Visibility must be declared on property "$typeWithPuncation"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+  32 | ERROR   | [ ] Scope modifier not specified for member variable "$typeWithPuncation"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
+  37 | ERROR   | [ ] Var type missing for @var tag in class property comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingVarType)
+  40 | ERROR   | [x] Lowercase type of "int" should be used for @var tag
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveIntVar)
+  43 | ERROR   | [x] Lowercase type of "string[]" should be used for @var tag
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveStringArrayVar)
+  46 | WARNING | [ ] `object` should rarely be used as a typehint. If more specific types are
+     |         |     known, list them. If only plain anonymous objects are expected, use
+     |         |     `stdClass`. If the intent is indeed to allow any object, mark it with a //
+     |         |     phpcs:… comment or set this rule's <severity> to 0.
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
+  49 | WARNING | [ ] `object` should rarely be used as a typehint. If more specific types are
+     |         |     known, list them. If only plain anonymous objects are expected, use
+     |         |     `stdClass`. If the intent is indeed to allow any object, mark it with a //
+     |         |     phpcs:… comment or set this rule's <severity> to 0.
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar)
+  49 | ERROR   | [x] Lowercase type of "object[]" should be used for @var tag
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.UppercasePrimitiveObjectArrayVar)
+  52 | WARNING | [x] Expected 1 spaces before var type; 4 found
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingBeforeVarType)
+  52 | WARNING | [x] Expected 1 spaces after var type; 3 found
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingAfterVarType)
+  55 | ERROR   | [ ] Missing class property doc comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
+  55 | WARNING | [ ] Comments should start on new line.
+     |         |     (MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment)
+  57 | ERROR   | [ ] Missing class property doc comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic)
+  59 | ERROR   | [ ] There must be no blank lines after the class property comment
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.SpacingAfter)
+  63 | WARNING | [ ] `type` should not be used as a typehint, the actual type should be used
+     |         |     (MediaWiki.Commenting.PropertyDocumentation.TypeTypeHintVar)
+  77 | ERROR   | [ ] Only one object structure is allowed in a file
+     |         |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  92 | ERROR   | [ ] The var keyword must not be used to declare a property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+  92 | ERROR   | [ ] Visibility must be declared on property "$d"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+  92 | ERROR   | [ ] Scope modifier not specified for member variable "$d"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
+  95 | ERROR   | [ ] The var keyword must not be used to declare a property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+  95 | ERROR   | [ ] Visibility must be declared on property "$dep"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+  95 | ERROR   | [ ] Scope modifier not specified for member variable "$dep"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
+ 103 | ERROR   | [ ] The var keyword must not be used to declare a property
+     |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 103 | ERROR   | [ ] Visibility must be declared on property "$ta"
+     |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 103 | ERROR   | [ ] Scope modifier not specified for member variable "$ta"
+     |         |     (Squiz.Scope.MemberVarScope.Missing)
 PHPCBF CAN FIX THE 9 MARKED SNIFF VIOLATIONS AUTOMATICALLY

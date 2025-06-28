@@ -66,6 +66,12 @@ class TestFailedExamples {
 	/** @var Type fine because `Type` could be a class name */
 	private $goodType;
 
+	/** @var string */
+	private readonly $readOnlyType;
+
+	/** @var string */
+	final protected $finalType;
+
 }
 
 class TestPassedExamples {

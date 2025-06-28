@@ -48,11 +48,12 @@ class PropertyDocumentationSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 
 		// Only for class properties
-		$scopes = array_keys( $tokens[$stackPtr]['conditions'] );
-		$scope = array_pop( $scopes );
+		$scope = array_key_last( $tokens[$stackPtr]['conditions'] );
 		if ( isset( $tokens[$stackPtr]['nested_parenthesis'] )
 			|| $scope === null
-			|| ( $tokens[$scope]['code'] !== T_CLASS && $tokens[$scope]['code'] !== T_TRAIT )
+			|| ( $tokens[$scope]['code'] !== T_CLASS &&
+				$tokens[$scope]['code'] !== T_TRAIT &&
+				$tokens[$scope]['code'] !== T_ANON_CLASS )
 		) {
 			return;
 		}
@@ -61,13 +62,14 @@ class PropertyDocumentationSniff implements Sniff {
 		$find[] = T_STATIC;
 		$find[] = T_NULLABLE;
 		$find[] = T_STRING;
+		$find[] = T_READONLY;
 		$visibilityPtr = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
 		if ( !$visibilityPtr || ( $tokens[$visibilityPtr]['code'] !== T_VAR &&
 			!isset( Tokens::$scopeModifiers[ $tokens[$visibilityPtr]['code'] ] ) )
 		) {
 			return;
 		}
-		$commentEnd = $phpcsFile->findPrevious( [ T_WHITESPACE ], $visibilityPtr - 1, null, true );
+		$commentEnd = $phpcsFile->findPrevious( [ T_WHITESPACE, T_FINAL ], $visibilityPtr - 1, null, true );
 		if ( $tokens[$commentEnd]['code'] === T_COMMENT ) {
 			// Inline comments might just be closing comments for
 			// control structures or functions instead of function comments

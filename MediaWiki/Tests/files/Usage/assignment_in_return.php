@@ -43,6 +43,7 @@ function wfPassedExamples() {
 		return $foo === 1;
 	} elseif ( $foo === 2 ) {
 		return new class() extends SkinTemplate {
+			/** @inheritDoc */
 			public $skinname = 'vector';
 		};
 	} else {
