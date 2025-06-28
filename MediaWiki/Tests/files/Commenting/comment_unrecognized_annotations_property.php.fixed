@@ -1,0 +1,32 @@
+<?php
+
+class TestPropertyAnnotions {
+
+	/**
+	 * @param string
+	 * @return string
+	 */
+	private string $property;
+
+	/** @vra string */
+	private string $typo;
+
+	/** @inheritDoc */
+	private $inheritedVar;
+
+	/**
+	 * @var string
+	 * @code{.comma}
+	 * @endcode
+	 * @todo Make awesomer
+	 * @note This is awesome!
+	 * @warning Don't stop at the top
+	 */
+	public $goodExample;
+
+	/**
+	 * @var array
+	 * @phan-var array<string,string>
+	 */
+	var $goodExampleVar;
+}

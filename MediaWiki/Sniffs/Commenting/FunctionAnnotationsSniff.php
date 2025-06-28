@@ -87,7 +87,6 @@ class FunctionAnnotationsSniff implements Sniff {
 		'@phan-suppress-next-line' => true,
 		'@phan-suppress-next-next-line' => true,
 		'@phan-suppress-previous-line' => true,
-		'@phan-var' => true,
 		'@phan-assert' => true,
 		'@phan-assert-true-condition' => true,
 		'@phan-assert-false-condition' => true,

@@ -1,0 +1,23 @@
+  6 | ERROR   | [ ] @param is not a valid property annotation
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.UnrecognizedAnnotation)
+  7 | ERROR   | [ ] @return is not a valid property annotation
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.UnrecognizedAnnotation)
+ 11 | ERROR   | [ ] @vra is not a valid property annotation
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.UnrecognizedAnnotation)
+ 14 | WARNING | [x] Use @inheritDoc annotation instead of @inheritdoc
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.NonNormalizedAnnotation)
+ 19 | WARNING | [x] Use @code{.comma} annotation instead of @code{,COMMA}
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.NonNormalizedAnnotation)
+ 21 | WARNING | [x] Use @todo annotation instead of @TODO
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.NonNormalizedAnnotation)
+ 22 | WARNING | [x] Use @note annotation instead of @note:
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.NonNormalizedAnnotation)
+ 23 | WARNING | [x] Use @warning annotation instead of @warn
+    |         |     (MediaWiki.Commenting.PropertyAnnotations.NonNormalizedAnnotation)
+ 31 | ERROR   | [ ] The var keyword must not be used to declare a property
+    |         |     (PSR2.Classes.PropertyDeclaration.VarUsed)
+ 31 | ERROR   | [ ] Visibility must be declared on property "$goodExampleVar"
+    |         |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
+ 31 | ERROR   | [ ] Scope modifier not specified for member variable "$goodExampleVar"
+    |         |     (Squiz.Scope.MemberVarScope.Missing)
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
