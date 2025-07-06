@@ -37,6 +37,10 @@
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
  102 | WARNING | [ ] The phpunit annotation @dataProvider should only be used inside classes or
      |         |     traits. (MediaWiki.Commenting.PhpunitAnnotations.NotInClassTrait)
+ 107 | ERROR   | [ ] If this is a class comment, it must have no blank lines after; if it is a
+     |         |     stray comment, it must not use "/**" style comments; if it is a file-level
+     |         |     comment, file a task in #MediaWiki-Codesniffer
+     |         |     (MediaWiki.Commenting.CommentBeforeClass.SpacingAfter)
  117 | ERROR   | [ ] There must be no blank lines after the function comment
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfter)
  124 | ERROR   | [x] Import statements must not begin with a leading backslash

@@ -1,0 +1,15 @@
+ 22 | ERROR | There must be at least a blank line between a file-level comment and a class. Make
+    |       | sure you are not mixing file-level comments (like license headers) and class
+    |       | documentation (MediaWiki.Commenting.CommentBeforeClass.FileSpacingAfter)
+ 26 | ERROR | If this is a class comment, it must have no blank lines after; if it is a stray
+    |       | comment, it must not use "/**" style comments
+    |       | (MediaWiki.Commenting.CommentBeforeClass.SpacingAfter)
+ 34 | ERROR | You must use "/**" style comments for a class comment, or add an empty line after
+    |       | stray comments (MediaWiki.Commenting.CommentBeforeClass.StrayStyle)
+ 38 | ERROR | You must use "/**" style comments for a class comment, or add an empty line after
+    |       | stray comments (MediaWiki.Commenting.CommentBeforeClass.StrayStyle)
+ 61 | ERROR | You must use "/**" style comments for a class comment, or add an empty line after
+    |       | stray comments (MediaWiki.Commenting.CommentBeforeClass.StrayStyle)
+ 69 | ERROR | There must be at least a blank line between a file-level comment and a class. Make
+    |       | sure you are not mixing file-level comments (like license headers) and class
+    |       | documentation (MediaWiki.Commenting.CommentBeforeClass.FileSpacingAfter)
