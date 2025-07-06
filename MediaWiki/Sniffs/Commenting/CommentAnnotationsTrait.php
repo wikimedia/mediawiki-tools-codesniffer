@@ -45,6 +45,7 @@ trait CommentAnnotationsTrait {
 		'@note' => true,
 		'@see' => true,
 		'@since' => true,
+		'@template' => true,
 		'@todo' => true,
 		'@uses' => true,
 		'@warning' => true,
@@ -62,8 +63,6 @@ trait CommentAnnotationsTrait {
 		'@suppress' => true,
 		'@phan-template' => true,
 		'@phan-type' => true,
-		// No other consumers for now.
-		'@template' => '@phan-template',
 
 		// psalm
 		'@psalm-template' => true,
