@@ -37,14 +37,8 @@
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
  102 | WARNING | [ ] The phpunit annotation @dataProvider should only be used inside classes or
      |         |     traits. (MediaWiki.Commenting.PhpunitAnnotations.NotInClassTrait)
- 109 | WARNING | [ ] The phpunit annotation @coverDefaultClass should only be used in class level
-     |         |     comments. (MediaWiki.Commenting.PhpunitAnnotations.NotClass)
- 116 | WARNING | [ ] The phpunit annotation @group should only be used for test functions.
-     |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestFunction)
  117 | ERROR   | [ ] There must be no blank lines after the function comment
      |         |     (MediaWiki.Commenting.FunctionComment.SpacingAfter)
- 119 | WARNING | [ ] The testDoc test method has no @covers tags
-     |         |     (MediaWiki.Commenting.MissingCovers.MissingCovers)
  124 | ERROR   | [x] Import statements must not begin with a leading backslash
      |         |     (PSR12.Files.ImportStatement.LeadingSlash)
  128 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation instead

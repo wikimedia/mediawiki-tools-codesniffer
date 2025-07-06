@@ -105,14 +105,14 @@ interface InterfaceTesting {
 }
 
 /**
- * Not a class comment
- * @coverDefaultClass Test
+ * Empty line after class comment
+ * @coversNothing
  */
 
 class Examples2Test {
 
 	/**
-	 * Comment does not belong to the function
+	 * Empty line after function comment
 	 * @group large
 	 */
 
@@ -164,4 +164,12 @@ class AbsoluteCoversTest {
 		$instance = new \OtherClass();
 		$this->assertTrue( $instance->foo() );
 	}
+}
+
+/**
+ * @coversNothing
+ */
+#[Attribute]
+class WithClassAttributesTest {
+
 }

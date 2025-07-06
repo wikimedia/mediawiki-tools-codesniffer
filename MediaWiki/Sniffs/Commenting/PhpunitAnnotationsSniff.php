@@ -24,6 +24,7 @@ use MediaWiki\Sniffs\PHPUnit\PHPUnitTestTrait;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPCSUtils\Tokens\Collections;
 
 class PhpunitAnnotationsSniff implements Sniff {
 	use PHPUnitTestTrait;
@@ -260,7 +261,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		}
 
 		if ( $tokens[$end]['level'] === 0 ) {
-			$objectToken = $this->findClassToken( $phpcsFile, $tokens, $end );
+			$objectToken = $this->findCommentElement( T_CLASS, $phpcsFile, $tokens, $end );
 			if ( !$objectToken ) {
 				$phpcsFile->addWarning(
 					'The phpunit annotation %s should only be used in class level comments.',
@@ -354,7 +355,7 @@ class PhpunitAnnotationsSniff implements Sniff {
 		if ( $tokens[$tag]['level'] > 0 ) {
 			$namingPattern = self::FUNCTION_NAMING_PATTERN[$tagText] ?? self::FUNCTION_NAMING_PATTERN['*'];
 
-			$functionToken = $this->findFunctionToken( $phpcsFile, $tokens, $end );
+			$functionToken = $this->findCommentElement( T_FUNCTION, $phpcsFile, $tokens, $end );
 			if ( !$functionToken ||
 				!$this->isFunctionOkay( $phpcsFile, $functionToken, $namingPattern['regex'] )
 			) {
@@ -377,21 +378,35 @@ class PhpunitAnnotationsSniff implements Sniff {
 	}
 
 	/**
-	 * Find the class this class level comment depends on.
+	 * Find the element (class, function) this comment belongs to. This will allow empty lines between the comment and
+	 * the element (since PHPUnit just ignores them), so make sure the comment does actually belong to the element (and
+	 * is not say a file or stray comment), for example by verifying that it contains PHPUnit-specific tags.
 	 *
+	 * @param int $elementTokenType T_CLASS, T_FUNCTION
 	 * @param File $phpcsFile
 	 * @param array[] $tokens
 	 * @param int $commentEnd
 	 * @return int|false
 	 */
-	private function findClassToken( File $phpcsFile, array $tokens, int $commentEnd ) {
-		$next = $phpcsFile->findNext( [ T_CLASS ], $commentEnd + 1 );
+	private function findCommentElement( int $elementTokenType, File $phpcsFile, array $tokens, int $commentEnd ) {
+		$find = Tokens::$emptyTokens;
+		if ( $elementTokenType === T_FUNCTION ) {
+			$find = array_merge( $find, Tokens::$methodPrefixes );
+		} elseif ( $elementTokenType === T_CLASS ) {
+			$find = array_merge( $find, Collections::classModifierKeywords() );
+		}
+		$nextCandidate = $phpcsFile->findNext( $find, $commentEnd + 1, null, true );
+		while ( isset( $tokens[$nextCandidate]['attribute_closer'] ) ) {
+			$nextCandidate = $phpcsFile->findNext(
+				Tokens::$emptyTokens,
+				$tokens[$nextCandidate]['attribute_closer'] + 1,
+				null,
+				true
+			);
+		}
 
-		// Only process class directly located after the comment
-		if ( $next &&
-			$tokens[$commentEnd]['line'] + 1 === $tokens[$next]['line']
-		) {
-			return $next;
+		if ( $tokens[$nextCandidate]['code'] === $elementTokenType ) {
+			return $nextCandidate;
 		}
 
 		return false;
@@ -409,27 +424,6 @@ class PhpunitAnnotationsSniff implements Sniff {
 			if ( $type === T_CLASS || $type === T_TRAIT ) {
 				return $ptr;
 			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Find the function this comment is for
-	 *
-	 * @param File $phpcsFile
-	 * @param array[] $tokens
-	 * @param int $commentEnd
-	 * @return int|false
-	 */
-	private function findFunctionToken( File $phpcsFile, array $tokens, int $commentEnd ) {
-		$next = $phpcsFile->findNext( [ T_FUNCTION ], $commentEnd + 1 );
-
-		// Only process class directly located after the comment
-		if ( $next &&
-			$tokens[$commentEnd]['line'] + 1 === $tokens[$next]['line']
-		) {
-			return $next;
 		}
 
 		return false;
