@@ -28,6 +28,7 @@ class FunctionCommentSniff implements Sniff {
 
 	use DocumentationTypeTrait;
 	use PHPUnitTestTrait;
+	use DocCommentTrait;
 
 	/**
 	 * Standard class methods that
@@ -155,6 +156,7 @@ class FunctionCommentSniff implements Sniff {
 			);
 		}
 		$commentStart = $tokens[$commentEnd]['comment_opener'];
+		$this->checkDocCommentFormatting( $phpcsFile, $commentStart );
 
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagText = $tokens[$tag]['content'];

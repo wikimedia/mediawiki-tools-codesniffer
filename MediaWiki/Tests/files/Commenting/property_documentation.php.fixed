@@ -72,6 +72,22 @@ class TestFailedExamples {
 	/** @var string */
 	final protected $finalType;
 
+	private string $emptyDocComment;
+
+	/**
+	 * Empty line at the start of doc comment
+	 */
+	private string $emptyLineAtStart;
+
+	/**
+	 * Empty line at the end of doc comment
+	 */
+	private string $emptyLineAtEnd;
+
+	/**
+	 * Empty line at the start and end of doc comment
+	 */
+	private string $emptyLineAtStartAndEnd;
 }
 
 class TestPassedExamples {

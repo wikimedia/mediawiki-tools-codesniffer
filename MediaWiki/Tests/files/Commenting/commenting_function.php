@@ -681,3 +681,33 @@ class TestClassTestCase {
 		return [ [ 'a', 'b' ] ];
 	}
 }
+
+class TestDocCommentFormatting {
+	/**
+	 *
+	 */
+	public function testEmptyComment(): void {
+	}
+
+	/**
+	 *
+	 * Foo
+	 */
+	public function testEmptyLinesCommentStart(): void {
+	}
+
+	/**
+	 * Foo
+	 *
+	 */
+	public function testEmptyLinesCommentEnd(): void {
+	}
+
+	/**
+	 *
+	 * Foo
+	 *
+	 */
+	public function testEmptyLinesCommentStartAndEnd(): void {
+	}
+}

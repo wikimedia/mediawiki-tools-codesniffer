@@ -2,8 +2,12 @@
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
   11 | ERROR   | [ ] Missing function doc comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic)
+  18 | WARNING | [x] Doc comments must not end with multiple empty lines
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyLinesEnd)
   18 | ERROR   | [ ] Missing return type or @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
+  26 | WARNING | [x] Doc comments must not end with multiple empty lines
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyLinesEnd)
   26 | ERROR   | [ ] Missing return type or @return tag in function comment
      |         |     (MediaWiki.Commenting.FunctionComment.MissingReturn)
   32 | WARNING | [x] Expected 1 spaces after parameter name; 2 found
@@ -265,6 +269,8 @@
      |         |     name $notsamecase (MediaWiki.Commenting.FunctionComment.ParamNameNoCaseMatch)
  397 | ERROR   | [x] Short type of "bool" should be used for @return tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortBoolReturn)
+ 401 | WARNING | [x] Doc comment must not be empty
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyComment)
  406 | ERROR   | [x] Short type of "int" should be used for @param tag
      |         |     (MediaWiki.Commenting.FunctionComment.NotShortIntParam)
  410 | ERROR   | [ ] Doc comment for parameter "$b" missing
@@ -295,4 +301,14 @@
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
  662 | ERROR   | [ ] You must use "/**" style comments for a function comment
      |         |     (MediaWiki.Commenting.FunctionComment.WrongStyle)
-PHPCBF CAN FIX THE 66 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+ 686 | WARNING | [x] Doc comment must not be empty
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyComment)
+ 692 | WARNING | [x] Doc comments must not start with multiple empty lines
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyLinesStart)
+ 702 | WARNING | [x] Doc comments must not end with multiple empty lines
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyLinesEnd)
+ 706 | WARNING | [x] Doc comments must not start with multiple empty lines
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyLinesStart)
+ 710 | WARNING | [x] Doc comments must not end with multiple empty lines
+     |         |     (MediaWiki.Commenting.FunctionComment.EmptyLinesEnd)
+PHPCBF CAN FIX THE 74 MARKED SNIFF VIOLATIONS AUTOMATICALLY

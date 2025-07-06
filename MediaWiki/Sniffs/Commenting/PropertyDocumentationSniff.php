@@ -28,6 +28,7 @@ use PHP_CodeSniffer\Util\Tokens;
 class PropertyDocumentationSniff implements Sniff {
 
 	use DocumentationTypeTrait;
+	use DocCommentTrait;
 
 	/**
 	 * @inheritDoc
@@ -106,6 +107,9 @@ class PropertyDocumentationSniff implements Sniff {
 			$phpcsFile->addError( $error, $commentEnd, 'SpacingAfter' );
 		}
 		$commentStart = $tokens[$commentEnd]['comment_opener'];
+
+		$this->checkDocCommentFormatting( $phpcsFile, $commentStart );
+
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagText = $tokens[$tag]['content'];
 			if ( strcasecmp( $tagText, '@inheritDoc' ) === 0 || $tagText === '@deprecated' ) {
