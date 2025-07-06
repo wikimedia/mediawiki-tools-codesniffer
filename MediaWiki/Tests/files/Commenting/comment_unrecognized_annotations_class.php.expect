@@ -1,0 +1,19 @@
+  8 | ERROR   | [ ] @var is not a valid class annotation
+    |         |     (MediaWiki.Commenting.ClassAnnotations.UnrecognizedAnnotation)
+  9 | ERROR   | [ ] @param is not a valid class annotation
+    |         |     (MediaWiki.Commenting.ClassAnnotations.UnrecognizedAnnotation)
+ 10 | ERROR   | [ ] @return is not a valid class annotation
+    |         |     (MediaWiki.Commenting.ClassAnnotations.UnrecognizedAnnotation)
+ 11 | ERROR   | [ ] @throws is not a valid class annotation
+    |         |     (MediaWiki.Commenting.ClassAnnotations.UnrecognizedAnnotation)
+ 12 | ERROR   | [ ] @private is not a valid class annotation
+    |         |     (MediaWiki.Commenting.ClassAnnotations.UnrecognizedAnnotation)
+ 13 | WARNING | [x] Use @group annotation instead of @gropu
+    |         |     (MediaWiki.Commenting.ClassAnnotations.NonNormalizedAnnotation)
+ 14 | WARNING | [x] Use @warning annotation instead of @warn
+    |         |     (MediaWiki.Commenting.ClassAnnotations.NonNormalizedAnnotation)
+ 15 | WARNING | [x] Use @license annotation instead of @licence
+    |         |     (MediaWiki.Commenting.ClassAnnotations.NonNormalizedAnnotation)
+ 24 | ERROR   | [ ] @phan-file-suppress is not a valid class annotation
+    |         |     (MediaWiki.Commenting.ClassAnnotations.UnrecognizedAnnotation)
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -34,6 +34,7 @@ trait CommentAnnotationsTrait {
 	 */
 	private static array $allowedEverywhere = [
 		// Allowed all-lowercase tags
+		'@anchor' => true,
 		'@code' => true,
 		'@deprecated' => true,
 		'@endcode' => true,
@@ -75,6 +76,7 @@ trait CommentAnnotationsTrait {
 		// Tags to automatically fix
 		'@deprecate' => '@deprecated',
 		'@warn' => '@warning',
+		'@licence' => '@license',
 	];
 
 	/**
@@ -200,6 +202,61 @@ trait CommentAnnotationsTrait {
 	];
 
 	/**
+	 * Annotations allowed for classes (and similar structures). This includes bad annotations that we check for
+	 * elsewhere.
+	 * @phan-read-only
+	 */
+	private static array $allowedInClasses = [
+		// Allowed all-lowercase tags
+		'@author' => true,
+		'@brief' => true,
+		// TODO: Tag is deprecated, we should probably disallow it
+		'@category' => true,
+		'@copyright' => true,
+		'@cover' => true,
+		'@covers' => true,
+		'@group' => true,
+		'@ingroup' => true,
+		'@method' => true,
+		'@package' => true,
+		'@par' => true,
+		'@property' => true,
+		'@property-read' => true,
+		'@property-write' => true,
+		'@requires' => true,
+		'@section' => true,
+
+		// phan
+		'@phan-property' => true,
+		'@phan-read-only' => true,
+
+		// phpunit tags that are mixed-case - map lowercase to preferred mixed-case
+		// phpunit tags that are already all-lowercase, like @after and @before
+		// are listed above
+		'@codecoverageignore' => '@codeCoverageIgnore',
+		'@covernothing' => '@coverNothing',
+		'@coversnothing' => '@coversNothing',
+		'@doesnotperformassertions' => '@doesNotPerformAssertions',
+
+		// Other phpunit annotations that we recognize, even if PhpunitAnnotationsSniff
+		// complains about them. See T276971
+		'@coversdefaultclass' => '@coversDefaultClass',
+		'@small' => true,
+		'@medium' => true,
+		'@large' => true,
+		'@testdox' => true,
+		'@backupglobals' => '@backupGlobals',
+		'@backupstaticattributes' => '@backupStaticAttributes',
+		// Already has a fixer in the PHPUnit sniff
+		'@coverdefaultclass' => '@coversDefaultClass',
+		'@excludeglobalvariablefrombackup' => '@excludeGlobalVariableFromBackup',
+		'@excludestaticpropertyfrombackup' => '@excludeStaticPropertyFromBackup',
+
+		// Tags to automatically fix
+		'@gropu' => '@group',
+	];
+
+	/**
 	 * Normalizes an annotation
 	 *
 	 * @param string $anno
@@ -229,6 +286,7 @@ trait CommentAnnotationsTrait {
 			$allowed = [
 				T_FUNCTION => array_merge( self::$allowedEverywhere, self::$allowedInFunctions ),
 				T_VARIABLE => array_merge( self::$allowedEverywhere, self::$allowedInProperties ),
+				T_CLASS => array_merge( self::$allowedEverywhere, self::$allowedInClasses ),
 			];
 		}
 		return $allowed[$elementTok] ?? throw new InvalidArgumentException( "Invalid token $elementTok" );

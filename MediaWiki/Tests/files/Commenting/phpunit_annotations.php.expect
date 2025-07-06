@@ -8,6 +8,8 @@
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.NotTestClass)
   30 | WARNING | [x] Use @coversDefaultClass annotation instead of @coverDefaultClass
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.SingularCoverDefaultClass)
+  30 | WARNING | [x] Use @coversDefaultClass annotation instead of @coverDefaultClass
+     |         |     (MediaWiki.Commenting.ClassAnnotations.NonNormalizedAnnotation)
   31 | WARNING | [x] Use @group small annotation instead of @small
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.GroupAliasSmall)
   36 | WARNING | [x] Use @covers annotation instead of @cover
@@ -56,4 +58,4 @@
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
  161 | WARNING | [x] Use absolute class name (\Path\To\OtherClass) for @covers annotation instead
      |         |     (MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers)
-PHPCBF CAN FIX THE 11 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 12 MARKED SNIFF VIOLATIONS AUTOMATICALLY
