@@ -25,129 +25,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionAnnotationsSniff implements Sniff {
-	/**
-	 * Annotations allowed for functions. This includes bad annotations that we check for
-	 * elsewhere.
-	 */
-	private const ALLOWED_ANNOTATIONS = [
-		// Allowed all-lowercase tags
-		'@after' => true,
-		'@author' => true,
-		'@before' => true,
-		'@code' => true,
-		'@cover' => true,
-		'@covers' => true,
-		'@depends' => true,
-		'@deprecated' => true,
-		'@endcode' => true,
-		'@fixme' => true,
-		'@group' => true,
-		'@internal' => true,
-		'@license' => true,
-		'@link' => true,
-		'@note' => true,
-		'@par' => true,
-		'@param' => true,
-		'@requires' => true,
-		'@return' => true,
-		'@see' => true,
-		'@since' => true,
-		'@throws' => true,
-		'@todo' => true,
-		'@uses' => true,
-		'@warning' => true,
-
-		// Automatically replaced
-		'@param[in]' => '@param',
-		'@param[in,out]' => '@param',
-		'@param[out]' => '@param',
-		'@params' => '@param',
-		'@returns' => '@return',
-		'@throw' => '@throws',
-		'@exception' => '@throws',
-
-		// private and protected is needed when functions stay public
-		// for deprecation or backward compatibility reasons
-		// @see https://www.mediawiki.org/wiki/Deprecation_policy#Scope
-		'@private' => true,
-		'@protected' => true,
-
-		// Special handling
-		'@access' => true,
-
-		// Stable interface policy tags
-		// @see https://www.mediawiki.org/wiki/Stable_interface_policy
-		'@newable' => true,
-		'@stable' => true,
-		'@unstable' => true,
-
-		// phan
-		'@phan-param' => true,
-		'@phan-return' => true,
-		'@phan-suppress-next-line' => true,
-		'@phan-suppress-next-next-line' => true,
-		'@phan-suppress-previous-line' => true,
-		'@phan-assert' => true,
-		'@phan-assert-true-condition' => true,
-		'@phan-assert-false-condition' => true,
-		'@phan-side-effect-free' => true,
-		'@suppress' => true,
-		'@phan-template' => true,
-		'@phan-type' => true,
-		// No other consumers for now.
-		'@template' => '@phan-template',
-
-		// pseudo-tags from phan-taint-check-plugin
-		'@param-taint' => true,
-		'@return-taint' => true,
-
-		// psalm
-		'@psalm-template' => true,
-		'@psalm-param' => true,
-		'@psalm-return' => true,
-
-		// T263390
-		'@noinspection' => true,
-
-		// phpunit tags that are mixed-case - map lowercase to preferred mixed-case
-		// phpunit tags that are already all-lowercase, like @after and @before
-		// are listed above
-		'@afterclass' => '@afterClass',
-		'@beforeclass' => '@beforeClass',
-		'@precondition' => '@preCondition',
-		'@postcondition' => '@postCondition',
-		'@codecoverageignore' => '@codeCoverageIgnore',
-		'@covernothing' => '@coverNothing',
-		'@coversnothing' => '@coversNothing',
-		'@dataprovider' => '@dataProvider',
-		'@doesnotperformassertions' => '@doesNotPerformAssertions',
-		'@testwith' => '@testWith',
-
-		// Other phpunit annotations that we recognize, even if PhpunitAnnotationsSniff
-		// complains about them. See T276971
-		'@small' => true,
-		'@medium' => true,
-		'@large' => true,
-		'@test' => true,
-		'@testdox' => true,
-		'@backupglobals' => '@backupGlobals',
-		'@backupstaticattributes' => '@backupStaticAttributes',
-		'@excludeglobalvariablefrombackup' => '@excludeGlobalVariableFromBackup',
-		'@excludestaticpropertyfrombackup' => '@excludeStaticPropertyFromBackup',
-		'@runinseparateprocess' => '@runInSeparateProcess',
-		'@expectedexception' => '@expectedException',
-		'@expectedexceptioncode' => '@expectedExceptionCode',
-		'@expectedexceptionmessage' => '@expectedExceptionMessage',
-		'@expectedexceptionmessageregexp' => '@expectedExceptionMessageRegExp',
-
-		'@inheritdoc' => '@inheritDoc',
-
-		// Tags to automatically fix
-		'@deprecate' => '@deprecated',
-		'@gropu' => '@group',
-		'@parma' => '@param',
-		'@warn' => '@warning',
-	];
+	use CommentAnnotationsTrait;
 
 	/**
 	 * @inheritDoc
@@ -179,7 +57,7 @@ class FunctionAnnotationsSniff implements Sniff {
 
 		foreach ( $tokens[$commentStart]['comment_tags'] as $tag ) {
 			$tagContent = $tokens[$tag]['content'];
-			$annotation = $this->normalizeAnnotation( $tagContent );
+			$annotation = $this->normalizeAnnotation( $tagContent, T_FUNCTION );
 			if ( $annotation === false ) {
 				$error = '%s is not a valid function annotation';
 				$phpcsFile->addError( $error, $tag, 'UnrecognizedAnnotation', [ $tagContent ] );
@@ -197,28 +75,6 @@ class FunctionAnnotationsSniff implements Sniff {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Normalizes an annotation
-	 *
-	 * @param string $anno
-	 * @return string|false Tag or false if it's not canonical
-	 */
-	private function normalizeAnnotation( string $anno ) {
-		$anno = rtrim( $anno, ':' );
-		$lower = mb_strtolower( $anno );
-		if ( array_key_exists( $lower, self::ALLOWED_ANNOTATIONS ) ) {
-			return is_string( self::ALLOWED_ANNOTATIONS[$lower] )
-				? self::ALLOWED_ANNOTATIONS[$lower]
-				: $lower;
-		}
-
-		if ( preg_match( '/^@code{\W?([a-z]+)}$/', $lower, $matches ) ) {
-			return '@code{.' . $matches[1] . '}';
-		}
-
-		return false;
 	}
 
 	/**
