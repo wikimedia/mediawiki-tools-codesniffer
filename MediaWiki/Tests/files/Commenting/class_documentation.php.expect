@@ -1,0 +1,11 @@
+  5 | WARNING | [x] Doc comment must not be empty
+    |         |     (MediaWiki.Commenting.ClassDocumentation.EmptyComment)
+ 12 | WARNING | [x] Doc comments must not start with multiple empty lines
+    |         |     (MediaWiki.Commenting.ClassDocumentation.EmptyLinesStart)
+ 22 | WARNING | [x] Doc comments must not end with multiple empty lines
+    |         |     (MediaWiki.Commenting.ClassDocumentation.EmptyLinesEnd)
+ 26 | WARNING | [x] Doc comments must not start with multiple empty lines
+    |         |     (MediaWiki.Commenting.ClassDocumentation.EmptyLinesStart)
+ 30 | WARNING | [x] Doc comments must not end with multiple empty lines
+    |         |     (MediaWiki.Commenting.ClassDocumentation.EmptyLinesEnd)
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY

@@ -1,0 +1,32 @@
+<?php
+
+// phpcs:disable Generic.Files.OneObjectStructurePerFile
+
+/**
+ *
+ *
+ */
+class ClassDocumentationEmptyDocComment {
+}
+
+/**
+ *
+ * Empty line at the start of doc comment
+ */
+class ClassDocumentationEmptyLineAtStart {
+}
+
+/**
+ * Empty line at the end of doc comment
+ *
+ */
+class ClassDocumentationEmptyLineAtEnd {
+}
+
+/**
+ *
+ * Empty line at the start and end of doc comment
+ *
+ */
+class ClassDocumentationEmptyLineAtStartAndEnd {
+}
