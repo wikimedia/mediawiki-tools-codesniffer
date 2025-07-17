@@ -123,6 +123,7 @@ trait CommentAnnotationsTrait {
 		'@phan-assert-true-condition' => true,
 		'@phan-assert-false-condition' => true,
 		'@phan-side-effect-free' => true,
+		'@no-named-arguments' => true,
 
 		// pseudo-tags from phan-taint-check-plugin
 		'@param-taint' => true,
@@ -228,6 +229,7 @@ trait CommentAnnotationsTrait {
 		// phan
 		'@phan-property' => true,
 		'@phan-read-only' => true,
+		'@no-named-arguments' => true,
 
 		// phpunit tags that are mixed-case - map lowercase to preferred mixed-case
 		// phpunit tags that are already all-lowercase, like @after and @before
