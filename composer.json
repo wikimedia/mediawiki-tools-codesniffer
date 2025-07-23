@@ -19,7 +19,11 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"MediaWiki\\Sniffs\\": "MediaWiki/Sniffs/",
+			"MediaWiki\\Sniffs\\": "MediaWiki/Sniffs/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
 			"MediaWiki\\Sniffs\\Tests\\": "MediaWiki/Tests/"
 		}
 	},
