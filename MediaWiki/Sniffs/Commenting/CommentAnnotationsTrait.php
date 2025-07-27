@@ -208,6 +208,7 @@ trait CommentAnnotationsTrait {
 	 */
 	private static array $allowedInClasses = [
 		// Allowed all-lowercase tags
+		'@abstract' => true,
 		'@author' => true,
 		'@brief' => true,
 		// TODO: Tag is deprecated, we should probably disallow it
@@ -215,8 +216,14 @@ trait CommentAnnotationsTrait {
 		'@copyright' => true,
 		'@cover' => true,
 		'@covers' => true,
+		'@example' => true,
+		'@experimental' => true,
+		'@extends' => true,
+		'@final' => true,
 		'@group' => true,
+		'@implements' => true,
 		'@ingroup' => true,
+		'@inherits' => true,
 		'@method' => true,
 		'@package' => true,
 		'@par' => true,
@@ -230,6 +237,7 @@ trait CommentAnnotationsTrait {
 		'@phan-property' => true,
 		'@phan-read-only' => true,
 		'@no-named-arguments' => true,
+		'@phan-forbid-undeclared-magic-properties' => true,
 
 		// phpunit tags that are mixed-case - map lowercase to preferred mixed-case
 		// phpunit tags that are already all-lowercase, like @after and @before
