@@ -50,7 +50,6 @@ class ThisClassHasNoComment {
  * @param string $bar
  * @return int
  * @throws A
- * @private
  */
 class BadAnnotationsAreNotReportedWithoutAGoodOne {
 }

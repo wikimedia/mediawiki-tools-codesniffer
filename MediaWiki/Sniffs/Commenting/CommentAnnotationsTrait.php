@@ -233,6 +233,9 @@ trait CommentAnnotationsTrait {
 		'@requires' => true,
 		'@section' => true,
 
+		// private allows to hide a class and avoids that the class is published via doxygen
+		'@private' => true,
+
 		// phan
 		'@phan-property' => true,
 		'@phan-read-only' => true,
