@@ -24,6 +24,7 @@ namespace MediaWiki\Sniffs\Commenting;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPCSUtils\Tokens\Collections;
 
 class PropertyDocumentationSniff implements Sniff {
 
@@ -64,6 +65,7 @@ class PropertyDocumentationSniff implements Sniff {
 		$find[] = T_NULLABLE;
 		$find[] = T_STRING;
 		$find[] = T_READONLY;
+		$find += Collections::propertyTypeTokens();
 		$visibilityPtr = $phpcsFile->findPrevious( $find, $stackPtr - 1, null, true );
 		if ( !$visibilityPtr || ( $tokens[$visibilityPtr]['code'] !== T_VAR &&
 			!isset( Tokens::$scopeModifiers[ $tokens[$visibilityPtr]['code'] ] ) )

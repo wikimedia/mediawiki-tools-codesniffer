@@ -72,6 +72,9 @@ class TestFailedExamples {
 	/** @var string */
 	final protected $finalType;
 
+	/** @var    string|false */
+	final protected string|false $finalUnionType;
+
 	/**
 	 *
 	 *
