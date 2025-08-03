@@ -20,6 +20,9 @@ class TestFailedExamples {
 	/** @var $failOldStyle string */
 	var $failOldStyle;
 
+	/** @var $failTypedStyle string|false */
+	private string|false $failTypedStyle;
+
 }
 
 class TestPassedExamples {

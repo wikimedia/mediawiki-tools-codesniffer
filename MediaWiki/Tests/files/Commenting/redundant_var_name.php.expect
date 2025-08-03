@@ -16,6 +16,8 @@
     |       |     (PSR2.Classes.PropertyDeclaration.ScopeMissing)
  21 | ERROR | [ ] Scope modifier not specified for member variable "$failOldStyle"
     |       |     (Squiz.Scope.MemberVarScope.Missing)
- 25 | ERROR | [ ] Only one object structure is allowed in a file
+ 23 | ERROR | [x] Found redundant variable name $failTypedStyle in @var
+    |       |     (MediaWiki.Commenting.RedundantVarName.Found)
+ 28 | ERROR | [ ] Only one object structure is allowed in a file
     |       |     (Generic.Files.OneObjectStructurePerFile.MultipleFound)
-PHPCBF CAN FIX THE 6 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+PHPCBF CAN FIX THE 7 MARKED SNIFF VIOLATIONS AUTOMATICALLY

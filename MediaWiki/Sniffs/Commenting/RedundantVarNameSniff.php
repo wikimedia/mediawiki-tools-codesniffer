@@ -5,6 +5,7 @@ namespace MediaWiki\Sniffs\Commenting;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPCSUtils\Tokens\Collections;
 
 /**
  * Custom sniff that reports and repairs documentations of class properties that repeat the
@@ -43,10 +44,13 @@ class RedundantVarNameSniff implements Sniff {
 			return;
 		}
 
+		// This is already compatible with `public int $var;` available since PHP 7.4
+		// Skip over `static` in the declaration too, T278471
+		$skip = Tokens::$emptyTokens
+			+ [ T_NULLABLE, T_STRING, T_STATIC, T_READONLY, T_FINAL ]
+			+ Collections::propertyTypeTokens();
 		$visibilityPtr = $phpcsFile->findPrevious(
-			// This is already compatible with `public int $var;` available since PHP 7.4
-			// Skip over `static` in the declaration too, T278471
-			Tokens::$emptyTokens + [ T_NULLABLE, T_STRING, T_STATIC, T_READONLY, T_FINAL ],
+			$skip,
 			$variablePtr - 1,
 			$docPtr + 1,
 			true
