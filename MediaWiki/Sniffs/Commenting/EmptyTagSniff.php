@@ -24,6 +24,7 @@ namespace MediaWiki\Sniffs\Commenting;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPCSUtils\Tokens\Collections;
 
 /**
  * Check for tags with nothing after them
@@ -107,9 +108,10 @@ class EmptyTagSniff implements Sniff {
 				T_VAR,
 				// Skip type hints, e.g. in `public ?Foo\Bar $var`
 				T_STRING,
-				T_NS_SEPARATOR,
 				T_NULLABLE,
-			]
+				T_READONLY,
+			],
+			Collections::propertyTypeTokens(),
 		);
 		$next = $phpcsFile->findNext( $skip, $start, null, true );
 		return $tokens[$next]['code'] === T_VARIABLE ? 'property' : $tokens[$next]['content'];

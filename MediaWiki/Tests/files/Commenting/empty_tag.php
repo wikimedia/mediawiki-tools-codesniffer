@@ -10,6 +10,24 @@ class EmptySeeExampleTests {
 
 	/**
 	 * @see
+	 * @var string|false
+	 */
+	private string|false $testFail2;
+
+	/**
+	 * @see
+	 * @var string
+	 */
+	private readonly string $testFail3;
+
+	/**
+	 * @see
+	 * @var string|null
+	 */
+	private ?string $testFail4;
+
+	/**
+	 * @see
 	 * @return bool
 	 */
 	public function testFailing() {

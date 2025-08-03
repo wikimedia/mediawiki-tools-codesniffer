@@ -1,4 +1,10 @@
   6 | ERROR | Content missing for @see tag in property comment
     |       | (MediaWiki.Commenting.EmptyTag.PropertySee)
- 12 | ERROR | Content missing for @see tag in function comment
+ 12 | ERROR | Content missing for @see tag in property comment
+    |       | (MediaWiki.Commenting.EmptyTag.PropertySee)
+ 18 | ERROR | Content missing for @see tag in property comment
+    |       | (MediaWiki.Commenting.EmptyTag.PropertySee)
+ 24 | ERROR | Content missing for @see tag in property comment
+    |       | (MediaWiki.Commenting.EmptyTag.PropertySee)
+ 30 | ERROR | Content missing for @see tag in function comment
     |       | (MediaWiki.Commenting.EmptyTag.FunctionSee)
