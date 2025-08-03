@@ -1,7 +1,5 @@
   8 | ERROR | [x] Use PHP 8.4 compatible syntax for explicit nullable types ("?MyClass $x = null")
     |       |     (MediaWiki.Usage.NullableType.ExplicitNullableTypes)
-  8 | ERROR | [ ] Use nullable type("?MyClass") for parameters documented as nullable
-    |       |     (MediaWiki.Commenting.FunctionComment.PHP71NullableDocOptionalArg)
  15 | ERROR | [x] Use PHP 8.4 compatible syntax for explicit nullable types ("?MyClass $x = null")
     |       |     (MediaWiki.Usage.NullableType.ExplicitNullableTypes)
  23 | ERROR | [x] Use PHP 8.4 compatible syntax for explicit nullable types ("?MyClass $x = null")

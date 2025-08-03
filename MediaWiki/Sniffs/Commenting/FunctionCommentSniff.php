@@ -682,18 +682,7 @@ class FunctionCommentSniff implements Sniff {
 					}
 				}
 			}
-			if (
-				isset( $realParams[$pos] ) && $nullableDoc && $defaultNull &&
-				!$realParams[$pos]['nullable_type']
-			) {
-				// Don't offer autofix, as changing a signature is somewhat delicate
-				$phpcsFile->addError(
-					'Use nullable type("%s") for parameters documented as nullable',
-					$realParams[$pos]['token'],
-					'PHP71NullableDocOptionalArg',
-					[ $type ]
-				);
-			} elseif ( $defaultNull && !( $nullFound || $nullableDoc ) ) {
+			if ( $defaultNull && !( $nullFound || $nullableDoc ) ) {
 				// Check if the default of null is in the type list
 				$fix = $phpcsFile->addFixableError(
 					'Default of null should be declared in @param tag',
