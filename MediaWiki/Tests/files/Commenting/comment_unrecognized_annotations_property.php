@@ -11,6 +11,9 @@ class TestPropertyAnnotions {
 	/** @vra string */
 	private string $typo;
 
+	/** @vra string|false */
+	private string|false $typoUnionTyped;
+
 	/** @inheritdoc */
 	private $inheritedVar;
 
