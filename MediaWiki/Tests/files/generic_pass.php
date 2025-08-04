@@ -186,5 +186,20 @@ function wfTakesSomeParameters(
 	// TODO: enforce consistent formatting of function parameters.
 }
 
+// phpcs:ignore Generic.Files.OneObjectStructurePerFile.MultipleFound
+class PropertyPromotion {
+	/**
+	 * @param string $untypedProperty
+	 * @param array $typedProperty
+	 * @param array $typedReadonlyProperty
+	 */
+	public function __construct(
+		private $untypedProperty,
+		private array $typedProperty,
+		private readonly array $typedReadonlyProperty,
+	) {
+	}
+}
+
 Hooks::run( 'RevisionDataUpdates', [ $title, $renderedRevision, &$updates ] );
 // This file has a new line at the end!
