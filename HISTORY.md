@@ -1,5 +1,50 @@
 # MediaWiki-Codesniffer release history #
 
+## v48.0.0 / 2025-09-04
+
+### New sniffs ###
+* Add `ClassAnnotationsSniff` to check for disallowed class annotations (Daimona Eaytoy)
+* Add `ClassDocumentationSniff` to check doc comments for classes (Daimona Eaytoy)
+* Add `CommentBeforeClassSniff` to check comments before classes (Daimona Eaytoy)
+* Add `NamespaceNameSniff` to check naming conventions (Umherirrender)
+* Add `PropertyAnnotationsSniff` to validate property annotations (Umherirrender)
+
+### Changed sniffs ###
+* `ClassAnnotationsSniff`: Add `@abstract`, `@example`, `@experimental`, `@extends`, `@final`, `@implements`, `@inherits`, `@private`, and `@phan-forbid-undeclared-magic-properties` annotations (Umherirrender)
+* `EmptyTagSniff`: Improve error message for union-typed properties (Umherirrender)
+* `FunctionAnnotationsSniff`, `PropertyAnnotationsSniff`: Allow `@no-named-arguments` on functions and classes (Umherirrender)
+* `FunctionAnnotationsSniff`, `PropertyAnnotationsSniff`: Allow the `@template` annotation (Daimona Eaytoy)
+* `FunctionAnnotationsSniff`, `PropertyAnnotationsSniff`: Introduce `CommentAnnotationsTrait` to deduplicate some code for doc tags (Daimona Eaytoy)
+* `FunctionAnnotationsSniff`: allow more phan suppressions (Daimona Eaytoy)
+* `FunctionCommentSniff`, `PropertyDocumentationSniff`: Check doc comment formatting for functions and properties (Daimona Eaytoy)
+* `FunctionCommentSniff`: Remove PHP71NullableDocOptionalArg error (Umherirrender)
+* `FunctionCommentSniff`: Require documentation for parameterless function with return value (Umherirrender)
+* `PHPUnitTypeHintsSniff`: Skip anon classes (Umherirrender)
+* `PHPunitAnnotationsSniff`: Allow empty lines after comment (Daimona Eaytoy)
+* `PhpunitAnnotationsSniff`: Allow `@maximumDuration` annotation (Umherirrender)
+* `PhpunitAnnotationsSniff`: Forbid new `@exclude*FromBackup` annotations (Umherirrender)
+* `PropertyAnnotationsSniff`: Detect union-typed properties (Umherirrender)
+* `PropertyDocumentationSniff`: Check for readonly, final and anon classes (Umherirrender)
+* `PropertyDocumentationSniff`: Detect union-typed properties (Umherirrender)
+* `RedundantVarNameSniff`: Check for readonly and final (Umherirrender)
+* `RedundantVarNameSniff`: Detect union-typed properties (Umherirrender)
+* `UnusedUseStatementSniff`: Also report duplicate/conflicting uses (Bartosz Dziewoński)
+
+### Removed sniffs ###
+* `FinalPrivateSniff` (Umherirrender)
+* `Generic.Functions.CallTimePassByReference` (Daimona Eaytoy)
+* `NestedFunctionsSniff`, replaced by upstream `InnerFunctionsSniff` (Daimona Eaytoy)
+
+### Documentation, dependencies and build changes ###
+* `PHPUnit` sniffs: Avoid error on live coding about missing scope opener (Umherirrender)
+* Upgrade phpcsstandards/phpcsextra to 1.4.0 (Daimona Eaytoy; Umherirrender)
+* Upgrade squizlabs/php_codesniffer from 3.12.2 to 3.13.2 (James D. Forrester; Umherirrender)
+* Require PHP 8.1 (Umherirrender)
+* build: Update mediawiki-phan-config to 0.17.0 (Daimona Eaytoy; libraryupgrader)
+* build: Use autoload-dev for tests in composer.json (Umherirrender)
+* build: Relax constraint for `composer/semver` (Reedy)
+
+
 ## v47.0.0 / 2025-05-04
 
 ### Changed sniffs ###
@@ -61,8 +106,8 @@
 * `ExtendClassUsageSniff`: Add `$wgInitialSessionId` to non-config variables (Func)
 * `PhpunitAnnotationsSniff`: Update also absolute class names in `@covers` (Umherirrender)
 * `SpaceBeforeClassBrace.BraceNotOnOwnLine`: Handle multi-line anon class (Umherirrender)
-* `UnusedUseStatementSniff`: Don't report unused classes in`@phpstan…` and `@psalm-import-type` (thiemowmde)
-* `UnusedUseStatementSniff`: Replace hard-coded`@…-import-type` with more flexible config (thiemowmde)
+* `UnusedUseStatementSniff`: Don't report unused classes in `@phpstan…` and `@psalm-import-type` (thiemowmde)
+* `UnusedUseStatementSniff`: Replace hard-coded `@…-import-type` with more flexible config (thiemowmde)
 
 ### Removed sniffs ###
 * `DoubleNotOperatorSniff`, replaced by `Universal.CodeAnalysis.NoDoubleNegative` (Daimona Eaytoy)
