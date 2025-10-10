@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
 		 backupGlobals="true"
 		 colors="false"
-		 convertErrorsToExceptions="true"
-		 convertNoticesToExceptions="true"
-		 convertWarningsToExceptions="true"
+    	 displayDetailsOnTestsThatTriggerDeprecations="true"
+    	 displayDetailsOnTestsThatTriggerErrors="true"
+    	 displayDetailsOnTestsThatTriggerNotices="true"
+    	 displayDetailsOnTestsThatTriggerWarnings="true"
+    	 displayDetailsOnPhpunitDeprecations="true"
+    	 failOnDeprecation="true"
+    	 failOnPhpunitDeprecation="true"
+    	 failOnNotice="true"
+		 requireCoverageMetadata="true"
 		 beStrictAboutOutputDuringTests="true"
 		 beStrictAboutTestsThatDoNotTestAnything="true"
-		 beStrictAboutTodoAnnotatedTests="true"
 		 bootstrap="./phpunit.bootstrap.php">
 	<testsuites>
 		<testsuite name="phpcs/MediaWiki">
@@ -16,9 +21,9 @@
 			<file>./MediaWiki/Tests/ExtensionInfoTest.php</file>
 		</testsuite>
 	</testsuites>
-	<coverage>
+	<source>
 		<include>
 			<directory suffix=".php">MediaWiki/Sniffs/</directory>
 		</include>
-	</coverage>
+	</source>
 </phpunit>
