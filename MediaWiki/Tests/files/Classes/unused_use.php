@@ -3,7 +3,9 @@ namespace FooBar;
 
 use FooBar\Baz;
 use \InvalidArgumentException;
+use Something\AConstName;
 use Something\AFunctionName;
+use Something\ATypedConstName;
 use Something\ClassProp1;
 use Something\ClassProp2;
 use Something\ClassProp3;
@@ -56,6 +58,9 @@ class UnusedUseTest {
 class Foo {
 	use SomeThing;
 	use AnotherThing;
+
+	private const ACONSTNAME = 1;
+	private const int ATYPEDCONSTNAME = 2;
 
 	/**
 	 * @var InAVar $thing2 is another property

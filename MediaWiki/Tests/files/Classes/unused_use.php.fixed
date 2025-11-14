@@ -48,6 +48,9 @@ class Foo {
 	use SomeThing;
 	use AnotherThing;
 
+	private const ACONSTNAME = 1;
+	private const int ATYPEDCONSTNAME = 2;
+
 	/**
 	 * @var InAVar $thing2 is another property
 	 */

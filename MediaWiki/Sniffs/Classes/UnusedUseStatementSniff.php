@@ -25,6 +25,7 @@ namespace MediaWiki\Sniffs\Classes;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPCSUtils\Tokens\Collections;
 
 /**
  * @author Thiemo Kreuz
@@ -104,6 +105,7 @@ class UnusedUseStatementSniff implements Sniff {
 		$classNamesPattern = '{(?<!\\\\)\b('
 			. implode( '|', array_map( 'preg_quote', array_keys( $shortClassNames ) ) )
 			. ')\b}i';
+		$propertyTypeTokens = Collections::propertyTypeTokens();
 
 		// Search where the class name is used. PHP treats class names case
 		// insensitive, that's why we cannot search for the exact class name string
@@ -116,19 +118,28 @@ class UnusedUseStatementSniff implements Sniff {
 
 				// If a backslash is used before the class name then this is some other
 				// use statement.
-				// T_STRING also used for $this->property or self::function() or "function namedFuncton()"
+				// T_STRING also used for $this->property or self::function() or "function namedFuncton()" or const
 				$before = $phpcsFile->findPrevious( Tokens::$emptyTokens, $i - 1, null, true );
 				if ( $tokens[$before]['code'] === T_OBJECT_OPERATOR
 					|| $tokens[$before]['code'] === T_NULLSAFE_OBJECT_OPERATOR
 					|| $tokens[$before]['code'] === T_DOUBLE_COLON
 					|| $tokens[$before]['code'] === T_NS_SEPARATOR
 					|| $tokens[$before]['code'] === T_FUNCTION
+					|| $tokens[$before]['code'] === T_CONST
 					// Trait use statement within a class.
 					|| ( $tokens[$before]['code'] === T_USE
 						&& empty( $tokens[$before]['conditions'] )
 					)
 				) {
 					continue;
+				}
+
+				// T_STRING also used for typed const (php8.3+)
+				if ( isset( $propertyTypeTokens[$tokens[$before]['code']] ) ) {
+					$beforeTyped = $phpcsFile->findPrevious( Tokens::$emptyTokens, $before - 1, null, true );
+					if ( $tokens[$beforeTyped]['code'] === T_CONST ) {
+						continue;
+					}
 				}
 
 				$className = $tokens[$i]['content'];
