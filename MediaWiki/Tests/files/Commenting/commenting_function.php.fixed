@@ -700,3 +700,15 @@ class TestDocCommentFormatting {
 	public function testEmptyLinesCommentStartAndEnd(): void {
 	}
 }
+
+/**
+ * @param callable(mixed ...$args):bool $cb1
+ * @param Closure(...$a1, int $a2,bool $a_3 ):void $cb2
+ * @param callable():int $cb3
+ * @param callable( $x ) : int $cb4
+ * The following don't seem to be supported, at least by PHPStorm, but we parse them anyway to avoid confusing errors
+ * @param callable(int $x) $cb5
+ * @param callable() $cb6
+ */
+function wfTestCallableParameter( $cb1, $cb2, $cb3, $cb4, $cb5, $cb6 ) {
+}

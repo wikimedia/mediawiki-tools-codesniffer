@@ -435,6 +435,9 @@ class FunctionCommentSniff implements Sniff {
 				preg_match( '/^
 						# Match parameter type and separator as a group of
 						((?:
+							# callables (special-cased as it allows various characters not allowed in other positions)
+							(?:callable|Closure)\((?:\s*(?:\.\.\.)?[&$]*\w+,?)*\s*\)(?:\s*:\s*\w+)?
+							|
 							# plain letters
 							[^&$.\{\[]
 							|
