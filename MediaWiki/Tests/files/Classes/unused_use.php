@@ -20,6 +20,13 @@ use Something\InAVar6;
 use Something\InAVar7;
 use Something\InAVar8;
 use Something\InAVar9;
+use Something\InExtends1;
+use Something\InExtends2;
+use Something\InImplements1;
+use Something\InImplements2;
+use Something\InInherits1;
+use Something\InInherits2;
+use Something\InTemplate;
 use Something\OneTwo as ThreeFour;
 use Something\Partial;
 use Something\PHPStanClass;
@@ -55,6 +62,11 @@ class UnusedUseTest {
 	}
 }
 
+/**
+ * @extends InExtends1<InExtends2>
+ * @inherits InInherits1<InInherits2>
+ * @implements InImplements1<InImplements2>
+ */
 class Foo {
 	use SomeThing;
 	use AnotherThing;
@@ -141,6 +153,12 @@ class Foo {
 	}
 
 	public function aFunctionName() {
+	}
+
+	/**
+	 * @template T of InTemplate
+	 */
+	public function testTemplate() {
 	}
 }
 

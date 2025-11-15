@@ -36,12 +36,16 @@ class UnusedUseStatementSniff implements Sniff {
 	 * Doc tags where a class name is used
 	 */
 	private const CLASS_TAGS = [
+		'@extends' => null,
+		'@implements' => null,
+		'@inherits' => null,
 		'@param' => null,
 		'@property' => null,
 		'@property-read' => null,
 		'@property-write' => null,
 		'@return' => null,
 		'@see' => null,
+		'@template' => '/\w+ of (.*)/',
 		'@throws' => null,
 		'@var' => null,
 		// Static code analyzers like Phan, PHPStan, or Psalm
