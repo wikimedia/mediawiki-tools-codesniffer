@@ -31,7 +31,7 @@ class TheCommentForThisClassAlsoHasFileLevelAnnotations {
  * @stable
  * @see Foo
  * @suppress Bar
- * @phan-template T
+ * @template T
  * @author John Doe
  */
 class ClassAnnotationsGoodExamples {

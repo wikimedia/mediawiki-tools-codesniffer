@@ -61,14 +61,14 @@ trait CommentAnnotationsTrait {
 		'@phan-suppress-next-next-line' => true,
 		'@phan-suppress-previous-line' => true,
 		'@suppress' => true,
-		'@phan-template' => true,
 		'@phan-type' => true,
-
-		// psalm
-		'@psalm-template' => true,
 
 		// T263390
 		'@noinspection' => true,
+
+		// Generic types: use unprefixed variants
+		'@phan-template' => '@template',
+		'@psalm-template' => '@template',
 
 		'@inheritdoc' => '@inheritDoc',
 
