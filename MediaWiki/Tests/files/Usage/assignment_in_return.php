@@ -46,6 +46,8 @@ function wfPassedExamples() {
 			/** @inheritDoc */
 			public $skinname = 'vector';
 		};
+	} elseif ( $foo === 3 ) {
+		return static fn ( &$test ) => $test[] = 'test';
 	} else {
 		return static function () use ( $foo ) {
 			$foo = 1;

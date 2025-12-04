@@ -36,6 +36,7 @@ class AssignmentInReturnSniff implements Sniff {
 			T_FUNCTION,
 			T_ANON_CLASS,
 			T_SEMICOLON,
+			T_FN,
 		];
 		$next = $phpcsFile->findNext( $searchToken, $stackPtr + 1 );
 		while ( $next !== false ) {
