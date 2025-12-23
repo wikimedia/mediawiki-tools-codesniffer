@@ -10,12 +10,12 @@ coding conventions that are validated by these rules. :-)
 
 How to install
 --------------
-1. Create a composer.json which adds this project as a dependency:
+1. Create a composer.json which adds this project as a dependency. The latest version number can be found in [HISTORY.md](HISTORY.md) or on [Packagist](https://packagist.org/packages/mediawiki/mediawiki-codesniffer).
 
     ```
     {
     	"require-dev": {
-    		"mediawiki/mediawiki-codesniffer": "40.0.1"
+    		"mediawiki/mediawiki-codesniffer": "48.0.0"
     	},
     	"scripts": {
     		"test": [
