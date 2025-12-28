@@ -24,9 +24,6 @@ class ValidGlobalNameSniff implements Sniff {
 		'$_SESSION',
 		'$_ENV',
 		'$_COOKIE',
-		'$php_errormsg',
-		'$HTTP_RAW_POST_DATA',
-		'$http_response_header',
 		'$argc',
 		'$argv'
 	];
