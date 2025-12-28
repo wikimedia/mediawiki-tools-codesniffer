@@ -84,6 +84,14 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'is_resource' => false,
 		// define third parameter is deprecated in 7.3
 		'define' => false,
+		// session_set_save_handler third parameter is deprecated in 8.4
+		'session_set_save_handler' => false,
+		// deprecated in 8.5
+		'xml_parser_free' => false,
+		'curl_close' => false,
+		'curl_share_close' => false,
+		'socket_set_timeout' => 'stream_set_timeout',
+		'mysqli_execute' => 'mysqli_stmt_execute',
 	];
 
 	/**
@@ -94,6 +102,7 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'mb_parse_str' => 2,
 		'isset' => 1,
 		'define' => 2,
+		'session_set_save_handler' => 2,
 	];
 
 	/**
