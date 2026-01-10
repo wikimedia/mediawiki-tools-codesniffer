@@ -29,10 +29,8 @@ trait DocumentationTypeTrait {
 
 	/**
 	 * Mapping for swap short types
-	 * @var string[]
 	 */
-	private static $SHORT_TYPE_MAPPING = [
-		// @phan-suppress-previous-line PhanReadOnlyPrivateProperty Traits cannot have constants
+	private const SHORT_TYPE_MAPPING = [
 		'boolean' => 'bool',
 		'boolean[]' => 'bool[]',
 		'integer' => 'int',
@@ -42,11 +40,8 @@ trait DocumentationTypeTrait {
 	/**
 	 * Mapping for primitive types to case correct
 	 * Cannot just detect case due to classes being uppercase
-	 *
-	 * @var string[]
 	 */
-	private static $PRIMITIVE_TYPE_MAPPING = [
-		// @phan-suppress-previous-line PhanReadOnlyPrivateProperty Traits cannot have constants
+	private const PRIMITIVE_TYPE_MAPPING = [
 		'Array' => 'array',
 		'Array[]' => 'array[]',
 		'Bool' => 'bool',
@@ -119,8 +114,8 @@ trait DocumentationTypeTrait {
 		foreach ( $typeList as &$type ) {
 			// Corrects long types from both upper and lowercase to lowercase shorttype
 			$key = lcfirst( $type );
-			if ( isset( self::$SHORT_TYPE_MAPPING[$key] ) ) {
-				$type = self::$SHORT_TYPE_MAPPING[$key];
+			if ( isset( self::SHORT_TYPE_MAPPING[$key] ) ) {
+				$type = self::SHORT_TYPE_MAPPING[$key];
 				$code = 'NotShort' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
 				$fix = $phpcsFile->addFixableError(
 					'Short type of "%s" should be used for @%s tag',
@@ -128,8 +123,8 @@ trait DocumentationTypeTrait {
 					$code,
 					[ $type, $annotation ]
 				) || $fix;
-			} elseif ( isset( self::$PRIMITIVE_TYPE_MAPPING[$type] ) ) {
-				$type = self::$PRIMITIVE_TYPE_MAPPING[$type];
+			} elseif ( isset( self::PRIMITIVE_TYPE_MAPPING[$type] ) ) {
+				$type = self::PRIMITIVE_TYPE_MAPPING[$type];
 				$code = 'UppercasePrimitive' . str_replace( '[]', 'Array', ucfirst( $type ) ) . ucfirst( $annotation );
 				$fix = $phpcsFile->addFixableError(
 					'Lowercase type of "%s" should be used for @%s tag',

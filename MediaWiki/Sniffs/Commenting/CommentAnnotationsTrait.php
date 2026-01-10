@@ -26,13 +26,11 @@ use InvalidArgumentException;
  * Trait with code to deal with annotations in doc comments.
  */
 trait CommentAnnotationsTrait {
-	/** TODO: Make these constants once we require PHP 8.2+ */
 	/**
 	 * Annotations allowed for functions. This includes bad annotations that we check for
 	 * elsewhere.
-	 * @phan-read-only
 	 */
-	private static array $allowedEverywhere = [
+	private const ALLOWED_EVERYWHERE = [
 		// Allowed all-lowercase tags
 		'@anchor' => true,
 		'@code' => true,
@@ -81,9 +79,8 @@ trait CommentAnnotationsTrait {
 	/**
 	 * Annotations allowed for functions. This includes bad annotations that we check for
 	 * elsewhere.
-	 * @phan-read-only
 	 */
-	private static array $allowedInFunctions = [
+	private const ALLOWED_IN_FUNCTIONS = [
 		// Allowed all-lowercase tags
 		'@after' => true,
 		'@author' => true,
@@ -172,9 +169,8 @@ trait CommentAnnotationsTrait {
 	/**
 	 * Annotations allowed for properties. This includes bad annotations that we check for
 	 * elsewhere.
-	 * @phan-read-only
 	 */
-	private static array $allowedInProperties = [
+	private const ALLOWED_IN_PROPERTIES = [
 		// Allowed all-lowercase tags
 		'@final' => true,
 		'@showinitializer' => true,
@@ -204,9 +200,8 @@ trait CommentAnnotationsTrait {
 	/**
 	 * Annotations allowed for classes (and similar structures). This includes bad annotations that we check for
 	 * elsewhere.
-	 * @phan-read-only
 	 */
-	private static array $allowedInClasses = [
+	private const ALLOWED_IN_CLASSES = [
 		// Allowed all-lowercase tags
 		'@abstract' => true,
 		'@author' => true,
@@ -268,6 +263,12 @@ trait CommentAnnotationsTrait {
 		'@gropu' => '@group',
 	];
 
+	private const ALLOWED_IN_SCOPE = [
+		T_FUNCTION => self::ALLOWED_EVERYWHERE + self::ALLOWED_IN_FUNCTIONS,
+		T_VARIABLE => self::ALLOWED_EVERYWHERE + self::ALLOWED_IN_PROPERTIES,
+		T_CLASS => self::ALLOWED_EVERYWHERE + self::ALLOWED_IN_CLASSES,
+	];
+
 	/**
 	 * Normalizes an annotation
 	 *
@@ -276,7 +277,8 @@ trait CommentAnnotationsTrait {
 	 * @return string|false Tag or false if it's not canonical
 	 */
 	private function normalizeAnnotation( string $anno, int $elementTok ): string|false {
-		$allowedAnnotations = self::getAllowedAnnotations( $elementTok );
+		$allowedAnnotations = self::ALLOWED_IN_SCOPE[$elementTok]
+			?? throw new InvalidArgumentException( "Invalid token $elementTok" );
 		$anno = rtrim( $anno, ':' );
 		$lower = mb_strtolower( $anno );
 		if ( array_key_exists( $lower, $allowedAnnotations ) ) {
@@ -290,17 +292,5 @@ trait CommentAnnotationsTrait {
 		}
 
 		return false;
-	}
-
-	private static function getAllowedAnnotations( int $elementTok ): array {
-		static $allowed;
-		if ( !$allowed ) {
-			$allowed = [
-				T_FUNCTION => array_merge( self::$allowedEverywhere, self::$allowedInFunctions ),
-				T_VARIABLE => array_merge( self::$allowedEverywhere, self::$allowedInProperties ),
-				T_CLASS => array_merge( self::$allowedEverywhere, self::$allowedInClasses ),
-			];
-		}
-		return $allowed[$elementTok] ?? throw new InvalidArgumentException( "Invalid token $elementTok" );
 	}
 }

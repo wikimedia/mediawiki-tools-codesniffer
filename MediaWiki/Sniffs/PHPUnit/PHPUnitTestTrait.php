@@ -16,10 +16,8 @@ trait PHPUnitTestTrait {
 
 	/**
 	 * Set of PHPUnit base classes, without leading backslash
-	 * @var string[]
 	 */
-	private static $PHPUNIT_CLASSES = [
-		// @phan-suppress-previous-line PhanReadOnlyPrivateProperty Traits cannot have constants
+	private const PHPUNIT_CLASSES = [
 		'MediaWikiTestCase' => 'MediaWikiTestCase',
 		'MediaWikiUnitTestCase' => 'MediaWikiUnitTestCase',
 		'MediaWikiIntegrationTestCase' => 'MediaWikiIntegrationTestCase',
@@ -71,7 +69,7 @@ trait PHPUnitTestTrait {
 		}
 
 		$extendedClass = ltrim( $phpcsFile->findExtendedClassName( $classToken ), '\\' );
-		return array_key_exists( $extendedClass, self::$PHPUNIT_CLASSES ) ||
+		return array_key_exists( $extendedClass, self::PHPUNIT_CLASSES ) ||
 			(bool)preg_match(
 				'/(?:Test(?:Case)?(?:Base)?|Suite)$/',
 				$phpcsFile->getDeclarationName( $classToken )

@@ -21,6 +21,7 @@ $cfg['null_casts_as_any_type'] = true;
 
 $cfg['dead_code_detection'] = true;
 $cfg['dead_code_detection_prefer_false_negative'] = false;
+$cfg['suppress_issue_types'][] = 'PhanUnreferencedPrivateClassConstant';
 // Sniff classes are loaded dynamic and are unreferenced for static code analyzer
 $cfg['suppress_issue_types'][] = 'PhanUnreferencedClass';
 
