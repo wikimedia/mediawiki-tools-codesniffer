@@ -1,5 +1,23 @@
 # MediaWiki-Codesniffer release history #
 
+## v49.0.0 / 2026-01-11
+
+### Changed sniffs ###
+* `UnusedUseStatementSniff`: Ignore const when searching class names (Umherirrender)
+* `UnusedUseStatementSniff`: add support for more annotations (Daimona Eaytoy)
+* `NonNormalizedAnnotation`: Forbid `@phan-template` and `@psalm-template` in favour of `@template` (Daimona Eaytoy)
+* `FunctionCommentSniff`: Parse callable parameter syntax (Daimona Eaytoy)
+* `AssignmentInReturnSniff`: Ignore arrow functions (SomeRandomDeveloper)
+* `ValidGlobalNameSniff`: Treat deprecated or removed globals as invalid (Umherirrender)
+* `ForbiddenFunctionsSniff`: Add some deprecated php internal functions (Umherirrender)
+
+### Documentation, dependencies and build changes ###
+* build: Update phpunit/phpunit to 10.5.58 (Umherirrender)
+* Upgrade squizlabs/php_codesniffer from 3.13.2 to 3.13.5 (James D. Forrester)
+* build: Updating mediawiki/mediawiki-phan-config to 0.18.0 (Alexander Vorwerk)
+* Drop support for PHP 8.1 (Alexander Vorwerk)
+
+
 ## v48.0.0 / 2025-09-04
 
 ### New sniffs ###
