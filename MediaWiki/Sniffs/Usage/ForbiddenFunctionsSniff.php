@@ -86,10 +86,14 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'define' => false,
 		// session_set_save_handler third parameter is deprecated in 8.4
 		'session_set_save_handler' => false,
+		// deprecated in 8.4
+		'xml_set_object' => false,
 		// deprecated in 8.5
 		'xml_parser_free' => false,
 		'curl_close' => false,
 		'curl_share_close' => false,
+		'imagedestroy' => false,
+		'finfo_close' => false,
 		'socket_set_timeout' => 'stream_set_timeout',
 		'mysqli_execute' => 'mysqli_stmt_execute',
 	];
