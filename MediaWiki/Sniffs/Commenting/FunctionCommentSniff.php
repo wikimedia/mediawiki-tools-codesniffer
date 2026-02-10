@@ -53,6 +53,49 @@ class FunctionCommentSniff implements Sniff {
 		'__debugInfo',
 	];
 
+	// Type regexps copied from phan (see UnionType::union_type_regex). Reformatted here to be shorter.
+	private const UNION_TYPE_REGEX = self::TYPE_REGEX . '(\s*[|&]\s*' . self::TYPE_REGEX . ')*';
+	public const TYPE_REGEX =
+		'((?:\??\((?-1)(?:[|&](?-1))*\)|(?:\??(?:\\\\?Closure|callable)(\((?:[^()]|(?-1))*\))(?:\s*:\s*(?:' .
+		self::SIMPLE_NONCAPTURING_TYPE_REGEX . '|\((?-2)(?:\s*[|&]\s*(?-2))*\)))?)|' .
+		self::NONCAPTURING_LITERAL_REGEX . '|(' . self::SIMPLE_TYPE_REGEX . ')(?:<((?-5)(?:[|&](?-5))*(?:\s*,\s*(?-5)' .
+		'(?:[|&](?-5))*)*)>|\{((?:' . self::SHAPE_KEY_REGEX . '\s*:)?\s*(?-6)(?:[|&](?-6))*=?(?:,(?:\s*' .
+		self::SHAPE_KEY_REGEX . '\s*:)?\s*(?-6)(?:[|&](?-6))*=?)*)?\})?)(?:\[\])*)';
+	public const SIMPLE_TYPE_REGEX =
+		'(\??)(?:callable-(?:string|object|array)|array-key|associative-array|class-string|int-range|key-of|lowercase' .
+		'-string|negative-int|phan-intersection-type|positive-int|value-of|no-return|never-returns?|non-(?:zero-int|' .
+		'null-mixed|empty-(?:associative-array|array|list|string|lowercase-string|numeric-string|mixed))|\\\\?[a-zA-Z' .
+		'_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?:\\\\[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)*)';
+	public const SIMPLE_NONCAPTURING_TYPE_REGEX =
+		'\\\\?(?:callable-(?:string|object|array)|array-key|associative-array|class-string|int-range|key-of|lowercase' .
+		'-string|negative-int|phan-intersection-type|positive-int|value-of|no-return|never-returns?|non-(?:zero-int|' .
+		'null-mixed|empty-(?:associative-array|array|list|string|lowercase-string|numeric-string|mixed))|[a-zA-Z_\x7f' .
+		'-\xff][a-zA-Z0-9_\x7f-\xff]*(?:\\\\[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)*)';
+	public const SHAPE_KEY_REGEX =
+		'(?:[-.\/^;$%*+_a-zA-Z0-9\x7f-\xff]|\\\\(?:[nrt\\\\]|x[0-9a-fA-F]{2}))+\??';
+	public const NONCAPTURING_LITERAL_REGEX =
+		'\??(?:-?(?:(?:0|[1-9][0-9]*)(?:\.[0-9]+)?)|\'(?:[- ,.\/?:;"!#$%^&*_+=a-zA-Z0-9_\x80-\xff]|' .
+		'\\\\(?:[\'\\\\]|x[0-9a-fA-F]{2}))*\')';
+
+	private const PARAM_REGEX = '/^
+		# Match parameter type, as either...
+		(?<type>(?:
+		# a string containing the special-cased "[optional]" modifier
+		[^&$.\{\[]*\[optional][^&$.\{\[]*
+		# a (potentially complex) union type
+		| (?:' . self::UNION_TYPE_REGEX . ')
+		# or a simple type wrapped in square or curly braces
+		| \{ [^&$.\{\}]* \} | \[ [^&$.\[\]]* \]
+		# or potentially empty (to catch swapped type and name)
+		|
+		# Spacing after the type should be included here too
+		) \s* ) (?:
+			# Match parameter name with variadic arg or surround by {} or []
+			(?<name> (?: \.\.\. | [\[\{] )? [&$] \S+ )
+			# Match optional rest of line
+			(?: (?<restspace>\s+) (?<rest>.*) )?
+		)? /x';
+
 	/**
 	 * @inheritDoc
 	 */
@@ -432,40 +475,15 @@ class FunctionCommentSniff implements Sniff {
 				$paramSpace = strlen( $tokens[$tag + 1]['content'] );
 			}
 			if ( $tokens[$tag + 2]['code'] === T_DOC_COMMENT_STRING ) {
-				preg_match( '/^
-						# Match parameter type and separator as a group of
-						((?:
-							# callables (special-cased as it allows various characters not allowed in other positions)
-							(?:callable|Closure)\((?:\s*(?:\.\.\.)?[&$]*\w+,?)*\s*\)(?:\s*:\s*\w+)?
-							|
-							# plain letters
-							[^&$.\{\[]
-							|
-							# or pairs of braces around plain letters, never single braces
-							\{ [^&$.\{\}]* \}
-							|
-							# or pairs of brackets around plain letters, never single brackets
-							\[ [^&$.\[\]]* \]
-							|
-							# allow & on intersect types, but not as pass-by-ref
-							& [^$.\[\]]
-						)*) (?:
-							# Match parameter name with variadic arg or surround by {} or []
-							( (?: \.\.\. | [\[\{] )? [&$] \S+ )
-							# Match optional rest of line
-							(?: (\s+) (.*) )?
-						)? /x',
-					$tokens[$tag + 2]['content'],
-					$matches
-				);
-				$untrimmedType = $matches[1] ?? '';
+				preg_match( self::PARAM_REGEX, $tokens[$tag + 2]['content'], $matches );
+				$untrimmedType = $matches['type'] ?? '';
 				$type = rtrim( $untrimmedType );
 				$typeSpace = strlen( $untrimmedType ) - strlen( $type );
-				if ( isset( $matches[2] ) ) {
-					$var = $matches[2];
-					if ( isset( $matches[4] ) ) {
-						$varSpace = strlen( $matches[3] );
-						$commentFirst = $matches[4];
+				if ( isset( $matches['name'] ) ) {
+					$var = $matches['name'];
+					if ( isset( $matches['rest'] ) ) {
+						$varSpace = strlen( $matches['restspace'] );
+						$commentFirst = $matches['rest'];
 						$comment = $commentFirst;
 						// Any strings until the next tag belong to this comment.
 						$end = $tokens[$commentStart]['comment_tags'][$pos + 1] ??

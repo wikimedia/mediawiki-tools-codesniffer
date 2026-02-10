@@ -706,9 +706,17 @@ class TestDocCommentFormatting {
  * @param Closure(...$a1, int $a2,bool $a_3 ):void $cb2
  * @param callable():int $cb3
  * @param callable( $x ) : int $cb4
+ * @param array{a:callable(mixed ...$args):bool} $arrayWithFunc
+ * @param callable(string[] ...$args):bool $funcWithArrayType
  * The following don't seem to be supported, at least by PHPStorm, but we parse them anyway to avoid confusing errors
  * @param callable(int $x) $cb5
  * @param callable() $cb6
  */
-function wfTestCallableParameter( $cb1, $cb2, $cb3, $cb4, $cb5, $cb6 ) {
+function wfTestCallableParameter( $cb1, $cb2, $cb3, $cb4, $arrayWithFunc, $funcWithArrayType, $cb5, $cb6 ) {
+}
+
+/**
+ * @param array{x:array{y:array{z:string[]|array<string,int>}}} $arr
+ */
+function wfTestNestedArrayShape( array $arr ) {
 }
