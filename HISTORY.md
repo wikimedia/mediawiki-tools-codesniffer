@@ -1,5 +1,15 @@
 # MediaWiki-Codesniffer release history #
 
+## v50.0.0 / 2026-02-10
+
+### Changed sniffs ###
+* `ForbiddenFunctionsSniff`: Add more deprecated php internal functions (Umherirrender)
+* `FunctionCommentSniff`: Use parameter type regex from phan (Daimona Eaytoy)
+
+### Documentation, dependencies and build changes ###
+* build: Upgrade PHPUnit from 10.5.58 to 10.5.63 to unblock CI (James D. Forrester)
+* build: Upgrade mediawiki/minus-x from 1.1.3 to 2.0.1 (Alexander Vorwerk)
+
 ## v49.0.0 / 2026-01-11
 
 ### Changed sniffs ###
