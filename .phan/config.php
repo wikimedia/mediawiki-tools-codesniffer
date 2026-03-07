@@ -32,7 +32,8 @@ $cfg['plugins'][] = 'PHPUnitNotDeadCodePlugin';
 
 // Remove the exclusion of the codesniffer files
 $cfg['exclude_file_regex'] = preg_replace(
-	'@\|(?:mediawiki/mediawiki-codesniffer|squizlabs/php_codesniffer)@',
+	// phpcs:ignore Generic.Files.LineLength.TooLong
+	'@\|(?:mediawiki/mediawiki-codesniffer|squizlabs/php_codesniffer|phpcsstandards/phpcsextra|phpcsstandards/phpcsutils)@',
 	'',
 	$cfg['exclude_file_regex']
 );
