@@ -84,6 +84,9 @@ class ForbiddenFunctionsSniff implements Sniff {
 		'is_resource' => false,
 		// define third parameter is deprecated in 7.3
 		'define' => false,
+		// deprecated in 8.2
+		'utf8_encode' => false,
+		'utf8_decode' => false,
 		// session_set_save_handler third parameter is deprecated in 8.4
 		'session_set_save_handler' => false,
 		// deprecated in 8.4
