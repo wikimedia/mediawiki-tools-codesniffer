@@ -29,6 +29,12 @@ class FailedExamples {
 	public function nullableOnly( MyClass $x = null ) {
 	}
 
+	/**
+	 * @param MyClass|string|null $x
+	 */
+	public function unionNullable( MyClass|string $x = null ) {
+	}
+
 	public function testClosure(): void {
 		$c = static function ( MyClass $x = null ) {
 			return $x;
@@ -50,6 +56,13 @@ class PassedExamples {
 	 * @param string $foo
 	 */
 	public function genericNullable( ?MyClass $x, $foo ) {
+	}
+
+	/**
+	 * Regression test for T410854
+	 * @param MyClass|string|null $x
+	 */
+	public function unionNullable( MyClass|string|null $x = null ) {
 	}
 
 	/**

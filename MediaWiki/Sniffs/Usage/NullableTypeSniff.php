@@ -50,14 +50,27 @@ class NullableTypeSniff implements Sniff {
 				array_key_exists( 'default', $param ) &&
 				$param['default'] === 'null'
 			) {
+				$types = explode( '|', $param['type_hint'] );
+				if ( in_array( 'null', $types ) ) {
+					continue;
+				}
+				if ( count( $types ) === 1 ) {
+					$msg = 'Use PHP 8.4 compatible syntax for explicit nullable types ("?%s %s = %s")';
+				} else {
+					$msg = 'Use PHP 8.4 compatible syntax for explicit nullable types ("%s|null %s = %s")';
+				}
 				$fix = $phpcsFile->addFixableError(
-					'Use PHP 8.4 compatible syntax for explicit nullable types ("?%s %s = %s")',
+					$msg,
 					$param['type_hint_token'],
 					'ExplicitNullableTypes',
 					[ $param['type_hint'], $param['name'], $param['default'] ]
 				);
 				if ( $fix ) {
-					$phpcsFile->fixer->addContentBefore( $param['type_hint_token'], '?' );
+					if ( count( $types ) === 1 ) {
+						$phpcsFile->fixer->addContentBefore( $param['type_hint_token'], '?' );
+					} else {
+						$phpcsFile->fixer->addContent( $param['type_hint_end_token'], '|null' );
+					}
 				}
 			}
 		}
