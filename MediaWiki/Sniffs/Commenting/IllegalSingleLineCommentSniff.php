@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Detect and fix the inline comments start or end with multiple asterisks.
  * Fail: /*** Comment here *\/

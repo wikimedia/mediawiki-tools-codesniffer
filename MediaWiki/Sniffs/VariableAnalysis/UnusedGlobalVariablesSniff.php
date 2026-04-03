@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Detect unused MediaWiki global variable.
  * Unused global variables should be removed.

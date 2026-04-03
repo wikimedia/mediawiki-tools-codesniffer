@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Report warnings when a global variable or function is used where there's a better
  * context-aware alternative.

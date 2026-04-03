@@ -1,4 +1,5 @@
 <?php
+declare( strict_types = 1 );
 
 /**
  * Check if the keys of an array are sorted and autofix it.

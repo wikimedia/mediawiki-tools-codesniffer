@@ -1,4 +1,5 @@
 <?php
+declare( strict_types = 1 );
 
 /**
  * Use static closure when the inner body does not use $this

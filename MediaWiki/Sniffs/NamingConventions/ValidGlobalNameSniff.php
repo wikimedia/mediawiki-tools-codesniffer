@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Verify MediaWiki global variable naming convention.
  * A global name must be prefixed with 'wg'.

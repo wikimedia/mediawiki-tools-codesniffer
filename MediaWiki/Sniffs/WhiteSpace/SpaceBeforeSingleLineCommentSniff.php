@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Verify that comments are preceded by a single space. However, allow it if there are
  * multiple single-line comments on consecutive lines (also with empty lines in between).

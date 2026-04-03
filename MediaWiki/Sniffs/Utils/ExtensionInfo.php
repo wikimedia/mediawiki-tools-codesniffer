@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Copyright (C) 2017 Kunal Mehta <legoktm@member.fsf.org>
  *

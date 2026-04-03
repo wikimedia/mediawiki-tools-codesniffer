@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * This file was copied from PHP_CodeSniffer before being modified
  * File: Standards/PEAR/Sniffs/Commenting/FunctionCommentSniff.php

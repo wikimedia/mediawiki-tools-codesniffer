@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * make sure a space before class open brace.
  * fail: class TestClass\t{

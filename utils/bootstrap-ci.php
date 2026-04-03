@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Change PHP CodeSniffer to only lint files changed in HEAD.
  * Needed PHP CodeSniffer version 3.0.0 or higher

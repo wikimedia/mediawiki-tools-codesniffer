@@ -1,4 +1,5 @@
 <?php
+declare( strict_types = 1 );
 
 /**
  * Do not access php superglobals like $__GET,$__POST,$__SERVER.

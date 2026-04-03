@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Make sure calling functions is spacey:
  * $this->foo( $arg, $arg2 );

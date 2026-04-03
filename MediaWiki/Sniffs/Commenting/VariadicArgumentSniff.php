@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Warn if any comment containing hints of a variadic argument is found within the arguments list.
  * This includes comment only containing "...", or containing variable names preceded by "...",

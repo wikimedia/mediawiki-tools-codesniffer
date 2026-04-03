@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Originally from Drupal's coding standard <https://github.com/klausi/coder>
  *

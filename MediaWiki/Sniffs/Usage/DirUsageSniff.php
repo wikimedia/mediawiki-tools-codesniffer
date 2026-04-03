@@ -1,4 +1,6 @@
 <?php
+declare( strict_types = 1 );
+
 /**
  * Report error when dirname(__FILE__) is used instead of __DIR__
  *

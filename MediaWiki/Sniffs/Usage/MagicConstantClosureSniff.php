@@ -1,4 +1,5 @@
 <?php
+declare( strict_types = 1 );
 
 /**
  * Report error when __METHOD__ is used in closures,

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <ruleset>
 	<rule ref="./MediaWiki"/>
+	<rule ref="Generic.PHP.RequireStrictTypes" />
 	<file>.</file>
 	<arg name="extensions" value="php"/>
 	<arg name="encoding" value="UTF-8"/>
