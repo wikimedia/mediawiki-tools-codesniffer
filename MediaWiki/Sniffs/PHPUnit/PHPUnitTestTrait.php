@@ -68,12 +68,12 @@ trait PHPUnitTestTrait {
 			return false;
 		}
 
-		$extendedClass = ltrim( $phpcsFile->findExtendedClassName( $classToken ), '\\' );
-		return array_key_exists( $extendedClass, self::PHPUNIT_CLASSES ) ||
-			(bool)preg_match(
-				'/(?:Test(?:Case)?(?:Base)?|Suite)$/',
-				$phpcsFile->getDeclarationName( $classToken )
-			);
+		$extendedClass = $phpcsFile->findExtendedClassName( $classToken );
+		$declarationName = $phpcsFile->getDeclarationName( $classToken );
+		return ( $extendedClass !== false &&
+				array_key_exists( ltrim( $extendedClass, '\\' ), self::PHPUNIT_CLASSES ) )
+			|| ( $declarationName !== null &&
+				preg_match( '/(?:Test(?:Case)?(?:Base)?|Suite)$/', $declarationName ) );
 	}
 
 	/**
