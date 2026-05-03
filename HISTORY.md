@@ -1,5 +1,21 @@
 # MediaWiki-Codesniffer release history #
 
+## v51.0.0 / 2026-05-03
+
+### Changed sniffs ###
+* `ForbiddenFunctionsSniff`: Add `utf8_encode` and `utf8_decode` (Umherirrender)
+* `NullableTypeSniff`: Fix for union types (MGChecker)
+
+### Documentation, dependencies and build changes ###
+* Upgrade phpcsstandards/phpcsextra (1.4.0 => 1.5.0) (Alexander Vorwerk)
+
+* build: Allow composer/spdx-licenses 1.6.0 (Alexander Vorwerk)
+* build: Don't list json as a required extension (Umherirrender)
+* build: Upgrade mediawiki/mediawiki-phan-config to 0.20.0 (Umherirrender)
+* build: Upgrade mediawiki-phan-config for PHP 8.5 support (James D. Forrester)
+* chore: Declare strict types on all php files (Umherirrender)
+* chore: Handle possible false/null in `PHPUnitTestTrait` (Umherirrender)
+
 ## v50.0.0 / 2026-02-10
 
 ### Changed sniffs ###
