@@ -10,6 +10,7 @@ class MockBoilerplateTest extends \PHPUnit\Framework\TestCase {
 			->will( $this->returnValue( 2 ) );
 		$mock->method( 'arg1' )->will( $this->returnArgument( 0 ) );
 		$mock->method( 'ucfirst' )->will( $this->returnCallback( 'ucfirst' ) );
+		$mock->method( 'lcfirst' )->will( self::returnCallback( 'lcfirst' ) );
 		$mock->method( 'boolIsTrue' )->will( $this->returnValueMap( [
 			[ true, true ],
 			[ false, false ],

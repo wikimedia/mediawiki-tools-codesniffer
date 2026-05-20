@@ -207,18 +207,22 @@ class MockBoilerplateSniff implements Sniff {
 
 		$thisPtr = $phpcsFile->findNext( T_WHITESPACE, $willOpener + 1, $willCloser, true );
 		if ( !$thisPtr
-			|| $tokens[$thisPtr]['code'] !== T_VARIABLE
-			|| $tokens[$thisPtr]['content'] !== '$this'
+			|| !(
+				( $tokens[$thisPtr]['code'] === T_VARIABLE && $tokens[$thisPtr]['content'] === '$this' )
+				|| in_array( $tokens[$thisPtr]['code'], [ T_SELF, T_PARENT, T_STATIC ] )
+			)
 		) {
-			// Not going to be $this->
+			// Not going to be $this-> or self::
 			return;
 		}
 
 		$objectOperatorPtr = $phpcsFile->findNext( T_WHITESPACE, $thisPtr + 1, $willCloser, true );
 		if ( !$objectOperatorPtr
-			|| $tokens[$objectOperatorPtr]['code'] !== T_OBJECT_OPERATOR
+			|| !( $tokens[$objectOperatorPtr]['code'] === T_OBJECT_OPERATOR
+				|| $tokens[$objectOperatorPtr]['code'] === T_DOUBLE_COLON
+			)
 		) {
-			// Not $this->
+			// Not $this-> or self::
 			return;
 		}
 
