@@ -46,6 +46,8 @@ class UnusedUseStatementSniff implements Sniff {
 		'@property-read' => null,
 		'@property-write' => null,
 		'@return' => null,
+		'@require-extends' => null,
+		'@require-implements' => null,
 		'@see' => null,
 		'@template' => '/\w+ of (.*)/',
 		'@throws' => null,
