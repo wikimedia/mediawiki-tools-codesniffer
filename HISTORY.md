@@ -1,5 +1,19 @@
 # MediaWiki-Codesniffer release history #
 
+## v52.0.0 / 2026-08-06
+
+### Changed sniffs ###
+* `DeprecatedGlobalVariablesSniff`: Deprecate `$wgLang` (MGChecker)
+* `MockBoilderplateSniff`: Detect use of `self::returnCallback()` (Umherirrender)
+* `UnusedUseStatementSniff`: Add more annotations with types (Gergő Tisza)
+
+### Documentation, dependencies and build changes ###
+* Upgrade squizlabs/php_codesniffer to 3.13.6 for security issue (James D. Forrester)
+
+* Drop support for PHP 8.2 (Alexander Vorwerk)
+* Drop support for composer/spdx-licenses 1.5.* (Alexander Vorwerk)
+
+
 ## v51.0.0 / 2026-05-03
 
 ### Changed sniffs ###
@@ -15,6 +29,7 @@
 * build: Upgrade mediawiki-phan-config for PHP 8.5 support (James D. Forrester)
 * chore: Declare strict types on all php files (Umherirrender)
 * chore: Handle possible false/null in `PHPUnitTestTrait` (Umherirrender)
+
 
 ## v50.0.0 / 2026-02-10
 
