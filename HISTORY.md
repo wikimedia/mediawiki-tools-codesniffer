@@ -1,5 +1,11 @@
 # MediaWiki-Codesniffer release history #
 
+## v51.0.1 / 2026-08-07
+
+### Documentation, dependencies and build changes ###
+
+* Upgrade squizlabs/php_codesniffer to 3.13.6 for security issue (James D. Forrester)
+
 ## v51.0.0 / 2026-05-03
 
 ### Changed sniffs ###
