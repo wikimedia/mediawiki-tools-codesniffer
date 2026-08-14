@@ -1,5 +1,10 @@
 # MediaWiki-Codesniffer release history #
 
+## v52.0.1 / 2026-08-14
+
+### Documentation, dependencies and build changes ###
+* Upgrade phpcsstandards/phpcsextra (1.5.0 => 1.5.1) (Anomie)
+
 ## v52.0.0 / 2026-08-06
 
 ### Changed sniffs ###
