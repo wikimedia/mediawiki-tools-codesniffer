@@ -86,10 +86,7 @@ echo "Only analyzing files changed in HEAD\n";
 $_extensions = array_keys( $this->config->extensions );
 $this->config->files = array_filter(
 	$_head_files,
-	static function ( $file ) use ( $_extensions ) {
-		$pinfo = pathinfo( $file );
-		return in_array( strtolower( $pinfo['extension'] ), $_extensions );
-	}
+	static fn ( $file ) => in_array( strtolower( pathinfo( $file, PATHINFO_EXTENSION ) ), $_extensions )
 );
 unset( $_extensions );
 unset( $_head_files );
