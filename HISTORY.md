@@ -1,5 +1,8 @@
 # MediaWiki-Codesniffer release history #
 
+## v48.0.2 / 2026-09-24
+* build: Upgrade mediawiki-phan-config to 0.19.0 for PHP 8.5 support (James D. Forrester)
+
 ## v48.0.1 / 2026-09-23
 
 ### Documentation, dependencies and build changes ###
