@@ -1,5 +1,11 @@
 # MediaWiki-Codesniffer release history #
 
+## v51.0.2 / 2026-10-07
+
+### Bug fix
+
+* Handle files without extension when linting only changed files (Leszek Manicki)
+
 ## v51.0.1 / 2026-08-07
 
 ### Documentation, dependencies and build changes ###
