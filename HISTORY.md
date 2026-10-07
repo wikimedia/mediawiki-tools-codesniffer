@@ -1,5 +1,15 @@
 # MediaWiki-Codesniffer release history #
 
+## v50.0.1 / 2026-10-07
+
+### Bug fix
+
+* Handle files without extension when linting only changed files (Leszek Manicki)
+
+### Documentation, dependencies and build changes ###
+* Upgrade squizlabs/php_codesniffer to 3.13.6 for security issue (James D. Forrester)
+* Upgrade mediawiki-phan-config for PHP 8.5 support (James D. Forrester)
+
 ## v50.0.0 / 2026-02-10
 
 ### Changed sniffs ###
