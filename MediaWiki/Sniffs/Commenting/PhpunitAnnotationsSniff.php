@@ -95,10 +95,12 @@ class PhpunitAnnotationsSniff implements Sniff {
 		'@backupStaticAttributes' => true,
 		'@excludeGlobalVariableFromBackup' => true,
 		'@excludeStaticPropertyFromBackup' => true,
-		'@preserveGlobalState' => true,
 
+		// Process isolation is slow and should be used sparingly, suppressing the PHPCS
+		// warning as needed (T440797).
 		'@runTestsInSeparateProcesses' => true,
 		'@runInSeparateProcess' => true,
+		'@preserveGlobalState' => true,
 
 		// Removed in PHPUnit 7, T234597
 		'@expectedException' => 'Do not use %s, use $this->expectException().',

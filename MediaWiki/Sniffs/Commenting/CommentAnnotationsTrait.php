@@ -158,6 +158,7 @@ trait CommentAnnotationsTrait {
 		'@excludeglobalvariablefrombackup' => '@excludeGlobalVariableFromBackup',
 		'@excludestaticpropertyfrombackup' => '@excludeStaticPropertyFromBackup',
 		'@runinseparateprocess' => '@runInSeparateProcess',
+		'@preserveglobalstate' => '@preserveGlobalState',
 		'@expectedexception' => '@expectedException',
 		'@expectedexceptioncode' => '@expectedExceptionCode',
 		'@expectedexceptionmessage' => '@expectedExceptionMessage',
@@ -256,6 +257,8 @@ trait CommentAnnotationsTrait {
 		'@testdox' => true,
 		'@backupglobals' => '@backupGlobals',
 		'@backupstaticattributes' => '@backupStaticAttributes',
+		'@runtestsinseparateprocesses' => '@runTestsInSeparateProcesses',
+		'@preserveglobalstate' => '@preserveGlobalState',
 		// Already has a fixer in the PHPUnit sniff
 		'@coverdefaultclass' => '@coversDefaultClass',
 		'@excludeglobalvariablefrombackup' => '@excludeGlobalVariableFromBackup',
