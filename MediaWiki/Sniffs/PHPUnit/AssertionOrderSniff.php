@@ -199,6 +199,8 @@ class AssertionOrderSniff implements Sniff {
 			T_OPEN_PARENTHESIS,
 			T_OPEN_SHORT_ARRAY,
 			T_CLOSE_SHORT_ARRAY,
+			T_ARRAY,
+			T_CLOSE_PARENTHESIS,
 			T_STRING,
 			T_VARIABLE,
 			T_COMMA,
@@ -256,6 +258,18 @@ class AssertionOrderSniff implements Sniff {
 					}
 					break;
 
+				case T_ARRAY:
+					// Same as T_OPEN_SHORT_ARRAY, but for the long array() syntax.
+					// In the first parameter, the T_OPEN_PARENTHESIS that follows is skipped.
+					if ( $currentParam === 2
+						&& $arrayEndIndex === -1
+						&& isset( $tokens[$next]['parenthesis_closer'] )
+					) {
+						$arrayEndIndex = $tokens[$next]['parenthesis_closer'];
+					}
+					break;
+
+				case T_CLOSE_PARENTHESIS:
 				case T_CLOSE_SHORT_ARRAY:
 					// If we reached the end of the correct array in the
 					// second parameter, further commas should be treated as
