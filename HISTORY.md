@@ -1,5 +1,14 @@
 # MediaWiki-Codesniffer release history #
 
+## v52.0.2 / 2026-11-17
+
+### Fix ###
+* Handle files without extension when linting only changed files (Leszek Manicki)
+
+### Documentation, dependencies and build changes ###
+* build: Raise composer/semver version from ^3.4.2 to ^3.6.0
+  (James D. Forrester & Alexander Vorwerk)
+
 ## v52.0.1 / 2026-08-14
 
 ### Documentation, dependencies and build changes ###
